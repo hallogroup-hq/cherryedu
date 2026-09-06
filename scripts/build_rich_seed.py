@@ -1,0 +1,2490 @@
+# scripts/build_rich_seed.py
+import json
+
+def get_foundation_lessons():
+    return [
+        # === MODUL F-1: EKOSISTEM INDUSTRI KOPI ===
+        {
+            "id": "les-f1-1",
+            "module_id": "mod-f1",
+            "title": "Sejarah Kopi Dunia: Dari Dataran Tinggi Kaffa ke Batavia 1696",
+            "duration_minutes": 10,
+            "order_index": 1,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Menelusuri asal-usul legenda Kaldi di Ethiopia, perdagangan Yaman di Pelabuhan Al-Mukha, hingga tibanya bibit Arabika VOC di Batavia pada tahun 1696 yang melahirkan istilah legendaris 'A Cup of Java'.",
+            "key_takeaways": [
+                "Tanaman kopi Arabika liar berasal dari hutan dataran tinggi Kaffa, Ethiopia Barat Daya.",
+                "Bangsa Arab di Yaman adalah yang pertama membudidayakan dan memanggang biji kopi sejak abad ke-15 melalui pelabuhan legendaris Al-Mukha (Mocha).",
+                "Tahun 1696 VOC membawa bibit Arabika Typica dari Malabar India ke Batavia, dan penanaman kedua tahun 1699 di Pondok Kopi sukses besar.",
+                "Pulau Jawa menjadi produsen kopi terbesar dunia abad ke-18 hingga melahirkan istilah global 'A Cup of Java'."
+            ],
+            "content": r"""# Sejarah Kopi Dunia: Dari Kaffa ke Batavia 1696
+
+Kopi bukan sekadar komoditas perkebunan biasa. Ia adalah pemicu revolusi sosial, intelektual, dan perdagangan lintas benua selama lebih dari lima abad.
+
+### Legenda Kaldi dan Hutan Kaffa Ethiopia
+Kisah kopi berawal di hutan hujan dataran tinggi Kaffa, Ethiopia barat daya sekitar abad ke-9 Masehi. Seorang penggembala kambing muda bernama Kaldi memperhatikan perilaku aneh kawanan kambingnya: mereka melompat-lompat berenergi, gembira, dan menolak tidur di malam hari setelah memakan buah beri merah ranum dari semak liar di tepi tebing.
+
+Kaldi membawa buah tersebut ke biara sufi terdekat. Kepala biarawan awalnya mencurigai buah tersebut sebagai godaan gaib dan melemparkannya ke bara perapian. Ketika biji di dalam buah mulai terpanggang panas, aroma harum karamel dan rempah menyeruak ke seluruh ruangan. Biji panggang itu segera diselamatkan dari bara, direndam dalam air mendidih, dan diminum bersama untuk membantu para biarawan tetap terjaga selama doa malam.
+
+### Monopoli Yaman & Pelabuhan Al-Mukha
+Pada abad ke-15, tanaman kopi dibawa menyeberangi Laut Merah menuju semenanjung Arab, tepatnya di wilayah pegunungan Yaman. Bangsa Arab menyebut minuman berenergi ini sebagai *qahwah* (secara harfiah: pencegah kantuk).
+
+Untuk melindungi monopoli perdagangan emas hitam ini, penguasa Yaman melarang keras ekspor biji kopi mentah yang masih dapat tumbuh. Setiap biji yang keluar dari pelabuhan utama **Al-Mukha (Mocha)** harus direbus atau disangrai terlebih dahulu agar daya kecambahnya mati.
+
+### Masuknya Kopi ke Indonesia (1696 - 1699)
+Monopoli Yaman akhirnya ditembus ketika seorang peziarah bernama Baba Budan menyelundupkan tujuh biji kopi subur yang disembunyikan di balik lilitan serbannya menuju bukit Chandragiri, India.
+
+Gubernur Jenderal VOC di Batavia, Willem van Outshoorn, melihat potensi agroklimat kepulauan Nusantara. Pada tahun **1696**, komandan pasukan Belanda di Malabar (India), Adrian van Ommen, mengirimkan bibit kopi Arabika varietas Typica pertama ke Batavia.
+- Pengiriman pertama tahun 1696 musnah terendam banjir bandang Sungai Ciliwung.
+- Pada tahun **1699**, pengiriman bibit kedua tiba dan ditanam dengan sukses di kawasan **Pondok Kopi** (saat ini Jakarta Timur) serta perkebunan Meester Cornelis.
+
+### Lahirnya "A Cup of Java" & Sistem Tanam Paksa
+Tanaman kopi terbukti tumbuh sangat subur di tanah vulkanik sejuk Jawa Barat (Priangan) dan Jawa Timur. Pada tahun 1711, VOC melakukan ekspor perdana kopi Jawa ke Amsterdam. Kualitas kopi dari Jawa begitu superior dan mendominasi bursa komoditas Eropa hingga kata **"Java"** resmi diadopsi ke dalam bahasa Inggris sebagai bahasa gaul universal untuk secangkir kopi (*"a cup of java"*).
+
+| Periode | Peristiwa Sejarah Kunci |
+|---|---|
+| **Abad ke-9** | Penemuan buah kopi liar di Kaffa, Ethiopia oleh Kaldi |
+| **Abad ke-15** | Budidaya sistematis dan monopoli kopi di Yaman via pelabuhan Al-Mukha |
+| **1696 & 1699** | Bibit Arabika Typica pertama dibawa VOC ke Batavia (Pondok Kopi) |
+| **1711** | Ekspor komersial perdana kopi Jawa ke Amsterdam |
+| **1830 - 1870** | *Cultuurstelsel* (Tanam Paksa) memicu perluasan masif kebun kopi di seluruh pulau Jawa dan Sumatra |
+| **1878** | Wabah jamur Karat Daun (*Hemileia vastatrix*) memusnahkan 90% Arabika dataran rendah, memicu masuknya Robusta asal Kongo pada tahun 1900 |
+
+> [!NOTE]
+> Mengetahui bahwa tanah Indonesia adalah rumah bagi pohon-pohon kopi tua yang telah berumur lebih dari 300 tahun memberikan perspektif mendalam bagi setiap barista. Secangkir kopi yang kita seduh hari ini membawa warisan agraris berdarah dan bernilai tinggi dari para leluhur."""
+        },
+        {
+            "id": "les-f1-2",
+            "module_id": "mod-f1",
+            "title": "Peta Rantai Nilai: 6 Titik Kritis dari Hulu ke Hilir",
+            "duration_minutes": 12,
+            "order_index": 2,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Memahami anatomi rantai pasok industri kopi modern: Petani, Processor, Eksportir/Trader, Roaster, Barista, dan Konsumen. Mengetahui tanggung jawab kritis masing-masing peran.",
+            "key_takeaways": [
+                "Kualitas kopi adalah proses degradatif: potensi rasa 100% diciptakan di kebun oleh petani, dan peran seluruh pihak berikutnya adalah mempertahankan potensi tersebut.",
+                "Enam titik rantai nilai: Petani -> Processor (Wet Mill) -> Trader/Dry Mill -> Roaster -> Barista -> Konsumen.",
+                "Kesalahan di hulu (misal petik ceri mentah atau pengeringan jamur) tidak pernah bisa diperbaiki oleh mesin roasting secanggih apapun atau teknik seduh barista terhebat.",
+                "Kolaborasi Direct Trade memotong perantara yang tidak efisien dan memastikan petani menerima margin keuntungan yang adil."
+            ],
+            "content": r"""# Peta Rantai Nilai: 6 Titik Kritis dari Hulu ke Hilir
+
+Secangkir specialty coffee beraroma melati dan buah persik di sebuah kafe urban tidak tercipta secara kebetulan. Kopi tersebut telah melewati rantai nilai (*value chain*) yang sangat panjang, melibatkan kerja keras ribuan tangan dengan keahlian spesifik.
+
+```
+[ PETANI (FARMER) ] 
+       │ Petik Merah Selektif & Perawatan Kebun
+       ▼
+[ PROCESSOR (WET MILL) ] 
+       │ Fermentasi Terkontrol & Penjemuran Kadar Air 10-12%
+       ▼
+[ TRADER & DRY MILL ] 
+       │ Hulling, Grading Ukuran/Densitas, QC Cupping, Ekspor
+       ▼
+[ ROASTER (PENYANGRAI) ] 
+       │ Profiling Termal, Reaksi Maillard, Degassing
+       ▼
+[ BARISTA & BREWER ] 
+       │ Sains Air, Kalibrasi Gilingan, Hospitality
+       ▼
+[ KONSUMEN TEREDUKASI ] 
+       Apresiasi Rasa & Kesediaan Membayar Harga Adil
+```
+
+### 1. Farmer (Petani Kopi)
+Petani bertanggung jawab atas agronomi: memilih varietas bibit yang tepat, pemupukan organik, pemangkasan ranting mati (*pruning*), pencegahan hama terpadu, dan yang paling krusial: **pemetikan selektif 100% buah matang pohon (petik merah / red cherry)**. Di tangan petanilah seluruh potensi kimia rasa asam amino, sukrosa, dan asam organik diciptakan.
+
+### 2. Processor / Wet Mill (Stasiun Pengolah Basah)
+Processor menerima ceri segar dari petani dan segera mengolahnya dalam waktu kurang dari 8 jam. Mereka memisahkan ceri cacat dengan teknik rambang apung (*floaters separation*), mengupas kulit luar (*depulping*), mengontrol fermentasi mikroba (aerobik atau anaerobik), dan menjemur biji di atas para-para (*raised drying beds*) hingga kadar air mencapai standar aman simpan internasional: **10.0% – 12.0%**.
+
+### 3. Trader, Collector, & Dry Mill
+Dry mill mengupas kulit tanduk (*parchment*) menggunakan mesin huller, menyortir ukuran biji dengan ayakan getar (*size grading screen*), memisahkan densitas biji dengan *gravity separator table*, serta melakukan sortasi warna (*color sorting*). Q Grader di lab ekspor akan mencicipi (*cupping*) sampel untuk menentukan grade dan skor kopi sebelum dimasukkan ke dalam karung kedap udara **GrainPro** untuk diekspor.
+
+### 4. Roaster (Penyangrai Kopi)
+Roaster adalah ilmuwan termodinamika. Mereka menganalisis densitas green bean, kadar air, dan ukuran biji untuk merancang kurva profil sangrai (*roast curve*). Roaster mengontrol kecepatan transfer panas (konduksi dan konveksi), mengarahkan laju kenaikan suhu (*Rate of Rise* / RoR), dan menentukan titik akhir sangrai agar karakter manis dan asam origin kopi terekspresikan optimal tanpa rasa pahit gosong (*baked* atau *scorched*).
+
+### 5. Barista & Brewer
+Barista adalah garda terdepan sekaligus penerjemah rasa. Barista mengontrol kimia pelarut air (TDS, kekerasan mineral Mg2+/Ca2+, alkalinitas), mengkalibrasi distribusi partikel gilingan (*grind size*), mengatur rasio seduh, serta menyajikan minuman dengan keramahan (*hospitality*) yang membuat konsumen memahami cerita di balik kopi tersebut.
+
+### 6. Conscious Consumer (Konsumen Teredukasi)
+Konsumen yang paham kualitas tidak hanya mencari asupan kafein semata, melainkan mengapresiasi keunikan rasa dan bersedia membayar harga premium untuk kopi yang bersumber secara etis. Pembelian dari konsumen inilah yang mengalirkan kembali modal ekonomi ke petani di hulu.
+
+> [!IMPORTANT]
+> **Hukum Pelestarian Kualitas Kopi**: 
+> "Kualitas kopi adalah proses penurunan bertahap (*degradative process*). Petani dapat menghasilkan kopi bernilai 100 poin, tetapi kesalahan pengeringan oleh processor bisa menurunkannya ke 80 poin; kesalahan sangrai roaster menurunkannya ke 70 poin; dan ekstraksi buruk barista bisa menurunkannya ke 50 poin. Tidak ada satu pun pihak di hilir yang bisa menaikkan skor bawaan pohon." """
+        },
+        {
+            "id": "les-f1-3",
+            "module_id": "mod-f1",
+            "title": "Specialty Coffee vs Kopi Komersial: Standar Resmi SCA",
+            "duration_minutes": 10,
+            "order_index": 3,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Membongkar kriteria ketat Specialty Coffee Association (SCA): ambang batas skor cupping 80+, toleransi 0 cacat primer dalam 350g sampel, serta transparansi rantai pasok.",
+            "key_takeaways": [
+                "Specialty Coffee WAJIB meraih skor cupping minimal 80.0 poin pada protokol standar SCA yang dinilai oleh Q Grader berlisensi.",
+                "Dalam 350 gram sampel green bean, Specialty Coffee harus memiliki NOL (0) Primary Defect dan maksimal 5 Secondary Defects.",
+                "Kopi komersial menitikberatkan pada kuantitas tonase dan harga murah bursa komoditas (C-Market), sedangkan specialty menitikberatkan pada cita rasa kompleks dan keterlacakan (traceability).",
+                "Kopi specialty dipanggang untuk menonjolkan keunikan terroir asal, sedangkan kopi komersial disangrai gelap (dark roast) untuk menutupi cacat rasa biji mentah."
+            ],
+            "content": r"""# Specialty Coffee vs Kopi Komersial
+
+Di pasar global, industri kopi terbelah menjadi dua dunia yang sangat berbeda: **Kopi Komersial (Commodity Coffee)** dan **Specialty Coffee**. Istilah *Specialty Coffee* pertama kali dicetuskan oleh Erna Knutsen pada tahun 1974 dalam konferensi perdagangan kopi di Perancis untuk mendeskripsikan biji kopi dengan cita rasa istimewa yang diproduksi di bawah kondisi geografis iklim mikro ideal.
+
+### Tiga Pilar Standar SCA (Specialty Coffee Association)
+Sebuah lot kopi hanya sah menyandang gelar *Specialty Coffee* jika memenuhi tiga kriteria ketat berikut:
+
+#### 1. Skor Cupping Minimal 80 Poin (Skala 100)
+Evaluasi sensori dilakukan secara buta (*blind cupping*) oleh evaluator tersertifikasi Q Grader menggunakan formulir resmi SCA. Aspek yang dinilai mencakup: Fragrance/Aroma, Flavor, Aftertaste, Acidity, Body, Balance, Uniformity, Clean Cup, Sweetness, dan Overall score.
+
+| Rentang Skor | Klasifikasi SCA | Karakteristik Sensori |
+|---|---|---|
+| **90.00 – 100.00** | *Super Outstanding (Presidential)* | Cita rasa luar biasa langka, kebersihan mutlak, kompleksitas bunga & buah eksotis |
+| **85.00 – 89.99** | *Excellent (Specialty Grade)* | Cita rasa sangat khas origin, asam buah manis cerah, body seimbang, aftertaste panjang |
+| **80.00 – 84.99** | *Very Good (Specialty Grade)* | Manis bersih, tidak ada cacat, karakter origin jelas |
+| **< 80.00** | *Below Specialty (Commercial / Commodity)* | Sering memiliki cacat rasa (sepat, datar, fermentasi berlebih, bau tanah kotor) |
+
+#### 2. Kriteria Fisik Green Bean (SCA Green Grading Standard)
+Dalam **350 gram** sampel biji kopi hijau (*green bean*):
+- **Cacat Primer (Category 1 Defects)**: **WAJIB 0 (NOL CACAT)**. Tidak boleh ada satu pun biji hitam pekat (*full black*), biji busuk asam (*full sour/stinker*), biji berjamur (*fungus*), atau batu/kotoran asing.
+- **Cacat Sekunder (Category 2 Defects)**: Maksimal 5 poin cacat sekunder (misal: pecahan biji, lubang serangga ringan, atau biji keriput).
+- **Kadar Air (*Moisture Content*)**: Wajib berada di rentang **10.0% – 12.0%** dengan aktivitas air (*water activity* / $a_w$) di bawah 0.70.
+
+#### 3. Keterlacakan Penuh (Full Traceability)
+Kopi specialty tidak pernah dijual secara anonim. Kemasan kopi specialty selalu mencantumkan informasi transparan:
+- Nama negara, pulau, dan region spesifik (misal: *Sumatra, Lintong Nihuta, Desa Siborong-borong*).
+- Nama kebun, kelompok tani, atau stasiun olah.
+- Ketinggian tanam di atas permukaan laut (mdpl).
+- Varietas botani (misal: *Typica, Sigarar Utang, Bourbon*).
+- Metode pasca panen (misal: *Full Washed, Carbonic Maceration*).
+
+```
+PERBANDINGAN FUNDAMENTAL:
+┌─────────────────────────┬───────────────────────────────┬───────────────────────────────┐
+│ Parameter               │ Kopi Komersial / Industri     │ Specialty Coffee              │
+├─────────────────────────┼───────────────────────────────┼───────────────────────────────┤
+│ Metode Pemetikan        │ Rampasan (strip picking)      │ Petik merah selektif 100%     │
+│ Patokan Harga           │ Harga komoditas bursa New York│ Harga premium berbasis mutu   │
+│ Profil Pemanggangan     │ Dark roast sangat gelap       │ Light hingga medium roast     │
+│ Fokus Rasa              │ Pahit kuat, pekat, seragam    │ Kompleks: floral, fruity, man │
+│ Transparansi Asal       │ Kerap hanya tertulis "Kopi"   │ Keterlacakan hingga kebun lot │
+└─────────────────────────┴───────────────────────────────┴───────────────────────────────┘
+```
+
+> [!TIP]
+> Mengapa roaster komersial selalu memanggang gelap (*dark roast*) hingga berminyak? Karena pemanggangan ekstrem memecah seluruh senyawa rasa alami biji menjadi karbon gosong, sehingga cacat rasa biji mentah (busuk, berjamur, atau apek) tertutupi oleh rasa pahit arang yang seragam."""
+        },
+        {
+            "id": "les-f1-4",
+            "module_id": "mod-f1",
+            "title": "Empat Gelombang Kopi: Dari Komoditas Massal ke Era Fermentasi Presisi",
+            "duration_minutes": 10,
+            "order_index": 4,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Membedah evolusi budaya konsumsi kopi global dan lokal: Gelombang Pertama (Kopi Instan & Kaleng), Gelombang Kedua (Espresso Chains & Lifestyle), Gelombang Ketiga (Artisanal & Origin), hingga Gelombang Keempat (Sains Fermentasi Presisi & Varietal Rarity).",
+            "key_takeaways": [
+                "Gelombang Pertama (First Wave): Aksesibilitas massal kopi instan sachet dan kaleng pasca Perang Dunia II.",
+                "Gelombang Kedua (Second Wave): Komersialisasi minuman berbasis espresso (latte, cappuccino, flavored syrup) dipelopori oleh kedai waralaba modern.",
+                "Gelombang Ketiga (Third Wave): Apresiasi kopi layaknya *fine wine*, mengedepankan terroir kebun, seduh manual (manual brew), dan pemanggangan terang.",
+                "Gelombang Keempat (Fourth Wave): Sains biokimia terapan, inokulasi mikroba presisi, varietas langka (Geisha, Eugenioides), dan kejuaraan barista global."
+            ],
+            "content": r"""# Empat Gelombang Kopi: Evolusi Budaya Konsumsi
+
+Sejarah konsumsi kopi modern dikelompokkan oleh para sosiolog dan sejarawan kopi ke dalam beberapa fase evolusi yang dikenal sebagai **"Coffee Waves"** (Gelombang Kopi). Setiap gelombang menandai pergeseran radikal dalam cara manusia memandang, memproses, dan menikmati secangkir kopi.
+
+### 1. Gelombang Pertama (The First Wave): Aksesibilitas & Kopi Instan
+- **Era**: Akhir abad ke-19 hingga 1960-an (pasca Perang Dunia II).
+- **Karakteristik**: Kopi diperlakukan murni sebagai komoditas utilitas untuk mendongkrak energi pekerja pabrik dan tentara.
+- **Inovasi Utama**: Kemasan kaleng hampa udara (*vacuum tin*), bubuk kopi instan larut air (*instant freeze-dried coffee*), dan kopi tubruk kemasan sachet murah.
+- **Titik Lemah**: Tidak ada kepedulian terhadap asal-usul biji, jenis varietas, maupun etika petani. Kopi sering kali dicampur biji cacat dan dipanggang sangat gosong agar tahan bertahun-tahun di rak supermarket.
+
+### 2. Gelombang Kedua (The Second Wave): Ritel Espresso & Gaya Hidup
+- **Era**: Akhir 1960-an hingga 1990-an (dimotori oleh Peet's Coffee dan ledakan jaringan Starbucks).
+- **Karakteristik**: Minum kopi bergeser dari sekadar ritual dapur menjadi pengalaman sosial di "ruang ketiga" (*third place* di luar rumah dan kantor).
+- **Inovasi Utama**: Mesin espresso komersial modern diperkenalkan ke publik luas. Lahir tren minuman susu berbusa manis: *Caramel Macchiato*, *Mocha*, *Frappuccino*, dan sirup perasa aneka rasa.
+- **Ciri Roasting**: Profil sangrai *Dark French Roast* atau *Italian Roast* yang dominan pahit gurih dan berpadu kuat dengan susu berlemak tinggi.
+
+### 3. Gelombang Ketiga (The Third Wave): Kopi sebagai Seni Kriya (Craftsmanship)
+- **Era**: Awal 2000-an hingga 2018 (dipelopori oleh Stumptown, Intelligentsia, Blue Bottle, dan kafe independen Jakarta-Bandung).
+- **Karakteristik**: Kopi diperlakukan layaknya *fine wine* atau keju adiboga. Terroir tanah, ketinggian kebun, dan varietas botani menjadi perbincangan utama.
+- **Inovasi Utama**: Ledakan metode seduh manual (*manual pour-over* seperti Hario V60, Chemex, Kalita Wave, Aeropress), timbangan digital bersensor 0.1 gram, kettle leher angsa presisi, dan penetapan skor cupping SCA 80+.
+- **Ciri Roasting**: Gaya sangrai *Light to Medium Roast* untuk menonjolkan keasaman buah alami (*fruity acidity*) dan wangi floral tanpa rasa terbakar.
+
+### 4. Gelombang Keempat (The Fourth Wave): Sains Presisi & Rekayasa Fermentasi
+- **Era**: 2018 hingga sekarang.
+- **Karakteristik**: Integrasi bioteknologi mikrobiologi, termodinamika digital, dan keterlacakan molekuler.
+- **Inovasi Utama**:
+  1. **Fermentasi Presisi**: Tangki anaerobik dengan injeksi CO2 (*Carbonic Maceration*), inokulasi strain ragi (*Saccharomyces cerevisiae* khusus wine), serta penambahan buah segar (*Co-fermentation*).
+  2. **Eksplorasi Spesies Langka**: Kebangkitan varietas *Coffea Eugenioides*, *Wush Wush*, dan kultivar endemik hutan liar.
+  3. **Presisi Ekstraksi Barista**: Pemanfaatan refraktometer digital TDS, keranjang filter presisi laser, pemanasan induksi, dan formula air seduh terkontrol mineral per ppm.
+
+> [!NOTE]
+> Di Indonesia, keempat gelombang ini hidup berdampingan secara harmonis: masyarakat masih menikmati kopi tubruk sachet tradisional (Gelombang 1), nongkrong di gerai espresso modern (Gelombang 2), menikmati V60 single origin Gayo di kafe artisanal (Gelombang 3), dan berburu lot micro-lot fermentasi anaerobik berharga jutaan rupiah (Gelombang 4)."""
+        },
+        {
+            "id": "les-f1-5",
+            "module_id": "mod-f1",
+            "title": "Keberlanjutan Lingkungan & Etika Fair Trade di Perkebunan Kopi",
+            "duration_minutes": 10,
+            "order_index": 5,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Membedah tantangan nyata kesejahteraan petani kecil, krisis pergantian generasi petani muda di pedesaan, dampak deforestasi, serta sertifikasi etis seperti Fair Trade, Rainforest Alliance, dan gerakan Direct Trade.",
+            "key_takeaways": [
+                "Lebih dari 95% perkebunan kopi di Indonesia dikelola oleh petani swadaya rakyat berlahan sempit (< 2 hektar).",
+                "Krisis regenerasi petani: usia rata-rata petani kopi Indonesia berada di atas 50 tahun karena generasi muda enggan bertani akibat margin keuntungan yang minim.",
+                "Sertifikasi Fair Trade menjamin harga dasar minimum (Price Floor) dan dana premi sosial untuk pembangunan komunitas pedesaan.",
+                "Direct Trade (Perdagangan Langsung) membangun relasi transparan jangka panjang antara roastery dan kelompok tani tanpa tengkulak spekulatif."
+            ],
+            "content": r"""# Keberlanjutan Lingkungan & Etika Fair Trade
+
+Di balik keanggunan aroma kopi di cangkir kita, ada kenyataan sosial ekonomi yang menuntut perhatian serius: mayoritas petani kopi dunia hidup di bawah garis kemiskinan dan menghadapi risiko iklim yang kian ekstrem.
+
+### Realitas Perkebunan Kopi Indonesia
+Berbeda dengan Brazil atau Vietnam yang didominasi perkebunan korporasi berskala raksasa dengan mesin panen mekanis otomatis, lanskap kopi Indonesia sangat unik:
+- **95% Perkebunan Rakyat**: Kopi Indonesia ditanam oleh lebih dari 2 juta keluarga petani kecil dengan luas rata-rata lahan hanya **0.5 hingga 1.5 hektar**.
+- **Topografi Terjal**: Perkebunan berada di lereng-lereng gunung terjal yang hanya bisa dijangkau dengan berjalan kaki atau sepeda motor modifikasi.
+- **Rantai Tengkulak Berlapis**: Di masa lalu, petani terpaksa menjual ceri hijau/campur kepada tengkulak desa dengan harga ijon murah demi memenuhi kebutuhan pangan harian.
+
+```
+RANTAI PASOK TRADISIONAL VS DIRECT TRADE:
+[Tradisional] Petani ➔ Tengkulak Desa ➔ Kolektor Kota ➔ Eksportir ➔ Roaster Internasional
+  *Petani hanya menerima ~15-20% dari nilai akhir green bean*
+
+[Direct Trade] Petani / Koperasi ───────────────────────➔ Specialty Roastery
+  *Petani menerima 60-80% dari nilai transaksi langsung secara transparan*
+```
+
+### Model Sertifikasi Etis Global
+Untuk mendorong keadilan ekonomi dan perlindungan ekologis, lahir berbagai skema sertifikasi:
+
+#### 1. Fair Trade (Perdagangan Adil)
+- **Harga Dasar Minimum (*Price Floor*)**: Melindungi petani dari kejatuhan harga bursa komoditas dunia (*C-Market Crash*). Jika harga pasar jatuh di bawah biaya produksi, pembeli Fair Trade wajib membayar harga lantai minimum.
+- **Premi Sosial (*Social Premium*)**: Dana tunai tambahan yang diberikan langsung kepada koperasi tani untuk membiayai fasilitas umum (seperti klinik desa, beasiswa anak petani, dan jembatan kebun).
+
+#### 2. Rainforest Alliance & Utz Certified
+- Fokus pada pencegahan deforestasi hutan lindung, larangan perburuan satwa liar (seperti harimau Sumatra dan burung endemik), perlindungan sempadan sungai dari limbah pulper kopi, serta larangan pestisida berbahaya.
+
+#### 3. Gerakan Direct Trade (Perdagangan Langsung)
+Banyak roastery specialty independen kini memilih skema *Direct Trade*:
+- Roaster terbang langsung ke kebun di Takengon, Toraja, atau Bajawa sebelum musim panen.
+- Roaster mencicipi cupping lot bersama petani, memberikan masukan teknis pasca panen, dan menyepakati kontrak harga pembelian premium jauh di atas harga bursa pasar.
+- Membangun hubungan multi-tahun yang menjamin stabilitas pendapatan bagi keluarga petani.
+
+### Krisis Regenerasi Petani
+Tantangan terbesar kopi Indonesia saat ini bukan pada mesin atau teknologi seduh, melainkan pada **krisis regenerasi generasi muda di desa**. Rata-rata usia petani kopi Indonesia telah melampaui 52 tahun. Generasi Z dan milenial pedesaan cenderung merantau ke kota besar karena bertani dianggap tidak menjanjikan masa depan cerah.
+
+> [!IMPORTANT]
+> **Visi CherryEdu**: Dengan mendidik konsumen dan barista untuk mengapresiasi kopi specialty, harga ceri kopi petik merah dapat dihargai pantas (Rp 12.000 – Rp 18.000/kg dibanding ceri campur Rp 6.000/kg). Ini menjadikan profesi petani kopi modern sebagai profesi yang membanggakan, menguntungkan secara finansial, dan menarik bagi generasi muda Indonesia."""
+        },
+
+        # === MODUL F-2: AGRONOMI & PERTANIAN KOPI ===
+        {
+            "id": "les-f2-1",
+            "module_id": "mod-f2",
+            "title": "Anatomi Botani Tanaman & Buah Kopi: Dari Eksokarp hingga Biji Endosperma",
+            "duration_minutes": 10,
+            "order_index": 1,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Membongkar struktur biologis tanaman genus Coffea, sistem perakaran, siklus berbunga hingga pembentukan buah ceri, serta 5 lapisan anatomi buah kopi yang krusial bagi proses pasca panen.",
+            "key_takeaways": [
+                "Tanaman kopi termasuk dalam famili botani Rubiaceae, genus Coffea.",
+                "Buah kopi (kopi ceri) tersusun atas 5 lapisan: Eksokarp (kulit luar), Mesokarp (mucilage lendir), Endokarp (parchment/kulit tanduk), Spermoderm (kulit ari/silverskin), dan Endosperma (biji kopi hijau).",
+                "Mucilage adalah lapisan berdaging yang kaya akan sukrosa, glukosa, dan pektin, menjadi bahan bakar utama proses fermentasi.",
+                "Umumnya buah kopi menghasilkan 2 biji pipih berhadapan (*flat beans*), namun mutasi alami 5% menghasilkan biji tunggal bulat yang disebut Peaberry (Kopi Lanang)."
+            ],
+            "content": r"""# Anatomi Botani Tanaman & Buah Kopi
+
+Untuk memahami bagaimana rasa kopi terbentuk, seorang ahli kopi harus memulai dari struktur biologis tanamannya. Pohon kopi bukan semak liar biasa, melainkan pohon berkayu yang mampu hidup hingga 50-80 tahun.
+
+### Klasifikasi Taksonomi
+- **Kingdom**: Plantae
+- **Famili**: *Rubiaceae* (satu keluarga dengan bunga soka, tanaman kina, dan mengkudu)
+- **Genus**: *Coffea*
+- **Spesies Utama**: *Coffea arabica* (Arabika), *Coffea canephora* (Robusta), *Coffea liberica* (Liberika)
+
+Tanaman kopi memiliki akar tunggang yang menghunjam sedalam 1.5 – 2.5 meter ke dalam tanah vulkanik untuk menyerap air dan hara mineral, serta akar lateral dangkal untuk menyerap oksigen. Bunga kopi berwarna putih bersih, mekar serentak setelah musim hujan tiba, dan mengeluarkan aroma harum semerbak mirip bunga melati (*jasmine*).
+
+```
+ANATOMI LAPISAN BUAH CERI KOPI (CROSS-SECTION):
+  (1) Eksokarp (Kulit Luar / Skin) ────────────────┐
+  (2) Mesokarp (Mucilage / Lendir Manis) ──────────┼── Daging Buah (Cascara)
+  (3) Endokarp (Parchment / Kulit Tanduk Keras) ───┘
+  (4) Spermoderm (Silverskin / Kulit Ari Perak) ───┐
+  (5) Endosperma (Green Bean / Biji Kopi Hijau) ───┴── Biji Komersial
+```
+
+### 5 Lapisan Anatomi Ceri Kopi
+
+#### 1. Eksokarp (*Exocarp / Outer Skin*)
+Kulit terluar buah ceri. Berwarna hijau gelap saat muda karena klorofil, dan berubah menjadi kuning, oranye, lalu merah tua keunguan saat matang sempurna akibat pembentukan pigmen antosianin. Kulit ini melindungi biji dari cuaca luar dan serangga.
+
+#### 2. Mesokarp (*Mesocarp / Mucilage / Pulp*)
+Lapisan lendir berdaging manis tepat di bawah kulit luar. Mengandung konsentrasi tinggi air (84%), gula sukrosa dan fruktosa (9-10%), pektin (4-5%), serta asam organik. Lapisan inilah yang difermentasikan oleh mikroorganisme dalam proses pasca panen dan memberikan karakter body manis pada proses Natural dan Honey.
+
+#### 3. Endokarp (*Endocarp / Parchment / Kulit Tanduk*)
+Lapisan pelindung keras berstruktur selulosa tebal yang membungkus masing-masing biji kopi. Di stasiun giling basah atau dry mill, biji kopi yang masih dibungkus kulit tanduk ini disebut **gabah kopi**. Gabah melindungi embrio biji dari kerusakan fisik dan oksidasi selama masa istirahat (*resting*).
+
+#### 4. Spermoderm (*Silver Skin / Kulit Ari Perak*)
+Lapisan membran tipis transparan berwarna keperakan yang menempel langsung pada permukaan biji kopi hijau. Saat disangrai di drum roaster, kulit ari ini akan terlepas akibat ekspansi panas dan membentuk apa yang dikenal sebagai **chaff** (sekam kopi).
+
+#### 5. Endosperma (*Endosperm / Green Bean*)
+Inilah biji kopi sebenarnya yang kita olah dan konsumsi. Berisi cadangan nutrisi bagi embrio tanaman: lipid, protein, asam klorogenat, trigonelin, mineral kalium, dan kafein. Biji kopi normal memiliki dua belahan pipih (*flat beans*) yang saling berhadapan.
+
+### Peaberry (Kopi Lanang): Anomali Biji Tunggal
+Pada sekitar 5% hingga 8% buah ceri di sebuah pohon, salah satu dari dua ovula gagal dibuahi. Akibatnya, biji yang tersisa tumbuh tanpa tekanan pasangan sehingga berbentuk bulat lonjong seperti kacang polong. Biji tunggal ini dikenal sebagai **Peaberry** atau di Indonesia dinamai **Kopi Lanang**. Karena bentuknya yang bulat menggelinding, peaberry menerima transfer panas yang sangat seragam saat disangrai di dalam mesin roaster drum.
+
+> [!TIP]
+> **Pemanfaatan Cascara**: Kulit luar (eksokarp) dan daging buah (mesokarp) yang dikupas dan dikeringkan secara higienis tidak lagi dibuang sebagai limbah, melainkan diseduh sebagai teh herbal bernutrisi tinggi bernama **Cascara**, kaya antioksidan dan asam malat menyegarkan."""
+        },
+        {
+            "id": "les-f2-2",
+            "module_id": "mod-f2",
+            "title": "Agroklimatologi & Peran Ketinggian: Mengapa MDPL Menentukan Kepadatan & Keasaman",
+            "duration_minutes": 10,
+            "order_index": 2,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Memahami sains agroklimat: bagaimana elevasi tinggi (1.200 - 2.000 mdpl) dan suhu dingin malam hari memperlambat respirasi tanaman kopi, menghasilkan biji dengan densitas ultra-tinggi (SHB) dan profil keasaman kompleks.",
+            "key_takeaways": [
+                "Elevasi di atas permukaan laut (mdpl) berkorelasi langsung dengan suhu udara rata-rata harian (penurunan ~0.6°C setiap kenaikan 100 meter).",
+                "Suhu dingin di dataran tinggi memperlambat laju respirasi malam hari tanaman, memungkinkan akumulasi gula sukrosa dan asam organik berlangsung lebih lama dan optimal.",
+                "Biji kopi dari elevasi tinggi memiliki struktur selulosa yang sangat rapat dan padat, diklasifikasikan sebagai Strictly High Grown (SHG) atau Strictly Hard Bean (SHB).",
+                "Biji berdensitas tinggi menyerap panas roaster lebih stabil dan menghasilkan keasaman malat/sitrat buah yang hidup di cangkir."
+            ],
+            "content": r"""# Agroklimatologi & Peran Ketinggian (Altitude)
+
+Dalam spesifikasi kantong kopi specialty, Anda akan selalu melihat angka elevasi, misalnya: `1.500 – 1.800 mdpl` (meter di atas permukaan laut). Angka ini bukan sekadar informasi geografis, melainkan indikator biologis utama yang menentukan kepadatan fisik biji dan profil keasaman cangkir.
+
+### Fisika Atmosfer & Suhu Rata-rata
+Secara hukum termodinamika atmosfer, setiap kenaikan ketinggian **100 meter**, suhu udara rata-rata akan turun sekitar **0.6°C**. Dataran tinggi 1.600 mdpl di Pegunungan Kerinci atau Takengon memiliki suhu siang hari berkisar 20°C – 24°C dan suhu malam hari yang bisa anjlok hingga 10°C – 14°C.
+
+```
+SIKLUS METABOLISME TANAMAN BERDASARKAN ELEVASI:
+┌──────────────────────────────────────┬──────────────────────────────────────┐
+│ ELEVASI RENDAH (< 900 mdpl)          │ ELEVASI TINGGI (> 1.400 mdpl)        │
+├──────────────────────────────────────┼──────────────────────────────────────┤
+│ Udara panas konstan sepanjang hari   │ Siang hangat sejuk, malam sangat dingin │
+│ Fotosintesis & respirasi sangat cepat│ Fotosintesis siang ➔ Respirasi malam lambat│
+│ Ceri matang terlalu cepat (3-4 bulan)│ Ceri matang perlahan (7-9 bulan)     │
+│ Struktur biji berpori longgar (soft) │ Biji sangat padat membatu (SHB / Hard)│
+│ Rasa dominan: hambar, earthy, pahit  │ Rasa dominan: kompleks, fruity, acid │
+└──────────────────────────────────────┴──────────────────────────────────────┘
+```
+
+### Mengapa Respirasi Lambat Itu Krusial?
+Tanaman kopi berfotosintesis di siang hari menggunakan sinar matahari untuk menghasilkan karbohidrat dan gula sukrosa. Pada malam hari, tanaman melakukan respirasi (bernapas) untuk membakar sebagian gula tersebut menjadi energi pertumbuhan.
+- Di dataran rendah yang hangat, tanaman bernapas dengan cepat di malam hari, sehingga sebagian besar gula habis terbakar sebelum sempat disimpan di dalam biji.
+- Di dataran tinggi yang sejuk, suhu dingin "mengunci" laju metabolisme respirasi malam hari. Akibatnya, tanaman mengalirkan dan memadatkan cadangan gula sukrosa murni, asam klorogenat, asam sitrat, dan asam malat ke dalam embrio biji.
+
+### Klasifikasi Tingkat Kepadatan Biji (Bean Density)
+Di perdagangan kopi Amerika Latin dan Karibia, biji kopi diklasifikasikan berdasarkan ketinggian tanam:
+1. **Strictly Hard Bean (SHB) / Strictly High Grown (SHG)**: Ditanam di atas 1.400 mdpl. Garis belahan tengah biji menutup rapat zig-zag, berbobot berat, dan tidak mudah pecah saat ditekan.
+2. **Hard Bean (HB)**: Ditanam di ketinggian 1.200 – 1.400 mdpl.
+3. **Soft Bean (SB)**: Ditanam di bawah 1.000 mdpl. Biji bertekstur lebih lunak, belahan tengah terbuka lebar, dan pori-pori seluler lebih renggang.
+
+### Implikasi Praktis bagi Roaster & Barista
+- **Bagi Roaster**: Biji SHB (seperti Toraja Sapan atau Gayo 1.700 mdpl) memiliki konduktivitas termal tinggi. Biji ini tahan menerima energi panas awal (*Charge Temperature*) yang lebih tinggi tanpa risiko gosong di permukaan luar (*scorching*). Roaster dapat mendorong fase Maillard secara agresif untuk membuka potensi asam buah yang cerah.
+- **Bagi Barista**: Biji yang sangat padat membutuhkan penetrasi ekstraksi yang lebih kuat. Air seduh dapat disetel pada suhu optimal yang lebih tinggi (**92°C – 94°C**) untuk melarutkan asam organik padat di dalam inti selulosa biji.
+
+> [!IMPORTANT]
+> Apakah elevasi tinggi selalu menjamin rasa enak? **Tidak selalu**. Elevasi tinggi hanya memberikan **potensi genetika kimiawi maksimal**. Jika ceri di 1.800 mdpl dipetik saat masih hijau mentah atau dijemur di atas tanah kotor hingga berjamur, kualitasnya akan hancur seketika."""
+        },
+        {
+            "id": "les-f2-3",
+            "module_id": "mod-f2",
+            "title": "Tanah Vulkanik, Iklim Mikro, & Sistem Agroforestri Naungan (Shade-Grown)",
+            "duration_minutes": 10,
+            "order_index": 3,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Menganalisis mengapa jalur gunung berapi aktif (Ring of Fire) Indonesia menjadi tanah tersubur bagi kopi, peran unsur fosfat & kalium, serta manfaat vital pohon naungan pelindung kebun.",
+            "key_takeaways": [
+                "Kepulauan Indonesia dilintasi oleh jalur busur vulkanik aktif (Ring of Fire) yang kaya akan tanah Andosol berporositas prima.",
+                "Tanah vulkanik muda kaya akan mineral makro Kalium (K), Kalsium (Ca), Magnesium (Mg), dan Fosfat (P) yang penting untuk pembentukan asam fosfat dan ester rasa buah.",
+                "Sistem Agroforestri menanam kopi di bawah pohon penaung (Shade-Grown seperti Lamtoro, Sengon, atau pohon buah) meniru habitat asli hutan hujan Ethiopia.",
+                "Pohon penaung menyaring sinar matahari ekstrem, mempertahankan kelembapan mikro tanah, dan menyuburkan biomassa daun gugur."
+            ],
+            "content": r"""# Tanah Vulkanik, Iklim Mikro, & Sistem Agroforestri
+
+Indonesia memiliki anugerah agroklimat yang tidak dimiliki banyak negara lain di dunia: gugusan cincin gunung api aktif (*Pacific Ring of Fire*) yang membentang dari barat Sumatra, melintasi Jawa, Bali, Lombok, Flores, hingga Sulawesi Utara.
+
+### Kimia Tanah Vulkanik (Andosol)
+Tanah di lereng gunung api aktif (seperti Gunung Kerinci, Gunung Sindoro, Gunung Inerie di Flores, dan Gunung Batur di Bali) diklasifikasikan sebagai tanah **Andosol**:
+- **Bahan Organik Tinggi**: Abu vulkanik hasil letusan masa lampau terlapuk menjadi tanah yang sangat gembur, memiliki kapasitas retensi air tinggi, dan aerasi perakaran yang sempurna.
+- **Kekayaan Unsur Hara Esensial**:
+  - **Kalium (K)**: Berperan dalam translokasi gula dari daun ke buah kopi, meningkatkan ukuran ceri dan kemanisan (*sweetness*).
+  - **Fosfor / Fosfat (P)**: Berperan dalam pembentukan adenosin trifosfat (ATP) tanaman dan sintesis asam fosfat alami yang memberi sensasi keasaman *sparkling cola-like* khas kopi vulkanik.
+  - **Magnesium (Mg) & Kalsium (Ca)**: Memperkuat dinding sel buah dan menyeimbangkan pH tanah di level optimal (pH 5.5 – 6.5).
+
+```
+ILUSTRASI SISTEM AGROFORESTRI (SHADE-GROWN COFFEE):
+            ┌───────────────────────────────┐
+            │ KANOPI POHON PENAUNG UTAMA    │ ➔ Lamtoro, Sengon, Alpukat, Jeruk
+            │ (Memecah panas terik & hujan) │    Menyerap Nitrogen dari udara (Rhizobium)
+            └──────────────┬────────────────┘
+                           │ Cahaya Difusi 40-60%
+            ┌──────────────▼────────────────┐
+            │ TANAMAN KOPI ARABIKA (2-3 m)   │ ➔ Fotosintesis tenang tanpa stres panas
+            └──────────────┬────────────────┘
+                           │ Guguran Daun Organik
+            ┌──────────────▼────────────────┐
+            │ TANAH ANDOSOL VULKANIK GEMBUR │ ➔ Mikroba cacing, jamur mikoriza, hara subur
+            └───────────────────────────────┘
+```
+
+### Manfaat Sistem Agroforestri (Shade-Grown Coffee)
+Tanaman kopi secara biologis berevolusi sebagai tanaman lapisan bawah (*understory shrub*) di hutan hujan tropis. Menanam kopi secara monokultur di bawah terik matahari langsung tanpa naungan (*sun-grown*) memang mempercepat kuantitas panen di awal, tetapi membuat tanaman cepat stres, rentan terbakar matahari (*leaf scorch*), dan menuntut pupuk kimia sintetis berlebih.
+
+Sebaliknya, petani kopi tradisional Indonesia mempraktikkan sistem **Agroforestri** dengan menanam pohon penaung:
+1. **Regulasi Suhu Mikro**: Suhu permukaan daun kopi terjaga sejuk (terhindar dari fluktuasi panas ekstrem di atas 30°C yang dapat menghentikan proses fotosintesis).
+2. **Fiksasi Nitrogen Alami**: Pohon legumena seperti Lamtoro (*Leucaena leucocephala*) bersimbiosis dengan bakteri *Rhizobium* di akarnya untuk menyerap nitrogen bebas dari udara dan menyuntikkannya ke dalam tanah secara gratis tanpa pupuk urea kimiawi.
+3. **Pemberian Karakter Rasa Terroir**: Sistem tumpang sari (*intercropping*) di Bali Kintamani (di mana kopi ditanam berselingan dengan pohon jeruk keprok) atau di Flores (berselingan dengan pohon cengkeh dan kakao) berkontribusi secara nyata pada transfer mikrobioma tanah dan aroma khas regional.
+
+> [!TIP]
+> Kopi yang ditanam di bawah naungan (*Shade-Grown*) adalah sahabat burung migran dan satwa langka. Perkebunan kopi rakyat di Gayo dan Kerinci berfungsi sebagai koridor penyangga penting bagi kelestarian satwa hutan tropis Indonesia."""
+        },
+        {
+            "id": "les-f2-4",
+            "module_id": "mod-f2",
+            "title": "Manajemen Panen Selektif: Sains Petik Merah 100% & Pengukuran Derajat Brix",
+            "duration_minutes": 10,
+            "order_index": 4,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Memahami disiplin paling fundamental dalam specialty coffee: petik merah selektif 100%. Mempelajari penggunaan refraktometer digital Brix di kebun untuk mengukur kadar gula sukrosa ceri matang.",
+            "key_takeaways": [
+                "Pemetikan buah kopi hijau mentah (strip picking) adalah penyebab nomor satu cacat rasa astringent, sepat kayu, dan quaker di meja cupping.",
+                "Pemetikan petik merah selektif (selective picking) hanya memanen buah yang telah mencapai fase kematangan fisiologis puncak.",
+                "Refraktometer optik/digital digunakan untuk mengukur derajat Brix (°Bx) pada jus mucilage buah kopi.",
+                "Buah kopi specialty berkualitas prima memiliki ambang batas minimal 20° – 24° Brix gula terlarut."
+            ],
+            "content": r"""# Manajemen Panen Selektif: Sains Petik Merah 100%
+
+Jika ada satu aturan tunggal yang paling memisahkan kopi specialty dari kopi komersial murah, aturan itu adalah: **DISIPLIN PETIK MERAH 100% (SELECTIVE PICKING)**.
+
+### Kimiawi Pematangan Buah Ceri
+Buah kopi tidak matang secara serempak di dalam satu dahan pohon. Dalam satu ranting yang sama, Anda bisa melihat bunga mekar, buah kecil hijau keras, buah kuning semburat oranye, dan buah merah tua keunguan.
+
+```
+SPEKTRUM KEMATANGAN BUAH KOPI & DAMPAK SENSORI:
+┌─────────────────┬─────────────────┬──────────────────┬─────────────────┐
+│ Hijau Mentah    │ Setengah Matang │ Merah Sempurna   │ Lewat Matang    │
+│ (Immature)      │ (Semi-Ripe)     │ (Peak Ripe)      │ (Over-Ripe)     │
+├─────────────────┼─────────────────┼──────────────────┼─────────────────┤
+│ < 14° Brix      │ 15° - 18° Brix  │ 20° - 25° Brix   │ > 26° Brix      │
+│ Pati belum urai │ Gula terbatas   │ Sukrosa & asam   │ Terfermentasi   │
+│ Rasa: Sepat kayu│ Rasa: Asam tipis│ maksimal         │ di pohon        │
+│ & Quaker cacat  │ datar, kurang   │ Rasa: Sangat man-│ Rasa: Cuka busuk│
+│                 │ manis           │ is, fruity, clean│ & winey apek    │
+└─────────────────┴─────────────────┴──────────────────┴─────────────────┘
+```
+
+### Apa Bahaya Buah Ceri Hijau Mentah?
+Pada buah ceri yang masih hijau:
+- Karbohidrat di dalam endosperma masih berbentuk **pati kompleks** yang belum terhidrolisis menjadi molekul gula sederhana (sukrosa, glukosa, fruktosa).
+- Konsentrasi senyawa fenol astringent sangat tinggi.
+- Saat disangrai, biji mentah ini tidak dapat mengalami reaksi karamelisasi Maillard secara normal. Hasilnya adalah biji berwarna kuning pucat hambar yang disebut **Quaker**. Satu biji quaker saja dalam satu cangkir seduhan akan merusak seluruh rasa kopi dengan sensasi kacang tanah mentah dan rasa kardus kering.
+
+### Sains Pengukuran Derajat Brix (°Bx) di Kebun
+Petani modern di Gayo, Kerinci, dan Ijen kini membawa instrumen optik presisi ke kebun: **Refraktometer Brix**.
+1. Petani memetik beberapa sampel ceri secara acak dari suatu blok kebun.
+2. Ceri dipencet lembut hingga beberapa tetes cairan lendir manis (*mucilage juice*) menetes ke prisma refraktometer.
+3. Melalui indeks bias cahaya, alat mengukur persentase konsentrasi sukrosa padat terlarut (°Brix).
+
+| Nilai °Brix | Kategori Mutu | Rekomendasi Proses Pasca Panen |
+|---|---|---|
+| **< 16° Brix** | Bawah Standar (Under-ripe) | Dipisahkan untuk pasar komersial lokal |
+| **17° – 19° Brix** | Standar Baik | Cocok untuk proses Fully Washed reguler |
+| **20° – 24° Brix** | Sangat Prima (Specialty Grade) | Ideal untuk Honey Process & Washed bermutu tinggi |
+| **> 24° Brix** | Luar Biasa (Competition Lot) | Sangat ideal untuk Anaerobic Natural & Slow Drying |
+
+> [!IMPORTANT]
+> Mengapa petani enggan petik merah jika tidak diberi insentif harga? Karena petik merah selektif menuntut pemetik kembali ke pohon yang sama sebanyak 3 hingga 5 kali putaran sepanjang musim panen. Pemetik dibayar berdasarkan berat timbangan harian; memetik semua buah sekaligus (*strip picking*) jauh lebih cepat dan berat. Oleh karena itu, specialty roastery wajib membayar harga pembelian ceri merah 2 hingga 3 kali lipat lebih tinggi sebagai kompensasi jerih payah petani."""
+        },
+        {
+            "id": "les-f2-5",
+            "module_id": "mod-f2",
+            "title": "Ancaman Hama Tanaman & Perubahan Iklim: Karat Daun & Kumbang Penggerek",
+            "duration_minutes": 10,
+            "order_index": 5,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Memahami ancaman eksistensial terhadap masa depan kopi: jamur Karat Daun (Hemileia vastatrix), kumbang Penggerek Buah Kopi (PBKo / Hypothenemus hampei), serta pergeseran garis ketinggian aman akibat pemanasan global.",
+            "key_takeaways": [
+                "Jamur Karat Daun (Coffee Leaf Rust / Hemileia vastatrix) merusak klorofil daun dan pernah memusnahkan seluruh perkebunan Arabika di Jawa pada tahun 1878.",
+                "Kumbang Penggerek Buah Kopi (Hypothenemus hampei / PBKo) membuat terowongan dan bertelur di dalam biji, menyebabkan cacat lubang serangga (insect damaged beans).",
+                "Pengendalian Hama Terpadu (PHT) mengutamakan perangkap feromon, agen hayati jamur Beauveria bassiana, dan sanitasi petik bubuk tanpa racun kimia.",
+                "Pemanasan global menaikkan suhu rata-rata bumi, memaksa batas bawah ketinggian budidaya Arabika naik 200-300 meter lebih tinggi ke puncak gunung."
+            ],
+            "content": r"""# Ancaman Hama Tanaman & Krisis Perubahan Iklim
+
+Masa depan secangkir kopi yang kita nikmati saat ini menghadapi ancaman nyata yang belum pernah terjadi sebelumnya dalam sejarah peradaban manusia: serangan hama biologis dan pergeseran iklim bumi.
+
+### 1. Karat Daun Kopi (*Hemileia vastatrix* / CLR)
+Karat daun adalah penyakit jamur patogen paling mematikan dalam sejarah industri kopi dunia.
+- **Gejala**: Munculnya bercak serbuk spora berwarna kuning-oranye terang menyerupai karat besi di bagian bawah daun kopi.
+- **Dampak Fisiologis**: Spora menembus stomata daun, merusak klorofil, dan menyebabkan daun rontok massal secara mendadak (*defoliasi*). Tanpa daun, pohon kopi tidak dapat berfotosintesis, buah rontok sebelum matang, dan pohon akan mati kekeringan dalam waktu 1-2 tahun.
+- **Sejarah di Indonesia**: Pada tahun **1878**, wabah Karat Daun menyapu bersih perkebunan Arabika Typica VOC di dataran rendah Jawa dan Sumatra. Peristiwa traumatik ini memaksa pemerintah kolonial mengimpor spesies kopi Liberika pada 1885 dan akhirnya Robusta asal Kongo pada tahun 1900 yang kebal terhadap karat daun.
+
+```
+SIKLUS HIDUP SERANGAN PENGGEREK BUAH KOPI (PBKO):
+Kumbang Betina Masuk ➔ Bikin Lubang di Ujung Ceri ➔ Bertelur di Biji Kopi
+  ▼
+Larva Menetas & Memakan Daging Biji ➔ Ceri Busuk Rontok / Biji Berlubang Hitam
+  ▼
+Cacat di Meja Bar: Biji Berlubang Serangga (Insect Damaged Defect) berasa pahit getir
+```
+
+### 2. Penggerek Buah Kopi (*Hypothenemus hampei* / PBKo)
+Kumbang hitam berukuran mikro (panjang hanya 1.5 – 2 mm) ini adalah musuh utama kualitas green bean fisik:
+- Kumbang betina mengebor lubang melingkar sempurna tepat di ujung pusar buah ceri kopi yang mulai mengeras.
+- Di dalam biji kopi, kumbang membuat liang terowongan dan meletakkan puluhan telur. Larva yang menetas akan memakan cadangan endosperma biji.
+- **Dampak Kualitas**: Menyebabkan biji menjadi keropos, berlubang hitam, dan mudah hancur saat disangrai. Di meja cupping, biji cacat PBKo menghasilkan rasa pahit kotor yang mengotori kebersihan rasa (*clean cup*).
+
+#### Pengendalian Hama Terpadu (PHT) Ramah Lingkungan:
+Petani specialty modern menolak pestisida kimia beracun dan memilih pendekatan ekologis:
+1. **Sanitasi Rampasan & Petik Bubuk**: Memetik seluruh buah yang terserang hama di pohon dan memungut buah gugur di tanah untuk direbus, memutus siklus hidup kumbang.
+2. **Perangkap Feromon / Atraktan (Brocap Trap)**: Memasang botol perangkap berisi aroma etanol-metanol yang memikat kumbang PBKo masuk dan tenggelam.
+3. **Jamur Parasit Alami (*Beauveria bassiana*)**: Menyemprotkan spora jamur alami yang secara spesifik melumpuhkan tubuh kumbang tanpa merusak tanaman atau mencemari tanah.
+
+### 3. Krisis Pemanasan Global (Global Warming)
+Penelitian dari *World Coffee Research* (WCR) memproyeksikan bahwa pada tahun **2050**, hingga **50% lahan budidaya Arabika dunia** tidak akan lagi cocok ditanami akibat kenaikan suhu rata-rata 1.5°C – 2.0°C.
+- **Garis Ketinggian Bergeser ke Atas**: Di Indonesia, wilayah di ketinggian 1.000 – 1.200 mdpl yang dulunya dingin kini menjadi terlalu hangat untuk Arabika, meningkatkan serangan karat daun dan hama PBKo yang kini mampu terbang di ketinggian lebih tinggi.
+- Petani terpaksa membuka kebun lebih tinggi mendekati puncak gunung (1.600 – 2.000 mdpl), yang berbenturan langsung dengan batas kawasan hutan lindung nasional.
+
+> [!TIP]
+> Inilah alasan mengapa pemuliaan varietas hibrida tahan penyakit (seperti Tim-Tim, Catimor, dan F1 Hybrids) serta eksplorasi Fine Robusta dataran menengah menjadi sangat krusial bagi ketahanan pangan dan industri kopi masa depan."""
+        },
+
+        # === MODUL F-3: VARIETAS & GENETIKA KOPI ===
+        {
+            "id": "les-f3-1",
+            "module_id": "mod-f3",
+            "title": "Taksonomi Genus Coffea: Arabika, Robusta, Liberika, & Excelsa",
+            "duration_minutes": 10,
+            "order_index": 1,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Membedah perbedaan biologis, kromosom genetik, kadar kafein, dan potensi organoleptik empat spesies komersial genus Coffea: Arabika (tetraploid) vs Robusta, Liberika, dan Excelsa (diploid).",
+            "key_takeaways": [
+                "Coffea arabica adalah satu-satunya spesies tanaman kopi yang bersifat Tetraploid (memiliki 4 set kromosom: 2n = 44) dan menyerbuk sendiri (self-pollinating).",
+                "Coffea canephora (Robusta) bersifat Diploid (2n = 22), memiliki kadar kafein dua kali lebih tinggi (2.2 - 2.7%), dan kaya akan asam klorogenat.",
+                "Coffea liberica memiliki ukuran daun dan buah raksasa berbentuk asimetris dengan aroma khas nangka manis matang.",
+                "Excelsa secara resmi diklasifikasikan sebagai varietas dari Liberika (Coffea liberica var. dewevrei) dengan profil asam buah tart yang unik."
+            ],
+            "content": r"""# Taksonomi Genus Coffea: 4 Spesies Komersial
+
+Di dunia biologi botani, terdapat lebih dari **125 spesies** kopi yang telah diidentifikasi di alam liar Afrika dan Madagaskar. Namun, perdagangan kopi dunia berputar di sekitar empat spesies utama:
+
+```
+POHON KELUARGA GENUS COFFEA KOMERSIAL:
+                  ┌────────────── GENUS COFFEA ──────────────┐
+                  │                                          │
+       [ Coffea arabica ]                          [ Spesies Diploid (2n=22) ]
+     (Arabika - 4 set kromosom)                              │
+     * 60% Produksi Global *              ┌──────────────────┼──────────────────┐
+     * Sangat Kompleks & Manis *          │                  │                  │
+                                 [ Coffea canephora ] [ Coffea liberica ] [ Var. Dewevrei ]
+                                     (Robusta)           (Liberika)          (Excelsa)
+```
+
+### 1. Coffea arabica (Kopi Arabika)
+- **Genetika Unik**: Satu-satunya spesies kopi yang bersifat **Tetraploid (44 kromosom / 2n = 4x = 44)**. Merupakan hasil hibridisasi alami purba antara dua spesies diploid liar: *Coffea canephora* dan *Coffea eugenioides*. Bersifat *self-pollinating* (dapat menyerbuk sendiri tanpa bantuan angin/serangga dari pohon lain).
+- **Kadar Kafein**: Rendah (0.9% – 1.4%).
+- **Kadar Lipid & Sukrosa**: Sangat tinggi (Lipid: 15-17%, Sukrosa: 6-9%).
+- **Elevasi Tanam**: 1.000 – 2.100 mdpl.
+- **Karakter Cangkir**: Kompleksitas rasa tinggi, keasaman manis sitrat/malat cerah, aroma floral, buah-buahan, dan body halus.
+
+### 2. Coffea canephora (Kopi Robusta)
+- **Genetika**: Diploid (22 kromosom). Bersifat *cross-pollinating* (penyerbukan silang antar pohon).
+- **Kadar Kafein**: Sangat tinggi (**2.2% – 2.7%**). Kafein adalah pestisida alami tanaman; tingginya kafein membuat Robusta sangat kebal terhadap hama serangga dan jamur karat daun.
+- **Kadar Asam Klorogenat (CGA)**: Jauh lebih tinggi dari Arabika (10-12% vs 6-7%). Saat disangrai, degradasi CGA berlebih menghasilkan senyawa pahit fenolik.
+- **Elevasi Tanam**: 200 – 900 mdpl.
+- **Karakter Cangkir**: Body sangat tebal, krema kental padat, aroma sereal gandum, kacang panggang, kakao hitam, dengan keasaman sangat rendah.
+
+### 3. Coffea liberica (Kopi Liberika)
+- **Asal Usul**: Berasal dari Liberia, Afrika Barat, diperkenalkan ke Jawa pada 1885.
+- **Morfologi**: Pohon dapat tumbuh menjulang setinggi 10-18 meter dengan daun raksasa bertekstur kaku seperti kulit. Buah cerinya berukuran 2-3 kali lebih besar dari Arabika dan memiliki daging kulit tebal berserat.
+- **Sentra di Indonesia**: Sangat adaptif di lahan gambut basah dataran rendah (Tanjung Jabung Barat Jambi, Riau, dan Kepulauan Meranti).
+- **Karakter Cangkir**: Aroma khas buah nangka matang (*jackfruit*), bunga liar tropis, berpadu dengan sentuhan smokey kayu manis dan body sirup pekat.
+
+### 4. Coffea liberica var. dewevrei (Kopi Excelsa)
+- Dahulu dianggap spesies mandiri, namun kini direklasifikasi secara taksonomi sebagai varietas dari Liberika.
+- **Sentra di Indonesia**: Lereng Gunung Anjasmoro (Wonosalam, Jombang, Jawa Timur) dan Tanjung Jabung Barat.
+- **Karakter Cangkir**: Profil rasa yang sangat unik dan eksotis: perpaduan antara aroma tart buah asam jawa (*tamarind*), selai nanas panggang, buah plum gelap, dan aftertaste rempah herbal yang kuat.
+
+| Atribut Parameter | Arabika (*C. arabica*) | Robusta (*C. canephora*) | Liberika (*C. liberica*) |
+|---|---|---|---|
+| **Set Kromosom** | 44 (Tetraploid) | 22 (Diploid) | 22 (Diploid) |
+| **Kadar Kafein** | 1.1% – 1.5% | 2.2% – 2.7% | 1.0% – 1.4% |
+| **Kadar Sukrosa Gula** | 6% – 9% | 3% – 5% | 4% – 6% |
+| **Pangsa Pasar Global** | ~60% | ~38% | < 2% |
+| **Ketahanan Karat Daun** | Rendah / Rentan | Sangat Tinggi / Kebal | Tinggi |
+
+> [!TIP]
+> Di bar kopi modern, jangan memandang sebelah mata spesies non-Arabika! Biji Liberika dan Excelsa berkualitas tinggi kini menjadi primadona baru di kompetisi World Barista Championship (WBC) sebagai bahan pencampur (*blend*) untuk memberikan aroma buah tropis yang tidak ada pada Arabika manapun."""
+        },
+        {
+            "id": "les-f3-2",
+            "module_id": "mod-f3",
+            "title": "Silsilah Varietas Arabika Dunia: Dari Typica, Bourbon, Geisha, hingga Hibrida",
+            "duration_minutes": 12,
+            "order_index": 2,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Mempelajari silsilah pohon keluarga varietas Arabika: dua leluhur purba (Typica dan Bourbon), mutasi alami (Caturra, Pacas, Maragogipe), persilangan legendaris (Geisha, SL28, Pacamara), dan hibrida Timor.",
+            "key_takeaways": [
+                "Seluruh varietas Arabika modern di dunia berakar dari dua garis keturunan leluhur utama: Typica dan Bourbon.",
+                "Typica bercirikan ujung pucuk daun muda berwarna perunggu (bronze tips), tajuk melebar, dan rasa cangkir sangat elegan bernuansa floral manis.",
+                "Bourbon berasal dari Pulau Réunion, menghasilkan produktivitas 20-30% lebih tinggi dari Typica dengan cangkir dominan rasa karamel dan buah manis.",
+                "Hibrido de Timor (HDT) adalah persilangan alami spontan antara Arabika dan Robusta di Pulau Timor tahun 1917 yang mewariskan kekebalan genetik terhadap karat daun."
+            ],
+            "content": r"""# Silsilah Varietas Arabika Dunia
+
+Varietas pada kopi setara dengan varietas anggur pada industri wine (seperti *Cabernet Sauvignon*, *Pinot Noir*, atau *Chardonnay*). Memahami silsilah pohon keluarga Arabika adalah kunci untuk memprediksi potensi rasa yang akan muncul di cangkir.
+
+```
+POHON SILSILAH VARIETAS ARABIKA UTAMA DUNIA:
+                       [ HUTAN KOPI ETHIOPIA ]
+                                  │
+                                  ▼
+                         [ PENYEBARAN YAMAN ]
+                                  │
+         ┌────────────────────────┴────────────────────────┐
+         ▼                                                 ▼
+     [ TYPICA ]                                       [ BOURBON ]
+   (1696 ke Jawa)                                 (1708 ke Pulau Réunion)
+         │                                                 │
+  ┌──────┴──────┬──────────────┐                    ┌──────┴──────┬─────────────┐
+  ▼             ▼              ▼                    ▼             ▼             ▼
+Maragogipe  Java Typica    Kona Typica           Caturra      Villa Sarchi    SL-28
+ (Biji Raksasa) (Priangan)    (Hawaii)          (Mutasi Kerdil)  (Kosta Rika)   (Kenya)
+                                                    │
+                                                    ▼
+                                           [ CATUAI = Caturra x Mundo Novo ]
+```
+
+### 1. Garis Keturunan Typica (The Noble Ancestor)
+Typica adalah varietas Arabika pertama yang keluar dari Yaman dan dikirim VOC ke Batavia pada tahun 1696. Dari Batavia, tanaman ini menyebar ke Kebun Raya Amsterdam, kemudian ke Karibia dan seluruh benua Amerika Selatan.
+- **Ciri Fisik**: Pohon berbentuk kerucut ramping, cabang lentur, buku buah renggang. **Pucuk daun muda berwarna cokelat perunggu (*bronze-tipped*)**.
+- **Karakter Cangkir**: Kebersihan rasa luar biasa (*clean cup*), aroma bunga melati (*jasmine*), teh manis, keasaman sitrat halus, dan body sutra.
+
+### 2. Garis Keturunan Bourbon (The Sweet Powerhouse)
+Pada tahun 1708, misionaris Prancis membawa bibit dari Yaman ke Pulau Bourbon (sekarang Pulau Réunion di Samudra Hindia).
+- **Ciri Fisik**: Cabang lebih tegak dan rapat, buah berkerumun padat. Pucuk daun muda berwarna hijau terang.
+- **Mutasi Warna Buah**: Selain Red Bourbon (merah), terdapat mutasi Yellow Bourbon (kuning cerah) dan Orange/Pink Bourbon.
+- **Karakter Cangkir**: Tingkat kemanisan (*sweetness*) sangat tinggi, body bulat lembut, nuansa karamel, toffee, cokelat susu, dan buah plum manis.
+
+### 3. Mutasi Alami Populer
+- **Caturra**: Mutasi kerdil (*dwarf mutation*) alami dari Bourbon yang ditemukan di Brazil pada 1937. Karena pohonnya kompak dan pendek, petani dapat menanam lebih rapat dan memetik buah tanpa tangga.
+- **Maragogipe**: Mutasi raksasa dari Typica yang ditemukan di Bahia, Brazil. Biji, daun, dan buahnya berukuran dua kali lipat lebih besar dibanding kopi biasa (dijuluki *Elephant Bean*).
+
+### 4. Legenda Varietas Geisha (Gesha)
+Berasal dari hutan pegunungan Gori Gesha di Ethiopia Barat Daya pada tahun 1931, dibawa ke Kenya, Tanzania, dan akhirnya ditanam di Kosta Rika dan Panama. Varietas ini mengguncang dunia specialty pada lelang *Best of Panama 2004* oleh perkebunan Hacienda La Esmeralda.
+- **Karakter Cangkir**: Sangat eksplosif menyerupai parfum: minyak esensial bunga melati, bergamot Earl Grey, buah persik, leci, dan asam sitrat anggun layaknya anggur putih Riesling.
+
+### 5. Keajaiban Hibrido de Timor (HDT)
+Pada tahun 1917, di sebuah perkebunan di Pulau Timor (saat itu koloni Portugis), terjadi mukjizat genetika alami: **tanaman Arabika tetraploid menyerbuk silang secara spontan dengan tanaman Robusta diploid**.
+- Hasil persilangan alami ini menghasilkan keturunan tetraploid stabil yang dinamai **Hibrido de Timor (HDT)**.
+- HDT mewarisi gen kekebalan mutlak terhadap Karat Daun dari gen induk Robusta, namun tetap memiliki morfologi biji dan rasa mirip Arabika.
+- HDT menjadi induk genetik paling berharga di dunia yang disilangkan dengan Caturra untuk melahirkan kelompok varietas **Catimor** (termasuk Ateng di Sumatra).
+
+> [!NOTE]
+> Mengetahui varietas membantu barista menjelaskan kepada pelanggan: jika pelanggan mencari kopi berkarakter teh melati dan asam cerah, tawarkan varietas bergaris keturunan Typica atau Geisha; jika mereka mencari kopi berbody manis legit karamel, tawarkan garis keturunan Bourbon atau Caturra."""
+        },
+        {
+            "id": "les-f3-3",
+            "module_id": "mod-f3",
+            "title": "Varietas Unggul Nusantara: Ateng Super, Tim-Tim, Sigarar Utang, & S-795",
+            "duration_minutes": 12,
+            "order_index": 3,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Mengenal kekayaan varietas lokal yang menjadi tulang punggung specialty coffee Indonesia: Ateng Super (Catimor Jaluk), Tim-Tim (Hibrido de Timor), Sigarar Utang (Sumatra Utara), S-795 (Jember/Toraja), Kartika, dan Andungsari.",
+            "key_takeaways": [
+                "Tim-Tim adalah nama lokal masyarakat Aceh Gayo untuk Hibrido de Timor yang dibawa dari Timor Timur pada tahun 1980-an.",
+                "Ateng Super adalah varietas Catimor kerdil yang sangat produktif dan tahan hama, menjadi varietas paling dominan di Sumatra.",
+                "Sigarar Utang dilepas resmi oleh Balitkopi dari Humbang Hasundutan (Danau Toba); namanya bermakna 'pelunas hutang' karena panennya yang berbuah tanpa putus sepanjang tahun.",
+                "S-795 (dikenal sebagai 'Jember') adalah persilangan varietas Kent x S.288 asal India yang menjadi ikon rasa kopi Toraja dan Jawa Timur."
+            ],
+            "content": r"""# Varietas Unggul Nusantara
+
+Indonesia bukan hanya konsumen varietas global, melainkan salah satu laboratorium keanekaragaman genetik kopi terpenting di dunia. Varietas-varietas lokal nusantara telah beradaptasi selama puluhan dekade dengan tanah vulkanik dan cuaca tropis basah kepulauan kita.
+
+### 1. Tim-Tim (Timor Timur / HDT Asli)
+- **Sejarah**: Pada akhir 1970-an hingga awal 1980-an, bibit *Hibrido de Timor* dibawa dari Timor Timur ke dataran tinggi Gayo, Aceh Tengah. Petani lokal menamainya **Tim-Tim**.
+- **Ciri Tanaman**: Tajuk pohon tinggi semi-melebar, daun tebal berwarna hijau tua mengkilap, dan sangat toleran terhadap serangan jamur karat daun.
+- **Karakter Cangkir**: Body tebal, rasa manis buah gelap (*blackcurrant*, plum), keasaman asam malat seimbang, dan aroma herbal serai manis (*lemongrass*).
+
+### 2. Ateng Super & Ateng Jaluk (Catimor Lokal)
+- **Sejarah**: Nama "Ateng" adalah kependekan dari **Aceh Tengah**. Merupakan varietas dari kelompok Catimor (persilangan Caturra x Hibrido de Timor).
+- **Ciri Tanaman**: Pohon kerdil (*semi-dwarf*), buku ruas cabang sangat rapat, berbuah lebat pada umur muda (sudah dapat dipanen pada usia 2 tahun).
+- **Karakter Cangkir**: Jika ditanam di atas 1.400 mdpl dengan panen petik merah selektif, Ateng menghasilkan rasa rempah manis manis, kakao pekat, buah beri, dan aftertaste gula merah yang solid.
+
+### 3. Sigarar Utang (Sang Pelunas Hutang dari Danau Toba)
+- **Asal Usul**: Berasal dari Desa Siborong-borong dan Onan Ganjang di Kabupaten Humbang Hasundutan, Sumatra Utara (kawasan Danau Toba). Resmi dilepas oleh Menteri Pertanian RI pada tahun 2005.
+- **Filosofi Nama**: Dalam bahasa Batak Toba, *Sigarar Utang* berarti **"Si Pelunas Hutang"**. Dinamai demikian karena pohon ini memiliki sifat *continuous flowering* (berbunga dan berbuah terus-menerus hampir sepanjang tahun tanpa jeda musim kering), sehingga petani selalu memiliki uang tunai untuk membayar biaya sekolah anak dan melunasi pinjaman.
+- **Karakter Cangkir**: Keasaman buah persik (*peach*) cerah, jeruk mandarin, sirup gula aren kental, dengan kebersihan rasa yang menonjol dibanding varietas Sumatra lainnya.
+
+### 4. S-795 (The Legendary "Jember")
+- **Asal Usul**: Dikembangkan di India oleh Balehonnur Coffee Research Station dari persilangan varietas **Kent** (keturunan Typica) dengan **S.288**. Bibitnya diimpor ke Indonesia pada tahun 1955 melalui Balai Penelitian Tanaman Pemanis dan Serat (Balitkopi) di **Jember**, Jawa Timur. Petani di Sulawesi dan Jawa pun mengenalnya dengan sebutan akrab **Varietas Jember**.
+- **Sentra Utama**: Tana Toraja, Mamasa, Enrekang, dan lereng Gunung Ijen.
+- **Karakter Cangkir**: Salah satu varietas dengan profil cup terbaik di Asia: cokelat hitam mewah, sirup maple, rempah pala manis, buah plum matang, dan keasaman sitrat seimbang yang sangat elegan.
+
+### 5. Kartika & Andungsari
+- **Kartika**: Klon introduksi dari Catimor P-88 asal Portugal yang diseleksi di Indonesia. Pohon bertubuh mungil dengan produktivitas sangat tinggi, banyak dibudidayakan di Jawa Barat dan Temanggung.
+- **Andungsari 1**: Seleksi galur murni Catimor yang adaptif di dataran tinggi Jawa Timur. Berbiji besar dengan profil rasa buah apel merah segar dan aftertaste karamel yang bersih.
+
+```
+PETA PERSEBARAN VARIETAS UNGGUL UTAMA NUSANTARA:
+┌─────────────────────┬─────────────────────────────┬─────────────────────────────┐
+│ Nama Varietas       │ Basis Asal / Genetik        │ Sentra Budidaya Utama       │
+├─────────────────────┼─────────────────────────────┼─────────────────────────────┤
+│ Tim-Tim             │ Hibrido de Timor murni      │ Dataran Tinggi Gayo (Aceh)  │
+│ Sigarar Utang       │ Seleksi Typica x Catimor    │ Lintong, Humbang Hasundutan │
+│ Ateng Super         │ Catimor semi-kerdil         │ Seluruh Sumatra & Flores    │
+│ S-795 (Jember)      │ Kent x S.288 (India)        │ Tana Toraja & Ijen Raung    │
+│ Typica Priangan     │ Typica VOC tertua           │ Pangalengan & Garut (Jabar) │
+│ Jurung              │ Typica lokal purba          │ Lembah Colol, Manggarai NTT │
+└─────────────────────┴─────────────────────────────┴─────────────────────────────┘
+```
+
+> [!TIP]
+> Saat mencicipi kopi di meja cupping, kopi Toraja yang menggunakan varietas murni S-795 tua selalu memiliki keanggunan aroma cokelat manis dan asam buah matang yang tidak akan Anda temukan pada kopi yang menggunakan varietas komersial biasa."""
+        },
+        {
+            "id": "les-f3-4",
+            "module_id": "mod-f3",
+            "title": "Kebangkitan Fine Robusta Nusantara: Potensi Dampit, Temanggung, & Lampung",
+            "duration_minutes": 10,
+            "order_index": 4,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Membongkar paradigma usang 'Robusta pasti berkualitas rendah'. Mempelajari standar Fine Robusta SCA (skor 80+), protokol petik merah, dan keunggulan kopi Dampit Malang, Temanggung, dan Lampung Barat di industri minuman modern.",
+            "key_takeaways": [
+                "Fine Robusta adalah kopi Robusta yang dipanen petik merah 100%, diolah secara presisi, bebas cacat primer, dan meraih skor cupping minimal 80 poin berstandar CQI (Coffee Quality Institute).",
+                "Rasa pahit gosong dan bau karet pada Robusta komersial bukan berasal dari genetik tanamannya, melainkan akibat petik campur ceri mentah, fermentasi kotor, dan sangrai hangus.",
+                "Fine Robusta memiliki kadar lemak dan krema dua kali lipat lebih tebal dari Arabika, menjadikannya fondasi ideal untuk racikan kopi susu aren kekinian.",
+                "Dampit (Malang), Temanggung (Jateng), dan Tanggamus (Lampung) adalah segitiga emas produsen Fine Robusta terbaik Indonesia."
+            ],
+            "content": r"""# Kebangkitan Fine Robusta Nusantara
+
+Selama beberapa dekade, buku-buku kopi dunia menulis stigma negatif: *"Arabika adalah kopi bangsawan berkualitas tinggi, sedangkan Robusta adalah kopi kasta rendah yang berasa ban karet terbakar."*
+
+Stigma tersebut kini runtuh total. Di Indonesia—sebagai produsen Robusta terbesar ketiga di dunia—lahir gerakan revolusioner yang disebut **Fine Robusta**.
+
+### Dari Mana Rasa Pahit Buruk Robusta Berasal?
+Rasa tidak sedap pada Robusta komersial tradisional (bau apek, tanah kotor, rasa ban gosong, dan getir di tenggorokan) sebetulnya **BUKAN sifat mutlak tanaman Robusta**. Rasa buruk tersebut adalah akumulasi dari malpraktik hulu:
+1. Pemetikan rampasan: buah hijau keras ikut digiling bersama buah merah dan buah busuk.
+2. Penjemuran di atas tanah becek bercampur debu jalanan tanpa terpal.
+3. Fermentasi liar tanpa kontrol suhu di dalam karung basah.
+4. Pemanggangan sangat gelap (*extra dark*) untuk menutupi cacat-cacat tersebut.
+
+```
+SIKLUS TRANSFORMASI MENUJU FINE ROBUSTA:
+[Robusta Tradisional] Petik Asal Campur ➔ Jemur Tanah ➔ Penuh Cacat ➔ Rasa Pahit Arang (Skor < 70)
+                                    VS
+[Fine Robusta CQI]   Petik Merah 100% ➔ Raised Bed ➔ Cupping 80+ ➔ Rasa Cokelat, Malt, Palm Sugar
+```
+
+### Standar Resmi Fine Robusta (CQI / Ugacof Protocols)
+Sama halnya dengan Arabika yang memiliki sertifikasi Q Grader, *Coffee Quality Institute* (CQI) merumuskan kurikulum dan protokol evaluasi sensori **Q Robusta Grader**:
+- **Skor Cupping**: Minimal **80.0 poin** dari skala 100.
+- **Kriteria Fisik**: Bebas dari cacat primer (0 Primary Defects) dalam 350 gram sampel biji hijau.
+- **Karakter Bersih (*Clean Cup*)**: Bebas dari rasa astringent tajam, bebas dari aroma apak kapur barus, dan memiliki keseimbangan sweetness alami.
+
+### Tiga Sentra Fine Robusta Legendaris Indonesia
+
+#### 1. Dampit (Lereng Gunung Semeru, Malang, Jawa Timur)
+Dampit adalah sentra Robusta paling dihormati di pasar ekspor Eropa sejak zaman kolonial. Ditanam di ketinggian 600 – 900 mdpl di tanah vulkanik pasir abu Gunung Semeru.
+- **Profil Rasa**: Sangat bulat (*round body*), aroma kacang hazelnut panggang, karamel mentega, dark chocolate murni, tanpa rasa langu.
+
+#### 2. Temanggung (Klon BP 42, Jawa Tengah)
+Petani muda di Temanggung melakukan lompatan besar dengan menerapkan fermentasi anaerobik dan perendaman ragi pada Robusta petik merah mereka.
+- **Profil Rasa**: Manis alami gula aren murni (*palm sugar*), aroma daun tembakau kering manis, sereal malt, dan aftertaste cokelat yang bertahan hingga belasan menit.
+
+#### 3. Lampung Barat & Tanggamus (Sumatra Selatan)
+Sentra pasok volume terbesar Indonesia. Petani yang tergabung dalam kelompok specialty mulai memproduksi Robusta Natural Wine Process yang unik.
+- **Profil Rasa**: Body sirup sangat pekat, aroma kakao nibs, rempah lada hitam manis, dan sentuhan buah kering.
+
+### Nilai Strategis Fine Robusta bagi Barista Komersial
+Dalam bisnis coffee shop modern yang didominasi oleh menu **Es Kopi Susu Gula Aren**:
+- Kopi Arabika sering kali "tenggelam" dan kehilangan jati diri rasanya saat bertemu susu evaporasi dan gula aren yang manis pekat.
+- Fine Robusta hadir sebagai penyelamat: kandungan lipid alaminya yang tinggi menghasilkan **krema espresso yang tebal keemasan dan kokoh**, serta rasa cokelat gurih yang mampu menembus kekentalan susu dengan harmoni rasa yang luar biasa nikmat.
+
+> [!NOTE]
+> Menghargai Fine Robusta adalah bentuk nasionalisme industri kopi Indonesia. 80% dari seluruh petani kopi kita menggantungkan hidup dari pohon Robusta. Menaikkan derajat Robusta menjadi Fine Robusta berarti menyejahterakan jutaan keluarga petani di pelosok negeri."""
+        },
+        {
+            "id": "les-f3-5",
+            "module_id": "mod-f3",
+            "title": "Dekonstruksi Label Kopi Specialty: Cara Membaca Varietas, Lot, & Cupping Notes",
+            "duration_minutes": 10,
+            "order_index": 5,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Panduan praktis bagi barista dan penikmat kopi untuk membedah anatomi label kemasan specialty coffee: membaca asal origin, nama prosesor, nomor lot kebun, tanggal sangrai (roast date), dan menafsirkan tasting notes secara realistis.",
+            "key_takeaways": [
+                "Label specialty coffee adalah paspor transparansi kopi yang memuat identitas hulu ke hilir.",
+                "Roast Date (tanggal sangrai) adalah indikator kesegaran terpenting, bukan Best Before (kadaluarsa pabrik).",
+                "Tasting notes di label (seperti 'Peach, Jasmine, Honey') bukan perisa buatan sintetis, melainkan deskriptor asosiasi aroma kimia alami biji kopi.",
+                "Memahami informasi varietas dan ketinggian tanam membantu barista menentukan rasio dan suhu air seduh yang presisi."
+            ],
+            "content": r"""# Dekonstruksi Label Kopi Specialty
+
+Bagi pemula, membaca label kemasan specialty coffee bisa terasa membingungkan: penuh istilah asing, angka ketinggian, singkatan varietas, dan deretan nama buah-buahan eksotis.
+
+Bagi seorang profesional, label tersebut adalah **paspor identitas** yang menceritakan seluruh riwayat hidup kopi tersebut.
+
+```
+ANATOMI LABEL KEMASAN SPECIALTY COFFEE:
+┌─────────────────────────────────────────────────────────────┐
+│ [ CHERRY COFFEE ROASTERY ]                                  │
+│ ORIGIN       : Pantan Musara, Pegasing, Aceh Gayo           │
+│ PRODUCER     : Hendra Maulizar (Avatara Mill)               │
+│ ALTITUDE     : 1.550 – 1.650 mdpl                           │
+│ VARIETY      : Tim-Tim & Ateng Super                        │
+│ PROCESS      : Anaerobic Natural (Slow Dry Raised Beds)     │
+│ ROAST PROFILE: Filter (Light-Medium)                        │
+│ ROAST DATE   : 28 Agustus 2026                              │
+│                                                             │
+│ TASTING NOTES: Wild Strawberry, Purple Grape, Dark Honey    │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Membedah 7 Parameter Kunci Label:
+
+#### 1. Origin & Petani / Stasiun Olah (*Producer*)
+- Menyebutkan lokasi spesifik hingga tingkat desa atau bukit (*micro-lot*).
+- Nama processor (misal: *Hendra Maulizar* di Gayo atau *Pak Muhlisin* di Kerinci) menunjukkan bahwa kopi ini dibeli secara langsung (*Direct Trade*) dari produsen berdedikasi tinggi, bukan biji curah dari pasar anonim.
+
+#### 2. Ketinggian Tanam (*Altitude / Elevation*)
+- Satuan `mdpl` (meter di atas permukaan laut).
+- Panduan praktis barista: semakin tinggi angkanya (> 1.500 mdpl), biji semakin padat dan keasamannya semakin cerah. Gunakan suhu seduh lebih tinggi (**92°C – 94°C**). Sebaliknya, untuk kopi dataran menengah (1.100 – 1.300 mdpl), turunkan suhu ke **89°C – 91°C** agar rasa manis tidak terbakar.
+
+#### 3. Varietas Botani (*Variety / Cultivar*)
+- Menjelaskan susunan genetik biji (misal: *Sigarar Utang, Typica, S-795*). Memberikan gambaran awal ekspektasi body dan kompleksitas rasa dasar.
+
+#### 4. Metode Pasca Panen (*Process*)
+- Kunci penentu struktur rasa di cangkir:
+  - **Washed**: Menjanjikan rasa bersih (*clean*), asam buah cerah (*citric/malic*), dan nuansa bunga/teh.
+  - **Natural**: Menjanjikan manis tebal, body bulat, dan nuansa buah berry matang.
+  - **Anaerobic / Wine**: Menjanjikan aroma fermentasi buah yang intens, sensasi anggur, atau rempah manis.
+
+#### 5. Tanggal Sangrai (*Roast Date*) vs *Best Before*
+- Kopi specialty tidak menggunakan patokan "Best Before" setahun ke depan seperti produk industri kaleng. Kopi specialty mencantumkan **hari di mana biji tersebut keluar dari roaster drum**.
+- Rasa terbaik (*peak flavor*) tercapai setelah kopi melalui fase istirahat pengeluaran gas CO2 (**resting**) selama 7 hingga 14 hari pasca sangrai.
+
+#### 6. Profil Sangrai (*Roast Profile*)
+- **Filter Roast**: Disangrai terang (*light to medium-light*) khusus untuk seduh manual (V60, Aeropress, Kalita) guna memaksimalkan asam aromatik.
+- **Espresso Roast**: Disangrai sedikit lebih matang (*medium*) untuk melunakkan keasaman dan mempermudah ekstraksi 9 bar pada mesin espresso tanpa rasa asam menyengat.
+
+#### 7. Tasting Notes (Catatan Rasa)
+- **Mitos**: *"Apakah kopi ini dicampur ekstrak strawberry atau madu?"* **Sama sekali tidak!**
+- **Fakta**: Seluruh tasting notes yang tertulis di kemasan adalah hasil persepsi sensori alami terhadap ratusan senyawa ester, aldehida, dan asam organik yang terbentuk murni dari fotosintesis pohon dan fermentasi mikrobiologi.
+
+> [!TIP]
+> Jadikan tasting notes sebagai panduan orientasi rasa, bukan dogma mutlak. Jika di label tertulis *"Strawberry & Lemon"*, Anda tidak sedang minum jus buah, melainkan menikmati kopi dengan nuansa rasa manis berry liar dan kesegaran asam sitrus yang menyenangkan."""
+        },
+
+        # === MODUL F-4: PROCESSING METHODS (PASCA PANEN) ===
+        {
+            "id": "les-f4-1",
+            "module_id": "mod-f4",
+            "title": "Olah Basah (Washed / Wet Process): Demucilagination & Karakter Clean Cup",
+            "duration_minutes": 10,
+            "order_index": 1,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Memahami tahapan lengkap olah basah (Washed / Fully Washed): pengupasan kulit (depulping), fermentasi tangki air untuk mengurai mucilage, pencucian bersih, dan penjemuran gabah. Mengetahui mengapa Washed menjadi standar kemurnian rasa terroir.",
+            "key_takeaways": [
+                "Proses Washed membuang kulit luar dan seluruh lapisan lendir (mucilage) sebelum biji kopi dikeringkan.",
+                "Mucilage yang menempel kuat diuraikan secara biologis melalui aktivitas enzim pektinase dari ragi dan bakteri alami selama 12-36 jam di tangki air.",
+                "Karakteristik utama kopi Washed adalah Clean Cup (kebersihan rasa tanpa residu tanah/fermentasi) dan keasaman buah yang jernih bersinar.",
+                "Proses Fully Washed menuntut ketersediaan air bersih dalam jumlah melimpah dan pengelolaan limbah cair ramah lingkungan."
+            ],
+            "content": r"""# Olah Basah (Washed / Fully Washed Process)
+
+Di dunia specialty coffee internasional, metode **Washed (Olah Basah)** diibaratkan sebagai kaca bening tanpa noda: ia tidak menambahkan rasa dari luar, melainkan menelanjangi dan memperlihatkan karakter asli tanah kebun (*terroir*) dan varietas genetik biji kopi secara murni dan transparan.
+
+```
+DIAGRAM ALIR PROSES FULLY WASHED:
+[Ceri Merah Pilihan] ➔ [Rambang Apung (Floaters Separation)] ➔ [Mesin Depulper (Kupas Kulit)]
+                                                                      │
+[Biji Gabah Bersih Kering 11%] ◄─ [Jemur di Raised Bed] ◄─ [Cuci Saluran] ◄─ [Tangki Fermentasi Air (12-36 Jam)]
+```
+
+### Tahapan Kritis Proses Fully Washed
+
+#### 1. Sortasi Rambang Apung (*Floaters Separation*)
+Ceri merah yang baru dipetik dimasukkan ke dalam bak air besar:
+- Ceri sehat dan padat berbobot (*sinkers*) akan tenggelam ke dasar bak.
+- Ceri cacat berlubang serangga atau keriput (*floaters*) akan mengapung ke permukaan dan langsung diserok dibuang.
+
+#### 2. Pengupasan Kulit Luar (*Depulping*)
+Ceri yang tenggelam dialirkan ke mesin *depulper*. Mesin ini meremas buah dan memisahkan kulit luar (eksokarp) dari biji. Biji yang keluar masih terbungkus lapisan lendir tebal licin (*mucilage*) yang melekat erat pada kulit tanduk (*parchment*).
+
+#### 3. Fermentasi Penguraian Lendir (*Demucilagination*)
+Lendir kopi tidak larut hanya dengan disiram air biasa karena kaya akan polimer pektin rantai panjang yang lengket. Biji berlendir dialirkan ke tangki beton atau tangki stainless steel:
+- **Fermentasi Kering (*Dry Fermentation*)**: Biji didiamkan tanpa air tambahan selama 12 – 24 jam.
+- **Fermentasi Basah (*Wet Fermentation*)**: Biji direndam di dalam air bersih selama 24 – 36 jam.
+- **Mekanisme Biokimia**: Enzim pektinase yang diproduksi secara alami oleh ragi liar dan bakteri asam laktat memecah ikatan pektin menjadi asam galakturonat yang larut air.
+
+#### 4. Uji Cuci Tangan (*The Washing Test*)
+Bagaimana processor tahu fermentasi telah selesai? Processor mengambil segenggam biji dari tangki dan meremasnya:
+- Jika masih licin seperti sabun basah, fermentasi harus dilanjutkan.
+- Jika biji terasa kesat dan berbunyi berderit (*squeaky clean*) seperti batu kerikil sungai yang digosokkan, lendir telah terurai tuntas.
+
+#### 5. Pencucian di Saluran Gravitasi (*Washing Channels*)
+Biji dialirkan ke parit panjang dengan air mengalir deras sambil disapu dengan dayung kayu. Air membawa sisa lendir yang telah terurai dan menyortir kembali biji berdasarkan kepadatan gravitasi.
+
+#### 6. Pengeringan Gabah (*Drying on Raised Beds*)
+Gabah basah berkadar air ~50% dijemur di atas para-para berventilasi kawat kasa (*raised African beds*) dengan sirkulasi udara atas-bawah yang lancar. Gabah dibalik berkala setiap jam hingga kadar air stabil di **10.5% – 11.5%**.
+
+### Profil Organoleptik Cangkir Kopi Washed
+- **Acidity**: Sangat cerah, jernih, dan renyah (*crisp citric & malic acidity*).
+- **Body**: Ringan hingga medium, halus seperti sutra (*silky, tea-like body*).
+- **Aroma**: Sangat menonjolkan aroma floral melati, bunga jeruk, teh bergamot, apel hijau, dan jeruk mandarin.
+- **Cleanliness**: Nilai kebersihan cangkir (*Clean Cup*) mencapai skor maksimal karena tidak ada residu fermentasi buah yang mengotori lidah.
+
+> [!IMPORTANT]
+> **Tantangan Lingkungan**: Pengolahan olah basah tradisional membutuhkan hingga 5 – 10 liter air bersih untuk setiap kilogram kopi ceri. Air limbah fermentasi ini kaya akan asam organik dan memiliki Biochemical Oxygen Demand (BOD) tinggi. Stasiun olah modern wajib membangun kolam sedimentasi biologis bertingkat (*waste water treatment pond*) agar air dinetralisir sebelum dialirkan kembali ke ekosistem sungai."""
+        },
+        {
+            "id": "les-f4-2",
+            "module_id": "mod-f4",
+            "title": "Olah Kering (Natural / Dry Process): Pengeringan Ceri Utuh & Konsentrasi Gula",
+            "duration_minutes": 10,
+            "order_index": 2,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Mempelajari metode tertua dalam sejarah peradaban kopi: menjemur buah ceri merah utuh langsung di bawah matahari. Memahami difusi gula sukrosa ke dalam biji dan risiko cacat over-fermentasi jika pengeringan lambat.",
+            "key_takeaways": [
+                "Proses Natural menjemur buah ceri utuh bersama kulit dan dagingnya selama 15 hingga 30 hari tanpa kontak mesin pengupas.",
+                "Selama penjemuran lambat, molekul gula sukrosa dan ester dari daging buah berdifusi menembus kulit tanduk ke dalam biji kopi hijau.",
+                "Karakteristik kopi Natural: body sangat tebal (syrupy), tingkat kemanisan tinggi, dan aroma buah matang (blueberry, stroberi, selai buah tropis).",
+                "Membutuhkan pengelolaan penjemuran yang sangat cermat: lapisan ceri harus dibalik berkala agar tidak terserang jamur kapang beracun (Ochratoxin A)."
+            ],
+            "content": r"""# Olah Kering (Natural / Dry Process)
+
+Metode **Natural (Olah Kering)** adalah teknik pengolahan kopi paling purba di muka bumi. Berasal dari dataran kering Ethiopia dan Yaman berabad-abad silam di mana sumber air sangat langka, ceri kopi yang dipetik dijemur langsung di bawah terik matahari tanpa menggunakan air sama sekali.
+
+```
+DIAGRAM ALIR PROSES NATURAL:
+[Ceri Merah Petik Pilihan] ➔ [Sortasi Meja Rambang] ➔ [Penjemuran Ceri Utuh di Raised Bed (15-30 Hari)]
+                                                                  │
+[Green Bean Natural Beraroma Berry] ◄─ [Mesin Dry Huller Kupas Kulit Kering] ◄─ [Ceri Menghitam Kering 11%]
+```
+
+### Biokimia di Balik Pengeringan Ceri Utuh
+Dalam proses Natural, biji kopi tidak pernah dipisahkan dari kulit luar dan daging lendirnya selama fase pengeringan:
+1. **Fase Pengeringan Perlahan (*Slow Desiccation*)**: Buah ceri merah dihamparkan di atas para-para penjemuran (*raised drying beds*). Di bawah terik matahari, kulit ceri perlahan mengerut, menggelap dari merah menjadi ungu tua kehitaman, dan akhirnya mengeras seperti kismis raksasa (*prune-like casing*).
+2. **Difusi Gula & Senyawa Ester**: Saat air menguap secara bertahap, lendir mesokarp yang manis mengental. Molekul gula sukrosa, asam buah, dan senyawa volatil aromatik dari daging ceri berdifusi secara osmosis melintasi dinding selulosa kulit tanduk (*parchment*) dan terserap ke dalam inti biji kopi hijau.
+3. **Fermentasi Seluler Alami**: Di dalam kantung buah yang tertutup kulit, sel-sel tanaman kopi masih hidup selama beberapa hari pertama dan melakukan fermentasi intraseluler sebelum mati kekeringan, memecah asam organik menjadi ester bernuansa buah beri.
+
+### Protokol Penjemuran Kritis
+Penjemuran proses Natural membutuhkan waktu yang jauh lebih lama dibanding Washed: antara **18 hingga 30 hari** tergantung intensitas sinar matahari dan kelembapan udara.
+- **Ketebalan Hamparan**: Di 3 hari pertama, ceri dihamparkan tipis (hanya 1 lapis ceri) agar sirkulasi udara segera mengeringkan permukaan luar dan mencegah tumbuhnya spora jamur.
+- **Pembalikan Berkala**: Ceri wajib dibalik menggunakan garpu kayu setiap 30-45 menit sekali dari pagi hingga sore hari untuk menjamin pengeringan merata di kedua sisi buah.
+- **Penutupan Terpal Malam Hari**: Saat matahari terbenam (sekitar pukul 17.00), seluruh hamparan ceri harus ditutup dengan terpal kedap air untuk melindunginya dari embun dingin malam dan kabut pegunungan. Terpal dibuka kembali keesokan paginya saat terik matahari muncul.
+
+### Profil Organoleptik Cangkir Kopi Natural
+- **Body & Mouthfeel**: Sangat kental, padat, dan membalut rongga mulut seperti sirup (*syrupy, velvety, heavy body*).
+- **Sweetness**: Sangat dominan; rasa manis madu pekat, gula karamel, dan cokelat manis.
+- **Flavor Notes**: Buah-buahan berwarna gelap dan ungu: *blackberry*, *blueberry*, *strawberry jam*, kismis (*raisin*), buah ara kering (*dried fig*), dan mangga matang.
+- **Acidity**: Bersifat bulat dan manis seperti asam pada selai buah (*jammy acidity*), bukan keasaman tajam menusuk.
+
+> [!WARNING]
+> **Risiko Defek Over-Fermentasi & Jamur**: Jika penjemuran terlalu lambat karena cuaca hujan berkepanjangan dan ceri tidak dibalik teratur, ceri akan membusuk dari dalam. Ini menghasilkan defek rasa **Stinker** (bau cuka busuk atau aroma bangkai) dan racun mikotoksin jamur (*Ochratoxin A*). Menghasilkan kopi Natural yang bersih (*Clean Natural*) menuntut dedikasi tenaga kerja yang luar biasa berat."""
+        },
+        {
+            "id": "les-f4-3",
+            "module_id": "mod-f4",
+            "title": "Metode Honey / Pulped Natural: Spektrum Yellow, Red, & Black Honey",
+            "duration_minutes": 10,
+            "order_index": 3,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Memahami metode hibrida yang memadukan kebersihan Washed dan kemanisan Natural: Honey Process (Pulped Natural). Membedah spektrum White, Yellow, Red, hingga Black Honey berdasarkan persentase sisa mucilage dan kecepatan jemur.",
+            "key_takeaways": [
+                "Proses Honey (Pulped Natural) mengupas kulit luar buah, namun membiarkan sebagian atau seluruh lapisan lendir (mucilage) tetap menempel pada biji saat dijemur.",
+                "Nama 'Honey' merujuk pada tekstur lendir kopi yang lengket seperti madu saat dijemur di bawah matahari, bukan karena ditambahkan madu lebah.",
+                "Spektrum Honey ditentukan oleh dua faktor: persentase mucilage yang tersisa dan kecepatan/intensitas pengeringan di bawah sinar matahari.",
+                "Yellow Honey mengering cepat di bawah matahari terik (rasa clean & sitrus), sedangkan Black Honey dijemur sangat lambat di tempat teduh (rasa buah pekat & sirup manis)."
+            ],
+            "content": r"""# Metode Honey / Pulped Natural
+
+Di Kosta Rika dan Brazil pada dekade 1990-an hingga 2000-an, para inovator kopi mencari jalan tengah: *bagaimana cara menghemat air bersih tanpa menghasilkan rasa fermentasi berlebih seperti Natural?* Dari sinilah lahir metode revolusioner: **Pulped Natural** atau yang di dunia specialty populer dengan nama **Honey Process**.
+
+### Mengapa Dinamai "Honey"?
+Banyak konsumen keliru mengira bahwa proses ini menggunakan campuran madu lebah asli. Kata *"Honey"* sebenarnya berasal dari kata bahasa Spanyol: *miel* (lendir/madu). Saat kulit luar dikupas dan biji dijemur, lapisan lendir mesokarp mengering menjadi lapisan kuning keemasan yang sangat lengket menyerupai madu murni.
+
+```
+SPEKTRUM TINGKATAN HONEY PROCESS:
+┌──────────────┬──────────────────┬────────────────────┬─────────────────────┐
+│ Tipe Honey   │ Sisa Mucilage    │ Waktu & Kondisi    │ Profil Rasa Cangkir │
+├──────────────┼──────────────────┼────────────────────┼─────────────────────┤
+│ White Honey  │ 10% - 15%        │ 7 - 10 hari        │ Sangat clean, asam  │
+│              │ (Dicuci mesin)   │ Matahari terik     │ sitrat cerah, mirip │
+│              │                  │                    │ Fully Washed        │
+├──────────────┼──────────────────┼────────────────────┼─────────────────────┤
+│ Yellow Honey │ 25% - 50%        │ 8 - 12 hari        │ Manis buah persik,  │
+│              │                  │ Matahari langsung  │ jeruk mandarin,     │
+│              │                  │ berangin           │ aftertaste karamel  │
+├──────────────┼──────────────────┼────────────────────┼─────────────────────┤
+│ Red Honey    │ 50% - 75%        │ 12 - 18 hari       │ Manis pekat madu,   │
+│              │                  │ Sebagian dinaungi  │ buah strawberry,    │
+│              │                  │ jaring peneduh     │ body bulat          │
+├──────────────┼──────────────────┼────────────────────┼─────────────────────┤
+│ Black Honey  │ 100%             │ 20 - 30 hari       │ Body tebal sirup,   │
+│              │ (Tanpa dicuci)   │ Di tempat teduh    │ selai kismis hitam, │
+│              │                  │ (Slow Drying)      │ cokelat manis pekat │
+└──────────────┴──────────────────┴────────────────────┴─────────────────────┘
+```
+
+### Perbedaan Mekanisme Red Honey vs Black Honey
+1. **Yellow Honey**:
+   - Mesin depulper disetel untuk membuang mayoritas lendir. Biji segera dijemur di para-para terbuka di bawah terik matahari penuh. Biji dibalik sangat sering sehingga mengering cepat dalam waktu sekitar 8 hari.
+   - Hasil: Warna kulit gabah kuning muda keemasan. Karakter rasa sangat jernih (*clean*), keasaman sitrat cerah, dengan sedikit sentuhan manis madu lembut.
+2. **Black Honey**:
+   - Seluruh lendir (100% mucilage) dipertahankan menempel pada biji.
+   - Biji dijemur di bawah naungan jaring peneduh (*shade net*) atau di dalam *greenhouse* berventilasi terkontrol untuk memperlambat penguapan air (*extreme slow drying*).
+   - Selama 20-30 hari, mikroba merombak gula mucilage yang teroksidasi dan terkaramelisasi menjadi lapisan hitam pekat menutupi gabah.
+   - Hasil: Profil rasa yang sangat kaya dan kompleks mendekati karakter Natural, namun dengan kejernihan acidity yang tetap terjaga.
+
+### Mengapa Honey Menjadi Primadona Barista?
+Honey process menawarkan keseimbangan sempurna di meja seduh:
+- Memiliki keasaman buah yang lebih hidup dibanding kopi Natural.
+- Memiliki rasa manis (*sweetness*) dan ketebalan body yang jauh lebih kaya dibanding kopi Fully Washed.
+- Sangat fleksibel diseduh baik dengan V60 manual brew (menghasilkan cangkir floral-fruity beraroma nektar) maupun diekstrak sebagai double espresso (menghasilkan krema padat manis karamel).
+
+> [!TIP]
+> Di Indonesia, sentra penghasil Honey Process terbaik dapat ditemukan di **Temanggung (Arabika Red Honey)**, **Flores Bajawa (Yellow Honey)**, dan **Sumbawa Tambora (Wild Honey)**."""
+        },
+        {
+            "id": "les-f4-4",
+            "module_id": "mod-f4",
+            "title": "Warisan Unik Nusantara: Wet Hulled (Giling Basah) khas Sumatra & Sulawesi",
+            "duration_minutes": 10,
+            "order_index": 4,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Membongkar rahasia metode pasca panen asli Indonesia yang tidak ada duanya di dunia: Giling Basah (Wet Hulled). Memahami mengapa pengupasan kulit tanduk pada kadar air 30-35% menciptakan body tebal legendaris kopi Mandheling & Gayo.",
+            "key_takeaways": [
+                "Giling Basah (Wet Hulled) adalah metode pasca panen tradisional asli kepulauan Nusantara, khususnya Sumatra (Gayo, Mandheling, Lintong) dan Sulawesi (Toraja).",
+                "Perbedaan radikal: pada proses standar dunia, kulit tanduk (parchment) baru dikupas saat biji sudah kering (kadar air 11-12%). Pada Giling Basah, parchment dikupas saat biji masih basah lembap (kadar air 30-35%).",
+                "Pengupasan dalam kondisi basah menyebabkan biji hijau menyerap oksigen dan panas lebih cepat, menghasilkan warna biji hijau kebiruan gelap (blue-green jade).",
+                "Profil organoleptik khas Giling Basah: body luar biasa tebal seperti sirup, keasaman rendah lembut, rasa dark chocolate, kayu manis, cedar, dan sweet herbal."
+            ],
+            "content": r"""# Warisan Unik Nusantara: Giling Basah (Wet Hulled)
+
+Jika Anda bepergian ke negara-negara penghasil kopi di Amerika Tengah atau Afrika, mereka hanya mengenal Washed, Natural, dan Honey. Namun jika Anda datang ke dataran tinggi Sumatra Utara, Aceh Gayo, atau pedalaman Tana Toraja, Anda akan menyaksikan metode pasca panen paling ikonik di dunia: **Giling Basah** (secara internasional dikenal sebagai **Wet Hulled Process**).
+
+### Mengapa Metode Ini Lahir di Indonesia?
+Metode Giling Basah lahir bukan dari laboratorium sains modern, melainkan murni adaptasi brilian petani tradisional terhadap iklim tropis pulau Sumatra:
+- Sumatra memiliki curah hujan sangat tinggi dan cuaca lembap berkabut tebal hampir sepanjang tahun.
+- Menjemur kopi hingga kering sempurna berkadar air 11% (dengan kulit tanduk masih menempel) membutuhkan waktu 2 hingga 3 minggu di bawah terik matahari—kemewahan yang jarang didapat di tengah cuaca hujan harian Sumatra.
+- Petani membutuhkan perputaran uang tunai cepat untuk kebutuhan hidup keluarga. Dengan mengupas kulit tanduk lebih awal saat biji masih basah, pengeringan akhir green bean tanpa kulit tanduk berlangsung **tiga kali lebih cepat** (hanya butuh 2-3 hari penjemuran).
+
+```
+PERBANDINGAN KADAR AIR HULLING:
+Standard Dunia (Washed/Natural): Jemur Gabah s/d 11% ➔ Kupas Parchment (Dry Hulling)
+Giling Basah (Wet Hulled):      Jemur Gabah s/d 30-35% ➔ KUPAS BASAH (Wet Hulling) ➔ Jemur Biji Telanjang s/d 11%
+```
+
+### Tahapan Proses Giling Basah
+
+#### 1. Pengupasan Ceri (*Depulping*) & Fermentasi Semalam
+Ceri merah dikupas menggunakan depulper manual kayu atau mesin kecil di kebun petani. Biji berlendir dimasukkan ke dalam karung goni atau ember plastik dan difermentasikan semalam (10-12 jam) untuk melunakkan lendirnya.
+
+#### 2. Pencucian Singkat & Penjemuran Tahap 1 (*Gabah Basah*)
+Keesokan paginya, biji dibilas air seadanya dan dijemur di halaman rumah petani selama 1 hingga 2 hari saja hingga kadar air turun dari ~50% menjadi sekitar **30% – 35%**. Biji pada fase ini disebut **gabah basah / labu**.
+
+#### 3. Titik Kritis: Pengupasan Basah (*Wet Hulling*)
+Gabah basah berkadar air 30% dibawa ke pedagang pengumpul (*collector/toke*) yang memiliki mesin huller bertenaga diesel besar. Karena biji masih sangat lembek dan lentur, gesekan pisau mesin huller sering membuat ujung biji sedikit terpuntir atau terbelah dua (dikenal di pasar ekspor sebagai bentuk *goat's foot* / kuku kambing).
+
+#### 4. Penjemuran Tahap 2 (*Labu Telanjang*)
+Biji hijau yang sudah telanjang tanpa kulit pelindung dihamparkan langsung di atas terpal di bawah terik matahari. Karena tidak ada lagi penghalang kulit tanduk, penguapan air berlangsung sangat cepat hingga mencapai kadar air aman simpan **12.0%**.
+
+### Perubahan Kimia & Ciri Fisik Biji
+- **Warna Green Bean Giok Kebiruan (*Blue-Green / Jade Color*)**: Biji kopi Washed normal berwarna hijau pucat kekuningan. Biji Giling Basah berwarna hijau gelap kebiruan mengkilap layaknya batu giok. Hal ini disebabkan oleh oksidasi cepat klorofil dan mineral tanah saat biji basah terpapar udara bebas tanpa perlindungan parchment.
+- **Karakter Cangkir di Meja Cupping**:
+  - **Body**: Sangat tebal, berat, membalut rongga mulut layaknya sirup kental (*syrupy, heavy, viscous body*).
+  - **Acidity**: Sangat rendah, lembut, dan bersahabat bagi penderita lambung sensitif.
+  - **Flavor Profile**: Cokelat hitam pekat (*dark cocoa*), kayu cedar (*cedar wood*), rempah manis (*sweet cinnamon*), gula molasses pekat, aroma tembakau pipa, dan kesegaran hutan tropis (*sweet forest earthy notes*).
+
+> [!NOTE]
+> Kopi Giling Basah dari Sumatra (Mandheling, Lintong, dan Gayo) telah memiliki jutaan penggemar fanatik di pasar kopi Amerika Serikat, Jepang, dan Eropa selama lebih dari satu abad. Karakter body-nya yang kokoh menjadikannya komponen legendaris wajib dalam formula campuran espresso (*espresso blend*) roastery terbaik dunia."""
+        },
+        {
+            "id": "les-f4-5",
+            "module_id": "mod-f4",
+            "title": "Era Inovasi Pasca Panen: Anaerobic, Carbonic Maceration, & Co-Fermentation",
+            "duration_minutes": 12,
+            "order_index": 5,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Memasuki era fermentasi presisi modern: Anaerobic Fermentation (fermentasi tanpa oksigen), Carbonic Maceration (adaptasi teknik pembuatan wine Beaujolais dengan injeksi gas CO2), inokulasi ragi khusus, dan kontroversi Co-fermentasi buah segar.",
+            "key_takeaways": [
+                "Fermentasi anaerobik menyegel ceri atau biji kopi di dalam tangki kedap udara dengan katup pelepasan satu arah (airlock) untuk mencegah masuknya oksigen.",
+                "Lingkungan tanpa oksigen menekan bakteri aerobik pembusuk dan memberi ruang dominasi bagi bakteri asam laktat (Lactobacillus), menghasilkan rasa lembut creamy dan ester buah pekat.",
+                "Carbonic Maceration (dipopulerkan Sasa Sestic WBC 2015) menyuntikkan gas karbon dioksida bertekanan ke dalam tangki, memicu fermentasi intraseluler dari dalam buah.",
+                "Co-Fermentasi menambahkan buah segar atau rempah alami ke dalam tangki fermentasi; menuntut transparansi pelabelan etis kepada konsumen."
+            ],
+            "content": r"""# Era Inovasi Pasca Panen: Dari Tradisi ke Sains Presisi
+
+Dalam kurun waktu lima tahun terakhir, panggung kejuaraan barista dunia (*World Barista Championship*) dan meja lelang kopi specialty global dihebohkan oleh satu revolusi: **Eksperimen Fermentasi Presisi**.
+
+Petani dan processor kopi tidak lagi membiarkan fermentasi berjalan acak secara liar di alam bebas. Mereka mengadopsi teknologi biokimia pembuatan wine (*enology*) ke stasiun pengolahan kopi.
+
+```
+ILUSTRASI TANGKI FERMENTASI ANAEROBIK MODERN:
+             ┌─────────────────────────┐
+             │ Katup Airlock 1-Arah     │ ➔ Gas CO2 keluar bebas, oksigen dilarang masuk
+             └────────────┬────────────┘
+     Gas CO2 Bertekanan   │
+   ┌──────────────────────▼──────────────────────┐
+   │ Tangki Stainless Steel / Food-Grade Barrel  │
+   │                                             │
+   │ [ Ceri Merah Pilihan Terendam Jus Mucilage] │
+   │                                             │
+   │ ➔ Populasi Bakteri Asam Laktat & Ragi Aktif │
+   │ ➔ Sensor Digital: Suhu, pH (3.8-4.2), Tekan │
+   └─────────────────────────────────────────────┘
+```
+
+### 1. Anaerobic Fermentation (Fermentasi Anaerobik)
+Pada fermentasi tradisional di bak terbuka, bakteri pembusuk aerobik dan jamur liar berinteraksi bebas dengan oksigen, memicu risiko pembusukan cepat.
+- **Mekanisme**: Ceri utuh (*Anaerobic Natural*) atau biji berkulit tanduk (*Anaerobic Washed*) dimasukkan ke dalam tangki kedap udara (drum plastik food-grade atau tangki stainless steel). Tangki dilengkapi katup udara satu arah (*one-way airlock valve*).
+- **Hasil Biokimia**: Ragi memakan gula dan melepaskan gas CO2. Karena gas CO2 lebih berat dari oksigen, oksigen terdorong keluar melalui katup hingga ruang tangki 100% bebas oksigen.
+- Bakteri asam laktat (*Lactobacillus*) berkembang biak subur, menghasilkan **asam laktat** yang memberikan tekstur rasa creamy lembut layaknya mentega dan yogurt pada seduhan kopi.
+
+### 2. Carbonic Maceration (Maserasi Karbonat)
+Teknik ini dipopulerkan di panggung dunia oleh Sasa Sestic saat memenangkan *World Barista Championship 2015* di Seattle.
+- **Sejarah**: Diadopsi langsung dari teknik fermentasi anggur merah wilayah Beaujolais, Prancis.
+- **Mekanisme**: Ceri kopi utuh dimasukkan ke dalam tangki tertutup rapat, kemudian **gas CO2 murni bertekanan disuntikkan secara artifisial** ke dalam tangki untuk mengusir seluruh udara luar.
+- Tekanan karbon dioksida merangsang pemecahan pektin buah dari dalam sel ceri (*intracellular fermentation*) tanpa merusak kulit luar buah.
+- **Karakter Cangkir**: Menghasilkan cangkir dengan keasaman sparkling bersoda (*effervescent*), aroma anggur merah pekat (*red wine*), permen buah (*bubblegum*), dan pisang matang.
+
+### 3. Inokulasi Ragi Terpilih (*Yeast Inoculation*)
+Alih-alih mengandalkan ragi liar lokal yang jumlahnya tidak menentu, processor profesional menginokulasikan galur ragi khusus yang dibiakkan di laboratorium (seperti *Saccharomyces cerevisiae* jenis Lalcafe Cima atau Oro).
+- Ragi khusus ini bekerja pada rentang suhu terkontrol untuk menghasilkan molekul ester tertentu (misal: isoamil asetat yang beraroma buah pisang dan pir, atau etil heksanoat yang beraroma nanas manis).
+
+### 4. Fenomena Co-Fermentasi (Fruit-Infused Fermentation)
+Sebuah tren paling viral sekaligus memicu perdebatan sengit di kalangan juri kopi specialty:
+- **Praktik**: Processor memasukkan buah segar cincang (seperti nanas madu, buah markisa, strawberry, atau kayu manis) ke dalam tangki anaerobik bersama ceri kopi.
+- Selama berhari-hari, ragi mengonsumsi gula buah tambahan tersebut dan menginfusikan minyak esensial aromatik buah ke dalam struktur pori biji kopi hijau.
+- **Perdebatan Etis**: Asosiasi kopi mewajibkan **transparansi mutlak**. Roaster dilarang keras menjual kopi co-fermentasi seolah-olah rasa buah tersebut berasal dari keajaiban terroir alami kebun. Label wajib mencantumkan secara jujur: *"Co-Fermented with Fresh Passionfruit"*.
+
+> [!TIP]
+> Kopi anaerobik dan maserasi karbonat memiliki densitas kimia yang unik. Di meja seduh manual, gunakan air dengan suhu sedikit lebih rendah (**88°C – 90°C**) dan gilingan sedikit lebih kasar agar aroma alkohol anggur manisnya tetap elegan tanpa berubah menjadi pahit fermentasi tajam."""
+        },
+
+        # === MODUL F-5: ROASTING SCIENCE FUNDAMENTALS ===
+        {
+            "id": "les-f5-1",
+            "module_id": "mod-f5",
+            "title": "Termodinamika Roasting: Konduksi, Konveksi, Radiasi, & Anatomi Mesin Drum",
+            "duration_minutes": 10,
+            "order_index": 1,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Membongkar sains fisika pemanggangan kopi: 3 mode perpindahan panas (Konduksi, Konveksi, Radiasi), anatomi drum roaster komersial, peran airflow udara panas, dan pemantauan sensor probe termokopel.",
+            "key_takeaways": [
+                "Roasting kopi adalah proses termodinamika di mana biji kopi hijau mentah diubah menjadi biji aromatik rapuh melalui transfer energi panas terkontrol.",
+                "Tiga mode transfer panas: Konduksi (kontak langsung dengan dinding drum logam), Konveksi (aliran udara panas melalui exhaust fan), dan Radiasi (emisi gelombang panas inframerah).",
+                "Mesin drum roaster specialty modern mengandalkan 70-80% panas konveksi udara untuk mencegah biji gosong lokal (scorching/facing).",
+                "Probe termokopel membaca Bean Temperature (BT), Environmental Temperature (ET), dan laju kecepatan kenaikan suhu (Rate of Rise / RoR)."
+            ],
+            "content": r"""# Termodinamika Roasting & Anatomi Drum Roaster
+
+Roasting (pemanggangan) bukan sekadar memanaskan biji kopi hingga berubah warna cokelat. Roasting adalah penerapan hukum termodinamika presisi tinggi untuk membuka potensi rasa kimiawi yang terkunci di dalam biji kopi hijau mentah.
+
+### 3 Mode Perpindahan Panas (Heat Transfer)
+Di dalam drum roaster kopi, transfer panas berlangsung melalui tiga mekanisme fisika simultan:
+
+```
+TIGA MEKANISME TRANSFER PANAS DI DRUM ROASTER:
+1. KONDUKSI ➔ Biji menyentuh dinding drum besi baja panas secara fisik.
+2. KONVEKSI ➔ Aliran udara panas (airflow) ditarik melintasi celah butiran biji.
+3. RADIASI  ➔ Gelombang elektromagnetik panas dari burner pemanas & dinding drum.
+```
+
+1. **Konduksi (*Conduction*)**:
+   - Terjadi ketika biji kopi bersentuhan langsung dengan dinding drum logam yang berputar atau bersentuhan satu sama lain.
+   - Bersifat transfer panas lambat. Jika panas konduksi terlalu dominan atau drum berputar terlalu lambat, permukaan luar biji akan hangus bercak hitam lokal sebelum bagian dalamnya matang (*Scorching / Facing Defect*).
+2. **Konveksi (*Convection*)**:
+   - Panas yang dihantarkan oleh aliran fluida udara panas (*airflow*) yang ditarik oleh blower/exhaust fan melewati celah-celah biji yang melayang di dalam drum.
+   - Konveksi adalah metode transfer panas paling efisien, seragam, dan bersih. Drum roaster specialty modern (seperti Probat, Diedrich, Giesen, atau Suji) dirancang untuk memaksimalkan rasio konveksi hingga **70% – 80%**.
+3. **Radiasi (*Radiation*)**:
+   - Energi panas yang dipancarkan dalam bentuk gelombang inframerah dari burner api dan dinding drum roaster ke pusat tumpukan biji.
+
+### Anatomi Mesin Drum Roaster Komersial
+Sebuah mesin drum roaster profesional tersusun atas komponen vital berikut:
+- **Hopper**: Corong atas tempat menakar green bean sebelum dimasukkan ke dalam drum.
+- **Rotating Drum**: Tabung silinder berputar dari besi cor (*cast iron*) atau baja ganda (*double-walled steel*) yang dilengkapi sirip pengaduk spiral (*flighting blades*) agar biji terus teraduk konstan.
+- **Burner (Sumber Panas)**: Pemanas berbasis gas LPG/alam bertekanan dengan kontrol jarum mikrometer presisi (*gas pressure gauge*), atau elemen inframerah.
+- **Airflow Fan & Damper**: Kipas pengisap dan katup ventilasi untuk mengatur volume aliran udara panas yang melintasi drum dan membuang asap serta kulit ari (*chaff*).
+- **Cyclone Chaff Collector**: Tabung pemisah sentrifugal di luar drum untuk mengumpulkan sekam kulit ari agar tidak terbakar dan menimbulkan asap pekat.
+- **Cooling Tray**: Nampan pendingin melingkar di bagian depan mesin yang dilengkapi pengaduk mekanis dan hisapan kipas bawah berdaya raksasa untuk mendinginkan biji kopi dari suhu 200°C ke suhu ruang (< 30°C) dalam waktu **kurang dari 4 menit** demi menghentikan proses pematangan termal seketika.
+
+### Instrumen Sensor Probe: Membaca Grafik Roasting
+Roaster modern menghubungkan mesin ke software digital (seperti *Artisan* atau *Cropster*):
+- **Bean Temperature (BT)**: Probe termokopel yang terbenam di dalam pusaran tumpukan biji kopi untuk membaca suhu aktual biji.
+- **Environmental / Air Temperature (ET)**: Probe yang membaca suhu udara panas di ruang drum di atas biji.
+- **Rate of Rise (RoR)**: Kecepatan kenaikan suhu biji kopi per menit (°C/menit). RoR adalah setir kendali roaster: RoR yang menurun mulus tanpa patahan (*smooth declining RoR*) adalah tanda kematangan rasa yang merata dan manis."""
+        },
+        {
+            "id": "les-f5-2",
+            "module_id": "mod-f5",
+            "title": "Kimia Fase Sangrai: Drying, Reaksi Maillard, Karamelisasi, & First Crack",
+            "duration_minutes": 12,
+            "order_index": 2,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Menyelami transformasi kimia molekuler selama pemanggangan kopi: Fase Pengeringan (Drying), Reaksi Pencokelatan Maillard, Karamelisasi Sukrosa, ledakan fisik First Crack, dan pembentukan senyawa volatil aroma.",
+            "key_takeaways": [
+                "Roasting dibagi menjadi 3 fase utama: Fase Pengeringan (Drying Phase), Fase Maillard (Browning Phase), dan Fase Pengembangan (Development Phase pasca First Crack).",
+                "Reaksi Maillard terjadi antara asam amino dan gula pereduksi pada suhu 130°C - 160°C, melahirkan ratusan senyawa volatil aroma (pirazin, furan) dan melanoidin pembentuk body.",
+                "Karamelisasi sukrosa dimulai sekitar 160°C - 170°C, mengubah rasa manis sederhana menjadi rasa manis kompleks (karamel, toffee, gula aren).",
+                "First Crack adalah fenomena fisika di mana tekanan uap air dan gas CO2 di dalam sel biji memecahkan struktur dinding selulosa, ditandai suara letupan mirip popcorn."
+            ],
+            "content": r"""# Kimia Fase Sangrai: Menyingkap Misteri First Crack
+
+Biji kopi hijau mentah (*green bean*) memiliki rasa yang sangat tidak enak: keras seperti batu, hambar, pahit bergetah, dan berbau rumput basah. Di dalam mesin roaster, biji tersebut mengalami serangkaian reaksi kimia organik paling rumit di industri pangan.
+
+```
+KURVA TIMELINE ROASTING STANDAR:
+Suhu (°C)
+210°C ────────────────────────────────────────────────────────── [ DROP / FINISH ]
+                                                   / (Fase Development 15-20%)
+196°C ────────────────────────────────── [ FIRST CRACK ] (Pop! Pop!)
+                                       /
+160°C ─────────────── [ YELLOWING ]  / (Fase Maillard & Karamelisasi)
+                     / (Reaksi Pencokelatan)
+100°C ── [ DRYING ] / (Penguapan Air)
+       \           /
+ 70°C ── [ TURNING POINT ] (Titik Balik Panas ~1 Menit)
+       0        2        4        6        8        10       12 Waktu (Menit)
+```
+
+### 1. Turning Point & Fase Pengeringan (*Drying Phase / Suhu Awal – 150°C*)
+- **Turning Point**: Saat green bean dingin bersuhu ruang (25°C) dimasukkan ke dalam drum yang telah dipanaskan hingga 190°C, suhu probe BT akan turun drastis. Titik terendah sebelum suhu mulai merangkak naik kembali disebut *Turning Point* (biasanya tercapai pada menit 0:45 – 1:15).
+- **Penguapan Air Bebas**: Green bean mengandung 10-12% air. Pada fase ini, energi panas digunakan untuk menguapkan air bebas di dalam matriks seluler biji. Biji berubah warna dari hijau giok menjadi kuning pucat (*Yellowing*), mengeluarkan aroma mirip jerami basah atau roti gandum panggang.
+
+### 2. Fase Maillard (*Browning Phase / Suhu 130°C – 160°C*)
+Reaksi Maillard adalah reaksi pencokelatan non-enzimatik paling krusial dalam keilmuan kuliner:
+- **Mekanisme**: Gugus amina bebas dari asam amino dan protein bereaksi dengan gugus karbonil dari gula pereduksi.
+- **Hasil Kimiawi**: Terbentuk ratusan senyawa volatil aroma baru:
+  - **Pirazin**: Memberikan aroma gurih kacang panggang (*roasted hazelnut/almond*).
+  - **Furan**: Memberikan sensasi aroma karamel dan manis panggangan.
+  - **Melanoidin**: Pigmen makromolekul berwarna cokelat yang bertanggung jawab langsung atas ketebalan body (*mouthfeel*) dan kestabilan busa krema espresso.
+
+### 3. Fase Karamelisasi Sukrosa (*Caramelization / Suhu 160°C – 195°C*)
+Berbeda dengan Maillard yang melibatkan protein, karamelisasi murni adalah degradasi termal molekul gula karbohidrat (sukrosa):
+- Sukrosa meleleh dan terurai menjadi senyawa rantai pendek yang kaya rasa: diasetil (aroma mentega gurih), maltol (aroma gula panggang), dan furanon.
+- Jika fase ini dipanjangkan secara terencana, kopi akan memiliki tingkat kemanisan (*sweetness*) yang sangat legit seperti gula aren atau toffee.
+
+### 4. Fenomena Fisika First Crack (*Ledakan Retakan Pertama / ~196°C*)
+Saat suhu melampaui 190°C, tekanan uap air super-panas dan penumpukan gas karbon dioksida ($CO_2$) di dalam mikropori biji meningkat hingga mencapai **20 hingga 25 atmosfer**:
+- Struktur dinding selulosa biji yang kaku tidak lagi mampu menahan tekanan gas internal.
+- Dinding sel pecah secara serempak, melepaskan suara letupan renyah yang terdengar jelas di luar drum roaster: *"Pop!.. Pop!.. Tak!.."* mirip suara jagung meletup menjadi popcorn.
+- **Perubahan Fisik**: Biji kopi membengkak hingga hampir dua kali lipat ukuran aslinya (*volumetric expansion*), kerapatannya menyusut, permukaan biji menghalus, dan saluran belahan tengah biji terbuka melepaskan sekam perak (*chaff*).
+
+### 5. Fase Pengembangan (*Development Phase pasca First Crack*)
+Rentang waktu dari detik pertama First Crack terdengar hingga tuas drum dibuka untuk mengeluarkan biji (*Drop*) disebut **Development Time**:
+- Parameter ini dihitung sebagai **Development Time Ratio (DTR)**: persentase durasi development terhadap total waktu roasting (standar specialty berkisar antara **14% hingga 20%**).
+- Di fase inilah roaster memutuskan takdir cangkir: menghentikannya segera untuk profil *Light Roast* berkarakter floral-buah, atau membiarkannya bergulir lebih jauh menuju *Medium Roast* berkarakter cokelat-karamel.
+
+> [!TIP]
+> Roasting yang gagal mengembangkan fase ini dengan matang (*under-developed*) akan meninggalkan rasa asam mentah berumput (*grassy/vegetative*); sedangkan membiarkannya terpanggang tanpa kenaikan panas yang cukup akan membuat kopi terasa hambar seperti roti tawar kering (*baked defect*)."""
+        },
+        {
+            "id": "les-f5-3",
+            "module_id": "mod-f5",
+            "title": "Spektrum Profil Roasting: Light, Medium, Dark Roast & Skala Agtron",
+            "duration_minutes": 10,
+            "order_index": 3,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Memahami spektrum derajat pemanggangan: Light Roast (Cinnamon/City), Medium Roast (City+/Full City), hingga Dark Roast (French/Italian). Mempelajari standarisasi warna objektif menggunakan skala Agtron spektrofotometri.",
+            "key_takeaways": [
+                "Tingkat kematangan roasting menggeser keseimbangan rasa: Light roast menonjolkan keasaman asal kebun; Dark roast menonjolkan kepahitan karamelisasi dan arang roaster.",
+                "Second Crack terjadi pada suhu ~225°C di mana struktur selulosa karbon terbakar rapuh dan minyak lipid terdorong keluar ke permukaan biji.",
+                "Skala Agtron (SCA Roast Color Classification System) menggunakan pantulan cahaya inframerah untuk mengukur warna biji kopi bubuk secara objektif (skala angka 0 hingga 100).",
+                "Kopi filter manual brew ideal disangrai pada rentang Light hingga Medium-Light (Agtron 70 - 85), sedangkan espresso ideal pada Medium (Agtron 55 - 65)."
+            ],
+            "content": r"""# Spektrum Profil Roasting & Skala Agtron
+
+Dalam dunia kopi komersial zaman dulu, penentuan tingkat sangrai hanya didasarkan pada perkiraan visual mata roaster (*"oh, warnanya sudah cokelat gelap"*). Di industri modern berstandar SCA, penentuan derajat sangrai (*Roast Degree*) diukur secara ilmiah menggunakan spektrofotometer inframerah bernama **Skala Agtron**.
+
+```
+SPEKTRUM TINGKAT SANGRAI & PERGESERAN RASA:
+[ LIGHT ROAST ] ─────────────── [ MEDIUM ROAST ] ─────────────── [ DARK ROAST ]
+Asam Buah Alami Tinggi            Keseimbangan Asam-Manis-Pahit     Pahit Arang Dominan
+Body Ringan Teh                   Body Bulat Halus                  Body Tebal Berminyak
+Aroma Bunga & Buah Origin         Aroma Cokelat & Karamel           Aroma Asap & Gosong
+Agtron Biji: 80 - 95              Agtron Biji: 55 - 75              Agtron Biji: 30 - 45
+```
+
+### Spektrum Derajat Pemanggangan:
+
+#### 1. Light Roast (Cinnamon to City Roast)
+- **Suhu Drop**: Dikeluarkan sesaat setelah First Crack reda (sekitar 200°C – 205°C).
+- **Ciri Fisik**: Biji berwarna cokelat terang kayu manis, kering tanpa kilap minyak, kerutan permukaan masih terlihat.
+- **Karakter Cangkir**: Menonjolkan 100% potensi genetik origin tanah kebun: keasaman sitrat/malat cerah, aroma bunga segar, buah beri, teh bergamot, dengan body ringan seperti teh herbal.
+- **Peruntukan**: Sangat ideal untuk seduhan manual (*filter pour-over* V60, Chemex, Kalita).
+
+#### 2. Medium Roast (City+ to Full City Roast)
+- **Suhu Drop**: Biji dipanggang melampaui First Crack, tepat sebelum letupan Second Crack dimulai (sekitar 210°C – 215°C).
+- **Ciri Fisik**: Biji berwarna cokelat tua kemerahan seimbang, permukaan kering atau hanya menunjukkan bintik mikroskopis minyak.
+- **Karakter Cangkir**: Titik temu harmoni paling disukai: keasaman buah mereda menjadi manis lembut, pembentukan karamel sukrosa mencapai puncaknya, aroma kakao dan hazelnut menguat, serta body menjadi bulat kental (*round medium body*).
+- **Peruntukan**: Sangat serbaguna untuk espresso modern, Aeropress, dan kopi filter berbody padat.
+
+#### 3. Dark Roast (Full City+ to French / Italian Roast)
+- **Suhu Drop**: Biji didorong melewati **Second Crack** (suhu 225°C ke atas).
+- **Ciri Fisik**: Biji berwarna cokelat sangat gelap kehitaman, permukaan basah berkilap tertutup lapisan minyak lipid yang bocor keluar, struktur biji sangat rapuh dan mudah remuk dengan jari.
+- **Karakter Cangkir**: Seluruh karakter asam buah dan floral origin telah hancur terbakar panas. Rasa cangkir didominasi oleh senyawa pirolitik: pahit pekat arang (*ashy*), cokelat hitam 99%, kayu berasap (*smoky*), dan rasa karamel hangus.
+- **Peruntukan**: Resep tradisional kopi tubruk pekat, espresso blend klasik Italia, atau menu kopi susu yang membutuhkan rasa pahit kuat untuk menembus manisnya kental manis.
+
+### Standar Warna Agtron (SCA Roast Color Kit)
+Untuk menghilangkan perdebatan subjektif, SCA menetapkan standar **Agtron** berbasis pengukuran spektrometri reflektansi inframerah:
+1. Sampel biji sangrai digiling dengan tingkat kehalusan spesifik, diratakan di cawan ukur, dan ditembak sinar inframerah panjang gelombang 850 nm.
+2. Skala angka Agtron berkisar dari **0 (arang hitam pekat)** hingga **100 (biji sangat terang belum matang)**.
+
+| Skala Agtron (Ground) | Kategori Nama Roast | Karakter Rasa Utama |
+|---|---|---|
+| **> 85** | Very Light / Cinnamon | Sangat asam, grassy, buah mentah |
+| **75 – 85** | Light / City | Asam buah tinggi, floral jernih, body teh |
+| **65 – 74** | Medium-Light / City+ | Manis buah, seimbang, asam lembut |
+| **55 – 64** | Medium / Full City | Karamel, cokelat susu, body bulat |
+| **45 – 54** | Medium-Dark / Full City+ | Cokelat pahit, rempah pedas, body tebal |
+| **< 40** | Dark / French / Italian | Arang gosong, pahit tajam, berminyak |
+
+> [!TIP]
+> Mengapa kopi sangrai gelap (*Dark Roast*) cepat sekali basi dan berbau tengik? Karena saat Second Crack memecahkan dinding sel biji, minyak lipid alami kopi bocor ke permukaan luar dan langsung terpapar oksigen udara, memicu reaksi oksidasi lipid (ranciditas) hanya dalam hitungan hari."""
+        },
+        {
+            "id": "les-f5-4",
+            "module_id": "mod-f5",
+            "title": "Pasca Roasting: Kinetika Degassing Emisi CO2, Oksidasi Lipid, & Waktu Resting",
+            "duration_minutes": 10,
+            "order_index": 4,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Memahami fenomena krusial pasca pemanggangan: desorpsi emisi gas karbon dioksida (Degassing), fungsi katup satu arah (degassing valve) pada kantong kemasan, serta tabel rekomendasi waktu istirahat (Resting Period) untuk seduh filter vs mesin espresso.",
+            "key_takeaways": [
+                "Biji kopi yang baru keluar dari roaster drum terperangkap hingga 10 liter gas CO2 per kilogram kopi.",
+                "Menyeduh kopi yang terlalu segar (freshly roasted < 48 jam) menghasilkan ekstraksi yang kacau dan rasa kering astringent akibat turbulensi gelembung gas CO2 yang memblokir kontak air dengan bubuk.",
+                "Katup satu arah (One-Way Degassing Valve) pada kemasan kopi berfungsi mengeluarkan gas CO2 internal tanpa membiarkan oksigen luar masuk.",
+                "Waktu resting ideal: 5 - 7 hari untuk seduhan manual pour-over filter; dan 10 - 18 hari untuk kalibrasi mesin espresso komersial."
+            ],
+            "content": r"""# Pasca Roasting: Kimia Degassing & Seni Resting
+
+Banyak orang awam mengira bahwa semakin segar kopi diseduh—misalnya kopi yang baru 1 jam keluar dari drum roaster—maka rasanya akan semakin lezat. **Ini adalah kesalahpahaman fatal.**
+
+Kopi yang baru saja disangrai belum siap untuk diseduh. Ia membutuhkan waktu istirahat biokimia yang dikenal sebagai **Resting Period**.
+
+```
+KINETIKA EMISI GAS CO2 & FASE KENIKMATAN TERBAIK (RESTING TIMELINE):
+Emisi Gas CO2 (Tinggi)
+▲
+│ █ 
+│ ███ ➔ Fase Terlalu Segar (< 3 Hari): Rasa kering bersoda, ekstraksi terganggu gas
+│ █████
+│ ████████ ➔ [ JENDELA RASA TERBAIK / PEAK FLAVOR WINDOW: HARI KE-7 S/D KE-28 ]
+│ ███████████   Gas stabil, rasa manis dan aroma floral terbuka maksimal
+│ ████████████████ ➔ Fase Oksidasi (> 45 Hari): Biji mulai kehilangan aroma volatil
+└─────────────────────────────────────────────────────────────► Waktu Simpan (Hari)
+```
+
+### Kinetika Degassing: Pelepasan Gas $CO_2$
+Selama reaksi termal pirolisis First Crack dan Karamelisasi, terbentuk sejumlah masif gas **Karbon Dioksida ($CO_2$)** dan senyawa aromatik volatil di dalam matriks selulosa berpori biji kopi. Dalam 1 kilogram biji kopi yang baru disangrai, terkandung hingga **8 sampai 12 liter gas $CO_2$**.
+
+Setelah biji didinginkan, gas ini mulai berdifusi keluar dari mikropori secara perlahan—sebuah fenomena kinetika gas yang disebut **Degassing**:
+- Laju emisi degassing berlangsung sangat agresif pada **24 hingga 72 jam pertama**.
+- Emisi gas kemudian melandai stabil selama beberapa minggu berikutnya.
+
+### Mengapa Kopi Terlalu Segar Menghasilkan Rasa Buruk?
+Jika Anda memaksakan diri menyeduh kopi yang baru disangrai kemarin:
+1. **Di Meja Seduh Filter (V60)**: Saat air panas menyentuh bubuk, gas $CO_2$ keluar meledak-ledak membentuk kubah blooming busa kasar yang tak terkendali. Gelembung gas ini menciptakan lapisan pelindung (*barrier*) yang menghalangi air menyentuh permukaan partikel bubuk secara merata. Hasilnya adalah ekstraksi yang tidak seragam (*channeling*) dengan rasa asam tajam kering yang menusuk tenggorokan.
+2. **Di Mesin Espresso**: Tekanan 9 bar memampatkan gas $CO_2$ ke dalam cairan. Hasilnya adalah krema yang sangat tebal berbusa gelembung besar (*fizzy foam*) mirip busa minuman bersoda yang pecah dan lenyap dalam waktu 30 detik, menyisakan cairan espresso yang berasa sangat pahit pedas dan hambar.
+
+### Fungsi Katup Satu Arah (*One-Way Degassing Valve*)
+Jika Anda melihat bulatan kecil berlubang jarum di bagian depan kantong kemasan kopi specialty:
+- Katup ini bukan untuk Anda pencet dan cium aromanya di rak toko!
+- Katup ini mengandung membran diafragma karet elastis satu arah (*one-way valve*).
+- **Fungsi Utama**: Membiarkan desakan gas $CO_2$ dari dalam kantong keluar agar kantong tidak meledak kembung seperti balon; sekaligus **menghalangi 100% molekul gas oksigen ($O_2$) dari luar agar tidak masuk** ke dalam kemasan dan membuat minyak kopi teroksidasi tengik.
+
+### Tabel Panduan Resting Ideal CherryEdu
+
+| Metode Penyeduhan | Waktu Resting Minimal | Rentang Waktu Terbaik (*Peak Flavor*) |
+|---|---|---|
+| **Manual Brew (V60, Chemex, Kalita)** | 5 – 7 hari | Hari ke-7 hingga Hari ke-28 pasca sangrai |
+| **Aeropress & French Press** | 4 – 5 hari | Hari ke-5 hingga Hari ke-25 pasca sangrai |
+| **Espresso Single Origin Light-Med** | 10 – 14 hari | Hari ke-12 hingga Hari ke-35 pasca sangrai |
+| **Espresso Blend Komersial Medium** | 7 – 10 hari | Hari ke-10 hingga Hari ke-30 pasca sangrai |
+| **Kopi Tubruk Tradisional** | 3 – 5 hari | Hari ke-5 hingga Hari ke-20 pasca sangrai |
+
+> [!IMPORTANT]
+> **Penyimpanan yang Benar**: Simpan biji kopi di tempat sejuk, kering, terhindar dari paparan sinar matahari langsung, dan di dalam wadah kedap udara bersuhu ruang (18°C – 24°C). Jangan pernah menyimpan biji kopi di dalam kulkas (*chiller*) rumah karena kelembapan dingin dan bau makanan kulkas akan diserap oleh pori-pori biji kopi."""
+        },
+
+        # === MODUL F-6: WATER SCIENCE FOR COFFEE ===
+        {
+            "id": "les-f6-1",
+            "module_id": "mod-f6",
+            "title": "Kimia Pelarut Ekstraksi: Mengapa Air Menyusun 98.5% Secangkir Kopi",
+            "duration_minutes": 10,
+            "order_index": 1,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Memahami fakta mendasar ekstraksi: secangkir kopi filter terdiri atas 98.5% air dan hanya 1.5% padatan kopi terlarut (TDS). Mempelajari struktur molekul polar air (H2O) dan mengapa air adalah pelarut universal bagi rasa kopi.",
+            "key_takeaways": [
+                "Secangkir kopi filter seduh manual tersusun atas 98.5% - 98.8% air murni; bahkan espresso kental sekalipun mengandung 88% - 90% air.",
+                "Air (H2O) adalah molekul polar dengan muatan positif parsial pada atom Hidrogen dan muatan negatif parsial pada atom Oksigen, menjadikannya pelarut polar yang luar biasa kuat.",
+                "Air murni tanpa mineral (seperti air murni distilasi atau pure RO 0 ppm) adalah pelarut yang buruk karena tidak memiliki kation mineral untuk mengikat senyawa rasa beraroma.",
+                "Kualitas secangkir kopi ditentukan sama kuatnya oleh komposisi kimia air yang Anda tuangkan ke dalam ketel seduh."
+            ],
+            "content": r"""# Kimia Pelarut: Mengapa Air Menyusun 98.5% Kopi
+
+Anda bisa membeli biji kopi juara dunia termahal berharga jutaan rupiah, menggilingnya dengan grinder presisi seharga puluhan juta, dan menyeduhnya dengan corong Hario V60 titanium. Namun jika air yang Anda gunakan berasal dari kran sumur berbau besi atau air isi ulang murah tanpa mineral seimbang, seduhan Anda akan berasa datar, hambar, atau pahit mengeringkan lidah.
+
+### Anatomi Komposisi Secangkir Kopi
+Mari kita bedah secara matematis apa isi cairan di dalam cangkir kopi Anda:
+
+```
+KOMPOSISI CAIRAN SECANGKIR KOPI:
+┌─────────────────────────────────────────────────────────────┐
+│ AIR SEDUH (SOLVENT / PELARUT)                               │
+│ [ 98.5% – 98.8% ]                                           │
+│ Molekul H2O + Kation Ca2+, Mg2+, Anion Bikarbonat HCO3-     │
+├─────────────────────────────────────────────────────────────┤
+│ SENYAWA KOPI TERLARUT (TDS / SOLUTE)                        │
+│ [ Hanya 1.2% – 1.5% ]                                       │
+│ Asam organik, kafein, lipid, trigonelin, sukrosa, karamel   │
+└─────────────────────────────────────────────────────────────┘
+```
+
+Bahkan pada secangkir **espresso** kental yang berkrema tebal sekalipun, kandungan airnya masih mencapai **88% hingga 92%**; sisanya 8-12% adalah padatan terlarut (*Total Dissolved Solids* / TDS).
+
+### Fisika Molekul Air: Sang Pelarut Polar
+Molekul air ($H_2O$) tersusun atas satu atom oksigen yang berikatan kovalen dengan dua atom hidrogen pada sudut ikatan **104.5°**.
+- Karena atom oksigen memiliki keelektronegatifan yang jauh lebih tinggi dibanding hidrogen, elektron ikatan tertarik lebih dekat ke arah oksigen.
+- Ini menciptakan **momen dipol permanen**: sisi oksigen memiliki muatan negatif parsial ($\delta^-$), sedangkan sisi kedua hidrogen memiliki muatan positif parsial ($\delta^+$).
+
+Struktur dipol polar ini menjadikan air sebagai **"Pelarut Universal"** (*Universal Solvent*):
+- Sisi positif hidrogen menarik senyawa bermuatan negatif pada kopi (seperti asam sitrat, asam malat, dan asam klorogenat).
+- Sisi negatif oksigen menarik senyawa bermuatan positif.
+
+### Mitos Air Murni: Mengapa Air 0 PPM / Distilasi Gagal?
+Banyak barista pemula beranggapan: *"Jika air kran kotor itu buruk, maka air paling murni di dunia (Air Demineral / Distilasi Murni / Pure Reverse Osmosis 0 ppm) pastilah yang terbaik!"*
+
+Ini adalah anggapan yang keliru secara kimia ekstraksi:
+- Air murni dengan TDS 0 ppm memang sangat lapar, tetapi ia **tidak memiliki kation mineral bermuatan ganda** (seperti Kalsium $Ca^{2+}$ dan Magnesium $Mg^{2+}$).
+- Tanpa ion mineral ini, air murni gagal mengikat senyawa rasa yang memiliki berat molekul tinggi (seperti senyawa aromatik buah dan karamel).
+- Hasil seduhan dengan air 0 ppm: kopi akan terasa sangat asam tajam menusuk, kopong di tengah (*hollow*), kehilangan body manis, dan meninggalkan rasa getir hambar di belakang tenggorokan.
+
+> [!IMPORTANT]
+> **Kunci Sukses Barista**: Menyeduh kopi bukan sekadar membasahi bubuk, melainkan proses ekstraksi selektif di mana ion-ion mineral terlarut di dalam air bertindak sebagai "tangan perekat mikroskopis" yang mencengkeram senyawa rasa lezat dari pori bubuk kopi dan membawanya larut ke dalam cangkir."""
+        },
+        {
+            "id": "les-f6-2",
+            "module_id": "mod-f6",
+            "title": "Parameter Kritis Air Standar SCA: TDS, Total Hardness, Alkalinitas, & pH",
+            "duration_minutes": 12,
+            "order_index": 2,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Membedah standar resmi kualitas air Specialty Coffee Association (SCA Water Standard): Total Dissolved Solids (TDS), Total Hardness (Kekerasan Total), Alkalinity Buffer, dan pH balance untuk mencegah kerak mesin dan ekstraksi optimal.",
+            "key_takeaways": [
+                "Standar Emas Air Seduh SCA: TDS 75 - 250 ppm (Target ideal: 150 ppm), pH 6.5 - 7.5 (Target ideal: 7.0 netral).",
+                "Total Hardness (Kekerasan Total) mengukur konsentrasi kation kalsium dan magnesium yang bertugas menarik senyawa rasa (Target: 50 - 175 ppm CaCO3).",
+                "Alkalinitas (Alkalinity Buffer) mengukur konsentrasi anion bikarbonat (HCO3-) yang bertindak sebagai penyangga asam (Target: 40 - 75 ppm CaCO3).",
+                "Jika alkalinitas terlalu tinggi (> 100 ppm), seluruh keasaman buah alami kopi akan dinetralkan menjadi hambar seperti kapur; jika terlalu rendah (< 20 ppm), kopi akan berasa asam cuka tajam."
+            ],
+            "content": r"""# Parameter Kritis Air Standar SCA
+
+Untuk memastikan kompetisi seduh dan evaluasi cupping di seluruh dunia memiliki standar rasa yang seragam, *Specialty Coffee Association* (SCA) merumuskan panduan ilmiah spesifikasi air seduh (**SCA Water Quality Standard**).
+
+```
+STANDAR EMAS AIR SEDUH KOPI SCA:
+┌───────────────────────────────┬─────────────────────────┬─────────────────────────┐
+│ Parameter Air                 │ Rentang yang Diterima   │ Target Emas Ideal (SCA) │
+├───────────────────────────────┼─────────────────────────┼─────────────────────────┤
+│ Bau & Kejernihan              │ Bebas bau, jernih total │ Bebas klorin (0 mg/L)   │
+│ Total Dissolved Solids (TDS)  │ 75 – 250 mg/L (ppm)     │ 150 mg/L (ppm)          │
+│ Total Hardness (Kekerasan)    │ 50 – 175 ppm CaCO3      │ 68 mg/L (~4° dGH)       │
+│ Alkalinity (Kapasitas Buffer) │ 40 – 75 ppm CaCO3       │ 40 mg/L (~2.2° dKH)     │
+│ Tingkat Keasaman (pH)         │ 6.5 – 8.0               │ 7.0 (Netral Sempurna)   │
+│ Natrium (Sodium / Na+)        │ 5 – 30 mg/L             │ 10 mg/L                 │
+└───────────────────────────────┴─────────────────────────┴─────────────────────────┘
+```
+
+### Membedah 4 Parameter Kunci:
+
+#### 1. Total Dissolved Solids (TDS / Satuan: ppm atau mg/L)
+TDS adalah ukuran total seluruh mineral anorganik, garam, dan logam yang terlarut di dalam air:
+- Diukur secara instan menggunakan konduktivitas listrik (*EC Meter*).
+- **TDS Terlalu Rendah (< 50 ppm)**: Ekstraksi agresif tidak terkontrol namun miskin rasa, asam tajam menusuk, body tipis.
+- **TDS Terlalu Tinggi (> 300 ppm)**: Air sudah "penuh sesak" oleh mineral bawaan sehingga ruang kosong untuk melarutkan rasa kopi sangat terbatas. Ekstraksi menjadi mampat (*under-extracted*), berasa kotor, berkapur, dan merusak elemen pemanas mesin espresso dengan kerak kapur tebal.
+
+#### 2. Total Hardness (Kekerasan Total / Satuan: ppm $CaCO_3$ atau °dGH)
+Total Hardness adalah konsentrasi gabungan ion logam divalen bermuatan $+2$, terutama **Kalsium ($Ca^{2+}$)** dan **Magnesium ($Mg^{2+}$)**:
+- Ion-ion inilah yang bertindak sebagai "cakar ekstraksi" untuk menarik asam buah, sukrosa, dan minyak aromatik dari bubuk kopi.
+- Kekerasan ideal berada di kisaran **60 – 120 ppm**.
+
+#### 3. Alkalinitas / Buffer Asam (Satuan: ppm $CaCO_3$ atau °dKH)
+Ini adalah parameter kimiawi yang paling sering disalahpahami oleh barista. Alkalinitas **BUKANLAH** pH air!
+- **Alkalinitas** adalah kapasitas kemampuan air untuk menetralkan asam (*acid-buffering capacity*), yang terutama ditentukan oleh konsentrasi ion **Bikarbonat ($HCO_3^-$)**.
+- **Dampak Kritis pada Rasa Kopi**:
+  - Kopi seduh memiliki keasaman alami dengan pH sekitar 4.8 – 5.2.
+  - **Jika Alkalinitas Terlalu Tinggi (> 90 ppm)**: Ion bikarbonat yang melimpah akan menelan dan membunuh seluruh keasaman buah alami kopi. Kopi Kenya atau Gayo yang seharusnya beraroma jeruk cerah akan berubah rasa menjadi hambar, datar (*flat*), dan membosankan layaknya air cucian beras.
+  - **Jika Alkalinitas Terlalu Rendah (< 20 ppm)**: Air tidak memiliki penyangga asam sama sekali. Keasaman kopi tidak terkendali dan terasa sangat masam menusuk (*sour, vinegary, sharp*) yang menyiksa lambung.
+
+#### 4. Tingkat Keasaman (pH)
+Derajat keasaman awal air sebelum kontak dengan kopi harus berada di titik netral seimbang (**pH 6.8 – 7.2**):
+- Air asam (pH < 6.5) akan mempercepat korosi tembaga boiler mesin espresso.
+- Air basa (pH > 8.0) akan menumpulkan persepsi manis di lidah.
+
+> [!TIP]
+> Barista profesional menguji air seduh mereka setiap pekan menggunakan kit tetes titrasi cairan reagen akurat (*GH & KH Liquid Test Kit*), bukan hanya mengandalkan pulpen TDS murah."""
+        },
+        {
+            "id": "les-f6-3",
+            "module_id": "mod-f6",
+            "title": "Pertarungan Kation: Magnesium (Mg2+) vs Kalsium (Ca2+) dalam Ekstraksi Rasa",
+            "duration_minutes": 10,
+            "order_index": 3,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Membongkar penelitian sains buku terobosan 'Water for Coffee' karya Christopher Hendon & Maxwell Colonna-Dashwood: perbandingan afinitas termodinamika ion Magnesium (ekstraktor senyawa buah) vs ion Kalsium (ekstraktor senyawa manis & pembentuk kerak boiler).",
+            "key_takeaways": [
+                "Ion Kalsium (Ca2+) dan Magnesium (Mg2+) memiliki muatan sama (+2), namun jari-jari ionik Magnesium jauh lebih kecil sehingga densitas muatannya lebih padat.",
+                "Magnesium (Mg2+) memiliki afinitas ikatan yang jauh lebih kuat terhadap senyawa volatil pembentuk rasa buah dan keasaman sitrat/malat kopi.",
+                "Kalsium (Ca2+) berikatan efektif dengan senyawa manis karamel dan body, namun membawa risiko pembentukan kerak kalsium karbonat (limescale) pada elemen pemanas mesin.",
+                "Formulasi air seduh kompetisi modern menargetkan rasio Magnesium terhadap Kalsium sebesar 2:1 atau 3:1."
+            ],
+            "content": r"""# Pertarungan Kation: Magnesium vs Kalsium
+
+Pada tahun 2014, sebuah penelitian fisika kuantum komputasi yang diterbitkan oleh kimiawan Universitas Bath, **Dr. Christopher Hendon**, bersama juara barista Inggris, **Maxwell Colonna-Dashwood**, merevolusi industri specialty coffee selamanya melalui buku legendaris: *"Water for Coffee"*.
+
+Mereka membuktikan secara matematis bahwa tidak semua mineral diciptakan setara dalam mengekstrak rasa kopi. Dua kation utama dalam air—**Magnesium ($Mg^{2+}$)** dan **Kalsium ($Ca^{2+}$)**—bekerja dengan cara yang sangat berbeda.
+
+```
+PERBANDINGAN STRUKTUR DUA KATION EKSTRAKTOR KOPI:
+┌───────────────────────────────┬───────────────────────────────┐
+│ KATION MAGNESIUM (Mg2+)       │ KATION KALSIUM (Ca2+)         │
+├───────────────────────────────┼───────────────────────────────┤
+│ Jari-jari ionik kecil (0.72 Å)│ Jari-jari ionik besar (1.00 Å)│
+│ Densitas muatan sangat padat  │ Densitas muatan lebih longgar │
+│ Unggul menarik senyawa buah,  │ Unggul menarik senyawa body,  │
+│ asam sitrat, floral, oksigen  │ gula karamel, dan cokelat     │
+│ SANGAT RAMAH MESIN ESPRESSO   │ BERISIKO MEMBENTUK KERAK      │
+│ (Kelarutan garamnya tinggi)   │ (Membentuk batu kapur CaCO3)  │
+└───────────────────────────────┴───────────────────────────────┘
+```
+
+### Fisika Kuantum Ikatan Mineral
+Mengapa ion mineral dibutuhkan untuk mengekstrak kopi? Senyawa volatil aroma kopi (seperti asam klorogenat, asam sitrat, pirazin, dan furaneol) kaya akan atom oksigen yang bermuatan elektronegatif.
+- Ion mineral bermuatan positif ($+2$) bertindak sebagai jembatan perekat antara molekul air dan molekul rasa kopi.
+
+### Keunggulan Sang Juara: Magnesium ($Mg^{2+}$)
+Karena jari-jari atom magnesium jauh lebih kecil dibanding kalsium, muatan $+2$ pada magnesium terkonsentrasi dalam volume ruang yang sangat padat (*high charge density*):
+- Magnesium memiliki energi ikatan termodinamika yang jauh lebih tinggi terhadap molekul asam organik dan ester buah.
+- Air yang kaya akan ion Magnesium akan menghasilkan seduhan kopi dengan **aroma buah yang sangat cerah, keasaman hidup yang bersih, dan wangi bunga yang semerbak**.
+- **Kabar Baik bagi Pemilik Kafe**: Senyawa magnesium karbonat memiliki tingkat kelarutan yang jauh lebih tinggi dibanding kalsium karbonat, sehingga **Magnesium tidak mudah mengendap menjadi kerak batu kapur yang menyumbat pipa mesin espresso**.
+
+### Peran Kalsium ($Ca^{2+}$) & Bahaya Limescale
+Kalsium adalah ion mineral paling umum yang ditemukan di air sumur dan air PDAM tanah kapur (seperti di Yogyakarta, sebagian Jawa Tengah, dan Bali):
+- Kalsium sangat efektif menarik senyawa berbobot molekul besar yang menyumbang rasa manis karamel dan ketebalan body (*mouthfeel*).
+- **Mala Petaka Mesin Espresso (*Limescale Disaster*)**: Ketika air kaya Kalsium bertemu dengan ion Bikarbonat di dalam boiler mesin espresso bersuhu di atas 93°C:
+  $$Ca^{2+} + 2HCO_3^- \xrightarrow{\Delta} \mathbf{CaCO_3 \downarrow} + H_2O + CO_2$$
+  Reaksi ini memicu pengendapan kristal padat **Kalsium Karbonat ($CaCO_3$)** berwarna putih kapur yang membatu. Kerak kapur ini akan menyelimuti elemen pemanas, menyumbat lubang semprot gicleur berdiameter 0.6 mm, merusak flowmeter, dan menyebabkan kerusakan mesin bernilai jutaan rupiah.
+
+### Rasio Kation Formula Air Kompetisi
+Dalam kejuaraan *World Brewers Cup*, para barista dunia meracik air kustom mereka sendiri dengan rasio mineral terhitung:
+- **Magnesium : Kalsium** disetel pada perbandingan **2 : 1** atau **3 : 1**.
+- Formulasi ini memberikan kecerahan rasa buah maksimal dari Magnesium, dengan sedikit bobot body karamel dari Kalsium, tanpa risiko merusak peralatan seduh.
+
+> [!TIP]
+> Produk remineralisasi populer seperti *Third Wave Water* atau konsentrat mineral *Lotus Coffee Water* memanfaatkan sains ini dengan menyediakan garam Magnesium Klorida ($MgCl_2$) dan Magnesium Sulfat ($MgSO_4$) murni untuk dilarutkan ke dalam air distilasi."""
+        },
+        {
+            "id": "les-f6-4",
+            "module_id": "mod-f6",
+            "title": "Solusi Filtrasi Bar Kopi: Memilih RO, Blending Valve, & Remineralisasi",
+            "duration_minutes": 10,
+            "order_index": 4,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Panduan teknis memilih dan mendesain instalasi pengolahan air bar komersial: Sediment filter, Carbon Block, Pertukaran Ion (Water Softener), Mesin Reverse Osmosis (RO) dengan Blending Valve, dan Sistem Remineralisasi Kustom.",
+            "key_takeaways": [
+                "Air kran mentah (tap water) di Indonesia tidak boleh langsung dihubungkan ke mesin espresso karena mengandung klorin, sedimen pasir, dan kekerasan mineral tidak terkontrol.",
+                "Filter Karbon Aktif wajib dipasang untuk menyerap klorin dan kaporit yang dapat menimbulkan rasa kimia beracun pada kopi.",
+                "Sistem Reverse Osmosis (RO) menyaring 95-98% seluruh mineral hingga mendekati 10-20 ppm, kemudian dicampur kembali via Blending Valve atau Remineralization Cartridge ke target 130-150 ppm.",
+                "Manajemen air yang tepat menghemat puluhan juta rupiah biaya perbaikan mesin dan menjamin konsistensi rasa kopi setiap hari."
+            ],
+            "content": r"""# Solusi Filtrasi Bar Kopi Komersial
+
+Bagi pemilik kedai kopi specialty dan konsultan kafe, air bukan lagi urusan dapur belakang semata; air adalah investasi modal paling krusial yang melindungi mesin espresso seharga ratusan juta rupiah sekaligus penentu reputasi rasa kopi di mata pelanggan.
+
+```
+SKEMA INSTALASI FILTRASI AIR LENGKAP COFFEE SHOP:
+[ AIR KRAN / SUMUR ]
+        │
+        ▼
+[ 1. FILTER SEDIMEN SPUN 5 MICRON ] ➔ Menyaring pasir, lumpur pipa, dan karat
+        │
+        ▼
+[ 2. FILTER KARBON BLOK AKTIF (CTO) ] ➔ Menyerap klorin, kaporit, bau, & rasa kimiawi
+        │
+        ▼
+[ 3. MESIN REVERSE OSMOSIS (RO MEMBRAN) ] ➔ Menurunkan TDS dari 300+ ppm ke ~15 ppm
+        │
+        ├────────────────────────────────────────┐
+        │ Jalur Air Murni RO (~15 ppm)           │ Jalur Bypass Filter (Terkontrol)
+        ▼                                        ▼
+[ 4. REMINERALISASI / BLENDING VALVE ] ◄─────────┘
+  (Mencampur kation Mg2+/Ca2+ hingga target stabil 130 – 150 ppm, alkalinitas 50 ppm)
+        │
+        ├────────────────────────────────────────┐
+        ▼                                        ▼
+[ MESIN ESPRESSO KOMERSIAL ]             [ KETEL MANUAL BREW V60 ]
+```
+
+### 4 Tingkatan Sistem Filtrasi Komersial:
+
+#### 1. Filter Mekanis Sedimen (Pre-Filter Spun Polypropylene)
+- Menggunakan pori mikro 1 hingga 5 mikron.
+- Berfungsi menangkap partikel fisik kasar seperti serpihan karat pipa PDAM, lumpur tanah, dan pasir sumur agar tidak merusak pompa rotari mesin espresso.
+
+#### 2. Filter Karbon Aktif (*Carbon Block / CTO*)
+- Klorin dan kaporit yang digunakan PDAM untuk membunuh bakteri adalah racun mematikan bagi rasa kopi. Klorin bereaksi dengan fenol kopi menghasilkan senyawa *klorofenol* yang berbau obat kimia rumah sakit.
+- Karbon aktif berbasis tempurung kelapa menyerap 99% kaporit, trihalometana, dan bau tidak sedap.
+
+#### 3. Water Softener / Ion Exchange Resin (Pelunak Air)
+- Menggunakan tabung resin sintetis yang dimuati ion Natrium ($Na^+$).
+- Saat air sadah melintas, resin menukar kation Kalsium ($Ca^{2+}$) dan Magnesium ($Mg^{2+}$) dengan kation Natrium ($Na^+$).
+- **Kelebihan**: Mencegah pembentukan kerak kapur mesin secara efektif.
+- **Kelemahan**: Menghilangkan seluruh Magnesium yang dibutuhkan untuk mengekstrak rasa asam buah kopi specialty, sehingga kopi sering berasa sedikit asin gurih dan datar.
+
+#### 4. Reverse Osmosis (RO) dengan Remineralisasi (Pilihan Terbaik Specialty)
+Inilah konfigurasi standar industri kedai kopi specialty modern di seluruh dunia:
+1. Air bertekanan tinggi didorong melewati membran semipermeabel poliamida berpori **0.0001 mikron**.
+2. Membran membuang 95% hingga 98% seluruh mineral terlarut, menghasilkan air murni berkadar TDS 10 – 20 ppm.
+3. Air murni ini kemudian dialirkan melalui:
+   - **Bypass Blending Valve**: Katup presisi yang mencampurkan kembali sebagian kecil air hasil filter karbon bersih ke air RO hingga mencapai target **130 – 150 ppm**.
+   - Atau menggunakan **Remineralization Cartridge (seperti BWT Bestmax Premium)** yang secara khusus menyuntikkan ion **Magnesium murni** ke dalam air RO tanpa menambahkan ion Kalsium pembentuk kerak.
+
+### Checklist Pemeliharaan Harian & Mingguan Barista
+- **Pengecekan TDS Harian**: Gunakan instrumen TDS terkalibrasi setiap pagi saat membuka bar. Catat di bar ledger: jika TDS melonjak di atas 200 ppm atau anjlok di bawah 70 ppm, segera periksa sistem filtrasi.
+- **Uji Kaporit / Klorin Mingguan**: Teteskan cairan penguji ortotolidin (*Chlorine Test Dropper*) pada air kran bar. Jika air berubah warna kuning, filter karbon telah jenuh dan wajib diganti segera.
+- **Penggantian Rutin Kartrid Filter**: Ganti sedimen setiap 3 bulan, karbon blok setiap 6 bulan, dan membran RO setiap 12 hingga 24 bulan sesuai volume liter air yang terpakai.
+
+> [!TIP]
+> Jangan pernah menghemat biaya pada sistem filtrasi air! Biaya penggantian boiler mesin espresso yang pecah akibat kerak kalsium bisa mencapai 30% dari harga beli mesin itu sendiri."""
+        },
+
+        # === MODUL F-7: SENSORY & CUPPING STANDAR SCA ===
+        {
+            "id": "les-f7-1",
+            "module_id": "mod-f7",
+            "title": "Fisiologi Pengecapan: Gustasi Lidah, Olfaksi Ortronasal, & Jalur Retronasal",
+            "duration_minutes": 10,
+            "order_index": 1,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Memahami anatomi indra manusia dalam mengevaluasi rasa kopi: membantah mitos kuno peta lidah, membedakan 5 rasa dasar (Gustasi) dengan ribuan aroma volatil (Olfaksi), serta keajaiban persepsi rasa melalui jalur Retronasal.",
+            "key_takeaways": [
+                "Mitos Peta Lidah (Tongue Map) tahun 1901 terbukti keliru secara neurosains: seluruh area lidah yang memiliki kuncup pengecap mampu merasakan kelima rasa dasar secara merata.",
+                "Rasa dasar (Gustatory) hanya ada 5: Manis (Sweet), Asam (Sour), Asin (Salty), Pahit (Bitter), dan Umami (Gurih).",
+                "Lebih dari 80% kenikmatan 'rasa' (flavor) kopi sebenarnya adalah persepsi bau (aroma) yang dihantarkan melalui saluran nafas belakang rongga mulut (Retronasal Olfaction).",
+                "Menyeruput kopi dengan kencang (slurping) mengatomisasi cairan kopi menjadi kabut aerosol yang melesat ke epitel olfaktori hidung."
+            ],
+            "content": r"""# Fisiologi Pengecapan: Bagaimana Manusia Merasakan Kopi
+
+Saat seorang Q Grader menyeruput sesendok kopi dan berkata: *"Saya merasakan blueberry liar, bunga melati, madu hutan, dan cokelat hitam"*, apakah lidahnya benar-benar mengecap buah blueberry?
+
+Jawabannya adalah: **TIDAK**. Secara biologis, lidah manusia tidak pernah bisa mengecap buah blueberry. Yang mengecap blueberry adalah **sistem indra penciuman (olfaktori)** di dalam rongga hidung Anda.
+
+```
+ANATOMI PERSEPSI FLAVOR:
+┌─────────────────────────────────────────────────────────────┐
+│ FLAVOR (CITA RASA LENGKAP) = TASTE (LIDAH) + AROMA (HIDUNG) │
+└───────────────────────────────┬─────────────────────────────┘
+                                │
+        ┌───────────────────────┴───────────────────────┐
+        ▼                                               ▼
+[ GUSTASI / TASTE (LIDAH) ]                 [ OLFAKSI / AROMA (HIDUNG) ]
+Hanya 5 Rasa Dasar:                         Ribuan Senyawa Kimia Volatil:
+1. Manis (Reseptor Gula T1R2/T1R3)          1. Ortronasal (Hirup via cuping hidung)
+2. Asam (Ion H+ menembus kanal OTOP1)       2. Retronasal (Aerosol dari tenggorokan
+3. Asin (Ion Na+)                              ke langit-langit rongga hidung saat
+4. Pahit (Reseptor T2Rs Alkaloid)              menyeruput / menelan cairan)
+5. Umami (Asam glutamat)
+```
+
+### Mitos Kuno Peta Lidah (*The Tongue Map Myth*)
+Buku-buku sekolah zaman dulu sering menampilkan diagram keliru yang mengklaim: *"Ujung lidah hanya mengecap manis, sisi samping mengecap asam, dan pangkal belakang mengecap pahit."*
+- Neurosains modern telah membantah mitos ini sejak tahun 1974.
+- Setiap kuncup pengecap (*taste bud*) pada papila lidah manusia memiliki 50 hingga 100 sel reseptor yang mampu mendeteksi **seluruh kelima rasa dasar** di semua area lidah secara bersamaan.
+
+### Dua Jalur Penciuman Aroma: Ortronasal vs Retronasal
+Manusia memiliki dua rute penciuman yang bekerja secara berbeda:
+1. **Olfaksi Ortronasal (*Orthonasal Olfaction*)**:
+   - Terjadi saat Anda mendekatkan hidung ke cangkir kopi dan menghirup uapnya secara langsung dari luar melalui lubang hidung.
+   - Di formulir SCA Cupping, ini dinilai pada fase **Fragrance** (bubuk kopi kering) dan **Aroma** (kopi basah yang baru disiram air panas).
+2. **Olfaksi Retronasal (*Retronasal Olfaction*)**:
+   - Inilah keajaiban sensori sejati! Ketika Anda memasukkan cairan kopi ke dalam mulut, suhu mulut (37°C) menghangatkan cairan kopi dan melepaskan senyawa volatil yang mudah menguap.
+   - Saat Anda mengunyah atau menelan cairan, uap aroma tersebut terdorong naik melalui saluran nasofaring di bagian belakang tenggorokan menuju **epitel olfaktori** di dasar tengkorak otak.
+   - Otak memproses sinyal gustasi lidah (asam manis) dan sinyal olfaktori retronasal (ester buah) secara terpadu, melahirkan persepsi rasa kompleks: *"Aha! Ini rasa buah strawberry!"*
+
+### Mengapa Barista & Q Grader Menyeruput Keras (*Slurping*)?
+Saat sesi cupping, Anda akan mendengar suara seruputan yang sangat keras: *"Szzzhhhluuurpp!"*
+- Ini bukan perilaku tidak sopan di meja makan, melainkan teknik fisika **atomisasi cairan**.
+- Menyeruput kopi bersama tarikan udara berkecepatan tinggi memecah sesendok cairan kopi menjadi jutaan butiran kabut mikro aerosol.
+- Kabut aerosol ini menyebar merata ke seluruh 10.000 kuncup pengecap di permukaan lidah, sekaligus menguapkan senyawa volatil aromatik secara instan langsung ke reseptor retronasal di langit-langit hidung belakang.
+
+> [!TIP]
+> **Eksperimen Sendiri di Rumah**: Ambil sebutir permen rasa strawberry atau jeruk. Jepit hidung Anda rapat-rapat dengan jari, lalu kunyah permen tersebut di dalam mulut. Anda hanya akan merasakan sensasi manis dan asam datar tanpa rasa buah sama sekali. Begitu Anda melepaskan jepitan hidung dan menghembuskan nafas, seketika itu juga aroma strawberry akan meledak di benak Anda! Itulah bukti nyata kekuatan olfaksi retronasal."""
+        },
+        {
+            "id": "les-f7-2",
+            "module_id": "mod-f7",
+            "title": "Protokol Resmi Cupping SCA: Rasio Seduh, Breaking Crust, Skim, & Slurp",
+            "duration_minutes": 12,
+            "order_index": 2,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Mempelajari protokol standar laboratorium cupping resmi Specialty Coffee Association: spesifikasi mangkok cupping, rasio emas 8.25g per 150ml air, suhu 93°C, ritual memecah kerak (Breaking Crust) pada menit ke-4, membersihkan busa (Skimming), dan etika higienitas meja uji.",
+            "key_takeaways": [
+                "Protokol Cupping SCA adalah metode uji sensori standar internasional yang dirancang untuk mengeliminasi seluruh variabel alat seduh (metode immersi murni).",
+                "Rasio Standar SCA: 8.25 gram bubuk kopi per 150 ml air (atau rasio 0.055 g/ml) dengan gilingan sedikit lebih kasar dari gilingan filter kertas.",
+                "Ritual Breaking the Crust dilakukan tepat pada menit ke-4: dorong kerak mengapung 3 kali dengan punggung sendok cupping sambil mendekatkan hidung sedekat mungkin.",
+                "Pencicipan pertama dimulai saat suhu cangkir turun ke 70°C, dilanjutkan pada suhu 60°C (evaluasi body & balance), dan suhu dingin 35°C (evaluasi sweetness & clean cup)."
+            ],
+            "content": r"""# Protokol Resmi Cupping SCA (Standard Cupping Protocol)
+
+Mengapa para ahli kopi profesional tidak mengevaluasi kualitas kopi menggunakan mesin espresso atau alat V60? Karena alat-alat tersebut memasukkan variabel subjektif barista (kecepatan tuang, kertas filter, tekanan pompa, suhu grup head).
+
+Untuk mengevaluasi biji kopi secara objektif dan adil, dunia menggunakan metode uji laboratorium standar global yang disebut **SCA Cupping Protocol**.
+
+```
+TIMELINE PROTOKOL CUPPING SCA (MENIT KE MENIT):
+00:00 ➔ Tuang air panas 93°C ke dalam mangkok berisi 8.25g kopi (Rasio 1:18.18)
+00:00 s/d 04:00 ➔ Biarkan ekstraksi immersi tenang, terbentuk kerak bubuk mengapung (Crust)
+04:00 ➔ RITUAL BREAKING THE CRUST: Dorong kerak 3x dengan sendok, hirup aroma basah sedalam-dalamnya
+04:30 ➔ SKIMMING: Bersihkan seluruh sisa busa dan partikel mengapung dengan 2 sendok cupping
+08:00 – 10:00 ➔ Suhu turun ke ~70°C: Mulai SLURP pertama (Evaluasi Flavor & Aftertaste)
+10:00 – 15:00 ➔ Suhu turun ke ~60°C: SLURP kedua (Evaluasi Acidity, Body, & Balance)
+15:00 – 25:00 ➔ Suhu dingin ~35°C: SLURP ketiga (Evaluasi Clean Cup, Sweetness, Uniformity, Overall)
+```
+
+### Spesifikasi Alat & Parameter Cupping Standar:
+- **Mangkok Cupping (*Cupping Bowls*)**: Terbuat dari kaca tempered atau keramik tebal, kapasitas volume 200 – 260 ml, dengan diameter mulut mangkok 75 – 85 mm.
+- **Rasio Seduh (*Brewing Ratio*)**: **8.25 gram kopi** per **150 ml air** (toleransi $\pm 0.25$ gram).
+- **Tingkat Sangrai Sampel**: Disangrai pada level *Light-Medium* (Agtron gourmet score $63 \pm 1$), disangrai dalam kurun waktu 8 – 24 jam sebelum sesi cupping dimulai.
+- **Ukuran Gilingan (*Grind Size*)**: Sedikit lebih kasar dari gilingan filter kertas biasa (70-75% partikel lolos ayakan standar US Standard Size 20 mesh).
+- **Suhu Air Seduh**: Tepat **93.0°C** ($200^\circ\text{F}$) saat dituangkan, menggunakan air berstandar SCA (TDS 125-175 ppm).
+
+### Langkah-langkah Protokol Cupping:
+
+#### 1. Evaluasi Fragrance Kering (Menit 0)
+Setiap sampel kopi disiapkan minimal **5 mangkok identik** untuk menguji keseragaman (*uniformity*).
+- Sebelum air dituangkan, goyangkan mangkok perlahan dan cium aroma bubuk kopi kering (*Dry Fragrance*).
+- Catat intensitas wangi bunga, buah, atau rempah pada form penilaian.
+
+#### 2. Penuangan Air Panas & Pembentukan Kerak (Menit 0:00 – 04:00)
+- Tuang air 93°C langsung ke tengah mangkok hingga batas bibir atas dengan cepat dan stabil, memastikan seluruh bubuk kopi terbasahi sempurna tanpa diaduk.
+- Gelembung gas CO2 akan mengangkat bubuk kopi ke permukaan, membentuk lapisan kerak tebal mengapung yang disebut **Crust**.
+- Biarkan mangkok terekstraksi secara tenang selama tepat **4 menit**.
+
+#### 3. Ritual Memecah Kerak (*Breaking the Crust* / Menit 04:00)
+- Tepat di menit ke-4, pegang sendok cupping bersudut 45 derajat.
+- Dekatkan hidung Anda sedekat mungkin (sekitar 2 cm di atas permukaan mangkok).
+- Gunakan punggung sendok untuk mendorong kerak mengapung ke arah belakang mangkok sebanyak **tepat 3 kali dorongan lembut** tanpa mengaduk bagian dasar mangkok.
+- Hirup uap aroma basah (*Wet Aroma*) yang meledak keluar dari balik kerak. Bilas sendok cupping di gelas air panas bersih sebelum pindah ke mangkok berikutnya.
+
+#### 4. Membersihkan Busa Mengapung (*Skimming*)
+- Gunakan dua sendok cupping secara bersamaan untuk menyendok dan membuang seluruh sisa busa putih dan partikel bubuk mengapung di permukaan cangkir hingga cairan kopi di bawahnya terlihat jernih mengkilap.
+
+#### 5. Sesi Menyeruput (*The Tasting Slurp* / Menit 8 s/d 25)
+- Jangan mencicipi kopi saat masih panas mendidih di atas 75°C karena lidah akan terbakar mati rasa.
+- Mulai mencicipi pada suhu hangat (70°C) hingga dingin (35°C).
+- Celupkan sendok cupping, ambil cairan kopi sekitar 6-8 ml, dekatkan ke bibir, lalu seruput kencang (*slurp*) ke dalam mulut.
+- Kopi yang berkualitas prima akan terasa semakin manis, bersih, dan memikat saat suhunya mendingin. Jika kopi memiliki cacat rasa tersembunyi, cacat tersebut akan terbongkar telanjang saat cangkir dingin.
+
+> [!IMPORTANT]
+> **Etika Higienitas Meja Cupping**: Dilarang mencelupkan sendok cupping bekas mulut langsung ke dalam mangkok sampel kopi berikutnya (*No Double Dipping*). Setiap selesai menyeruput, bilas sendok di gelas air panas yang telah disediakan, lalu keringkan di atas kain lap bersih sebelum menciduk sampel berikutnya."""
+        },
+        {
+            "id": "les-f7-3",
+            "module_id": "mod-f7",
+            "title": "Membaca SCA Flavor Wheel & Klasifikasi Asam Organik Kopi",
+            "duration_minutes": 10,
+            "order_index": 3,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Panduan komprehensif menavigasi Roda Rasa Kopi SCA / WCR Sensory Lexicon: dari lingkaran dalam (kategori primer) hingga lingkaran luar (deskriptor spesifik). Memahami 6 profil asam organik vital pembentuk karakter rasa specialty coffee.",
+            "key_takeaways": [
+                "SCA Coffee Taster's Flavor Wheel disusun bersama World Coffee Research (WCR) berdasarkan riset sensorik ilmiah multi-tahun.",
+                "Cara membaca roda rasa: selalu mulai dari lingkaran paling dalam (kategori makro umum) menuju lingkaran luar (deskriptor mikro spesifik).",
+                "Keasaman (Acidity) pada kopi disumbangkan oleh 6 asam organik utama: Asam Sitrat (jeruk), Asam Malat (apel), Asam Fosfat (sparkling), Asam Laktat (creamy), Asam Asetat (anggur), dan Asam Kuinat (pahit sangrai).",
+                "Leksikon sensori berfungsi sebagai kamus bahasa universal agar barista di Jakarta, roaster di Tokyo, dan petani di Gayo memiliki pemahaman rasa yang presisi dan seragam."
+            ],
+            "content": r"""# SCA Flavor Wheel & Klasifikasi Asam Organik
+
+Pernahkah Anda melihat diagram lingkaran roda berwarna-warni yang dipajang di dinding kafe specialty? Itulah **SCA Coffee Taster's Flavor Wheel**, instrumen leksikon sensori paling ikonik dalam industri kopi dunia.
+
+Diperbarui secara masif pada tahun 2016 melalui kolaborasi bersejarah antara *Specialty Coffee Association* (SCA) dan *World Coffee Research* (WCR), roda rasa ini bukan sekadar karya seni visual, melainkan sebuah kamus ilmiah yang memiliki standar kalibrasi kimiawi di baliknya.
+
+```
+STRUKTUR TIGA TINGKATAN RODA RASA SCA:
+[ LINGKARAN DALAM ] ──────────────► [ LINGKARAN TENGAH ] ──────────────► [ LINGKARAN LUAR ]
+Kategori Primer (Umum)               Sub-Kategori                         Deskriptor Spesifik (Mikro)
+Contoh: FRUITY ────────────────────► CITRUS FRUIT ─────────────────────► GRAPEFRUIT, LEMON, ORANGE
+Contoh: FLORAL ────────────────────► BLACK TEA ────────────────────────► JASMINE, CHAMOMILE, ROSE
+Contoh: SWEET ─────────────────────► BROWN SUGAR ──────────────────────► CARAMEL, HONEY, MOLASSES
+```
+
+### Cara Benar Menggunakan SCA Flavor Wheel
+Banyak pemula melakukan kesalahan dengan langsung melompat mencari kata rumit di lingkaran terluar. Cara yang benar adalah membaca **dari dalam ke luar (*from center to rim*)**:
+1. **Langkah 1 (Pusat Roda)**: Saat menyeruput kopi, tanyakan pada indra Anda: *"Secara garis besar, sensasi rasa apa yang paling dominan?"* Apakah itu **Fruity (Buahan)**, **Floral (Bunga)**, **Sweet (Manis)**, atau **Nutty/Cocoa (Kacang/Cokelat)**?
+2. **Langkah 2 (Lingkaran Tengah)**: Jika Anda merasakan buah (*Fruity*), buah kelompok apa? Apakah buah jeruk (*Citrus*), buah berry liar (*Berry*), buah kering (*Dried Fruit*), atau buah berbiji (*Stone Fruit*)?
+3. **Langkah 3 (Lingkaran Luar)**: Jika Anda memilih jeruk (*Citrus*), jeruk apa yang paling mendekati? Apakah tajam menusuk seperti **Lemon**, manis bulat seperti **Mandarin Orange (Jeruk Keprok)**, atau sedikit bergetir elegan seperti **Grapefruit**?
+
+### Klasifikasi 6 Asam Organik dalam Specialty Coffee
+Keasaman (*Acidity*) adalah pilar paling dihargai dalam specialty coffee. Keasaman memberi kecerahan, struktur rasa, dan kesegaran. Ada 6 senyawa asam utama dalam secangkir kopi:
+
+#### 1. Asam Sitrat (*Citric Acid*)
+- **Karakter Rasa**: Asam segar buah sitrus (lemon, jeruk nipis, jeruk keprok). Terasa tajam menyegarkan di kedua sisi samping lidah depan.
+- **Spesimen Origin**: Bali Kintamani Washed, Aceh Gayo Pantan Musara Washed, Kenya Nyeri.
+
+#### 2. Asam Malat (*Malic Acid*)
+- **Karakter Rasa**: Asam buah apel hijau (Granny Smith), buah pir renyah, dan buah persik. Memicu produksi air liur yang berlimpah (*salivating / juicy mouthfeel*).
+- **Spesimen Origin**: Kopi Ijen Raung Bondowoso, Kerinci Kayu Aro, Kolombia Huila.
+
+#### 3. Asam Fosfat (*Phosphoric Acid*)
+- **Karakter Rasa**: Secara kimia bukan asam organik melainkan asam mineral anorganik yang diserap pohon dari tanah abu vulkanik. Memberikan sensasi kesegaran berkilau di langit-langit mulut menyerupai desisan minuman berkarbonasi (*sparkling effervescence, cola-like acidity*).
+- **Spesimen Origin**: Flores Manggarai Jurung Washed, Rwanda Nyamagabe.
+
+#### 4. Asam Laktat (*Lactic Acid*)
+- **Karakter Rasa**: Asam lembut dan membulat menyerupai yogurt tawar atau mentega susu (*buttery mouthfeel*). Terbentuk dari aktivitas bakteri asam laktat selama proses fermentasi Honey dan Anaerobik terkontrol.
+- **Spesimen Origin**: Java Puntang Anaerobic Honey, Kintamani Lactic Maceration.
+
+#### 5. Asam Asetat (*Acetic Acid*)
+- **Karakter Rasa**: Asam cuka dapur. Dalam konsentrasi rendah (< 0.5%), memberi dimensi rasa anggur merah (*winey*) yang menyenangkan. Jika berlebih, menghasilkan rasa asam cuka menusuk yang merusak cangkir (*over-ferment defect*).
+
+#### 6. Asam Kuinat & Klorogenat (*Quinic & Chlorogenic Acids*)
+- **Karakter Rasa**: Asam klorogenat alami terurai saat pemanggangan menjadi asam quinat. Pada sangraian gelap (*dark roast*), asam quinat memberikan rasa pahit terbakar dan sensasi kesat mengeringkan lidah (*astringent*).
+
+> [!TIP]
+> Latihlah lidah Anda dengan membandingkan larutan air mineral yang diberi sejumput asam sitrat kristal murni dengan larutan air yang diberi perasan apel hijau (asam malat). Kepekaan mengenali perbedaan asam ini adalah kompetensi utama seorang calon Q Grader tersertifikasi."""
+        },
+        {
+            "id": "les-f7-4",
+            "module_id": "mod-f7",
+            "title": "Identifikasi Defek Rasa (Cacat Kopi) & Lembar Penilaian Skor 80+",
+            "duration_minutes": 12,
+            "order_index": 4,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-01T00:00:00Z",
+            "summary": "Memahami anatomi formulir penilaian resmi SCA Cupping Form: menafsirkan 10 atribut skor, menghitung pengurangan penalti cacat rasa (Taint vs Fault), serta membedakan aneka aroma defek (Quaker, Stinker, Moldy, Potato Defect, Phenol, Baggy).",
+            "key_takeaways": [
+                "Formulir SCA Cupping Form mengevaluasi 10 atribut sensori dengan skor 6.00 hingga 9.75 per atribut.",
+                "Tiga atribut bersifat absolut biner (bernilai 10 poin jika sempurna): Uniformity (Keseragaman), Clean Cup (Kebersihan), dan Sweetness (Kemanisan).",
+                "Defek rasa di meja cupping diklasifikasikan menjadi Taint (cacat ringan: pengurang 2 poin per mangkok) dan Fault (cacat berat fatal: pengurang 4 poin per mangkok).",
+                "Mengenali aroma defek (seperti biji berjamur, biji busuk stinker, atau bau karung goni lama) adalah tugas utama quality control untuk melindungi konsumen."
+            ],
+            "content": r"""# Identifikasi Defek Rasa & SCA Cupping Form
+
+Seorang pencicip kopi profesional tidak hanya bertugas memuji kopi yang enak; tugas yang jauh lebih krusial adalah **menjadi detektif cacat rasa (Defect Hunter)** untuk mencegah kopi bermutu buruk lolos ke pasar konsumen.
+
+### 10 Atribut Formulir Cupping SCA (Skala 100 Poin)
+Pada formulir resmi SCA, skor cupping dihitung dari penjumlahan 10 komponen:
+
+```
+ANATOMI FORMULIR PENILAIAN CUPPING RESMI SCA:
+┌──────────────────────────────────────┬──────────────────────────────────────┐
+│ ATRIBUT SKALER (Skor 6.00 s/d 9.75)  │ ATRIBUT INTEGRITAS (Maksimal 10 Poin)│
+├──────────────────────────────────────┼──────────────────────────────────────┤
+│ 1. Fragrance / Aroma (Kering & Basah)│ 7. Uniformity (2 poin x 5 mangkok)   │
+│ 2. Flavor (Cita Rasa di Mulut)       │ 8. Clean Cup  (2 poin x 5 mangkok)   │
+│ 3. Aftertaste (Panjang Jejak Rasa)   │ 9. Sweetness  (2 poin x 5 mangkok)   │
+│ 4. Acidity (Kualitas & Kecerahan Asam)──────────────────────────────────────│
+│ 5. Body (Ketebalan & Kualitas Tekstur│ 10. OVERALL (Penilaian Holistik Juri)│
+│ 6. Balance (Harmoni Antar Unsur)     │                                      │
+└──────────────────────────────────────┴──────────────────────────────────────┘
+                   TOTAL SKOR = (Jumlah 10 Atribut) – Nilai Defek
+```
+
+### Memahami Tiga Atribut Integritas (The Big Three):
+Dalam 1 set sampel yang terdiri atas 5 mangkok:
+1. **Uniformity (Keseragaman)**: Setiap mangkok bernilai 2 poin. Jika seluruh 5 mangkok terasa identik sama, bernilai 10 poin penuh. Jika ada 1 mangkok yang rasanya melenceng, nilainya dipotong 2 poin.
+2. **Clean Cup (Kebersihan Rasa)**: Menilai ketiadaan sensasi kotor, langu, berdebu, atau rasa obat dari tegukan awal hingga aftertaste akhir. Setiap mangkok bersih bernilai 2 poin.
+3. **Sweetness (Kemanisan Alami)**: Menguji apakah karbohidrat gula buah terekstraksi optimal. Setiap mangkok manis bernilai 2 poin.
+
+### Klasifikasi Defek Sensori: Taint vs Fault
+Jika juri menemukan cacat rasa di salah satu mangkok:
+- **Taint (Cacat Ringan)**: Aroma asing yang mengganggu namun tidak merusak keseluruhan cangkir.
+  - **Penalti**: Dipotong **2 poin** per mangkok yang tercemar.
+- **Fault (Cacat Berat / Fatal)**: Cacat rasa yang sangat menjijikkan dan merusak total cangkir (misal: bau busuk bangkai, jamur beracun, rasa minyak tanah).
+  - **Penalti**: Dipotong **4 poin** per mangkok yang tercemar.
+
+```
+RUMUS PENGURANGAN DEFEK:
+Total Skor Akhir = Skor Mentah – (Jumlah Mangkok Cacat x Nilai Penalti 2 atau 4)
+```
+
+### Kamus 6 Defek Rasa Kritis di Meja Cupping:
+
+#### 1. Quaker / Underripe (Biji Mentah)
+- **Ciri Sensori**: Rasa kacang tanah mentah, hambar, kering seperti mengunyah serutan kayu atau karton kardus.
+- **Penyebab**: Ceri hijau yang ikut terpetik dan gagal mengalami reaksi karamelisasi saat di-roast.
+
+#### 2. Full Sour / Stinker (Biji Busuk Asam)
+- **Ciri Sensori**: Aroma busuk menusuk hidung menyerupai cuka tengik, buah busuk berbelatung, atau aroma sampah basah.
+- **Penyebab**: Ceri yang membusuk di tanah atau over-fermentasi bakteri anaerobik di dalam tangki cuci yang airnya tidak pernah diganti.
+
+#### 3. Moldy / Musty (Biji Berjamur)
+- **Ciri Sensori**: Bau apek menyengat menyerupai pakaian basah yang disimpan lama di lemari lembap, rasa tanah lumpur kotor.
+- **Penyebab**: Jamur *Aspergillus* atau *Penicillium* yang tumbuh akibat penjemuran gabah yang terlalu tebal di musim hujan atau disimpan di gudang basah.
+
+#### 4. Potato Defect (Cacat Kentang Mentah)
+- **Ciri Sensori**: Satu biji saja bisa merusak satu teko seduhan dengan aroma pekat persis seperti mengupas kulit kentang mentah busuk yang berlumur tanah basah.
+- **Penyebab**: Bakteri kimia yang masuk ke buah kopi melalui gigitan serangga kepik *Antestia* (sangat endemik di kawasan Danau Kivu, Rwanda, dan Burundi).
+
+#### 5. Phenolic / Rio Defect (Bau Obat Kimia)
+- **Ciri Sensori**: Bau zat kimia fenol, antiseptik rumah sakit, atau minyak tanah yang sangat tajam menyengat.
+- **Penyebab**: Kerusakan biologis ceri yang mengering di pohon bersama infeksi mikroba liar.
+
+#### 6. Baggy / Past Crop (Bau Karung Goni Usang)
+- **Ciri Sensori**: Hilangnya seluruh aroma buah dan rasa manis, digantikan oleh aroma serat karung goni tua dan debu gudang.
+- **Penyebab**: Biji kopi hijau berusia tua (lebih dari 12 bulan) yang disimpan tanpa kantong hermetis *GrainPro* sehingga lipid alaminya teroksidasi oleh udara ruangan.
+
+> [!IMPORTANT]
+> **Kualifikasi Specialty Coffee**: Kopi dengan skor cupping 80.0 ke atas otomatis menyandang predikat *Specialty Grade*. Namun, jika pada sampel ditemukan satu saja mangkok yang terkena **Fault (Cacat Berat)**, kopi tersebut seketika **DIDISKUALIFIKASI** dari kategori specialty coffee berapapun tingginya skor atribut lainnya!"""
+        }
+    ]
+
+if __name__ == '__main__':
+    lessons = get_foundation_lessons()
+    print(f"Total foundation lessons generated: {len(lessons)}")
+    for les in lessons:
+        print(f"- {les['id']}: {les['title']} ({les['module_id']})")
+
+def get_other_lessons():
+    return [
+        {
+            "id": "les-b2-1",
+            "module_id": "mod-b2",
+            "title": "Espresso Extraction & Anatomi Mesin Espresso Komersial",
+            "duration_minutes": 10,
+            "order_index": 1,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-05T00:00:00Z",
+            "summary": "Komponen mesin komersial, tekanan 9 bar, dan formula standar double espresso.",
+            "key_takeaways": [
+                "Espresso membutuhkan tekanan stabil 9 bar pada suhu 91°C - 94°C.",
+                "Rasio standar espresso modern adalah 1:2 (misal 18g bubuk kopi menghasilkan 36g liquid).",
+                "Waktu ekstraksi ideal berkisar antara 26 hingga 30 detik."
+            ],
+            "content": r"""# Espresso Extraction & Anatomi Mesin Espresso
+
+Espresso adalah metode penyeduhan di mana air panas bertekanan tinggi (umumnya 9 bar) didorong melewati bubuk kopi yang dipadatkan dalam waktu singkat (25-30 detik).
+
+### Komponen Utama Mesin Espresso:
+- **Boiler**: Single boiler, heat exchanger (HX), atau dual boiler independen untuk kestabilan suhu grup head.
+- **Group Head (E61 atau Saturated)**: Titik distribusi air dengan shower screen dan gasket pengunci portafilter.
+- **Rotary Pump**: Menghasilkan tekanan 9 bar stabil yang konsisten sepanjang ekstraksi.
+- **Steam Wand**: Pipa uap bertekanan 1.2 – 1.8 bar untuk memanaskan dan membentuk tekstur susu micro-foam.
+
+### Konsep Ekstraksi Espresso Ideal:
+- **Dosis Kopi (Dose)**: 18 – 20 gram dalam double basket.
+- **Hasil Ekstraksi (Yield)**: 36 – 40 gram cairan espresso di cangkir (Rasio 1:2).
+- **Waktu Kontak (Time)**: 26 – 30 detik."""
+        },
+        {
+            "id": "les-b4-1",
+            "module_id": "mod-b4",
+            "title": "Segitiga Dial-In: Dosis, Yield, Waktu, & Troubleshooting Rasa",
+            "duration_minutes": 12,
+            "order_index": 1,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-05T00:00:00Z",
+            "summary": "Strategi dial in espresso sistematis dengan matriks rasa under-extracted vs over-extracted.",
+            "key_takeaways": [
+                "Under-extraction berasa asam menusuk dan encer; perbaiki dengan menghaluskan gilingan.",
+                "Over-extraction berasa pahit kering astringent; perbaiki dengan mengasarkan gilingan.",
+                "Hanya ubah satu variabel dalam satu waktu saat mengkalibrasi rasa."
+            ],
+            "content": r"""# Segitiga Dial-In Espresso: Dosis, Yield, Waktu
+
+Dial-in adalah ritual harian paling penting bagi setiap barista setiap pagi sebelum pintu coffee shop dibuka.
+
+### Matriks Troubleshooting Rasa:
+| Gejala Rasa | Status | Penyebab | Solusi Dial-In |
+|---|---|---|---|
+| Sangat asam menusuk, hambar, watery, krema pucat cepat hilang | **Under-Extracted** | Air mengalir terlalu cepat (< 20 detik) | Haluskan grind size (*finer*) atau naikkan yield |
+| Pahit gosong, astringent mengeringkan lidah, krema gelap berbintik | **Over-Extracted** | Air mengalir terlalu lambat (> 35 detik) | Kasarkan grind size (*coarser*) atau kurangi yield |
+| Manis seimbang, asam lembut nikmat, body kental seperti sirup | **Balanced Extraction** | Aliran merata seperti ekor tikus (*mouse tail*) | Pertahankan parameter! Catat resep di bar sheet |
+
+> [!TIP]
+> **Aturan Emas Barista**: Selalu ubah HANYA SATU variabel dalam satu kali percobaan dial-in (utamakan mengubah ukuran gilingan terlebih dahulu sebelum mengubah dosis kopi)."""
+        },
+        {
+            "id": "les-b5-1",
+            "module_id": "mod-b5",
+            "title": "Milk Steaming: Sains Protein Susu & Pola Dasar Heart Latte Art",
+            "duration_minutes": 15,
+            "order_index": 1,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-05T00:00:00Z",
+            "summary": "Dua tahap steaming susu: stretching & whirlpool, serta panduan menuang latte art bentuk hati.",
+            "key_takeaways": [
+                "Stretching dilakukan di awal (suhu dingin) untuk memasukkan gelembung mikro halus.",
+                "Whirlpool mencacah busa susu hingga mengkilap seperti cat basah.",
+                "Suhu maksimal susu adalah 65°C agar rasa manis alami laktosa tidak rusak."
+            ],
+            "content": r"""# Sains Susu & Teknik Steaming Microfoam
+
+Secangkir cappuccino atau flat white yang lezat membutuhkan busa susu sehalus sutra (*microfoam*) tanpa gelembung besar (*bubble-free*).
+
+### Dua Tahap Steaming Susu:
+1. **Aeration / Stretching Phase (Suhu 5°C – 37°C)**:
+   - Masukkan ujung steam tip tepat di bawah permukaan susu.
+   - Buka tuas uap penuh. Dengarkan suara desis halus *"tsik.. tsik.. tsik.."* selama 3-5 detik untuk memasukkan udara mikro.
+2. **Texturing / Whirlpool Phase (Suhu 37°C – 60°C)**:
+   - Benamkan tip sedikit lebih dalam dan miringkan milk jug untuk menciptakan pusaran air (*whirlpool*).
+   - Pusaran ini mencacah gelembung udara menjadi jutaan partikel mikro yang menyatu dengan protein whey susu.
+   - Hentikan steaming saat suhu jug mencapai **60°C – 65°C** (terlalu panas > 70°C akan merusak protein dan menghilangkan rasa manis laktosa).
+
+### Menuang Pola Dasar: Heart (Hati)
+- Mulai dengan kanvas dasar dari jarak 5 cm di atas cangkir untuk mencampur susu dan crema espresso.
+- Saat cangkir terisi 2/3, dekatkan spout jug ke permukaan tengah cangkir.
+- Guncang perlahan hingga lingkaran putih melebar, lalu angkat jug dan buat garis potong lurus ke depan."""
+        },
+        {
+            "id": "les-h3-1",
+            "module_id": "mod-h3",
+            "title": "Resep Standar V60: Rasio Emas 1:15 & Panduan Tiga Kali Tuang",
+            "duration_minutes": 10,
+            "order_index": 1,
+            "is_free": True,
+            "is_published": True,
+            "created_at": "2026-08-05T00:00:00Z",
+            "summary": "Resep V60 15g ke 225g air dengan teknik 3 kali tuangan dan fase blooming 45 detik.",
+            "key_takeaways": [
+                "Rasio 1:15 (15g kopi : 225g air) menghasilkan cup profile yang padat dan kaya rasa.",
+                "Blooming 45 detik melepaskan gas CO2 sehingga air dapat mengekstrak gula kopi optimal.",
+                "Selalu bilas kertas filter sebelum mulai menyeduh."
+            ],
+            "brew_recipe": {
+                "method": "Hario V60 01/02",
+                "dose": "15 g",
+                "water": "225 g",
+                "ratio": "1:15",
+                "temperature": "91°C",
+                "grind_size": "Medium-Fine",
+                "brew_time": "2m 15s",
+                "steps": [
+                    "Bilas filter paper dengan air panas lalu buang airnya.",
+                    "Masukkan 15g bubuk kopi, ratakan bed kopi.",
+                    "0:00 - Tuang 45g air untuk blooming, tunggu 45 detik.",
+                    "0:45 - Tuang perlahan melingkar hingga timbangan 140g.",
+                    "1:20 - Tuang sisa air hingga tepat 225g.",
+                    "Tunggu hingga air tiris sempurna pada 2:15 - 2:30. Aduk dan nikmati!"
+                ]
+            },
+            "content": r"""# Resep Standar V60 Pemula: Rasio Emas 1:15
+
+Menyeduh dengan Hario V60 di rumah adalah salah satu pengalaman paling menenangkan sekaligus menghasilkan secangkir kopi yang sangat aromatik.
+
+### Formula Resep Standar CherryEdu:
+- **Kopi**: 15 gram (Gilingan Medium-Fine, sedikit lebih halus dari garam meja)
+- **Air**: 225 gram (Rasio 1:15)
+- **Suhu Air**: 90°C – 92°C
+- **Target Waktu Seduh**: 2 menit 15 detik – 2 menit 30 detik
+
+### Langkah-langkah Seduh:
+1. **Bilas Kertas Filter**: Bilas kertas filter dengan air panas untuk menghilangkan bau kertas dan menghangatkan server. Buang air bilasan.
+2. **Tuangan 1 (Bloom - 0:00 s/d 0:45)**:
+   - Tuang 45 gram air secara melingkar perlahan dari tengah ke luar.
+   - Biarkan kopi mekar (*blooming*) selama 45 detik untuk melepas gas CO2.
+3. **Tuangan 2 (Body - 0:45 s/d 1:20)**:
+   - Tuang air hingga mencapai 140 gram. Jaga ketinggian air tetap stabil.
+4. **Tuangan 3 (Finish - 1:20 s/d 2:15)**:
+   - Tuang sisa air perlahan hingga timbangan menunjukkan tepat 225 gram.
+   - Biarkan air menetes habis. Aduk server melingkar sebelum disajikan ke cangkir."""
+        }
+    ]
+
+def get_quizzes_and_questions():
+    quizzes = [
+        {"id": "quiz-f1", "module_id": "mod-f1", "learning_path_id": None, "quiz_scope": "module", "title": "Kuis Evaluasi Modul F-1: Ekosistem Industri Kopi", "passing_score": 75, "time_limit_minutes": 10, "max_attempts": 3, "created_at": "2026-08-01T00:00:00Z"},
+        {"id": "quiz-f2", "module_id": "mod-f2", "learning_path_id": None, "quiz_scope": "module", "title": "Kuis Evaluasi Modul F-2: Agronomi & Origin Nusantara", "passing_score": 75, "time_limit_minutes": 10, "max_attempts": 3, "created_at": "2026-08-01T00:00:00Z"},
+        {"id": "quiz-f3", "module_id": "mod-f3", "learning_path_id": None, "quiz_scope": "module", "title": "Kuis Evaluasi Modul F-3: Varietas & Genetika Kopi", "passing_score": 75, "time_limit_minutes": 10, "max_attempts": 3, "created_at": "2026-08-01T00:00:00Z"},
+        {"id": "quiz-f4", "module_id": "mod-f4", "learning_path_id": None, "quiz_scope": "module", "title": "Kuis Evaluasi Modul F-4: Pasca Panen & Processing", "passing_score": 75, "time_limit_minutes": 10, "max_attempts": 3, "created_at": "2026-08-01T00:00:00Z"},
+        {"id": "quiz-f5", "module_id": "mod-f5", "learning_path_id": None, "quiz_scope": "module", "title": "Kuis Evaluasi Modul F-5: Roasting Science Fundamentals", "passing_score": 75, "time_limit_minutes": 10, "max_attempts": 3, "created_at": "2026-08-01T00:00:00Z"},
+        {"id": "quiz-f6", "module_id": "mod-f6", "learning_path_id": None, "quiz_scope": "module", "title": "Kuis Evaluasi Modul F-6: Water Science for Coffee", "passing_score": 75, "time_limit_minutes": 10, "max_attempts": 3, "created_at": "2026-08-01T00:00:00Z"},
+        {"id": "quiz-f7", "module_id": "mod-f7", "learning_path_id": None, "quiz_scope": "module", "title": "Kuis Evaluasi Modul F-7: Sensory & Cupping Standar SCA", "passing_score": 75, "time_limit_minutes": 10, "max_attempts": 3, "created_at": "2026-08-01T00:00:00Z"},
+        {"id": "quiz-final-foundation", "module_id": None, "learning_path_id": "path-foundation", "quiz_scope": "final_exam", "title": "Ujian Akhir Sertifikasi Foundation: Kopi dari Hulu ke Hilir", "passing_score": 80, "time_limit_minutes": 20, "max_attempts": 3, "created_at": "2026-08-01T00:00:00Z"},
+        {"id": "quiz-final-barista", "module_id": None, "learning_path_id": "path-barista", "quiz_scope": "final_exam", "title": "Ujian Akhir Profesional Barista: Sertifikasi Kompetensi Bar", "passing_score": 80, "time_limit_minutes": 25, "max_attempts": 3, "created_at": "2026-08-05T00:00:00Z"},
+        {"id": "quiz-final-home-brewer", "module_id": None, "learning_path_id": "path-home-brewer", "quiz_scope": "final_exam", "title": "Ujian Akhir Sertifikasi Home Brewer Alchemist", "passing_score": 80, "time_limit_minutes": 20, "max_attempts": 3, "created_at": "2026-08-05T00:00:00Z"},
+    ]
+
+    questions = [
+        # Quiz F1
+        {
+            "id": "q-f1-1", "quiz_id": "quiz-f1", "question_text": "Tahun berapakah bibit kopi Arabika pertama kali berhasil dibudidayakan di Batavia (Hindia Belanda) oleh VOC?", "question_type": "multiple_choice", "order_index": 1,
+            "explanation": "Bibit kopi Arabika pertama kali tiba di Batavia tahun 1696 namun gagal karena banjir, kemudian berhasil tumbuh subur pada pengiriman kedua tahun 1699 di Pondok Kopi.",
+            "answers": [
+                {"id": "ans-f1-1a", "question_id": "q-f1-1", "answer_text": "1699", "is_correct": True, "order_index": 1},
+                {"id": "ans-f1-1b", "question_id": "q-f1-1", "answer_text": "1850", "is_correct": False, "order_index": 2},
+                {"id": "ans-f1-1c", "question_id": "q-f1-1", "answer_text": "1945", "is_correct": False, "order_index": 3},
+                {"id": "ans-f1-1d", "question_id": "q-f1-1", "answer_text": "1520", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-f1-2", "quiz_id": "quiz-f1", "question_text": "Berapakah batas skor cupping minimum standar SCA agar sebuah biji kopi dapat dikategorikan sebagai Specialty Coffee?", "question_type": "multiple_choice", "order_index": 2,
+            "explanation": "Standar SCA menetapkan bahwa kopi dengan skor cupping 80 poin ke atas (dari skala 100) resmi diklasifikasikan sebagai Specialty Coffee.",
+            "answers": [
+                {"id": "ans-f1-2a", "question_id": "q-f1-2", "answer_text": "70 poin", "is_correct": False, "order_index": 1},
+                {"id": "ans-f1-2b", "question_id": "q-f1-2", "answer_text": "80 poin", "is_correct": True, "order_index": 2},
+                {"id": "ans-f1-2c", "question_id": "q-f1-2", "answer_text": "90 poin", "is_correct": False, "order_index": 3},
+                {"id": "ans-f1-2d", "question_id": "q-f1-2", "answer_text": "85 poin", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-f1-3", "quiz_id": "quiz-f1", "question_text": "Dalam 350 gram sampel green bean specialty coffee, berapa batas toleransi cacat primer (Primary Defect)?", "question_type": "multiple_choice", "order_index": 3,
+            "explanation": "Standar SCA mewajibkan 0 (nol) cacat primer dalam 350 gram sampel green bean agar sah menyandang status specialty coffee.",
+            "answers": [
+                {"id": "ans-f1-3a", "question_id": "q-f1-3", "answer_text": "0 cacat primer (Nol toleransi)", "is_correct": True, "order_index": 1},
+                {"id": "ans-f1-3b", "question_id": "q-f1-3", "answer_text": "Maksimal 3 cacat primer", "is_correct": False, "order_index": 2},
+                {"id": "ans-f1-3c", "question_id": "q-f1-3", "answer_text": "Maksimal 5 cacat primer", "is_correct": False, "order_index": 3},
+                {"id": "ans-f1-3d", "question_id": "q-f1-3", "answer_text": "Bebas asalkan disangrai gelap", "is_correct": False, "order_index": 4},
+            ]
+        },
+
+        # Quiz F2
+        {
+            "id": "q-f2-1", "quiz_id": "quiz-f2", "question_text": "Lapisan lendir berdaging manis buah kopi yang kaya glukosa dan fruktosa serta menjadi bahan bakar fermentasi disebut:", "question_type": "multiple_choice", "order_index": 1,
+            "explanation": "Mesokarp (Mucilage) adalah lapisan lendir berdaging manis yang membungkus kulit tanduk.",
+            "answers": [
+                {"id": "ans-f2-1a", "question_id": "q-f2-1", "answer_text": "Mesokarp (Mucilage)", "is_correct": True, "order_index": 1},
+                {"id": "ans-f2-1b", "question_id": "q-f2-1", "answer_text": "Endokarp (Parchment)", "is_correct": False, "order_index": 2},
+                {"id": "ans-f2-1c", "question_id": "q-f2-1", "answer_text": "Silverskin", "is_correct": False, "order_index": 3},
+                {"id": "ans-f2-1d", "question_id": "q-f2-1", "answer_text": "Eksokarp", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-f2-2", "quiz_id": "quiz-f2", "question_text": "Mengapa kopi yang ditanam di elevasi tinggi (> 1.400 mdpl) memiliki densitas biji lebih padat dan keasaman buah lebih kompleks?", "question_type": "multiple_choice", "order_index": 2,
+            "explanation": "Suhu dingin di dataran tinggi memperlambat laju respirasi malam hari sehingga tanaman tidak membakar habis cadangan gula, melainkan mengalirkan dan memadatkan sukrosa serta asam organik ke dalam embrio biji.",
+            "answers": [
+                {"id": "ans-f2-2a", "question_id": "q-f2-2", "answer_text": "Suhu dingin malam hari memperlambat respirasi sehingga akumulasi gula sukrosa dan asam organik berlangsung optimal", "is_correct": True, "order_index": 1},
+                {"id": "ans-f2-2b", "question_id": "q-f2-2", "answer_text": "Kadar oksigen yang tipis membuat pohon cepat berbuah lebat", "is_correct": False, "order_index": 2},
+                {"id": "ans-f2-2c", "question_id": "q-f2-2", "answer_text": "Tekanan udara rendah menyebabkan biji mengembang dua kali lipat", "is_correct": False, "order_index": 3},
+                {"id": "ans-f2-2d", "question_id": "q-f2-2", "answer_text": "Tanaman di dataran tinggi tidak membutuhkan fotosintesis", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-f2-3", "quiz_id": "quiz-f2", "question_text": "Alat optik yang digunakan petani kopi modern di kebun untuk mengukur kadar kemanisan gula (°Brix) pada ceri matang adalah:", "question_type": "multiple_choice", "order_index": 3,
+            "explanation": "Refraktometer Brix mengukur indeks pembiasan cahaya cairan jus mucilage buah kopi ceri untuk menguji konsentrasi gula terlarut.",
+            "answers": [
+                {"id": "ans-f2-3a", "question_id": "q-f2-3", "answer_text": "Refraktometer Brix", "is_correct": True, "order_index": 1},
+                {"id": "ans-f2-3b", "question_id": "q-f2-3", "answer_text": "Termokopel Inframerah", "is_correct": False, "order_index": 2},
+                {"id": "ans-f2-3c", "question_id": "q-f2-3", "answer_text": "Manometer Tekanan", "is_correct": False, "order_index": 3},
+                {"id": "ans-f2-3d", "question_id": "q-f2-3", "answer_text": "Higrometer Ruangan", "is_correct": False, "order_index": 4},
+            ]
+        },
+
+        # Quiz F3
+        {
+            "id": "q-f3-1", "quiz_id": "quiz-f3", "question_text": "Manakah spesies tanaman kopi yang bersifat Tetraploid (memiliki 4 set kromosom / 44 kromosom) dan menyerbuk sendiri?", "question_type": "multiple_choice", "order_index": 1,
+            "explanation": "Coffea arabica adalah satu-satunya spesies kopi komersial yang bersifat tetraploid (2n=44 kromosom) dan self-pollinating.",
+            "answers": [
+                {"id": "ans-f3-1a", "question_id": "q-f3-1", "answer_text": "Coffea arabica (Arabika)", "is_correct": True, "order_index": 1},
+                {"id": "ans-f3-1b", "question_id": "q-f3-1", "answer_text": "Coffea canephora (Robusta)", "is_correct": False, "order_index": 2},
+                {"id": "ans-f3-1c", "question_id": "q-f3-1", "answer_text": "Coffea liberica (Liberika)", "is_correct": False, "order_index": 3},
+                {"id": "ans-f3-1d", "question_id": "q-f3-1", "answer_text": "Coffea eugenioides", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-f3-2", "quiz_id": "quiz-f3", "question_text": "Varietas Arabika unggul asal kawasan Danau Toba yang namanya bermakna 'Si Pelunas Hutang' karena berbuah terus menerus adalah:", "question_type": "multiple_choice", "order_index": 2,
+            "explanation": "Sigarar Utang berasal dari Humbang Hasundutan, dinamai demikian karena pohonnya selalu berbuah sepanjang tahun membantu ekonomi petani.",
+            "answers": [
+                {"id": "ans-f3-2a", "question_id": "q-f3-2", "answer_text": "Sigarar Utang", "is_correct": True, "order_index": 1},
+                {"id": "ans-f3-2b", "question_id": "q-f3-2", "answer_text": "Tim-Tim", "is_correct": False, "order_index": 2},
+                {"id": "ans-f3-2c", "question_id": "q-f3-2", "answer_text": "Ateng Super", "is_correct": False, "order_index": 3},
+                {"id": "ans-f3-2d", "question_id": "q-f3-2", "answer_text": "S-795", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-f3-3", "quiz_id": "quiz-f3", "question_text": "Persilangan alami spontan antara Arabika dan Robusta di Pulau Timor pada 1917 yang melahirkan varietas tahan penyakit karat daun dikenal sebagai:", "question_type": "multiple_choice", "order_index": 3,
+            "explanation": "Hibrido de Timor (HDT) adalah persilangan alami bersejarah yang menjadi tetua kelompok varietas Catimor dan Tim-Tim.",
+            "answers": [
+                {"id": "ans-f3-3a", "question_id": "q-f3-3", "answer_text": "Hibrido de Timor (HDT)", "is_correct": True, "order_index": 1},
+                {"id": "ans-f3-3b", "question_id": "q-f3-3", "answer_text": "Bourbon Mayaguez", "is_correct": False, "order_index": 2},
+                {"id": "ans-f3-3c", "question_id": "q-f3-3", "answer_text": "Geisha Panama", "is_correct": False, "order_index": 3},
+                {"id": "ans-f3-3d", "question_id": "q-f3-3", "answer_text": "SL-28 Kenya", "is_correct": False, "order_index": 4},
+            ]
+        },
+
+        # Quiz F4
+        {
+            "id": "q-f4-1", "quiz_id": "quiz-f4", "question_text": "Karakter rasa utama yang menjadi keunggulan metode pasca panen Fully Washed dibanding metode lainnya adalah:", "question_type": "multiple_choice", "order_index": 1,
+            "explanation": "Proses Washed menghilangkan seluruh mucilage sebelum dijemur, menghasilkan kebersihan cangkir (clean cup) tinggi dan keasaman sitrat/malat cerah.",
+            "answers": [
+                {"id": "ans-f4-1a", "question_id": "q-f4-1", "answer_text": "Clean Cup (kebersihan rasa) tinggi dan keasaman buah cerah bersinar", "is_correct": True, "order_index": 1},
+                {"id": "ans-f4-1b", "question_id": "q-f4-1", "answer_text": "Rasa fermentasi alkohol anggur yang sangat pekat", "is_correct": False, "order_index": 2},
+                {"id": "ans-f4-1c", "question_id": "q-f4-1", "answer_text": "Body yang sangat berat dan rasa tanah earthy pekat", "is_correct": False, "order_index": 3},
+                {"id": "ans-f4-1d", "question_id": "q-f4-1", "answer_text": "Kadar kafein yang berlipat ganda", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-f4-2", "quiz_id": "quiz-f4", "question_text": "Apa perbedaan mendasar metode tradisional Giling Basah (Wet Hulled) Indonesia dibanding proses standar dunia?", "question_type": "multiple_choice", "order_index": 2,
+            "explanation": "Giling Basah mengupas kulit tanduk (parchment) saat biji masih basah lembap berkadar air 30-35%, sedangkan proses dunia mengupasnya saat biji kering 11%.",
+            "answers": [
+                {"id": "ans-f4-2a", "question_id": "q-f4-2", "answer_text": "Kulit tanduk (parchment) dikupas saat biji masih basah (kadar air 30% - 35%)", "is_correct": True, "order_index": 1},
+                {"id": "ans-f4-2b", "question_id": "q-f4-2", "answer_text": "Kopi diseduh langsung dari pohon tanpa dikeringkan", "is_correct": False, "order_index": 2},
+                {"id": "ans-f4-2c", "question_id": "q-f4-2", "answer_text": "Biji kopi direndam di dalam air laut selama 1 bulan", "is_correct": False, "order_index": 3},
+                {"id": "ans-f4-2d", "question_id": "q-f4-2", "answer_text": "Kopi digiling menggunakan penggilingan batu tanpa mesin", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-f4-3", "quiz_id": "quiz-f4", "question_text": "Metode fermentasi modern yang menyuntikkan gas karbon dioksida bertekanan ke tangki tertutup untuk memicu fermentasi intraseluler adalah:", "question_type": "multiple_choice", "order_index": 3,
+            "explanation": "Carbonic Maceration mengadopsi teknik wine Beaujolais dengan menyuntikkan gas CO2 ke tangki kedap udara.",
+            "answers": [
+                {"id": "ans-f4-3a", "question_id": "q-f4-3", "answer_text": "Carbonic Maceration", "is_correct": True, "order_index": 1},
+                {"id": "ans-f4-3b", "question_id": "q-f4-3", "answer_text": "Traditional Dry Natural", "is_correct": False, "order_index": 2},
+                {"id": "ans-f4-3c", "question_id": "q-f4-3", "answer_text": "Decaffeination Swiss Water", "is_correct": False, "order_index": 3},
+                {"id": "ans-f4-3d", "question_id": "q-f4-3", "answer_text": "Kopi Luwak Fermentasi", "is_correct": False, "order_index": 4},
+            ]
+        },
+
+        # Quiz F5
+        {
+            "id": "q-f5-1", "quiz_id": "quiz-f5", "question_text": "Reaksi kimia pencokelatan non-enzimatis antara asam amino dan gula pereduksi pada suhu 130°C - 160°C dalam drum roaster disebut:", "question_type": "multiple_choice", "order_index": 1,
+            "explanation": "Reaksi Maillard bertanggung jawab atas pembentukan ratusan senyawa aroma panggangan dan melanoidin pembentuk body.",
+            "answers": [
+                {"id": "ans-f5-1a", "question_id": "q-f5-1", "answer_text": "Reaksi Maillard", "is_correct": True, "order_index": 1},
+                {"id": "ans-f5-1b", "question_id": "q-f5-1", "answer_text": "Fotosintesis Klorofil", "is_correct": False, "order_index": 2},
+                {"id": "ans-f5-1c", "question_id": "q-f5-1", "answer_text": "Fermentasi Asam Butirat", "is_correct": False, "order_index": 3},
+                {"id": "ans-f5-1d", "question_id": "q-f5-1", "answer_text": "Oksidasi Asam Sitrat", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-f5-2", "quiz_id": "quiz-f5", "question_text": "Fenomena letupan fisik First Crack pada proses pemanggangan kopi terjadi karena:", "question_type": "multiple_choice", "order_index": 2,
+            "explanation": "First crack terjadi saat tekanan akumulasi uap air super-panas dan gas CO2 memecahkan struktur dinding selulosa biji.",
+            "answers": [
+                {"id": "ans-f5-2a", "question_id": "q-f5-2", "answer_text": "Akumulasi tekanan uap air dan gas CO2 internal memecahkan dinding selulosa biji", "is_correct": True, "order_index": 1},
+                {"id": "ans-f5-2b", "question_id": "q-f5-2", "answer_text": "Kadar kafein mendidih dan meledak", "is_correct": False, "order_index": 2},
+                {"id": "ans-f5-2c", "question_id": "q-f5-2", "answer_text": "Drum roaster berhenti berputar mendadak", "is_correct": False, "order_index": 3},
+                {"id": "ans-f5-2d", "question_id": "q-f5-2", "answer_text": "Biji kopi terbakar habis menjadi abu", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-f5-3", "quiz_id": "quiz-f5", "question_text": "Berapa hari waktu istirahat (resting / degassing) yang direkomendasikan untuk biji kopi sebelum diseduh sebagai espresso?", "question_type": "multiple_choice", "order_index": 3,
+            "explanation": "Espresso membutuhkan masa resting 10 - 14 hari agar pelepasan gas CO2 stabil sehingga ekstraksi tidak berbusa kasar.",
+            "answers": [
+                {"id": "ans-f5-3a", "question_id": "q-f5-3", "answer_text": "10 – 14 hari", "is_correct": True, "order_index": 1},
+                {"id": "ans-f5-3b", "question_id": "q-f5-3", "answer_text": "Langsung diseduh menit pertama keluar mesin", "is_correct": False, "order_index": 2},
+                {"id": "ans-f5-3c", "question_id": "q-f5-3", "answer_text": "6 bulan", "is_correct": False, "order_index": 3},
+                {"id": "ans-f5-3d", "question_id": "q-f5-3", "answer_text": "1 hari saja sudah maksimal", "is_correct": False, "order_index": 4},
+            ]
+        },
+
+        # Quiz F6
+        {
+            "id": "q-f6-1", "quiz_id": "quiz-f6", "question_text": "Berapakah persentase rata-rata kandungan air dalam secangkir kopi filter manual brew?", "question_type": "multiple_choice", "order_index": 1,
+            "explanation": "Kopi filter tersusun atas sekitar 98.5% - 98.8% air dan hanya 1.2% - 1.5% padatan kopi terlarut (TDS).",
+            "answers": [
+                {"id": "ans-f6-1a", "question_id": "q-f6-1", "answer_text": "98.5% – 98.8%", "is_correct": True, "order_index": 1},
+                {"id": "ans-f6-1b", "question_id": "q-f6-1", "answer_text": "50.0%", "is_correct": False, "order_index": 2},
+                {"id": "ans-f6-1c", "question_id": "q-f6-1", "answer_text": "75.0%", "is_correct": False, "order_index": 3},
+                {"id": "ans-f6-1d", "question_id": "q-f6-1", "answer_text": "10.0%", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-f6-2", "quiz_id": "quiz-f6", "question_text": "Kation mineral dalam air yang memiliki afinitas paling kuat mengikat senyawa buah dan asam sitrat kopi tanpa membentuk kerak kapur adalah:", "question_type": "multiple_choice", "order_index": 2,
+            "explanation": "Ion Magnesium (Mg2+) memiliki densitas muatan tinggi yang sangat efektif menarik senyawa volatil buah dan garamnya sangat mudah larut.",
+            "answers": [
+                {"id": "ans-f6-2a", "question_id": "q-f6-2", "answer_text": "Magnesium (Mg2+)", "is_correct": True, "order_index": 1},
+                {"id": "ans-f6-2b", "question_id": "q-f6-2", "answer_text": "Klorida (Cl-)", "is_correct": False, "order_index": 2},
+                {"id": "ans-f6-2c", "question_id": "q-f6-2", "answer_text": "Besi (Fe2+)", "is_correct": False, "order_index": 3},
+                {"id": "ans-f6-2d", "question_id": "q-f6-2", "answer_text": "Timbal (Pb2+)", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-f6-3", "quiz_id": "quiz-f6", "question_text": "Jika air seduh memiliki tingkat Alkalinitas (Buffer Bikarbonat) yang terlalu tinggi (> 100 ppm), apa yang terjadi pada rasa kopi?", "question_type": "multiple_choice", "order_index": 3,
+            "explanation": "Buffer bikarbonat yang berlebih menetralkan keasaman alami kopi sehingga kopi terasa hambar, datar, dan berkapur.",
+            "answers": [
+                {"id": "ans-f6-3a", "question_id": "q-f6-3", "answer_text": "Seluruh keasaman buah alami kopi dinetralkan menjadi hambar dan datar", "is_correct": True, "order_index": 1},
+                {"id": "ans-f6-3b", "question_id": "q-f6-3", "answer_text": "Kopi menjadi sangat masam menusuk seperti cuka murni", "is_correct": False, "order_index": 2},
+                {"id": "ans-f6-3c", "question_id": "q-f6-3", "answer_text": "Kopi berubah warna menjadi biru", "is_correct": False, "order_index": 3},
+                {"id": "ans-f6-3d", "question_id": "q-f6-3", "answer_text": "Kadar gula kopi meningkat 50%", "is_correct": False, "order_index": 4},
+            ]
+        },
+
+        # Quiz F7
+        {
+            "id": "q-f7-1", "quiz_id": "quiz-f7", "question_text": "Berapakah rasio seduh standar resmi protokol evaluasi sensori Cupping SCA?", "question_type": "multiple_choice", "order_index": 1,
+            "explanation": "Protokol SCA menetapkan rasio 8.25g bubuk kopi per 150ml air bersuhu 93°C.",
+            "answers": [
+                {"id": "ans-f7-1a", "question_id": "q-f7-1", "answer_text": "8.25 gram kopi per 150 ml air (suhu 93°C)", "is_correct": True, "order_index": 1},
+                {"id": "ans-f7-1b", "question_id": "q-f7-1", "answer_text": "20 gram kopi per 100 ml air (suhu 100°C)", "is_correct": False, "order_index": 2},
+                {"id": "ans-f7-1c", "question_id": "q-f7-1", "answer_text": "5 gram kopi per 300 ml air (suhu 80°C)", "is_correct": False, "order_index": 3},
+                {"id": "ans-f7-1d", "question_id": "q-f7-1", "answer_text": "15 gram kopi per 225 ml air", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-f7-2", "quiz_id": "quiz-f7", "question_text": "Pada menit keberapakah ritual 'Breaking the Crust' dilakukan saat sesi cupping resmi berstandar SCA?", "question_type": "multiple_choice", "order_index": 2,
+            "explanation": "Tepat di menit ke-4, kerak dipecah dengan 3 dorongan lembut sendok cupping.",
+            "answers": [
+                {"id": "ans-f7-2a", "question_id": "q-f7-2", "answer_text": "Menit ke-4", "is_correct": True, "order_index": 1},
+                {"id": "ans-f7-2b", "question_id": "q-f7-2", "answer_text": "Menit ke-1", "is_correct": False, "order_index": 2},
+                {"id": "ans-f7-2c", "question_id": "q-f7-2", "answer_text": "Menit ke-10", "is_correct": False, "order_index": 3},
+                {"id": "ans-f7-2d", "question_id": "q-f7-2", "answer_text": "Menit ke-15", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-f7-3", "quiz_id": "quiz-f7", "question_text": "Jenis asam organik yang memberikan sensasi renyah segar seperti buah apel hijau dan memicu produksi air liur adalah:", "question_type": "multiple_choice", "order_index": 3,
+            "explanation": "Asam Malat (Malic Acid) menghadirkan sensasi segar renyah buah apel hijau dan pear juicy.",
+            "answers": [
+                {"id": "ans-f7-3a", "question_id": "q-f7-3", "answer_text": "Asam Malat (Malic Acid)", "is_correct": True, "order_index": 1},
+                {"id": "ans-f7-3b", "question_id": "q-f7-3", "answer_text": "Asam Asetat (Cuka)", "is_correct": False, "order_index": 2},
+                {"id": "ans-f7-3c", "question_id": "q-f7-3", "answer_text": "Asam Klorida", "is_correct": False, "order_index": 3},
+                {"id": "ans-f7-3d", "question_id": "q-f7-3", "answer_text": "Asam Sulfat", "is_correct": False, "order_index": 4},
+            ]
+        },
+
+        # Final Foundation Exam Questions
+        {
+            "id": "q-fn-1", "quiz_id": "quiz-final-foundation", "question_text": "Berapakah kadar air (moisture content) ideal green bean sebelum disangrai agar aman disimpan dan optimal saat di-roast?", "question_type": "multiple_choice", "order_index": 1,
+            "explanation": "Standar kelembapan ideal internasional adalah antara 10.0% hingga 12.0%.",
+            "answers": [
+                {"id": "ans-fn-1a", "question_id": "q-fn-1", "answer_text": "10% – 12%", "is_correct": True, "order_index": 1},
+                {"id": "ans-fn-1b", "question_id": "q-fn-1", "answer_text": "18% – 22%", "is_correct": False, "order_index": 2},
+                {"id": "ans-fn-1c", "question_id": "q-fn-1", "answer_text": "4% – 6%", "is_correct": False, "order_index": 3},
+                {"id": "ans-fn-1d", "question_id": "q-fn-1", "answer_text": "14% – 16%", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-fn-2", "quiz_id": "quiz-final-foundation", "question_text": "Mineral dalam air seduh yang paling efektif mengikat dan mengekstrak senyawa asam buah beraroma adalah:", "question_type": "multiple_choice", "order_index": 2,
+            "explanation": "Ion Magnesium (Mg2+) memiliki densitas muatan tinggi yang sangat efektif menarik senyawa asam organik dari kopi.",
+            "answers": [
+                {"id": "ans-fn-2a", "question_id": "q-fn-2", "answer_text": "Magnesium (Mg2+)", "is_correct": True, "order_index": 1},
+                {"id": "ans-fn-2b", "question_id": "q-fn-2", "answer_text": "Klorida (Cl-)", "is_correct": False, "order_index": 2},
+                {"id": "ans-fn-2c", "question_id": "q-fn-2", "answer_text": "Natrium (Na+)", "is_correct": False, "order_index": 3},
+                {"id": "ans-fn-2d", "question_id": "q-fn-2", "answer_text": "Sulfat (SO4 2-)", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-fn-3", "quiz_id": "quiz-final-foundation", "question_text": "Pada menit keberapakah ritual 'Break the Crust' dilakukan saat sesi cupping berstandar SCA?", "question_type": "multiple_choice", "order_index": 3,
+            "explanation": "Kerak bubuk kopi yang mengapung dipecahkan tepat pada menit ke-4 dengan 3 dorongan sendok cupping.",
+            "answers": [
+                {"id": "ans-fn-3a", "question_id": "q-fn-3", "answer_text": "Menit ke-4", "is_correct": True, "order_index": 1},
+                {"id": "ans-fn-3b", "question_id": "q-fn-3", "answer_text": "Menit ke-1", "is_correct": False, "order_index": 2},
+                {"id": "ans-fn-3c", "question_id": "q-fn-3", "answer_text": "Menit ke-10", "is_correct": False, "order_index": 3},
+                {"id": "ans-fn-3d", "question_id": "q-fn-3", "answer_text": "Menit ke-15", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-fn-4", "quiz_id": "quiz-final-foundation", "question_text": "Proses pasca panen yang mengeringkan buah ceri kopi utuh langsung di bawah matahari tanpa mengupas kulitnya disebut:", "question_type": "multiple_choice", "order_index": 4,
+            "explanation": "Natural atau Dry process menjemur ceri utuh secara langsung sehingga menghasilkan rasa manis buah berry yang tebal.",
+            "answers": [
+                {"id": "ans-fn-4a", "question_id": "q-fn-4", "answer_text": "Natural / Dry Process", "is_correct": True, "order_index": 1},
+                {"id": "ans-fn-4b", "question_id": "q-fn-4", "answer_text": "Fully Washed", "is_correct": False, "order_index": 2},
+                {"id": "ans-fn-4c", "question_id": "q-fn-4", "answer_text": "White Honey", "is_correct": False, "order_index": 3},
+                {"id": "ans-fn-4d", "question_id": "q-fn-4", "answer_text": "Decaffeination", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-fn-5", "quiz_id": "quiz-final-foundation", "question_text": "Dalam 350 gram sampel biji hijau specialty coffee, berapakah toleransi jumlah cacat primer (Category 1 Defects)?", "question_type": "multiple_choice", "order_index": 5,
+            "explanation": "Standar SCA menetapkan 0 (nol) cacat primer dalam 350 gram sampel green bean untuk kualifikasi specialty coffee.",
+            "answers": [
+                {"id": "ans-fn-5a", "question_id": "q-fn-5", "answer_text": "0 cacat primer (Nol toleransi)", "is_correct": True, "order_index": 1},
+                {"id": "ans-fn-5b", "question_id": "q-fn-5", "answer_text": "Maksimal 3 cacat primer", "is_correct": False, "order_index": 2},
+                {"id": "ans-fn-5c", "question_id": "q-fn-5", "answer_text": "Maksimal 5 cacat primer", "is_correct": False, "order_index": 3},
+                {"id": "ans-fn-5d", "question_id": "q-fn-5", "answer_text": "Maksimal 10 cacat primer", "is_correct": False, "order_index": 4},
+            ]
+        },
+
+        # Barista Final Exam Questions
+        {
+            "id": "q-bar-1", "quiz_id": "quiz-final-barista", "question_text": "Jika espresso Anda terekstraksi hanya dalam waktu 16 detik dan rasanya sangat masam tajam, tindakan dial-in apa yang paling tepat?", "question_type": "multiple_choice", "order_index": 1,
+            "explanation": "Ekstraksi 16 detik menandakan under-extraction (aliran terlalu cepat). Gilingan harus dihaluskan (finer) agar resistensi bubuk meningkat.",
+            "answers": [
+                {"id": "ans-bar-1a", "question_id": "q-bar-1", "answer_text": "Haluskan ukuran gilingan (finer)", "is_correct": True, "order_index": 1},
+                {"id": "ans-bar-1b", "question_id": "q-bar-1", "answer_text": "Kasarkan ukuran gilingan (coarser)", "is_correct": False, "order_index": 2},
+                {"id": "ans-bar-1c", "question_id": "q-bar-1", "answer_text": "Kurangi dosis kopi secara drastis", "is_correct": False, "order_index": 3},
+                {"id": "ans-bar-1d", "question_id": "q-bar-1", "answer_text": "Turunkan suhu air mesin ke 80°C", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-bar-2", "quiz_id": "quiz-final-barista", "question_text": "Berapakah suhu maksimal memanaskan susu saat steaming agar manis alami laktosa dan struktur protein tidak rusak?", "question_type": "multiple_choice", "order_index": 2,
+            "explanation": "Susu sebaiknya dihangatkan hingga 60°C - 65°C. Di atas 70°C, protein terdenaturasi dan kehilangan manis alaminya.",
+            "answers": [
+                {"id": "ans-bar-2a", "question_id": "q-bar-2", "answer_text": "60°C – 65°C", "is_correct": True, "order_index": 1},
+                {"id": "ans-bar-2b", "question_id": "q-bar-2", "answer_text": "85°C – 90°C", "is_correct": False, "order_index": 2},
+                {"id": "ans-bar-2c", "question_id": "q-bar-2", "answer_text": "40°C – 45°C", "is_correct": False, "order_index": 3},
+                {"id": "ans-bar-2d", "question_id": "q-bar-2", "answer_text": "100°C (mendidih)", "is_correct": False, "order_index": 4},
+            ]
+        },
+        {
+            "id": "q-bar-3", "quiz_id": "quiz-final-barista", "question_text": "Berapa hari waktu istirahat (degassing) yang direkomendasikan untuk biji kopi espresso setelah tanggal sangrai?", "question_type": "multiple_choice", "order_index": 3,
+            "explanation": "Espresso membutuhkan resting 10-14 hari agar gas CO2 stabil sehingga ekstraksi tidak berbusa kasar.",
+            "answers": [
+                {"id": "ans-bar-3a", "question_id": "q-bar-3", "answer_text": "10 – 14 hari", "is_correct": True, "order_index": 1},
+                {"id": "ans-bar-3b", "question_id": "q-bar-3", "answer_text": "Langsung seduh di hari roasting (0 hari)", "is_correct": False, "order_index": 2},
+                {"id": "ans-bar-3c", "question_id": "q-bar-3", "answer_text": "6 bulan", "is_correct": False, "order_index": 3},
+                {"id": "ans-bar-3d", "question_id": "q-bar-3", "answer_text": "1 hari saja", "is_correct": False, "order_index": 4},
+            ]
+        }
+    ]
+
+    return quizzes, questions
+
