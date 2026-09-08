@@ -223,7 +223,7 @@ export const BrewCalculator: React.FC = () => {
       </div>
 
       {/* Mode Switcher Tabs: Preset vs Custom */}
-      <div className="mt-6 flex gap-2 border-b border-paper-300 pb-3 font-mono text-xs">
+      <div className="mt-6 flex flex-col sm:flex-row gap-2 border-b border-paper-300 pb-3 font-mono text-xs">
         <button
           onClick={() => setCalculatorMode('preset')}
           className={`px-4 py-2 border uppercase tracking-wider flex items-center gap-1.5 transition-all ${

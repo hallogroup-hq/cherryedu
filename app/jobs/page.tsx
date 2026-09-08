@@ -12,6 +12,7 @@ import {
   Plus,
   Clock,
   Search,
+  SlidersHorizontal,
 } from 'lucide-react';
 
 export default function JobsPage() {
@@ -37,6 +38,7 @@ export default function JobsPage() {
   } | null>(null);
 
   const [isEmployerMode, setIsEmployerMode] = useState<boolean>(currentUser.role === 'employer');
+  const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
   const [newJobTitle, setNewJobTitle] = useState<string>('');
   const [newJobCity, setNewJobCity] = useState<string>('Jakarta Selatan');
   const [newJobType, setNewJobType] = useState<'full_time' | 'part_time'>('full_time');
@@ -143,10 +145,27 @@ export default function JobsPage() {
       </div>
 
       {!isEmployerMode ? (
-        /* Job Seeker View */
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
+        <div className="mt-8 space-y-4">
+          {/* Mobile Filter Toggle */}
+          <div className="lg:hidden">
+            <button
+              onClick={() => setIsFilterOpen(!isFilterOpen)}
+              className="w-full flex items-center justify-between px-4 py-3 bg-white border border-paper-300 rounded-lg font-mono text-xs uppercase tracking-wider text-roast-700 shadow-subtle"
+            >
+              <span className="flex items-center gap-2">
+                <SlidersHorizontal className="w-3.5 h-3.5 text-cherry-700" />
+                Filter Lowongan
+                {(selectedCity !== 'all' || selectedRole !== 'all' || onlyRequireCert) && (
+                  <span className="px-1.5 py-0.5 bg-cherry-700 text-white text-[9px] rounded font-bold">AKTIF</span>
+                )}
+              </span>
+              <span>{isFilterOpen ? '▲' : '▼'}</span>
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Filters Sidebar */}
-          <div className="lg:col-span-4 space-y-6 bg-white p-6 rounded-xl border border-paper-300 shadow-subtle h-fit">
+          <div className={`lg:col-span-4 space-y-6 bg-white p-6 rounded-xl border border-paper-300 shadow-subtle h-fit ${isFilterOpen ? 'block' : 'hidden'} lg:block`}>
             <div className="font-mono text-xs font-bold uppercase tracking-widest text-roast-500 pb-3 border-b border-paper-200 flex items-center justify-between">
               <span>FILTER LOWONGAN</span>
               <Filter className="w-3.5 h-3.5" />
@@ -306,10 +325,11 @@ export default function JobsPage() {
               })}
             </div>
           </div>
+          </div>
         </div>
       ) : (
-        /* Employer Mode View */
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
+          {/* Employer Mode View */}
           <div className="lg:col-span-5 bg-white p-6 rounded-xl border border-paper-300 shadow-subtle space-y-4">
             <h3 className="font-serif font-bold text-lg text-roast-950 pb-2 border-b border-paper-200">
               Pasang Lowongan Baru

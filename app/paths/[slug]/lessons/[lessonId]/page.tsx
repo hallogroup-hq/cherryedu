@@ -14,6 +14,7 @@ import {
   ArrowLeft,
   Check,
   Award,
+  List,
 } from 'lucide-react';
 
 export default function LessonPlayerPage() {
@@ -34,6 +35,7 @@ export default function LessonPlayerPage() {
 
   const [timeSpent, setTimeSpent] = useState<number>(0);
   const [completedNotification, setCompletedNotification] = useState<boolean>(false);
+  const [isTocOpen, setIsTocOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -107,6 +109,15 @@ export default function LessonPlayerPage() {
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
+            {/* Mobile TOC toggle */}
+            <button
+              onClick={() => setIsTocOpen(!isTocOpen)}
+              className="lg:hidden p-1.5 rounded border border-paper-300 text-roast-600 hover:bg-paper-100 transition-colors"
+              title="Daftar Materi"
+            >
+              <List className="w-4 h-4" />
+            </button>
+
             {/* Bookmark button */}
             <button
               onClick={() => toggleBookmark(currentLesson.id)}
@@ -149,7 +160,7 @@ export default function LessonPlayerPage() {
       {/* Reader Layout (TOC Sidebar + Editorial Reader) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-10">
         {/* Left Table of Contents */}
-        <aside className="lg:col-span-4 hidden lg:block">
+        <aside className={`lg:col-span-4 ${isTocOpen ? 'block' : 'hidden'} lg:block`}>
           <div className="sticky top-32 bg-white rounded-xl border border-paper-300 p-5 shadow-subtle max-h-[calc(100vh-170px)] overflow-y-auto">
             <span className="font-mono text-[10px] uppercase tracking-widest text-roast-400 font-bold block mb-4 pb-2 border-b border-paper-200">
               DAFTAR MATERI SILABUS
@@ -171,6 +182,7 @@ export default function LessonPlayerPage() {
                           <Link
                             key={l.id}
                             href={`/paths/${path.slug}/lessons/${l.id}`}
+                            onClick={() => setIsTocOpen(false)}
                             className={`flex items-center gap-2 p-2 rounded text-xs transition-colors ${
                               isCurrent
                                 ? 'bg-roast-950 text-paper-50 font-bold'
@@ -197,7 +209,7 @@ export default function LessonPlayerPage() {
         </aside>
 
         {/* Center / Main Editorial Reader */}
-        <main className="lg:col-span-8 bg-white rounded-xl border border-paper-300 p-8 sm:p-14 shadow-card">
+        <main className="lg:col-span-8 bg-white rounded-xl border border-paper-300 p-5 sm:p-8 lg:p-14 shadow-card">
           {completedNotification && (
             <div className="mb-6 p-4 rounded bg-emerald-50 border border-emerald-300 font-mono text-xs text-emerald-900 flex items-center gap-2 animate-bounce">
               <Check className="w-4 h-4 text-emerald-700 shrink-0" />

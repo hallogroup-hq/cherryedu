@@ -80,18 +80,18 @@ export const Navbar: React.FC = () => {
 
           {/* Right Status & Controls */}
           <div className="flex items-center gap-2.5 sm:gap-3">
-            {/* Minimalist Streak Stamp */}
+            {/* Minimalist Streak Stamp — hidden on mobile */}
             <div
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-paper-100 border border-paper-300 text-roast-800 text-xs font-mono"
+              className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-paper-100 border border-paper-300 text-roast-800 text-xs font-mono"
               title={`${currentUser.streak_count} hari berturut-turut`}
             >
               <Flame className="w-3.5 h-3.5 text-crema-600 fill-crema-500" />
               <span className="font-bold">{currentUser.streak_count}d</span>
             </div>
 
-            {/* Minimalist XP Stamp */}
+            {/* Minimalist XP Stamp — hidden on mobile */}
             <div
-              className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-paper-100 border border-paper-300 text-roast-900 text-xs font-mono"
+              className="hidden md:flex items-center gap-1 px-2.5 py-1 rounded-md bg-paper-100 border border-paper-300 text-roast-900 text-xs font-mono"
               title={`${currentUser.xp_points} XP dikumpulkan`}
             >
               <Zap className="w-3 h-3 text-roast-700 fill-roast-700" />
@@ -99,10 +99,10 @@ export const Navbar: React.FC = () => {
               <span className="text-[10px] text-roast-500 font-sans">XP</span>
             </div>
 
-            {/* Bookmark Link */}
+            {/* Bookmark Link — hidden on mobile */}
             <Link
               href="/profile?tab=bookmarks"
-              className="relative p-1.5 text-roast-600 hover:text-roast-950 hover:bg-paper-200/50 rounded-md transition-colors"
+              className="relative hidden md:block p-1.5 text-roast-600 hover:text-roast-950 hover:bg-paper-200/50 rounded-md transition-colors"
               title="Materi Disimpan"
             >
               <Bookmark className="w-4 h-4" />
@@ -124,7 +124,7 @@ export const Navbar: React.FC = () => {
             {currentUser.role === 'admin' && (
               <Link
                 href="/admin"
-                className="px-2.5 py-1 bg-cherry-700 hover:bg-cherry-800 text-white font-mono text-[10px] uppercase font-bold tracking-wider rounded-md transition-colors flex items-center gap-1 shadow-xs"
+                className="px-2.5 py-1 bg-cherry-700 hover:bg-cherry-800 text-white font-mono text-[10px] uppercase font-bold tracking-wider rounded-md transition-colors hidden sm:flex items-center gap-1 shadow-xs"
                 title="Buka Konsol Pengelola & Tim Internal"
               >
                 <span>[ ADMIN ]</span>
@@ -178,7 +178,20 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-paper-300 bg-paper-50 px-6 py-5 space-y-3">
+        <div className="md:hidden border-t border-paper-300 bg-paper-50 px-6 py-5 space-y-4">
+          {/* User Stats Strip */}
+          <div className="flex items-center gap-3 pb-4 border-b border-paper-200">
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-paper-100 border border-paper-300 text-roast-800 text-xs font-mono">
+              <Flame className="w-3.5 h-3.5 text-crema-600 fill-crema-500" />
+              <span className="font-bold">{currentUser.streak_count}d streak</span>
+            </div>
+            <div className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-paper-100 border border-paper-300 text-roast-900 text-xs font-mono">
+              <Zap className="w-3 h-3 text-roast-700 fill-roast-700" />
+              <span className="font-bold">{currentUser.xp_points}</span>
+              <span className="text-[10px] text-roast-500">XP</span>
+            </div>
+          </div>
+
           <div className="font-mono text-[10px] uppercase tracking-widest text-roast-400">
             Daftar Navigasi
           </div>
@@ -200,6 +213,14 @@ export const Navbar: React.FC = () => {
             >
               <Compass className="w-4 h-4" />
               <span>Panduan Penentuan Jalur Belajar</span>
+            </Link>
+            <Link
+              href="/profile?tab=bookmarks"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2 py-1 text-roast-700"
+            >
+              <Bookmark className="w-4 h-4" />
+              <span>Materi Disimpan {bookmarks.length > 0 ? `(${bookmarks.length})` : ''}</span>
             </Link>
             <Link
               href="/certificates"
