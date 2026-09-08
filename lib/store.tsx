@@ -99,7 +99,7 @@ interface CherryEduContextType {
 
 const CherryEduContext = createContext<CherryEduContextType | undefined>(undefined);
 
-const STORAGE_KEY = 'cherryedu_state_v1';
+const STORAGE_KEY = 'cherryedu_state_v2';
 
 export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Initialize with seed data or LocalStorage
@@ -182,9 +182,54 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         if (parsed.jobListings) setJobListings(parsed.jobListings);
         if (parsed.jobApplications) setJobApplications(parsed.jobApplications);
         if (parsed.bookmarks) setBookmarks(parsed.bookmarks);
-        if (parsed.lessons) setLessons(parsed.lessons);
-        if (parsed.learningPaths) setLearningPaths(parsed.learningPaths);
-        if (parsed.modules) setModules(parsed.modules);
+
+        // Smart merge learning paths
+        if (parsed.learningPaths) {
+          const existingPathIds = new Set(parsed.learningPaths.map((p: LearningPath) => p.id));
+          const mergedPaths = [
+            ...parsed.learningPaths.map((p: LearningPath) => {
+              const seedMatch = SEED_PATHS.find((sp) => sp.id === p.id);
+              return seedMatch && (!p.total_modules || p.total_modules < seedMatch.total_modules) ? seedMatch : p;
+            }),
+            ...SEED_PATHS.filter((sp) => !existingPathIds.has(sp.id)),
+          ];
+          setLearningPaths(mergedPaths);
+        } else {
+          setLearningPaths(SEED_PATHS);
+        }
+
+        // Smart merge modules
+        if (parsed.modules) {
+          const existingModIds = new Set(parsed.modules.map((m: Module) => m.id));
+          setModules([...parsed.modules, ...SEED_MODULES.filter((sm) => !existingModIds.has(sm.id))]);
+        } else {
+          setModules(SEED_MODULES);
+        }
+
+        // Smart merge lessons
+        if (parsed.lessons) {
+          const existingLesIds = new Set(parsed.lessons.map((l: Lesson) => l.id));
+          setLessons([...parsed.lessons, ...SEED_LESSONS.filter((sl) => !existingLesIds.has(sl.id))]);
+        } else {
+          setLessons(SEED_LESSONS);
+        }
+
+        // Smart merge quizzes
+        if (parsed.quizzes) {
+          const existingQuizIds = new Set(parsed.quizzes.map((q: Quiz) => q.id));
+          setQuizzes([...parsed.quizzes, ...SEED_QUIZZES.filter((sq) => !existingQuizIds.has(sq.id))]);
+        } else {
+          setQuizzes(SEED_QUIZZES);
+        }
+
+        // Smart merge questions
+        if (parsed.questions) {
+          const existingQuesIds = new Set(parsed.questions.map((q: Question) => q.id));
+          setQuestions([...parsed.questions, ...SEED_QUESTIONS.filter((sq) => !existingQuesIds.has(sq.id))]);
+        } else {
+          setQuestions(SEED_QUESTIONS);
+        }
+
         if (parsed.landingPageConfig) setLandingPageConfig(parsed.landingPageConfig);
       }
     } catch (e) {
@@ -212,6 +257,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         lessons,
         learningPaths,
         modules,
+        quizzes,
+        questions,
         landingPageConfig,
       };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
@@ -235,6 +282,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     lessons,
     learningPaths,
     modules,
+    quizzes,
+    questions,
     landingPageConfig,
   ]);
 
@@ -720,6 +769,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     setLearningPaths(SEED_PATHS);
     setModules(SEED_MODULES);
     setLessons(SEED_LESSONS);
+    setQuizzes(SEED_QUIZZES);
+    setQuestions(SEED_QUESTIONS);
     setLandingPageConfig(DEFAULT_LANDING_CONFIG);
     setEnrollments(SEED_ENROLLMENTS);
     setCertificates(SEED_CERTIFICATES);

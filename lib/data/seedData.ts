@@ -14,6 +14,39 @@ import {
   JobApplication,
   Enrollment,
 } from '../types';
+import {
+  HOME_BREWER_EXPANDED_LESSONS,
+  HOME_BREWER_QUIZZES,
+  HOME_BREWER_QUESTIONS,
+} from './paths/homeBrewerData';
+import {
+  ROASTER_PATH,
+  ROASTER_MODULES,
+  ROASTER_LESSONS,
+  ROASTER_QUIZZES,
+  ROASTER_QUESTIONS,
+} from './paths/roasterData';
+import {
+  Q_GRADER_PATH,
+  Q_GRADER_MODULES,
+  Q_GRADER_LESSONS,
+  Q_GRADER_QUIZZES,
+  Q_GRADER_QUESTIONS,
+} from './paths/qGraderData';
+import {
+  POST_HARVEST_PATH,
+  POST_HARVEST_MODULES,
+  POST_HARVEST_LESSONS,
+  POST_HARVEST_QUIZZES,
+  POST_HARVEST_QUESTIONS,
+} from './paths/postHarvestData';
+import {
+  COFFEE_BUSINESS_PATH,
+  COFFEE_BUSINESS_MODULES,
+  COFFEE_BUSINESS_LESSONS,
+  COFFEE_BUSINESS_QUIZZES,
+  COFFEE_BUSINESS_QUESTIONS,
+} from './paths/coffeeBusinessData';
 
 // 1. SEED USERS
 export const SEED_USERS: User[] = [
@@ -213,42 +246,10 @@ export const SEED_PATHS: LearningPath[] = [
     total_modules: 10,
     created_at: '2026-08-05T00:00:00Z',
   },
-  {
-    id: 'path-roaster-preview',
-    title: 'Roaster Path (Segera Hadir)',
-    slug: 'roaster-path',
-    description:
-      'Green bean evaluation, RoR curves, drum vs air roaster, development time ratio, dan cupping quality control.',
-    thumbnail_url:
-      'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&auto=format&fit=crop&q=80',
-    layer_type: 'specialization',
-    prerequisite_path_id: 'path-foundation',
-    target_role: 'roaster',
-    level: 'advanced',
-    is_free: false,
-    is_published: false,
-    estimated_hours: 20,
-    total_modules: 8,
-    created_at: '2026-08-10T00:00:00Z',
-  },
-  {
-    id: 'path-qgrader-preview',
-    title: 'Q Grader Path (Segera Hadir)',
-    slug: 'q-grader-path',
-    description:
-      'Protokol SCA mendalam, sensory training intensif, kalibrasi asam-manis-asin, dan persiapan ujian lisensi Q Grader.',
-    thumbnail_url:
-      'https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=800&auto=format&fit=crop&q=80',
-    layer_type: 'specialization',
-    prerequisite_path_id: 'path-foundation',
-    target_role: 'q_grader',
-    level: 'advanced',
-    is_free: false,
-    is_published: false,
-    estimated_hours: 30,
-    total_modules: 6,
-    created_at: '2026-08-10T00:00:00Z',
-  },
+  ROASTER_PATH,
+  Q_GRADER_PATH,
+  POST_HARVEST_PATH,
+  COFFEE_BUSINESS_PATH,
 ];
 
 // 4. MODULES
@@ -535,6 +536,10 @@ export const SEED_MODULES: Module[] = [
     is_published: true,
     created_at: '2026-08-05T00:00:00Z',
   },
+  ...ROASTER_MODULES,
+  ...Q_GRADER_MODULES,
+  ...POST_HARVEST_MODULES,
+  ...COFFEE_BUSINESS_MODULES,
 ];
 
 // 5. LESSONS
@@ -3828,6 +3833,11 @@ Perjalanan belajar kopi rumahan akan berlipat ganda kenikmatannya saat Anda berb
       "Bergabung dalam tradisi tukar biji kopi komunitas menghemat biaya eksplorasi aneka varietas nusantara."
     ],
   },
+  ...HOME_BREWER_EXPANDED_LESSONS,
+  ...ROASTER_LESSONS,
+  ...Q_GRADER_LESSONS,
+  ...POST_HARVEST_LESSONS,
+  ...COFFEE_BUSINESS_LESSONS,
 ];
 
 // 6. QUIZZES
@@ -3942,6 +3952,11 @@ export const SEED_QUIZZES: Quiz[] = [
     max_attempts: 3,
     created_at: "2026-08-05T00:00:00Z",
   },
+  ...HOME_BREWER_QUIZZES,
+  ...ROASTER_QUIZZES,
+  ...Q_GRADER_QUIZZES,
+  ...POST_HARVEST_QUIZZES,
+  ...COFFEE_BUSINESS_QUIZZES,
 ];
 
 // 7. QUESTIONS & ANSWERS
@@ -4535,6 +4550,11 @@ export const SEED_QUESTIONS: Question[] = [
       { id: "ans-hb-8d", question_id: "q-hb-8", answer_text: "Kopi akan terasa asin", is_correct: false, order_index: 4 },
     ],
   },
+  ...HOME_BREWER_QUESTIONS,
+  ...ROASTER_QUESTIONS,
+  ...Q_GRADER_QUESTIONS,
+  ...POST_HARVEST_QUESTIONS,
+  ...COFFEE_BUSINESS_QUESTIONS,
 ];
 
 // 8. INITIAL ENROLLMENTS

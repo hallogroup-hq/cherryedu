@@ -2,7 +2,7 @@
 // Based on CherryEdu_ERD.md v2.0
 
 export type UserPlatformRole = 'learner' | 'expert' | 'employer' | 'admin';
-export type CoffeeRole = 'barista' | 'home_brewer' | 'roaster' | 'q_grader' | 'farmer' | 'consumer' | 'undecided';
+export type CoffeeRole = 'barista' | 'home_brewer' | 'roaster' | 'q_grader' | 'farmer' | 'consumer' | 'undecided' | 'business';
 
 export interface User {
   id: string;
@@ -21,7 +21,7 @@ export interface User {
 }
 
 export type PathLayerType = 'foundation' | 'specialization';
-export type PathTargetRole = 'barista' | 'home_brewer' | 'roaster' | 'q_grader' | 'farmer' | 'all';
+export type PathTargetRole = 'barista' | 'home_brewer' | 'roaster' | 'q_grader' | 'farmer' | 'business' | 'all';
 export type PathLevel = 'beginner' | 'intermediate' | 'advanced' | 'full';
 
 export interface LearningPath {
@@ -60,7 +60,7 @@ export interface Module {
   title: string;
   description: string;
   order_index: number;
-  is_locked: boolean;
+  is_locked?: boolean;
   is_published: boolean;
   created_at: string;
 }
@@ -69,12 +69,16 @@ export type ContentType = 'text' | 'video' | 'interactive';
 
 export interface BrewRecipe {
   method: string;
-  dose: string;
-  water: string;
-  ratio: string;
-  temperature: string;
-  grind_size: string;
-  brew_time: string;
+  dose?: string;
+  coffee_dose_grams?: number;
+  water?: string;
+  water_amount_ml?: number;
+  ratio?: string;
+  temperature?: string;
+  water_temperature_celsius?: number;
+  grind_size?: string;
+  brew_time?: string;
+  brew_time_minutes?: number;
   steps: string[];
 }
 
@@ -103,9 +107,10 @@ export interface Quiz {
   learning_path_id: string | null;
   quiz_scope: QuizScope;
   title: string;
+  description?: string;
   passing_score: number;
   time_limit_minutes: number;
-  max_attempts: number;
+  max_attempts?: number;
   created_at: string;
 }
 
@@ -113,10 +118,10 @@ export type QuestionType = 'multiple_choice' | 'true_false';
 
 export interface Answer {
   id: string;
-  question_id: string;
+  question_id?: string;
   answer_text: string;
   is_correct: boolean;
-  order_index: number;
+  order_index?: number;
 }
 
 export interface Question {
@@ -128,6 +133,7 @@ export interface Question {
   order_index: number;
   answers: Answer[];
   explanation?: string;
+  points?: number;
 }
 
 export type ProgressStatus = 'not_started' | 'in_progress' | 'completed';
