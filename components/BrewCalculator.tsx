@@ -441,7 +441,7 @@ export const BrewCalculator: React.FC = () => {
                     : 'bg-paper-50 text-roast-700 border-paper-300 hover:border-roast-600'
                 }`}
               >
-                Dosis Kopi (g) &rarr; Hitung Kebutuhan Air
+                Dosis Kopi (g) → Hitung Kebutuhan Air
               </button>
               <button
                 onClick={() => setCustomCalculationBasis('water-to-dose')}
@@ -451,7 +451,7 @@ export const BrewCalculator: React.FC = () => {
                     : 'bg-paper-50 text-roast-700 border-paper-300 hover:border-roast-600'
                 }`}
               >
-                Target Air (ml) &rarr; Hitung Dosis Kopi
+                Target Air (ml) → Hitung Dosis Kopi
               </button>
             </div>
           </div>

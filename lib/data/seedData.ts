@@ -47,6 +47,14 @@ import {
   COFFEE_BUSINESS_QUIZZES,
   COFFEE_BUSINESS_QUESTIONS,
 } from './paths/coffeeBusinessData';
+import {
+  BARISTA_PATH,
+  BARISTA_MODULES,
+  BARISTA_LESSONS,
+  BARISTA_QUIZZES,
+  BARISTA_QUESTIONS,
+} from './paths/baristaData';
+
 
 // 1. SEED USERS
 export const SEED_USERS: User[] = [
@@ -551,6 +559,9 @@ export const SEED_LESSONS: Lesson[] = [
     content: `
 # Sejarah Kopi Dunia: Dari Kaffa ke Batavia 1696
 
+![Perjalanan Sejarah Kopi Dunia dari Ethiopia ke Batavia](https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Perkembangan Perdagangan Kopi Global dan Budidaya Perdana Batavia 1696 — Sumber / Kredit: Unsplash / Specialty Coffee Association (SCA)*
+
 Kopi bukan sekadar komoditas perkebunan biasa. Ia adalah pemicu revolusi sosial, intelektual, dan perdagangan lintas benua selama lebih dari lima abad.
 
 ### Legenda Kaldi dan Hutan Kaffa Ethiopia
@@ -605,6 +616,9 @@ Tanaman kopi terbukti tumbuh sangat subur di tanah vulkanik sejuk Jawa Barat (Pr
     title: "Peta Rantai Nilai: 6 Titik Kritis dari Hulu ke Hilir",
     content: `
 # Peta Rantai Nilai: 6 Titik Kritis dari Hulu ke Hilir
+
+![Peta Rantai Nilai: 6 Titik Kritis dari Hulu ke Hilir](https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Rantai Pasok Terpadu Kopi Spesialti dari Hulu ke Hilir — Sumber / Kredit: CQI & World Coffee Research*
 
 Secangkir specialty coffee beraroma melati dan buah persik di sebuah kafe urban tidak tercipta secara kebetulan. Kopi tersebut telah melewati rantai nilai (*value chain*) yang sangat panjang, melibatkan kerja keras ribuan tangan dengan keahlian spesifik.
 
@@ -670,6 +684,9 @@ Konsumen yang paham kualitas tidak hanya mencari asupan kafein semata, melainkan
     title: "Specialty Coffee vs Kopi Komersial: Standar Resmi SCA",
     content: `
 # Specialty Coffee vs Kopi Komersial
+
+![Specialty Coffee vs Kopi Komersial: Standar Resmi SCA](https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Standar Evaluasi Fisik dan Pemilahan Cacat Biji Kopi SCA — Sumber / Kredit: Specialty Coffee Association Standards*
 
 Di pasar global, industri kopi terbelah menjadi dua dunia yang sangat berbeda: **Kopi Komersial (Commodity Coffee)** dan **Specialty Coffee**. Istilah *Specialty Coffee* pertama kali dicetuskan oleh Erna Knutsen pada tahun 1974 dalam konferensi perdagangan kopi di Perancis untuk mendeskripsikan biji kopi dengan cita rasa istimewa yang diproduksi di bawah kondisi geografis iklim mikro ideal.
 
@@ -737,6 +754,9 @@ PERBANDINGAN FUNDAMENTAL:
     content: `
 # Empat Gelombang Kopi: Evolusi Budaya Konsumsi
 
+![Empat Gelombang Kopi: Dari Komoditas Massal ke Era Fermentasi Presisi](https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Evolusi Gelombang Kopi Menuju Budaya Kedai Spesialti Kontemporer — Sumber / Kredit: Coffee Culture & History Review*
+
 Sejarah konsumsi kopi modern dikelompokkan oleh para sosiolog dan sejarawan kopi ke dalam beberapa fase evolusi yang dikenal sebagai **"Coffee Waves"** (Gelombang Kopi). Setiap gelombang menandai pergeseran radikal dalam cara manusia memandang, memproses, dan menikmati secangkir kopi.
 
 ### 1. Gelombang Pertama (The First Wave): Aksesibilitas & Kopi Instan
@@ -788,6 +808,9 @@ Sejarah konsumsi kopi modern dikelompokkan oleh para sosiolog dan sejarawan kopi
     title: "Keberlanjutan Lingkungan & Etika Fair Trade di Perkebunan Kopi",
     content: `
 # Keberlanjutan Lingkungan & Etika Fair Trade
+
+![Keberlanjutan Lingkungan & Etika Fair Trade di Perkebunan Kopi](https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Praktik Agroforestri Ramah Lingkungan dan Fair Trade — Sumber / Kredit: Rainforest Alliance / Fair Trade*
 
 Di balik keanggunan aroma kopi di cangkir kita, ada kenyataan sosial ekonomi yang menuntut perhatian serius: mayoritas petani kopi dunia hidup di bawah garis kemiskinan dan menghadapi risiko iklim yang kian ekstrem.
 
@@ -848,6 +871,9 @@ Tantangan terbesar kopi Indonesia saat ini bukan pada mesin atau teknologi seduh
     title: "Anatomi Botani Tanaman & Buah Kopi: Dari Eksokarp hingga Biji Endosperma",
     content: `
 # Anatomi Botani Tanaman & Buah Kopi
+
+![Anatomi Botani Tanaman & Buah Kopi: Dari Eksokarp hingga Biji Endosperma](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
 
 Untuk memahami bagaimana rasa kopi terbentuk, seorang ahli kopi harus memulai dari struktur biologis tanamannya. Pohon kopi bukan semak liar biasa, melainkan pohon berkayu yang mampu hidup hingga 50-80 tahun.
 
@@ -912,6 +938,9 @@ Pada sekitar 5% hingga 8% buah ceri di sebuah pohon, salah satu dari dua ovula g
     content: `
 # Agroklimatologi & Peran Ketinggian (Altitude)
 
+![Agroklimatologi & Peran Ketinggian: Mengapa MDPL Menentukan Kepadatan & Keasaman](https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Ketinggian MDPL dan Pengaruh Iklim Mikro Vulkanik Nusantara — Sumber / Kredit: Balai Penelitian Tanaman Industri (BALITTRI)*
+
 Dalam spesifikasi kantong kopi specialty, Anda akan selalu melihat angka elevasi, misalnya: \`1.500 – 1.800 mdpl\` (meter di atas permukaan laut). Angka ini bukan sekadar informasi geografis, melainkan indikator biologis utama yang menentukan kepadatan fisik biji dan profil keasaman cangkir.
 
 ### Fisika Atmosfer & Suhu Rata-rata
@@ -968,6 +997,9 @@ Di perdagangan kopi Amerika Latin dan Karibia, biji kopi diklasifikasikan berdas
     title: "Tanah Vulkanik, Iklim Mikro, & Sistem Agroforestri Naungan (Shade-Grown)",
     content: `
 # Tanah Vulkanik, Iklim Mikro, & Sistem Agroforestri
+
+![Tanah Vulkanik, Iklim Mikro, & Sistem Agroforestri Naungan (Shade-Grown)](https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Ketinggian MDPL dan Pengaruh Iklim Mikro Vulkanik Nusantara — Sumber / Kredit: Balai Penelitian Tanaman Industri (BALITTRI)*
 
 Indonesia memiliki anugerah agroklimat yang tidak dimiliki banyak negara lain di dunia: gugusan cincin gunung api aktif (*Pacific Ring of Fire*) yang membentang dari barat Sumatra, melintasi Jawa, Bali, Lombok, Flores, hingga Sulawesi Utara.
 
@@ -1026,6 +1058,9 @@ Sebaliknya, petani kopi tradisional Indonesia mempraktikkan sistem **Agroforestr
     title: "Manajemen Panen Selektif: Sains Petik Merah 100% & Pengukuran Derajat Brix",
     content: `
 # Manajemen Panen Selektif: Sains Petik Merah 100%
+
+![Manajemen Panen Selektif: Sains Petik Merah 100% & Pengukuran Derajat Brix](https://images.unsplash.com/photo-1497636577773-f1231844b336?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Manajemen Panen Selektif Petik Merah Sempurna (100% Red Cherry) — Sumber / Kredit: CQI Post-Harvest Processing Protocols*
 
 Jika ada satu aturan tunggal yang paling memisahkan kopi specialty dari kopi komersial murah, aturan itu adalah: **DISIPLIN PETIK MERAH 100% (SELECTIVE PICKING)**.
 
@@ -1089,6 +1124,9 @@ Petani modern di Gayo, Kerinci, dan Ijen kini membawa instrumen optik presisi ke
     content: `
 # Ancaman Hama Tanaman & Krisis Perubahan Iklim
 
+![Ancaman Hama Tanaman & Perubahan Iklim: Karat Daun & Kumbang Penggerek](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Inspeksi Kesehatan Tanaman dan Mitigasi Hama Penyakit Kopi — Sumber / Kredit: Center for Agriculture and Bioscience*
+
 Masa depan secangkir kopi yang kita nikmati saat ini menghadapi ancaman nyata yang belum pernah terjadi sebelumnya dalam sejarah peradaban manusia: serangan hama biologis dan pergeseran iklim bumi.
 
 ### 1. Karat Daun Kopi (*Hemileia vastatrix* / CLR)
@@ -1146,6 +1184,9 @@ Penelitian dari *World Coffee Research* (WCR) memproyeksikan bahwa pada tahun **
     title: "Taksonomi Genus Coffea: Arabika, Robusta, Liberika, & Excelsa",
     content: `
 # Taksonomi Genus Coffea: 4 Spesies Komersial
+
+![Taksonomi Genus Coffea: Arabika, Robusta, Liberika, & Excelsa](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
 
 Di dunia biologi botani, terdapat lebih dari **125 spesies** kopi yang telah diidentifikasi di alam liar Afrika dan Madagaskar. Namun, perdagangan kopi dunia berputar di sekitar empat spesies utama:
 
@@ -1217,6 +1258,9 @@ POHON KELUARGA GENUS COFFEA KOMERSIAL:
     title: "Silsilah Varietas Arabika Dunia: Dari Typica, Bourbon, Geisha, hingga Hibrida",
     content: `
 # Silsilah Varietas Arabika Dunia
+
+![Silsilah Varietas Arabika Dunia: Dari Typica, Bourbon, Geisha, hingga Hibrida](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Koleksi Varietas Kopi Arabika dan Robusta Unggul — Sumber / Kredit: Pusat Penelitian Kopi dan Kakao Indonesia (ICCRI)*
 
 Varietas pada kopi setara dengan varietas anggur pada industri wine (seperti *Cabernet Sauvignon*, *Pinot Noir*, atau *Chardonnay*). Memahami silsilah pohon keluarga Arabika adalah kunci untuk memprediksi potensi rasa yang akan muncul di cangkir.
 
@@ -1290,6 +1334,9 @@ Pada tahun 1917, di sebuah perkebunan di Pulau Timor (saat itu koloni Portugis),
     content: `
 # Varietas Unggul Nusantara
 
+![Varietas Unggul Nusantara: Ateng Super, Tim-Tim, Sigarar Utang, & S-795](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Koleksi Varietas Kopi Arabika dan Robusta Unggul — Sumber / Kredit: Pusat Penelitian Kopi dan Kakao Indonesia (ICCRI)*
+
 Indonesia bukan hanya konsumen varietas global, melainkan salah satu laboratorium keanekaragaman genetik kopi terpenting di dunia. Varietas-varietas lokal nusantara telah beradaptasi selama puluhan dekade dengan tanah vulkanik dan cuaca tropis basah kepulauan kita.
 
 ### 1. Tim-Tim (Timor Timur / HDT Asli)
@@ -1353,6 +1400,9 @@ PETA PERSEBARAN VARIETAS UNGGUL UTAMA NUSANTARA:
     title: "Kebangkitan Fine Robusta Nusantara: Potensi Dampit, Temanggung, & Lampung",
     content: `
 # Kebangkitan Fine Robusta Nusantara
+
+![Kebangkitan Fine Robusta Nusantara: Potensi Dampit, Temanggung, & Lampung](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
 
 Selama beberapa dekade, buku-buku kopi dunia menulis stigma negatif: *"Arabika adalah kopi bangsawan berkualitas tinggi, sedangkan Robusta adalah kopi kasta rendah yang berasa ban karet terbakar."*
 
@@ -1420,6 +1470,9 @@ Dalam bisnis coffee shop modern yang didominasi oleh menu **Es Kopi Susu Gula Ar
     title: "Dekonstruksi Label Kopi Specialty: Cara Membaca Varietas, Lot, & Cupping Notes",
     content: `
 # Dekonstruksi Label Kopi Specialty
+
+![Dekonstruksi Label Kopi Specialty: Cara Membaca Varietas, Lot, & Cupping Notes](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Koleksi Varietas Kopi Arabika dan Robusta Unggul — Sumber / Kredit: Pusat Penelitian Kopi dan Kakao Indonesia (ICCRI)*
 
 Bagi pemula, membaca label kemasan specialty coffee bisa terasa membingungkan: penuh istilah asing, angka ketinggian, singkatan varietas, dan deretan nama buah-buahan eksotis.
 
@@ -1496,6 +1549,9 @@ ANATOMI LABEL KEMASAN SPECIALTY COFFEE:
     content: `
 # Olah Basah (Washed / Fully Washed Process)
 
+![Olah Basah (Washed / Wet Process): Demucilagination & Karakter Clean Cup](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Proses Olah Basah (Fully Washed) dan Pencucian Musilage — Sumber / Kredit: Specialty Coffee Association Processing Guide*
+
 Di dunia specialty coffee internasional, metode **Washed (Olah Basah)** diibaratkan sebagai kaca bening tanpa noda: ia tidak menambahkan rasa dari luar, melainkan menelanjangi dan memperlihatkan karakter asli tanah kebun (*terroir*) dan varietas genetik biji kopi secara murni dan transparan.
 
 \`\`\`
@@ -1562,6 +1618,9 @@ Gabah basah berkadar air ~50% dijemur di atas para-para berventilasi kawat kasa 
     content: `
 # Olah Kering (Natural / Dry Process)
 
+![Olah Kering (Natural / Dry Process): Pengeringan Ceri Utuh & Konsentrasi Gula](https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Penjemuran Ceri Kopi Proses Kering (Natural) di Meja Para-Para — Sumber / Kredit: CQI Q Processing Technical Standards*
+
 Metode **Natural (Olah Kering)** adalah teknik pengolahan kopi paling purba di muka bumi. Berasal dari dataran kering Ethiopia dan Yaman berabad-abad silam di mana sumber air sangat langka, ceri kopi yang dipetik dijemur langsung di bawah terik matahari tanpa menggunakan air sama sekali.
 
 \`\`\`
@@ -1612,6 +1671,9 @@ Penjemuran proses Natural membutuhkan waktu yang jauh lebih lama dibanding Washe
     title: "Metode Honey / Pulped Natural: Spektrum Yellow, Red, & Black Honey",
     content: `
 # Metode Honey / Pulped Natural
+
+![Metode Honey / Pulped Natural: Spektrum Yellow, Red, & Black Honey](https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Penjemuran Ceri Kopi Proses Kering (Natural) di Meja Para-Para — Sumber / Kredit: CQI Q Processing Technical Standards*
 
 Di Kosta Rika dan Brazil pada dekade 1990-an hingga 2000-an, para inovator kopi mencari jalan tengah: *bagaimana cara menghemat air bersih tanpa menghasilkan rasa fermentasi berlebih seperti Natural?* Dari sinilah lahir metode revolusioner: **Pulped Natural** atau yang di dunia specialty populer dengan nama **Honey Process**.
 
@@ -1681,6 +1743,9 @@ Honey process menawarkan keseimbangan sempurna di meja seduh:
     content: `
 # Warisan Unik Nusantara: Giling Basah (Wet Hulled)
 
+![Warisan Unik Nusantara: Wet Hulled (Giling Basah) khas Sumatra & Sulawesi](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Proses Olah Basah (Fully Washed) dan Pencucian Musilage — Sumber / Kredit: Specialty Coffee Association Processing Guide*
+
 Jika Anda bepergian ke negara-negara penghasil kopi di Amerika Tengah atau Afrika, mereka hanya mengenal Washed, Natural, dan Honey. Namun jika Anda datang ke dataran tinggi Sumatra Utara, Aceh Gayo, atau pedalaman Tana Toraja, Anda akan menyaksikan metode pasca panen paling ikonik di dunia: **Giling Basah** (secara internasional dikenal sebagai **Wet Hulled Process**).
 
 ### Mengapa Metode Ini Lahir di Indonesia?
@@ -1739,6 +1804,9 @@ Biji hijau yang sudah telanjang tanpa kulit pelindung dihamparkan langsung di at
     title: "Era Inovasi Pasca Panen: Anaerobic, Carbonic Maceration, & Co-Fermentation",
     content: `
 # Era Inovasi Pasca Panen: Dari Tradisi ke Sains Presisi
+
+![Era Inovasi Pasca Panen: Anaerobic, Carbonic Maceration, & Co-Fermentation](https://images.unsplash.com/photo-1497636577773-f1231844b336?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Manajemen Panen Selektif Petik Merah Sempurna (100% Red Cherry) — Sumber / Kredit: CQI Post-Harvest Processing Protocols*
 
 Dalam kurun waktu lima tahun terakhir, panggung kejuaraan barista dunia (*World Barista Championship*) dan meja lelang kopi specialty global dihebohkan oleh satu revolusi: **Eksperimen Fermentasi Presisi**.
 
@@ -1807,6 +1875,9 @@ Sebuah tren paling viral sekaligus memicu perdebatan sengit di kalangan juri kop
     content: `
 # Termodinamika Roasting & Anatomi Drum Roaster
 
+![Termodinamika Roasting: Konduksi, Konveksi, Radiasi, & Anatomi Mesin Drum](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
+
 Roasting (pemanggangan) bukan sekadar memanaskan biji kopi hingga berubah warna cokelat. Roasting adalah penerapan hukum termodinamika presisi tinggi untuk membuka potensi rasa kimiawi yang terkunci di dalam biji kopi hijau mentah.
 
 ### 3 Mode Perpindahan Panas (Heat Transfer)
@@ -1863,6 +1934,9 @@ Roaster modern menghubungkan mesin ke software digital (seperti *Artisan* atau *
     title: "Kimia Fase Sangrai: Drying, Reaksi Maillard, Karamelisasi, & First Crack",
     content: `
 # Kimia Fase Sangrai: Menyingkap Misteri First Crack
+
+![Kimia Fase Sangrai: Drying, Reaksi Maillard, Karamelisasi, & First Crack](https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Transformasi Kimiawi Reaksi Maillard dan Karamelisasi Biji — Sumber / Kredit: Coffee Chemistry Research Laboratory*
 
 Biji kopi hijau mentah (*green bean*) memiliki rasa yang sangat tidak enak: keras seperti batu, hambar, pahit bergetah, dan berbau rumput basah. Di dalam mesin roaster, biji tersebut mengalami serangkaian reaksi kimia organik paling rumit di industri pangan.
 
@@ -1933,6 +2007,9 @@ Rentang waktu dari detik pertama First Crack terdengar hingga tuas drum dibuka u
     content: `
 # Spektrum Profil Roasting & Skala Agtron
 
+![Spektrum Profil Roasting: Light, Medium, Dark Roast & Skala Agtron](https://images.unsplash.com/photo-1587734195503-904fca47e0e9?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Spektrum Profil Roasting Berdasarkan Nilai Skala Agtron — Sumber / Kredit: SCA Agtron Roast Color Standards*
+
 Dalam dunia kopi komersial zaman dulu, penentuan tingkat sangrai hanya didasarkan pada perkiraan visual mata roaster (*"oh, warnanya sudah cokelat gelap"*). Di industri modern berstandar SCA, penentuan derajat sangrai (*Roast Degree*) diukur secara ilmiah menggunakan spektrofotometer inframerah bernama **Skala Agtron**.
 
 \`\`\`
@@ -2001,6 +2078,9 @@ Untuk menghilangkan perdebatan subjektif, SCA menetapkan standar **Agtron** berb
     title: "Pasca Roasting: Kinetika Degassing Emisi CO2, Oksidasi Lipid, & Waktu Resting",
     content: `
 # Pasca Roasting: Kimia Degassing & Seni Resting
+
+![Pasca Roasting: Kinetika Degassing Emisi CO2, Oksidasi Lipid, & Waktu Resting](https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Pelepasan Gas Karbondioksida (CO2) dan Waktu Resting Optimal — Sumber / Kredit: International Coffee Science Association*
 
 Banyak orang awam mengira bahwa semakin segar kopi diseduh—misalnya kopi yang baru 1 jam keluar dari drum roaster—maka rasanya akan semakin lezat. **Ini adalah kesalahpahaman fatal.**
 
@@ -2071,6 +2151,9 @@ Jika Anda melihat bulatan kecil berlubang jarum di bagian depan kantong kemasan 
     content: `
 # Kimia Pelarut: Mengapa Air Menyusun 98.5% Kopi
 
+![Kimia Pelarut Ekstraksi: Mengapa Air Menyusun 98.5% Secangkir Kopi](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
+
 Anda bisa membeli biji kopi juara dunia termahal berharga jutaan rupiah, menggilingnya dengan grinder presisi seharga puluhan juta, dan menyeduhnya dengan corong Hario V60 titanium. Namun jika air yang Anda gunakan berasal dari kran sumur berbau besi atau air isi ulang murah tanpa mineral seimbang, seduhan Anda akan berasa datar, hambar, atau pahit mengeringkan lidah.
 
 ### Anatomi Komposisi Secangkir Kopi
@@ -2131,6 +2214,9 @@ Ini adalah anggapan yang keliru secara kimia ekstraksi:
     title: "Parameter Kritis Air Standar SCA: TDS, Total Hardness, Alkalinitas, & pH",
     content: `
 # Parameter Kritis Air Standar SCA
+
+![Parameter Kritis Air Standar SCA: TDS, Total Hardness, Alkalinitas, & pH](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
 
 Untuk memastikan kompetisi seduh dan evaluasi cupping di seluruh dunia memiliki standar rasa yang seragam, *Specialty Coffee Association* (SCA) merumuskan panduan ilmiah spesifikasi air seduh (**SCA Water Quality Standard**).
 
@@ -2198,6 +2284,9 @@ Derajat keasaman awal air sebelum kontak dengan kopi harus berada di titik netra
     content: `
 # Pertarungan Kation: Magnesium vs Kalsium
 
+![Pertarungan Kation: Magnesium (Mg2+) vs Kalsium (Ca2+) dalam Ekstraksi Rasa](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
+
 Pada tahun 2014, sebuah penelitian fisika kuantum komputasi yang diterbitkan oleh kimiawan Universitas Bath, **Dr. Christopher Hendon**, bersama juara barista Inggris, **Maxwell Colonna-Dashwood**, merevolusi industri specialty coffee selamanya melalui buku legendaris: *"Water for Coffee"*.
 
 Mereka membuktikan secara matematis bahwa tidak semua mineral diciptakan setara dalam mengekstrak rasa kopi. Dua kation utama dalam air—**Magnesium ($Mg^{2+}$)** dan **Kalsium ($Ca^{2+}$)**—bekerja dengan cara yang sangat berbeda.
@@ -2226,12 +2315,15 @@ Karena jari-jari atom magnesium jauh lebih kecil dibanding kalsium, muatan $+2$ 
 - Air yang kaya akan ion Magnesium akan menghasilkan seduhan kopi dengan **aroma buah yang sangat cerah, keasaman hidup yang bersih, dan wangi bunga yang semerbak**.
 - **Kabar Baik bagi Pemilik Kafe**: Senyawa magnesium karbonat memiliki tingkat kelarutan yang jauh lebih tinggi dibanding kalsium karbonat, sehingga **Magnesium tidak mudah mengendap menjadi kerak batu kapur yang menyumbat pipa mesin espresso**.
 
-### Peran Kalsium ($Ca^{2+}$) & Bahaya Limescale
+### Peran Kalsium (Ca²⁺) & Bahaya Limescale
 Kalsium adalah ion mineral paling umum yang ditemukan di air sumur dan air PDAM tanah kapur (seperti di Yogyakarta, sebagian Jawa Tengah, dan Bali):
 - Kalsium sangat efektif menarik senyawa berbobot molekul besar yang menyumbang rasa manis karamel dan ketebalan body (*mouthfeel*).
 - **Mala Petaka Mesin Espresso (*Limescale Disaster*)**: Ketika air kaya Kalsium bertemu dengan ion Bikarbonat di dalam boiler mesin espresso bersuhu di atas 93°C:
-  $$Ca^{2+} + 2HCO_3^- \\xrightarrow{\\Delta} \\mathbf{CaCO_3 \\downarrow} + H_2O + CO_2$$
-  Reaksi ini memicu pengendapan kristal padat **Kalsium Karbonat ($CaCO_3$)** berwarna putih kapur yang membatu. Kerak kapur ini akan menyelimuti elemen pemanas, menyumbat lubang semprot gicleur berdiameter 0.6 mm, merusak flowmeter, dan menyebabkan kerusakan mesin bernilai jutaan rupiah.
+
+> ⚗️ **Reaksi Kimia Pembentukan Kerak Kapur Boiler:**
+> **Ca²⁺ + 2HCO₃⁻ + Panas (Δ) → CaCO₃ (Kerak Putih Mengendap) + H₂O + CO₂**
+
+  Reaksi ini memicu pengendapan kristal padat **Kalsium Karbonat (CaCO₃)** berwarna putih kapur yang membatu. Kerak kapur ini akan menyelimuti elemen pemanas, menyumbat lubang semprot gicleur berdiameter 0.6 mm, merusak flowmeter, dan menyebabkan kerusakan mesin bernilai jutaan rupiah.
 
 ### Rasio Kation Formula Air Kompetisi
 Dalam kejuaraan *World Brewers Cup*, para barista dunia meracik air kustom mereka sendiri dengan rasio mineral terhitung:
@@ -2261,6 +2353,9 @@ Dalam kejuaraan *World Brewers Cup*, para barista dunia meracik air kustom merek
     title: "Solusi Filtrasi Bar Kopi: Memilih RO, Blending Valve, & Remineralisasi",
     content: `
 # Solusi Filtrasi Bar Kopi Komersial
+
+![Solusi Filtrasi Bar Kopi: Memilih RO, Blending Valve, & Remineralisasi](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
 
 Bagi pemilik kedai kopi specialty dan konsultan kafe, air bukan lagi urusan dapur belakang semata; air adalah investasi modal paling krusial yang melindungi mesin espresso seharga ratusan juta rupiah sekaligus penentu reputasi rasa kopi di mata pelanggan.
 
@@ -2341,6 +2436,9 @@ Inilah konfigurasi standar industri kedai kopi specialty modern di seluruh dunia
     content: `
 # Fisiologi Pengecapan: Bagaimana Manusia Merasakan Kopi
 
+![Fisiologi Pengecapan: Gustasi Lidah, Olfaksi Ortronasal, & Jalur Retronasal](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
+
 Saat seorang Q Grader menyeruput sesendok kopi dan berkata: *"Saya merasakan blueberry liar, bunga melati, madu hutan, dan cokelat hitam"*, apakah lidahnya benar-benar mengecap buah blueberry?
 
 Jawabannya adalah: **TIDAK**. Secara biologis, lidah manusia tidak pernah bisa mengecap buah blueberry. Yang mengecap blueberry adalah **sistem indra penciuman (olfaktori)** di dalam rongga hidung Anda.
@@ -2406,6 +2504,9 @@ Saat sesi cupping, Anda akan mendengar suara seruputan yang sangat keras: *"Szzz
     title: "Protokol Resmi Cupping SCA: Rasio Seduh, Breaking Crust, Skim, & Slurp",
     content: `
 # Protokol Resmi Cupping SCA (Standard Cupping Protocol)
+
+![Protokol Resmi Cupping SCA: Rasio Seduh, Breaking Crust, Skim, & Slurp](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
 
 Mengapa para ahli kopi profesional tidak mengevaluasi kualitas kopi menggunakan mesin espresso atau alat V60? Karena alat-alat tersebut memasukkan variabel subjektif barista (kecepatan tuang, kertas filter, tekanan pompa, suhu grup head).
 
@@ -2480,6 +2581,9 @@ Setiap sampel kopi disiapkan minimal **5 mangkok identik** untuk menguji keserag
     content: `
 # SCA Flavor Wheel & Klasifikasi Asam Organik
 
+![Membaca SCA Flavor Wheel & Klasifikasi Asam Organik Kopi](https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Roda Rasa Kopi Spesialti dan Identifikasi Spektrum Asam Organik — Sumber / Kredit: SCA & WCR Coffee Taster's Flavor Wheel*
+
 Pernahkah Anda melihat diagram lingkaran roda berwarna-warni yang dipajang di dinding kafe specialty? Itulah **SCA Coffee Taster's Flavor Wheel**, instrumen leksikon sensori paling ikonik dalam industri kopi dunia.
 
 Diperbarui secara masif pada tahun 2016 melalui kolaborasi bersejarah antara *Specialty Coffee Association* (SCA) dan *World Coffee Research* (WCR), roda rasa ini bukan sekadar karya seni visual, melainkan sebuah kamus ilmiah yang memiliki standar kalibrasi kimiawi di baliknya.
@@ -2547,6 +2651,9 @@ Keasaman (*Acidity*) adalah pilar paling dihargai dalam specialty coffee. Keasam
     title: "Identifikasi Defek Rasa (Cacat Kopi) & Lembar Penilaian Skor 80+",
     content: `
 # Identifikasi Defek Rasa & SCA Cupping Form
+
+![Identifikasi Defek Rasa (Cacat Kopi) & Lembar Penilaian Skor 80+](https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Identifikasi Cacat Fisik dan Defek Sensorik Biji Kopi — Sumber / Kredit: Coffee Quality Institute (CQI) Standards*
 
 Seorang pencicip kopi profesional tidak hanya bertugas memuji kopi yang enak; tugas yang jauh lebih krusial adalah **menjadi detektif cacat rasa (Defect Hunter)** untuk mencegah kopi bermutu buruk lolos ke pasar konsumen.
 
@@ -2630,112 +2737,14 @@ Total Skor Akhir = Skor Mentah – (Jumlah Mangkok Cacat x Nilai Penalti 2 atau 
 ],
   },
   {
-    id: "les-b2-1",
-    module_id: "mod-b2",
-    title: "Espresso Extraction & Anatomi Mesin Espresso Komersial",
-    content: `
-# Espresso Extraction & Anatomi Mesin Espresso
-
-Espresso adalah metode penyeduhan di mana air panas bertekanan tinggi (umumnya 9 bar) didorong melewati bubuk kopi yang dipadatkan dalam waktu singkat (25-30 detik).
-
-### Komponen Utama Mesin Espresso:
-- **Boiler**: Single boiler, heat exchanger (HX), atau dual boiler independen untuk kestabilan suhu grup head.
-- **Group Head (E61 atau Saturated)**: Titik distribusi air dengan shower screen dan gasket pengunci portafilter.
-- **Rotary Pump**: Menghasilkan tekanan 9 bar stabil yang konsisten sepanjang ekstraksi.
-- **Steam Wand**: Pipa uap bertekanan 1.2 – 1.8 bar untuk memanaskan dan membentuk tekstur susu micro-foam.
-
-### Konsep Ekstraksi Espresso Ideal:
-- **Dosis Kopi (Dose)**: 18 – 20 gram dalam double basket.
-- **Hasil Ekstraksi (Yield)**: 36 – 40 gram cairan espresso di cangkir (Rasio 1:2).
-- **Waktu Kontak (Time)**: 26 – 30 detik.
-    `,
-    content_type: 'text',
-    duration_minutes: 10,
-    order_index: 1,
-    is_free: true,
-    is_published: true,
-    created_at: "2026-08-05T00:00:00Z",
-    summary: "Komponen mesin komersial, tekanan 9 bar, dan formula standar double espresso.",
-    key_takeaways: [
-      "Espresso membutuhkan tekanan stabil 9 bar pada suhu 91°C - 94°C.",
-      "Rasio standar espresso modern adalah 1:2 (misal 18g bubuk kopi menghasilkan 36g liquid).",
-      "Waktu ekstraksi ideal berkisar antara 26 hingga 30 detik."
-],
-  },
-  {
-    id: "les-b4-1",
-    module_id: "mod-b4",
-    title: "Segitiga Dial-In: Dosis, Yield, Waktu, & Troubleshooting Rasa",
-    content: `
-# Segitiga Dial-In Espresso: Dosis, Yield, Waktu
-
-Dial-in adalah ritual harian paling penting bagi setiap barista setiap pagi sebelum pintu coffee shop dibuka.
-
-### Matriks Troubleshooting Rasa:
-| Gejala Rasa | Status | Penyebab | Solusi Dial-In |
-|---|---|---|---|
-| Sangat asam menusuk, hambar, watery, krema pucat cepat hilang | **Under-Extracted** | Air mengalir terlalu cepat (< 20 detik) | Haluskan grind size (*finer*) atau naikkan yield |
-| Pahit gosong, astringent mengeringkan lidah, krema gelap berbintik | **Over-Extracted** | Air mengalir terlalu lambat (> 35 detik) | Kasarkan grind size (*coarser*) atau kurangi yield |
-| Manis seimbang, asam lembut nikmat, body kental seperti sirup | **Balanced Extraction** | Aliran merata seperti ekor tikus (*mouse tail*) | Pertahankan parameter! Catat resep di bar sheet |
-
-> [!TIP]
-> **Aturan Emas Barista**: Selalu ubah HANYA SATU variabel dalam satu kali percobaan dial-in (utamakan mengubah ukuran gilingan terlebih dahulu sebelum mengubah dosis kopi).
-    `,
-    content_type: 'text',
-    duration_minutes: 12,
-    order_index: 1,
-    is_free: true,
-    is_published: true,
-    created_at: "2026-08-05T00:00:00Z",
-    summary: "Strategi dial in espresso sistematis dengan matriks rasa under-extracted vs over-extracted.",
-    key_takeaways: [
-      "Under-extraction berasa asam menusuk dan encer; perbaiki dengan menghaluskan gilingan.",
-      "Over-extraction berasa pahit kering astringent; perbaiki dengan mengasarkan gilingan.",
-      "Hanya ubah satu variabel dalam satu waktu saat mengkalibrasi rasa."
-],
-  },
-  {
-    id: "les-b5-1",
-    module_id: "mod-b5",
-    title: "Milk Steaming: Sains Protein Susu & Pola Dasar Heart Latte Art",
-    content: `
-# Sains Susu & Teknik Steaming Microfoam
-
-Secangkir cappuccino atau flat white yang lezat membutuhkan busa susu sehalus sutra (*microfoam*) tanpa gelembung besar (*bubble-free*).
-
-### Dua Tahap Steaming Susu:
-1. **Aeration / Stretching Phase (Suhu 5°C – 37°C)**:
-   - Masukkan ujung steam tip tepat di bawah permukaan susu.
-   - Buka tuas uap penuh. Dengarkan suara desis halus *"tsik.. tsik.. tsik.."* selama 3-5 detik untuk memasukkan udara mikro.
-2. **Texturing / Whirlpool Phase (Suhu 37°C – 60°C)**:
-   - Benamkan tip sedikit lebih dalam dan miringkan milk jug untuk menciptakan pusaran air (*whirlpool*).
-   - Pusaran ini mencacah gelembung udara menjadi jutaan partikel mikro yang menyatu dengan protein whey susu.
-   - Hentikan steaming saat suhu jug mencapai **60°C – 65°C** (terlalu panas > 70°C akan merusak protein dan menghilangkan rasa manis laktosa).
-
-### Menuang Pola Dasar: Heart (Hati)
-- Mulai dengan kanvas dasar dari jarak 5 cm di atas cangkir untuk mencampur susu dan crema espresso.
-- Saat cangkir terisi 2/3, dekatkan spout jug ke permukaan tengah cangkir.
-- Guncang perlahan hingga lingkaran putih melebar, lalu angkat jug dan buat garis potong lurus ke depan.
-    `,
-    content_type: 'text',
-    duration_minutes: 15,
-    order_index: 1,
-    is_free: true,
-    is_published: true,
-    created_at: "2026-08-05T00:00:00Z",
-    summary: "Dua tahap steaming susu: stretching & whirlpool, serta panduan menuang latte art bentuk hati.",
-    key_takeaways: [
-      "Stretching dilakukan di awal (suhu dingin) untuk memasukkan gelembung mikro halus.",
-      "Whirlpool mencacah busa susu hingga mengkilap seperti cat basah.",
-      "Suhu maksimal susu adalah 65°C agar rasa manis alami laktosa tidak rusak."
-],
-  },
-  {
     id: "les-h3-1",
     module_id: "mod-h3",
     title: "Resep Standar V60: Rasio Emas 1:15 & Panduan Tiga Kali Tuang",
     content: `
 # Resep Standar V60 Pemula: Rasio Emas 1:15
+
+![Resep Standar V60: Rasio Emas 1:15 & Panduan Tiga Kali Tuang](https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Ekstraksi Presisi Seduh Manual Pour-Over dengan Dripper V60 — Sumber / Kredit: World Brewers Cup Championship Archive*
 
 Menyeduh dengan Hario V60 di rumah adalah salah satu pengalaman paling menenangkan sekaligus menghasilkan secangkir kopi yang sangat aromatik.
 
@@ -2787,211 +2796,14 @@ Menyeduh dengan Hario V60 di rumah adalah salah satu pengalaman paling menenangk
     },
   },
   {
-    id: "les-b1-1",
-    module_id: "mod-b1",
-    title: "Anatomi Bar Specialty: Alur Kerja, Etika Barista, & Standar Higienitas",
-    content: `
-# Anatomi Bar Specialty Coffee: Alur Kerja, Etika, & Higienitas
-
-Di balik secangkir flat white yang anggun atau pour-over yang aromatik, efisiensi tata letak bar (*bar workflow layout*) dan etika barista adalah pembeda utama antara barista biasa dengan profesional specialty.
-
----
-
-### Tiga Zona Kritis Bar Kopi (*The Bar Triangle*)
-
-Alur kerja bar modern dirancang menyerupai segitiga tanpa tabrakan gerak (*zero-collision pathway*):
-
-| Zona Bar | Peralatan Utama | Fungsi Kritis | Standar Kebersihan |
-|---|---|---|---|
-| **Zona Giling & Dosing** | On-demand grinder, scale 0.1g, WDT tool, tamper leveler | Mengukur gramatur kopi kering dengan presisi +/- 0.1g | Bersihkan bubuk tercecer dengan kuas setiap kali selesai dosing |
-| **Zona Ekstraksi & Seduh** | Mesin espresso komersial, knockbox, drip tray, group head | Mengekstrak espresso 9 bar dan menuang hot water | Purge group head sebelum dan sesudah shot; lap portafilter dengan microfiber kering |
-| **Zona Susu & Servis** | Steam wand, milk jug rinser, cangkir keramik, sendok bar | Steaming microfoam, latte art, dan penataan nampan | Lap steam wand dengan lap basah khusus dan semprot uap (*purge*) segera setelah steaming |
-
----
-
-### Empat Warna Lap Microfiber Bar (*Cross-Contamination Prevention*)
-
-Di bar kopi berstandar SCA dan HACCP internasional, kontaminasi silang adalah pelanggaran berat:
-
-1. **Lap Biru (Steam Wand Khusus)**: Hanya untuk membersihkan sisa susu pada pipa uap. Dilarang keras menyentuh permukaan meja atau portafilter.
-2. **Lap Cokelat (Portafilter & Basket)**: Lap kering untuk menyeka minyak kopi dari dinding basket sebelum bubuk baru dimasukkan.
-3. **Lap Hitam / Abu-Abu (Drip Tray & Grinder)**: Membersihkan ceceran kopi basah di baki pembuangan mesin.
-4. **Lap Kuning / Oranye (Counter Meja Servis)**: Menyeka meja marmer tempat cangkir tamu disajikan.
-
----
-
-### Etika Barista: Hospitality Di Atas Arogansi
-
-> [!IMPORTANT]
-> Pengetahuan mendalam tentang varietas Gesha atau proses anaerobik tidak bernilai jika barista bersikap menggurui (*condescending*) kepada konsumen yang hanya ingin menikmati kopi susu manis. Tugas barista adalah menjadi jembatan ramah antara kerja keras petani di hulu dan cangkir yang dinikmati tamu di hilir.
-    `,
-    content_type: 'text',
-    duration_minutes: 12,
-    order_index: 1,
-    is_free: true,
-    is_published: true,
-    created_at: "2026-08-05T00:00:00Z",
-    summary: "Segitiga alur kerja bar, protokol 4 warna lap microfiber, dan etika hospitality profesional barista.",
-    key_takeaways: [
-      "Alur bar terbagi menjadi 3 zona: Dosing, Ekstraksi, dan Susu/Servis untuk mencegah benturan kerja saat pesanan menumpuk.",
-      "Steam wand wajib dibersihkan dengan lap khusus dan di-purge uap dalam hitungan detik setelah steaming.",
-      "Hospitality yang tulus dan ramah adalah fondasi utama profesi barista di atas arogansi teknis."
-    ],
-  },
-  {
-    id: "les-b3-1",
-    module_id: "mod-b3",
-    title: "Manual Brew di Bar: Efisiensi Workflow V60 & Standar Resep Konsisten",
-    content: `
-# Manual Brew di Bar Komersial: Efisiensi & Konsistensi
-
-Menyeduh pour-over di tengah ramainya jam sibuk (*rush hour*) membutuhkan manajemen waktu yang ketat tanpa mengorbankan kualitas ekstraksi.
-
----
-
-### Resep Bar Standar Operasional V60 (Rasio 1:15.5)
-
-Untuk operasional bar specialty harian, resep harus mudah diulang (*repeatable*) oleh seluruh staf barista:
-
-- **Biji Kopi**: 15.0 gram (Light to Medium Roast)
-- **Ukuran Gilingan**: Medium (sekitar 24-26 klik Comandante / 600-700 micron)
-- **Air Panas**: 235 gram pada suhu 92°C
-- **Target Waktu**: 2 menit 20 detik s/d 2 menit 40 detik
-- **Struktur Tuangan 3 Tahap**:
-  - **0:00 – 0:45** : Tuangan 1 (Bloom) 45g air, swirl perlahan 2 kali.
-  - **0:45 – 1:15** : Tuangan 2 (Main Extraction) tuang melingkar stabil hingga 150g.
-  - **1:15 – 2:30** : Tuangan 3 (Dilution & Balance) tuang lurus di tengah hingga 235g.
-
----
-
-### Manajemen Multi-Dripper di Jam Sibuk
-
-Ketika tiga pesanan filter masuk bersamaan:
-
-1. Timbang dan giling biji kopi secara berurutan, jaga wadah doser tetap tertutup untuk mencegah disipasi aroma aromatik.
-2. Basahi ketiga filter paper sekaligus dengan air panas dari boiler ketel.
-3. Mulai seduhan dengan **selang waktu 30 detik (staggered brewing)**: saat Dripper 1 sedang dalam masa jeda blooming 45 detik, barista dapat menuangkan air pertama pada Dripper 2.
-    `,
-    content_type: 'text',
-    duration_minutes: 14,
-    order_index: 1,
-    is_free: true,
-    is_published: true,
-    created_at: "2026-08-05T00:00:00Z",
-    summary: "Resep SOP manual brew bar rasio 1:15.5 dan strategi staggered brewing saat pesanan menumpuk.",
-    key_takeaways: [
-      "Struktur 3 tahap tuangan memberikan keseimbangan ekstraksi manis dan keasaman buah yang stabil.",
-      "Staggered brewing 30 detik memungkinkan barista menangani 2 hingga 3 pour-over bersamaan.",
-      "Konsistensi suhu ketel wajib dijaga dengan mengembalikan ketel ke base induction di antara tuangan."
-    ],
-  },
-  {
-    id: "les-b6-1",
-    module_id: "mod-b6",
-    title: "Pour-Over Lanjutan: Tetsu Kasuya 4:6 Method, Agitasi Kritis, & Water Bypass",
-    content: `
-# Pour-Over Tingkat Lanjut: Sains 4:6 Method & Rekayasa Bypass
-
-Pada tingkat lanjutan, barista tidak hanya mengikuti resep kaku, melainkan memanipulasi pelarutan fraksi senyawa kimia untuk mengkustomisasi cangkir sesuai permintaan pelanggan.
-
----
-
-### Dekonstruksi Metode 4:6 (World Brewers Cup 2016)
-
-Metode yang diciptakan oleh Juara Dunia Tetsu Kasuya membagi total air seduh menjadi dua fase terpisah:
-
-$$\\text{Total Air} = 40\\% \\text{ (Rasa Manis & Asam)} + 60\\% \\text{ (Kekuatan & Bodi)}$$
-
-> **STRUKTUR PEMBAGIAN TOTAL AIR (100%)**:
->
-> • **FASE PERTAMA (40% AIR) — Mengatur Keseimbangan Asam vs Manis**
-> - Tuangan 1 kecil (misal 50g) + Tuangan 2 besar (70g) = Profil Cangkir Lebih Manis.
-> - Tuangan 1 besar (misal 70g) + Tuangan 2 kecil (50g) = Profil Keasaman Buah Lebih Menonjol.
->
-> • **FASE KEDUA (60% AIR) — Mengatur Intensitas, Bodi, & Mouthfeel**
-> - Dibagi 3 tuangan sama rata = Mouthfeel lebih ringan, jernih, dan elegan.
-> - Dibagi 2 tuangan lebih besar = Mouthfeel lebih tebal, kental, dan intens.
-
----
-
-### Teknik Water Bypass: Ekstraksi Murni Tanpa Astringensi
-
-Untuk biji kopi fermentasi liar (anaerobik / yeast co-fermentation) yang rawan over-ekstraksi jika dialiri air terlalu banyak:
-- Seduh kopi dengan rasio pekat (misal 1:12 atau 1:13).
-- Setelah waktu seduh 2 menit, buang dripper.
-- Tambahkan 30-50 ml air panas murni 92°C langsung ke dalam server (*bypass water*).
-- **Hasil**: Kopi memiliki aroma fermentasi buah yang sangat mekar, intensitas bodi nyaman, dan bebas dari rasa pahit getir di ujung tenggorokan.
-    `,
-    content_type: 'text',
-    duration_minutes: 16,
-    order_index: 1,
-    is_free: true,
-    is_published: true,
-    created_at: "2026-08-05T00:00:00Z",
-    summary: "Membedah manipulasi fase 4:6 Tetsu Kasuya dan teknik water bypass untuk kopi eksperimental berharga tinggi.",
-    key_takeaways: [
-      "Fase 40% pertama mengontrol rasio asam terhadap manis.",
-      "Fase 60% kedua mengontrol kekuatan dan kekentalan mouthfeel cangkir.",
-      "Teknik water bypass mencegah ekstraksi tanin pahit pada kopi fermentasi intensif."
-    ],
-  },
-  {
-    id: "les-b9-1",
-    module_id: "mod-b9",
-    title: "Bar Management: Menghitung HPP Cangkir, FIFO Biji Kopi, & Perawatan Mesin",
-    content: `
-# Bar Management & Cost Control: Menghitung HPP & Inventaris
-
-Kecakapan teknis barista harus didukung oleh literasi finansial operasional bar. Menguasai penghitungan biaya per porsi memastikan bisnis coffee shop bertahan dalam jangka panjang.
-
----
-
-### Rumus Menghitung HPP (Harga Pokok Penjualan) Minuman
-
-Contoh kalkulasi HPP untuk 1 Cangkir Hot Caffe Latte (Double Shot):
-
-| Komponen Resep | Takaran Bersih | Harga Bahan Baku | Biaya per Cangkir |
-|---|---|---|---|
-| **House Blend Beans** | 18.0 gram | Rp 280.000 / 1.000 gram | Rp 5.040 |
-| **Fresh Milk Pasteurisasi** | 180 ml | Rp 24.000 / 1.000 ml | Rp 4.320 |
-| **Cangkir Keramik & Tissue** | 1 set servis | Depresiasi & consumable | Rp 800 |
-| **Air Filtrasi & Listrik** | Per shot ekstraksi | Biaya utilitas teralokasi | Rp 400 |
-| **TOTAL HPP BAHAN BAKU** | — | — | **Rp 10.560** |
-
-$$\\text{Target Food Cost Percentage} = \\frac{\\text{HPP (Rp 10.560)}}{\\text{Harga Jual (Rp 35.000)}} \\times 100\\% = 30.1\\%$$
-
-> [!TIP]
-> Standar kesehatan finansial industri specialty coffee menetapkan Food Cost Ratio ideal di kisaran **28% hingga 35%**. Jika melebihi 40%, margin keuntungan kedai akan tergerus oleh biaya sewa tempat dan gaji barista.
-
----
-
-### Sistem FIFO & Manajemen Resting Biji Kopi
-
-1. **FIFO (First In, First Out)**: Biji sangrai yang tiba lebih dulu wajib digunakan lebih dulu. Berikan label stempel tanggal sangrai (*Roasting Date*) yang mencolok pada setiap toples penyimpanan.
-2. **Jendela Puncak Rasa (*Flavor Window*)**:
-   - Hari ke-1 s/d 5: Periode pelepasan gas CO2 liar (*degassing*) — rasa espresso cenderung berbusa tajam dan tidak stabil.
-   - Hari ke-7 s/d 28: **Puncak Keemasan (*Peak Flavor*)** — waktu ideal untuk disajikan di bar.
-   - Hari ke-45+: Degradasi lipid dan aroma oksidasi mulai tercium.
-    `,
-    content_type: 'text',
-    duration_minutes: 15,
-    order_index: 1,
-    is_free: true,
-    is_published: true,
-    created_at: "2026-08-05T00:00:00Z",
-    summary: "Kalkulasi HPP 1 cangkir latte, rasio food cost ideal 30%, dan manajemen resting biji sangrai berbasis FIFO.",
-    key_takeaways: [
-      "Food cost ideal berkisar antara 28% hingga 35% dari harga jual menu.",
-      "Sistem FIFO mencegah penyajian biji kopi yang telah mengalami oksidasi lipid.",
-      "Espresso memerlukan waktu resting minimal 7 hari pasca sangrai untuk mencapai stabilitas rasa optimal."
-    ],
-  },
-  {
     id: "les-h1-1",
     module_id: "mod-h1",
     title: "Memulai Home Brewing: Dekonstruksi Informasi Label Kemasan Kopi Specialty",
     content: `
 # Memulai Home Brewing: Cara Membaca Label Kopi Specialty
+
+![Memulai Home Brewing: Dekonstruksi Informasi Label Kemasan Kopi Specialty](https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Identifikasi Asal-Usul dan Profil Rasa pada Kemasan Biji Kopi — Sumber / Kredit: Specialty Coffee Roasteries Directory*
 
 Bagi pemula yang baru memasuki dunia specialty coffee, membaca label pada kantong biji sangrai sering kali terasa membingungkan karena penuh istilah asing. Mari kita bedah setiap elemen pentingnya.
 
@@ -3035,6 +2847,9 @@ Bagi pemula yang baru memasuki dunia specialty coffee, membaca label pada kanton
     title: "Setup Alat Seduh Rumahan: Mengapa Burr Grinder Mengalahkan Mesin Jutaan",
     content: `
 # Setup Alat Seduh Rumahan: Hierarki Prioritas Investasi
+
+![Setup Alat Seduh Rumahan: Mengapa Burr Grinder Mengalahkan Mesin Jutaan](https://images.unsplash.com/photo-1589396575653-c09c794ff6a6?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Distribusi Ukuran Partikel dan Geometri Mata Pisau (Burr) Grinder — Sumber / Kredit: Specialty Coffee Brewing Equipment Standards*
 
 Banyak pemula mengira bahwa untuk menyeduh kopi nikmat di rumah, mereka harus membeli mesin espresso mahal. Dalam sains seduh, kenyataannya justru sebaliknya.
 
@@ -3080,6 +2895,9 @@ Banyak pemula mengira bahwa untuk menyeduh kopi nikmat di rumah, mereka harus me
     title: "Eksplorasi Lanjutan: Membedah Dinamika Seduhan Hario V60 vs Inverted Aeropress",
     content: `
 # V60 vs Inverted Aeropress: Dua Paradigma Seduh di Rumah
+
+![Eksplorasi Lanjutan: Membedah Dinamika Seduhan Hario V60 vs Inverted Aeropress](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
 
 Dua alat seduh paling populer di kalangan home brewer mewakili dua prinsip fisika ekstraksi yang sama sekali berbeda: **Perkolasi (*Percolation*)** versus **Imersi (*Immersion*)**.
 
@@ -3128,6 +2946,9 @@ Dua alat seduh paling populer di kalangan home brewer mewakili dua prinsip fisik
     content: `
 # Meracik Air Seduh Sendiri di Rumah (DIY Water Chemistry)
 
+![Sains Air Seduh Mandiri: Meracik Mineral Konsentrat Sederhana di Dapur](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
+
 Pernahkah Anda menyeduh biji kopi yang sama dengan resep yang sama persis seperti di kafe langganan, namun rasanya hambar, berkapur, atau asam datar? Penyebab 90% kegagalan tersebut bukan pada tangan Anda, melainkan **kualitas air kran/air galon di rumah Anda**.
 
 ---
@@ -3171,350 +2992,14 @@ Ambil 1 liter air murni baru, tambahkan **8.0 gram Botol A** dan **8.0 gram Boto
     ],
   },
   {
-    id: "les-b2-1",
-    module_id: "mod-b2",
-    title: "Anatomi Mesin Espresso Komersial: Portafilter, Basket Size, Distribusi WDT, & Tamping",
-    content: `
-# Anatomi Mesin Espresso Komersial & Preparasi Puck Presisi
-
-Bagi seorang barista profesional, mesin espresso adalah instrumen presisi yang mengontrol tekanan hidrostatik (biasanya 9 bar) dan termal air seduh (90°C – 94°C) untuk melarutkan senyawa aromatik kopi dalam hitungan detik.
-
----
-
-### Anatomi Komponen Kritis Mesin Espresso:
-
-1. **Saturated Group Head vs E61**:
-   - *Saturated Group Head* (seperti La Marzocco): Terhubung langsung dengan boiler kopi, memberikan kestabilan suhu tertinggi meski ratusan shot diseduh berturut-turut.
-   - *Heat Exchanger (HX) & E61*: Mengandalkan sirkulasi air termosifon, membutuhkan *cooling flush* sebelum penyeduhan jika mesin sempat menganggur.
-2. **Portafilter & Precision Basket (58mm)**:
-   - Standar komersial menggunakan diameter keranjang 58mm.
-   - Pilih *precision basket* (seperti VST atau IMS) yang memiliki lubang berdiameter seragam dengan toleransi mikron untuk mencegah *micro-channeling*.
-   - Ukuran basket umum: 18 gram (kapasitas 17–19g) dan 20 gram (kapasitas 19–21g). Jangan pernah mengisi kopi di bawah atau melebihi kapasitas desain basket.
-
----
-
-### Ritual Puck Preparation 4 Langkah:
-
-Kualitas ekstraksi espresso ditentukan 90% sebelum tombol pompa ditekan:
-
-1. **Dosing & Grinding**: Timbang dosis kering menggunakan timbangan presisi 0.1g ke dalam portafilter.
-2. **WDT (Weiss Distribution Technique)**:
-   - Gunakan jarum berdiameter 0.3mm – 0.35mm.
-   - Aduk bubuk kopi melingkar dari dasar basket hingga ke permukaan. Ini memecah gumpalan elektrostatis dan meratakan kepadatan bubuk kopi di seluruh penampang basket.
-3. **Leveling**: Ratakan permukaan atas bubuk kopi menggunakan distributor atau ketukan telapak tangan yang lembut dan konsisten.
-4. **Tamping Tegak Lurus**:
-   - Mitos "tekanan 15–20 kg" tidak lagi relevan dalam sains modern. Yang terpenting adalah **kerataan sudut (levelness)** dan menekan hingga seluruh rongga udara terpadatkan sepenuhnya.
-   - Pastikan sudut tamper tepat 90 derajat horizontal terhadap bibir basket. Tamping miring 1 derajat saja akan menyebabkan air mengalir deras ke sisi yang lebih tipis (*channeling*).
-    `,
-    content_type: 'text',
-    duration_minutes: 15,
-    order_index: 1,
-    is_free: false,
-    is_published: true,
-    created_at: "2026-08-05T00:00:00Z",
-    summary: "Memahami anatomi group head, precision basket, teknik distribusi jarum WDT, dan konsistensi tamping tegak lurus.",
-    key_takeaways: [
-      "Precision basket dengan lubang seragam mencegah titik resistensi lemah pada bubuk kopi.",
-      "Teknik WDT dengan jarum 0.35mm mengeliminasi gumpalan statis di dasar portafilter.",
-      "Kerataan horizontal saat tamping jauh lebih penting dibanding kekuatan menekan."
-    ],
-  },
-  {
-    id: "les-b4-1",
-    module_id: "mod-b4",
-    title: "Espresso Mastery: Membedah Segitiga Dosis-Yield-Waktu (D-Y-T) & Eliminasi Channeling",
-    content: `
-# Espresso Dial-In: Membedah Segitiga Dosis, Yield, & Waktu
-
-Menyeduh espresso bukan tebak-tebakan. Ini adalah sistem kalibrasi fluida bertekanan tinggi di mana barista memanipulasi tiga parameter utama: **Dosis (Dose)**, **Hasil Seduh (Yield)**, dan **Waktu Kontak (Time)**.
-
----
-
-### Peran Masing-Masing Variabel:
-
-1. **Dosis (Dose — Gram Bubuk Kering)**:
-   - Menentukan kedalaman lempeng kopi (*puck depth*) di dalam basket.
-   - Sekali Anda memilih dosis (misal 18.0 gram), **kunci angka ini** dan jangan diubah-ubah selama proses dial-in awal agar variabel bebas tetap terkontrol.
-2. **Hasil Seduh (Liquid Yield — Gram Cairan di Cangkir)**:
-   - Variabel paling berpengaruh terhadap **rasio ekstraksi** dan keseimbangan rasa manis versus pahit.
-   - *Ristretto* (1:1 s/d 1:1.5): Ekstraksi pekat, dominan asam buah dan konsentrasi minyak aromatik tinggi.
-   - *Normale* (1:2 s/d 1:2.5): Titik manis optimal specialty coffee, ekstraksi gula karamel maksimal.
-   - *Lungo* (1:3 atau lebih): Ekstraksi panjang, bodi lebih encer, rawan rasa pahit getah kayu di akhir.
-3. **Waktu Kontak (Time — Detik)**:
-   - Waktu bukanlah variabel independen yang Anda setel di mesin, melainkan **hasil resultan** dari ukuran partikel gilingan grinder terhadap tekanan pompa.
-   - Target waktu standar: **25 hingga 32 detik** sejak pompa menyala.
-
----
-
-### Diagnosa Rasa & Tindakan Koreksi Barista:
-
-- **Kasus 1: Shot Mengalir 16 Detik (Rasa Asam Tajam / Bodi Encer)**
-  - *Diagnosa*: Under-ekstraksi. Air mengalir terlalu cepat melewati celah butiran kasar sebelum gula kopi sempat terlarut.
-  - *Tindakan*: Rapatkan burr grinder ke arah **FINER** (lebih halus) 1-2 klik.
-- **Kasus 2: Shot Mengalir 44 Detik (Rasa Pahit Gosong / Sepat di Lidah)**
-  - *Diagnosa*: Over-ekstraksi. Air terhambat terlalu lama dan melarutkan senyawa fenol serta tanin kayu.
-  - *Tindakan*: Buka burr grinder ke arah **COARSER** (lebih kasar) 1-2 klik.
-- **Kasus 3: Waktu 28 Detik tapi Rasa Sangat Asam & Sepat Bersamaan**
-  - *Diagnosa*: **Channeling**. Retakan pada puck kopi membuat sebagian air mengalir liar menerobos lubang retakan, sementara bagian bubuk lainnya tidak tersentuh air.
-  - *Tindakan*: Periksa kembali teknik distribusi WDT dan kerataan tamping Anda.
-    `,
-    content_type: 'text',
-    duration_minutes: 18,
-    order_index: 1,
-    is_free: false,
-    is_published: true,
-    created_at: "2026-08-05T00:00:00Z",
-    summary: "Panduan kalibrasi parameter Segitiga Emas D-Y-T untuk mencapai ekstraksi manis seimbang dan mengeliminasi channeling.",
-    key_takeaways: [
-      "Kunci dosis kopi pada angka pasti (misal 18.0g) sebelum mulai menyesuaikan ukuran gilingan.",
-      "Yield cairan menentukan rasio ekstraksi dan keseimbangan rasa asam terhadap pahit.",
-      "Jika rasa asam dan pahit muncul bersamaan pada waktu seduh normal, periksa channeling pada lempeng puck."
-    ],
-  },
-  {
-    id: "les-b5-1",
-    module_id: "mod-b5",
-    title: "Milk Science & Latte Art: Aeration, Vortex Whirlpool, Microfoam Silky, & Teknik Pouring",
-    content: `
-# Sains Pemanasan Susu & Keterampilan Menuang Latte Art
-
-Menghasilkan minuman berbasis susu (*cappuccino, latte, flat white*) yang nikmat membutuhkan pemahaman termodinamika susu dan keterampilan motorik saat mengalirkan busa mikro ke dalam crema espresso.
-
----
-
-### Kimiawi Susu Sapi Segar (Fresh Pasteurized Milk):
-
-Susu segar terdiri dari tiga elemen penting yang bereaksi terhadap uap panas steam wand:
-1. **Laktosa (Gula Susu ~4.8%)**:
-   - Pemanasan susu hingga suhu **60°C – 65°C** meningkatkan kelarutan laktosa, menghasilkan rasa manis alami maksimal tanpa perlu menambahkan gula tambahan.
-   - Jika dipanaskan di atas **70°C**, protein kasein terdenaturasi permanen, laktosa rusak, dan susu berbau gosong (*cooked flavor*).
-2. **Protein (Kasein & Whey ~3.2%)**:
-   - Protein bertindak sebagai surfaktan yang membungkus gelembung udara uap panas menjadi busa mikro yang stabil.
-3. **Lemak Susu (~3.8%)**:
-   - Lemak memberikan tekstur kental yang lembut (*creamy mouthfeel*) dan kilau cermin (*glossy sheen*).
-
----
-
-### Dua Fase Kritis Steaming Susu:
-
-1. **Fase 1: Aerasi / Stretching (Suhu Dingin s/d 37°C)**:
-   - Posisikan ujung tip steam wand tepat di bawah permukaan susu.
-   - Buka valve steam penuh. Dengarkan bunyi hisapan udara halus (*tssk... tssk... tssk...*).
-   - Biarkan volume susu mengembang sekitar 20%–30% untuk latte/flat white.
-   - **Hentikan aerasi ketika pitcher mulai terasa hangat di telapak tangan (sekitar 37°C)**.
-2. **Fase 2: Texturing / Vortex Whirlpool (Suhu 37°C s/d 62°C)**:
-   - Tenggelamkan tip steam wand sekitar 1 cm lebih dalam dan geser sedikit ke tepi pitcher.
-   - Ciptakan pusaran air melingkar (*whirlpool vortex*) yang cepat dan kuat.
-   - Pusaran ini mencacah seluruh gelembung udara kasar menjadi busa mikro homogen berpenampilan seperti cat basah mengkilap (*silky wet paint*).
-   - Matikan steam saat suhu pitcher mencapai 60°C – 62°C (suhu akan naik 2–3°C setelah steam mati karena inersia termal logam).
-
----
-
-### Tiga Pilar Teknik Menuang (Pouring Mechanics):
-
-1. **Tinggi Jatuh Aliran (Distance)**:
-   - Tuang dari ketinggian 5–8 cm dari cangkir untuk menembus lapisan crema tanpa meninggalkan busa putih di permukaan (*canvas preparation*).
-2. **Kecepatan Tuang (Flow Rate)**:
-   - Aliran kecil dan stabil saat memadukan susu dengan espresso (*incorporation*).
-   - Aliran lebih besar saat mendekatkan moncong pitcher untuk memunculkan pola putih di atas crema.
-3. **Pola Dasar: Heart (Hati) & Tulip**:
-   - Dekatkan moncong pitcher tepat ke tengah cangkir hingga menyentuh crema.
-   - Dorong busa putih hingga membentuk lingkaran bulat mekar.
-   - Angkat pitcher 3 cm dan tarik garis lurus memotong lingkaran ke depan (*draw-through*) untuk membentuk ujung hati yang tajam.
-    `,
-    content_type: 'text',
-    duration_minutes: 16,
-    order_index: 1,
-    is_free: false,
-    is_published: true,
-    created_at: "2026-08-05T00:00:00Z",
-    summary: "Termodinamika pemanasan susu suhu 60-65°C, pembentukan pusaran vortex microfoam, dan mekanika menuang pola Heart & Tulip.",
-    key_takeaways: [
-      "Suhu ideal pemanasan susu adalah 60°C hingga 65°C untuk manis laktosa optimal.",
-      "Aerasi harus diselesaikan sebelum suhu susu melewati 37°C.",
-      "Pusaran vortex yang stabil mencacah gelembung kasar menjadi microfoam mengkilap seperti cat basah."
-    ],
-  },
-  {
-    id: "les-b7-1",
-    module_id: "mod-b7",
-    title: "Rancang Menu Signature: Balancing Rasa Espresso, Sirup Rempah Alami, & Coffee Mocktail",
-    content: `
-# Perancangan Menu Signature & Mocktail Kopi Berbasis Rempah Nusantara
-
-Di era kompetisi kedai kopi modern, kemampuan barista merancang minuman tanda tangan (*signature beverage*) bernilai jual tinggi dengan profil rasa seimbang adalah keunggulan profesional yang sangat dicari roastery dan kafe terkemuka.
-
----
-
-### Arsitektur Struktur Minuman Signature (Formula 4 Pilar):
-
-Setiap signature drink kelas dunia dibangun di atas keseimbangan 4 komponen utama:
-
-1. **Pilar 1: Fondasi Kopi (Coffee Base)**
-   - *Espresso Double Shot*: Memberikan intensitas pekat, aroma karamel, dan minyak esensial.
-   - *Cold Brew Concentrate*: Memberikan kelembutan aroma floral/fruity dengan keasaman rendah dan kejernihan tinggi.
-2. **Pilar 2: Modifikator Rasa (Flavor Modifier)**
-   - Pemanis alami atau ekstrak rempah: Sirup gula aren organik, rebusan serai (*lemongrass*), kayu manis (*cinnamon*), bunga telang, atau jahe merah.
-   - Hindari sirup artifisial berpengawet kimia yang mendominasi dan membunuh aroma alami kopi.
-3. **Pilar 3: Agen Pengimbang Asam (Acidifier)**
-   - Sari buah sitrun segar: Jeruk kalamansi, yuzu, lemon peras segar, atau asam jawa (*tamarind*).
-   - Asam memberikan dimensi segar (*crispness*) yang memotong ketebalan bodi kopi dan manis sirup.
-4. **Pilar 4: Pengenceran & Karbonasi (Dilution & Texture)**
-   - Air tonik berkarbonasi (*tonic water*), air soda dingin murni, atau air kelapa muda segar.
-   - Gelembung CO2 pada soda mempercepat pelepasan senyawa volatil ke rongga hidung (*retronasal enhancement*).
-
----
-
-### Contoh Resep Signature: "Parijs van Java Fizz"
-
-> **FORMULASI MINUMAN**:
-> - **Espresso**: 35 ml Double Ristretto (Java Preanger Washed Light Roast)
-> - **Sirup Modifikator**: 20 ml Sirup Serai-Lemon Homemade (Brix 45)
-> - **Acidifier**: 10 ml Jus Jeruk Nipis Peras Murni
-> - **Karbonasi**: 100 ml Premium Tonic Water Dingin
-> - **Garnish**: Batang serai geprek & irisan tipis kulit jeruk dehidrasi
-> 
-> **Metode Pembuatan**:
-> 1. Masukkan es batu kristal ke dalam gelas highball hingga penuh.
-> 2. Tuang sirup serai-lemon dan jus jeruk nipis, aduk sebentar.
-> 3. Tuangkan tonic water perlahan agar karbonasi tidak hilang.
-> 4. Tuangkan espresso secara melayang (*float*) di atas permukaan menggunakan punggung sendok bar.
-> 5. Sajikan dengan instruksi meminum dua tegukan: tegukan pertama untuk menikmati kontras suhu dan lapisan rasa, disusul adukan merata.
-    `,
-    content_type: 'text',
-    duration_minutes: 15,
-    order_index: 1,
-    is_free: false,
-    is_published: true,
-    created_at: "2026-08-05T00:00:00Z",
-    summary: "Formula 4 pilar merancang coffee mocktail seimbang memadukan espresso, sirup rempah alami, keasaman sitrus, dan karbonasi.",
-    key_takeaways: [
-      "Signature beverage yang sukses harus tetap menonjolkan karakter kopi sebagai bintang utama.",
-      "Kombinasi 4 pilar (Base, Modifier, Acidifier, Texture) menjamin minuman tidak terasa enek.",
-      "Gunakan bahan alami nusantara seperti serai, kalamansi, dan rempah untuk daya pikat otentik."
-    ],
-  },
-  {
-    id: "les-b8-1",
-    module_id: "mod-b8",
-    title: "Sensory Barista & Kalibrasi Harian: Dial-In Pagi, Koreksi Roast Shift, & Komunikasi Roastery",
-    content: `
-# Kalibrasi Sensori Barista Harian & Sinergi Kualitas dengan Roastery
-
-Konsistensi rasa secangkir kopi di bar komersial tidak terjadi secara kebetulan. Barista profesional wajib melakukan kalibrasi indra sensori setiap pagi sebelum pintu kedai dibuka untuk publik.
-
----
-
-### Protokol Kalibrasi Pagi Hari (The Morning Dial-In Protocol):
-
-Lakukan langkah ini secara disiplin 30 menit sebelum jam operasional:
-
-1. **Pembersihan & Purging Grinder (15–20 Gram)**:
-   - Bubuk kopi yang tertinggal di ruang burr (*retention chamber*) semalaman telah mengalami oksidasi parah.
-   - Buang 15–20 gram gilingan pertama ke wadah kompos sebelum menimbang dosis kalibrasi.
-2. **Pemeriksaan Tekanan & Suhu Mesin**:
-   - Pastikan jarum manometer boiler uap berada di 1.1–1.3 bar dan tekanan pompa di 9 bar saat *blind basket* diuji.
-   - Lakukan flush air panas 3 detik untuk membersihkan minyak kopi di shower screen.
-3. **Ekstraksi Shot Uji & Pencatatan Log**:
-   - Timbang dosis kering (misal 18.0g).
-   - Ekstraksi hingga target yield tercapai (misal 36.0g).
-   - Catat waktu ekstraksi pada buku log harian bar (*Bar Logbook*).
-4. **Kalibrasi Rasa Sensori (Bukan Sekadar Melihat Angka)**:
-   - Cicipi espresso menggunakan sendok cupping:
-     - Apakah rasa manis kurma/karamel dominan?
-     - Apakah keasaman buahnya terasa jernih dan segar?
-     - Apakah aftertaste-nya bersih tanpa meninggalkan rasa pahit getir mengeringkan lidah?
-
----
-
-### Memahami Fenomena "Roast Shift" & Usia Biji Kopi:
-
-Karakter biji kopi berubah seiring waktu penyimpanan:
-- **Hari 7–14 Pasca Roasting**: Biji sangat aktif melepaskan CO2. Ekstraksi menghasilkan crema tebal dan bodi penuh.
-- **Hari 20–30 Pasca Roasting**: Struktur selulosa biji kopi menjadi lebih rapuh dan porous.
-- **Koreksi Barista**: Biji kopi yang berumur lebih dari 3 minggu biasanya membutuhkan ukuran gilingan **sedikit lebih halus** dan pemadatan tamping yang sangat presisi untuk mempertahankan resistensi aliran yang identik.
-
----
-
-### Komunikasi Konstruktif dengan Tim Roastery:
-
-Jika profil rasa biji kopi tidak kunjung seimbang meski kalibrasi telah diubah:
-- Jangan katakan: *"Kopinya ga enak."*
-- Gunakan terminologi profesional:
-  - *"Batch sangrai nomor lot X terasa mengalami baking (flat/kurang sweetness), apakah RoR sempat crash di fase Maillard?"*
-  - *"Kami menemukan tingkat quaker (biji mentah) sekitar 4% pada kemasan lot tanggal 15 Agustus, mohon pemeriksaan sortasi pasca sangrai."*
-    `,
-    content_type: 'text',
-    duration_minutes: 14,
-    order_index: 1,
-    is_free: false,
-    is_published: true,
-    created_at: "2026-08-05T00:00:00Z",
-    summary: "Protokol kalibrasi pagi hari di bar kopi, antisipasi roast shift penuaan biji, dan etika komunikasi teknis dengan roastery.",
-    key_takeaways: [
-      "Selalu lakukan purging 15-20 gram bubuk kopi basi yang terperangkap di grinder setiap pagi.",
-      "Biji kopi yang menua menjadi lebih porous dan memerlukan penyesuaian gilingan lebih rapat.",
-      "Gunakan bahasa sensori objektif berbasis cacat dan fase sangrai saat berdiskusi dengan tim roaster."
-    ],
-  },
-  {
-    id: "les-b10-1",
-    module_id: "mod-b10",
-    title: "Karier Barista & Standar Kompetisi: Membangun Portofolio Profesional & Mentalitas WBC/IBC",
-    content: `
-# Peta Karier Barista Profesional & Standar Kompetisi Kejuaraan Kopi
-
-Profesi barista modern bukan lagi sekadar pekerjaan paruh waktu, melainkan disiplin keahlian agronomi-kimiawi-pelayanan yang memiliki jalur karier luas dan panggung kompetisi kelas dunia.
-
----
-
-### Peta Jenjang Karier di Industri Specialty Coffee:
-
-1. **Junior Barista / Bar Apprentice (Tahun 1)**:
-   - Fokus: Penguasaan alur kerja bar, kebersihan higienitas mesin, kecepatan pelayanan (*speed & accuracy*), dan standar resep dasar.
-2. **Senior Barista / Shift Leader (Tahun 2–3)**:
-   - Fokus: Kalibrasi espresso harian, *puck preparation mastery*, pelatihan staf baru, kontrol inventaris susu & biji kopi.
-3. **Head Barista / Quality Trainer (Tahun 3–5)**:
-   - Fokus: Rancang menu signature, penyusunan SOP bar, pelatihan sertifikasi internal, audit kualitas seduh multi-cabang.
-4. **Bar Manager / Operasional Kafe**:
-   - Fokus: Akuntansi HPP cangkir, negosiasi pasokan green bean dengan roastery, manajemen P&L (*Profit and Loss*).
-5. **Jalur Spesialis Lanjutan**:
-   - *Master Roaster*, *Licensed Q-Grader*, Konsultan Bar, atau Juara Kompetisi Nasional.
-
----
-
-### Dekonstruksi Kompetisi Resmi (World Barista Championship & IBC):
-
-Ajang Indonesia Barista Championship (IBC) yang berafiliasi dengan World Coffee Events (WCE) menguji kemampuan barista di bawah batas waktu ketat:
-
-- **Waktu Kompetisi**: Tepat 15 menit waktu pameran (*presentation time*).
-- **Kategori Minuman yang Wajib Disajikan ke 4 Juri Sensori**:
-  1. **4 Cangkir Espresso**: Menilai keakuratan deskripsi sensori (keasaman, manis, pahit, bodi, aftertaste) dengan rasa nyata di cangkir juri.
-  2. **4 Cangkir Milk Beverage**: Menilai harmonisasi espresso dengan buih susu microfoam manis tanpa overpowering.
-  3. **4 Cangkir Signature Drink**: Menilai kreativitas inovasi rasa, teknik elaborasi bahan, dan keselarasan konsep presentasi.
-- **Mentalitas Juara**:
-  - Kebersihan stasiun (*technical score*): Juri teknis mengamati setiap tetesan air yang tumpah, kebersihan lap portafilter, dan akurasi dosis timbangan.
-  - Narasi edukatif: Mampu menceritakan nama petani, elevasi kebun, proses fermentasi, dan alasan pemilihan profil sangrai secara memikat.
-    `,
-    content_type: 'text',
-    duration_minutes: 16,
-    order_index: 1,
-    is_free: false,
-    is_published: true,
-    created_at: "2026-08-05T00:00:00Z",
-    summary: "Peta jenjang karier industri kopi specialty dari barista pemula hingga manajer, serta standar penilaian teknis kejuaraan IBC/WBC.",
-    key_takeaways: [
-      "Karier barista berkembang ke arah Quality Trainer, Roaster, Q-Grader, hingga Bar Manager.",
-      "Kompetisi Barista (IBC/WBC) menguji 4 espresso, 4 milk beverage, dan 4 signature drink dalam 15 menit.",
-      "Akurasi deskripsi rasa sensori dan higienitas meja kerja adalah kunci skor tertinggi juri."
-    ],
-  },
-  {
     id: "les-h3-1",
     module_id: "mod-h3",
     title: "Seduhan Emas Pertama: Resep Master V60 1:15 & Identifikasi Under vs Over Extraction di Lidah",
     content: `
 # Resep Master Seduhan V60 Rumahan & Kalibrasi Pengecapan Lidah
+
+![Seduhan Emas Pertama: Resep Master V60 1:15 & Identifikasi Under vs Over Extraction di Lidah](https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Ekstraksi Presisi Seduh Manual Pour-Over dengan Dripper V60 — Sumber / Kredit: World Brewers Cup Championship Archive*
 
 Membuat secangkir kopi pour-over yang nikmat di rumah tidak membutuhkan mistisme. Yang Anda perlukan adalah satu resep dasar yang kokoh dan kepekaan lidah untuk mendeteksi kapan kopi kurang terekstraksi (*under-extracted*) atau diekstrak berlebihan (*over-extracted*).
 
@@ -3564,6 +3049,9 @@ Gunakan indra pengecap Anda untuk mengevaluasi hasil seduhan pagi ini:
     title: "Menebak Profil Rasa: Pengaruh Varietas Botani & Ketinggian MDPL pada Ekspektasi Seduh Rumahan",
     content: `
 # Membaca Karakter Biji: Varietas Botani & Elevasi Kebun
+
+![Menebak Profil Rasa: Pengaruh Varietas Botani & Ketinggian MDPL pada Ekspektasi Seduh Rumahan](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
 
 Sebagai penikmat seduhan di rumah, Anda tidak perlu mencicipi kopi secara buta. Informasi varietas botani dan ketinggian tanam (MDPL) pada label kemasan sebenarnya adalah "peta bocoran rasa" yang sangat akurat.
 
@@ -3615,6 +3103,9 @@ Ketinggian kebun tempat pohon kopi tumbuh menentukan seberapa lambat buah kopi m
     title: "Protokol Cupping Mandiri di Dapur: Membandingkan 2 Origin dengan 3 Mangkuk Sederhana",
     content: `
 # Protokol Cupping Mandiri di Meja Dapur Rumah
+
+![Protokol Cupping Mandiri di Dapur: Membandingkan 2 Origin dengan 3 Mangkuk Sederhana](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
 
 Cupping bukan ritual sakral yang hanya boleh dilakukan oleh juri berlisensi Q-Grader. Ini adalah cara paling jujur dan objektif bagi penikmat kopi rumahan untuk membandingkan rasa dua biji kopi yang berbeda tanpa bias alat seduh atau filter kertas.
 
@@ -3671,6 +3162,9 @@ Anda tidak memerlukan mangkok cupping resmi berharga mahal:
     title: "Eksperimen Variabel Seduh: Pengaruh Suhu Air (88°C vs 94°C), Agitasi Swirl, & Jurnal Seduh",
     content: `
 # Laboratorium Eksperimen Rumahan: Suhu, Agitasi, & Jurnal Seduh
+
+![Eksperimen Variabel Seduh: Pengaruh Suhu Air (88°C vs 94°C), Agitasi Swirl, & Jurnal Seduh](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
 
 Daya tarik terbesar menyeduh kopi di rumah adalah kebebasan untuk bereksperimen. Dengan biji kopi yang sama persis, Anda bisa menciptakan dua cangkir dengan rasa yang bertolak belakang hanya dengan mengubah suhu air dan teknik agitasi.
 
@@ -3730,6 +3224,9 @@ Jangan mengandalkan ingatan! Catat 5 poin sederhana ini di buku saku atau ponsel
     content: `
 # Kreasi Es Kopi Susu & Cold Brew Rumahan Berkualitas Kafe
 
+![Kreasi Es Kopi Susu & Cold Brew Rumahan: Ekstraksi Dingin Konsentrat & Sirup Aren Organik](https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Seduhan Ekstraksi Dingin (Cold Brew) dan Konsentrat Minuman — Sumber / Kredit: Specialty Cold Beverage Innovation Lab*
+
 Banyak orang mengira es kopi susu nikmat hanya bisa dibuat menggunakan mesin espresso kafe jutaan rupiah. Nyatanya, dengan teknik perendaman dingin (*cold brew immersion*) yang tepat, Anda bisa meracik es kopi susu gula aren yang jauh lebih lembut dan ramah lambung di rumah.
 
 ---
@@ -3786,6 +3283,9 @@ Siapkan gelas saji transparan berukuran 350 ml:
     content: `
 # Membangun Home Coffee Corner Idaman & Terkoneksi dengan Komunitas
 
+![Membangun Home Coffee Corner Idaman: Manajemen Budget, Perawatan Grinder, & Komunitas Brewer](https://images.unsplash.com/photo-1589396575653-c09c794ff6a6?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Distribusi Ukuran Partikel dan Geometri Mata Pisau (Burr) Grinder — Sumber / Kredit: Specialty Coffee Brewing Equipment Standards*
+
 Menciptakan sudut seduh kopi (*coffee corner*) di rumah adalah bentuk apresiasi terhadap ritual harian Anda. Tempat ini menjadi ruang relaksasi di mana sains dan seni bertemu setiap pagi.
 
 ---
@@ -3833,6 +3333,7 @@ Perjalanan belajar kopi rumahan akan berlipat ganda kenikmatannya saat Anda berb
       "Bergabung dalam tradisi tukar biji kopi komunitas menghemat biaya eksplorasi aneka varietas nusantara."
     ],
   },
+  ...BARISTA_LESSONS,
   ...HOME_BREWER_EXPANDED_LESSONS,
   ...ROASTER_LESSONS,
   ...Q_GRADER_LESSONS,
@@ -3952,6 +3453,7 @@ export const SEED_QUIZZES: Quiz[] = [
     max_attempts: 3,
     created_at: "2026-08-05T00:00:00Z",
   },
+  ...BARISTA_QUIZZES,
   ...HOME_BREWER_QUIZZES,
   ...ROASTER_QUIZZES,
   ...Q_GRADER_QUIZZES,
@@ -4550,6 +4052,7 @@ export const SEED_QUESTIONS: Question[] = [
       { id: "ans-hb-8d", question_id: "q-hb-8", answer_text: "Kopi akan terasa asin", is_correct: false, order_index: 4 },
     ],
   },
+  ...BARISTA_QUESTIONS,
   ...HOME_BREWER_QUESTIONS,
   ...ROASTER_QUESTIONS,
   ...Q_GRADER_QUESTIONS,

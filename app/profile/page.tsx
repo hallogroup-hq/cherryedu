@@ -291,7 +291,7 @@ function ProfileContent() {
                     href={`/paths/${path.slug}`}
                     className="px-5 py-2.5 bg-roast-950 hover:bg-cherry-800 text-paper-50 font-mono text-xs uppercase tracking-wider transition-colors shrink-0 text-center"
                   >
-                    Buka Silabus Modul &rarr;
+                    Buka Silabus Modul →
                   </Link>
                 </div>
               );

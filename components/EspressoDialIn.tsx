@@ -443,7 +443,7 @@ export const EspressoDialIn: React.FC = () => {
                 <strong className="text-paper-50 block font-serif text-sm mb-0.5">
                   4. Urutan Pelarutan Kimiawi
                 </strong>
-                Urutan zat yang larut: Asam Buah &rarr; Gula Karamel &rarr; Tanin & Serat Pahit. Espresso nikmat berhenti saat asam dan gula bertemu harmonis.
+                Urutan zat yang larut: Asam Buah → Gula Karamel → Tanin & Serat Pahit. Espresso nikmat berhenti saat asam dan gula bertemu harmonis.
               </div>
             </div>
           </div>

@@ -217,7 +217,7 @@ export default function QuizPage() {
                 onClick={() => setCurrentQIndex(currentQIndex + 1)}
                 className="px-5 py-2.5 bg-roast-950 hover:bg-cherry-800 text-paper-50 font-mono text-xs uppercase tracking-wider font-bold transition-all border border-roast-900 shadow-xs"
               >
-                Selanjutnya &rarr;
+                Selanjutnya →
               </button>
             ) : (
               <button
@@ -225,7 +225,7 @@ export default function QuizPage() {
                 disabled={!allAnswered}
                 className="px-6 py-2.5 bg-cherry-700 hover:bg-cherry-800 disabled:bg-paper-300 disabled:text-roast-400 text-white font-mono text-xs uppercase tracking-wider font-bold transition-all shadow-xs border border-cherry-800"
               >
-                Selesaikan Ujian &rarr;
+                Selesaikan Ujian →
               </button>
             )}
           </div>
@@ -271,7 +271,7 @@ export default function QuizPage() {
                     href={`/verify/${result.certificateEarned.share_token}`}
                     className="px-4 py-2 bg-crema-500 hover:bg-crema-400 text-roast-950 font-mono text-xs uppercase tracking-wider font-bold transition-all border border-crema-400 shadow-xs"
                   >
-                    Buka Verifikasi Publik &rarr;
+                    Buka Verifikasi Publik →
                   </Link>
                   <Link
                     href="/certificates"

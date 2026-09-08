@@ -99,7 +99,7 @@ interface CherryEduContextType {
 
 const CherryEduContext = createContext<CherryEduContextType | undefined>(undefined);
 
-const STORAGE_KEY = 'cherryedu_state_v2';
+const STORAGE_KEY = 'cherryedu_state_v4';
 
 export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Initialize with seed data or LocalStorage
@@ -206,10 +206,10 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
           setModules(SEED_MODULES);
         }
 
-        // Smart merge lessons
+        // Smart merge lessons: ensure official syllabus lessons stay synced with latest rich content & images
         if (parsed.lessons) {
-          const existingLesIds = new Set(parsed.lessons.map((l: Lesson) => l.id));
-          setLessons([...parsed.lessons, ...SEED_LESSONS.filter((sl) => !existingLesIds.has(sl.id))]);
+          const customLessons = parsed.lessons.filter((l: Lesson) => !SEED_LESSONS.some((sl) => sl.id === l.id));
+          setLessons([...SEED_LESSONS, ...customLessons]);
         } else {
           setLessons(SEED_LESSONS);
         }

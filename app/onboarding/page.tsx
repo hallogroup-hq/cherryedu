@@ -332,7 +332,7 @@ export default function OnboardingPage() {
                 onClick={handleApplyRecommendation}
                 className="px-8 py-3.5 bg-cherry-700 hover:bg-cherry-800 text-paper-50 font-mono text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-warm transition-all border border-cherry-900"
               >
-                <span>Mulai Belajar dari Foundation Layer Sekarang &rarr;</span>
+                <span>Mulai Belajar dari Foundation Layer Sekarang →</span>
               </button>
             </div>
           </div>

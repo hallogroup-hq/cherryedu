@@ -103,6 +103,9 @@ export const ROASTER_LESSONS: Lesson[] = [
     content: `
 # Karakteristik Fisik Green Bean: Parameter Kunci Sebelum Menyalakan Mesin Sangrai
 
+![Kadar Air (Moisture Content), Water Activity (Aw), dan Densitas Biji Mentah](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
+
 Sebelum sebuah biji kopi mentah (*green bean*) dimasukkan ke dalam drum mesin sangrai (*hopper*), seorang roaster profesional wajib memahami struktur fisik internal biji tersebut. Karakteristik fisik green bean menentukan bagaimana panas ditransfer ke inti sel selulosa dan menjadi variabel penentu formulasi profil sangrai yang konsisten.
 
 ---
@@ -110,7 +113,8 @@ Sebelum sebuah biji kopi mentah (*green bean*) dimasukkan ke dalam drum mesin sa
 ### 1. Kadar Air (*Moisture Content*) & Standar Internasional
 Kadar air mengukur persentase massa air total terhadap massa keseluruhan biji mentah:
 
-$$\\text{Moisture Content (\\%)} = \\frac{\\text{Massa Air}}{\\text{Massa Biji Kopi Total}} \\times 100$$
+> ☕ **Persamaan Parameter:**
+> **\\text{Moisture Content (\\%)} = \\frac{\\text{Massa Air}}{\\text{Massa Biji Kopi Total}} \\times 100**
 
 Berdasarkan standar **Specialty Coffee Association (SCA)** dan **International Coffee Organization (ICO)**:
 * **Rentang Ideal**: **10.0% – 12.0%** (titik optimal 10.5% – 11.5%).
@@ -144,7 +148,8 @@ Densitas mencerminkan kerapatan matriks selulosa di dalam biji kopi. Biji kopi y
 
 #### Formula Pengukuran Densitas Mandiri:
 Gunakan gelas ukur bervolume presisi ($1000\\text{ ml}$) dan timbangan digital:
-$$\\text{Densitas}\\ (g/L) = \\frac{\\text{Berat Green Bean dalam Gelas Ukur (gram)}}{\\text{Volume Gelas Ukur (1 Liter)}}$$
+> ☕ **Persamaan Parameter:**
+> **\\text{Densitas}\\ (g/L) = \\frac{\\text{Berat Green Bean dalam Gelas Ukur (gram)}}{\\text{Volume Gelas Ukur (1 Liter)}}**
 Pastikan gelas ukur diketuk perlahan 3 kali pada permukaan meja untuk menstabilkan pemadatan antar biji sebelum ditimbang.
     `,
     content_type: 'text',
@@ -166,6 +171,9 @@ Pastikan gelas ukur diketuk perlahan 3 kali pada permukaan meja untuk menstabilk
     title: 'Screen Size Grading & Pengaruh Proses Pasca Panen terhadap Konduktivitas Termal',
     content: `
 # Screen Size & Matriks Pasca Panen: Menyesuaikan Konduktivitas Biji
+
+![Screen Size Grading & Pengaruh Proses Pasca Panen terhadap Konduktivitas Termal](https://images.unsplash.com/photo-1497636577773-f1231844b336?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Manajemen Panen Selektif Petik Merah Sempurna (100% Red Cherry) — Sumber / Kredit: CQI Post-Harvest Processing Protocols*
 
 Dua lot green bean dengan varietas yang sama persis bisa memerlukan kurva roasting yang bertolak belakang apabila ukuran bijinya tidak seragam atau jika keduanya diproses dengan metode pasca panen yang berbeda (misal: *Giling Basah* vs *Fully Washed*).
 
@@ -221,13 +229,17 @@ Peaberry terjadi ketika salah satu dari dua bakal biji di dalam ceri kopi gagal 
     content: `
 # Triad Termodinamika: Menguasai Tiga Mode Transfer Panas
 
+![Konduksi, Konveksi, dan Radiasi: Triad Termodinamika Mesin Sangrai](https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Termodinamika Perpindahan Panas pada Drum Mesin Sangrai Kopi — Sumber / Kredit: Roasters Guild Standards*
+
 Penyangraian kopi pada hakikatnya adalah disiplin termodinamika terapan. Di dalam ruang sangrai (*roasting chamber*), energi panas dihantarkan ke biji kopi melalui tiga mekanisme fisika utama: **Konduksi**, **Konveksi**, dan **Radiasi**. Memahami rasio ketiga mode ini adalah pembeda antara seorang operator pemula dan Master Roaster sejati.
 
 ---
 
 ### 1. Konduksi ($Q_{\\text{cond}}$)
 Konduksi adalah transfer energi panas melalui kontak fisik langsung antar molekul padat:
-$$Q_{\\text{cond}} = -k A \\frac{\\Delta T}{\\Delta x}$$
+> ☕ **Persamaan Parameter:**
+> **Q_{\\text{cond}} = -k A \\frac{\\Delta T}{\\Delta x}**
 Di mana $k$ adalah konduktivitas termal material drum, $A$ luas area kontak, dan $\\frac{\\Delta T}{\\Delta x}$ gradien suhu.
 
 * **Sumber di Mesin Sangrai**: Kontak langsung antara permukaan biji kopi dengan dinding silinder drum yang membara, atau kontak antar biji kopi yang saling bergesekan.
@@ -237,7 +249,8 @@ Di mana $k$ adalah konduktivitas termal material drum, $A$ luas area kontak, dan
 
 ### 2. Konveksi ($Q_{\\text{conv}}$)
 Konveksi adalah transfer panas melalui fluida yang bergerak, dalam hal ini adalah aliran udara panas (*heated airflow*) yang ditarik melewati tumpukan biji kopi:
-$$Q_{\\text{conv}} = h A (T_s - T_\\infty)$$
+> ☕ **Persamaan Parameter:**
+> **Q_{\\text{conv}} = h A (T_s - T_\\infty)**
 Di mana $h$ adalah koefisien perpindahan panas konvektif dan $(T_s - T_\\infty)$ perbedaan suhu antara aliran udara dan permukaan biji.
 
 * **Sumber di Mesin Sangrai**: Udara ambien yang dipanaskan oleh burner lalu disedot melalui silinder drum oleh kipas pembuangan (*exhaust fan / draft*).
@@ -247,7 +260,8 @@ Di mana $h$ adalah koefisien perpindahan panas konvektif dan $(T_s - T_\\infty)$
 
 ### 3. Radiasi Termal ($Q_{\\text{rad}}$)
 Radiasi adalah transfer energi melalui gelombang elektromagnetik inframerah (*infrared*) tanpa memerlukan medium penghantar:
-$$Q_{\\text{rad}} = \\epsilon \\sigma A (T_1^4 - T_2^4)$$
+> ☕ **Persamaan Parameter:**
+> **Q_{\\text{rad}} = \\epsilon \\sigma A (T_1^4 - T_2^4)**
 
 * **Sumber di Mesin Sangrai**: Dinding logam drum yang sangat panas, panel keramik pembakar inframerah (*infrared burner*), dan panas radiasi internal yang dipancarkan oleh sesama biji kopi saat telah memasuki fase eksotermik.
 * **Karakteristik**: Menembus hingga ke inti terdalam biji secara serempak. Radiasi inframerah memastikan kematangan merata antara bagian dalam (*inner core*) dan lapisan luar (*outer surface*) biji kopi.
@@ -283,6 +297,9 @@ $$Q_{\\text{rad}} = \\epsilon \\sigma A (T_1^4 - T_2^4)$$
     content: `
 # Dinamika Airflow & RPM Drum: Menjaga Keseimbangan Energi
 
+![Manajemen Aliran Udara (Airflow Dynamics) & Kecepatan Putaran Drum (Drum Speed/RPM)](https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Termodinamika Perpindahan Panas pada Drum Mesin Sangrai Kopi — Sumber / Kredit: Roasters Guild Standards*
+
 Dua tuas kendali krusial yang sering diabaikan operator mesin sangrai konvensional adalah **manajemen tekanan aliran udara (airflow / draft)** dan **kecepatan putaran drum (RPM)**. Keduanya berfungsi mengatur waktu kontak biji dengan dinding drum dan laju evakuasi partikel asap serta uap air sisa pembakaran.
 
 ---
@@ -296,7 +313,8 @@ Kecepatan putar silinder drum mengatur dinamika pergerakan tumpukan biji kopi (*
 
 > [!TIP]
 > Formula estimasi RPM drum ideal berdasarkan diameter dalam drum ($D$ dalam meter):
-> $$\\text{RPM} \\approx \\frac{40}{\\sqrt{D}}$$
+> > ☕ **Persamaan Parameter:**
+> **\\text{RPM} \\approx \\frac{40}{\\sqrt{D}}**
 > Untuk mesin kapasitas 1 kg – 5 kg komersial, kisaran RPM drum umumnya berada di antara **50 hingga 65 RPM**.
 
 ---
@@ -334,6 +352,9 @@ Aliran udara di dalam mesin drum ditarik oleh *exhaust blower fan*. Fungsinya me
     title: 'Kinetika Kimiawi: Reaksi Maillard, Degradasi Strecker, dan Karamelisasi Sukrosa',
     content: `
 # Kimiawi Rasa Kopi: Reaksi Maillard, Degradasi Strecker & Karamelisasi
+
+![Kinetika Kimiawi: Reaksi Maillard, Degradasi Strecker, dan Karamelisasi Sukrosa](https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Transformasi Kimiawi Reaksi Maillard dan Karamelisasi Biji — Sumber / Kredit: Coffee Chemistry Research Laboratory*
 
 Penyangraian kopi mengubah biji mentah yang beraroma rumput tawar menjadi salah satu bahan pangan paling kompleks di dunia dengan lebih dari 800 senyawa aroma volatil. Transformasi ini digerakkan oleh serangkaian reaksi termokimia bertingkat.
 
@@ -396,6 +417,9 @@ Biji kopi mentah kaya akan asam klorogenat (~6%–8% pada Arabika). Selama prose
     content: `
 # Anatomi Tiga Fase Penyangraian: Drying, Maillard, dan Development
 
+![Fase-Fase Penyangraian: Dari Titik Drying hingga Ledakan First Crack](https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Transformasi Kimiawi Reaksi Maillard dan Karamelisasi Biji — Sumber / Kredit: Coffee Chemistry Research Laboratory*
+
 Dalam terminologi sangrai modern yang dipelopori oleh Scott Rao dan SCA, proses penyangraian kopi dibagi menjadi tiga tahapan kronologis yang saling terikat:
 
 ---
@@ -446,6 +470,9 @@ Dalam terminologi sangrai modern yang dipelopori oleh Scott Rao dan SCA, proses 
     content: `
 # Manajemen Kurva Roasting: Mengendalikan Rate of Rise (RoR)
 
+![Anatomi Kurva Roasting: Charge Temp, Turning Point, dan Filosofi Descending RoR](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
+
 Di era sangrai gelombang ketiga (*Third Wave Coffee*), perangkat lunak *data logging* seperti **Cropster** dan **Artisan** menjadi standar emas. Menginterpretasikan kurva data secara langsung (*real-time*) memungkinkan roaster memprediksi laju termal beberapa menit sebelum fenomena fisik terjadi.
 
 ---
@@ -468,7 +495,8 @@ Ketika green bean dingin masuk ke dalam drum panas, probe suhu biji (*Bean Tempe
 
 ### 3. Konsep Rate of Rise (RoR)
 RoR adalah kecepatan kenaikan suhu biji per satuan waktu (umumnya dihitung per menit):
-$$\\text{RoR} = \\frac{\\Delta T_{\\text{Bean}}}{\\Delta t}\\quad (\\text{derajat per menit})$$
+> ☕ **Persamaan Parameter:**
+> **\\text{RoR} = \\frac{\\Delta T_{\\text{Bean}}}{\\Delta t}\\quad (\\text{derajat per menit})**
 
 Sebagai contoh, jika suhu biji kopi naik dari 160°C menjadi 172°C dalam kurun waktu 1 menit, maka RoR pada menit tersebut adalah $12^\\circ\\text{C/menit}$.
 
@@ -509,20 +537,25 @@ Salah satu postulat paling terkenal dalam literatur roasting modern (Scott Rao) 
     content: `
 # Formula Presisi DTR & Menentukan Level Sangrai
 
+![Kalkulasi Development Time Ratio (DTR) & Profil Roast Level (Light, Medium, Dark)](https://images.unsplash.com/photo-1587734195503-904fca47e0e9?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Spektrum Profil Roasting Berdasarkan Nilai Skala Agtron — Sumber / Kredit: SCA Agtron Roast Color Standards*
+
 Fase pengembangan (*Development Time*) adalah jendela waktu sejak letupan pertama *First Crack* terdengar hingga pintu drum dibuka untuk mengeluarkan biji kopi ke *cooling tray* (*Drop*). Menghitung rasionya secara matematis adalah kunci menciptakan konsistensi batch harian.
 
 ---
 
 ### 1. Formula Development Time Ratio (DTR)
 
-$$\\text{DTR (\\%)} = \\frac{\\text{Development Time}}{\\text{Total Roasting Time}} \\times 100$$
+> ☕ **Persamaan Parameter:**
+> **\\text{DTR (\\%)} = \\frac{\\text{Development Time}}{\\text{Total Roasting Time}} \\times 100**
 
 #### Contoh Perhitungan Kasus:
 * Total waktu sangrai (*Total Roasting Time*): **10 menit 00 detik** (600 detik).
 * First Crack terdengar pada: **8 menit 20 detik** (500 detik).
 * Maka, Development Time: $600 - 500 = 100\\text{ detik}$ (1 menit 40 detik).
 * Rasio DTR:
-  $$\\text{DTR} = \\frac{100}{600} \\times 100 = 16.66\\%$$
+  > ☕ **Persamaan Parameter:**
+> **\\text{DTR} = \\frac{100}{600} \\times 100 = 16.66\\%**
 
 ---
 
@@ -566,6 +599,9 @@ Proses penyangraian **belum selesai** saat biji keluar dari drum! Biji kopi yang
     title: 'Diagnosis Cacat Fisik: Scorching, Facing, dan Tipping pada Biji Sangrai',
     content: `
 # Cacat Fisik Penyangraian: Scorching, Facing, dan Tipping
+
+![Diagnosis Cacat Fisik: Scorching, Facing, dan Tipping pada Biji Sangrai](https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Identifikasi Cacat Fisik dan Defek Sensorik Biji Kopi — Sumber / Kredit: Coffee Quality Institute (CQI) Standards*
 
 Cacat fisik sangrai (*roasting physical defects*) terjadi ketika distribusi panas eksternal tidak proporsional dengan kapasitas penyerapan termal biji kopi. Cacat ini dapat diidentifikasi secara kasat mata pada permukaan biji dan menghasilkan rasa pahit gosong tak sedap di cangkir.
 
@@ -619,6 +655,9 @@ Cacat fisik sangrai (*roasting physical defects*) terjadi ketika distribusi pana
     title: 'Diagnosis Cacat Kimiawi: Underdevelopment (Grassy) vs Baked Coffee (Flat Bread)',
     content: `
 # Cacat Kimiawi Penyangraian: Underdevelopment vs Baked
+
+![Diagnosis Cacat Kimiawi: Underdevelopment (Grassy) vs Baked Coffee (Flat Bread)](https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Identifikasi Cacat Fisik dan Defek Sensorik Biji Kopi — Sumber / Kredit: Coffee Quality Institute (CQI) Standards*
 
 Selain cacat fisik yang terlihat di kulit luar, dua cacat paling berbahaya dalam kopi specialty justru tidak kasat mata: **Underdevelopment** dan **Baked Coffee**. Keduanya terjadi akibat kegagalan pengaturan dinamika energi internal biji.
 
@@ -675,6 +714,9 @@ Untuk memvalidasi underdevelopment secara ilmiah, roaster mengukur warna bubuk m
     content: `
 # Kontrol Mutu Produksi Komersial: Menjaga Konsistensi Antar Batch
 
+![Quality Control Produksi: Agtron Color Scale, Weight Loss %, dan Protokol Cupping Batch](https://images.unsplash.com/photo-1587734195503-904fca47e0e9?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Spektrum Profil Roasting Berdasarkan Nilai Skala Agtron — Sumber / Kredit: SCA Agtron Roast Color Standards*
+
 Di sebuah roastery komersial yang memproduksi ratusan kilogram hingga ton kopi setiap minggunya, mengandalkan ingatan atau indra visual manusia semata adalah kesalahan fatal. Diperlukan protokol **Quality Control (QC)** kuantitatif yang ketat.
 
 ---
@@ -682,7 +724,8 @@ Di sebuah roastery komersial yang memproduksi ratusan kilogram hingga ton kopi s
 ### 1. Persentase Susut Bobot (*Weight Loss Percentage*)
 Selama penyangraian, biji kopi kehilangan massa akibat penguapan air bebas dan pembakaran senyawa organik volatil:
 
-$$\\text{Weight Loss (\\%)} = \\frac{\\text{Berat Green Bean} - \\text{Berat Roasted Bean}}{\\text{Berat Green Bean}} \\times 100$$
+> ☕ **Persamaan Parameter:**
+> **\\text{Weight Loss (\\%)} = \\frac{\\text{Berat Green Bean} - \\text{Berat Roasted Bean}}{\\text{Berat Green Bean}} \\times 100**
 
 * **Light Roast (Filter)**: Susut bobot berkisar **12.0% – 14.0%**.
 * **Medium Roast**: Susut bobot berkisar **14.5% – 16.5%**.
@@ -733,6 +776,9 @@ Setiap sampel batch produksi wajib diuji rasa menggunakan protokol cupping resmi
     title: 'Kimiawi Degassing CO2, Jendela Puncak Rasa (Peak Flavor Window), dan Formulasi Blending',
     content: `
 # Degassing, Peak Flavor Window & Strategi Blending Komersial
+
+![Kimiawi Degassing CO2, Jendela Puncak Rasa (Peak Flavor Window), dan Formulasi Blending](https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Pelepasan Gas Karbondioksida (CO2) dan Waktu Resting Optimal — Sumber / Kredit: International Coffee Science Association*
 
 Dua topik penutup yang melengkapi keahlian seorang master roaster adalah memahami kurva pelepasan gas $CO_2$ pasca sangrai (*degassing*) dan meracik formulasi campuran kopi (*blending strategy*).
 
@@ -788,11 +834,243 @@ Roastery komersial membuat *House Blend* untuk mencapai stabilitas rasa tahunan 
       'Post-Roast Blending adalah standar emas untuk memadukan biji dengan densitas dan karakteristik pasca panen yang berbeda.',
     ],
   },
-];
 
-// ============================================================================
-// 4. QUIZZES & CERTIFICATION EXAM: ROASTER SPECIALIZATION PATH
-// ============================================================================
+  {
+    id: 'les-r1-3',
+    module_id: 'mod-r1',
+    title: 'Klasifikasi Ukuran Biji (Screen Size), Peaberry, dan Standar Pemilahan Defect SCA 350g',
+    content: `# Klasifikasi Ukuran Biji (Screen Size), Peaberry, dan Pemilahan Defect SCA 350g
+
+Ukuran fisik dan keseragaman bentuk biji green bean adalah penentu utama kestabilan transfer panas saat biji bergulir di dalam drum roaster. Biji yang ukurannya campur aduk akan matang tidak seragam: biji kecil gosong sebelum biji besar matang di bagian inti!
+
+![Klasifikasi Ukuran Green Bean dan Sortasi Manual](https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Pengayakan Ayakan Screen Size dan Sortasi Cacat Fisik Green Bean — Sumber / Kredit: Unsplash / Specialty Coffee Association (SCA)*
+
+---
+
+### 1. Sistem Klasifikasi Screen Size Internasional
+
+Ukuran biji diukur menggunakan ayakan bertingkat (*screens*) dengan lubang bundar berukuran kelipatan 1/64 inci:
+* **Screen 19 – 20 (Sangat Besar)**: Diameter lubang 7.5 – 8.0 mm (Sering disebut *Supremo* di Kolombia atau AA di Kenya).
+* **Screen 17 – 18 (Besar / Standar Ekspor)**: Diameter lubang 6.75 – 7.0 mm (Standar tertinggi specialty Arabika Nusantara).
+* **Screen 15 – 16 (Sedang)**: Diameter lubang 6.0 mm.
+* **Peaberry / Kopi Lanang**: Anomali genetik di mana buah kopi hanya menghasilkan 1 biji bulat tunggal (bukan 2 biji pipih berhadapan). Bentuknya yang bulat membuat peaberry bergulir sangat mulus di dalam drum dan menyerap panas konveksi secara seragam.
+
+---
+
+### 2. Protokol Sortasi Cacat 350 Gram Standar SCA
+
+Standar Specialty Coffee mewajibkan penimbangan tepat **350 gram sampel green bean**:
+* **Cacat Primer (Primary Defects)**: Biji hitam penuh (*Full Black*), biji asam busuk (*Full Sour*), batu/ranting besar. **Toleransi: 0 (Nol Cacat Primer)**.
+* **Cacat Sekunder (Secondary Defects)**: Biji pecah, lubang serangga kecil, kulit tanduk (*parchment*). Toleransi: Maksimal 5 cacat sekunder setara penuh.`,
+    content_type: 'text',
+    duration_minutes: 15,
+    order_index: 3,
+    is_free: false,
+    is_published: true,
+    created_at: '2026-08-10T00:00:00Z',
+    summary: 'Materi mendalam Klasifikasi Ukuran Biji (Screen Size), Peaberry, dan Standar Pemilahan Defect SCA 350g dengan parameter ilmiah kurva sangrai, studi kasus fisika drum, dan standar SCA.',
+    key_takeaways: [
+      'Pahami fisika dan termodinamika penyangraian untuk mengontrol perubahan kimia internal biji kopi.',
+      'Gunakan software profiling (RoR, DTR) secara disiplin untuk menjaga konsistensi antar batch produksi.',
+      'Simpan biji sangrai dalam kemasan one-way valve dan seduh pada jendela waktu puncak rasa terbaik.'
+    ],
+  },
+  {
+    id: 'les-r2-3',
+    module_id: 'mod-r2',
+    title: 'Perbandingan Teknologi Mesin: Drum Berputar Tradisional vs Fluid-Bed (Hot Air Roaster)',
+    content: `# Perbandingan Teknologi Mesin: Drum Berputar Tradisional vs Fluid-Bed
+
+Dalam dunia penyangraian modern, dua mahzab teknologi mesin mendominasi industri: mesin drum klasik dan mesin fluida udara (*fluid-bed / air roaster*).
+
+![Mesin Sangrai Kopi Klasik vs Hot Air Fluid-Bed](https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Dinamika Ruang Sangrai Drum Putar dengan Sirkulasi Udara Terkontrol — Sumber / Kredit: Unsplash / Coffee Roasting Technology*
+
+---
+
+### 1. Drum Roaster Tradisional (Konduksi 30% + Konveksi 70%)
+
+* Biji kopi dijatuhkan ke dalam silinder drum baja tebal berputar yang dipanaskan api kompor gas di bagian bawahnya.
+* Sirkulasi sirip drum (*drum flights*) mengangkat dan menjatuhkan biji kopi secara teratur menembus aliran udara panas.
+* **Karakter Cangkir**: Menghasilkan bodi yang tebal (*creamy mouthfeel*), manis karamel yang pekat, dan aftertaste panjang. Sangat ideal untuk profil espresso dan susu.
+
+---
+
+### 2. Fluid-Bed Air Roaster (Konveksi Murni 95%)
+
+* Tidak ada drum berputar. Biji kopi mengapung dan melayang di atas semburan kolom udara super panas berkecepatan tinggi (*bed of fluidized air*).
+* Biji tidak pernah bersentuhan langsung dengan pelat logam panas, sehingga risiko cacat gosong (*scorching*) hampir nol.
+* **Karakter Cangkir**: Sangat bersih (*clean cup*), keasaman buah mekar tajam (*bright acidity*), dan aroma bunga (*floral notes*) terdengar sangat artikulatif.`,
+    content_type: 'text',
+    duration_minutes: 15,
+    order_index: 3,
+    is_free: false,
+    is_published: true,
+    created_at: '2026-08-10T00:00:00Z',
+    summary: 'Materi mendalam Perbandingan Teknologi Mesin: Drum Berputar Tradisional vs Fluid-Bed (Hot Air Roaster) dengan parameter ilmiah kurva sangrai, studi kasus fisika drum, dan standar SCA.',
+    key_takeaways: [
+      'Pahami fisika dan termodinamika penyangraian untuk mengontrol perubahan kimia internal biji kopi.',
+      'Gunakan software profiling (RoR, DTR) secara disiplin untuk menjaga konsistensi antar batch produksi.',
+      'Simpan biji sangrai dalam kemasan one-way valve dan seduh pada jendela waktu puncak rasa terbaik.'
+    ],
+  },
+  {
+    id: 'les-r3-3',
+    module_id: 'mod-r3',
+    title: 'Karamelisasi Sukrosa & Pirolisis: Transisi Menuju First Crack dan Pembentukan Asam Organik',
+    content: `# Karamelisasi Sukrosa & Pirolisis: Menuju First Crack
+
+Memasuki suhu 160°C hingga 200°C, reaksi kimia di dalam biji kopi beralih dari endotermik (menyerap panas) menjadi eksotermik (melepaskan panas mandiri).
+
+![Fase Perubahan Warna Biji Kopi dari Kuning ke Cokelat Karamel](https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Titik Kritis Karamelisasi Sukrosa Menjelang Ledakan First Crack — Sumber / Kredit: Unsplash / Specialty Roasters Guide*
+
+---
+
+### 1. Reaksi Karamelisasi Sukrosa
+
+Kandungan sukrosa alami biji Arabika (sekitar 6–9% berat kering) mulai terurai pada suhu 160°C. 
+* Molekul gula mengalami polimerisasi menjadi senyawa karamel berbobot tinggi (*caramelan*, *caramelen*, *caramelin*) yang memberikan warna cokelat keemasan dan aroma toffee/butterscotch.
+* Jika fase ini diperpanjang terlalu lama, gula akan terkarbonisasi menjadi abu pahit tanpa rasa manis.
+
+---
+
+### 2. Fenomena Fisika First Crack (Suhu 196°C – 205°C)
+
+Uap air yang terperangkap di inti selulosa biji telah mencapai tekanan uap kritis (mencapai 25 atmosfer). Tekanan masif ini merobek dinding sel biji dengan suara letupan renyah layaknya popcorn (*First Crack*):
+* Biji mengembang hingga 1.5 – 2 kali volume awalnya.
+* Kulit ari perak (*silverskin / chaff*) terlepas dari celah tengah biji.
+* Gas karbon dioksida (CO2) mulai diproduksi secara masif di dalam sel biji.`,
+    content_type: 'text',
+    duration_minutes: 15,
+    order_index: 3,
+    is_free: false,
+    is_published: true,
+    created_at: '2026-08-10T00:00:00Z',
+    summary: 'Materi mendalam Karamelisasi Sukrosa & Pirolisis: Transisi Menuju First Crack dan Pembentukan Asam Organik dengan parameter ilmiah kurva sangrai, studi kasus fisika drum, dan standar SCA.',
+    key_takeaways: [
+      'Pahami fisika dan termodinamika penyangraian untuk mengontrol perubahan kimia internal biji kopi.',
+      'Gunakan software profiling (RoR, DTR) secara disiplin untuk menjaga konsistensi antar batch produksi.',
+      'Simpan biji sangrai dalam kemasan one-way valve dan seduh pada jendela waktu puncak rasa terbaik.'
+    ],
+  },
+  {
+    id: 'les-r4-3',
+    module_id: 'mod-r4',
+    title: 'Development Time Ratio (DTR 12–18%): Menyeimbangkan Keasaman Buah Cerah dengan Bodi Manis',
+    content: `# Development Time Ratio (DTR 12–18%): Seni Menyeimbangkan Rasa
+
+Waktu setelah First Crack dimulai hingga biji dikeluarkan ke cooling tray disebut sebagai **Development Time**. Persentasenya terhadap total waktu sangrai disebut **Development Time Ratio (DTR)**.
+
+![Analisis Kurva Roasting Software Artisan dan Cropster](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Pemantauan Grafik DTR dan Trajektori RoR Menggunakan Software Profiling Digital — Sumber / Kredit: Unsplash / Roaster Automation*
+
+---
+
+### 1. Spektrum DTR dan Profil Rasa di Cangkir
+
+* **DTR 10% – 12% (Light / Filter Roast)**:
+  - Karakter: Keasaman buah sangat tinggi (*high acidity*), aroma bunga mekar, bodi teh tipis dan bersih.
+  - Risiko: Jika inti biji belum matang, rasa akan seperti rumput kering mentah (*underdeveloped*).
+* **DTR 14% – 16% (Medium Roast / Omniroast)**:
+  - Karakter: Keseimbangan terbaik antara asam buah segar, manis karamel bulat, dan bodi sedang (*silky body*). Sangat fleksibel untuk V60 maupun espresso.
+* **DTR 17% – 20% (Medium-Dark / Espresso Roast)**:
+  - Karakter: Asam buah melunak, bodi tebal mantap (*heavy body*), dominasi rasa cokelat hitam pekat, rempah, dan gula aren bakar.`,
+    content_type: 'text',
+    duration_minutes: 15,
+    order_index: 3,
+    is_free: false,
+    is_published: true,
+    created_at: '2026-08-10T00:00:00Z',
+    summary: 'Materi mendalam Development Time Ratio (DTR 12–18%): Menyeimbangkan Keasaman Buah Cerah dengan Bodi Manis dengan parameter ilmiah kurva sangrai, studi kasus fisika drum, dan standar SCA.',
+    key_takeaways: [
+      'Pahami fisika dan termodinamika penyangraian untuk mengontrol perubahan kimia internal biji kopi.',
+      'Gunakan software profiling (RoR, DTR) secara disiplin untuk menjaga konsistensi antar batch produksi.',
+      'Simpan biji sangrai dalam kemasan one-way valve dan seduh pada jendela waktu puncak rasa terbaik.'
+    ],
+  },
+  {
+    id: 'les-r5-3',
+    module_id: 'mod-r5',
+    title: 'Underdevelopment (Rasa Rumput Mentah/Baking) vs Overdevelopment (Pahit Karbon)',
+    content: `# Underdevelopment vs Overdevelopment: Diagnosis Sensorik & Teknis
+
+Roaster berpengalaman tidak hanya melihat warna luar biji. Warna luar biji sangrai sering kali menipu jika transfer panas internal tidak seimbang!
+
+![Perbandingan Warna Biji Sangrai Luar dan Dalam Setelah Digiling](https://images.unsplash.com/photo-1587734195503-904fca47e0e9?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Evaluasi Keseragaman Sangrai Melalui Pembelahan Biji dan Spektrometri Warna — Sumber / Kredit: Unsplash / SCA Roasters Guild*
+
+---
+
+### 1. Cacat Underdevelopment (Inti Mentah)
+
+* **Tanda Fisik**: Permukaan luar biji tampak cokelat, namun saat dibelah dua, bagian tengah inti biji masih berwarna kuning pucat atau cokelat muda.
+* **Rasa di Meja Cupping**: Masam tajam menyengat (*sour vinegar*), aroma kacang tanah mentah (*green peanut*), bau rumput basah (*vegetative/hay*), dan sensasi sepet mengeringkan ludah di tenggorokan (*astringency*).
+* **Koreksi Profil**: Naikkan energi konveksi udara di fase drying atau perpanjang waktu development time tanpa membuat RoR datar.
+
+---
+
+### 2. Cacat Overdevelopment & Baking
+
+* **Baking (Kopi Roti Hambar)**: Terjadi ketika roaster mematikan api terlalu drastis di tengah jalan sehingga RoR mendatar mendekati 0°C/menit. Biji terpanggang lama tanpa energi cukup. Kopi kehilangan rasa manis dan asam buah, rasanya hambar datar seperti roti tawar kering (*bread-like*).
+* **Overdevelopment (Gosong Karbon)**: Biji disangrai melampaui Second Crack (>225°C). Selulosa kayu hancur menjadi arang. Minyak keluar membasahi permukaan biji (*oily bean*), rasanya pahit abu rokok menyengat.`,
+    content_type: 'text',
+    duration_minutes: 15,
+    order_index: 3,
+    is_free: false,
+    is_published: true,
+    created_at: '2026-08-10T00:00:00Z',
+    summary: 'Materi mendalam Underdevelopment (Rasa Rumput Mentah/Baking) vs Overdevelopment (Pahit Karbon) dengan parameter ilmiah kurva sangrai, studi kasus fisika drum, dan standar SCA.',
+    key_takeaways: [
+      'Pahami fisika dan termodinamika penyangraian untuk mengontrol perubahan kimia internal biji kopi.',
+      'Gunakan software profiling (RoR, DTR) secara disiplin untuk menjaga konsistensi antar batch produksi.',
+      'Simpan biji sangrai dalam kemasan one-way valve dan seduh pada jendela waktu puncak rasa terbaik.'
+    ],
+  },
+  {
+    id: 'les-r6-3',
+    module_id: 'mod-r6',
+    title: 'Kurva Degassing Gas CO2 Biji Sangrai: Menentukan Jendela Waktu Puncak Rasa (Peak Flavor Window)',
+    content: `# Kurva Degassing Gas CO2: Menentukan Puncak Kenikmatan Rasa
+
+Biji kopi yang baru keluar dari drum mesin sangrai **belum siap disajikan kepada konsumen**. Proses kimiawi di dalam biji masih terus berlanjut selama berminggu-minggu pasca sangrai.
+
+![Kemasan Kopi Spesialti Berkatup Satu Arah Degassing Valve](https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=1000&auto=format&fit=crop&q=80)
+*Ilustrasi / Foto: Kemasan Kantong Aluminium Foil Kedap Udara dengan One-Way Degassing Valve — Sumber / Kredit: Unsplash / Specialty Roastery Packaging*
+
+---
+
+### 1. Fisiologi Pelepasan Gas Karbon Dioksida (CO2)
+
+Selama reaksi pirolisis di dalam roaster, terbentuk sekitar 5 – 10 liter gas CO2 per kilogram kopi yang terperangkap di dalam pori-pori sel mikro:
+* **24 Jam Pertama**: Terjadi pelepasan gas sangat liar (sekitar 40% dari total gas keluar di hari pertama).
+* **Fungsi One-Way Valve**: Katup satu arah pada kemasan kantong kopi memungkinkan gas CO2 keluar tanpa membiarkan oksigen luar masuk ke dalam kemasan. Tanpa katup ini, kantong kopi akan menggembung kencang dan meledak!
+
+---
+
+### 2. Kalender Puncak Rasa (*Peak Flavor Window*)
+
+* **Untuk Manual Filter (V60, Kalita, Aeropress)**:
+  - *Resting Time Ideal*: **Hari ke-3 hingga Hari ke-5** setelah roasting.
+  - *Jendela Puncak Rasa*: Hari ke-5 hingga Hari ke-28.
+* **Untuk Espresso Komersial (9 Bar Extraction)**:
+  - *Resting Time Ideal*: **Hari ke-7 hingga Hari ke-10** setelah roasting. Gas CO2 berlebih pada biji baru akan memicu busa turbulen yang menghambat kontak air dengan minyak kopi.
+  - *Jendela Puncak Rasa*: Hari ke-10 hingga Hari ke-45.`,
+    content_type: 'text',
+    duration_minutes: 15,
+    order_index: 3,
+    is_free: false,
+    is_published: true,
+    created_at: '2026-08-10T00:00:00Z',
+    summary: 'Materi mendalam Kurva Degassing Gas CO2 Biji Sangrai: Menentukan Jendela Waktu Puncak Rasa (Peak Flavor Window) dengan parameter ilmiah kurva sangrai, studi kasus fisika drum, dan standar SCA.',
+    key_takeaways: [
+      'Pahami fisika dan termodinamika penyangraian untuk mengontrol perubahan kimia internal biji kopi.',
+      'Gunakan software profiling (RoR, DTR) secara disiplin untuk menjaga konsistensi antar batch produksi.',
+      'Simpan biji sangrai dalam kemasan one-way valve dan seduh pada jendela waktu puncak rasa terbaik.'
+    ],
+  },
+];
 
 export const ROASTER_QUIZZES: Quiz[] = [
   {

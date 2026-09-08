@@ -8,7 +8,30 @@ interface MarkdownRendererProps {
   content: string;
 }
 
+function sanitizeMarkdownContent(raw: string): string {
+  if (!raw) return '';
+  // Convert any stray $$...$$ into clean callout block
+  return raw.replace(/\$\$([\s\S]*?)\$\$/g, (_match, eq) => {
+    let cleanEq = eq
+      .replace(/\\text\{([^}]+)\}/g, '$1')
+      .replace(/\\mathbf\{([^}]+)\}/g, '$1')
+      .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '($1 ÷ $2)')
+      .replace(/\\times/g, '×')
+      .replace(/\\approx/g, '≈')
+      .replace(/\\Delta/g, 'Δ')
+      .replace(/\\sum_\{[^}]+\}\^\{[^}]+\}/g, 'Total')
+      .replace(/\\quad/g, ' ')
+      .replace(/\\downarrow/g, ' (Mengendap)')
+      .replace(/\\xrightarrow\{[^}]+\}/g, ' → ')
+      .replace(/\\/g, '')
+      .trim();
+    return `\n> ☕ **Persamaan Parameter:**\n> **${cleanEq}**\n`;
+  });
+}
+
 export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
+  const cleanContent = sanitizeMarkdownContent(content);
+
   return (
     <div className="editorial-prose">
       <ReactMarkdown
@@ -111,9 +134,24 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
               {children}
             </pre>
           ),
+          img: ({ src, alt }) => (
+            <span className="block my-8 rounded-lg overflow-hidden border border-paper-300 bg-paper-100/80 shadow-subtle not-prose">
+              <img
+                src={src}
+                alt={alt || 'Visualisasi Pembelajaran'}
+                className="w-full h-auto max-h-[480px] object-cover block"
+                loading="lazy"
+              />
+              {alt && (
+                <span className="block p-3 text-center text-xs font-serif italic text-roast-700 bg-paper-100 border-t border-paper-200">
+                  {alt}
+                </span>
+              )}
+            </span>
+          ),
         }}
       >
-        {content}
+        {cleanContent}
       </ReactMarkdown>
     </div>
   );

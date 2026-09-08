@@ -290,7 +290,7 @@ export default function LessonPlayerPage() {
                 className="w-full sm:w-auto px-5 py-2.5 bg-roast-950 hover:bg-roast-900 text-paper-50 rounded font-mono text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 transition-colors"
               >
                 <Award className="w-4 h-4 text-crema-400" />
-                <span>Ujian Kelulusan &rarr;</span>
+                <span>Ujian Kelulusan →</span>
               </Link>
             )}
           </div>

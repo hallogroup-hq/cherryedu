@@ -157,7 +157,7 @@ export default function PathDetailPage() {
                         className="w-full py-2.5 bg-roast-950 hover:bg-cherry-800 text-paper-50 font-mono text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 border border-roast-900 shadow-xs transition-colors mt-2"
                       >
                         <PlayCircle className="w-4 h-4 text-crema-300" />
-                        <span>Lanjutkan Materi &rarr;</span>
+                        <span>Lanjutkan Materi →</span>
                       </Link>
                     ) : null;
                   })()}
@@ -174,7 +174,7 @@ export default function PathDetailPage() {
                         href="/paths/kopi-dari-hulu-ke-hilir"
                         className="w-full py-2.5 bg-roast-950 hover:bg-cherry-800 text-paper-50 font-mono text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-1.5 transition-colors border border-roast-900 shadow-xs"
                       >
-                        <span>Ke Foundation Layer &rarr;</span>
+                        <span>Ke Foundation Layer →</span>
                       </Link>
                       <button
                         onClick={() => handleEnroll(true)}
@@ -296,7 +296,7 @@ export default function PathDetailPage() {
                               href={`/paths/${path.slug}/lessons/${lesson.id}`}
                               className="shrink-0 ml-3 px-3.5 py-1.5 bg-paper-50 border border-paper-300 font-mono text-[11px] uppercase tracking-wider font-bold text-roast-900 hover:text-cherry-800 hover:border-roast-800 transition-all shadow-xs"
                             >
-                              {completed ? 'Ulas Materi' : 'Buka Materi &rarr;'}
+                              {completed ? 'Ulas Materi' : 'Buka Materi →'}
                             </Link>
                           </div>
                         );
@@ -360,7 +360,7 @@ export default function PathDetailPage() {
               href={`/paths/${path.slug}/quiz/${finalExam.id}`}
               className="px-6 py-3 bg-crema-500 hover:bg-crema-400 text-roast-950 font-mono text-xs uppercase tracking-wider font-bold shrink-0 transition-colors shadow-xs border border-crema-400"
             >
-              Mulai Ujian Akhir &rarr;
+              Mulai Ujian Akhir →
             </Link>
           </div>
         )}

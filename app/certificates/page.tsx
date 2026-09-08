@@ -64,7 +64,7 @@ export default function CertificatesGalleryPage() {
             className="inline-flex items-center gap-2 px-6 py-3 bg-roast-950 hover:bg-cherry-800 text-paper-50 font-mono text-xs uppercase tracking-wider font-bold transition-all border border-roast-900 shadow-xs"
           >
             <BookOpen className="w-4 h-4" />
-            <span>Buka Silabus Foundation Layer &rarr;</span>
+            <span>Buka Silabus Foundation Layer →</span>
           </Link>
         </div>
       )}
