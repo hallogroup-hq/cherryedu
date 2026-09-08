@@ -106,6 +106,8 @@ export const POST_HARVEST_LESSONS: Lesson[] = [
 ![Taksonomi Kopi: Genetika Alotetraploid Arabika vs Diploid Canephora & Liberika](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
 
+[DIAGRAM:cherry-anatomy]
+
 Dalam genus *Coffea* (famili *Rubiaceae*), terdapat lebih dari 120 spesies tanaman kopi di dunia. Namun, dunia industri kopi komersial dan spesialti berpusat pada tiga spesies utama: **Coffea arabica**, **Coffea canephora** (Robusta), dan **Coffea liberica**.
 
 ---
@@ -151,6 +153,8 @@ Mengapa Arabika memiliki cita rasa yang jauh lebih kompleks, manis, dan kaya asa
 
 ![Varietas Unggul Nusantara: Typica, Tim-Tim, Sigarar Utang, dan Kartika](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Koleksi Varietas Kopi Arabika dan Robusta Unggul — Sumber / Kredit: Pusat Penelitian Kopi dan Kakao Indonesia (ICCRI)*
+
+[DIAGRAM:varieties-tree]
 
 Indonesia memiliki keanekaragaman varietas Arabika yang sangat unik akibat percampuran galur kuno warisan VOC dan inovasi pemuliaan Pusat Penelitian Kopi dan Kakao (Puslitkoka) Jember.
 
@@ -304,6 +308,8 @@ Tanah Andosol terbentuk dari pelapukan abu dan batuan piroklastik letusan gunung
 ![Anatomi Buah Kopi & Protokol Panen Petik Merah Sempurna (Selective Picking)](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
 
+[DIAGRAM:cherry-anatomy]
+
 Biji kopi yang berada di cangkir Anda adalah **biji pelindung (endosperma)** di dalam buah ceri kopi. Segala bentuk pemrosesan pasca panen tercanggih di dunia tidak akan pernah mampu menambahkan rasa manis atau aroma jika buah ceri dipetik dalam kondisi belum matang (*unripe*).
 
 ---
@@ -409,6 +415,8 @@ Begitu ceri tiba di stasiun basah, langkah pertama sebelum dikupas adalah memasu
 
 ![Sains Proses Giling Basah (Wet Hulled) Sumatra: Porositas, Warna Giok, dan Karakter Herbal](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Proses Olah Basah (Fully Washed) dan Pencucian Musilage — Sumber / Kredit: Specialty Coffee Association Processing Guide*
+
+[DIAGRAM:processing-comparison]
 
 **Giling Basah** (dikenal di pasar internasional sebagai *Wet Hulled*) adalah metode pengolahan pasca panen asli Indonesia yang hampir secara eksklusif hanya dapat ditemukan di Sumatra (Aceh Gayo, Lintong, Mandheling, Kerinci) dan sebagian kecil Sulawesi Selatan (Toraja).
 

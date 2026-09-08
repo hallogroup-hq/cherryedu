@@ -99,7 +99,7 @@ interface CherryEduContextType {
 
 const CherryEduContext = createContext<CherryEduContextType | undefined>(undefined);
 
-const STORAGE_KEY = 'cherryedu_state_v4';
+const STORAGE_KEY = 'cherryedu_state_v5';
 
 export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Initialize with seed data or LocalStorage

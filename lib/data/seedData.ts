@@ -875,6 +875,8 @@ Tantangan terbesar kopi Indonesia saat ini bukan pada mesin atau teknologi seduh
 ![Anatomi Botani Tanaman & Buah Kopi: Dari Eksokarp hingga Biji Endosperma](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
 
+[DIAGRAM:cherry-anatomy]
+
 Untuk memahami bagaimana rasa kopi terbentuk, seorang ahli kopi harus memulai dari struktur biologis tanamannya. Pohon kopi bukan semak liar biasa, melainkan pohon berkayu yang mampu hidup hingga 50-80 tahun.
 
 ### Klasifikasi Taksonomi
@@ -1262,6 +1264,8 @@ POHON KELUARGA GENUS COFFEA KOMERSIAL:
 ![Silsilah Varietas Arabika Dunia: Dari Typica, Bourbon, Geisha, hingga Hibrida](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Koleksi Varietas Kopi Arabika dan Robusta Unggul — Sumber / Kredit: Pusat Penelitian Kopi dan Kakao Indonesia (ICCRI)*
 
+[DIAGRAM:varieties-tree]
+
 Varietas pada kopi setara dengan varietas anggur pada industri wine (seperti *Cabernet Sauvignon*, *Pinot Noir*, atau *Chardonnay*). Memahami silsilah pohon keluarga Arabika adalah kunci untuk memprediksi potensi rasa yang akan muncul di cangkir.
 
 \`\`\`
@@ -1551,6 +1555,8 @@ ANATOMI LABEL KEMASAN SPECIALTY COFFEE:
 
 ![Olah Basah (Washed / Wet Process): Demucilagination & Karakter Clean Cup](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Proses Olah Basah (Fully Washed) dan Pencucian Musilage — Sumber / Kredit: Specialty Coffee Association Processing Guide*
+
+[DIAGRAM:processing-comparison]
 
 Di dunia specialty coffee internasional, metode **Washed (Olah Basah)** diibaratkan sebagai kaca bening tanpa noda: ia tidak menambahkan rasa dari luar, melainkan menelanjangi dan memperlihatkan karakter asli tanah kebun (*terroir*) dan varietas genetik biji kopi secara murni dan transparan.
 
@@ -1878,6 +1884,8 @@ Sebuah tren paling viral sekaligus memicu perdebatan sengit di kalangan juri kop
 ![Termodinamika Roasting: Konduksi, Konveksi, Radiasi, & Anatomi Mesin Drum](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
 
+[DIAGRAM:roast-curve]
+
 Roasting (pemanggangan) bukan sekadar memanaskan biji kopi hingga berubah warna cokelat. Roasting adalah penerapan hukum termodinamika presisi tinggi untuk membuka potensi rasa kimiawi yang terkunci di dalam biji kopi hijau mentah.
 
 ### 3 Mode Perpindahan Panas (Heat Transfer)
@@ -1937,6 +1945,8 @@ Roaster modern menghubungkan mesin ke software digital (seperti *Artisan* atau *
 
 ![Kimia Fase Sangrai: Drying, Reaksi Maillard, Karamelisasi, & First Crack](https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Transformasi Kimiawi Reaksi Maillard dan Karamelisasi Biji — Sumber / Kredit: Coffee Chemistry Research Laboratory*
+
+[DIAGRAM:roast-curve]
 
 Biji kopi hijau mentah (*green bean*) memiliki rasa yang sangat tidak enak: keras seperti batu, hambar, pahit bergetah, dan berbau rumput basah. Di dalam mesin roaster, biji tersebut mengalami serangkaian reaksi kimia organik paling rumit di industri pangan.
 
@@ -2218,6 +2228,8 @@ Ini adalah anggapan yang keliru secara kimia ekstraksi:
 ![Parameter Kritis Air Standar SCA: TDS, Total Hardness, Alkalinitas, & pH](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
 
+[DIAGRAM:water-chemistry]
+
 Untuk memastikan kompetisi seduh dan evaluasi cupping di seluruh dunia memiliki standar rasa yang seragam, *Specialty Coffee Association* (SCA) merumuskan panduan ilmiah spesifikasi air seduh (**SCA Water Quality Standard**).
 
 \`\`\`
@@ -2286,6 +2298,8 @@ Derajat keasaman awal air sebelum kontak dengan kopi harus berada di titik netra
 
 ![Pertarungan Kation: Magnesium (Mg2+) vs Kalsium (Ca2+) dalam Ekstraksi Rasa](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
+
+[DIAGRAM:water-chemistry]
 
 Pada tahun 2014, sebuah penelitian fisika kuantum komputasi yang diterbitkan oleh kimiawan Universitas Bath, **Dr. Christopher Hendon**, bersama juara barista Inggris, **Maxwell Colonna-Dashwood**, merevolusi industri specialty coffee selamanya melalui buku legendaris: *"Water for Coffee"*.
 
@@ -2745,6 +2759,8 @@ Total Skor Akhir = Skor Mentah – (Jumlah Mangkok Cacat x Nilai Penalti 2 atau 
 
 ![Resep Standar V60: Rasio Emas 1:15 & Panduan Tiga Kali Tuang](https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Ekstraksi Presisi Seduh Manual Pour-Over dengan Dripper V60 — Sumber / Kredit: World Brewers Cup Championship Archive*
+
+[DIAGRAM:brewing-control-chart]
 
 Menyeduh dengan Hario V60 di rumah adalah salah satu pengalaman paling menenangkan sekaligus menghasilkan secangkir kopi yang sangat aromatik.
 

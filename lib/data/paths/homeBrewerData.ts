@@ -114,6 +114,8 @@ Bagi pengguna grinder manual berkualitas tinggi:
 ![Uji Laboratorium Air Galon Indonesia: Mana yang Terbaik untuk Menyeduh Kopi?](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
 
+[DIAGRAM:water-chemistry]
+
 Secangkir kopi seduh manual terdiri dari **98.5% air** dan hanya 1.5% senyawa padat terlarut kopi. Menyeduh biji kopi Geisha termahal dengan air yang tidak tepat akan menghasilkan rasa datar dan membosankan.
 
 ---
@@ -168,6 +170,8 @@ Secangkir kopi seduh manual terdiri dari **98.5% air** dan hanya 1.5% senyawa pa
 
 ![Metode 4:6 Tetsu Kasuya vs James Hoffmann 1-Pour: Eksperimen Kontrol Rasa](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
+
+[DIAGRAM:brewing-control-chart]
 
 Hario V60 adalah dripper kerucut paling legendaris di dunia. Namun, dua juara dunia kopi mempopulerkan dua filosofi penyeduhan yang bertolak belakang: **Metode 4:6 (Tetsu Kasuya, World Brewers Cup Champion 2016)** dan **Teknik Ekstraksi Tinggi 1-Pour (James Hoffmann)**.
 
@@ -542,6 +546,8 @@ Berbeda dari dripper kerucut V60 yang memiliki dasar runcing tunggal, dripper fl
 
 ![Koleksi Dripper Seduh Manual Flat-Bottom Origami dan Kalita](https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Berbagai Geometri Flat Bottom Dripper untuk Ekstraksi Rata Biji Fermentasi — Sumber / Kredit: Unsplash / Home Brewers Guild*
+
+[DIAGRAM:brewing-control-chart]
 
 ---
 

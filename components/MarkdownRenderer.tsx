@@ -3,6 +3,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { CoffeeDiagram } from '@/components/CoffeeDiagram';
 
 interface MarkdownRendererProps {
   content: string;
@@ -10,8 +11,11 @@ interface MarkdownRendererProps {
 
 function sanitizeMarkdownContent(raw: string): string {
   if (!raw) return '';
+  // Support [DIAGRAM:type] shorthand
+  let processed = raw.replace(/\[DIAGRAM:([a-z0-9\-]+)\]/g, '```diagram:$1\n```');
+
   // Convert any stray $$...$$ into clean callout block
-  return raw.replace(/\$\$([\s\S]*?)\$\$/g, (_match, eq) => {
+  return processed.replace(/\$\$([\s\S]*?)\$\$/g, (_match, eq) => {
     let cleanEq = eq
       .replace(/\\text\{([^}]+)\}/g, '$1')
       .replace(/\\mathbf\{([^}]+)\}/g, '$1')
@@ -124,26 +128,48 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             </td>
           ),
           hr: () => <hr className="my-8 border-t border-paper-300" />,
-          code: ({ children }) => (
-            <code className="font-mono text-xs bg-paper-200 text-roast-950 px-1.5 py-0.5 rounded border border-paper-300 font-semibold">
-              {children}
-            </code>
-          ),
-          pre: ({ children }) => (
-            <pre className="my-6 p-4 bg-roast-950 text-paper-100 font-mono text-xs overflow-x-auto border border-roast-900 rounded">
-              {children}
-            </pre>
-          ),
+          code: ({ className, children, ...props }: any) => {
+            const match = /language-diagram:([a-z0-9\-]+)/.exec(className || '');
+            if (match) {
+              const diagramType = match[1];
+              return <CoffeeDiagram type={diagramType} />;
+            }
+            return (
+              <code className="font-mono text-xs bg-paper-200 text-roast-950 px-1.5 py-0.5 rounded border border-paper-300 font-semibold" {...props}>
+                {children}
+              </code>
+            );
+          },
+          pre: ({ children }: any) => {
+            if (React.isValidElement(children)) {
+              const childProps = children.props as any;
+              if (childProps?.className && String(childProps.className).startsWith('language-diagram:')) {
+                return <div className="not-prose my-6">{children}</div>;
+              }
+            }
+            return (
+              <pre className="my-6 p-4 bg-roast-950 text-paper-100 font-mono text-xs overflow-x-auto border border-roast-900 rounded">
+                {children}
+              </pre>
+            );
+          },
           img: ({ src, alt }) => (
-            <span className="block my-8 rounded-lg overflow-hidden border border-paper-300 bg-paper-100/80 shadow-subtle not-prose">
+            <span className="block my-8 rounded-xl overflow-hidden border border-paper-300 bg-paper-100/90 shadow-subtle not-prose">
+              <span className="flex items-center justify-between px-3.5 py-2 bg-paper-200/90 border-b border-paper-300 text-roast-900 font-mono text-[10px] uppercase font-bold tracking-wider">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-cherry-700 inline-block"></span>
+                  <span>MEDIA PEMBELAJARAN VISUAL / ALAT BANTU AJAR</span>
+                </span>
+                <span className="text-roast-500 font-normal">SCA & CQI Curated</span>
+              </span>
               <img
                 src={src}
                 alt={alt || 'Visualisasi Pembelajaran'}
-                className="w-full h-auto max-h-[480px] object-cover block"
+                className="w-full h-auto max-h-[500px] object-cover block"
                 loading="lazy"
               />
               {alt && (
-                <span className="block p-3 text-center text-xs font-serif italic text-roast-700 bg-paper-100 border-t border-paper-200">
+                <span className="block p-3.5 text-center text-xs font-serif italic text-roast-800 bg-paper-100 border-t border-paper-200">
                   {alt}
                 </span>
               )}

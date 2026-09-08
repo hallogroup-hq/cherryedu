@@ -242,6 +242,8 @@ Musuh nomor satu dalam penyeduhan espresso bertekanan tinggi adalah **Channeling
 ![Pemeriksaan Aliran Ekstraksi Menggunakan Naked Bottomless Portafilter](https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Analisis Visual Distribusi Bubuk Menggunakan Bottomless Portafilter — Sumber / Kredit: Unsplash / Specialty Coffee Association*
 
+[DIAGRAM:espresso-phases]
+
 ---
 
 ### 1. Mekanisme Bahaya Channeling
@@ -320,6 +322,8 @@ Menciptakan microfoam sehalus sutra bukanlah bakat bawaan, melainkan penguasaan 
 
 ![Pusaran Vortex Sempurna di Dalam Milk Pitcher Stainless Steel](https://images.unsplash.com/photo-1534778101976-62847782c213?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Pembentukan Pusaran Vortex untuk Memecah Gelembung Kasar Menjadi Microfoam — Sumber / Kredit: Unsplash / World Barista Championship*
+
+[DIAGRAM:milk-steaming-vortex]
 
 ---
 
@@ -548,6 +552,8 @@ Intuisi lidah barista adalah instrumen utama rasa, namun sains refraktometri mem
 
 ![Pengujian Indeks Bias Cahaya Cairan Kopi dengan Refraktometer Digital](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Pengukuran Total Dissolved Solids (TDS) Menggunakan Refraktometer Kopi — Sumber / Kredit: Unsplash / Coffee Science Foundation*
+
+[DIAGRAM:brewing-control-chart]
 
 ---
 

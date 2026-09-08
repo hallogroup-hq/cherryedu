@@ -232,6 +232,8 @@ Peaberry terjadi ketika salah satu dari dua bakal biji di dalam ceri kopi gagal 
 ![Konduksi, Konveksi, dan Radiasi: Triad Termodinamika Mesin Sangrai](https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Termodinamika Perpindahan Panas pada Drum Mesin Sangrai Kopi — Sumber / Kredit: Roasters Guild Standards*
 
+[DIAGRAM:roast-curve]
+
 Penyangraian kopi pada hakikatnya adalah disiplin termodinamika terapan. Di dalam ruang sangrai (*roasting chamber*), energi panas dihantarkan ke biji kopi melalui tiga mekanisme fisika utama: **Konduksi**, **Konveksi**, dan **Radiasi**. Memahami rasio ketiga mode ini adalah pembeda antara seorang operator pemula dan Master Roaster sejati.
 
 ---
@@ -356,6 +358,8 @@ Aliran udara di dalam mesin drum ditarik oleh *exhaust blower fan*. Fungsinya me
 ![Kinetika Kimiawi: Reaksi Maillard, Degradasi Strecker, dan Karamelisasi Sukrosa](https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Transformasi Kimiawi Reaksi Maillard dan Karamelisasi Biji — Sumber / Kredit: Coffee Chemistry Research Laboratory*
 
+[DIAGRAM:roast-curve]
+
 Penyangraian kopi mengubah biji mentah yang beraroma rumput tawar menjadi salah satu bahan pangan paling kompleks di dunia dengan lebih dari 800 senyawa aroma volatil. Transformasi ini digerakkan oleh serangkaian reaksi termokimia bertingkat.
 
 ---
@@ -472,6 +476,8 @@ Dalam terminologi sangrai modern yang dipelopori oleh Scott Rao dan SCA, proses 
 
 ![Anatomi Kurva Roasting: Charge Temp, Turning Point, dan Filosofi Descending RoR](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
 *Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
+
+[DIAGRAM:roast-curve]
 
 Di era sangrai gelombang ketiga (*Third Wave Coffee*), perangkat lunak *data logging* seperti **Cropster** dan **Artisan** menjadi standar emas. Menginterpretasikan kurva data secara langsung (*real-time*) memungkinkan roaster memprediksi laju termal beberapa menit sebelum fenomena fisik terjadi.
 
