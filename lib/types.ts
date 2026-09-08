@@ -288,7 +288,31 @@ export interface Bookmark {
   created_at: string;
 }
 
+export type PageSectionType =
+  | 'hero'
+  | 'manifesto'
+  | 'catalog'
+  | 'tools'
+  | 'comparison'
+  | 'bottomCta'
+  | 'banner'
+  | 'text'
+  | 'image'
+  | 'video'
+  | 'cards'
+  | 'cta'
+  | 'testimonial';
+
+export interface PageSectionItem {
+  id: string;
+  type: PageSectionType;
+  title: string;
+  enabled: boolean;
+  data: Record<string, any>;
+}
+
 export interface LandingPageConfig {
+  sections?: PageSectionItem[];
   hero: {
     headline: string;
     description: string;
