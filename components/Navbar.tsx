@@ -26,6 +26,10 @@ export const Navbar: React.FC = () => {
   const { user, signOut } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
+
   const navLinks = [
     { href: '/paths', label: 'Kurikulum' },
     { href: '/tools', label: 'Alat Seduh' },
