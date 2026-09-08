@@ -21,6 +21,7 @@ import {
   JobApplication,
   Bookmark,
   ForumCategory,
+  LandingPageConfig,
 } from './types';
 import {
   SEED_USERS,
@@ -37,6 +38,7 @@ import {
   SEED_JOBS,
   SEED_JOB_APPLICATIONS,
 } from './data/seedData';
+import { DEFAULT_LANDING_CONFIG } from './data/defaultLandingConfig';
 
 interface CherryEduContextType {
   currentUser: User;
@@ -84,6 +86,14 @@ interface CherryEduContextType {
   getCertificateByToken: (token: string) => Certificate | undefined;
   getUserCertificates: (userId?: string) => Certificate[];
   getUserBadges: (userId?: string) => (Badge & { earned_at: string })[];
+  landingPageConfig: LandingPageConfig;
+  updateLandingPageConfig: (config: Partial<LandingPageConfig>) => void;
+  updateLesson: (lessonId: string, data: Partial<Lesson>) => void;
+  addLesson: (lesson: Lesson) => void;
+  deleteLesson: (lessonId: string) => void;
+  updateLearningPath: (pathId: string, data: Partial<LearningPath>) => void;
+  addLearningPath: (path: LearningPath) => void;
+  deleteLearningPath: (pathId: string) => void;
   resetAllData: () => void;
 }
 
@@ -151,6 +161,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const [bookmarks, setBookmarks] = useState<Bookmark[]>([
     { id: 'bm-1', user_id: 'user-budi', lesson_id: 'les-f4-1', created_at: '2026-09-01T10:00:00Z' },
   ]);
+  const [landingPageConfig, setLandingPageConfig] = useState<LandingPageConfig>(DEFAULT_LANDING_CONFIG);
 
   // Load from localStorage on client mount
   useEffect(() => {
@@ -171,6 +182,10 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         if (parsed.jobListings) setJobListings(parsed.jobListings);
         if (parsed.jobApplications) setJobApplications(parsed.jobApplications);
         if (parsed.bookmarks) setBookmarks(parsed.bookmarks);
+        if (parsed.lessons) setLessons(parsed.lessons);
+        if (parsed.learningPaths) setLearningPaths(parsed.learningPaths);
+        if (parsed.modules) setModules(parsed.modules);
+        if (parsed.landingPageConfig) setLandingPageConfig(parsed.landingPageConfig);
       }
     } catch (e) {
       console.warn('Failed to load CherryEdu state from localStorage:', e);
@@ -194,6 +209,10 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         jobListings,
         jobApplications,
         bookmarks,
+        lessons,
+        learningPaths,
+        modules,
+        landingPageConfig,
       };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
     } catch (e) {
@@ -213,6 +232,10 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     jobListings,
     jobApplications,
     bookmarks,
+    lessons,
+    learningPaths,
+    modules,
+    landingPageConfig,
   ]);
 
   const currentUser = users.find((u) => u.id === currentUserId) || users[0];
@@ -653,10 +676,51 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       .filter(Boolean) as (Badge & { earned_at: string })[];
   };
 
+  const updateLesson = (lessonId: string, data: Partial<Lesson>) => {
+    setLessons((prev) => prev.map((l) => (l.id === lessonId ? { ...l, ...data } : l)));
+  };
+
+  const addLesson = (lesson: Lesson) => {
+    setLessons((prev) => [...prev, lesson]);
+  };
+
+  const deleteLesson = (lessonId: string) => {
+    setLessons((prev) => prev.filter((l) => l.id !== lessonId));
+  };
+
+  const updateLearningPath = (pathId: string, data: Partial<LearningPath>) => {
+    setLearningPaths((prev) => prev.map((p) => (p.id === pathId ? { ...p, ...data } : p)));
+  };
+
+  const addLearningPath = (path: LearningPath) => {
+    setLearningPaths((prev) => [...prev, path]);
+  };
+
+  const deleteLearningPath = (pathId: string) => {
+    setLearningPaths((prev) => prev.filter((p) => p.id !== pathId));
+  };
+
+  const updateLandingPageConfig = (config: Partial<LandingPageConfig>) => {
+    setLandingPageConfig((prev) => ({
+      ...prev,
+      ...config,
+      hero: config.hero ? { ...prev.hero, ...config.hero } : prev.hero,
+      manifesto: config.manifesto ? { ...prev.manifesto, ...config.manifesto } : prev.manifesto,
+      catalog: config.catalog ? { ...prev.catalog, ...config.catalog } : prev.catalog,
+      tools: config.tools ? { ...prev.tools, ...config.tools } : prev.tools,
+      comparison: config.comparison ? { ...prev.comparison, ...config.comparison } : prev.comparison,
+      bottomCta: config.bottomCta ? { ...prev.bottomCta, ...config.bottomCta } : prev.bottomCta,
+    }));
+  };
+
   const resetAllData = () => {
     localStorage.removeItem(STORAGE_KEY);
     setUsers(SEED_USERS);
     setCurrentUserId('user-budi');
+    setLearningPaths(SEED_PATHS);
+    setModules(SEED_MODULES);
+    setLessons(SEED_LESSONS);
+    setLandingPageConfig(DEFAULT_LANDING_CONFIG);
     setEnrollments(SEED_ENROLLMENTS);
     setCertificates(SEED_CERTIFICATES);
     setPosts(SEED_POSTS);
@@ -688,6 +752,14 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         jobListings,
         jobApplications,
         bookmarks,
+        landingPageConfig,
+        updateLandingPageConfig,
+        updateLesson,
+        addLesson,
+        deleteLesson,
+        updateLearningPath,
+        addLearningPath,
+        deleteLearningPath,
         switchUser,
         updateUserProfile,
         enrollInPath,

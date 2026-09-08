@@ -287,3 +287,66 @@ export interface Bookmark {
   lesson_id: string;
   created_at: string;
 }
+
+export interface LandingPageConfig {
+  hero: {
+    headline: string;
+    description: string;
+    primaryCtaText: string;
+    primaryCtaLink: string;
+    secondaryCtaText: string;
+    secondaryCtaLink: string;
+    specs: { label: string; value: string }[];
+    cardTagline: string;
+    cardTitle: string;
+    cardVol: string;
+    cardImage: string;
+    cardAltitude: string;
+    cardModules: { code: string; title: string }[];
+    cardCtaText: string;
+    cardCtaLink: string;
+  };
+  manifesto: {
+    eyebrow: string;
+    heading: string;
+    quote: string;
+    paragraph: string;
+    layer1Badge: string;
+    layer1Role: string;
+    layer1Title: string;
+    layer1Desc: string;
+    layer2Badge: string;
+    layer2Role: string;
+    layer2Title: string;
+    layer2Desc: string;
+  };
+  catalog: {
+    eyebrow: string;
+    heading: string;
+    allCatalogText: string;
+    allCatalogLink: string;
+  };
+  tools: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+  };
+  comparison: {
+    eyebrow: string;
+    heading: string;
+    rows: {
+      criteria: string;
+      cherry: string;
+      youtube: string;
+      course: string;
+    }[];
+  };
+  bottomCta: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+    buttonText: string;
+    buttonLink: string;
+  };
+}
+
