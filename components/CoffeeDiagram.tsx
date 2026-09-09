@@ -693,6 +693,234 @@ export const CoffeeDiagram: React.FC<CoffeeDiagramProps> = ({ type, caption }) =
         );
 
       /* =========================================================================
+         9. PETA RANTAI NILAI KOPI (SPECIALTY COFFEE VALUE CHAIN)
+         ========================================================================= */
+      case 'value-chain':
+        return (
+          <div className="bg-white p-5 sm:p-7 rounded-xl border border-paper-300 shadow-subtle">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-paper-200 pb-3 mb-5 gap-2">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-cherry-700 animate-pulse"></span>
+                <span className="font-mono text-xs uppercase tracking-wider font-bold text-roast-900">
+                  INFOGRAFIS: PETA 6 TITIK KRITIS RANTAI NILAI KOPI SPECIALTY
+                </span>
+              </div>
+              <span className="font-mono text-[10px] text-cherry-700 uppercase bg-cherry-50 px-2.5 py-0.5 rounded border border-cherry-200 font-bold self-start sm:self-auto">
+                Dari Pohon ke Cangkir
+              </span>
+            </div>
+
+            <p className="text-xs text-roast-600 mb-6 leading-relaxed">
+              Kualitas secangkir kopi specialty adalah hasil akumulasi ketelitian 6 mata rantai yang saling mengikat. Kerusakan mutu di satu tahap hulu tidak akan pernah bisa diperbaiki di tahap hilir:
+            </p>
+
+            {/* 6 Sequential Visual Step Cards */}
+            <div className="space-y-4">
+              {/* Step 1: Petani */}
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 p-4 rounded-xl bg-paper-50 border border-paper-300 hover:border-paper-400 transition shadow-xs items-center">
+                <div className="sm:col-span-4 relative rounded-lg overflow-hidden h-36 sm:h-28 border border-paper-200">
+                  <img
+                    src="https://images.unsplash.com/photo-1592663527359-cf6642f54cff?w=600&auto=format&fit=crop&q=80"
+                    alt="Petani Kopi Petik Merah"
+                    className="w-full h-full object-cover"
+                  />
+                  <span className="absolute top-2 left-2 bg-roast-950/85 text-white font-mono text-[10px] font-bold px-2 py-0.5 rounded">
+                    01 • HULU
+                  </span>
+                </div>
+                <div className="sm:col-span-8">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-serif font-bold text-sm text-roast-950">Petani (Farmer & Agronomist)</h4>
+                    <span className="text-[10px] font-mono text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded font-semibold">
+                      18° – 24° Brix
+                    </span>
+                  </div>
+                  <p className="text-xs text-roast-700 leading-relaxed mb-2">
+                    Bertanggung jawab atas pemuliaan varietas, perawatan mikroklimat tanah vulkanik, pemangkasan (pruning), dan <strong>panen petik merah selektif 100% matang</strong>.
+                  </p>
+                  <div className="text-[11px] font-mono text-roast-500 bg-paper-100 p-2 rounded border border-paper-200">
+                    <strong className="text-roast-900">Peran Kritis:</strong> Menciptakan seluruh potensi biologis rasa manis (sukrosa), prekursor aroma, dan keasaman organik.
+                  </div>
+                </div>
+              </div>
+
+              {/* Connecting Indicator */}
+              <div className="flex justify-center -my-2 text-roast-400">
+                <span className="font-mono text-xs">▼</span>
+              </div>
+
+              {/* Step 2: Processor */}
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 p-4 rounded-xl bg-paper-50 border border-paper-300 hover:border-paper-400 transition shadow-xs items-center">
+                <div className="sm:col-span-4 relative rounded-lg overflow-hidden h-36 sm:h-28 border border-paper-200">
+                  <img
+                    src="https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?w=600&auto=format&fit=crop&q=80"
+                    alt="Pengeringan Ceri Kopi di Wet Mill"
+                    className="w-full h-full object-cover"
+                  />
+                  <span className="absolute top-2 left-2 bg-roast-950/85 text-white font-mono text-[10px] font-bold px-2 py-0.5 rounded">
+                    02 • PENGOLAHAN
+                  </span>
+                </div>
+                <div className="sm:col-span-8">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-serif font-bold text-sm text-roast-950">Processor (Wet Mill & Fermentasi)</h4>
+                    <span className="text-[10px] font-mono text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded font-semibold">
+                      Kadar Air 10% – 12%
+                    </span>
+                  </div>
+                  <p className="text-xs text-roast-700 leading-relaxed mb-2">
+                    Melakukan sortasi rambang air (pemisahan buah kopong/floaters), depulping, fermentasi mikrobiologis terkontrol (Washed, Honey, Natural, Anaerobik), dan penjemuran para-para.
+                  </p>
+                  <div className="text-[11px] font-mono text-roast-500 bg-paper-100 p-2 rounded border border-paper-200">
+                    <strong className="text-roast-900">Peran Kritis:</strong> Mengunci kejernihan rasa (*clean cup*) atau kompleksitas buah fermentasi tanpa kontaminasi kapang/jamur.
+                  </div>
+                </div>
+              </div>
+
+              {/* Connecting Indicator */}
+              <div className="flex justify-center -my-2 text-roast-400">
+                <span className="font-mono text-xs">▼</span>
+              </div>
+
+              {/* Step 3: Trader & Dry Mill */}
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 p-4 rounded-xl bg-paper-50 border border-paper-300 hover:border-paper-400 transition shadow-xs items-center">
+                <div className="sm:col-span-4 relative rounded-lg overflow-hidden h-36 sm:h-28 border border-paper-200">
+                  <img
+                    src="https://images.unsplash.com/photo-1587734195503-904fca47e0e9?w=600&auto=format&fit=crop&q=80"
+                    alt="Sortasi Biji Kopi Hijau di Dry Mill"
+                    className="w-full h-full object-cover"
+                  />
+                  <span className="absolute top-2 left-2 bg-roast-950/85 text-white font-mono text-[10px] font-bold px-2 py-0.5 rounded">
+                    03 • SORTASI & LOGISTIK
+                  </span>
+                </div>
+                <div className="sm:col-span-8">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-serif font-bold text-sm text-roast-950">Trader, Collector, & Dry Mill</h4>
+                    <span className="text-[10px] font-mono text-indigo-800 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded font-semibold">
+                      Zero Primary Defect
+                    </span>
+                  </div>
+                  <p className="text-xs text-roast-700 leading-relaxed mb-2">
+                    Mengupas kulit tanduk (*hulling*), memilah ukuran biji (*screen size grading*), memisahkan densitas dengan *gravity table*, cupping QC kelayakan ekspor, dan mengemas dalam karung GrainPro.
+                  </p>
+                  <div className="text-[11px] font-mono text-roast-500 bg-paper-100 p-2 rounded border border-paper-200">
+                    <strong className="text-roast-900">Peran Kritis:</strong> Menghilangkan cacat fisik biji dan menjaga kesegaran kadar air selama pengiriman antar pulau / benua.
+                  </div>
+                </div>
+              </div>
+
+              {/* Connecting Indicator */}
+              <div className="flex justify-center -my-2 text-roast-400">
+                <span className="font-mono text-xs">▼</span>
+              </div>
+
+              {/* Step 4: Roaster */}
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 p-4 rounded-xl bg-paper-50 border border-paper-300 hover:border-paper-400 transition shadow-xs items-center">
+                <div className="sm:col-span-4 relative rounded-lg overflow-hidden h-36 sm:h-28 border border-paper-200">
+                  <img
+                    src="https://images.unsplash.com/photo-1518057111178-44a106bad636?w=600&auto=format&fit=crop&q=80"
+                    alt="Mesin Sangrai Kopi Specialty Roaster"
+                    className="w-full h-full object-cover"
+                  />
+                  <span className="absolute top-2 left-2 bg-roast-950/85 text-white font-mono text-[10px] font-bold px-2 py-0.5 rounded">
+                    04 • PENYANGRAIAN
+                  </span>
+                </div>
+                <div className="sm:col-span-8">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-serif font-bold text-sm text-roast-950">Roaster (Penyangrai Kopi)</h4>
+                    <span className="text-[10px] font-mono text-rose-800 bg-rose-50 border border-rose-200 px-2 py-0.5 rounded font-semibold">
+                      DTR 15% – 20%
+                    </span>
+                  </div>
+                  <p className="text-xs text-roast-700 leading-relaxed mb-2">
+                    Mengendalikan termodinamika drum (konveksi, konduksi, radiasi), memandu laju kenaikan suhu (*Rate of Rise* / RoR), memicu reaksi Maillard, dan mengkaramelisasi gula tanpa rasa hangus (*baked*).
+                  </p>
+                  <div className="text-[11px] font-mono text-roast-500 bg-paper-100 p-2 rounded border border-paper-200">
+                    <strong className="text-roast-900">Peran Kritis:</strong> Mentransformasi prekursor rasa mentah menjadi lebih dari 800 molekul senyawa aromatik yang siap larut dalam air.
+                  </div>
+                </div>
+              </div>
+
+              {/* Connecting Indicator */}
+              <div className="flex justify-center -my-2 text-roast-400">
+                <span className="font-mono text-xs">▼</span>
+              </div>
+
+              {/* Step 5: Barista & Brewer */}
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 p-4 rounded-xl bg-paper-50 border border-paper-300 hover:border-paper-400 transition shadow-xs items-center">
+                <div className="sm:col-span-4 relative rounded-lg overflow-hidden h-36 sm:h-28 border border-paper-200">
+                  <img
+                    src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop&q=80"
+                    alt="Barista Menyeduh Kopi Manual Brew dan Espresso"
+                    className="w-full h-full object-cover"
+                  />
+                  <span className="absolute top-2 left-2 bg-roast-950/85 text-white font-mono text-[10px] font-bold px-2 py-0.5 rounded">
+                    05 • EKSTRAKSI HILIR
+                  </span>
+                </div>
+                <div className="sm:col-span-8">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-serif font-bold text-sm text-roast-950">Barista & Brewer (Penyeduh Akhir)</h4>
+                    <span className="text-[10px] font-mono text-cyan-800 bg-cyan-50 border border-cyan-200 px-2 py-0.5 rounded font-semibold">
+                      18% – 22% Extraction Yield
+                    </span>
+                  </div>
+                  <p className="text-xs text-roast-700 leading-relaxed mb-2">
+                    Mengkalibrasi ukuran gilingan mikro (*grind dial-in*), merekayasa komposisi kimia air seduh (magnesium & buffer kalsium), mengontrol hidrodinamika turbulensi, dan menyajikan keramahan (*hospitality*).
+                  </p>
+                  <div className="text-[11px] font-mono text-roast-500 bg-paper-100 p-2 rounded border border-paper-200">
+                    <strong className="text-roast-900">Peran Kritis:</strong> Melarutkan senyawa rasa seimbang ke cangkir dan menjadi duta penyampai cerita (*storyteller*) perjalanan kopi ke penikmat.
+                  </div>
+                </div>
+              </div>
+
+              {/* Connecting Indicator */}
+              <div className="flex justify-center -my-2 text-roast-400">
+                <span className="font-mono text-xs">▼</span>
+              </div>
+
+              {/* Step 6: Konsumen Teredukasi */}
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 p-4 rounded-xl bg-paper-50 border border-paper-300 hover:border-paper-400 transition shadow-xs items-center">
+                <div className="sm:col-span-4 relative rounded-lg overflow-hidden h-36 sm:h-28 border border-paper-200">
+                  <img
+                    src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop&q=80"
+                    alt="Konsumen Menikmati Kopi Specialty"
+                    className="w-full h-full object-cover"
+                  />
+                  <span className="absolute top-2 left-2 bg-roast-950/85 text-white font-mono text-[10px] font-bold px-2 py-0.5 rounded">
+                    06 • KONSUMEN & APRESIASI
+                  </span>
+                </div>
+                <div className="sm:col-span-8">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-serif font-bold text-sm text-roast-950">Konsumen Teredukasi (The Conscious Consumer)</h4>
+                    <span className="text-[10px] font-mono text-roast-800 bg-paper-200 border border-paper-300 px-2 py-0.5 rounded font-semibold">
+                      Perdagangan Berkelanjutan
+                    </span>
+                  </div>
+                  <p className="text-xs text-roast-700 leading-relaxed mb-2">
+                    Mengapresiasi keunikan rasa origin tanpa gula berlebih, memahami kerja keras rantai pasok kopi, dan bersedia membayar harga premium yang adil untuk kopi yang bersumber etis.
+                  </p>
+                  <div className="text-[11px] font-mono text-roast-500 bg-paper-100 p-2 rounded border border-paper-200">
+                    <strong className="text-roast-900">Peran Kritis:</strong> Menutup siklus keberlanjutan ekonomi, mengalirkan kembali modal ke petani hulu untuk terus menanam kopi berkualitas tinggi.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Callout */}
+            <div className="mt-5 p-3.5 bg-paper-100 rounded-lg border border-paper-200 flex items-start gap-2 text-xs text-roast-800">
+              <span className="text-base">💡</span>
+              <p className="leading-relaxed">
+                <strong>Hukum Kekekalan Kualitas Kopi:</strong> Kualitas rasa secangkir kopi 100% diciptakan di tingkat kebun oleh alam dan petani. Seluruh pihak setelah petani (processor, trader, roaster, barista) hanya memiliki satu tugas: <em>mempertahankan dan membuka potensi kualitas tersebut tanpa merusaknya.</em>
+              </p>
+            </div>
+          </div>
+        );
+
+      /* =========================================================================
          DEFAULT FALLBACK
          ========================================================================= */
       default:
