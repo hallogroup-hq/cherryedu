@@ -6,6 +6,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
 import { BrewCalculator } from '@/components/BrewCalculator';
 import { MarkdownRenderer } from '@/components/MarkdownRenderer';
+import { AudioNarrationPlayer } from '@/components/AudioNarrationPlayer';
 import {
   Bookmark,
   ChevronLeft,
@@ -226,6 +227,12 @@ export default function LessonPlayerPage() {
             <span>•</span>
             <span className="uppercase">{currentLesson.content_type}</span>
           </div>
+
+          {/* Mode Audio Narasi Listen & Brew */}
+          <AudioNarrationPlayer
+            title={currentLesson.title}
+            rawMarkdown={currentLesson.content}
+          />
 
           {/* Key Takeaways Card */}
           {currentLesson.key_takeaways && currentLesson.key_takeaways.length > 0 && (

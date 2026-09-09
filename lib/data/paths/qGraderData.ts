@@ -103,9 +103,6 @@ export const Q_GRADER_LESSONS: Lesson[] = [
     content: `
 # Fisiologi Sensorik Kopi: Anatomi Pengecapan & Penciuman Manusia
 
-![Fisiologi Pengecapan: Papila Lidah, Penghidu Retronasal, dan Saraf Trigeminal](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
-
 Sebagai calon **Licensed Q Grader**, alat ukur paling presisi dan berharga yang Anda miliki bukanlah spektrometer atau refraktometer digital, melainkan **sistem biologi sensorik tubuh Anda sendiri**. Memahami jalur saraf dan mekanisme fisiologis bagaimana manusia mempersepsikan kopi adalah pondasi pertama sertifikasi CQI (*Coffee Quality Institute*).
 
 ---
@@ -161,9 +158,6 @@ Saraf kranial kelima (Trigeminal) tidak merasakan rasa manis atau asam, melainka
     content: `
 # Sensory Fatigue & Standar Higienitas Evaluator Sensorik
 
-![Manajemen Kelelahan Sensorik (Sensory Fatigue) & Ambang Deteksi Pengecap](https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Ekstraksi Presisi Seduh Manual Pour-Over dengan Dripper V60 — Sumber / Kredit: World Brewers Cup Championship Archive*
-
 Dalam ujian lisensi Q Grader yang berlangsung selama 3–6 hari berturut-turut, peserta diwajibkan mengevaluasi hingga puluhan set cangkir dan ratusan sampel kopi. Tanpa protokol manajemen sensorik yang ketat, otak dan reseptor lidah akan mengalami kejenuhan atau **kelelahan sensorik (sensory fatigue)** yang menyebabkan deviasi penilaian drastis.
 
 ---
@@ -209,9 +203,6 @@ Untuk menjaga ketajaman indra selama sesi evaluasi intensif:
     title: 'Standar Laboratorium Cupping SCA: Rasio Emas 8.25g per 150ml dan Spesifikasi Air',
     content: `
 # Protokol Cupping SCA: Parameter Fisik Laboratorium Presisi
-
-![Standar Laboratorium Cupping SCA: Rasio Emas 8.25g per 150ml dan Spesifikasi Air](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
 
 Cupping adalah metode evaluasi sensorik terstandarisasi yang dirancang oleh **Specialty Coffee Association (SCA)** untuk meminimalisasi variabel seduhan mekanis, sehingga profil genetik terroir dan kualitas pengolahan biji kopi dapat dinilai secara murni, objektif, dan dapat direplikasi di seluruh belahan dunia.
 
@@ -269,9 +260,6 @@ Ukuran gilingan cupping berada di rentang gilingan sedikit lebih kasar daripada 
     title: 'SOP Pelaksanaan Cupping: Break Crust, Skimming, dan Evaluasi Multi-Temperatur',
     content: `
 # Protokol Eksekusi Cupping: Menilai Kopi dari Suhu 93°C hingga 25°C
-
-![SOP Pelaksanaan Cupping: Break Crust, Skimming, dan Evaluasi Multi-Temperatur](https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Protokol Resmi Uji Citarasa Kopi (Cupping) Standar SCA — Sumber / Kredit: Specialty Coffee Association Cupping Protocol*
 
 Evaluasi cupping bukanlah proses yang terburu-buru. Karakteristik senyawa kimia kopi berevolusi secara dramatis seiring penurunan suhu cairan. Seorang Q Grader dilatih untuk menilai atribut rasa pada jendela suhu yang berbeda secara sistematis.
 
@@ -335,9 +323,6 @@ Gunakan dua sendok cupping secara bersamaan untuk menyendok busa putih kecokelat
     title: 'Kit Le Nez du Café: Menghafal 36 Senyawa Olfaktori Standar Dunia',
     content: `
 # Pelatihan Olfaktori: 36 Aroma Kunci Le Nez du Café
-
-![Kit Le Nez du Café: Menghafal 36 Senyawa Olfaktori Standar Dunia](https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Roda Rasa Kopi Spesialti dan Identifikasi Spektrum Asam Organik — Sumber / Kredit: SCA & WCR Coffee Taster's Flavor Wheel*
 
 Kit **Le Nez du Café** yang diciptakan oleh Jean Lenoir adalah instrumen pelatihan resmi dalam kurikulum Q Grader untuk mengkalibrasi memori penciuman evaluator sensorik di seluruh dunia ke dalam bahasa ilmiah yang terstandarisasi. 36 vial aroma sintetis ini dibagi menjadi empat kategori besar:
 
@@ -411,9 +396,6 @@ Aroma hasil pembakaran serat selulosa kayu dan minyak volatil pada level sangrai
     content: `
 # Diagnosis Cacat Aromatik: Mendeteksi Bau Kontaminan & Mikroba
 
-![Kelompok Cacat Aromatik (Aromatic Taints & Faults): Earthy, Phenolic, dan Potato Defect](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
-
 Keahlian terpenting seorang Q Grader bukanlah sekadar memuji kopi enak, melainkan bertindak sebagai gerbang inspeksi mutu yang mampu mendeteksi **cacat aroma (aromatic taints & defects)** yang dapat menggugurkan grade specialty sebuah kontainer kopi.
 
 ---
@@ -456,9 +438,6 @@ Keahlian terpenting seorang Q Grader bukanlah sekadar memuji kopi enak, melainka
     title: 'Matriks Asam Organik: Asam Sitrat, Malat, Fosfat, dan Asetat',
     content: `
 # Kimiawi Asam Organik: Membedakan 4 Pilar Keasaman Kopi Spesialti
-
-![Matriks Asam Organik: Asam Sitrat, Malat, Fosfat, dan Asetat](https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Roda Rasa Kopi Spesialti dan Identifikasi Spektrum Asam Organik — Sumber / Kredit: SCA & WCR Coffee Taster's Flavor Wheel*
 
 Keasaman (*Acidity*) dalam kopi spesialti bukanlah rasa asam kecut yang tidak menyenangkan, melainkan atribut vital yang memberikan kesegaran, kilau, dan struktur dimensi pada secangkir kopi. Di laboratorium sensori, kita membedakan empat asam organik utama:
 
@@ -509,9 +488,6 @@ Keasaman (*Acidity*) dalam kopi spesialti bukanlah rasa asam kecut yang tidak me
     content: `
 # Asam Klorogenat & Asam Kina: Di Balik Rasa Pahit & Kering Kopi
 
-![Dinamika Asam Klorogenat (CGA) dan Transformasinya Menjadi Asam Kina](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
-
 Komponen asam terbesar di dalam green bean mentah bukanlah sitrat atau malat, melainkan **Asam Klorogenat (Chlorogenic Acids / CGA)** yang menyumbang 6%–8% dari total berat kering Arabika dan hingga 10%–12% pada Robusta.
 
 ---
@@ -555,9 +531,6 @@ Asam klorogenat adalah kelompok molekul ester asam fenolat (terutama asam kafeat
     title: 'Protokol Uji Triangulasi CQI: Identifikasi 1 Cangkir Berbeda di Bawah Cahaya Merah',
     content: `
 # Uji Triangulasi Kritis: Standar Emas Ujian Lisensi Q Grader
-
-![Protokol Uji Triangulasi CQI: Identifikasi 1 Cangkir Berbeda di Bawah Cahaya Merah](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
 
 Ujian **Triangulation Test** adalah salah satu modul paling menantang dalam sertifikasi Q Grader CQI. Tujuannya adalah menguji diskriminasi sensori murni peserta dalam membedakan karakteristik mikroskopis antar sampel kopi tanpa bantuan isyarat visual.
 
@@ -609,9 +582,6 @@ Mengapa ruang ujian triangulasi CQI diterangi oleh lampu neon merah redup?
     content: `
 # Sensory Threshold: Mengukur Batas Kepekaan Indra Pengecap
 
-![Pelatihan Ambang Batas Sensorik (Sensory Threshold Testing): Larutan Dasar Manis, Asam, dan Asin](https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Ekstraksi Presisi Seduh Manual Pour-Over dengan Dripper V60 — Sumber / Kredit: World Brewers Cup Championship Archive*
-
 Sebelum seorang evaluator diizinkan menilai kopi, CQI melakukan tes kalibrasi ambang batas rasa menggunakan larutan air murni yang dicampur dengan zat kimia murni tingkat pangan (*food-grade chemical compounds*):
 1. **Manis (*Sweet*)**: Sukrosa murni ($C_{12}H_{22}O_{11}$).
 2. **Asam (*Sour*)**: Asam sitrat anhidrat ($C_6H_8O_7$).
@@ -659,9 +629,6 @@ Sebelum seorang evaluator diizinkan menilai kopi, CQI melakukan tes kalibrasi am
     content: `
 # Formulir Cupping SCA: Panduan Lengkap Evaluasi 10 Atribut
 
-![Anatomi Formulir Cupping SCA: Menilai 10 Atribut Kualitas Kopi](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
-
 Formulir evaluasi sensorik SCA menggunakan skala interval **6.00 hingga 10.00** (dengan kelipatan 0.25 poin) untuk menilai atribut positif kopi specialty:
 * $6.00 - 6.75$: *Good* (Standar Kopi Komersial Tinggi)
 * $7.00 - 7.75$: *Very Good* (Standar Masuk Kopi Spesialti)
@@ -704,9 +671,6 @@ Formulir evaluasi sensorik SCA menggunakan skala interval **6.00 hingga 10.00** 
     title: 'Kalkulasi Skor 80+, Sistem Penalti Cacat (Taint vs Fault), dan Kalibrasi Panel',
     content: `
 # Kalkulasi Skor Akhir & Penalti Cacat: Menentukan Status Kopi Spesialti
-
-![Kalkulasi Skor 80+, Sistem Penalti Cacat (Taint vs Fault), dan Kalibrasi Panel](https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Identifikasi Cacat Fisik dan Defek Sensorik Biji Kopi — Sumber / Kredit: Coffee Quality Institute (CQI) Standards*
 
 Tahap terakhir evaluasi cupping adalah menjumlahkan seluruh nilai untuk mendapatkan skor total berskala 100 poin, serta mengurangkan skor tersebut apabila ditemukan cacat pada salah satu cangkir.
 
@@ -764,9 +728,6 @@ SCA membagi cacat rasa menjadi dua kategori keparahan:
 
 Seorang Q Grader bersertifikasi memperlakukan indra penciuman dan pengecapnya seperti atlet elit merawat fisiknya. Pemahaman mengenai batas biologis persepsi adalah kunci menjaga objektivitas penilaian.
 
-![Sesi Latihan Kalibrasi Sensorik Cupping Bersertifikasi CQI](https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Uji Kepekaan Pengecapan dan Penghidu Retronasal Bersertifikasi Standar CQI — Sumber / Kredit: Unsplash / Specialty Coffee Association (SCA)*
-
 ---
 
 ### 1. Peran Saraf Kranial Kelima (Trigeminal Nerve)
@@ -803,9 +764,6 @@ Dalam ujian sertifikasi Q Grader, seorang peserta harus mencicipi puluhan hingga
     content: `# Etika dan Sanitasi Meja Cupping: Protokol Bebas Kontaminasi Silang
 
 Meja cupping adalah tempat ibadah objektivitas kopi. Protokol sanitasi ketat diberlakukan untuk melindungi integritas rasa setiap cangkir serta mencegah penularan patogen antar evaluator.
-
-![Tata Letak Meja Laboratorium Cupping Kopi Standar SCA 2024](https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Standar Penataan Gelas Cupping dan Gelas Bilas Air Panas — Sumber / Kredit: Unsplash / Specialty Coffee Association (SCA)*
 
 ---
 
@@ -846,9 +804,6 @@ Tradisi lama mencelupkan sendok yang baru saja diseruput dari mulut langsung ke 
 
 Kelompok aroma ketiga dalam kit olfaktori resmi *Le Nez du Café* adalah kelompok **Dry Distillation** (Hasil Distilasi Kering), yang terbentuk akibat degradasi termal serat selulosa kayu dan senyawa lignin pada tingkat sangrai medium-dark hingga dark.
 
-![Kit Olfaktori 36 Botol Aroma Kopi Le Nez du Café](https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Koleksi Botol Aroma Standar Internasional Le Nez du Café untuk Ujian Sensori Q Grader — Sumber / Kredit: Unsplash / Coffee Quality Institute (CQI)*
-
 ---
 
 ### 1. Karakteristik Aroma Dry Distillation Positif
@@ -884,9 +839,6 @@ Kelompok aroma ketiga dalam kit olfaktori resmi *Le Nez du Café* adalah kelompo
     content: `# Asam Kuinat & Asam Asetat: Garis Tipis Antara Kompleksitas dan Kerusakan
 
 Keasaman (*acidity*) adalah tulang punggung kualitas kopi spesialti, namun tidak semua asam organik berdampak positif bagi cangkir Anda.
-
-![Pengujian Spektrofotometri Senyawa Asam Organik Kopi](https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Analisis Kimiawi Spektrum Asam Organik Hasil Fermentasi Kopi — Sumber / Kredit: Unsplash / Specialty Coffee Chemistry*
 
 ---
 
@@ -924,9 +876,6 @@ Keasaman (*acidity*) adalah tulang punggung kualitas kopi spesialti, namun tidak
 
 Otak manusia bukanlah timbangan digital yang pasif. Otak adalah mesin pembuat makna yang rentan terdistorsi oleh bias kognitif dan sugesti lingkungan.
 
-![Uji Sensorik Buta Laboratorium Tanpa Identitas Label Sampel](https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Protokol Blind Tasting dengan Pengkodean Acak Tiga Angka untuk Mencegah Bias Kognitif — Sumber / Kredit: Unsplash / CQI Sensory Evaluation*
-
 ---
 
 ### 1. Tiga Bias Paling Berbahaya di Meja Cupping
@@ -958,9 +907,6 @@ Otak manusia bukanlah timbangan digital yang pasif. Otak adalah mesin pembuat ma
     content: `# Interpretasi Total Skor SCA: Ambang 80 Poin hingga Elit Dunia 90+
 
 Total skor cupping pada lembar formulir SCA (skala 0 – 100 poin) adalah mata uang nilai mutu perdagangan kopi spesialti global. Selisih 1 poin skor cupping dapat melipatgandakan harga jual green bean di lelang internasional!
-
-![Lembar Skor Cupping Resmi SCA dan Penghitungan Atribut Poin](https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Kalkulasi 10 Atribut Sensorik dan Penentuan Kategori Mutu Kopi — Sumber / Kredit: Unsplash / Specialty Coffee Association (SCA)*
 
 ---
 

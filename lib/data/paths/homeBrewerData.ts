@@ -13,9 +13,6 @@ export const HOME_BREWER_EXPANDED_LESSONS: Lesson[] = [
     content: `
 # Single Origin vs House Blend: Memilih Karakter Kopi yang Tepat
 
-![Single Origin vs House Blend: Memilih Profil Rasa yang Tepat Sesuai Selera](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
-
 Ketika melangkah ke ranah specialty coffee, dilema pertama seorang home brewer adalah memilih antara **Single Origin** atau **House Blend**. Keduanya memiliki fungsi, karakter, dan tujuan ekstraksi yang sangat berbeda.
 
 ---
@@ -62,9 +59,6 @@ Biji kopi yang baru keluar dari mesin sangrai (*fresh roast*) mengandung gas kar
     content: `
 # Distribusi Partikel Kopi: Mengapa Grinder Menentukan 80% Kualitas Seduhan
 
-![Distribusi Partikel Kopi: Mengapa Fines & Boulders Merusak Seduhan Rumahan](https://images.unsplash.com/photo-1589396575653-c09c794ff6a6?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Distribusi Ukuran Partikel dan Geometri Mata Pisau (Burr) Grinder — Sumber / Kredit: Specialty Coffee Brewing Equipment Standards*
-
 Banyak home brewer menyalahkan suhu air atau teknik tuangan ketika seduhan mereka terasa pahit berdebu atau sebaliknya asam tawar. Kenyataannya, biang keladi utama seringkali berada pada **distribusi ukuran partikel (particle size distribution)** dari grinder mereka.
 
 ---
@@ -110,9 +104,6 @@ Bagi pengguna grinder manual berkualitas tinggi:
     title: 'Uji Laboratorium Air Galon Indonesia: Mana yang Terbaik untuk Menyeduh Kopi?',
     content: `
 # Uji Laboratorium Air Galon Indonesia untuk Seduh Kopi
-
-![Uji Laboratorium Air Galon Indonesia: Mana yang Terbaik untuk Menyeduh Kopi?](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
 
 [DIAGRAM:water-chemistry]
 
@@ -167,9 +158,6 @@ Secangkir kopi seduh manual terdiri dari **98.5% air** dan hanya 1.5% senyawa pa
     title: 'Metode 4:6 Tetsu Kasuya vs James Hoffmann 1-Pour: Eksperimen Kontrol Rasa',
     content: `
 # Metode 4:6 Tetsu Kasuya vs James Hoffmann: Mana yang Cocok untuk Kopimu?
-
-![Metode 4:6 Tetsu Kasuya vs James Hoffmann 1-Pour: Eksperimen Kontrol Rasa](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
 
 [DIAGRAM:brewing-control-chart]
 
@@ -241,9 +229,6 @@ Filosofi: Menghasilkan ekstraksi setinggi dan seseragam mungkin tanpa terjadi ch
     content: `
 # French Press Bebas Ampas: Rahasia Ekstraksi Immersion Bersih & Berbobot
 
-![French Press Bebas Ampas: Teknik James Hoffmann yang Mengubah Segalanya](https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Ekstraksi Presisi Seduh Manual Pour-Over dengan Dripper V60 — Sumber / Kredit: World Brewers Cup Championship Archive*
-
 French Press (Plunger) sering dianggap sebagai alat seduh kuno yang menghasilkan cangkir kopi berlumpur, pahit, dan penuh endapan ampas halus (*sludge*). Namun dengan memahami sains sedimentasi partikel, kita dapat menghasilkan secangkir kopi French Press yang berbobot tebal namun sejernih cangkir pour-over.
 
 ---
@@ -305,9 +290,6 @@ Cara konvensional mengajarkan: seduh kopi 4 menit, lalu tekan plunger logam samp
     title: 'Cold Brew Concentrate vs Japanese Iced Pour Over: Sains Ekstraksi Dingin',
     content: `
 # Cold Brew Concentrate vs Japanese Iced Pour Over: Dua Dunia Kopi Dingin
-
-![Cold Brew Concentrate vs Japanese Iced Pour Over: Sains Ekstraksi Dingin](https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Seduhan Ekstraksi Dingin (Cold Brew) dan Konsentrat Minuman — Sumber / Kredit: Specialty Cold Beverage Innovation Lab*
 
 Minuman kopi dingin adalah favorit utama di iklim tropis Indonesia. Namun, terdapat perbedaan kimiawi mendalam antara kopi yang **diekstraksi dingin sejak awal (Cold Brew)** dan kopi yang **diekstraksi panas lalu didinginkan kilat (Japanese Iced / Flash Brew)**.
 
@@ -380,9 +362,6 @@ Saat membuat Japanese Iced Pour Over, total air seduhan dibagi menjadi:
     content: `
 # Manual Lever Espresso: Menguasai Profil Tekanan Tanpa Mesin Listrik Puluhan Juta
 
-![Manual Lever Espresso: Rahasia Pre-Infusion & Tekanan 9 Bar dengan Flair / Picopresso](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
-
 Mesin espresso manual bertekanan tuas (*lever machine*) seperti **Flair Espresso Maker**, **Cafelat Robot**, atau portabel seperti **Wacaco Picopresso** membuktikan bahwa tekanan 9 bar dan ekstraksi espresso sejati tidak memerlukan pompa listrik bertenaga ribuan watt.
 
 ---
@@ -447,9 +426,6 @@ Mesin espresso manual bertekanan tuas (*lever machine*) seperti **Flair Espresso
     content: `
 # Formula Es Kopi Susu Spesialti Rumahan: Gula Aren Murni & Texturing Susu Manual
 
-![Formula Sirup Gula Aren Kental Murni & Rahasia Microfoam Susu Tanpa Mesin Steam](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
-
 Es Kopi Susu Gula Aren adalah minuman paling dicintai di Indonesia. Namun, sebagian besar kedai komersial menggunakan sirup aren olahan pabrik yang dicampur pemanis jagung buatan. Di rumah, kita bisa membuat versi artisanal yang jauh lebih lezat dan sehat.
 
 ---
@@ -499,9 +475,6 @@ Bagi home brewer tanpa wand steam mesin komersial:
     content: `
 # Pemeliharaan Coffee Corner: Sanitasi Alat & Penyimpanan Biji Kedap Udara
 
-![Sanitasi Grinder, Perawatan Ketel Leher Angsa, & Penyimpanan Biji Hermetik](https://images.unsplash.com/photo-1589396575653-c09c794ff6a6?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Distribusi Ukuran Partikel dan Geometri Mata Pisau (Burr) Grinder — Sumber / Kredit: Specialty Coffee Brewing Equipment Standards*
-
 Alat seduh terbaik di dunia akan menghasilkan rasa kopi yang kotor jika tidak dirawat dengan higienis. Minyak kopi (*coffee oils*) yang menempel pada dinding burr grinder dan alat seduh akan mengalami oksidasi dan tengik (*rancid*) hanya dalam hitungan minggu.
 
 ---
@@ -544,9 +517,6 @@ Tiga musuh utama biji kopi sangrai adalah: **Oksigen ($O_2$), Kelembaban, dan Si
 
 Berbeda dari dripper kerucut V60 yang memiliki dasar runcing tunggal, dripper flat-bottom (dasar rata) memiliki dasar horizontal dengan multi-lubang pengaliran.
 
-![Koleksi Dripper Seduh Manual Flat-Bottom Origami dan Kalita](https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Berbagai Geometri Flat Bottom Dripper untuk Ekstraksi Rata Biji Fermentasi — Sumber / Kredit: Unsplash / Home Brewers Guild*
-
 [DIAGRAM:brewing-control-chart]
 
 ---
@@ -577,9 +547,6 @@ Berbeda dari dripper kerucut V60 yang memiliki dasar runcing tunggal, dripper fl
 
 Kertas saring (*filter paper*) adalah penghalang utama antara bubuk kopi dan server cangkir Anda. Memilih kertas yang salah dapat mencemari kopi mahal dengan aroma karton basah!
 
-![Kertas Saring Putih Bleached Bergelombang untuk Dripper Flat-Bottom](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Kertas Saring Putih Oksigen Bersih untuk Menghilangkan Bau Kertas pada Seduhan — Sumber / Kredit: Unsplash / Specialty Brew Papers*
-
 ---
 
 ### 1. Kertas Putih (Bleached) vs Kertas Cokelat (Unbleached)
@@ -606,9 +573,6 @@ Kertas saring (*filter paper*) adalah penghalang utama antara bubuk kopi dan ser
     content: `# Picopresso & Espresso Portabel: Presisi 9 Bar di Telapak Tangan
 
 Dahulu, menghasilkan espresso bertekanan 9 bar membutuhkan mesin berbobot puluhan kilogram yang tersambung ke listrik 2.000 Watt. Kini, inovasi alat portabel seperti *Wacaco Picopresso* memungkinkan ekstraksi standar komersial di mana saja.
-
-![Alat Seduh Espresso Portabel Manual Tanpa Listrik Picopresso](https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Ekstraksi Espresso Portabel Presisi Menggunakan Naked Filter Basket — Sumber / Kredit: Unsplash / Portable Coffee Gear*
 
 ---
 
@@ -638,9 +602,6 @@ Pompa piston manual memberikan kendali tak terbatas atas kurva tekanan ekstraksi
     content: `# Susu Panas Manual Rumahan: Menggunakan French Press & Nanofoamer
 
 Anda tidak memerlukan mesin espresso jutaan rupiah hanya untuk membuat latte art yang cantik di rumah.
-
-![Penuangan Latte Art Menggunakan Susu Hasil Pompa French Press](https://images.unsplash.com/photo-1534778101976-62847782c213?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Tekstur Busa Susu Microfoam Mengilap yang Dihasilkan Melalui Teknik Manual Rumahan — Sumber / Kredit: Unsplash / Home Barista Latte Art*
 
 ---
 
@@ -672,9 +633,6 @@ Anda tidak memerlukan mesin espresso jutaan rupiah hanya untuk membuat latte art
 
 Agitasi adalah energi kinetik yang ditransfer oleh aliran air seduh ke dalam bubuk kopi. Memahami agitasi adalah rahasia menghindari cangkir kopi yang macet (*clogging*).
 
-![Tuangan Presisi Aliran Air Laminar Menggunakan Gooseneck Kettle](https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Aliran Tuangan Air Mengalir Vertikal Lembut dari Ujung Ketel Leher Angsa — Sumber / Kredit: Unsplash / Brewers Cup*
-
 ---
 
 ### 1. Bahaya Menggoyangkan Dripper Berlebihan (*Excessive Swirling*)
@@ -700,9 +658,6 @@ Menggoyangkan dripper secara memutar terlalu kencang memicu gaya sentrifugal yan
     content: `# Sains Nitro Cold Brew Rumahan: Sensasi Kopi Creamy Berkarbon Lembut
 
 Nitro Cold Brew menghadirkan sensasi meminum bir hitam Irlandia (*Guinness Stout*) pada kopi dingin: busa kepala putih tebal (*cascading foam*) dan rasa manis krim alami tanpa tambahan gula atau susu setetes pun.
-
-![Gelas Kopi Nitro Cold Brew dengan Efek Gelembung Beruntun Cascading](https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Efek Gelembung Mikro Nitrogen yang Menghasilkan Tekstur Lembut Dingin di Lidah — Sumber / Kredit: Unsplash / Nitro Coffee Craft*
 
 ---
 

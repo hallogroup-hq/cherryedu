@@ -33,6 +33,8 @@ export const Navbar: React.FC = () => {
   const navLinks = [
     { href: '/paths', label: 'Kurikulum' },
     { href: '/tools', label: 'Alat Seduh' },
+    { href: '/lexicon', label: 'Kamus Kopi' },
+    { href: '/flashcards', label: 'Flashcards' },
     { href: '/forum', label: 'Komunitas' },
     { href: '/jobs', label: 'Bursa Kerja' },
     { href: '/leaderboard', label: 'Peringkat' },
@@ -60,7 +62,7 @@ export const Navbar: React.FC = () => {
           </Link>
 
           {/* Center Navigation Links (Editorial Minimalist) */}
-          <nav className="hidden md:flex items-center gap-7">
+          <nav className="hidden md:flex items-center gap-4 lg:gap-6">
             {navLinks.map((item) => {
               const isActive = pathname.startsWith(item.href);
               return (

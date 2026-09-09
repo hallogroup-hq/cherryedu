@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>CherryEdu — Product Requirements Document (PRD) v2.0</title>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+  @page {
+    size: A4;
+    margin: 18mm 15mm 18mm 15mm;
+    @bottom-right {
+      content: counter(page);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 8pt;
+      color: #78716c;
+    }
+    @bottom-left {
+      content: "CherryEdu — Product Requirements Document (PRD) v2.0 • cherryedu.vercel.app";
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 8pt;
+      color: #78716c;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #1c1917;
+    background-color: #ffffff;
+    line-height: 1.55;
+    font-size: 9.5pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Header & Cover Banner */
+  .cover {
+    background: linear-gradient(135deg, #451a03 0%, #6f1d1b 50%, #991b1b 100%);
+    color: #ffffff;
+    padding: 28px 30px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 14px rgba(69, 26, 3, 0.15);
+  }
+
+  .brand-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .cover h1 {
+    font-size: 22pt;
+    font-weight: 800;
+    margin: 0 0 6px 0;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+
+  .cover .subtitle {
+    font-size: 11pt;
+    color: #fecdd3;
+    margin: 0 0 16px 0;
+    font-weight: 500;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    padding-top: 14px;
+    font-size: 8pt;
+  }
+
+  .meta-item .label {
+    color: #fecdd3;
+    text-transform: uppercase;
+    font-size: 7pt;
+    font-weight: 600;
+  }
+
+  .meta-item .val {
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  /* Section Styling */
+  h2 {
+    font-size: 13.5pt;
+    font-weight: 800;
+    color: #6f1d1b;
+    border-bottom: 2px solid #fee2e2;
+    padding-bottom: 5px;
+    margin-top: 22px;
+    margin-bottom: 12px;
+    page-break-after: avoid;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  h3 {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #451a03;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    page-break-after: avoid;
+  }
+
+  h4 {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #78350f;
+    margin-top: 10px;
+    margin-bottom: 4px;
+  }
+
+  p {
+    margin: 0 0 8px 0;
+    color: #292524;
+    text-align: justify;
+  }
+
+  /* Status Badges */
+  .badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 7.5pt;
+    font-weight: 700;
+  }
+  .badge-live { background-color: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+  .badge-path { background-color: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+  .badge-p0 { background-color: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+
+  /* KPI Grid */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+    page-break-inside: avoid;
+  }
+
+  .kpi-card {
+    background-color: #fafaf9;
+    border: 1px solid #e7e5e4;
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+
+  .kpi-num {
+    font-size: 16pt;
+    font-weight: 800;
+    color: #991b1b;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .kpi-text {
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: #57534e;
+    text-transform: uppercase;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 16px 0;
+    font-size: 8.5pt;
+    page-break-inside: avoid;
+  }
+
+  th {
+    background-color: #f5f5f4;
+    color: #44403c;
+    font-weight: 700;
+    text-align: left;
+    padding: 6px 9px;
+    border: 1px solid #e7e5e4;
+    font-size: 8pt;
+    text-transform: uppercase;
+  }
+
+  td {
+    padding: 6px 9px;
+    border: 1px solid #e7e5e4;
+    vertical-align: top;
+    color: #292524;
+  }
+
+  tr:nth-child(even) td {
+    background-color: #fafaf9;
+  }
+
+  /* Callout box */
+  .callout {
+    background-color: #fdf2f2;
+    border-left: 4px solid #b91c1c;
+    padding: 9px 13px;
+    border-radius: 0 6px 6px 0;
+    margin: 10px 0 14px 0;
+    font-size: 8.5pt;
+    page-break-inside: avoid;
+  }
+
+  .callout-title {
+    font-weight: 700;
+    color: #991b1b;
+    margin-bottom: 3px;
+  }
+
+  .callout-gold {
+    background-color: #fffbeb;
+    border-left: 4px solid #d97706;
+  }
+  .callout-gold .callout-title { color: #b45309; }
+
+  /* Code & Pre */
+  code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 8pt;
+    background-color: #f5f5f4;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #991b1b;
+  }
+
+  pre {
+    background-color: #1c1917;
+    color: #f5f5f4;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 7.8pt;
+    overflow-x: hidden;
+    line-height: 1.4;
+    page-break-inside: avoid;
+  }
+
+  ul, ol {
+    margin: 0 0 10px 0;
+    padding-left: 18px;
+    color: #292524;
+  }
+
+  li {
+    margin-bottom: 3px;
+  }
+
+  .path-box {
+    border: 1px solid #e7e5e4;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    page-break-inside: avoid;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+  }
+
+  .path-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f5f5f4;
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  .footer-note {
+    border-top: 1px solid #e7e5e4;
+    padding-top: 12px;
+    margin-top: 24px;
+    font-size: 8pt;
+    color: #78716c;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- Cover Banner -->
+<div class="cover">
+  <div class="brand-badge">Dokumen Resmi Produk • Cherry Coffee Roastery</div>
+  <h1>CHERRYEDU PLATFORM</h1>
+  <div class="subtitle">Product Requirements Document (PRD) — Versi 2.0 (Platform & Implementation Audit)</div>
+  <div class="meta-grid">
+    <div class="meta-item">
+      <div class="label">Status Produk</div>
+      <div class="val">Live di Production</div>
+    </div>
+    <div class="meta-item">
+      <div class="label">Production URL</div>
+      <div class="val">cherryedu.vercel.app</div>
+    </div>
+    <div class="meta-item">
+      <div class="label">Penanggung Jawab</div>
+      <div class="val">Fahrul M.W & Cherry Roastery</div>
+    </div>
+    <div class="meta-item">
+      <div class="label">Tanggal Rilis</div>
+      <div class="val">September 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 1 -->
+<h2>1. Executive Summary & Visi Produk</h2>
+<p>
+Indonesia adalah produsen kopi terbesar ke-4 di dunia dengan keanekaragaman cita rasa terroir dari Aceh Gayo, Mandheling, Kerinci, Jawa Ijen, Bali Kintamani, Toraja, hingga Papua Wamena. Namun, ekosistem edukasi kopi nasional menghadapi kesenjangan struktural: mahalnya biaya sertifikasi internasional formal (SCA/CQI) berkisar Rp 8.000.000 – Rp 35.000.000 per orang, fragmentasi materi non-ilmiah di internet, serta adanya pemisahan pemahaman yang curam antara hulu (kebun & pemrosesan) dan hilir (barista & roastery).
+</p>
+<p>
+<strong>CherryEdu</strong> dibangun untuk mendemokratisasi edukasi kopi specialty berstandar SCA dan CQI dalam Bahasa Indonesia yang terstruktur, berbasis sains, memiliki alat bantu visual teknis, dan dilengkapi ekosistem karier terintegrasi.
+</p>
+
+<div class="callout">
+  <div class="callout-title">Prinsip Pokok Kurikulum CherryEdu</div>
+  Semua role industri kopi (Barista, Home Brewer, Roaster, Q-Grader, Processor, Shop Owner) <strong>wajib menuntaskan Foundation Layer (Farm to Cup)</strong>. Barista wajib memahami agronomi & fermentasi ceri, sementara processor wajib memahami sains ekstraksi espresso & cupping standar SCA.
+</div>
+
+<!-- Section 2 -->
+<h2>2. Status Realisasi Platform & Audit Implementasi</h2>
+<p>
+Platform CherryEdu telah 100% aktif dan berjalan di lingkungan produksi Vercel (<code>https://cherryedu.vercel.app</code>) dengan integrasi seluruh komponen kurikulum, CMS operasional, dan suite tools profesional:
+</p>
+
+<div class="kpi-row">
+  <div class="kpi-card">
+    <div class="kpi-num">7</div>
+    <div class="kpi-text">Learning Paths</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-num">51</div>
+    <div class="kpi-text">Modul Silabus</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-num">160</div>
+    <div class="kpi-text">Materi Lengkap</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-num">100%</div>
+    <div class="kpi-text">Visual Media SCA</div>
+  </div>
+</div>
+
+<div class="kpi-row">
+  <div class="kpi-card">
+    <div class="kpi-num">8</div>
+    <div class="kpi-text">Diagram SVG Kustom</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-num">26</div>
+    <div class="kpi-text">Bank Kuis</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-num">137</div>
+    <div class="kpi-text">Soal & Pembahasan</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-num">6</div>
+    <div class="kpi-text">Tools Interaktif</div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- Section 3 -->
+<h2>3. Struktur Lengkap 7 Learning Paths (160 Materi)</h2>
+
+<div class="path-box">
+  <div class="path-header">
+    <strong>1. Foundation Path: Kopi dari Hulu ke Hilir (Wajib Seluruh Role)</strong>
+    <span class="badge badge-path">32 Materi • 7 Modul • 7 Kuis</span>
+  </div>
+  <p><strong>Modul F-1: Ekosistem & Peta Industri Kopi</strong> (4 Materi) — Sejarah kopi (Ethiopia, Batavia 1696), rantai pasok hulu-ke-hilir, standar specialty 80+ SCA, nilai tambah industri komparatif.</p>
+  <p><strong>Modul F-2: Agronomi & Ekologi Kebun Kopi</strong> (5 Materi) — Botani tanaman, penampang melintang ceri 5 lapis, terroir nusantara, agroklimat masl, seleksi pemetikan brix 18–24°.</p>
+  <p><strong>Modul F-3: Varietas & Genetika Kopi</strong> (5 Materi) — Taksonomi spesies (Arabika, Robusta, Liberika), filogeni Typica & Bourbon, varietas Indonesia (Tim-Tim, Ateng, Sigarar Utang), analisis label green bean.</p>
+  <p><strong>Modul F-4: Sains Pemrosesan Pasca Panen</strong> (5 Materi) — Natural, Washed, Honey (Yellow/Red/Black), Giling Basah Sumatra, Fermentasi Terkendali (Anaerobic & Carbonic Maceration).</p>
+  <p><strong>Modul F-5: Sains Penyangraian (Roasting Fundamentals)</strong> (5 Materi) — Termodinamika (Konduksi, Konveksi, Radiasi), fase Maillard, First Crack, RoR, DTR %, profil sangrai & degassing.</p>
+  <p><strong>Modul F-6: Kimia Air Seduh (Water Science)</strong> (4 Materi) — Peranan Ca²⁺ & Mg²⁺ dalam ekstraksi, sistem bufer bikarbonat (HCO₃⁻), standar SCA air seduh (TDS 75–250 ppm, pH 6.5–7.5).</p>
+  <p><strong>Modul F-7: Evaluasi Sensori & Cupping Protokol</strong> (4 Materi) — Fisiologi rasa (gustatori & olfaktori), SCA Flavor Wheel, protokol cupping 5 mangkok 8.25g / 150ml, kalibrasi blind tasting.</p>
+</div>
+
+<div class="path-box">
+  <div class="path-header">
+    <strong>2. Barista Specialization Path: Standar Bar Kafe Komersial</strong>
+    <span class="badge badge-path">30 Materi • 10 Modul • 5 Kuis</span>
+  </div>
+  <p><strong>Modul B-1 s/d B-3: Bar Setup & Fundamental</strong> — Etika profesi, kecepatan bar, anatomi mesin boiler ganda/rotary, burr flat vs conical, dosing presisi, WDT, distribusi horizontal tamping.</p>
+  <p><strong>Modul B-4 s/d B-6: Dial-In, Susu & Latte Art</strong> — Segitiga dial-in espresso (Dose, Yield, Time), pemecahan masalah under/over extraction, mikrometer grind size, denaturasi protein susu 60–65°C, pola Heart, Tulip, Rosetta.</p>
+  <p><strong>Modul B-7 s/d B-10: Multi-Dripper, Signature Drink & Hospitality</strong> — Manajemen bar manual brew, sirup racikan (*oleo saccharum*), mocktail kopi, pemeliharaan mesin, SOP opening-closing, storytelling ke tamu.</p>
+</div>
+
+<div class="path-box">
+  <div class="path-header">
+    <strong>3. Home Brewer Specialization Path: Seni Seduh Rumahan</strong>
+    <span class="badge badge-path">24 Materi • 7 Modul • 4 Kuis</span>
+  </div>
+  <p><strong>Kurikulum Lengkap</strong> — Menata coffee corner (grinder stainless, kettle PID, timbangan 0.1g), membaca label roastery, rasio 1:15 s/d 1:17, metode 4:6 Kasuya, Aeropress inverted, Hoffmann French Press, formulasi air Barista Hustle (Epsom & Baking Soda), jurnal seduh pribadi.</p>
+</div>
+
+<div class="path-box">
+  <div class="path-header">
+    <strong>4. Roaster Specialization Path: Sains Penyangraian Biji Kopi</strong>
+    <span class="badge badge-path">18 Materi • 6 Modul • 3 Kuis</span>
+  </div>
+  <p><strong>Kurikulum Lengkap</strong> — Termodinamika drum vs air roaster, airflow & tekanan statis, moisture meter 10–12%, water activity (aw &lt; 0.70), kurva telemetri Cropster/Artisan (ever-decreasing RoR), degradasi asam klorogenat, profil filter vs espresso, pemeliharaan chaff collector.</p>
+</div>
+
+<div class="path-box">
+  <div class="path-header">
+    <strong>5. Q Grader & Sensory Specialist Path: Standar Evaluasi CQI</strong>
+    <span class="badge badge-path">18 Materi • 6 Modul • 3 Kuis</span>
+  </div>
+  <p><strong>Kurikulum Lengkap</strong> — Ambang batas deteksi rasa dasar, formulir cupping 100 poin SCA, evaluasi 10 atribut mutu, SCA Green Coffee Defect Guide (Primary vs Secondary defects), identifikasi roast defect (Baked, Scorched, Tipped), uji triangulasi mangkok acak, simulasi 19 segmen ujian CQI.</p>
+</div>
+
+<div class="path-box">
+  <div class="path-header">
+    <strong>6. Green Coffee & Post-Harvest Processing Specialist: Sains Kebun</strong>
+    <span class="badge badge-path">18 Materi • 6 Modul • 2 Kuis</span>
+  </div>
+  <p><strong>Kurikulum Lengkap</strong> — Manajemen hara N-P-K, pemangkasan tajuk, arsitektur washing station, raised beds drying, mikrobiologi ragi & bakteri asam laktat (BAL), kontrol pH fermentasi 4.0–4.2, kinetika penurunan kadar air dari 55% ke 11%, dry milling dan karung hermetis GrainPro.</p>
+</div>
+
+<div class="path-box">
+  <div class="path-header">
+    <strong>7. Coffee Business & Shop Management Specialist: Wirausaha Kopi</strong>
+    <span class="badge badge-path">18 Materi • 6 Modul • 2 Kuis</span>
+  </div>
+  <p><strong>Kurikulum Lengkap</strong> — Studi kelayakan konsep kafe, kalkulasi CAPEX, OPEX, Break-Even Point, tata letak bar ergonomis segitiga emas, kalkulasi HPP / COGS per cangkir (margin kotor 68–75%), kurikulum onboarding karyawan 14 hari, retensi komunitas, ekspansi cabang & central kitchen.</p>
+</div>
+
+<div class="page-break"></div>
+
+<!-- Section 4 -->
+<h2>4. Alat Bantu Ajar Vektor Ilmiah (Interactive SVG Suite)</h2>
+<p>
+CherryEdu melengkapi materi pembelajaran dengan 8 modul visual ilmiah terprogram (<code>components/CoffeeDiagram.tsx</code>) untuk menjamin kedalaman edukatif teknis:
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 25%;">Diagram Ilmiah</th>
+      <th style="width: 35%;">Muatan Teknis & Edukatif</th>
+      <th style="width: 40%;">Penerapan pada Kurikulum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>cherry-anatomy</strong><br><span class="badge badge-live">SVG Interactive</span></td>
+      <td>Irisan melintang 5 lapisan buah ceri (Eksokarp, Mesokarp Brix 18–24°, Endokarp, Spermoderm, Endosperma) + perbandingan kupas Washed/Honey/Natural.</td>
+      <td>Modul F-2 (Agronomi Kebun), Modul F-4 (Pasca Panen), Modul P-1 (Agronomi Presisi).</td>
+    </tr>
+    <tr>
+      <td><strong>roast-curve</strong><br><span class="badge badge-live">Telemetri SCA</span></td>
+      <td>Grafik telemetri BT (Bean Temp) & RoR menurun stabil; titik kritis Charge, Turning Point (1:15 @ 92°C), Yellowing, First Crack (196°C), Drop.</td>
+      <td>Modul F-5 (Roasting Science), Modul R-3 (Telemetri Cropster), Modul R-4 (Kimia Sangrai).</td>
+    </tr>
+    <tr>
+      <td><strong>brewing-control-chart</strong><br><span class="badge badge-live">SCA Standard</span></td>
+      <td>Matriks 2D Extraction Yield (14%–26%) vs TDS (0.8%–1.8%) dengan area kotak emas "Ideal Target Zone" (Yield 18–22%, TDS 1.15–1.45%).</td>
+      <td>Modul F-6 (Kimia Air), Modul H-3 (Resep Seduh), Modul B-4 (Dial-In Espresso).</td>
+    </tr>
+    <tr>
+      <td><strong>espresso-phases</strong><br><span class="badge badge-live">Fluid Dynamics</span></td>
+      <td>3 fase penuangan espresso: Fase 1 (Ristretto/Kuning pekat - asam & minyak), Fase 2 (Normale/Madu - gula & body), Fase 3 (Lungo - kepahitan & kafein).</td>
+      <td>Modul B-3 (Fundamental Espresso), Modul B-4 (Dial-In Barista).</td>
+    </tr>
+    <tr>
+      <td><strong>milk-vortex</strong><br><span class="badge badge-live">Physics Flow</span></td>
+      <td>Panduan visual posisi steam tip (sudut 15°, kedalaman 1-2 cm) dan arah putaran pusaran (*vortex*) untuk memecah busa makro pada 60–65°C.</td>
+      <td>Modul B-5 (Kimia Susu & Microfoam), Modul B-6 (Latte Art).</td>
+    </tr>
+    <tr>
+      <td><strong>water-chemistry</strong><br><span class="badge badge-live">Molecular Ion</span></td>
+      <td>Diagram ikatan ion Mg²⁺ & Ca²⁺ dengan molekul rasa polar asam sitrat/malat serta sistem penahan bufer bikarbonat (HCO₃⁻).</td>
+      <td>Modul F-6 (Water Science), Modul H-6 (Air Seduh Mandiri).</td>
+    </tr>
+    <tr>
+      <td><strong>phylogeny-tree</strong><br><span class="badge badge-live">Genetics Map</span></td>
+      <td>Bagan pohon filogeni silsilah Arabika (Typica murni vs Bourbon) dan silang alami Tim-Tim ke Ateng Super / Sigarar Utang Indonesia.</td>
+      <td>Modul F-3 (Varietas Kopi), Modul P-1 (Pemuliaan Tanaman).</td>
+    </tr>
+    <tr>
+      <td><strong>processing-comparison</strong><br><span class="badge badge-live">Matrix Table</span></td>
+      <td>Matriks komparasi teknis: Washed vs Honey vs Natural vs Giling Basah Sumatra vs Anaerobik Maceration.</td>
+      <td>Modul F-4 (Metode Pengolahan), Modul P-2 & P-3 (Pasca Panen).</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Section 5 -->
+<h2>5. Coffee Professional Tools Suite (`/tools`)</h2>
+<p>
+CherryEdu mengintegrasikan perangkat digital interaktif mandiri yang dapat langsung dipakai di meja cupping, meja seduh, dan bar komersial:
+</p>
+<ul>
+  <li><strong>Digital SCA Cupping Form (<code>components/SCACuppingForm.tsx</code>)</strong>: Lembar penilaian digital resmi 100 poin (Fragrance, Flavor, Aftertaste, Acidity, Body, Balance, Uniformity, Clean Cup, Sweetness, Overall) dengan kalkulasi skor otomatis dan penalti cacat rasa (*defect*).</li>
+  <li><strong>Interactive SCA Flavor Wheel (<code>components/FlavorWheel.tsx</code>)</strong>: Roda rasa interaktif yang dapat diklik dari rumpun kategori makro hingga deskriptor rasa mikro berskala global.</li>
+  <li><strong>Smart Brew Calculator (<code>components/BrewCalculator.tsx</code>)</strong>: Kalkulator takaran air dan biji kopi berbasis rasio seduh, dilengkapi timer penuangan tahap blooming dan multi-pour.</li>
+  <li><strong>Espresso Dial-In Assistant (<code>components/EspressoDialIn.tsx</code>)</strong>: Simulator troubleshooting espresso berbasis rasa dengan panduan koreksi dose, yield, dan grind size.</li>
+  <li><strong>Water Chemistry Calculator (<code>components/WaterCalculator.tsx</code>)</strong>: Kalkulator racik mineral air seduh berbasis target GH dan KH dalam skala part per million (ppm).</li>
+  <li><strong>Coffee Variety Compendium (<code>components/VarietyCompendium.tsx</code>)</strong>: Ensiklopedia varietas kultivar kopi dunia dengan profil agronomis dan rasa.</li>
+</ul>
+
+<!-- Section 6 -->
+<h2>6. Ekosistem Komunitas, Sertifikasi & Job Board</h2>
+<ul>
+  <li><strong>Sertifikat Terverifikasi Fahrul M.W</strong>: Penerbitan sertifikat digital otomatis dengan kode verifikasi unik dan halaman publik <code>/verify/[token]</code> bertanda tangan digital Fahrul M.W (Head of Curriculum, Cherry Coffee Roastery).</li>
+  <li><strong>Coffee Job Board (<code>/jobs</code>)</strong>: Papan lowongan kerja khusus industri kopi dengan filter kota, jenis profesi (Barista, Roaster, Manager), kisaran gaji, dan tombol lamar terhubung portfolio.</li>
+  <li><strong>Forum Komunitas (<code>/forum</code>)</strong>: Kanal diskusi interaktif dengan kategori per topik, sistem upvote, thread komentar, dan tanda verifikasi instruktur.</li>
+  <li><strong>Gamifikasi Terintegrasi</strong>: Poin XP (+25 XP per materi, +100 XP per kuis), streak harian, lencana prestasi (*badges*), dan leaderboard bulanan.</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- Section 7 -->
+<h2>7. Content Management System & Admin Suite (`/admin`)</h2>
+<p>
+CherryEdu dilengkapi sistem manajemen platform komprehensif yang terisolasi di rute <code>/admin</code>:
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 25%;">Modul Admin</th>
+      <th style="width: 30%;">Rute Halaman</th>
+      <th style="width: 45%;">Fungsi Operasional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>KPI Overview</strong></td>
+      <td><code>/admin</code></td>
+      <td>Metrik real-time: Total User, Total Sertifikat, Completion Rate %, Pelamar Kerja.</td>
+    </tr>
+    <tr>
+      <td><strong>Analytics Dashboard</strong></td>
+      <td><code>/admin/analytics</code></td>
+      <td>Visualisasi Recharts: Tren pendaftaran user, distribusi role pengguna, grafik kelulusan per path.</td>
+    </tr>
+    <tr>
+      <td><strong>Curriculum CMS</strong></td>
+      <td><code>/admin/curriculum</code></td>
+      <td>CRUD Learning Path, Module ordering, Lesson Rich Markdown Editor, dan Quiz Builder.</td>
+    </tr>
+    <tr>
+      <td><strong>Visual Page Builder</strong></td>
+      <td><code>/admin/pages</code></td>
+      <td>Section Library pengatur Landing Page (Hero, Stats, Path Showcase, Testimonials) dengan aksi add, reorder, duplicate.</td>
+    </tr>
+    <tr>
+      <td><strong>Collaborator Mgmt</strong></td>
+      <td><code>/admin/collaborators</code></td>
+      <td>CRUD mitra roastery & instruktur kopi yang terhubung otomatis ke halaman publik <code>/collaborators/[slug]</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>User & Role Mgmt</strong></td>
+      <td><code>/admin/users</code></td>
+      <td>Filter pengguna, inspeksi XP & progress, serta pengalihan role (Learner, Barista, Roaster, Admin).</td>
+    </tr>
+    <tr>
+      <td><strong>Certificate Admin</strong></td>
+      <td><code>/admin/certificates</code></td>
+      <td>Log penerbitan sertifikat, filter keaslian, dan tombol pencabutan (*revoke*) sertifikat.</td>
+    </tr>
+    <tr>
+      <td><strong>Moderasi & Settings</strong></td>
+      <td><code>/admin/jobs</code>, <code>/admin/forum</code>, <code>/admin/settings</code></td>
+      <td>Moderasi lowongan dan forum; pengaturan branding, nama penandatangan sertifikat (Fahrul M.W), dan SEO meta.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Section 8 -->
+<h2>8. Spesifikasi Arsitektur Teknis</h2>
+<div class="callout callout-gold">
+  <div class="callout-title">Spesifikasi Stack Produksi</div>
+  • <strong>Frontend & Framework</strong>: Next.js 14 App Router, TypeScript, Tailwind CSS.<br>
+  • <strong>Database & Autentikasi</strong>: Supabase (PostgreSQL 15), Row-Level Security, JWT Auth (Email & Google).<br>
+  • <strong>Engine State Lokal</strong>: Hybrid LocalStorage Engine (<code>cherryedu_state_v5</code>) dengan smart-merge otomatis antara master seed kurikulum dan progress aktif user.<br>
+  • <strong>Hosting & CDN</strong>: Vercel Edge Network dengan continuous deployment otomatis dari branch <code>main</code>.
+</div>
+
+<!-- Section 9 -->
+<h2>9. Model Bisnis & Target Peluncuran (KPI)</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%;">Tier Layanan</th>
+      <th style="width: 25%;">Harga Langganan</th>
+      <th style="width: 55%;">Cakupan Akses</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Free Tier</strong></td>
+      <td>Rp 0 (Gratis)</td>
+      <td>Akses penuh Path Foundation (32 Materi), modul 1 di setiap path spesialisasi, akses Coffee Tools dasar, dan forum publik.</td>
+    </tr>
+    <tr>
+      <td><strong>Pro Membership</strong></td>
+      <td>Rp 49.000 / bulan<br>(atau Rp 499.000 / tahun)</td>
+      <td>Akses tanpa batas ke seluruh 7 Learning Paths (160 Materi), sertifikat kelulusan terverifikasi resmi, apply prioritas di Job Board.</td>
+    </tr>
+    <tr>
+      <td><strong>B2B Enterprise</strong></td>
+      <td>Kustom per Kafe</td>
+      <td>Multi-seat license untuk pelatihan barista karyawan kafe, custom co-branded certificate, talent recruitment filter terarah.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Section 10 -->
+<h2>10. Roadmap Pengembangan Mendatang (Fase 3 & 4)</h2>
+<ul>
+  <li><strong>Fase 3 (Q4 2026 — Akselerasi Ekosistem)</strong>:
+    <ul>
+      <li>Integrasi Payment Gateway otomatis (Midtrans/Xendit/QRIS) untuk langganan Pro.</li>
+      <li>Progressive Web App (PWA) dengan dukungan mode offline untuk pembelajaran di perkebunan pedalaman hulu.</li>
+      <li>Portal Khusus Employer untuk verifikasi instan pelamar barista via scan QR sertifikat.</li>
+      <li>Paket Sample Green Bean Cupping Box yang dikirim langsung ke rumah pengguna.</li>
+    </ul>
+  </li>
+  <li><strong>Fase 4 (2027 — Ekspansi Regional & Standarisasi)</strong>:
+    <ul>
+      <li>Kolaborasi sertifikasi bersama SCAI (Specialty Coffee Association of Indonesia).</li>
+      <li>Lokalisasi konten multibahasa (Bahasa Inggris & Thailand) untuk ekspansi talenta regional ASEAN.</li>
+      <li>AI Coffee Assistant yang membantu menjawab pertanyaan teknis seduh secara real-time.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="footer-note">
+  <strong>CherryEdu — The Specialty Coffee Learning Platform</strong><br>
+  Diterbitkan oleh Cherry Coffee Roastery & Fahrul M.W • Dokumen PRD Versi 2.0 • September 2026<br>
+  Website: <a href="https://cherryedu.vercel.app" style="color:#991b1b; text-decoration:none;">https://cherryedu.vercel.app</a>
+</div>
+
+</body>
+</html>

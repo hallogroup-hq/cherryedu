@@ -64,6 +64,7 @@ interface CherryEduContextType {
   // Actions
   switchUser: (userId: string) => void; // admin-only: view-as user
   updateUserProfile: (data: Partial<User>) => void;
+  awardXP: (points: number) => void;
   enrollInPath: (pathId: string, bypassPrerequisite?: boolean) => { success: boolean; message: string };
   markLessonComplete: (lessonId: string, timeSpentSeconds?: number) => void;
   isLessonCompleted: (lessonId: string) => boolean;
@@ -99,7 +100,7 @@ interface CherryEduContextType {
 
 const CherryEduContext = createContext<CherryEduContextType | undefined>(undefined);
 
-const STORAGE_KEY = 'cherryedu_state_v5';
+const STORAGE_KEY = 'cherryedu_state_v6';
 
 export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Initialize with seed data or LocalStorage
@@ -813,6 +814,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         deleteLearningPath,
         switchUser,
         updateUserProfile,
+        awardXP: (points: number) => awardXP(currentUser.id, points),
         enrollInPath,
         markLessonComplete,
         isLessonCompleted,

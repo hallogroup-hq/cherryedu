@@ -103,9 +103,6 @@ export const POST_HARVEST_LESSONS: Lesson[] = [
     content: `
 # Taksonomi & Botani Kopi: Memahami Fondasi Genetik Hulu
 
-![Taksonomi Kopi: Genetika Alotetraploid Arabika vs Diploid Canephora & Liberika](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
-
 [DIAGRAM:cherry-anatomy]
 
 Dalam genus *Coffea* (famili *Rubiaceae*), terdapat lebih dari 120 spesies tanaman kopi di dunia. Namun, dunia industri kopi komersial dan spesialti berpusat pada tiga spesies utama: **Coffea arabica**, **Coffea canephora** (Robusta), dan **Coffea liberica**.
@@ -150,9 +147,6 @@ Mengapa Arabika memiliki cita rasa yang jauh lebih kompleks, manis, dan kaya asa
     title: 'Varietas Unggul Nusantara: Typica, Tim-Tim, Sigarar Utang, dan Kartika',
     content: `
 # Silsilah Varietas Kopi Nusantara: Dari Kolonial Belanda ke Laboratorium Pemuliaan
-
-![Varietas Unggul Nusantara: Typica, Tim-Tim, Sigarar Utang, dan Kartika](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Koleksi Varietas Kopi Arabika dan Robusta Unggul — Sumber / Kredit: Pusat Penelitian Kopi dan Kakao Indonesia (ICCRI)*
 
 [DIAGRAM:varieties-tree]
 
@@ -209,9 +203,6 @@ Indonesia memiliki keanekaragaman varietas Arabika yang sangat unik akibat perca
     content: `
 # Sains Ketinggian: Mengapa MDPL Menentukan Kualitas Biji Kopi
 
-![Elevasi (MDPL), Suhu Malam Dingin, dan Kepadatan Selulosa Biji](https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Ketinggian MDPL dan Pengaruh Iklim Mikro Vulkanik Nusantara — Sumber / Kredit: Balai Penelitian Tanaman Industri (BALITTRI)*
-
 Di kemasan kopi spesialti, parameter **ketinggian kebun (MDPL - Meter Di atas Permukaan Laut)** selalu dicantumkan dengan bangga (misal: *1.400 – 1.700 mdpl*). Secara fisiologi tumbuhan, ada alasan termodinamika dan metabolisme biokimia yang sangat nyata di balik angka tersebut.
 
 ---
@@ -261,9 +252,6 @@ Tanaman kopi mengumpulkan energi melalui fotosintesis di siang hari dan membakar
     content: `
 # Agroforestri & Tanah Vulkanik: Terroir Alami Kopi Indonesia
 
-![Pohon Naungan (Agroforestri) & Kesuburan Tanah Andosol Vulkanik Nusantara](https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Ketinggian MDPL dan Pengaruh Iklim Mikro Vulkanik Nusantara — Sumber / Kredit: Balai Penelitian Tanaman Industri (BALITTRI)*
-
 Keistimewaan tak tertandingi perkebunan kopi nusantara (dari Gayo, Mandheling, Sunda Hejo, Kintamani, hingga Flores Bajawa) berakar pada dua faktor lingkungan: sistem wanatani naungan (*shade-grown agroforestry*) dan lapisan tanah **Andosol vulkanik** dari cincin api (*Ring of Fire*).
 
 ---
@@ -304,9 +292,6 @@ Tanah Andosol terbentuk dari pelapukan abu dan batuan piroklastik letusan gunung
     title: 'Anatomi Buah Kopi & Protokol Panen Petik Merah Sempurna (Selective Picking)',
     content: `
 # Manajemen Petik Merah: Mengapa Kualitas Dimulai dari Petikan Ceri
-
-![Anatomi Buah Kopi & Protokol Panen Petik Merah Sempurna (Selective Picking)](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
 
 [DIAGRAM:cherry-anatomy]
 
@@ -353,9 +338,6 @@ Petani komersial sering melakukan petik rambang (*strip picking*) di mana seluru
     title: 'Pengujian Derajat Kemanisan Brix (18–24° Brix) & Pemisahan Densitas Rambang (Flotation)',
     content: `
 # Sains Pengukuran Brix & Sortasi Flotasi Air
-
-![Pengujian Derajat Kemanisan Brix (18–24° Brix) & Pemisahan Densitas Rambang (Flotation)](https://images.unsplash.com/photo-1497636577773-f1231844b336?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Manajemen Panen Selektif Petik Merah Sempurna (100% Red Cherry) — Sumber / Kredit: CQI Post-Harvest Processing Protocols*
 
 Bagaimana stasiun pengolahan (*wet mill*) memastikan objektivitas kematangan ceri yang disetor ratusan petani mitra? Jawabannya adalah dengan menggunakan alat **Refraktometer Optik Skala Brix** dan bak sortir **Flotation Separation**.
 
@@ -413,9 +395,6 @@ Begitu ceri tiba di stasiun basah, langkah pertama sebelum dikupas adalah memasu
     content: `
 # Sains Giling Basah (Wet Hulled / Asalan Sumatra)
 
-![Sains Proses Giling Basah (Wet Hulled) Sumatra: Porositas, Warna Giok, dan Karakter Herbal](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Proses Olah Basah (Fully Washed) dan Pencucian Musilage — Sumber / Kredit: Specialty Coffee Association Processing Guide*
-
 [DIAGRAM:processing-comparison]
 
 **Giling Basah** (dikenal di pasar internasional sebagai *Wet Hulled*) adalah metode pengolahan pasca panen asli Indonesia yang hampir secara eksklusif hanya dapat ditemukan di Sumatra (Aceh Gayo, Lintong, Mandheling, Kerinci) dan sebagian kecil Sulawesi Selatan (Toraja).
@@ -468,9 +447,6 @@ Sumatra berada di wilayah iklim tropis khatulistiwa dengan curah hujan sangat ti
     content: `
 # Spektrum Pengolahan Klasik: Washed, Natural, dan Honey
 
-![Komparasi Fully Washed, Natural, dan Spektrum Honey (Yellow, Red, Black Honey)](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Proses Olah Basah (Fully Washed) dan Pencucian Musilage — Sumber / Kredit: Specialty Coffee Association Processing Guide*
-
 Di luar kekhasan Giling Basah, terdapat tiga metode pengolahan klasik internasional yang diaplikasikan untuk menghasilkan spektrum cita rasa yang berbeda:
 
 ---
@@ -517,9 +493,6 @@ Pada proses Honey, kulit ceri luar dikupas, tetapi **sebagian atau seluruh lapis
     title: 'Fermentasi Anaerobik & Carbonic Maceration: Kontrol Suhu 16–20°C, Tekanan, dan Kurva pH',
     content: `
 # Bioproses Modern: Fermentasi Anaerobik Presisi Tinggi
-
-![Fermentasi Anaerobik & Carbonic Maceration: Kontrol Suhu 16–20°C, Tekanan, dan Kurva pH](https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Inovasi Fermentasi Terkontrol Anaerobik dan Carbonic Maceration — Sumber / Kredit: World Barista Championship Lab*
 
 Revolusi kopi spesialti kontemporer didorong oleh adopsi ilmu mikrobiologi dan teknologi fermentasi anggur (*winemaking*). Dua metode paling bergengsi di kompetisi barista dunia adalah **Anaerobic Fermentation** dan **Carbonic Maceration**.
 
@@ -569,9 +542,6 @@ Dipopulerkan di industri kopi oleh Sasa Sestic (World Barista Champion 2015):
     content: `
 # Inokulasi Ragi & Thermal Shock: Merancang Profil Rasa Kopi Masa Depan
 
-![Inokulasi Ragi Terseleksi (Yeast Inoculation) dan Teknologi Thermal Shock Processing](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
-
 Batas akhir rekayasa cita rasa kopi di tingkat prosesor pasca panen melibatkan penggunaan galur ragi terisolasi dan manipulasi suhu kejut (*thermal shock*).
 
 ---
@@ -611,9 +581,6 @@ Dipelopori oleh prosesor inovatif seperti Diego Bermudez (Finca El Paraiso, Kolo
     title: 'Protokol Pengeringan Presisi di Raised Beds: Mencegah Case Hardening',
     content: `
 # Pengeringan Presisi: Menjaga Struktur Seluler Biji Menuju Kadar Air 11%
-
-![Protokol Pengeringan Presisi di Raised Beds: Mencegah Case Hardening](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
 
 Banyak petani kopi gagal menyadari bahwa **pengeringan (*drying*) adalah tahap paling kritis dari seluruh rantai pasca panen**. Biji kopi dengan potensi skor 88 poin bisa hancur menjadi 78 poin jika dikeringkan secara terburu-buru atau mengalami fenomena pengerasan cangkang luar (*case hardening*).
 
@@ -656,9 +623,6 @@ Menjemur kopi langsung di atas lantai semen atau aspal jalan adalah praktik terb
     title: 'Standar Grading Cacat Fisik SCA (Green Coffee Defect Standard) & Pengemasan Hermetik GrainPro',
     content: `
 # Standar Cacat Biji Mentah SCA & Proteksi Kantong Hermetik
-
-![Standar Grading Cacat Fisik SCA (Green Coffee Defect Standard) & Pengemasan Hermetik GrainPro](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
 
 Sebelum sebuah lot green bean diekspor ke pembeli internasional atau roastery specialty, sampel seberat **350 gram** wajib disortir secara manual di atas meja grading untuk menghitung nilai cacat fisik berdasarkan standar **SCA Green Coffee Defect Guide**.
 
@@ -714,9 +678,6 @@ Karung goni tradisional berbahan serat rami memiliki pori-pori terbuka yang memb
 
 Sejarah perkebunan kopi Indonesia diwarnai oleh perjuangan melawan jamur karat daun (*Coffee Leaf Rust / Hemileia vastatrix*) yang memusnahkan perkebunan Typica Nusantara pada akhir abad ke-19. Dari krisis tersebut, lahirlah varietas hibrida lokal yang kini menjadi identitas kebanggaan Indonesia.
 
-![Pohon Kopi Varietas Hibrida Sigarar Utang Sarat Buah Merah](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Morfologi Tanaman Kopi Arabika Varietas Lokal Tahan Hama — Sumber / Kredit: Unsplash / Indonesian Coffee and Cocoa Research Institute (ICCRI)*
-
 ---
 
 ### 1. Hibrido de Timor (HdT) & Varietas Tim-Tim
@@ -751,9 +712,6 @@ Sejarah perkebunan kopi Indonesia diwarnai oleh perjuangan melawan jamur karat d
 
 Indonesia berada tepat di jalur Cincin Api Pasifik (*Ring of Fire*). Abu vulkanik dari ratusan gunung berapi aktif memberikan berkah kesuburan mineral tanah yang tak tertandingi di dunia pertanian kopi.
 
-![Pemandangan Lereng Gunung Berapi dan Kebun Kopi Dataran Tinggi](https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Tanah Andosol Vulkanik Subur di Lereng Dataran Tinggi Nusantara — Sumber / Kredit: Unsplash / Agricultural Geology*
-
 ---
 
 ### 1. Peran Mineral Tanah Andosol Vulkanik
@@ -783,9 +741,6 @@ Tanah vulkanik (Andosol) memiliki struktur remah berpori yang mampu menyimpan ca
 
 Setelah pemetikan ceri merah selektif di kebun selesai, tahap pemrosesan pertama yang paling krusial di stasiun basah (*wet mill*) adalah **Uji Rambang Air (Floatation Tank)**.
 
-![Pemisahan Buah Kopi Ceri Menggunakan Bak Flotasi Air Mengalir](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Pemisahan Ceri Kopi Padat Bernas dari Ceri Kopong Cacat Berbasis Gravitasi Air — Sumber / Kredit: Unsplash / Specialty Wet Mill Operations*
-
 ---
 
 ### 1. Prinsip Hidrostatis Uji Rambang
@@ -813,9 +768,6 @@ Ceri kopi segar yang baru dipanen dimasukkan ke dalam bak air besar:
     content: `# Proses Natural & Honey: Seni Memanfaatkan Lapisan Manis Mucilage
 
 Pada metode pengolahan kering (*Dry Process*) dan semi-kering (*Honey Process*), lapisan lendir berdaging manis (*mucilage*) dibiarkan menempel pada kulit tanduk selama proses penjemuran di bawah sinar matahari.
-
-![Penjemuran Kopi Proses Honey dan Natural di Atas Meja Pengeringan](https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Tahapan Warna Penjemuran Kopi Honey dari Kuning hingga Hitam Karamel — Sumber / Kredit: Unsplash / Specialty Coffee Processing*
 
 ---
 
@@ -845,9 +797,6 @@ Nama "Honey" sama sekali tidak melibatkan madu lebah asli, melainkan merujuk pad
     content: `# Fermentasi Terkendali Modern: Ragi Terpilih dan Thermal Shock
 
 Revolusi mikrobiologi telah mengubah stasiun pasca panen dari tempat penjemuran tradisional menjadi laboratorium bioteknologi presisi tinggi.
-
-![Tangki Fermentasi Terkontrol Stainless Steel Bioreactor](https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Tangki Fermentasi Anaerobik Kedap Oksigen dengan Katup Pengontrol Tekanan — Sumber / Kredit: Unsplash / Post-Harvest Innovation Lab*
 
 ---
 
@@ -884,9 +833,6 @@ Setelah fermentasi hangat (35°C – 40°C) selesai, ceri kopi disiram air es be
     content: `# Pengemasan Hermetik GrainPro vs Karung Goni Tradisional
 
 Perjalanan green bean dari kebun di pelosok Nusantara menuju roastery di kota besar atau pasar ekspor di Eropa memakan waktu berbulan-bulan melintasi samudera lembap dengan suhu kontainer kapal yang berfluktuasi liar.
-
-![Kemasan Kantong Hermetik GrainPro di Dalam Karung Goni Ekspor](https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Pengemasan Ganda Plastik Hermetik Pelindung Kopi Spesialti — Sumber / Kredit: Unsplash / GrainPro Green Coffee Storage*
 
 ---
 

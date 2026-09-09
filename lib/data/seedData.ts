@@ -559,9 +559,6 @@ export const SEED_LESSONS: Lesson[] = [
     content: `
 # Sejarah Kopi Dunia: Dari Kaffa ke Batavia 1696
 
-![Perjalanan Sejarah Kopi Dunia dari Ethiopia ke Batavia](https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Perkembangan Perdagangan Kopi Global dan Budidaya Perdana Batavia 1696 — Sumber / Kredit: Unsplash / Specialty Coffee Association (SCA)*
-
 Kopi bukan sekadar komoditas perkebunan biasa. Ia adalah pemicu revolusi sosial, intelektual, dan perdagangan lintas benua selama lebih dari lima abad.
 
 ### Legenda Kaldi dan Hutan Kaffa Ethiopia
@@ -616,9 +613,6 @@ Tanaman kopi terbukti tumbuh sangat subur di tanah vulkanik sejuk Jawa Barat (Pr
     title: "Peta Rantai Nilai: 6 Titik Kritis dari Hulu ke Hilir",
     content: `
 # Peta Rantai Nilai: 6 Titik Kritis dari Hulu ke Hilir
-
-![Peta Rantai Nilai: 6 Titik Kritis dari Hulu ke Hilir](https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Rantai Pasok Terpadu Kopi Spesialti dari Hulu ke Hilir — Sumber / Kredit: CQI & World Coffee Research*
 
 Secangkir specialty coffee beraroma melati dan buah persik di sebuah kafe urban tidak tercipta secara kebetulan. Kopi tersebut telah melewati rantai nilai (*value chain*) yang sangat panjang, melibatkan kerja keras ribuan tangan dengan keahlian spesifik.
 
@@ -684,9 +678,6 @@ Konsumen yang paham kualitas tidak hanya mencari asupan kafein semata, melainkan
     title: "Specialty Coffee vs Kopi Komersial: Standar Resmi SCA",
     content: `
 # Specialty Coffee vs Kopi Komersial
-
-![Specialty Coffee vs Kopi Komersial: Standar Resmi SCA](https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Standar Evaluasi Fisik dan Pemilahan Cacat Biji Kopi SCA — Sumber / Kredit: Specialty Coffee Association Standards*
 
 Di pasar global, industri kopi terbelah menjadi dua dunia yang sangat berbeda: **Kopi Komersial (Commodity Coffee)** dan **Specialty Coffee**. Istilah *Specialty Coffee* pertama kali dicetuskan oleh Erna Knutsen pada tahun 1974 dalam konferensi perdagangan kopi di Perancis untuk mendeskripsikan biji kopi dengan cita rasa istimewa yang diproduksi di bawah kondisi geografis iklim mikro ideal.
 
@@ -754,9 +745,6 @@ PERBANDINGAN FUNDAMENTAL:
     content: `
 # Empat Gelombang Kopi: Evolusi Budaya Konsumsi
 
-![Empat Gelombang Kopi: Dari Komoditas Massal ke Era Fermentasi Presisi](https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Evolusi Gelombang Kopi Menuju Budaya Kedai Spesialti Kontemporer — Sumber / Kredit: Coffee Culture & History Review*
-
 Sejarah konsumsi kopi modern dikelompokkan oleh para sosiolog dan sejarawan kopi ke dalam beberapa fase evolusi yang dikenal sebagai **"Coffee Waves"** (Gelombang Kopi). Setiap gelombang menandai pergeseran radikal dalam cara manusia memandang, memproses, dan menikmati secangkir kopi.
 
 ### 1. Gelombang Pertama (The First Wave): Aksesibilitas & Kopi Instan
@@ -808,9 +796,6 @@ Sejarah konsumsi kopi modern dikelompokkan oleh para sosiolog dan sejarawan kopi
     title: "Keberlanjutan Lingkungan & Etika Fair Trade di Perkebunan Kopi",
     content: `
 # Keberlanjutan Lingkungan & Etika Fair Trade
-
-![Keberlanjutan Lingkungan & Etika Fair Trade di Perkebunan Kopi](https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Praktik Agroforestri Ramah Lingkungan dan Fair Trade — Sumber / Kredit: Rainforest Alliance / Fair Trade*
 
 Di balik keanggunan aroma kopi di cangkir kita, ada kenyataan sosial ekonomi yang menuntut perhatian serius: mayoritas petani kopi dunia hidup di bawah garis kemiskinan dan menghadapi risiko iklim yang kian ekstrem.
 
@@ -871,9 +856,6 @@ Tantangan terbesar kopi Indonesia saat ini bukan pada mesin atau teknologi seduh
     title: "Anatomi Botani Tanaman & Buah Kopi: Dari Eksokarp hingga Biji Endosperma",
     content: `
 # Anatomi Botani Tanaman & Buah Kopi
-
-![Anatomi Botani Tanaman & Buah Kopi: Dari Eksokarp hingga Biji Endosperma](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
 
 [DIAGRAM:cherry-anatomy]
 
@@ -940,9 +922,6 @@ Pada sekitar 5% hingga 8% buah ceri di sebuah pohon, salah satu dari dua ovula g
     content: `
 # Agroklimatologi & Peran Ketinggian (Altitude)
 
-![Agroklimatologi & Peran Ketinggian: Mengapa MDPL Menentukan Kepadatan & Keasaman](https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Ketinggian MDPL dan Pengaruh Iklim Mikro Vulkanik Nusantara — Sumber / Kredit: Balai Penelitian Tanaman Industri (BALITTRI)*
-
 Dalam spesifikasi kantong kopi specialty, Anda akan selalu melihat angka elevasi, misalnya: \`1.500 – 1.800 mdpl\` (meter di atas permukaan laut). Angka ini bukan sekadar informasi geografis, melainkan indikator biologis utama yang menentukan kepadatan fisik biji dan profil keasaman cangkir.
 
 ### Fisika Atmosfer & Suhu Rata-rata
@@ -999,9 +978,6 @@ Di perdagangan kopi Amerika Latin dan Karibia, biji kopi diklasifikasikan berdas
     title: "Tanah Vulkanik, Iklim Mikro, & Sistem Agroforestri Naungan (Shade-Grown)",
     content: `
 # Tanah Vulkanik, Iklim Mikro, & Sistem Agroforestri
-
-![Tanah Vulkanik, Iklim Mikro, & Sistem Agroforestri Naungan (Shade-Grown)](https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Ketinggian MDPL dan Pengaruh Iklim Mikro Vulkanik Nusantara — Sumber / Kredit: Balai Penelitian Tanaman Industri (BALITTRI)*
 
 Indonesia memiliki anugerah agroklimat yang tidak dimiliki banyak negara lain di dunia: gugusan cincin gunung api aktif (*Pacific Ring of Fire*) yang membentang dari barat Sumatra, melintasi Jawa, Bali, Lombok, Flores, hingga Sulawesi Utara.
 
@@ -1060,9 +1036,6 @@ Sebaliknya, petani kopi tradisional Indonesia mempraktikkan sistem **Agroforestr
     title: "Manajemen Panen Selektif: Sains Petik Merah 100% & Pengukuran Derajat Brix",
     content: `
 # Manajemen Panen Selektif: Sains Petik Merah 100%
-
-![Manajemen Panen Selektif: Sains Petik Merah 100% & Pengukuran Derajat Brix](https://images.unsplash.com/photo-1497636577773-f1231844b336?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Manajemen Panen Selektif Petik Merah Sempurna (100% Red Cherry) — Sumber / Kredit: CQI Post-Harvest Processing Protocols*
 
 Jika ada satu aturan tunggal yang paling memisahkan kopi specialty dari kopi komersial murah, aturan itu adalah: **DISIPLIN PETIK MERAH 100% (SELECTIVE PICKING)**.
 
@@ -1126,9 +1099,6 @@ Petani modern di Gayo, Kerinci, dan Ijen kini membawa instrumen optik presisi ke
     content: `
 # Ancaman Hama Tanaman & Krisis Perubahan Iklim
 
-![Ancaman Hama Tanaman & Perubahan Iklim: Karat Daun & Kumbang Penggerek](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Inspeksi Kesehatan Tanaman dan Mitigasi Hama Penyakit Kopi — Sumber / Kredit: Center for Agriculture and Bioscience*
-
 Masa depan secangkir kopi yang kita nikmati saat ini menghadapi ancaman nyata yang belum pernah terjadi sebelumnya dalam sejarah peradaban manusia: serangan hama biologis dan pergeseran iklim bumi.
 
 ### 1. Karat Daun Kopi (*Hemileia vastatrix* / CLR)
@@ -1186,9 +1156,6 @@ Penelitian dari *World Coffee Research* (WCR) memproyeksikan bahwa pada tahun **
     title: "Taksonomi Genus Coffea: Arabika, Robusta, Liberika, & Excelsa",
     content: `
 # Taksonomi Genus Coffea: 4 Spesies Komersial
-
-![Taksonomi Genus Coffea: Arabika, Robusta, Liberika, & Excelsa](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
 
 Di dunia biologi botani, terdapat lebih dari **125 spesies** kopi yang telah diidentifikasi di alam liar Afrika dan Madagaskar. Namun, perdagangan kopi dunia berputar di sekitar empat spesies utama:
 
@@ -1260,9 +1227,6 @@ POHON KELUARGA GENUS COFFEA KOMERSIAL:
     title: "Silsilah Varietas Arabika Dunia: Dari Typica, Bourbon, Geisha, hingga Hibrida",
     content: `
 # Silsilah Varietas Arabika Dunia
-
-![Silsilah Varietas Arabika Dunia: Dari Typica, Bourbon, Geisha, hingga Hibrida](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Koleksi Varietas Kopi Arabika dan Robusta Unggul — Sumber / Kredit: Pusat Penelitian Kopi dan Kakao Indonesia (ICCRI)*
 
 [DIAGRAM:varieties-tree]
 
@@ -1338,9 +1302,6 @@ Pada tahun 1917, di sebuah perkebunan di Pulau Timor (saat itu koloni Portugis),
     content: `
 # Varietas Unggul Nusantara
 
-![Varietas Unggul Nusantara: Ateng Super, Tim-Tim, Sigarar Utang, & S-795](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Koleksi Varietas Kopi Arabika dan Robusta Unggul — Sumber / Kredit: Pusat Penelitian Kopi dan Kakao Indonesia (ICCRI)*
-
 Indonesia bukan hanya konsumen varietas global, melainkan salah satu laboratorium keanekaragaman genetik kopi terpenting di dunia. Varietas-varietas lokal nusantara telah beradaptasi selama puluhan dekade dengan tanah vulkanik dan cuaca tropis basah kepulauan kita.
 
 ### 1. Tim-Tim (Timor Timur / HDT Asli)
@@ -1404,9 +1365,6 @@ PETA PERSEBARAN VARIETAS UNGGUL UTAMA NUSANTARA:
     title: "Kebangkitan Fine Robusta Nusantara: Potensi Dampit, Temanggung, & Lampung",
     content: `
 # Kebangkitan Fine Robusta Nusantara
-
-![Kebangkitan Fine Robusta Nusantara: Potensi Dampit, Temanggung, & Lampung](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
 
 Selama beberapa dekade, buku-buku kopi dunia menulis stigma negatif: *"Arabika adalah kopi bangsawan berkualitas tinggi, sedangkan Robusta adalah kopi kasta rendah yang berasa ban karet terbakar."*
 
@@ -1474,9 +1432,6 @@ Dalam bisnis coffee shop modern yang didominasi oleh menu **Es Kopi Susu Gula Ar
     title: "Dekonstruksi Label Kopi Specialty: Cara Membaca Varietas, Lot, & Cupping Notes",
     content: `
 # Dekonstruksi Label Kopi Specialty
-
-![Dekonstruksi Label Kopi Specialty: Cara Membaca Varietas, Lot, & Cupping Notes](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Koleksi Varietas Kopi Arabika dan Robusta Unggul — Sumber / Kredit: Pusat Penelitian Kopi dan Kakao Indonesia (ICCRI)*
 
 Bagi pemula, membaca label kemasan specialty coffee bisa terasa membingungkan: penuh istilah asing, angka ketinggian, singkatan varietas, dan deretan nama buah-buahan eksotis.
 
@@ -1553,9 +1508,6 @@ ANATOMI LABEL KEMASAN SPECIALTY COFFEE:
     content: `
 # Olah Basah (Washed / Fully Washed Process)
 
-![Olah Basah (Washed / Wet Process): Demucilagination & Karakter Clean Cup](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Proses Olah Basah (Fully Washed) dan Pencucian Musilage — Sumber / Kredit: Specialty Coffee Association Processing Guide*
-
 [DIAGRAM:processing-comparison]
 
 Di dunia specialty coffee internasional, metode **Washed (Olah Basah)** diibaratkan sebagai kaca bening tanpa noda: ia tidak menambahkan rasa dari luar, melainkan menelanjangi dan memperlihatkan karakter asli tanah kebun (*terroir*) dan varietas genetik biji kopi secara murni dan transparan.
@@ -1624,9 +1576,6 @@ Gabah basah berkadar air ~50% dijemur di atas para-para berventilasi kawat kasa 
     content: `
 # Olah Kering (Natural / Dry Process)
 
-![Olah Kering (Natural / Dry Process): Pengeringan Ceri Utuh & Konsentrasi Gula](https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Penjemuran Ceri Kopi Proses Kering (Natural) di Meja Para-Para — Sumber / Kredit: CQI Q Processing Technical Standards*
-
 Metode **Natural (Olah Kering)** adalah teknik pengolahan kopi paling purba di muka bumi. Berasal dari dataran kering Ethiopia dan Yaman berabad-abad silam di mana sumber air sangat langka, ceri kopi yang dipetik dijemur langsung di bawah terik matahari tanpa menggunakan air sama sekali.
 
 \`\`\`
@@ -1677,9 +1626,6 @@ Penjemuran proses Natural membutuhkan waktu yang jauh lebih lama dibanding Washe
     title: "Metode Honey / Pulped Natural: Spektrum Yellow, Red, & Black Honey",
     content: `
 # Metode Honey / Pulped Natural
-
-![Metode Honey / Pulped Natural: Spektrum Yellow, Red, & Black Honey](https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Penjemuran Ceri Kopi Proses Kering (Natural) di Meja Para-Para — Sumber / Kredit: CQI Q Processing Technical Standards*
 
 Di Kosta Rika dan Brazil pada dekade 1990-an hingga 2000-an, para inovator kopi mencari jalan tengah: *bagaimana cara menghemat air bersih tanpa menghasilkan rasa fermentasi berlebih seperti Natural?* Dari sinilah lahir metode revolusioner: **Pulped Natural** atau yang di dunia specialty populer dengan nama **Honey Process**.
 
@@ -1749,9 +1695,6 @@ Honey process menawarkan keseimbangan sempurna di meja seduh:
     content: `
 # Warisan Unik Nusantara: Giling Basah (Wet Hulled)
 
-![Warisan Unik Nusantara: Wet Hulled (Giling Basah) khas Sumatra & Sulawesi](https://images.unsplash.com/photo-1518057111178-44a106bad636?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Proses Olah Basah (Fully Washed) dan Pencucian Musilage — Sumber / Kredit: Specialty Coffee Association Processing Guide*
-
 Jika Anda bepergian ke negara-negara penghasil kopi di Amerika Tengah atau Afrika, mereka hanya mengenal Washed, Natural, dan Honey. Namun jika Anda datang ke dataran tinggi Sumatra Utara, Aceh Gayo, atau pedalaman Tana Toraja, Anda akan menyaksikan metode pasca panen paling ikonik di dunia: **Giling Basah** (secara internasional dikenal sebagai **Wet Hulled Process**).
 
 ### Mengapa Metode Ini Lahir di Indonesia?
@@ -1810,9 +1753,6 @@ Biji hijau yang sudah telanjang tanpa kulit pelindung dihamparkan langsung di at
     title: "Era Inovasi Pasca Panen: Anaerobic, Carbonic Maceration, & Co-Fermentation",
     content: `
 # Era Inovasi Pasca Panen: Dari Tradisi ke Sains Presisi
-
-![Era Inovasi Pasca Panen: Anaerobic, Carbonic Maceration, & Co-Fermentation](https://images.unsplash.com/photo-1497636577773-f1231844b336?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Manajemen Panen Selektif Petik Merah Sempurna (100% Red Cherry) — Sumber / Kredit: CQI Post-Harvest Processing Protocols*
 
 Dalam kurun waktu lima tahun terakhir, panggung kejuaraan barista dunia (*World Barista Championship*) dan meja lelang kopi specialty global dihebohkan oleh satu revolusi: **Eksperimen Fermentasi Presisi**.
 
@@ -1881,9 +1821,6 @@ Sebuah tren paling viral sekaligus memicu perdebatan sengit di kalangan juri kop
     content: `
 # Termodinamika Roasting & Anatomi Drum Roaster
 
-![Termodinamika Roasting: Konduksi, Konveksi, Radiasi, & Anatomi Mesin Drum](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
-
 [DIAGRAM:roast-curve]
 
 Roasting (pemanggangan) bukan sekadar memanaskan biji kopi hingga berubah warna cokelat. Roasting adalah penerapan hukum termodinamika presisi tinggi untuk membuka potensi rasa kimiawi yang terkunci di dalam biji kopi hijau mentah.
@@ -1942,9 +1879,6 @@ Roaster modern menghubungkan mesin ke software digital (seperti *Artisan* atau *
     title: "Kimia Fase Sangrai: Drying, Reaksi Maillard, Karamelisasi, & First Crack",
     content: `
 # Kimia Fase Sangrai: Menyingkap Misteri First Crack
-
-![Kimia Fase Sangrai: Drying, Reaksi Maillard, Karamelisasi, & First Crack](https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Transformasi Kimiawi Reaksi Maillard dan Karamelisasi Biji — Sumber / Kredit: Coffee Chemistry Research Laboratory*
 
 [DIAGRAM:roast-curve]
 
@@ -2017,9 +1951,6 @@ Rentang waktu dari detik pertama First Crack terdengar hingga tuas drum dibuka u
     content: `
 # Spektrum Profil Roasting & Skala Agtron
 
-![Spektrum Profil Roasting: Light, Medium, Dark Roast & Skala Agtron](https://images.unsplash.com/photo-1587734195503-904fca47e0e9?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Spektrum Profil Roasting Berdasarkan Nilai Skala Agtron — Sumber / Kredit: SCA Agtron Roast Color Standards*
-
 Dalam dunia kopi komersial zaman dulu, penentuan tingkat sangrai hanya didasarkan pada perkiraan visual mata roaster (*"oh, warnanya sudah cokelat gelap"*). Di industri modern berstandar SCA, penentuan derajat sangrai (*Roast Degree*) diukur secara ilmiah menggunakan spektrofotometer inframerah bernama **Skala Agtron**.
 
 \`\`\`
@@ -2088,9 +2019,6 @@ Untuk menghilangkan perdebatan subjektif, SCA menetapkan standar **Agtron** berb
     title: "Pasca Roasting: Kinetika Degassing Emisi CO2, Oksidasi Lipid, & Waktu Resting",
     content: `
 # Pasca Roasting: Kimia Degassing & Seni Resting
-
-![Pasca Roasting: Kinetika Degassing Emisi CO2, Oksidasi Lipid, & Waktu Resting](https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Pelepasan Gas Karbondioksida (CO2) dan Waktu Resting Optimal — Sumber / Kredit: International Coffee Science Association*
 
 Banyak orang awam mengira bahwa semakin segar kopi diseduh—misalnya kopi yang baru 1 jam keluar dari drum roaster—maka rasanya akan semakin lezat. **Ini adalah kesalahpahaman fatal.**
 
@@ -2161,9 +2089,6 @@ Jika Anda melihat bulatan kecil berlubang jarum di bagian depan kantong kemasan 
     content: `
 # Kimia Pelarut: Mengapa Air Menyusun 98.5% Kopi
 
-![Kimia Pelarut Ekstraksi: Mengapa Air Menyusun 98.5% Secangkir Kopi](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
-
 Anda bisa membeli biji kopi juara dunia termahal berharga jutaan rupiah, menggilingnya dengan grinder presisi seharga puluhan juta, dan menyeduhnya dengan corong Hario V60 titanium. Namun jika air yang Anda gunakan berasal dari kran sumur berbau besi atau air isi ulang murah tanpa mineral seimbang, seduhan Anda akan berasa datar, hambar, atau pahit mengeringkan lidah.
 
 ### Anatomi Komposisi Secangkir Kopi
@@ -2224,9 +2149,6 @@ Ini adalah anggapan yang keliru secara kimia ekstraksi:
     title: "Parameter Kritis Air Standar SCA: TDS, Total Hardness, Alkalinitas, & pH",
     content: `
 # Parameter Kritis Air Standar SCA
-
-![Parameter Kritis Air Standar SCA: TDS, Total Hardness, Alkalinitas, & pH](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
 
 [DIAGRAM:water-chemistry]
 
@@ -2296,9 +2218,6 @@ Derajat keasaman awal air sebelum kontak dengan kopi harus berada di titik netra
     content: `
 # Pertarungan Kation: Magnesium vs Kalsium
 
-![Pertarungan Kation: Magnesium (Mg2+) vs Kalsium (Ca2+) dalam Ekstraksi Rasa](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
-
 [DIAGRAM:water-chemistry]
 
 Pada tahun 2014, sebuah penelitian fisika kuantum komputasi yang diterbitkan oleh kimiawan Universitas Bath, **Dr. Christopher Hendon**, bersama juara barista Inggris, **Maxwell Colonna-Dashwood**, merevolusi industri specialty coffee selamanya melalui buku legendaris: *"Water for Coffee"*.
@@ -2367,9 +2286,6 @@ Dalam kejuaraan *World Brewers Cup*, para barista dunia meracik air kustom merek
     title: "Solusi Filtrasi Bar Kopi: Memilih RO, Blending Valve, & Remineralisasi",
     content: `
 # Solusi Filtrasi Bar Kopi Komersial
-
-![Solusi Filtrasi Bar Kopi: Memilih RO, Blending Valve, & Remineralisasi](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
 
 Bagi pemilik kedai kopi specialty dan konsultan kafe, air bukan lagi urusan dapur belakang semata; air adalah investasi modal paling krusial yang melindungi mesin espresso seharga ratusan juta rupiah sekaligus penentu reputasi rasa kopi di mata pelanggan.
 
@@ -2450,9 +2366,6 @@ Inilah konfigurasi standar industri kedai kopi specialty modern di seluruh dunia
     content: `
 # Fisiologi Pengecapan: Bagaimana Manusia Merasakan Kopi
 
-![Fisiologi Pengecapan: Gustasi Lidah, Olfaksi Ortronasal, & Jalur Retronasal](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
-
 Saat seorang Q Grader menyeruput sesendok kopi dan berkata: *"Saya merasakan blueberry liar, bunga melati, madu hutan, dan cokelat hitam"*, apakah lidahnya benar-benar mengecap buah blueberry?
 
 Jawabannya adalah: **TIDAK**. Secara biologis, lidah manusia tidak pernah bisa mengecap buah blueberry. Yang mengecap blueberry adalah **sistem indra penciuman (olfaktori)** di dalam rongga hidung Anda.
@@ -2518,9 +2431,6 @@ Saat sesi cupping, Anda akan mendengar suara seruputan yang sangat keras: *"Szzz
     title: "Protokol Resmi Cupping SCA: Rasio Seduh, Breaking Crust, Skim, & Slurp",
     content: `
 # Protokol Resmi Cupping SCA (Standard Cupping Protocol)
-
-![Protokol Resmi Cupping SCA: Rasio Seduh, Breaking Crust, Skim, & Slurp](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
 
 Mengapa para ahli kopi profesional tidak mengevaluasi kualitas kopi menggunakan mesin espresso atau alat V60? Karena alat-alat tersebut memasukkan variabel subjektif barista (kecepatan tuang, kertas filter, tekanan pompa, suhu grup head).
 
@@ -2595,9 +2505,6 @@ Setiap sampel kopi disiapkan minimal **5 mangkok identik** untuk menguji keserag
     content: `
 # SCA Flavor Wheel & Klasifikasi Asam Organik
 
-![Membaca SCA Flavor Wheel & Klasifikasi Asam Organik Kopi](https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Roda Rasa Kopi Spesialti dan Identifikasi Spektrum Asam Organik — Sumber / Kredit: SCA & WCR Coffee Taster's Flavor Wheel*
-
 Pernahkah Anda melihat diagram lingkaran roda berwarna-warni yang dipajang di dinding kafe specialty? Itulah **SCA Coffee Taster's Flavor Wheel**, instrumen leksikon sensori paling ikonik dalam industri kopi dunia.
 
 Diperbarui secara masif pada tahun 2016 melalui kolaborasi bersejarah antara *Specialty Coffee Association* (SCA) dan *World Coffee Research* (WCR), roda rasa ini bukan sekadar karya seni visual, melainkan sebuah kamus ilmiah yang memiliki standar kalibrasi kimiawi di baliknya.
@@ -2665,9 +2572,6 @@ Keasaman (*Acidity*) adalah pilar paling dihargai dalam specialty coffee. Keasam
     title: "Identifikasi Defek Rasa (Cacat Kopi) & Lembar Penilaian Skor 80+",
     content: `
 # Identifikasi Defek Rasa & SCA Cupping Form
-
-![Identifikasi Defek Rasa (Cacat Kopi) & Lembar Penilaian Skor 80+](https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Identifikasi Cacat Fisik dan Defek Sensorik Biji Kopi — Sumber / Kredit: Coffee Quality Institute (CQI) Standards*
 
 Seorang pencicip kopi profesional tidak hanya bertugas memuji kopi yang enak; tugas yang jauh lebih krusial adalah **menjadi detektif cacat rasa (Defect Hunter)** untuk mencegah kopi bermutu buruk lolos ke pasar konsumen.
 
@@ -2757,9 +2661,6 @@ Total Skor Akhir = Skor Mentah – (Jumlah Mangkok Cacat x Nilai Penalti 2 atau 
     content: `
 # Resep Standar V60 Pemula: Rasio Emas 1:15
 
-![Resep Standar V60: Rasio Emas 1:15 & Panduan Tiga Kali Tuang](https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Ekstraksi Presisi Seduh Manual Pour-Over dengan Dripper V60 — Sumber / Kredit: World Brewers Cup Championship Archive*
-
 [DIAGRAM:brewing-control-chart]
 
 Menyeduh dengan Hario V60 di rumah adalah salah satu pengalaman paling menenangkan sekaligus menghasilkan secangkir kopi yang sangat aromatik.
@@ -2818,9 +2719,6 @@ Menyeduh dengan Hario V60 di rumah adalah salah satu pengalaman paling menenangk
     content: `
 # Memulai Home Brewing: Cara Membaca Label Kopi Specialty
 
-![Memulai Home Brewing: Dekonstruksi Informasi Label Kemasan Kopi Specialty](https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Identifikasi Asal-Usul dan Profil Rasa pada Kemasan Biji Kopi — Sumber / Kredit: Specialty Coffee Roasteries Directory*
-
 Bagi pemula yang baru memasuki dunia specialty coffee, membaca label pada kantong biji sangrai sering kali terasa membingungkan karena penuh istilah asing. Mari kita bedah setiap elemen pentingnya.
 
 ---
@@ -2863,9 +2761,6 @@ Bagi pemula yang baru memasuki dunia specialty coffee, membaca label pada kanton
     title: "Setup Alat Seduh Rumahan: Mengapa Burr Grinder Mengalahkan Mesin Jutaan",
     content: `
 # Setup Alat Seduh Rumahan: Hierarki Prioritas Investasi
-
-![Setup Alat Seduh Rumahan: Mengapa Burr Grinder Mengalahkan Mesin Jutaan](https://images.unsplash.com/photo-1589396575653-c09c794ff6a6?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Distribusi Ukuran Partikel dan Geometri Mata Pisau (Burr) Grinder — Sumber / Kredit: Specialty Coffee Brewing Equipment Standards*
 
 Banyak pemula mengira bahwa untuk menyeduh kopi nikmat di rumah, mereka harus membeli mesin espresso mahal. Dalam sains seduh, kenyataannya justru sebaliknya.
 
@@ -2911,9 +2806,6 @@ Banyak pemula mengira bahwa untuk menyeduh kopi nikmat di rumah, mereka harus me
     title: "Eksplorasi Lanjutan: Membedah Dinamika Seduhan Hario V60 vs Inverted Aeropress",
     content: `
 # V60 vs Inverted Aeropress: Dua Paradigma Seduh di Rumah
-
-![Eksplorasi Lanjutan: Membedah Dinamika Seduhan Hario V60 vs Inverted Aeropress](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
 
 Dua alat seduh paling populer di kalangan home brewer mewakili dua prinsip fisika ekstraksi yang sama sekali berbeda: **Perkolasi (*Percolation*)** versus **Imersi (*Immersion*)**.
 
@@ -2961,9 +2853,6 @@ Dua alat seduh paling populer di kalangan home brewer mewakili dua prinsip fisik
     title: "Sains Air Seduh Mandiri: Meracik Mineral Konsentrat Sederhana di Dapur",
     content: `
 # Meracik Air Seduh Sendiri di Rumah (DIY Water Chemistry)
-
-![Sains Air Seduh Mandiri: Meracik Mineral Konsentrat Sederhana di Dapur](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
 
 Pernahkah Anda menyeduh biji kopi yang sama dengan resep yang sama persis seperti di kafe langganan, namun rasanya hambar, berkapur, atau asam datar? Penyebab 90% kegagalan tersebut bukan pada tangan Anda, melainkan **kualitas air kran/air galon di rumah Anda**.
 
@@ -3014,9 +2903,6 @@ Ambil 1 liter air murni baru, tambahkan **8.0 gram Botol A** dan **8.0 gram Boto
     content: `
 # Resep Master Seduhan V60 Rumahan & Kalibrasi Pengecapan Lidah
 
-![Seduhan Emas Pertama: Resep Master V60 1:15 & Identifikasi Under vs Over Extraction di Lidah](https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Ekstraksi Presisi Seduh Manual Pour-Over dengan Dripper V60 — Sumber / Kredit: World Brewers Cup Championship Archive*
-
 Membuat secangkir kopi pour-over yang nikmat di rumah tidak membutuhkan mistisme. Yang Anda perlukan adalah satu resep dasar yang kokoh dan kepekaan lidah untuk mendeteksi kapan kopi kurang terekstraksi (*under-extracted*) atau diekstrak berlebihan (*over-extracted*).
 
 ---
@@ -3065,9 +2951,6 @@ Gunakan indra pengecap Anda untuk mengevaluasi hasil seduhan pagi ini:
     title: "Menebak Profil Rasa: Pengaruh Varietas Botani & Ketinggian MDPL pada Ekspektasi Seduh Rumahan",
     content: `
 # Membaca Karakter Biji: Varietas Botani & Elevasi Kebun
-
-![Menebak Profil Rasa: Pengaruh Varietas Botani & Ketinggian MDPL pada Ekspektasi Seduh Rumahan](https://images.unsplash.com/photo-1524350876685-274059332603?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Struktur Morfologi Botani Tanaman dan Biji Kopi — Sumber / Kredit: World Coffee Research (WCR)*
 
 Sebagai penikmat seduhan di rumah, Anda tidak perlu mencicipi kopi secara buta. Informasi varietas botani dan ketinggian tanam (MDPL) pada label kemasan sebenarnya adalah "peta bocoran rasa" yang sangat akurat.
 
@@ -3119,9 +3002,6 @@ Ketinggian kebun tempat pohon kopi tumbuh menentukan seberapa lambat buah kopi m
     title: "Protokol Cupping Mandiri di Dapur: Membandingkan 2 Origin dengan 3 Mangkuk Sederhana",
     content: `
 # Protokol Cupping Mandiri di Meja Dapur Rumah
-
-![Protokol Cupping Mandiri di Dapur: Membandingkan 2 Origin dengan 3 Mangkuk Sederhana](https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Sistem Reverse Osmosis dan Remineralisasi Air Bar Kopi — Sumber / Kredit: Specialty Coffee Technology Guild*
 
 Cupping bukan ritual sakral yang hanya boleh dilakukan oleh juri berlisensi Q-Grader. Ini adalah cara paling jujur dan objektif bagi penikmat kopi rumahan untuk membandingkan rasa dua biji kopi yang berbeda tanpa bias alat seduh atau filter kertas.
 
@@ -3178,9 +3058,6 @@ Anda tidak memerlukan mangkok cupping resmi berharga mahal:
     title: "Eksperimen Variabel Seduh: Pengaruh Suhu Air (88°C vs 94°C), Agitasi Swirl, & Jurnal Seduh",
     content: `
 # Laboratorium Eksperimen Rumahan: Suhu, Agitasi, & Jurnal Seduh
-
-![Eksperimen Variabel Seduh: Pengaruh Suhu Air (88°C vs 94°C), Agitasi Swirl, & Jurnal Seduh](https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Pengukuran TDS dan Keseimbangan Mineral Pelarut Kopi — Sumber / Kredit: SCA Water Quality Standard for Specialty Brewing*
 
 Daya tarik terbesar menyeduh kopi di rumah adalah kebebasan untuk bereksperimen. Dengan biji kopi yang sama persis, Anda bisa menciptakan dua cangkir dengan rasa yang bertolak belakang hanya dengan mengubah suhu air dan teknik agitasi.
 
@@ -3240,9 +3117,6 @@ Jangan mengandalkan ingatan! Catat 5 poin sederhana ini di buku saku atau ponsel
     content: `
 # Kreasi Es Kopi Susu & Cold Brew Rumahan Berkualitas Kafe
 
-![Kreasi Es Kopi Susu & Cold Brew Rumahan: Ekstraksi Dingin Konsentrat & Sirup Aren Organik](https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Seduhan Ekstraksi Dingin (Cold Brew) dan Konsentrat Minuman — Sumber / Kredit: Specialty Cold Beverage Innovation Lab*
-
 Banyak orang mengira es kopi susu nikmat hanya bisa dibuat menggunakan mesin espresso kafe jutaan rupiah. Nyatanya, dengan teknik perendaman dingin (*cold brew immersion*) yang tepat, Anda bisa meracik es kopi susu gula aren yang jauh lebih lembut dan ramah lambung di rumah.
 
 ---
@@ -3298,9 +3172,6 @@ Siapkan gelas saji transparan berukuran 350 ml:
     title: "Membangun Home Coffee Corner Idaman: Manajemen Budget, Perawatan Grinder, & Komunitas Brewer",
     content: `
 # Membangun Home Coffee Corner Idaman & Terkoneksi dengan Komunitas
-
-![Membangun Home Coffee Corner Idaman: Manajemen Budget, Perawatan Grinder, & Komunitas Brewer](https://images.unsplash.com/photo-1589396575653-c09c794ff6a6?w=1000&auto=format&fit=crop&q=80)
-*Ilustrasi / Foto: Distribusi Ukuran Partikel dan Geometri Mata Pisau (Burr) Grinder — Sumber / Kredit: Specialty Coffee Brewing Equipment Standards*
 
 Menciptakan sudut seduh kopi (*coffee corner*) di rumah adalah bentuk apresiasi terhadap ritual harian Anda. Tempat ini menjadi ruang relaksasi di mana sains dan seni bertemu setiap pagi.
 
