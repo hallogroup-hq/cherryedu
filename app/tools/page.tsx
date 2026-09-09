@@ -7,8 +7,7 @@ import { VarietyCompendium } from '@/components/VarietyCompendium';
 import { EspressoDialIn } from '@/components/EspressoDialIn';
 import { WaterCalculator } from '@/components/WaterCalculator';
 import { SCACuppingForm } from '@/components/SCACuppingForm';
-import { AudioNarrationPlayer } from '@/components/AudioNarrationPlayer';
-import { Wrench, Compass, Coffee, MapPin, Sparkles, Search, Filter, Mountain, Layers, Tag, GitFork, Gauge, Droplets, ClipboardCheck, Headphones } from 'lucide-react';
+import { Wrench, Compass, Coffee, MapPin, Sparkles, Search, Filter, Mountain, Layers, Tag, GitFork, Gauge, Droplets, ClipboardCheck } from 'lucide-react';
 
 interface CoffeeRegion {
   name: string;
@@ -245,7 +244,7 @@ const INDONESIAN_REGIONS: CoffeeRegion[] = [
 
 export default function ToolsPage() {
   const [activeTab, setActiveTab] = useState<
-    'calculator' | 'flavor-wheel' | 'listen-brew' | 'atlas' | 'varieties' | 'espresso-dial' | 'water-lab' | 'cupping-sheet'
+    'calculator' | 'flavor-wheel' | 'atlas' | 'varieties' | 'espresso-dial' | 'water-lab' | 'cupping-sheet'
   >('calculator');
   const [selectedIsland, setSelectedIsland] = useState<string>('Semua');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -287,7 +286,6 @@ export default function ToolsPage() {
           {[
             { id: 'calculator', label: 'Kalkulator Rasio', icon: Coffee },
             { id: 'flavor-wheel', label: 'Sensory Flavor Wheel', icon: Compass },
-            { id: 'listen-brew', label: 'Listen & Brew', icon: Headphones },
             { id: 'atlas', label: `Atlas Origin (${INDONESIAN_REGIONS.length})`, icon: MapPin },
             { id: 'varieties', label: 'Ensiklopedia Varietas', icon: GitFork },
             { id: 'espresso-dial', label: 'Espresso Dial-In', icon: Gauge },
@@ -317,51 +315,6 @@ export default function ToolsPage() {
       {/* Tab Content */}
       {activeTab === 'calculator' && <BrewCalculator />}
       {activeTab === 'flavor-wheel' && <FlavorWheel />}
-
-      {activeTab === 'listen-brew' && (
-        <div className="bg-paper-50 rounded-xl border border-paper-300 p-6 sm:p-8 shadow-subtle space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-paper-300">
-            <div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 border border-cherry-200">
-                  AUDIO COMPANION STUDIO
-                </span>
-                <span className="font-mono text-[10px] text-roast-500">SAMPLE SUARA NARATOR AKTIF</span>
-              </div>
-              <h3 className="font-serif font-bold text-2xl sm:text-3xl text-roast-950">
-                Mode Audio Narasi "Listen & Brew"
-              </h3>
-              <p className="text-xs sm:text-sm text-roast-600 mt-1 max-w-xl font-sans leading-relaxed">
-                Dengarkan panduan materi edukasi kopi sambil menyeduh langsung di meja bar tanpa perlu terus-menerus menatap layar perangkat.
-              </p>
-            </div>
-            <div className="font-mono text-xs text-cherry-800 bg-cherry-50 px-3 py-1.5 border border-cherry-200 rounded self-start sm:self-auto font-bold">
-              🎙️ Voice Sample Loaded
-            </div>
-          </div>
-
-          <AudioNarrationPlayer
-            title="Sesi Seduh Praktis: Kalibrasi Pour Over V60 & Cupping Sensori"
-            rawMarkdown={`Panduan penyeduhan kopi manual brew V60 dengan rasio 1:15. Persiapkan 15 gram bubuk kopi dengan gilingan medium-fine, air bertemperatur 92 derajat Celsius dengan TDS 120 ppm, serta timbangan digital dengan timer aktif. Tuangkan 45 gram air pertama untuk fase blooming selama 45 detik agar gas karbon dioksida terlepas sempurna. Lanjutkan dengan penuangan kedua secara melingkar halus hingga timbangan menyentuh 150 gram, dan selesaikan penuangan ketiga hingga total 225 gram air.`}
-            voiceId="g5qo9W2NML9NbxhWCq3R"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-paper-200 text-xs">
-            <div className="bg-white p-4 rounded-xl border border-paper-200 space-y-1">
-              <span className="font-mono text-[10px] uppercase text-roast-400 font-bold block">1. HANDS-FREE WORKFLOW</span>
-              <p className="text-roast-700 leading-snug">Barista dan brewer dapat berkonsentrasi penuh pada teknik pouring, agitasi, dan pengamatan flow rate tanpa terganggu layar ponsel.</p>
-            </div>
-            <div className="bg-white p-4 rounded-xl border border-paper-200 space-y-1">
-              <span className="font-mono text-[10px] uppercase text-roast-400 font-bold block">2. VOICE SAMPLE ASLI</span>
-              <p className="text-roast-700 leading-snug">Dilengkapi rekaman sampel suara narasi natural bersuara jernih dengan kontrol kecepatan (0.85x - 1.5x) dan pemutaran interaktif.</p>
-            </div>
-            <div className="bg-white p-4 rounded-xl border border-paper-200 space-y-1">
-              <span className="font-mono text-[10px] uppercase text-roast-400 font-bold block">3. DUA PILIHAN SUMBER</span>
-              <p className="text-roast-700 leading-snug">Bisa beralih sewaktu-waktu antara audio sampel rekaman suara asli dan engine TTS AI otomatis untuk membaca seluruh isi artikel materi.</p>
-            </div>
-          </div>
-        </div>
-      )}
 
       {activeTab === 'atlas' && (
         <div className="space-y-8">
