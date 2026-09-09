@@ -343,7 +343,7 @@ export default function ToolsPage() {
           <AudioNarrationPlayer
             title="Sesi Seduh Praktis: Kalibrasi Pour Over V60 & Cupping Sensori"
             rawMarkdown={`Panduan penyeduhan kopi manual brew V60 dengan rasio 1:15. Persiapkan 15 gram bubuk kopi dengan gilingan medium-fine, air bertemperatur 92 derajat Celsius dengan TDS 120 ppm, serta timbangan digital dengan timer aktif. Tuangkan 45 gram air pertama untuk fase blooming selama 45 detik agar gas karbon dioksida terlepas sempurna. Lanjutkan dengan penuangan kedua secara melingkar halus hingga timbangan menyentuh 150 gram, dan selesaikan penuangan ketiga hingga total 225 gram air.`}
-            audioSrc="/audio/sample_narration.mp3"
+            voiceId="g5qo9W2NML9NbxhWCq3R"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-paper-200 text-xs">

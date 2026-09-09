@@ -8,20 +8,25 @@ import {
   RotateCcw,
   Volume2,
   VolumeX,
-  Gauge,
   Sparkles,
   FileText,
   ChevronDown,
   ChevronUp,
   Mic,
   Cpu,
+  Loader2,
+  AlertCircle,
+  KeyRound,
+  Check,
 } from 'lucide-react';
 
 interface AudioNarrationPlayerProps {
   title: string;
   rawMarkdown: string;
-  audioSrc?: string;
+  voiceId?: string;
 }
+
+const DEFAULT_ELEVENLABS_VOICE_ID = 'g5qo9W2NML9NbxhWCq3R';
 
 function cleanMarkdownForSpeech(md: string): string {
   if (!md) return '';
@@ -32,7 +37,7 @@ function cleanMarkdownForSpeech(md: string): string {
     .replace(/`([^`]+)`/g, '$1')
     .replace(/#{1,6}\s+/g, '')
     .replace(/>\s+/g, '')
-    .replace(/^[*\-+]\s+/gm, '')
+    .replace(/^[*-+]\s+/gm, '')
     .replace(/^\d+\.\s+/gm, '')
     .replace(/[*_]{1,3}([^*_]+)[*_]{1,3}/g, '$1')
     .replace(/\[DIAGRAM:[^\]]+\]/g, '')
@@ -51,79 +56,97 @@ function formatTime(seconds: number): string {
 export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
   title,
   rawMarkdown,
-  audioSrc = '/audio/sample_narration.mp3',
+  voiceId = DEFAULT_ELEVENLABS_VOICE_ID,
 }) => {
-  // Audio source mode: 'sample' (uploaded recorded human voice) or 'tts' (Web Speech API)
-  const [audioMode, setAudioMode] = useState<'sample' | 'tts'>('sample');
+  const [engine, setEngine] = useState<'elevenlabs' | 'browser'>('elevenlabs');
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [isLoadingAudio, setIsLoadingAudio] = useState(false);
   const [playbackRate, setPlaybackRate] = useState<number>(1.0);
   const [currentTime, setCurrentTime] = useState<number>(0);
-  const [duration, setDuration] = useState<number>(31); // sample is ~31 seconds
+  const [duration, setDuration] = useState<number>(0);
   const [isMuted, setIsMuted] = useState(false);
   const [showTranscript, setShowTranscript] = useState(false);
-  const [isTtsSupported, setIsTtsSupported] = useState(true);
+  const [audioBlobUrl, setAudioBlobUrl] = useState<string | null>(null);
+  const [apiError, setApiError] = useState<string | null>(null);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
   const cleanedTextRef = useRef<string>('');
 
-  // Sample voice transcript for user reference
-  const sampleTranscript =
-    'Hah? Enggak, aku enggak bilang gitu. Ya, maksud aku, mungkin, tapi beda. Eh, jangan lihatin aku kayak gitu. Aku cuma mau lihat-lihat tadi, terus yang ini lucu. Hmm, bentar. Oke, ini agak mahal sih, tapi kalau dipikir-pikir... enggak deh, jangan dipikir-pikir. Hahaha. Ya udah, aku ambil! Apa? I know, I know. Tadi aku bilang enggak mau beli. Orang boleh berubah pikiran kali. Ini namanya character development. Udah, jangan dibahas. Eh, habis ini ngopi yuk! Aku belum minum kopi dari tadi, pantes agak eror.';
-
   useEffect(() => {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
-      setIsTtsSupported(false);
-    }
-    cleanedTextRef.current = `${title}. ${cleanMarkdownForSpeech(rawMarkdown)}`;
+    // Generate a concise, natural narration script from the lesson title & intro
+    const cleaned = cleanMarkdownForSpeech(rawMarkdown);
+    // Take first ~600-800 characters for an optimal audio lesson snippet
+    const snippet = cleaned.length > 750 ? cleaned.slice(0, 750) + '...' : cleaned;
+    cleanedTextRef.current = `Selamat datang di mode Listen and Brew CherryEdu. Kita akan mempelajari materi: ${title}. ${snippet}`;
 
+    // Clean up created object URL on unmount
     return () => {
+      if (audioBlobUrl) {
+        URL.revokeObjectURL(audioBlobUrl);
+      }
       if (typeof window !== 'undefined' && window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
     };
-  }, [title, rawMarkdown]);
+  }, [title, rawMarkdown, audioBlobUrl]);
 
-  // Handle Mode Change
-  const handleModeChange = (mode: 'sample' | 'tts') => {
-    // Stop any currently playing audio
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
+  // --- ELEVENLABS VOICE CLONE TTS FETCH ---
+  const fetchAndPlayElevenLabs = async () => {
+    if (audioBlobUrl && audioRef.current) {
+      // Audio already fetched, just play
+      audioRef.current.playbackRate = playbackRate;
+      audioRef.current.play();
+      setIsPlaying(true);
+      setIsPaused(false);
+      return;
     }
-    if (typeof window !== 'undefined' && window.speechSynthesis) {
-      window.speechSynthesis.cancel();
+
+    setIsLoadingAudio(true);
+    setApiError(null);
+
+    try {
+      const response = await fetch('/api/tts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          text: cleanedTextRef.current,
+          voiceId: voiceId,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        if (errorData.error === 'MISSING_API_KEY') {
+          setApiError('MISSING_API_KEY');
+        } else {
+          setApiError(errorData.message || 'Gagal menghasilkan audio dari ElevenLabs');
+        }
+        setIsLoadingAudio(false);
+        return;
+      }
+
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      setAudioBlobUrl(url);
+
+      if (audioRef.current) {
+        audioRef.current.src = url;
+        audioRef.current.playbackRate = playbackRate;
+        audioRef.current.play();
+        setIsPlaying(true);
+        setIsPaused(false);
+      }
+    } catch (err: any) {
+      console.error('TTS fetch error:', err);
+      setApiError(err.message || 'Terjadi kesalahan saat memanggil server');
+    } finally {
+      setIsLoadingAudio(false);
     }
-    setIsPlaying(false);
-    setIsPaused(false);
-    setCurrentTime(0);
-    setAudioMode(mode);
   };
 
-  // --- AUDIO SAMPLE LOGIC (HTML5 Audio) ---
-  const togglePlaySample = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    if (isPlaying) {
-      audio.pause();
-      setIsPlaying(false);
-      setIsPaused(true);
-    } else {
-      audio.playbackRate = playbackRate;
-      audio
-        .play()
-        .then(() => {
-          setIsPlaying(true);
-          setIsPaused(false);
-        })
-        .catch((err) => {
-          console.error('Audio playback failed:', err);
-        });
-    }
-  };
-
+  // --- HTML5 AUDIO EVENT HANDLERS ---
   const handleAudioTimeUpdate = () => {
     if (audioRef.current) {
       setCurrentTime(audioRef.current.currentTime);
@@ -145,17 +168,17 @@ export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newTime = parseFloat(e.target.value);
     setCurrentTime(newTime);
-    if (audioMode === 'sample' && audioRef.current) {
+    if (audioRef.current) {
       audioRef.current.currentTime = newTime;
     }
   };
 
   const handleSpeedChange = (rate: number) => {
     setPlaybackRate(rate);
-    if (audioMode === 'sample' && audioRef.current) {
+    if (engine === 'elevenlabs' && audioRef.current) {
       audioRef.current.playbackRate = rate;
-    } else if (audioMode === 'tts' && isPlaying && !isPaused) {
-      startSpeakingTts(rate);
+    } else if (engine === 'browser' && isPlaying && !isPaused) {
+      startBrowserTts(rate);
     }
   };
 
@@ -167,7 +190,7 @@ export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
   };
 
   const handleReset = () => {
-    if (audioMode === 'sample' && audioRef.current) {
+    if (engine === 'elevenlabs' && audioRef.current) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
     } else if (typeof window !== 'undefined' && window.speechSynthesis) {
@@ -178,8 +201,8 @@ export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
     setCurrentTime(0);
   };
 
-  // --- TTS SPEECH SYNTHESIS LOGIC ---
-  const startSpeakingTts = (rate: number = playbackRate) => {
+  // --- BROWSER WEB SPEECH FALLBACK ---
+  const startBrowserTts = (rate: number = playbackRate) => {
     if (typeof window === 'undefined' || !window.speechSynthesis) return;
 
     window.speechSynthesis.cancel();
@@ -189,18 +212,14 @@ export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'id-ID';
     utterance.rate = rate;
-    utterance.pitch = 1.0;
 
     const voices = window.speechSynthesis.getVoices();
     const idVoice = voices.find((v) => v.lang.startsWith('id') || v.lang.includes('ID'));
-    if (idVoice) {
-      utterance.voice = idVoice;
-    }
+    if (idVoice) utterance.voice = idVoice;
 
     utterance.onend = () => {
       setIsPlaying(false);
       setIsPaused(false);
-      setCurrentTime(duration);
     };
 
     utterance.onerror = () => {
@@ -214,9 +233,8 @@ export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
     setIsPaused(false);
   };
 
-  const togglePlayTts = () => {
-    if (!isTtsSupported || typeof window === 'undefined') return;
-
+  const toggleBrowserTts = () => {
+    if (typeof window === 'undefined' || !window.speechSynthesis) return;
     if (isPlaying) {
       if (isPaused) {
         window.speechSynthesis.resume();
@@ -226,33 +244,39 @@ export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
         setIsPaused(true);
       }
     } else {
-      startSpeakingTts(playbackRate);
+      startBrowserTts(playbackRate);
     }
   };
 
-  const handleMainToggle = () => {
-    if (audioMode === 'sample') {
-      togglePlaySample();
+  // --- MAIN TOGGLE PLAY/PAUSE ---
+  const handleTogglePlay = () => {
+    if (engine === 'elevenlabs') {
+      if (isPlaying) {
+        if (audioRef.current) {
+          audioRef.current.pause();
+        }
+        setIsPlaying(false);
+        setIsPaused(true);
+      } else {
+        fetchAndPlayElevenLabs();
+      }
     } else {
-      togglePlayTts();
+      toggleBrowserTts();
     }
   };
-
-  const progressPercent = duration > 0 ? Math.min(100, (currentTime / duration) * 100) : 0;
 
   return (
     <div className="my-6 rounded-2xl border border-cherry-200/80 bg-gradient-to-br from-paper-50 via-amber-50/40 to-crema-100/30 p-4 sm:p-5 shadow-sm not-prose">
-      {/* Hidden HTML5 Audio Element for Real Voice Sample */}
+      {/* Hidden HTML5 Audio Element for ElevenLabs stream */}
       <audio
         ref={audioRef}
-        src={audioSrc}
         preload="metadata"
         onTimeUpdate={handleAudioTimeUpdate}
         onLoadedMetadata={handleAudioLoadedMetadata}
         onEnded={handleAudioEnded}
       />
 
-      {/* 1. Header Bar: Branding, Mode Switcher & Status */}
+      {/* 1. Header Bar: Branding, Engine Selector & Status */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-paper-200/80">
         <div className="flex items-center gap-3">
           <div
@@ -270,64 +294,107 @@ export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
               <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-cherry-800 bg-cherry-100/80 px-2 py-0.5 rounded border border-cherry-200">
                 MODE LISTEN & BREW
               </span>
+              <span className="font-mono text-[10px] text-roast-500 font-bold bg-white px-2 py-0.5 rounded border border-paper-300">
+                VOICE CLONE: {voiceId.slice(0, 8)}…
+              </span>
               {isPlaying && !isPaused ? (
                 <span className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-700 font-semibold">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-                  Memutar Narasi Audio
+                  Memutar Narasi
                 </span>
               ) : isPaused ? (
                 <span className="text-[11px] font-mono text-amber-700 font-semibold">(Dijeda)</span>
-              ) : (
-                <span className="text-[10px] font-mono text-roast-400">Siap Diputar</span>
-              )}
+              ) : null}
             </div>
             <p className="text-xs text-roast-600 font-sans mt-0.5">
-              Dengarkan materi sambil praktik seduh di bar kopi tanpa harus menatap layar.
+              Dengarkan materi ini dengan suara narator kloning Anda saat menyeduh kopi.
             </p>
           </div>
         </div>
 
-        {/* Audio Mode Switcher: Sample Suara Asli vs TTS AI */}
+        {/* Engine Switcher */}
         <div className="flex items-center bg-white border border-paper-300 rounded-lg p-0.5 text-xs font-mono self-start sm:self-auto shadow-2xs">
           <button
             type="button"
-            onClick={() => handleModeChange('sample')}
+            onClick={() => {
+              handleReset();
+              setEngine('elevenlabs');
+            }}
             className={`px-2.5 py-1.5 rounded flex items-center gap-1.5 transition-all ${
-              audioMode === 'sample'
+              engine === 'elevenlabs'
                 ? 'bg-cherry-700 text-white font-bold shadow-xs'
                 : 'text-roast-600 hover:text-roast-950 hover:bg-paper-100'
             }`}
-            title="Gunakan sampel rekaman suara narator asli"
+            title="Kloning suara narator kustom via ElevenLabs"
           >
             <Mic className="w-3.5 h-3.5" />
-            <span>Sample Suara</span>
+            <span>ElevenLabs Voice</span>
           </button>
           <button
             type="button"
-            onClick={() => handleModeChange('tts')}
+            onClick={() => {
+              handleReset();
+              setEngine('browser');
+            }}
             className={`px-2.5 py-1.5 rounded flex items-center gap-1.5 transition-all ${
-              audioMode === 'tts'
+              engine === 'browser'
                 ? 'bg-roast-950 text-white font-bold shadow-xs'
                 : 'text-roast-600 hover:text-roast-950 hover:bg-paper-100'
             }`}
-            title="Gunakan pembaca suara otomatis AI untuk seluruh teks materi"
+            title="Gunakan TTS bawaan peramban (Web Speech)"
           >
             <Cpu className="w-3.5 h-3.5" />
-            <span>TTS Sintesis AI</span>
+            <span>Web Speech</span>
           </button>
         </div>
       </div>
 
-      {/* 2. Waveform Visualizer & Scrub Bar */}
+      {/* 2. API Key Warning Notice if not yet provided in server environment */}
+      {apiError === 'MISSING_API_KEY' && (
+        <div className="mt-3 p-3.5 rounded-xl bg-amber-50 border border-amber-300 text-xs text-amber-900 space-y-2">
+          <div className="flex items-start gap-2 font-semibold">
+            <AlertCircle className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+            <div>
+              <span>ELEVENLABS_API_KEY Belum Dikonfigurasi di Server</span>
+              <p className="text-[11px] font-normal text-amber-800 mt-0.5 leading-relaxed">
+                Voice ID kloning suara Anda (<code>{voiceId}</code>) sudah siap dihubungkan. Tambahkan kunci API ke file <code>.env.local</code> agar server dapat memanggil model suara klon Anda.
+              </p>
+            </div>
+          </div>
+          <div className="bg-amber-100/70 p-2.5 rounded-lg border border-amber-200 font-mono text-[11px] text-amber-950 select-all">
+            ELEVENLABS_API_KEY=sk_your_api_key_here
+          </div>
+          <div className="flex items-center justify-between pt-1 text-[11px]">
+            <span className="text-amber-700 italic">Sementara ini Anda bisa mendengarkan lewat engine <strong>Web Speech</strong>.</span>
+            <button
+              type="button"
+              onClick={() => {
+                setEngine('browser');
+                setApiError(null);
+                toggleBrowserTts();
+              }}
+              className="px-3 py-1 bg-amber-900 text-white rounded font-mono font-bold hover:bg-amber-800 transition-colors"
+            >
+              Putar via Web Speech
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* 3. Waveform Visualizer & Scrub Bar */}
       <div className="py-3 space-y-2">
         <div className="flex items-center justify-between text-[11px] font-mono text-roast-600">
           <div className="flex items-center gap-2">
             <span className="font-bold text-roast-900">{formatTime(currentTime)}</span>
-            <span>/</span>
-            <span>{formatTime(duration)}</span>
+            {duration > 0 && (
+              <>
+                <span>/</span>
+                <span>{formatTime(duration)}</span>
+              </>
+            )}
           </div>
 
-          {/* Animated Waveform Bars when playing */}
+          {/* Animated Waveform Bars */}
           <div className="flex items-end gap-0.5 h-4 px-2">
             {[40, 75, 55, 90, 65, 100, 50, 80, 45, 95, 60, 85].map((height, idx) => (
               <span
@@ -343,34 +410,41 @@ export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
             ))}
           </div>
 
-          <span className="text-[10px] text-roast-400 uppercase tracking-wider">
-            {audioMode === 'sample' ? 'Sample Suara Narator' : 'Speech Synthesis AI'}
+          <span className="text-[10px] text-roast-500 uppercase tracking-wider font-semibold">
+            {engine === 'elevenlabs' ? 'Voice Clone Narator AI' : 'Speech Synthesis Browser'}
           </span>
         </div>
 
-        {/* Interactive Scrub Slider */}
-        <input
-          type="range"
-          min="0"
-          max={duration || 100}
-          step="0.1"
-          value={currentTime}
-          onChange={handleSeek}
-          disabled={audioMode === 'tts'}
-          className="w-full h-2 bg-paper-200 rounded-lg appearance-none cursor-pointer accent-cherry-700 disabled:opacity-50"
-        />
+        {/* Interactive Scrub Slider (Active for ElevenLabs audio) */}
+        {engine === 'elevenlabs' && duration > 0 && (
+          <input
+            type="range"
+            min="0"
+            max={duration || 100}
+            step="0.1"
+            value={currentTime}
+            onChange={handleSeek}
+            className="w-full h-2 bg-paper-200 rounded-lg appearance-none cursor-pointer accent-cherry-700"
+          />
+        )}
       </div>
 
-      {/* 3. Controls Bottom Bar: Play, Stop, Speed, Mute, Transcript Toggle */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+      {/* 4. Controls Bar */}
+      <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
         <div className="flex items-center gap-2">
           {/* Main Play / Pause Button */}
           <button
             type="button"
-            onClick={handleMainToggle}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-cherry-700 hover:bg-cherry-800 text-white font-mono text-xs uppercase font-bold tracking-wider shadow-sm transition-all active:scale-95"
+            disabled={isLoadingAudio}
+            onClick={handleTogglePlay}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-cherry-700 hover:bg-cherry-800 disabled:opacity-60 text-white font-mono text-xs uppercase font-bold tracking-wider shadow-sm transition-all active:scale-95"
           >
-            {isPlaying && !isPaused ? (
+            {isLoadingAudio ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin text-white" />
+                <span>Menyiapkan Audio…</span>
+              </>
+            ) : isPlaying && !isPaused ? (
               <>
                 <Pause className="w-4 h-4 fill-white" />
                 <span>Jeda</span>
@@ -378,7 +452,7 @@ export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
             ) : (
               <>
                 <Play className="w-4 h-4 fill-white" />
-                <span>{currentTime > 0 ? 'Lanjutkan' : 'Dengarkan Audio'}</span>
+                <span>{currentTime > 0 ? 'Lanjutkan' : 'Dengarkan Narasi'}</span>
               </>
             )}
           </button>
@@ -389,14 +463,14 @@ export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
               type="button"
               onClick={handleReset}
               className="p-2.5 rounded-xl bg-white hover:bg-paper-200 text-roast-700 border border-paper-300 transition-colors shadow-2xs"
-              title="Reset Audio dari Awal"
+              title="Reset dari Awal"
             >
               <RotateCcw className="w-4 h-4" />
             </button>
           )}
 
-          {/* Mute Toggle (for sample audio) */}
-          {audioMode === 'sample' && (
+          {/* Mute Toggle */}
+          {engine === 'elevenlabs' && (
             <button
               type="button"
               onClick={handleToggleMute}
@@ -434,26 +508,26 @@ export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
             className="flex items-center gap-1.5 px-3 py-2 text-xs font-mono border border-paper-300 rounded-lg bg-white text-roast-700 hover:border-roast-400 transition-colors shadow-2xs"
           >
             <FileText className="w-3.5 h-3.5 text-cherry-700" />
-            <span>Naskah</span>
+            <span>Naskah Narasi</span>
             {showTranscript ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
           </button>
         </div>
       </div>
 
-      {/* 4. Collapsible Transcript Box */}
+      {/* 5. Collapsible Transcript Box */}
       {showTranscript && (
         <div className="mt-3 pt-3 border-t border-paper-200 text-xs font-sans animate-in fade-in duration-200">
           <div className="bg-white p-3.5 rounded-xl border border-paper-200 space-y-1.5 shadow-2xs">
             <div className="flex items-center justify-between">
               <span className="font-mono text-[10px] uppercase font-bold text-cherry-800">
-                {audioMode === 'sample' ? 'Naskah Suara Sampel Asli:' : 'Ringkasan Narasi Materi:'}
+                Naskah Audio yang Dibacakan:
               </span>
               <span className="font-mono text-[10px] text-roast-400">
-                {audioMode === 'sample' ? 'Sample Audio Percakapan' : 'Text-to-Speech AI'}
+                Voice ID: {voiceId}
               </span>
             </div>
-            <p className="text-roast-800 italic leading-relaxed bg-paper-50 p-2.5 rounded-lg border border-paper-200">
-              &ldquo;{audioMode === 'sample' ? sampleTranscript : `${title}. ${cleanMarkdownForSpeech(rawMarkdown).slice(0, 320)}...`}&rdquo;
+            <p className="text-roast-800 leading-relaxed bg-paper-50 p-3 rounded-lg border border-paper-200 font-sans">
+              {cleanedTextRef.current}
             </p>
           </div>
         </div>
