@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
 import {
   Clock,
@@ -20,6 +20,7 @@ import {
 
 export default function PathDetailPage() {
   const params = useParams();
+  const router = useRouter();
   const slug = params.slug as string;
 
   const {
@@ -28,6 +29,7 @@ export default function PathDetailPage() {
     lessons,
     quizzes,
     currentUser,
+    isAuthenticated,
     enrollments,
     enrollInPath,
     canEnrollInPath,
@@ -70,6 +72,10 @@ export default function PathDetailPage() {
   };
 
   const handleEnroll = (bypass: boolean = false) => {
+    if (!isAuthenticated) {
+      router.push(`/login?redirect=/paths/${path.slug}`);
+      return;
+    }
     const res = enrollInPath(path.id, bypass);
     if (!res.success && !bypass) {
       alert(res.message);

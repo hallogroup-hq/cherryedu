@@ -8,7 +8,7 @@ import { ShareModal } from '@/components/ShareModal';
 import { Award, BookOpen, Sparkles, ShieldCheck } from 'lucide-react';
 
 export default function CertificatesGalleryPage() {
-  const { currentUser, certificates } = useCherryEdu();
+  const { currentUser, certificates, isAuthenticated } = useCherryEdu();
   const [selectedCertForShare, setSelectedCertForShare] = useState<any | null>(null);
 
   const userCerts = certificates.filter((c) => c.user_id === currentUser.id);
@@ -33,7 +33,37 @@ export default function CertificatesGalleryPage() {
         </p>
       </div>
 
-      {userCerts.length > 0 ? (
+      {!isAuthenticated ? (
+        /* Guest State */
+        <div className="bg-paper-50 border border-paper-400 p-8 sm:p-12 text-center shadow-xs max-w-lg mx-auto">
+          <div className="w-12 h-12 border border-paper-400 bg-paper-200 text-roast-600 flex items-center justify-center mx-auto mb-4">
+            <Award className="w-6 h-6" />
+          </div>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-roast-500 block font-semibold mb-1">
+            [ PORTAL KREDENSIAL PEMBELAJAR ]
+          </span>
+          <h3 className="font-serif text-xl font-bold text-roast-950 mb-2">
+            Masuk untuk Melihat Sertifikat Anda
+          </h3>
+          <p className="font-sans text-xs text-roast-600 leading-relaxed mb-6">
+            Masuk atau daftarkan akun CherryEdu untuk mengakses seluruh portofolio diploma dan sertifikat kelulusan yang telah Anda raih.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              href="/login?redirect=/certificates"
+              className="w-full sm:w-auto px-5 py-2.5 bg-roast-950 hover:bg-roast-850 text-white font-bold text-xs rounded-lg transition"
+            >
+              Masuk ke Akun
+            </Link>
+            <Link
+              href="/register"
+              className="w-full sm:w-auto px-5 py-2.5 bg-white border border-paper-400 hover:bg-paper-100 text-roast-900 font-bold text-xs rounded-lg transition"
+            >
+              Daftar Akun Baru
+            </Link>
+          </div>
+        </div>
+      ) : userCerts.length > 0 ? (
         <div className="space-y-12">
           {userCerts.map((cert) => (
             <div key={cert.id} className="space-y-4">

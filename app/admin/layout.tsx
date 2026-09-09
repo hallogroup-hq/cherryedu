@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth';
+import { useCherryEdu } from '@/lib/store';
 import {
   LayoutDashboard,
   BarChart3,
@@ -24,6 +25,8 @@ import {
   HelpCircle,
   Palette,
   GripVertical,
+  ShieldCheck,
+  AlertTriangle,
 } from 'lucide-react';
 
 interface NavItem {
@@ -59,7 +62,9 @@ const navItems: NavItem[] = [
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
-  const { user, signOut } = useAuth();
+  const { user, loading: authLoading, signOut } = useAuth();
+  const { currentUser, isAuthenticated } = useCherryEdu();
+
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [expandedItems, setExpandedItems] = useState<string[]>(['/admin/curriculum']);
   const [notifOpen, setNotifOpen] = useState(false);
@@ -79,6 +84,92 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     await signOut();
     router.push('/login');
   };
+
+  // 1. Loading State
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-[#F5F3EE] flex items-center justify-center p-4">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-8 h-8 border-3 border-roast-900 border-t-transparent rounded-full animate-spin" />
+          <span className="text-xs font-mono text-roast-700 uppercase tracking-widest font-semibold">
+            Memverifikasi Hak Akses Administrator...
+          </span>
+        </div>
+      </div>
+    );
+  }
+
+  // 2. Unauthenticated Barrier
+  if (!isAuthenticated || !user) {
+    return (
+      <div className="min-h-screen bg-[#F5F3EE] flex items-center justify-center p-4">
+        <div className="w-full max-w-md bg-white border border-paper-400 p-8 text-center rounded-2xl shadow-elevated">
+          <div className="w-14 h-14 bg-cherry-50 text-cherry-700 rounded-full flex items-center justify-center mx-auto mb-4 border border-cherry-200">
+            <ShieldCheck className="w-7 h-7" />
+          </div>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-roast-500 font-bold block mb-2">
+            [ KONSOL PENGELOLA CHERRYEDU ]
+          </span>
+          <h2 className="font-serif font-bold text-2xl text-roast-950 mb-2">
+            Akses Terbatas Administrator
+          </h2>
+          <p className="text-xs text-roast-600 leading-relaxed mb-6 font-sans">
+            Panel ini hanya dapat diakses oleh tim pengelola kurikulum, roastery, dan administrator CherryEdu. Silakan masuk dengan akun resmi Anda.
+          </p>
+          <div className="space-y-2.5">
+            <Link
+              href="/login?redirect=/admin"
+              className="block w-full py-3 bg-roast-950 hover:bg-roast-850 text-white font-bold text-xs rounded-lg transition shadow-xs text-center"
+            >
+              Masuk sebagai Administrator
+            </Link>
+            <Link
+              href="/"
+              className="block w-full py-2.5 text-xs text-roast-600 hover:text-roast-950 transition font-mono text-center"
+            >
+              ← Kembali ke Halaman Utama
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 3. Unauthorized Role Barrier (Logged in as student/barista/learner)
+  if (currentUser.role !== 'admin') {
+    return (
+      <div className="min-h-screen bg-[#F5F3EE] flex items-center justify-center p-4">
+        <div className="w-full max-w-md bg-white border border-paper-400 p-8 text-center rounded-2xl shadow-elevated">
+          <div className="w-14 h-14 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4 border border-amber-200">
+            <AlertTriangle className="w-7 h-7" />
+          </div>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-roast-500 font-bold block mb-2">
+            [ 403 AKSES DITOLAK ]
+          </span>
+          <h2 className="font-serif font-bold text-2xl text-roast-950 mb-2">
+            Hak Akses Tidak Mencukupi
+          </h2>
+          <p className="text-xs text-roast-600 leading-relaxed mb-6 font-sans">
+            Anda saat ini masuk sebagai <strong className="text-roast-950">{currentUser.name}</strong> ({currentUser.coffee_role || currentUser.role}). Akun Anda tidak memiliki izin untuk mengelola konsol internal ini.
+          </p>
+          <div className="space-y-2.5">
+            <Link
+              href="/"
+              className="block w-full py-2.5 bg-roast-950 hover:bg-roast-850 text-white font-bold text-xs rounded-lg transition text-center"
+            >
+              Kembali ke Beranda
+            </Link>
+            <button
+              onClick={handleSignOut}
+              className="block w-full py-2.5 border border-paper-400 hover:bg-paper-100 text-roast-900 font-bold text-xs rounded-lg transition text-center"
+            >
+              Ganti Akun Lain
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#F5F3EE] flex">

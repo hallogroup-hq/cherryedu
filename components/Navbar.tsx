@@ -30,9 +30,11 @@ import {
 export const Navbar: React.FC = () => {
   const pathname = usePathname();
   const router = useRouter();
-  const { currentUser, bookmarks } = useCherryEdu();
+  const { currentUser, bookmarks, isAuthenticated } = useCherryEdu();
   const { user, signOut } = useAuth();
   
+  const userBookmarks = bookmarks.filter((b) => b.user_id === currentUser.id);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
   const [communityDropdownOpen, setCommunityDropdownOpen] = useState(false);
@@ -284,89 +286,100 @@ export const Navbar: React.FC = () => {
 
           {/* Right Status & Controls */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Unified Sleek Stats Pill (Streak + XP in One Compact Badge) */}
-            <div
-              className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-paper-100/90 border border-paper-300 text-roast-900 text-xs font-mono shadow-2xs"
-              title={`${currentUser.streak_count} hari berturut-turut | ${currentUser.xp_points} XP`}
-            >
-              <div className="flex items-center gap-1">
-                <Flame className="w-3.5 h-3.5 text-crema-600 fill-crema-500" />
-                <span className="font-bold">{currentUser.streak_count}d</span>
-              </div>
-              <span className="text-paper-400 select-none">•</span>
-              <div className="flex items-center gap-1">
-                <Zap className="w-3 h-3 text-cherry-700 fill-cherry-700" />
-                <span className="font-bold">{currentUser.xp_points}</span>
-                <span className="text-[10px] text-roast-500 font-sans">XP</span>
-              </div>
-            </div>
+            {isAuthenticated ? (
+              <>
+                {/* Unified Sleek Stats Pill (Streak + XP in One Compact Badge) */}
+                <div
+                  className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-paper-100/90 border border-paper-300 text-roast-900 text-xs font-mono shadow-2xs"
+                  title={`${currentUser.streak_count} hari berturut-turut | ${currentUser.xp_points} XP`}
+                >
+                  <div className="flex items-center gap-1">
+                    <Flame className="w-3.5 h-3.5 text-crema-600 fill-crema-500" />
+                    <span className="font-bold">{currentUser.streak_count}d</span>
+                  </div>
+                  <span className="text-paper-400 select-none">•</span>
+                  <div className="flex items-center gap-1">
+                    <Zap className="w-3 h-3 text-cherry-700 fill-cherry-700" />
+                    <span className="font-bold">{currentUser.xp_points}</span>
+                    <span className="text-[10px] text-roast-500 font-sans">XP</span>
+                  </div>
+                </div>
 
-            {/* Bookmark Link */}
-            <Link
-              href="/profile?tab=bookmarks"
-              className="relative hidden sm:block p-1.5 text-roast-600 hover:text-roast-950 hover:bg-paper-200/50 rounded-md transition-colors"
-              title="Materi Disimpan"
-            >
-              <Bookmark className="w-4 h-4" />
-              {bookmarks.length > 0 && (
-                <span className="absolute top-1 right-1 w-1.5 h-1.5 bg-cherry-700 rounded-full" />
-              )}
-            </Link>
-
-            {/* Certificate Link */}
-            <Link
-              href="/certificates"
-              className="p-1.5 text-roast-600 hover:text-roast-950 hover:bg-paper-200/50 rounded-md transition-colors hidden sm:block"
-              title="Koleksi Sertifikat"
-            >
-              <Award className="w-4 h-4" />
-            </Link>
-
-            {/* Admin Console Quick Button */}
-            {currentUser.role === 'admin' && (
-              <Link
-                href="/admin"
-                className="px-2.5 py-1 bg-roast-950 hover:bg-roast-900 text-paper-50 font-mono text-[10px] uppercase font-bold tracking-wider rounded-md transition-colors hidden sm:flex items-center gap-1 border border-roast-800"
-                title="Buka Konsol Pengelola & Tim Internal"
-              >
-                <span>[ ADMIN ]</span>
-              </Link>
-            )}
-
-            <div className="h-5 w-px bg-paper-300 mx-0.5 hidden sm:block" />
-
-            {/* Auth Section */}
-            {user ? (
-              <div className="flex items-center gap-1.5">
+                {/* Bookmark Link */}
                 <Link
-                  href="/profile"
-                  className="flex items-center gap-2 px-2.5 py-1.5 rounded-md border border-paper-300 bg-white hover:border-roast-400 transition-colors"
-                  title="Profil Saya"
+                  href="/profile?tab=bookmarks"
+                  className="relative hidden sm:block p-1.5 text-roast-600 hover:text-roast-950 hover:bg-paper-200/50 rounded-md transition-colors"
+                  title="Materi Disimpan"
                 >
-                  <UserCircle2 className="w-4 h-4 text-roast-600" />
-                  <span className="text-xs font-bold text-roast-950 hidden lg:block max-w-[90px] truncate">
-                    {user.user_metadata?.name?.split(' ')[0] || user.email?.split('@')[0]}
-                  </span>
+                  <Bookmark className="w-4 h-4" />
+                  {userBookmarks.length > 0 && (
+                    <span className="absolute top-1 right-1 w-1.5 h-1.5 bg-cherry-700 rounded-full" />
+                  )}
                 </Link>
-                <button
-                  onClick={async () => {
-                    await signOut();
-                    router.push('/login');
-                  }}
-                  className="p-1.5 text-roast-500 hover:text-cherry-700 hover:bg-cherry-50 rounded-md transition-colors"
-                  title="Keluar"
+
+                {/* Certificate Link */}
+                <Link
+                  href="/certificates"
+                  className="p-1.5 text-roast-600 hover:text-roast-950 hover:bg-paper-200/50 rounded-md transition-colors hidden sm:block"
+                  title="Koleksi Sertifikat"
                 >
-                  <LogOut className="w-4 h-4" />
-                </button>
-              </div>
+                  <Award className="w-4 h-4" />
+                </Link>
+
+                {/* Admin Console Quick Button */}
+                {currentUser.role === 'admin' && (
+                  <Link
+                    href="/admin"
+                    className="px-2.5 py-1 bg-roast-950 hover:bg-roast-900 text-paper-50 font-mono text-[10px] uppercase font-bold tracking-wider rounded-md transition-colors hidden sm:flex items-center gap-1 border border-roast-800"
+                    title="Buka Konsol Pengelola & Tim Internal"
+                  >
+                    <span>[ ADMIN ]</span>
+                  </Link>
+                )}
+
+                <div className="h-5 w-px bg-paper-300 mx-0.5 hidden sm:block" />
+
+                {/* Auth Profile & Sign Out */}
+                <div className="flex items-center gap-1.5">
+                  <Link
+                    href="/profile"
+                    className="flex items-center gap-2 px-2.5 py-1.5 rounded-md border border-paper-300 bg-white hover:border-roast-400 transition-colors"
+                    title="Profil Saya"
+                  >
+                    <UserCircle2 className="w-4 h-4 text-roast-600" />
+                    <span className="text-xs font-bold text-roast-950 hidden lg:block max-w-[95px] truncate">
+                      {currentUser.name.split(' ')[0]}
+                    </span>
+                  </Link>
+                  <button
+                    onClick={async () => {
+                      await signOut();
+                      router.push('/login');
+                    }}
+                    className="p-1.5 text-roast-500 hover:text-cherry-700 hover:bg-cherry-50 rounded-md transition-colors"
+                    title="Keluar"
+                  >
+                    <LogOut className="w-4 h-4" />
+                  </button>
+                </div>
+              </>
             ) : (
-              <Link
-                href="/login"
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-roast-950 hover:bg-roast-800 text-white font-bold text-xs rounded-md transition-colors"
-              >
-                <LogIn className="w-3.5 h-3.5" />
-                <span>Masuk</span>
-              </Link>
+              /* Guest Actions (Masuk & Daftar) */
+              <div className="flex items-center gap-2">
+                <Link
+                  href="/login"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-paper-400 bg-paper-100 hover:bg-paper-200 text-roast-900 font-bold text-xs transition-colors"
+                >
+                  <LogIn className="w-3.5 h-3.5" />
+                  <span>Masuk</span>
+                </Link>
+                <Link
+                  href="/register"
+                  className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-md bg-roast-950 hover:bg-roast-850 text-white font-bold text-xs transition-colors shadow-2xs"
+                >
+                  <span>Daftar Akun</span>
+                </Link>
+              </div>
             )}
 
             {/* Mobile Burger */}
@@ -384,18 +397,69 @@ export const Navbar: React.FC = () => {
       {/* Mobile Drawer Navigation */}
       {isMobileMenuOpen && (
         <div className="md:hidden border-t border-paper-300 bg-paper-50 px-5 py-5 space-y-4 max-h-[80vh] overflow-y-auto">
-          {/* User Stats Strip on Mobile */}
-          <div className="flex items-center gap-3 pb-3 border-b border-paper-200">
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-paper-100 border border-paper-300 text-roast-800 text-xs font-mono">
-              <Flame className="w-3.5 h-3.5 text-crema-600 fill-crema-500" />
-              <span className="font-bold">{currentUser.streak_count}d streak</span>
+          {isAuthenticated ? (
+            /* User Info & Stats Strip on Mobile */
+            <div className="p-3 bg-paper-100 rounded-xl border border-paper-300 space-y-2.5">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <UserCircle2 className="w-5 h-5 text-roast-700" />
+                  <div>
+                    <div className="text-xs font-bold text-roast-950 leading-tight">
+                      {currentUser.name}
+                    </div>
+                    <div className="text-[10px] font-mono text-roast-500 uppercase">
+                      {currentUser.role === 'admin' ? 'Administrator' : currentUser.coffee_role || 'Pembelajar'}
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={async () => {
+                    await signOut();
+                    setIsMobileMenuOpen(false);
+                    router.push('/login');
+                  }}
+                  className="flex items-center gap-1 text-[11px] font-mono text-cherry-700 hover:text-cherry-900 px-2.5 py-1 bg-cherry-50 border border-cherry-200 rounded font-bold"
+                >
+                  <LogOut className="w-3 h-3" />
+                  <span>Keluar</span>
+                </button>
+              </div>
+              <div className="flex items-center gap-2 pt-2 border-t border-paper-200">
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-paper-300 text-roast-800 text-xs font-mono">
+                  <Flame className="w-3.5 h-3.5 text-crema-600 fill-crema-500" />
+                  <span className="font-bold">{currentUser.streak_count}d streak</span>
+                </div>
+                <div className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-white border border-paper-300 text-roast-900 text-xs font-mono">
+                  <Zap className="w-3 h-3 text-cherry-700 fill-cherry-700" />
+                  <span className="font-bold">{currentUser.xp_points}</span>
+                  <span className="text-[10px] text-roast-500">XP</span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-paper-100 border border-paper-300 text-roast-900 text-xs font-mono">
-              <Zap className="w-3 h-3 text-cherry-700 fill-cherry-700" />
-              <span className="font-bold">{currentUser.xp_points}</span>
-              <span className="text-[10px] text-roast-500">XP</span>
+          ) : (
+            /* Guest Welcome Banner on Mobile */
+            <div className="p-4 bg-paper-100 rounded-xl border border-paper-300 space-y-2.5">
+              <p className="text-xs text-roast-700 leading-relaxed">
+                Bergabunglah dengan akademi kopi CherryEdu untuk menyimpan progres kurikulum, koleksi sertifikat, dan kalibrasi seduh.
+              </p>
+              <div className="flex items-center gap-2 pt-1">
+                <Link
+                  href="/login"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex-1 py-2 text-center text-xs font-bold rounded-lg border border-paper-300 bg-white text-roast-950 hover:bg-paper-200"
+                >
+                  Masuk
+                </Link>
+                <Link
+                  href="/register"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-roast-950 text-white hover:bg-roast-850"
+                >
+                  Daftar Akun
+                </Link>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Group 1: Kurikulum & Pembelajaran */}
           <div className="space-y-1">
@@ -492,31 +556,43 @@ export const Navbar: React.FC = () => {
               <Info className="w-4 h-4 text-roast-500" />
               <span>Tentang Kami (Cherry Roastery)</span>
             </Link>
-            <Link
-              href="/profile?tab=bookmarks"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2 p-2 rounded text-roast-700 hover:bg-paper-100"
-            >
-              <Bookmark className="w-4 h-4" />
-              <span>Materi Disimpan {bookmarks.length > 0 ? `(${bookmarks.length})` : ''}</span>
-            </Link>
-            <Link
-              href="/certificates"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2 p-2 rounded text-roast-700 hover:bg-paper-100"
-            >
-              <Award className="w-4 h-4" />
-              <span>Koleksi Sertifikat</span>
-            </Link>
-            {currentUser.role === 'admin' && (
-              <Link
-                href="/admin"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center gap-2 p-2 rounded text-cherry-800 bg-cherry-50 font-mono font-bold border border-cherry-200 mt-1"
-              >
-                <ShieldCheck className="w-4 h-4" />
-                <span>[ KONSOL PENGELOLA ADMIN ]</span>
-              </Link>
+            {isAuthenticated && (
+              <>
+                <Link
+                  href="/profile"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center gap-2 p-2 rounded text-roast-800 hover:bg-paper-100 font-semibold"
+                >
+                  <UserCircle2 className="w-4 h-4 text-cherry-700" />
+                  <span>Profil & Portofolio Saya</span>
+                </Link>
+                <Link
+                  href="/profile?tab=bookmarks"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center gap-2 p-2 rounded text-roast-700 hover:bg-paper-100"
+                >
+                  <Bookmark className="w-4 h-4" />
+                  <span>Materi Disimpan {userBookmarks.length > 0 ? `(${userBookmarks.length})` : ''}</span>
+                </Link>
+                <Link
+                  href="/certificates"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center gap-2 p-2 rounded text-roast-700 hover:bg-paper-100"
+                >
+                  <Award className="w-4 h-4" />
+                  <span>Koleksi Sertifikat</span>
+                </Link>
+                {currentUser.role === 'admin' && (
+                  <Link
+                    href="/admin"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-2 p-2 rounded text-cherry-800 bg-cherry-50 font-mono font-bold border border-cherry-200 mt-1"
+                  >
+                    <ShieldCheck className="w-4 h-4" />
+                    <span>[ KONSOL PENGELOLA ADMIN ]</span>
+                  </Link>
+                )}
+              </>
             )}
           </div>
         </div>

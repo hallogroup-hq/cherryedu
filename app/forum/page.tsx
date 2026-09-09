@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
 import { ForumCategory } from '@/lib/types';
 import {
@@ -27,8 +28,10 @@ const CATEGORIES: { id: ForumCategory | 'all'; label: string }[] = [
 ];
 
 export default function ForumPage() {
+  const router = useRouter();
   const {
     currentUser,
+    isAuthenticated,
     posts,
     comments,
     createPost,
@@ -63,6 +66,10 @@ export default function ForumPage() {
   };
 
   const handleAddComment = (postId: string) => {
+    if (!isAuthenticated) {
+      router.push('/login?redirect=/forum');
+      return;
+    }
     const text = commentInputs[postId];
     if (!text || !text.trim()) return;
 
@@ -94,7 +101,13 @@ export default function ForumPage() {
           </div>
 
           <button
-            onClick={() => setIsNewPostOpen(!isNewPostOpen)}
+            onClick={() => {
+              if (!isAuthenticated) {
+                router.push('/login?redirect=/forum');
+                return;
+              }
+              setIsNewPostOpen(!isNewPostOpen);
+            }}
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-roast-950 hover:bg-cherry-800 text-paper-50 text-xs font-mono tracking-wider uppercase transition-colors shrink-0 self-start sm:self-auto shadow-xs border border-roast-900"
           >
             <Plus className="w-3.5 h-3.5" />

@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
+import { useAuth } from '@/lib/auth';
 import {
   User as UserIcon,
   Flame,
@@ -18,14 +19,18 @@ import {
   Sparkles,
   MapPin,
   Calendar,
+  LogOut,
 } from 'lucide-react';
 
 function ProfileContent() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const initialTab = searchParams.get('tab') || 'enrolled';
+  const { signOut } = useAuth();
 
   const {
     currentUser,
+    isAuthenticated,
     learningPaths,
     enrollments,
     certificates,
@@ -68,6 +73,61 @@ function ProfileContent() {
     setIsEditingBio(false);
   };
 
+  if (!isAuthenticated) {
+    return (
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div className="bg-paper-50 border-2 border-roast-900 p-8 sm:p-12 text-center shadow-elevated">
+          <div className="w-16 h-16 bg-cherry-50 border border-cherry-200 text-cherry-700 flex items-center justify-center rounded-2xl mx-auto mb-5 shadow-xs">
+            <UserIcon className="w-8 h-8" />
+          </div>
+
+          <span className="font-mono text-[10px] uppercase tracking-widest text-roast-500 font-bold block mb-2">
+            [ PORTAL PEMBELAJAR RESMI CHERRYEDU ]
+          </span>
+          <h1 className="font-serif text-3xl sm:text-4xl font-bold text-roast-950 mb-3 tracking-tight">
+            Masuk untuk Mengakses Portofolio & Progres Belajar
+          </h1>
+          <p className="font-sans text-xs sm:text-sm text-roast-700 max-w-xl mx-auto leading-relaxed mb-8">
+            Daftarkan diri atau masuk ke akun CherryEdu Anda untuk melacak silabus kurikulum, mencetak diploma berstandar specialty coffee, menyimpan materi seduh, dan mengajukan berkas ke bursa kerja barista.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-8 text-left">
+            <div className="p-4 bg-paper-100 border border-paper-300 rounded-xl">
+              <BookOpen className="w-5 h-5 text-cherry-700 mb-2" />
+              <div className="font-serif font-bold text-sm text-roast-950">Pelacak Kurikulum</div>
+              <div className="text-[11px] text-roast-600 mt-1">Simpan setiap modul dan progres bab yang telah Anda pelajari.</div>
+            </div>
+            <div className="p-4 bg-paper-100 border border-paper-300 rounded-xl">
+              <Award className="w-5 h-5 text-cherry-700 mb-2" />
+              <div className="font-serif font-bold text-sm text-roast-950">Diploma Digital</div>
+              <div className="text-[11px] text-roast-600 mt-1">Dapatkan sertifikat kompetensi resmi dengan token verifikasi publik.</div>
+            </div>
+            <div className="p-4 bg-paper-100 border border-paper-300 rounded-xl">
+              <Briefcase className="w-5 h-5 text-cherry-700 mb-2" />
+              <div className="font-serif font-bold text-sm text-roast-950">Bursa Karier Kopi</div>
+              <div className="text-[11px] text-roast-600 mt-1">Lamar lowongan barista & roaster langsung dengan rekam jejak Anda.</div>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              href="/login?redirect=/profile"
+              className="w-full sm:w-auto px-6 py-3 bg-roast-950 hover:bg-roast-850 text-white font-bold text-xs sm:text-sm rounded-lg transition text-center shadow-xs"
+            >
+              Masuk ke Akun Saya
+            </Link>
+            <Link
+              href="/register"
+              className="w-full sm:w-auto px-6 py-3 bg-white hover:bg-paper-100 border border-paper-400 text-roast-950 font-bold text-xs sm:text-sm rounded-lg transition text-center"
+            >
+              Daftar Akun Baru (+50 XP)
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
       {/* Profile Dossier Header */}
@@ -105,14 +165,27 @@ function ProfileContent() {
             </div>
           </div>
 
-          {/* Quick Edit Profile Button */}
-          <button
-            onClick={() => setIsEditingBio(!isEditingBio)}
-            className="px-4 py-2 border border-paper-400 bg-paper-100 hover:border-roast-900 text-roast-900 font-mono text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors self-start sm:self-auto shrink-0"
-          >
-            <Edit className="w-3 h-3" />
-            <span>{isEditingBio ? 'Tutup Sunting' : 'Sunting Profil'}</span>
-          </button>
+          {/* Actions: Edit Bio & Sign Out */}
+          <div className="flex items-center gap-2 self-start sm:self-auto shrink-0">
+            <button
+              onClick={() => setIsEditingBio(!isEditingBio)}
+              className="px-3.5 py-2 border border-paper-400 bg-paper-100 hover:border-roast-900 text-roast-900 font-mono text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors"
+            >
+              <Edit className="w-3 h-3" />
+              <span>{isEditingBio ? 'Tutup Sunting' : 'Sunting Profil'}</span>
+            </button>
+            <button
+              onClick={async () => {
+                await signOut();
+                router.push('/login');
+              }}
+              className="px-3 py-2 border border-cherry-300 bg-cherry-50 hover:bg-cherry-100 text-cherry-900 font-mono text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors"
+              title="Keluar dari Akun"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span>Keluar</span>
+            </button>
+          </div>
         </div>
 
         {/* Bio or Edit Bio Form */}

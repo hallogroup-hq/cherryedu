@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
 import { JobListing } from '@/lib/types';
 import {
@@ -16,8 +17,10 @@ import {
 } from 'lucide-react';
 
 export default function JobsPage() {
+  const router = useRouter();
   const {
     currentUser,
+    isAuthenticated,
     jobListings,
     jobApplications,
     applyForJob,
@@ -313,7 +316,13 @@ export default function JobsPage() {
                         </span>
                       ) : (
                         <button
-                          onClick={() => setApplyingJob(job)}
+                          onClick={() => {
+                            if (!isAuthenticated) {
+                              router.push('/login?redirect=/jobs');
+                              return;
+                            }
+                            setApplyingJob(job);
+                          }}
                           className="px-4 py-2 bg-roast-950 hover:bg-cherry-800 text-paper-50 rounded font-sans text-xs uppercase tracking-wider font-bold transition-colors shadow-subtle"
                         >
                           Lamar Posisi Ini (+20 XP)

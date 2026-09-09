@@ -1,6 +1,7 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import { useAuth } from './auth';
 import {
   User,
   LearningPath,
@@ -42,8 +43,25 @@ import {
 import { DEFAULT_LANDING_CONFIG } from './data/defaultLandingConfig';
 import { DEFAULT_SITE_PAGES } from './data/defaultSitePages';
 
+export const GUEST_USER: User = {
+  id: 'guest',
+  name: 'Tamu',
+  email: '',
+  avatar_url: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80',
+  bio: 'Pengunjung CherryEdu. Masuk atau buat akun untuk menyimpan progres materi.',
+  role: 'learner',
+  coffee_role: 'barista',
+  city: 'Indonesia',
+  xp_points: 0,
+  streak_count: 0,
+  last_active_date: new Date().toISOString().slice(0, 10),
+  created_at: new Date().toISOString(),
+};
+
 interface CherryEduContextType {
   currentUser: User;
+  isAuthenticated: boolean;
+  isGuest: boolean;
   users: User[];
   learningPaths: LearningPath[];
   modules: Module[];
@@ -107,9 +125,13 @@ const CherryEduContext = createContext<CherryEduContextType | undefined>(undefin
 const STORAGE_KEY = 'cherryedu_state_v7';
 
 export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { user: authUser } = useAuth();
+  const isAuthenticated = Boolean(authUser);
+  const isGuest = !isAuthenticated;
+
   // Initialize with seed data or LocalStorage
   const [users, setUsers] = useState<User[]>(SEED_USERS);
-  const [currentUserId, setCurrentUserId] = useState<string>('user-budi');
+  const [currentUserId, setCurrentUserId] = useState<string>('guest');
   const [learningPaths, setLearningPaths] = useState<LearningPath[]>(SEED_PATHS);
   const [modules, setModules] = useState<Module[]>(SEED_MODULES);
   const [lessons, setLessons] = useState<Lesson[]>(SEED_LESSONS);
@@ -176,7 +198,9 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       if (saved) {
         const parsed = JSON.parse(saved);
         if (parsed.users) setUsers(parsed.users);
-        if (parsed.currentUserId) setCurrentUserId(parsed.currentUserId);
+        if (parsed.currentUserId && parsed.currentUserId !== 'user-budi' && parsed.currentUserId !== 'guest') {
+          setCurrentUserId(parsed.currentUserId);
+        }
         if (parsed.enrollments) setEnrollments(parsed.enrollments);
         if (parsed.userProgress) setUserProgress(parsed.userProgress);
         if (parsed.quizAttempts) setQuizAttempts(parsed.quizAttempts);
@@ -296,7 +320,71 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     sitePages,
   ]);
 
-  const currentUser = users.find((u) => u.id === currentUserId) || users[0];
+  // Synchronize authenticated user from Supabase / demo auth
+  useEffect(() => {
+    if (!authUser) {
+      setCurrentUserId('guest');
+      return;
+    }
+
+    // Check if user already exists in `users` by id or email
+    const existing = users.find(
+      (u) =>
+        u.id === authUser.id ||
+        (authUser.email && u.email.toLowerCase() === authUser.email.toLowerCase())
+    );
+
+    if (existing) {
+      setCurrentUserId(existing.id);
+      if (authUser.user_metadata?.name && authUser.user_metadata.name !== existing.name) {
+        setUsers((prev) =>
+          prev.map((u) =>
+            u.id === existing.id ? { ...u, name: authUser.user_metadata.name } : u
+          )
+        );
+      }
+    } else {
+      // Auto-provision profile for this real user
+      const name =
+        authUser.user_metadata?.name ||
+        (authUser.email ? authUser.email.split('@')[0] : 'Pembelajar Kopi');
+      const coffeeRole = (authUser.user_metadata?.coffee_role as any) || 'barista';
+      const isAdmin =
+        authUser.email === 'admin@cherryedu.id' || authUser.user_metadata?.role === 'admin';
+
+      const newUser: User = {
+        id: authUser.id,
+        name,
+        email: authUser.email || '',
+        avatar_url: `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(
+          authUser.email || authUser.id
+        )}`,
+        bio: 'Pembelajar aktif di akademi kopi CherryEdu.',
+        role: isAdmin ? 'admin' : 'learner',
+        coffee_role: coffeeRole,
+        city: authUser.user_metadata?.city || 'Indonesia',
+        xp_points: 50,
+        streak_count: 1,
+        last_active_date: new Date().toISOString().slice(0, 10),
+        created_at: new Date().toISOString(),
+      };
+
+      setUsers((prev) => [newUser, ...prev]);
+      setCurrentUserId(newUser.id);
+    }
+  }, [authUser]);
+
+  const currentUser: User = useMemo(() => {
+    if (!isAuthenticated && currentUserId === 'guest') {
+      return GUEST_USER;
+    }
+    const matched = users.find(
+      (u) =>
+        u.id === currentUserId ||
+        (authUser?.email && u.email.toLowerCase() === authUser.email.toLowerCase())
+    );
+    return matched || (isAuthenticated ? users[0] : GUEST_USER);
+  }, [isAuthenticated, users, currentUserId, authUser]);
 
   // Helper to add XP to user
   const awardXP = (userId: string, points: number) => {
@@ -803,7 +891,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const resetAllData = () => {
     localStorage.removeItem(STORAGE_KEY);
     setUsers(SEED_USERS);
-    setCurrentUserId('user-budi');
+    setCurrentUserId('guest');
     setLearningPaths(SEED_PATHS);
     setModules(SEED_MODULES);
     setLessons(SEED_LESSONS);
@@ -824,6 +912,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     <CherryEduContext.Provider
       value={{
         currentUser,
+        isAuthenticated,
+        isGuest,
         users,
         learningPaths,
         modules,
