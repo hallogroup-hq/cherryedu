@@ -22,6 +22,7 @@ import {
   Bookmark,
   ForumCategory,
   LandingPageConfig,
+  SitePageConfig,
 } from './types';
 import {
   SEED_USERS,
@@ -39,6 +40,7 @@ import {
   SEED_JOB_APPLICATIONS,
 } from './data/seedData';
 import { DEFAULT_LANDING_CONFIG } from './data/defaultLandingConfig';
+import { DEFAULT_SITE_PAGES } from './data/defaultSitePages';
 
 interface CherryEduContextType {
   currentUser: User;
@@ -89,6 +91,8 @@ interface CherryEduContextType {
   getUserBadges: (userId?: string) => (Badge & { earned_at: string })[];
   landingPageConfig: LandingPageConfig;
   updateLandingPageConfig: (config: Partial<LandingPageConfig>) => void;
+  sitePages: Record<string, SitePageConfig>;
+  updateSitePageConfig: (pageId: string, config: Partial<SitePageConfig>) => void;
   updateLesson: (lessonId: string, data: Partial<Lesson>) => void;
   addLesson: (lesson: Lesson) => void;
   deleteLesson: (lessonId: string) => void;
@@ -100,7 +104,7 @@ interface CherryEduContextType {
 
 const CherryEduContext = createContext<CherryEduContextType | undefined>(undefined);
 
-const STORAGE_KEY = 'cherryedu_state_v6';
+const STORAGE_KEY = 'cherryedu_state_v7';
 
 export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Initialize with seed data or LocalStorage
@@ -163,6 +167,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     { id: 'bm-1', user_id: 'user-budi', lesson_id: 'les-f4-1', created_at: '2026-09-01T10:00:00Z' },
   ]);
   const [landingPageConfig, setLandingPageConfig] = useState<LandingPageConfig>(DEFAULT_LANDING_CONFIG);
+  const [sitePages, setSitePages] = useState<Record<string, SitePageConfig>>(DEFAULT_SITE_PAGES);
 
   // Load from localStorage on client mount
   useEffect(() => {
@@ -232,6 +237,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         }
 
         if (parsed.landingPageConfig) setLandingPageConfig(parsed.landingPageConfig);
+        if (parsed.sitePages) setSitePages(parsed.sitePages);
       }
     } catch (e) {
       console.warn('Failed to load CherryEdu state from localStorage:', e);
@@ -261,6 +267,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         quizzes,
         questions,
         landingPageConfig,
+        sitePages,
       };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
     } catch (e) {
@@ -286,6 +293,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     quizzes,
     questions,
     landingPageConfig,
+    sitePages,
   ]);
 
   const currentUser = users.find((u) => u.id === currentUserId) || users[0];
@@ -763,6 +771,35 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     }));
   };
 
+  const updateSitePageConfig = (pageId: string, config: Partial<SitePageConfig>) => {
+    setSitePages((prev) => {
+      const current = prev[pageId] || DEFAULT_SITE_PAGES[pageId] || {
+        id: pageId,
+        slug: `/${pageId}`,
+        name: pageId,
+        seoTitle: pageId,
+        seoDescription: '',
+        sections: [],
+      };
+      const updated = {
+        ...prev,
+        [pageId]: {
+          ...current,
+          ...config,
+          sections: config.sections || current.sections,
+        },
+      };
+      if (pageId === 'home') {
+        const homeSections = config.sections || current.sections;
+        setLandingPageConfig((prevLp) => ({
+          ...prevLp,
+          sections: homeSections,
+        }));
+      }
+      return updated;
+    });
+  };
+
   const resetAllData = () => {
     localStorage.removeItem(STORAGE_KEY);
     setUsers(SEED_USERS);
@@ -773,6 +810,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     setQuizzes(SEED_QUIZZES);
     setQuestions(SEED_QUESTIONS);
     setLandingPageConfig(DEFAULT_LANDING_CONFIG);
+    setSitePages(DEFAULT_SITE_PAGES);
     setEnrollments(SEED_ENROLLMENTS);
     setCertificates(SEED_CERTIFICATES);
     setPosts(SEED_POSTS);
@@ -806,6 +844,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         bookmarks,
         landingPageConfig,
         updateLandingPageConfig,
+        sitePages,
+        updateSitePageConfig,
         updateLesson,
         addLesson,
         deleteLesson,

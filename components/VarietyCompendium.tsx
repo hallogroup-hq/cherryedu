@@ -17,7 +17,8 @@ import {
   ChevronRight, 
   Globe2,
   TreePine,
-  ExternalLink
+  ExternalLink,
+  X
 } from 'lucide-react';
 
 export interface CoffeeVariety {
@@ -603,6 +604,7 @@ export const VarietyCompendium: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedVariety, setSelectedVariety] = useState<CoffeeVariety | null>(COFFEE_VARIETIES[0]);
   const [activeSubTab, setActiveSubTab] = useState<'catalog' | 'lineage-tree'>('catalog');
+  const [isMobileVarietyModalOpen, setIsMobileVarietyModalOpen] = useState(false);
 
   const categories = [
     { id: 'all', label: 'Semua Varietas (30)' },
@@ -761,7 +763,10 @@ export const VarietyCompendium: React.FC = () => {
                   return (
                     <button
                       key={v.id}
-                      onClick={() => setSelectedVariety(v)}
+                      onClick={() => {
+                        setSelectedVariety(v);
+                        setIsMobileVarietyModalOpen(true);
+                      }}
                       className={`p-4 rounded-lg text-left transition-all border flex flex-col justify-between ${
                         isSelected
                           ? 'bg-paper-50 border-roast-900 shadow-subtle ring-1 ring-roast-900'
@@ -940,6 +945,142 @@ export const VarietyCompendium: React.FC = () => {
               )}
             </div>
           </div>
+
+          {/* Mobile Variety Dossier Bottom Sheet Modal (lg:hidden) */}
+          {isMobileVarietyModalOpen && selectedVariety && (
+            <div className="fixed inset-0 z-50 lg:hidden flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/75 backdrop-blur-xs animate-in fade-in duration-200">
+              <div
+                className="fixed inset-0"
+                onClick={() => setIsMobileVarietyModalOpen(false)}
+                aria-hidden="true"
+              />
+              <div className="relative z-10 w-full sm:max-w-xl bg-paper-50 rounded-t-2xl sm:rounded-2xl border border-paper-300 shadow-2xl p-5 sm:p-6 max-h-[88vh] overflow-y-auto space-y-4">
+                {/* Header */}
+                <div className="flex items-center justify-between pb-3 border-b border-paper-300">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[9px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 border border-cherry-200">
+                      [ DOSSIER VARIETAS ]
+                    </span>
+                    <span className="font-mono text-[10px] italic text-roast-500">
+                      {selectedVariety.species}
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => setIsMobileVarietyModalOpen(false)}
+                    className="p-1.5 rounded-full text-roast-400 hover:text-roast-900 hover:bg-paper-200 transition-colors"
+                    aria-label="Tutup"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+
+                {/* Title & Alias */}
+                <div>
+                  <h4 className="font-serif font-bold text-2xl text-roast-950">
+                    {selectedVariety.name}
+                  </h4>
+                  {selectedVariety.localAliases && (
+                    <span className="font-mono text-xs text-roast-500 block mt-0.5">
+                      Nama Alias: {selectedVariety.localAliases}
+                    </span>
+                  )}
+                </div>
+
+                {/* Quick Specs Matrix */}
+                <div className="grid grid-cols-2 gap-2 font-mono text-xs">
+                  <div className="bg-paper-100 p-2.5 rounded border border-paper-200">
+                    <span className="text-[9px] text-roast-500 uppercase block">Ketinggian Tanam</span>
+                    <span className="font-bold text-roast-950">{selectedVariety.optimalAltitude}</span>
+                  </div>
+                  <div className="bg-paper-100 p-2.5 rounded border border-paper-200">
+                    <span className="text-[9px] text-roast-500 uppercase block">Karat Daun</span>
+                    <span className={`font-bold ${
+                      selectedVariety.leafRustResistance.includes('Tahan')
+                        ? 'text-emerald-700'
+                        : selectedVariety.leafRustResistance.includes('Moderat')
+                        ? 'text-amber-700'
+                        : 'text-rose-700'
+                    }`}>
+                      {selectedVariety.leafRustResistance}
+                    </span>
+                  </div>
+                  <div className="bg-paper-100 p-2.5 rounded border border-paper-200">
+                    <span className="text-[9px] text-roast-500 uppercase block">Postur Pohon</span>
+                    <span className="font-bold text-roast-950">{selectedVariety.plantStature}</span>
+                  </div>
+                  <div className="bg-paper-100 p-2.5 rounded border border-paper-200">
+                    <span className="text-[9px] text-roast-500 uppercase block">Potensi Skor Cangkir</span>
+                    <span className="font-bold text-cherry-700 text-[11px] truncate block">
+                      {selectedVariety.cuppingPotential.split(' ')[0]} Poin
+                    </span>
+                  </div>
+                </div>
+
+                {/* Lineage & Origin */}
+                <div className="space-y-2 font-sans text-xs">
+                  <div>
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-roast-500 font-bold block mb-0.5">
+                      Garis Keturunan / Silsilah:
+                    </span>
+                    <p className="font-medium text-roast-900 bg-paper-100 p-2 rounded border border-paper-200 font-mono text-[11px]">
+                      {selectedVariety.lineage}
+                    </p>
+                  </div>
+
+                  <div>
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-roast-500 font-bold block mb-0.5">
+                      Sejarah & Asal Usul:
+                    </span>
+                    <p className="text-roast-700 leading-relaxed text-[11px]">
+                      {selectedVariety.historyOrigin}
+                    </p>
+                  </div>
+
+                  <div>
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-roast-500 font-bold block mb-0.5">
+                      Ciri Botani & Morfologi:
+                    </span>
+                    <p className="text-roast-700 leading-relaxed text-[11px]">
+                      {selectedVariety.botanicalDescription}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Flavor Profile Box */}
+                <div className="p-3.5 bg-paper-100 rounded border-l-4 border-l-cherry-700 text-xs font-sans space-y-1">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-cherry-800 font-bold block">
+                    [ POTENSI SENSORI / CUPPING PROFILE ]
+                  </span>
+                  <p className="font-serif italic text-roast-950 font-medium text-sm leading-relaxed">
+                    &ldquo;{selectedVariety.flavorProfile}&rdquo;
+                  </p>
+                </div>
+
+                {/* Roasting & Brewing Tips */}
+                <div className="pt-2 border-t border-paper-300 font-sans text-xs">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-roast-500 font-bold block mb-1">
+                    Catatan Roaster & Barista:
+                  </span>
+                  <p className="text-roast-700 text-[11px] leading-relaxed italic">
+                    💡 {selectedVariety.sensoryRoastingNotes}
+                  </p>
+                </div>
+
+                {/* Regions */}
+                <div className="pt-2 border-t border-paper-300 flex items-center justify-between text-[11px] font-mono text-roast-500">
+                  <span>Sentra Budidaya:</span>
+                  <span className="font-bold text-roast-900 text-right">{selectedVariety.primaryRegions}</span>
+                </div>
+
+                <button
+                  onClick={() => setIsMobileVarietyModalOpen(false)}
+                  className="w-full mt-4 py-2.5 bg-roast-950 hover:bg-roast-900 text-white font-mono text-xs font-bold rounded-lg transition-colors"
+                >
+                  Tutup Dossier
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       )}
 

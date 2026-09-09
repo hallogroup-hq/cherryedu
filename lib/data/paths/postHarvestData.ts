@@ -113,7 +113,7 @@ Dalam genus *Coffea* (famili *Rubiaceae*), terdapat lebih dari 120 spesies tanam
 
 | Parameter Biologis | *Coffea arabica* (Arabika) | *Coffea canephora* (Robusta) | *Coffea liberica* (Liberika) |
 |---|---|---|---|
-| **Jumlah Kromosom** | **44 Kromosom (Alotetraploid, $2n = 4x = 44$)** | **22 Kromosom (Diploid, $2n = 2x = 22$)** | **22 Kromosom (Diploid, $2n = 2x = 22$)** |
+| **Jumlah Kromosom** | **44 Kromosom (Alotetraploid, 2n = 4x = 44)** | **22 Kromosom (Diploid, 2n = 2x = 22)** | **22 Kromosom (Diploid, 2n = 2x = 22)** |
 | **Sistem Penyerbukan** | *Self-pollinating* (Penyerbukan mandiri / Autogam, ~95%) | *Cross-pollinating* (Penyerbukan silang / Allogam wajib) | *Cross-pollinating* (Penyerbukan silang oleh serangga) |
 | **Kadar Kafein** | Rendah (**1.1% – 1.5%**) | Tinggi (**2.2% – 2.8%**) | Moderat (**1.2% – 1.5%**) |
 | **Kadar Sukrosa (Gula)**| Tinggi (**6.0% – 9.0%**) | Rendah (**3.0% – 5.0%**) | Sedang (**5.0% – 7.0%**) |
@@ -259,14 +259,14 @@ Keistimewaan tak tertandingi perkebunan kopi nusantara (dari Gayo, Mandheling, S
 ### 1. Fungsi Fisiologis Pohon Naungan (*Shade Trees*)
 Pohon naungan seperti Lamtoro (*Leucaena leucocephala*), Sengon (*Albizia*), Dadap (*Erythrina*), atau tanaman buah komersial (Alpukat, Pisang, Jeruk):
 * **Penyaring Radiasi Matahari**: Daun kopi mengalami kejenuhan fotosintesis pada pencahayaan langsung yang terlalu terik. Naungan 30%–40% menjaga daun pada kapasitas fotosintesis optimal tanpa stres panas (*thermal stress*).
-* **Fiksasi Nitrogen Alami**: Pohon legum (Lamtoro/Dadap) memiliki bintil akar bersimbiosis dengan bakteri *Rhizobium* yang mampu memfiksasi gas nitrogen ($N_2$) dari udara dan menyuplai nitrogen organik ke perakaran kopi tanpa ketergantungan pupuk sintetis urea.
+* **Fiksasi Nitrogen Alami**: Pohon legum (Lamtoro/Dadap) memiliki bintil akar bersimbiosis dengan bakteri *Rhizobium* yang mampu memfiksasi gas nitrogen (N₂) dari udara dan menyuplai nitrogen organik ke perakaran kopi tanpa ketergantungan pupuk sintetis urea.
 * **Serasah Humus**: Daun naungan yang gugur membentuk lapisan mulsa organik tebal di lantai kebun, menjaga kelembapan mikro tanah dan mencegah erosi lereng terjal.
 
 ---
 
 ### 2. Karakteristik Kimiawi Tanah Andosol Vulkanik
 Tanah Andosol terbentuk dari pelapukan abu dan batuan piroklastik letusan gunung berapi aktif:
-* **Kandungan Mineral Alami**: Kaya akan unsur hara makro dan mikro esensial: Kalium ($K$), Fosfor ($P$), Magnesium ($Mg$), dan Kalsium ($Ca$).
+* **Kandungan Mineral Alami**: Kaya akan unsur hara makro dan mikro esensial: Kalium (Kalium (K)), Fosfor (Fosfor (P)), Magnesium (Magnesium (Mg)), dan Kalsium (Kalsium (Ca)).
 * **Kapasitas Pengikatan Air**: Memiliki struktur remah berpori yang sangat gembur dengan retensi kelembapan tinggi namun drainase air berlebih yang luar biasa baik.
 * **Derajat Keasaman (pH)**: Berada di rentang ideal untuk serapan hara tanaman kopi, yaitu **pH 5.5 hingga 6.5**.
 * Mineral fosfat vulkanik yang melimpah diserap oleh sistem perakaran dan diintegrasikan menjadi asam fosfat organik, memberikan sensasi rasa *sparkling finish* yang menjadi ciri khas kopi-kopi vulkanik Indonesia.
@@ -304,7 +304,7 @@ Biji kopi yang berada di cangkir Anda adalah **biji pelindung (endosperma)** di 
 > **Urutan Lapisan Buah Ceri (Luar ke Dalam):**  
 > Eksokarp (Kulit Luar) ➔ Mesokarp (Musilase) ➔ Endokarp (Kulit Tanduk) ➔ Silverskin (Kulit Ari) ➔ Endosperma (Biji Hijau)
 
-1. **Eksokarp (*Skin / Pulp*)**: Lapisan kulit luar terluar yang berubah warna dari hijau $\\rightarrow$ kuning $\\rightarrow$ merah merona saat matang, mengandung antosianin dan senyawa aromatik.
+1. **Eksokarp (*Skin / Pulp*)**: Lapisan kulit luar terluar yang berubah warna dari hijau → kuning → merah merona saat matang, mengandung antosianin dan senyawa aromatik.
 2. **Mesokarp (*Mucilage / Lendir Buah*)**: Lapisan daging lendir transparan yang sangat kaya akan air, pektin, dan gula sederhana (*glukosa, fruktosa, sukrosa*). Inilah bahan bakar utama seluruh proses fermentasi pasca panen.
 3. **Endokarp (*Parchment / Kulit Tanduk*)**: Lapisan pelindung keras berstruktur selulosa tebal yang membungkus biji kopi selama masa pengeringan.
 4. **Spermoderm (*Silverskin / Kulit Ari*)**: Selaput tipis keperakan yang menempel langsung pada permukaan biji kopi.
@@ -346,7 +346,7 @@ Bagaimana stasiun pengolahan (*wet mill*) memastikan objektivitas kematangan cer
 ### 1. Refraktometer Brix (°Brix)
 Skala Brix mengukur persentase konsentrasi sukrosa murni yang terlarut di dalam cairan getah buah ceri:
 > ☕ **Persamaan Parameter:**
-> **1^\circ\\text{ Brix} = 1\\text{ gram sukrosa per } 100\\text{ gram larutan}**
+> **1° Brix = 1 gram sukrosa per 100 gram larutan**
 
 #### Protokol Pengujian Brix di Kebun:
 1. Ambil sampel acak 20 butir ceri merah dari karung panen.
@@ -366,7 +366,7 @@ Skala Brix mengukur persentase konsentrasi sukrosa murni yang terlarut di dalam 
 Begitu ceri tiba di stasiun basah, langkah pertama sebelum dikupas adalah memasukkan seluruh ceri ke dalam kolam/bak air besar (*flotation tank*):
 
 * **Floater (Ceri Mengapung)**:
-  * Ceri yang mengapung di permukaan air memiliki massa jenis lebih rendah daripada air ($< 1.0\\ g/cm^3$).
+  * Ceri yang mengapung di permukaan air memiliki massa jenis lebih rendah daripada air (< 1.0 g/cm^3).
   * Menandakan buah menderita cacat internal: biji hampa (*empty/pea bean*), terserang hama penggerek buah kopi (PBKo / *Hypothenemus hampei*), atau buah kering di dahan.
   * Ceri floater segera disaring keluar dan dipisahkan ke lot komersial kelas rendah.
 * **Sinker (Ceri Tenggelam)**:
@@ -508,8 +508,8 @@ Fermentasi tradisional berlangsung di bak terbuka dengan paparan oksigen bebas, 
 
 ### 2. Carbonic Maceration (CM)
 Dipopulerkan di industri kopi oleh Sasa Sestic (World Barista Champion 2015):
-* Tangki baja tahan karat (*stainless steel tank*) yang telah diisi buah ceri utuh di-flushing dengan **gas karbon dioksida murni ($CO_2$)** hingga seluruh udara beroksigen terdorong keluar 100%.
-* Di bawah atmosfer bertekanan $CO_2$, terjadi proses maserasi intraseluler di mana fermentasi berlangsung di dalam daging sel ceri dari dalam ke luar (*enzymatic breakdown inside the grape/cherry skin*).
+* Tangki baja tahan karat (*stainless steel tank*) yang telah diisi buah ceri utuh di-flushing dengan **gas karbon dioksida murni (CO₂)** hingga seluruh udara beroksigen terdorong keluar 100%.
+* Di bawah atmosfer bertekanan CO₂, terjadi proses maserasi intraseluler di mana fermentasi berlangsung di dalam daging sel ceri dari dalam ke luar (*enzymatic breakdown inside the grape/cherry skin*).
 * Menghasilkan molekul volatil ester yang luar biasa harum dengan aroma bunga mawar pekat, permen karet buah (*bubblegum*), raspberi, dan pisang manis.
 
 ---
@@ -518,8 +518,8 @@ Dipopulerkan di industri kopi oleh Sasa Sestic (World Barista Champion 2015):
 
 | Parameter | Target Pengendalian | Dampak Deviasi Jika Lalai |
 |---|---|---|
-| **Suhu Lingkungan Bioreaktor** | **16°C – 20°C (Suhu Terkendali)** | Jika $>28°C$, laju fermentasi tak terkendali memicu aroma cuka aseton busuk |
-| **Derajat Keasaman (pH)** | Monitor penurunan dari **pH 5.5 $\\rightarrow$ pH 3.8 – 4.0** | Hentikan fermentasi jika $\\text{pH} < 3.7$ untuk mencegah asam cuka berlebih |
+| **Suhu Lingkungan Bioreaktor** | **16°C – 20°C (Suhu Terkendali)** | Jika >28°C, laju fermentasi tak terkendali memicu aroma cuka aseton busuk |
+| **Derajat Keasaman (pH)** | Monitor penurunan dari **pH 5.5 → pH 3.8 – 4.0** | Hentikan fermentasi jika pH < 3.7 untuk mencegah asam cuka berlebih |
 | **Tekanan Tangki (*Pressure*)** | **0.5 – 1.0 bar** di atas tekanan atmosfer | Tekanan terkontrol membantu difusi molekul rasa manis masuk ke inti endosperma |
     `,
     content_type: 'text',
@@ -602,7 +602,7 @@ Menjemur kopi langsung di atas lantai semen atau aspal jalan adalah praktik terb
 #### Protokol Pengeringan Bertahap Ideal:
 * **Hari 1 – 4**: Jemur di bawah paranet peneduh (reduksi sinar matahari 50%) agar pelepasan air awal berlangsung perlahan dan merata.
 * **Hari 5 – 14**: Buka paranet untuk penjemuran optimal, bolak-balik tumpukan biji kopi secara konsisten setiap **2 jam sekali**.
-* **Target Akhir**: Hentikan penjemuran saat kadar air mencapai **10.5% – 11.5%** dan water activity ($a_w$) berada di bawah **0.60**.
+* **Target Akhir**: Hentikan penjemuran saat kadar air mencapai **10.5% – 11.5%** dan water activity (aw) berada di bawah **0.60**.
     `,
     content_type: 'text',
     duration_minutes: 17,
@@ -652,7 +652,7 @@ Spesialti Grade 1 memperbolehkan **maksimal 5 nilai cacat sekunder**:
 ### 2. Perlindungan Kemasan Hermetik (*GrainPro / Ecotact*)
 Karung goni tradisional berbahan serat rami memiliki pori-pori terbuka yang membuat green bean rentan menyerap kelembapan udara tropis, bau busuk gudang, dan serangga kutu beras.
 * **Plastik Hermetik Khusus (*Ultra-High Barrier Multilayer Plastic*)**:
-  * Menahan laju transmisi oksigen ($OTR$) dan uap air ($WVTR$) mendekati nol.
+  * Menahan laju transmisi oksigen (OTR) dan uap air (WVTR) mendekati nol.
   * Karbon dioksida alami respirasi biji terperangkap di dalam kantong, menciptakan atmosfer vakum mini yang mematikan telur serangga dan jamur secara anaerobik alami.
   * Menjaga kesegaran lipid dan stabilitas kadar air 11% hingga **12 hingga 18 bulan** penyimpanan.
     `,

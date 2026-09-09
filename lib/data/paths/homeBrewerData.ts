@@ -29,10 +29,10 @@ Ketika melangkah ke ranah specialty coffee, dilema pertama seorang home brewer a
 ---
 
 ### Memahami Resting Period & Degassing:
-Biji kopi yang baru keluar dari mesin sangrai (*fresh roast*) mengandung gas karbon dioksida ($CO_2$) yang terperangkap di dalam pori-pori selulosa biji. 
+Biji kopi yang baru keluar dari mesin sangrai (*fresh roast*) mengandung gas karbon dioksida (CO₂) yang terperangkap di dalam pori-pori selulosa biji. 
 
 > [!WARNING]
-> Jangan menyeduh biji kopi yang baru disangrai kurang dari 3 hari! Kandungan gas $CO_2$ yang berlebihan akan memicu *turbulensi gas agresif* saat terkena air panas, menghalangi kontak air dengan bubuk kopi, dan menghasilkan seduhan yang asam menyengat, hambar, dan berbusa berlebihan.
+> Jangan menyeduh biji kopi yang baru disangrai kurang dari 3 hari! Kandungan gas CO₂ yang berlebihan akan memicu *turbulensi gas agresif* saat terkena air panas, menghalangi kontak air dengan bubuk kopi, dan menghasilkan seduhan yang asam menyengat, hambar, dan berbusa berlebihan.
 
 * **Filter Roast (Light to Medium)**: Istirahatkan (*resting*) minimal **7 hingga 14 hari** sebelum diseduh.
 * **Espresso Roast (Medium to Dark)**: Istirahatkan minimal **10 hingga 21 hari** agar crema stabil dan tidak bergelembung kasar.
@@ -114,9 +114,9 @@ Secangkir kopi seduh manual terdiri dari **98.5% air** dan hanya 1.5% senyawa pa
 ### Standar Air Seduh Spesialti (SCA Standard):
 * **TDS (Total Dissolved Solids)**: 75 – 150 ppm (Ideal: ~120 ppm)
 * **pH**: 6.5 – 7.5 (Netral)
-* **Kalsium ($Ca^{2+}$)**: 50 – 68 ppm $CaCO_3$ (Pengikat rasa buah & asam)
-* **Magnesium ($Mg^{2+}$)**: 20 – 40 ppm (Pengikat senyawa rasa manis & floral)
-* **Alkalinitas Total**: 40 – 75 ppm $CaCO_3$ (Buffer penahan lonjakan asam)
+* **Kalsium (Ca²⁺)**: 50 – 68 ppm CaCO₃ (Pengikat rasa buah & asam)
+* **Magnesium (Mg²⁺)**: 20 – 40 ppm (Pengikat senyawa rasa manis & floral)
+* **Alkalinitas Total**: 40 – 75 ppm CaCO₃ (Buffer penahan lonjakan asam)
 
 ---
 
@@ -491,7 +491,7 @@ Alat seduh terbaik di dunia akan menghasilkan rasa kopi yang kotor jika tidak di
 ---
 
 ### Sains Penyimpanan Biji Kopi:
-Tiga musuh utama biji kopi sangrai adalah: **Oksigen ($O_2$), Kelembaban, dan Sinar Matahari Langsung**.
+Tiga musuh utama biji kopi sangrai adalah: **Oksigen (O_2), Kelembaban, dan Sinar Matahari Langsung**.
 * **Penyimpanan Harian (1–3 Minggu)**: Gunakan wadah *vacuum canister* bersekat kedap udara (misal: Fellow Atmos atau wadah one-way valve) di tempat sejuk dan gelap.
 * **Penyimpanan Jangka Panjang (>1 Bulan)**: Bekukan (*freezing*) di dalam kantong kedap udara kedap udara tertutup rapat (*hermetic seal* / vacuum seal). Ambil langsung saat beku dan giling seketika tanpa perlu menunggu mencair! Biji kopi beku justru menghasilkan distribusi partikel yang lebih seragam dan minim fines!
     `,

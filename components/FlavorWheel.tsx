@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Compass, Sparkles, Info, Droplets, AlertTriangle, CheckCircle2, ChevronRight, BookOpen } from 'lucide-react';
+import { Compass, Sparkles, Info, Droplets, AlertTriangle, CheckCircle2, ChevronRight, BookOpen, X } from 'lucide-react';
 
 interface FlavorDescriptor {
   name: string;
@@ -649,6 +649,8 @@ export const FlavorWheel: React.FC = () => {
     SCA_FLAVOR_CATEGORIES[0].subcategories[0].descriptors[0]
   );
   const [selectedAcid, setSelectedAcid] = useState<OrganicAcid>(ORGANIC_ACIDS[0]);
+  const [isMobileModalOpen, setIsMobileModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<'descriptor' | 'acid'>('descriptor');
 
   return (
     <div className="space-y-6">
@@ -780,15 +782,22 @@ export const FlavorWheel: React.FC = () => {
                       return (
                         <button
                           key={dIdx}
-                          onClick={() => setSelectedDescriptor(desc)}
+                          onClick={() => {
+                            setSelectedDescriptor(desc);
+                            setModalType('descriptor');
+                            setIsMobileModalOpen(true);
+                          }}
                           className={`p-3 rounded text-left transition-all border ${
                             isSelected
                               ? 'bg-paper-50 border-roast-900 shadow-xs ring-1 ring-roast-900'
                               : 'bg-paper-50/70 border-paper-300 hover:border-roast-500'
                           }`}
                         >
-                          <div className="text-xs font-bold text-roast-950 font-sans">
-                            {desc.name}
+                          <div className="flex items-center justify-between">
+                            <div className="text-xs font-bold text-roast-950 font-sans">
+                              {desc.name}
+                            </div>
+                            <ChevronRight className="w-3.5 h-3.5 text-roast-400 lg:hidden shrink-0" />
                           </div>
                           <div className="text-[10px] text-cherry-700 font-mono mt-0.5 truncate">
                             {desc.originMatch.split('(')[0]}
@@ -898,7 +907,11 @@ export const FlavorWheel: React.FC = () => {
                 return (
                   <button
                     key={idx}
-                    onClick={() => setSelectedAcid(acid)}
+                    onClick={() => {
+                      setSelectedAcid(acid);
+                      setModalType('acid');
+                      setIsMobileModalOpen(true);
+                    }}
                     className={`w-full p-4 rounded-lg text-left transition-all border flex items-center justify-between ${
                       isSelected
                         ? 'bg-roast-950 text-paper-50 border-roast-950 shadow-xs'
@@ -1051,6 +1064,135 @@ export const FlavorWheel: React.FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      )}
+
+      {/* Mobile Modal Bottom Sheet (lg:hidden) */}
+      {isMobileModalOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/75 backdrop-blur-xs animate-in fade-in duration-200">
+          <div
+            className="fixed inset-0"
+            onClick={() => setIsMobileModalOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="relative z-10 w-full sm:max-w-lg bg-roast-950 text-paper-50 rounded-t-2xl sm:rounded-2xl border border-roast-800 shadow-2xl p-5 sm:p-6 max-h-[85vh] overflow-y-auto space-y-4">
+            {/* Header with Close button */}
+            <div className="flex items-center justify-between pb-3 border-b border-roast-800">
+              <span className="font-mono text-[9px] uppercase tracking-widest text-crema-400 font-bold px-2 py-0.5 rounded bg-roast-900 border border-roast-800">
+                {modalType === 'descriptor' ? 'DESKRIPTOR SENSORI SCA' : 'KIMIA RASA ASAM'}
+              </span>
+              <button
+                onClick={() => setIsMobileModalOpen(false)}
+                className="p-1.5 rounded-full text-paper-400 hover:text-white hover:bg-roast-800 transition-colors"
+                aria-label="Tutup"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {modalType === 'descriptor' ? (
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-serif font-bold text-2xl text-paper-50">
+                    {selectedDescriptor.name}
+                  </h4>
+                  <span className="text-[10px] font-mono text-roast-400">
+                    Kategori: {activeCategory.name}
+                  </span>
+                </div>
+
+                <div>
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-crema-400 block mb-1 font-semibold">
+                    Standar Referensi WCR:
+                  </span>
+                  <p className="text-xs text-paper-200 font-mono bg-roast-900/80 p-2.5 rounded border border-roast-800">
+                    {selectedDescriptor.wcrReference}
+                  </p>
+                </div>
+
+                <div>
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-crema-400 block mb-1 font-semibold">
+                    Persepsi Rasa di Cangkir:
+                  </span>
+                  <p className="text-xs text-paper-100 font-sans italic bg-roast-900 p-3 rounded border border-roast-800 leading-relaxed">
+                    &ldquo;{selectedDescriptor.indonesianExample}&rdquo;
+                  </p>
+                </div>
+
+                <div>
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-400 block mb-1 font-bold">
+                    Spesimen Origin Kopi Indonesia:
+                  </span>
+                  <p className="text-xs text-white font-sans font-bold bg-emerald-950/40 p-2.5 rounded border border-emerald-800/60">
+                    {selectedDescriptor.originMatch}
+                  </p>
+                </div>
+
+                <div className="pt-2 border-t border-roast-800/80">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-crema-400 block mb-1 font-semibold">
+                    Tips Evaluasi Cupping:
+                  </span>
+                  <p className="text-[11px] text-paper-300 font-sans leading-relaxed">
+                    {selectedDescriptor.sensoryTip}
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-serif font-bold text-2xl text-paper-50">
+                    {selectedAcid.name}
+                  </h4>
+                  <span className="font-mono text-xs text-blue-400 block mt-0.5">
+                    Rumus: <code className="bg-roast-900 px-1.5 py-0.5 rounded text-paper-100">{selectedAcid.chemicalName}</code>
+                  </span>
+                </div>
+
+                <div>
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-crema-400 block mb-1 font-semibold">
+                    Sensasi di Mulut (Mouthfeel & Perception):
+                  </span>
+                  <p className="text-xs text-paper-100 bg-roast-900 p-3 rounded border border-roast-800 font-medium">
+                    {selectedAcid.perception}
+                  </p>
+                </div>
+
+                <div>
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-crema-400 block mb-1 font-semibold">
+                    Peran dalam Cupping Specialty:
+                  </span>
+                  <p className="text-xs text-paper-300 leading-relaxed">
+                    {selectedAcid.cuppingSensoryProfile}
+                  </p>
+                </div>
+
+                <div>
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-400 block mb-1 font-bold">
+                    Spesimen Kopi Origin Dominan:
+                  </span>
+                  <p className="text-xs text-white bg-emerald-950/50 p-2.5 rounded border border-emerald-800/60 font-mono font-bold">
+                    {selectedAcid.originExamples}
+                  </p>
+                </div>
+
+                <div className="pt-2 border-t border-roast-800">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-crema-400 block mb-1 font-semibold">
+                    Protokol Kalibrasi Barista:
+                  </span>
+                  <p className="text-[11px] text-paper-300 italic bg-roast-900 p-2.5 rounded border border-roast-800">
+                    &ldquo;{selectedAcid.trainingTip}&rdquo;
+                  </p>
+                </div>
+              </div>
+            )}
+
+            <button
+              onClick={() => setIsMobileModalOpen(false)}
+              className="w-full mt-4 py-2.5 bg-paper-100 hover:bg-paper-200 text-roast-950 font-mono text-xs font-bold rounded-lg transition-colors"
+            >
+              Tutup Panel
+            </button>
           </div>
         </div>
       )}

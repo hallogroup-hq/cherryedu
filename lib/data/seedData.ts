@@ -698,7 +698,7 @@ Evaluasi sensori dilakukan secara buta (*blind cupping*) oleh evaluator terserti
 Dalam **350 gram** sampel biji kopi hijau (*green bean*):
 - **Cacat Primer (Category 1 Defects)**: **WAJIB 0 (NOL CACAT)**. Tidak boleh ada satu pun biji hitam pekat (*full black*), biji busuk asam (*full sour/stinker*), biji berjamur (*fungus*), atau batu/kotoran asing.
 - **Cacat Sekunder (Category 2 Defects)**: Maksimal 5 poin cacat sekunder (misal: pecahan biji, lubang serangga ringan, atau biji keriput).
-- **Kadar Air (*Moisture Content*)**: Wajib berada di rentang **10.0% – 12.0%** dengan aktivitas air (*water activity* / $a_w$) di bawah 0.70.
+- **Kadar Air (*Moisture Content*)**: Wajib berada di rentang **10.0% – 12.0%** dengan aktivitas air (*water activity* / aw) di bawah 0.70.
 
 #### 3. Keterlacakan Penuh (Full Traceability)
 Kopi specialty tidak pernah dijual secara anonim. Kemasan kopi specialty selalu mencantumkan informasi transparan:
@@ -1917,7 +1917,7 @@ Berbeda dengan Maillard yang melibatkan protein, karamelisasi murni adalah degra
 - Jika fase ini dipanjangkan secara terencana, kopi akan memiliki tingkat kemanisan (*sweetness*) yang sangat legit seperti gula aren atau toffee.
 
 ### 4. Fenomena Fisika First Crack (*Ledakan Retakan Pertama / ~196°C*)
-Saat suhu melampaui 190°C, tekanan uap air super-panas dan penumpukan gas karbon dioksida ($CO_2$) di dalam mikropori biji meningkat hingga mencapai **20 hingga 25 atmosfer**:
+Saat suhu melampaui 190°C, tekanan uap air super-panas dan penumpukan gas karbon dioksida (CO₂) di dalam mikropori biji meningkat hingga mencapai **20 hingga 25 atmosfer**:
 - Struktur dinding selulosa biji yang kaku tidak lagi mampu menahan tekanan gas internal.
 - Dinding sel pecah secara serempak, melepaskan suara letupan renyah yang terdengar jelas di luar drum roaster: *"Pop!.. Pop!.. Tak!.."* mirip suara jagung meletup menjadi popcorn.
 - **Perubahan Fisik**: Biji kopi membengkak hingga hampir dua kali lipat ukuran aslinya (*volumetric expansion*), kerapatannya menyusut, permukaan biji menghalus, dan saluran belahan tengah biji terbuka melepaskan sekam perak (*chaff*).
@@ -2037,8 +2037,8 @@ Emisi Gas CO2 (Tinggi)
 └─────────────────────────────────────────────────────────────► Waktu Simpan (Hari)
 \`\`\`
 
-### Kinetika Degassing: Pelepasan Gas $CO_2$
-Selama reaksi termal pirolisis First Crack dan Karamelisasi, terbentuk sejumlah masif gas **Karbon Dioksida ($CO_2$)** dan senyawa aromatik volatil di dalam matriks selulosa berpori biji kopi. Dalam 1 kilogram biji kopi yang baru disangrai, terkandung hingga **8 sampai 12 liter gas $CO_2$**.
+### Kinetika Degassing: Pelepasan Gas CO₂
+Selama reaksi termal pirolisis First Crack dan Karamelisasi, terbentuk sejumlah masif gas **Karbon Dioksida (CO₂)** dan senyawa aromatik volatil di dalam matriks selulosa berpori biji kopi. Dalam 1 kilogram biji kopi yang baru disangrai, terkandung hingga **8 sampai 12 liter gas CO₂**.
 
 Setelah biji didinginkan, gas ini mulai berdifusi keluar dari mikropori secara perlahan—sebuah fenomena kinetika gas yang disebut **Degassing**:
 - Laju emisi degassing berlangsung sangat agresif pada **24 hingga 72 jam pertama**.
@@ -2046,14 +2046,14 @@ Setelah biji didinginkan, gas ini mulai berdifusi keluar dari mikropori secara p
 
 ### Mengapa Kopi Terlalu Segar Menghasilkan Rasa Buruk?
 Jika Anda memaksakan diri menyeduh kopi yang baru disangrai kemarin:
-1. **Di Meja Seduh Filter (V60)**: Saat air panas menyentuh bubuk, gas $CO_2$ keluar meledak-ledak membentuk kubah blooming busa kasar yang tak terkendali. Gelembung gas ini menciptakan lapisan pelindung (*barrier*) yang menghalangi air menyentuh permukaan partikel bubuk secara merata. Hasilnya adalah ekstraksi yang tidak seragam (*channeling*) dengan rasa asam tajam kering yang menusuk tenggorokan.
-2. **Di Mesin Espresso**: Tekanan 9 bar memampatkan gas $CO_2$ ke dalam cairan. Hasilnya adalah krema yang sangat tebal berbusa gelembung besar (*fizzy foam*) mirip busa minuman bersoda yang pecah dan lenyap dalam waktu 30 detik, menyisakan cairan espresso yang berasa sangat pahit pedas dan hambar.
+1. **Di Meja Seduh Filter (V60)**: Saat air panas menyentuh bubuk, gas CO₂ keluar meledak-ledak membentuk kubah blooming busa kasar yang tak terkendali. Gelembung gas ini menciptakan lapisan pelindung (*barrier*) yang menghalangi air menyentuh permukaan partikel bubuk secara merata. Hasilnya adalah ekstraksi yang tidak seragam (*channeling*) dengan rasa asam tajam kering yang menusuk tenggorokan.
+2. **Di Mesin Espresso**: Tekanan 9 bar memampatkan gas CO₂ ke dalam cairan. Hasilnya adalah krema yang sangat tebal berbusa gelembung besar (*fizzy foam*) mirip busa minuman bersoda yang pecah dan lenyap dalam waktu 30 detik, menyisakan cairan espresso yang berasa sangat pahit pedas dan hambar.
 
 ### Fungsi Katup Satu Arah (*One-Way Degassing Valve*)
 Jika Anda melihat bulatan kecil berlubang jarum di bagian depan kantong kemasan kopi specialty:
 - Katup ini bukan untuk Anda pencet dan cium aromanya di rak toko!
 - Katup ini mengandung membran diafragma karet elastis satu arah (*one-way valve*).
-- **Fungsi Utama**: Membiarkan desakan gas $CO_2$ dari dalam kantong keluar agar kantong tidak meledak kembung seperti balon; sekaligus **menghalangi 100% molekul gas oksigen ($O_2$) dari luar agar tidak masuk** ke dalam kemasan dan membuat minyak kopi teroksidasi tengik.
+- **Fungsi Utama**: Membiarkan desakan gas CO₂ dari dalam kantong keluar agar kantong tidak meledak kembung seperti balon; sekaligus **menghalangi 100% molekul gas oksigen (O_2) dari luar agar tidak masuk** ke dalam kemasan dan membuat minyak kopi teroksidasi tengik.
 
 ### Tabel Panduan Resting Ideal CherryEdu
 
@@ -2110,9 +2110,9 @@ KOMPOSISI CAIRAN SECANGKIR KOPI:
 Bahkan pada secangkir **espresso** kental yang berkrema tebal sekalipun, kandungan airnya masih mencapai **88% hingga 92%**; sisanya 8-12% adalah padatan terlarut (*Total Dissolved Solids* / TDS).
 
 ### Fisika Molekul Air: Sang Pelarut Polar
-Molekul air ($H_2O$) tersusun atas satu atom oksigen yang berikatan kovalen dengan dua atom hidrogen pada sudut ikatan **104.5°**.
+Molekul air (H₂O) tersusun atas satu atom oksigen yang berikatan kovalen dengan dua atom hidrogen pada sudut ikatan **104.5°**.
 - Karena atom oksigen memiliki keelektronegatifan yang jauh lebih tinggi dibanding hidrogen, elektron ikatan tertarik lebih dekat ke arah oksigen.
-- Ini menciptakan **momen dipol permanen**: sisi oksigen memiliki muatan negatif parsial ($\\delta^-$), sedangkan sisi kedua hidrogen memiliki muatan positif parsial ($\\delta^+$).
+- Ini menciptakan **momen dipol permanen**: sisi oksigen memiliki muatan negatif parsial (delta^-), sedangkan sisi kedua hidrogen memiliki muatan positif parsial (delta^+).
 
 Struktur dipol polar ini menjadikan air sebagai **"Pelarut Universal"** (*Universal Solvent*):
 - Sisi positif hidrogen menarik senyawa bermuatan negatif pada kopi (seperti asam sitrat, asam malat, dan asam klorogenat).
@@ -2122,7 +2122,7 @@ Struktur dipol polar ini menjadikan air sebagai **"Pelarut Universal"** (*Univer
 Banyak barista pemula beranggapan: *"Jika air kran kotor itu buruk, maka air paling murni di dunia (Air Demineral / Distilasi Murni / Pure Reverse Osmosis 0 ppm) pastilah yang terbaik!"*
 
 Ini adalah anggapan yang keliru secara kimia ekstraksi:
-- Air murni dengan TDS 0 ppm memang sangat lapar, tetapi ia **tidak memiliki kation mineral bermuatan ganda** (seperti Kalsium $Ca^{2+}$ dan Magnesium $Mg^{2+}$).
+- Air murni dengan TDS 0 ppm memang sangat lapar, tetapi ia **tidak memiliki kation mineral bermuatan ganda** (seperti Kalsium Ca²⁺ dan Magnesium Mg²⁺).
 - Tanpa ion mineral ini, air murni gagal mengikat senyawa rasa yang memiliki berat molekul tinggi (seperti senyawa aromatik buah dan karamel).
 - Hasil seduhan dengan air 0 ppm: kopi akan terasa sangat asam tajam menusuk, kopong di tengah (*hollow*), kehilangan body manis, dan meninggalkan rasa getir hambar di belakang tenggorokan.
 
@@ -2176,14 +2176,14 @@ TDS adalah ukuran total seluruh mineral anorganik, garam, dan logam yang terlaru
 - **TDS Terlalu Rendah (< 50 ppm)**: Ekstraksi agresif tidak terkontrol namun miskin rasa, asam tajam menusuk, body tipis.
 - **TDS Terlalu Tinggi (> 300 ppm)**: Air sudah "penuh sesak" oleh mineral bawaan sehingga ruang kosong untuk melarutkan rasa kopi sangat terbatas. Ekstraksi menjadi mampat (*under-extracted*), berasa kotor, berkapur, dan merusak elemen pemanas mesin espresso dengan kerak kapur tebal.
 
-#### 2. Total Hardness (Kekerasan Total / Satuan: ppm $CaCO_3$ atau °dGH)
-Total Hardness adalah konsentrasi gabungan ion logam divalen bermuatan $+2$, terutama **Kalsium ($Ca^{2+}$)** dan **Magnesium ($Mg^{2+}$)**:
+#### 2. Total Hardness (Kekerasan Total / Satuan: ppm CaCO₃ atau °dGH)
+Total Hardness adalah konsentrasi gabungan ion logam divalen bermuatan +2, terutama **Kalsium (Ca²⁺)** dan **Magnesium (Mg²⁺)**:
 - Ion-ion inilah yang bertindak sebagai "cakar ekstraksi" untuk menarik asam buah, sukrosa, dan minyak aromatik dari bubuk kopi.
 - Kekerasan ideal berada di kisaran **60 – 120 ppm**.
 
-#### 3. Alkalinitas / Buffer Asam (Satuan: ppm $CaCO_3$ atau °dKH)
+#### 3. Alkalinitas / Buffer Asam (Satuan: ppm CaCO₃ atau °dKH)
 Ini adalah parameter kimiawi yang paling sering disalahpahami oleh barista. Alkalinitas **BUKANLAH** pH air!
-- **Alkalinitas** adalah kapasitas kemampuan air untuk menetralkan asam (*acid-buffering capacity*), yang terutama ditentukan oleh konsentrasi ion **Bikarbonat ($HCO_3^-$)**.
+- **Alkalinitas** adalah kapasitas kemampuan air untuk menetralkan asam (*acid-buffering capacity*), yang terutama ditentukan oleh konsentrasi ion **Bikarbonat (HCO₃⁻)**.
 - **Dampak Kritis pada Rasa Kopi**:
   - Kopi seduh memiliki keasaman alami dengan pH sekitar 4.8 – 5.2.
   - **Jika Alkalinitas Terlalu Tinggi (> 90 ppm)**: Ion bikarbonat yang melimpah akan menelan dan membunuh seluruh keasaman buah alami kopi. Kopi Kenya atau Gayo yang seharusnya beraroma jeruk cerah akan berubah rasa menjadi hambar, datar (*flat*), dan membosankan layaknya air cucian beras.
@@ -2222,7 +2222,7 @@ Derajat keasaman awal air sebelum kontak dengan kopi harus berada di titik netra
 
 Pada tahun 2014, sebuah penelitian fisika kuantum komputasi yang diterbitkan oleh kimiawan Universitas Bath, **Dr. Christopher Hendon**, bersama juara barista Inggris, **Maxwell Colonna-Dashwood**, merevolusi industri specialty coffee selamanya melalui buku legendaris: *"Water for Coffee"*.
 
-Mereka membuktikan secara matematis bahwa tidak semua mineral diciptakan setara dalam mengekstrak rasa kopi. Dua kation utama dalam air—**Magnesium ($Mg^{2+}$)** dan **Kalsium ($Ca^{2+}$)**—bekerja dengan cara yang sangat berbeda.
+Mereka membuktikan secara matematis bahwa tidak semua mineral diciptakan setara dalam mengekstrak rasa kopi. Dua kation utama dalam air—**Magnesium (Mg²⁺)** dan **Kalsium (Ca²⁺)**—bekerja dengan cara yang sangat berbeda.
 
 \`\`\`
 PERBANDINGAN STRUKTUR DUA KATION EKSTRAKTOR KOPI:
@@ -2240,10 +2240,10 @@ PERBANDINGAN STRUKTUR DUA KATION EKSTRAKTOR KOPI:
 
 ### Fisika Kuantum Ikatan Mineral
 Mengapa ion mineral dibutuhkan untuk mengekstrak kopi? Senyawa volatil aroma kopi (seperti asam klorogenat, asam sitrat, pirazin, dan furaneol) kaya akan atom oksigen yang bermuatan elektronegatif.
-- Ion mineral bermuatan positif ($+2$) bertindak sebagai jembatan perekat antara molekul air dan molekul rasa kopi.
+- Ion mineral bermuatan positif (+2) bertindak sebagai jembatan perekat antara molekul air dan molekul rasa kopi.
 
-### Keunggulan Sang Juara: Magnesium ($Mg^{2+}$)
-Karena jari-jari atom magnesium jauh lebih kecil dibanding kalsium, muatan $+2$ pada magnesium terkonsentrasi dalam volume ruang yang sangat padat (*high charge density*):
+### Keunggulan Sang Juara: Magnesium (Mg²⁺)
+Karena jari-jari atom magnesium jauh lebih kecil dibanding kalsium, muatan +2 pada magnesium terkonsentrasi dalam volume ruang yang sangat padat (*high charge density*):
 - Magnesium memiliki energi ikatan termodinamika yang jauh lebih tinggi terhadap molekul asam organik dan ester buah.
 - Air yang kaya akan ion Magnesium akan menghasilkan seduhan kopi dengan **aroma buah yang sangat cerah, keasaman hidup yang bersih, dan wangi bunga yang semerbak**.
 - **Kabar Baik bagi Pemilik Kafe**: Senyawa magnesium karbonat memiliki tingkat kelarutan yang jauh lebih tinggi dibanding kalsium karbonat, sehingga **Magnesium tidak mudah mengendap menjadi kerak batu kapur yang menyumbat pipa mesin espresso**.
@@ -2264,7 +2264,7 @@ Dalam kejuaraan *World Brewers Cup*, para barista dunia meracik air kustom merek
 - Formulasi ini memberikan kecerahan rasa buah maksimal dari Magnesium, dengan sedikit bobot body karamel dari Kalsium, tanpa risiko merusak peralatan seduh.
 
 > [!TIP]
-> Produk remineralisasi populer seperti *Third Wave Water* atau konsentrat mineral *Lotus Coffee Water* memanfaatkan sains ini dengan menyediakan garam Magnesium Klorida ($MgCl_2$) dan Magnesium Sulfat ($MgSO_4$) murni untuk dilarutkan ke dalam air distilasi.
+> Produk remineralisasi populer seperti *Third Wave Water* atau konsentrat mineral *Lotus Coffee Water* memanfaatkan sains ini dengan menyediakan garam Magnesium Klorida (MgCl_2) dan Magnesium Sulfat (MgSO₄) murni untuk dilarutkan ke dalam air distilasi.
     `,
     content_type: 'text',
     duration_minutes: 10,
@@ -2324,8 +2324,8 @@ SKEMA INSTALASI FILTRASI AIR LENGKAP COFFEE SHOP:
 - Karbon aktif berbasis tempurung kelapa menyerap 99% kaporit, trihalometana, dan bau tidak sedap.
 
 #### 3. Water Softener / Ion Exchange Resin (Pelunak Air)
-- Menggunakan tabung resin sintetis yang dimuati ion Natrium ($Na^+$).
-- Saat air sadah melintas, resin menukar kation Kalsium ($Ca^{2+}$) dan Magnesium ($Mg^{2+}$) dengan kation Natrium ($Na^+$).
+- Menggunakan tabung resin sintetis yang dimuati ion Natrium (Na^+).
+- Saat air sadah melintas, resin menukar kation Kalsium (Ca²⁺) dan Magnesium (Mg²⁺) dengan kation Natrium (Na^+).
 - **Kelebihan**: Mencegah pembentukan kerak kapur mesin secara efektif.
 - **Kelemahan**: Menghilangkan seluruh Magnesium yang dibutuhkan untuk mengekstrak rasa asam buah kopi specialty, sehingga kopi sering berasa sedikit asin gurih dan datar.
 
@@ -2449,10 +2449,10 @@ TIMELINE PROTOKOL CUPPING SCA (MENIT KE MENIT):
 
 ### Spesifikasi Alat & Parameter Cupping Standar:
 - **Mangkok Cupping (*Cupping Bowls*)**: Terbuat dari kaca tempered atau keramik tebal, kapasitas volume 200 – 260 ml, dengan diameter mulut mangkok 75 – 85 mm.
-- **Rasio Seduh (*Brewing Ratio*)**: **8.25 gram kopi** per **150 ml air** (toleransi $\\pm 0.25$ gram).
-- **Tingkat Sangrai Sampel**: Disangrai pada level *Light-Medium* (Agtron gourmet score $63 \\pm 1$), disangrai dalam kurun waktu 8 – 24 jam sebelum sesi cupping dimulai.
+- **Rasio Seduh (*Brewing Ratio*)**: **8.25 gram kopi** per **150 ml air** (toleransi ± 0.25 gram).
+- **Tingkat Sangrai Sampel**: Disangrai pada level *Light-Medium* (Agtron gourmet score 63 ± 1), disangrai dalam kurun waktu 8 – 24 jam sebelum sesi cupping dimulai.
 - **Ukuran Gilingan (*Grind Size*)**: Sedikit lebih kasar dari gilingan filter kertas biasa (70-75% partikel lolos ayakan standar US Standard Size 20 mesh).
-- **Suhu Air Seduh**: Tepat **93.0°C** ($200^\\circ\\text{F}$) saat dituangkan, menggunakan air berstandar SCA (TDS 125-175 ppm).
+- **Suhu Air Seduh**: Tepat **93.0°C** (200^circF) saat dituangkan, menggunakan air berstandar SCA (TDS 125-175 ppm).
 
 ### Langkah-langkah Protokol Cupping:
 
@@ -2862,10 +2862,10 @@ Pernahkah Anda menyeduh biji kopi yang sama dengan resep yang sama persis sepert
 
 Anda tidak perlu laboratorium mahal. Cukup beli dua bahan makanan murni yang tersedia di toko kue atau apotek:
 
-1. **Baking Soda Murni / Natrium Bikarbonat ($NaHCO_3$)**:
+1. **Baking Soda Murni / Natrium Bikarbonat (NaHCO₃)**:
    - Berfungsi sebagai **Penyangga Asam (*Alkalinity Buffer*)**.
    - Menjaga pH air tetap stabil di angka ~7.0 netral agar kopi tidak terasa pedih di lambung dan asam tidak terlalu menusuk.
-2. **Garam Epsom Food-Grade / Magnesium Sulfat ($MgSO_4 \\cdot 7H_2O$)**:
+2. **Garam Epsom Food-Grade / Magnesium Sulfat (MgSO_4 cdot 7H_2O)**:
    - Berfungsi sebagai **Penarik Rasa (*General Hardness*)**.
    - Ion kalsium dan magnesium mengikat partikel rasa manis gula kopi dan asam buah aromatik ke dalam molekul air.
 

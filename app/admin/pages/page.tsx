@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useCherryEdu } from '@/lib/store';
-import { DEFAULT_LANDING_CONFIG, DEFAULT_LANDING_SECTIONS } from '@/lib/data/defaultLandingConfig';
-import { PageSectionItem, PageSectionType } from '@/lib/types';
+import { DEFAULT_SITE_PAGES } from '@/lib/data/defaultSitePages';
+import { PageSectionItem, PageSectionType, SitePageConfig } from '@/lib/types';
 import {
   Layers,
   Type,
@@ -27,6 +27,12 @@ import {
   Check,
   Palette,
   ExternalLink,
+  BookOpen,
+  Coffee,
+  Briefcase,
+  Phone,
+  Settings,
+  HelpCircle,
 } from 'lucide-react';
 
 const SECTION_LIBRARY: {
@@ -65,8 +71,8 @@ const SECTION_LIBRARY: {
         { label: 'Sertifikat', value: 'Resmi SCA' },
         { label: 'Akses', value: 'Lifetime' },
       ],
-      cardTagline: 'FEATURED COURSE',
-      cardTitle: 'Materi Spesialisasi',
+      cardTagline: 'FEATURED FOCUS',
+      cardTitle: 'Materi Unggulan',
       cardVol: 'NEW',
       cardImage: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800',
       cardAltitude: 'Origin: Gayo 1.500 mdpl',
@@ -186,35 +192,86 @@ const SECTION_LIBRARY: {
   },
 ];
 
+const AVAILABLE_PAGES: {
+  id: string;
+  name: string;
+  slug: string;
+  icon: React.ElementType;
+  badge: string;
+}[] = [
+  { id: 'home', name: 'Beranda (Landing Page)', slug: '/', icon: Layout, badge: 'Home' },
+  { id: 'about', name: 'Tentang Kami (About Us)', slug: '/about', icon: BookOpen, badge: 'Profile' },
+  { id: 'paths', name: 'Katalog Kurikulum', slug: '/paths', icon: Layers, badge: 'Courses' },
+  { id: 'tools', name: 'Laboratorium Alat Seduh', slug: '/tools', icon: Coffee, badge: 'Lab' },
+  { id: 'jobs', name: 'Bursa Kerja Kopi', slug: '/jobs', icon: Briefcase, badge: 'Careers' },
+  { id: 'contact', name: 'Kontak & Pusat Bantuan', slug: '/contact', icon: Phone, badge: 'Support' },
+];
+
 export default function PageBuilderAdminPage() {
-  const { landingPageConfig, updateLandingPageConfig } = useCherryEdu();
+  const { sitePages, updateSitePageConfig, landingPageConfig, updateLandingPageConfig } = useCherryEdu();
 
-  // Normalize sections
-  const initialSections: PageSectionItem[] =
-    landingPageConfig?.sections && landingPageConfig.sections.length > 0
-      ? landingPageConfig.sections
-      : DEFAULT_LANDING_SECTIONS;
+  const [selectedPageId, setSelectedPageId] = useState<string>('home');
 
-  const [sections, setSections] = useState<PageSectionItem[]>(initialSections);
-  const [selectedSectionId, setSelectedSectionId] = useState<string>(
-    initialSections[0]?.id || ''
-  );
+  // Active page config from store or fallback
+  const activePageConfig: SitePageConfig =
+    sitePages?.[selectedPageId] || DEFAULT_SITE_PAGES[selectedPageId] || {
+      id: selectedPageId,
+      slug: AVAILABLE_PAGES.find((p) => p.id === selectedPageId)?.slug || '/',
+      name: AVAILABLE_PAGES.find((p) => p.id === selectedPageId)?.name || selectedPageId,
+      seoTitle: '',
+      seoDescription: '',
+      sections: [],
+    };
+
+  const [sections, setSections] = useState<PageSectionItem[]>(activePageConfig.sections || []);
+  const [selectedSectionId, setSelectedSectionId] = useState<string>(activePageConfig.sections?.[0]?.id || '');
+  const [pageMeta, setPageMeta] = useState({
+    name: activePageConfig.name || '',
+    seoTitle: activePageConfig.seoTitle || '',
+    seoDescription: activePageConfig.seoDescription || '',
+  });
   const [isLibraryOpen, setIsLibraryOpen] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
+  const [isMetaOpen, setIsMetaOpen] = useState(false);
+
+  // Sync state when page changes
+  useEffect(() => {
+    const pCfg = sitePages?.[selectedPageId] || DEFAULT_SITE_PAGES[selectedPageId];
+    if (pCfg) {
+      const pageSections = pCfg.sections && pCfg.sections.length > 0 ? pCfg.sections : [];
+      setSections(pageSections);
+      setSelectedSectionId(pageSections[0]?.id || '');
+      setPageMeta({
+        name: pCfg.name || '',
+        seoTitle: pCfg.seoTitle || '',
+        seoDescription: pCfg.seoDescription || '',
+      });
+    }
+  }, [selectedPageId, sitePages]);
 
   const selectedSection = sections.find((s) => s.id === selectedSectionId) || sections[0];
 
   const handleSave = () => {
-    updateLandingPageConfig({
+    updateSitePageConfig(selectedPageId, {
+      name: pageMeta.name,
+      seoTitle: pageMeta.seoTitle,
+      seoDescription: pageMeta.seoDescription,
       sections,
-      // Keep existing top-level legacy fields updated from their matching section if available
-      hero: (sections.find((s) => s.type === 'hero')?.data as any) || landingPageConfig?.hero,
-      manifesto: (sections.find((s) => s.type === 'manifesto')?.data as any) || landingPageConfig?.manifesto,
-      catalog: (sections.find((s) => s.type === 'catalog')?.data as any) || landingPageConfig?.catalog,
-      tools: (sections.find((s) => s.type === 'tools')?.data as any) || landingPageConfig?.tools,
-      comparison: (sections.find((s) => s.type === 'comparison')?.data as any) || landingPageConfig?.comparison,
-      bottomCta: (sections.find((s) => s.type === 'bottomCta')?.data as any) || landingPageConfig?.bottomCta,
     });
+
+    // If home page, also update legacy landing config
+    if (selectedPageId === 'home') {
+      updateLandingPageConfig({
+        sections,
+        hero: (sections.find((s) => s.type === 'hero')?.data as any) || landingPageConfig?.hero,
+        manifesto: (sections.find((s) => s.type === 'manifesto')?.data as any) || landingPageConfig?.manifesto,
+        catalog: (sections.find((s) => s.type === 'catalog')?.data as any) || landingPageConfig?.catalog,
+        tools: (sections.find((s) => s.type === 'tools')?.data as any) || landingPageConfig?.tools,
+        comparison: (sections.find((s) => s.type === 'comparison')?.data as any) || landingPageConfig?.comparison,
+        bottomCta: (sections.find((s) => s.type === 'bottomCta')?.data as any) || landingPageConfig?.bottomCta,
+      });
+    }
+
     setIsSaved(true);
     setTimeout(() => setIsSaved(false), 2500);
   };
@@ -252,7 +309,7 @@ export default function PageBuilderAdminPage() {
   // Duplicate section
   const duplicateSection = (sec: PageSectionItem) => {
     const newSec: PageSectionItem = {
-      id: `sec-${sec.type}-${Date.now()}`,
+      id: `${sec.id}_copy_${Date.now()}`,
       type: sec.type,
       title: `${sec.title} (Salinan)`,
       enabled: true,
@@ -292,33 +349,48 @@ export default function PageBuilderAdminPage() {
     );
   };
 
-  // Update section title label in the list
+  // Update section title label
   const updateSelectedTitle = (title: string) => {
     setSections(
       sections.map((s) => (s.id === selectedSectionId ? { ...s, title } : s))
     );
   };
 
+  const activePageInfo = AVAILABLE_PAGES.find((p) => p.id === selectedPageId) || AVAILABLE_PAGES[0];
+
   return (
     <div className="max-w-7xl mx-auto space-y-6">
       {/* Top Header Bar */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="font-serif font-black text-2xl text-roast-950">Visual Page Builder</h1>
-          <p className="text-sm text-roast-500 mt-0.5">
-            Tambah seksi baru, ubah urutan, dan edit seluruh isi halaman website secara instan
+          <div className="flex items-center gap-2 mb-1">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 border border-cherry-200">
+              MULTI-PAGE BUILDER & CMS
+            </span>
+            <span className="font-mono text-[10px] text-roast-500">
+              6 HALAMAN UTAMA TERHUBUNG
+            </span>
+          </div>
+          <h1 className="font-serif font-black text-2xl sm:text-3xl text-roast-950">
+            Visual Website Page Builder
+          </h1>
+          <p className="text-xs sm:text-sm text-roast-600 mt-0.5">
+            Pilih halaman yang ingin diedit, kelola susunan seksi, ubah teks editorial, dan publikasikan secara real-time.
           </p>
         </div>
-        <div className="flex items-center gap-2">
+
+        <div className="flex items-center gap-2 self-stretch sm:self-auto justify-end">
           <a
-            href="/"
+            href={activePageInfo.slug}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-1.5 px-3 py-2 text-xs font-mono border border-paper-300 rounded-lg text-roast-600 hover:border-roast-400 bg-white transition-colors"
+            className="flex items-center gap-1.5 px-3 py-2 text-xs font-mono border border-paper-300 rounded-lg text-roast-700 hover:border-roast-400 bg-white transition-colors shadow-2xs"
+            title={`Buka ${activePageInfo.name} di tab baru`}
           >
             <Eye className="w-3.5 h-3.5" />
-            Lihat Situs Live ↗
+            <span>Lihat Halaman Live ({activePageInfo.slug}) ↗</span>
           </a>
+
           <button
             onClick={handleSave}
             className={`flex items-center gap-1.5 px-5 py-2 text-xs font-mono rounded-lg font-bold transition-all shadow-sm ${
@@ -330,27 +402,126 @@ export default function PageBuilderAdminPage() {
             {isSaved ? (
               <>
                 <CheckCircle2 className="w-3.5 h-3.5" />
-                Tersimpan & Live!
+                <span>Tersimpan & Live!</span>
               </>
             ) : (
               <>
                 <Save className="w-3.5 h-3.5" />
-                Simpan & Publish
+                <span>Simpan Perubahan</span>
               </>
             )}
           </button>
         </div>
       </div>
 
+      {/* PAGE SELECTOR TABS (The requested multi-page switcher) */}
+      <div className="bg-white rounded-xl border border-paper-300 p-3 shadow-subtle space-y-2">
+        <div className="flex items-center justify-between px-1">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-roast-500 font-bold">
+            PILIH HALAMAN WEBSITE UNTUK DIEDIT:
+          </span>
+          <button
+            type="button"
+            onClick={() => setIsMetaOpen(!isMetaOpen)}
+            className="text-xs font-mono text-cherry-800 hover:underline flex items-center gap-1 font-semibold"
+          >
+            <Settings className="w-3 h-3" />
+            <span>{isMetaOpen ? 'Tutup Pengaturan SEO' : 'Pengaturan SEO & Judul Halaman'}</span>
+          </button>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+          {AVAILABLE_PAGES.map((p) => {
+            const isSelected = p.id === selectedPageId;
+            const Icon = p.icon;
+            const pageSecCount = sitePages?.[p.id]?.sections?.length || DEFAULT_SITE_PAGES[p.id]?.sections?.length || 0;
+
+            return (
+              <button
+                key={p.id}
+                type="button"
+                onClick={() => setSelectedPageId(p.id)}
+                className={`p-2.5 rounded-lg border text-left transition-all ${
+                  isSelected
+                    ? 'bg-roast-950 text-white border-roast-950 shadow-sm'
+                    : 'bg-paper-50 hover:bg-paper-100 text-roast-800 border-paper-200'
+                }`}
+              >
+                <div className="flex items-center justify-between gap-1">
+                  <Icon className={`w-3.5 h-3.5 ${isSelected ? 'text-cherry-400' : 'text-roast-500'}`} />
+                  <span
+                    className={`font-mono text-[9px] uppercase px-1.5 py-0.5 rounded font-bold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-paper-200 text-roast-600'
+                    }`}
+                  >
+                    {pageSecCount} Seksi
+                  </span>
+                </div>
+                <div>
+                  <div className="font-serif font-bold text-xs leading-tight">
+                    {p.name.split('(')[0].trim()}
+                  </div>
+                  <div
+                    className={`font-mono text-[10px] mt-0.5 ${
+                      isSelected ? 'text-roast-300' : 'text-roast-400'
+                    }`}
+                  >
+                    {p.slug}
+                  </div>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Collapsible SEO & Meta Settings */}
+        {isMetaOpen && (
+          <div className="mt-3 pt-3 border-t border-paper-200 grid grid-cols-1 sm:grid-cols-3 gap-3 bg-paper-50 p-3 rounded-lg text-xs">
+            <div>
+              <label className="block font-mono text-[10px] uppercase text-roast-500 font-bold mb-1">
+                Judul Internal Halaman
+              </label>
+              <input
+                value={pageMeta.name}
+                onChange={(e) => setPageMeta({ ...pageMeta, name: e.target.value })}
+                className="w-full border border-paper-300 rounded p-2 bg-white font-bold"
+              />
+            </div>
+            <div>
+              <label className="block font-mono text-[10px] uppercase text-roast-500 font-bold mb-1">
+                SEO Title (Meta Browser)
+              </label>
+              <input
+                value={pageMeta.seoTitle}
+                onChange={(e) => setPageMeta({ ...pageMeta, seoTitle: e.target.value })}
+                placeholder="Judul yang muncul di Google..."
+                className="w-full border border-paper-300 rounded p-2 bg-white"
+              />
+            </div>
+            <div>
+              <label className="block font-mono text-[10px] uppercase text-roast-500 font-bold mb-1">
+                SEO Description
+              </label>
+              <input
+                value={pageMeta.seoDescription}
+                onChange={(e) => setPageMeta({ ...pageMeta, seoDescription: e.target.value })}
+                placeholder="Deskripsi ringkas untuk mesin pencari..."
+                className="w-full border border-paper-300 rounded p-2 bg-white"
+              />
+            </div>
+          </div>
+        )}
+      </div>
+
       {/* Main Builder Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-[calc(100vh-12rem)]">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-[calc(100vh-16rem)]">
         {/* Left Column: Sections List (Draggable/Reorderable) */}
         <div className="lg:col-span-5 space-y-3">
           <div className="bg-white rounded-xl border border-paper-200 p-4 shadow-subtle flex flex-col">
             <div className="flex items-center justify-between pb-3 border-b border-paper-100 mb-3">
               <div>
                 <span className="font-mono text-[10px] uppercase tracking-widest text-roast-400 font-bold block">
-                  Struktur Halaman Landing ({sections.length} Seksi)
+                  Struktur: {activePageInfo.name} ({sections.length} Seksi)
                 </span>
                 <span className="text-xs text-roast-500">
                   Geser tombol panah untuk mengatur urutan tayang
@@ -367,10 +538,10 @@ export default function PageBuilderAdminPage() {
                 return (
                   <div
                     key={sec.id}
-                    className={`rounded-xl border transition-all p-3 flex items-center gap-2.5 ${
+                    className={`flex items-center gap-2 p-2.5 rounded-lg border transition-all ${
                       isSelected
-                        ? 'border-roast-950 bg-paper-50/80 shadow-sm'
-                        : 'border-paper-200 bg-white hover:border-paper-300'
+                        ? 'border-roast-950 bg-paper-50/80 shadow-xs'
+                        : 'border-paper-200 hover:border-paper-300 bg-white'
                     } ${!isEnabled ? 'opacity-50' : ''}`}
                   >
                     {/* Reorder Buttons */}
@@ -411,22 +582,22 @@ export default function PageBuilderAdminPage() {
                         )}
                       </div>
                       <p
-                        className={`text-xs font-bold truncate ${
-                          isSelected ? 'text-roast-950' : 'text-roast-800'
+                        className={`font-serif text-xs truncate ${
+                          isSelected ? 'font-bold text-roast-950' : 'text-roast-700'
                         }`}
                       >
                         {sec.title || sec.type}
                       </p>
                     </div>
 
-                    {/* Section Actions: Toggle Visibility, Duplicate, Delete */}
+                    {/* Section Actions */}
                     <div className="flex items-center gap-1 shrink-0">
                       <button
                         type="button"
                         onClick={() => toggleVisibility(sec.id)}
                         className={`p-1.5 rounded transition-colors ${
                           isEnabled
-                            ? 'text-roast-500 hover:bg-paper-200'
+                            ? 'text-roast-400 hover:text-roast-700 hover:bg-paper-200'
                             : 'text-rose-500 hover:bg-rose-50'
                         }`}
                         title={isEnabled ? 'Sembunyikan Seksi' : 'Tampilkan Seksi'}
@@ -463,7 +634,7 @@ export default function PageBuilderAdminPage() {
                 className="w-full py-3.5 border-2 border-dashed border-cherry-600/40 hover:border-cherry-700 rounded-xl font-mono text-xs font-bold uppercase tracking-wider text-cherry-800 hover:bg-cherry-50/50 flex items-center justify-center gap-2 transition-all shadow-subtle"
               >
                 <Plus className="w-4 h-4" />
-                + Tambah Section Baru
+                + Tambah Section Baru di {activePageInfo.badge}
               </button>
             </div>
           </div>
@@ -946,108 +1117,6 @@ export default function PageBuilderAdminPage() {
                     </div>
                   </div>
                 )}
-
-                {/* 10. TOOLS / LAB SEDUH */}
-                {selectedSection.type === 'tools' && (
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block font-mono text-[10px] uppercase text-roast-500 font-bold mb-1">
-                        Judul Seksi
-                      </label>
-                      <input
-                        value={selectedSection.data?.heading || ''}
-                        onChange={(e) => updateSelectedData('heading', e.target.value)}
-                        className="w-full border border-paper-200 rounded-lg p-2.5 font-serif font-bold"
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-mono text-[10px] uppercase text-roast-500 font-bold mb-1">
-                        Deskripsi
-                      </label>
-                      <textarea
-                        rows={3}
-                        value={selectedSection.data?.description || ''}
-                        onChange={(e) => updateSelectedData('description', e.target.value)}
-                        className="w-full border border-paper-200 rounded-lg p-2.5"
-                      />
-                    </div>
-                  </div>
-                )}
-
-                {/* 11. BOTTOM CTA */}
-                {selectedSection.type === 'bottomCta' && (
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block font-mono text-[10px] uppercase text-roast-500 font-bold mb-1">
-                        Judul Ajakan
-                      </label>
-                      <input
-                        value={selectedSection.data?.heading || ''}
-                        onChange={(e) => updateSelectedData('heading', e.target.value)}
-                        className="w-full border border-paper-200 rounded-lg p-2.5 font-serif font-bold"
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-mono text-[10px] uppercase text-roast-500 font-bold mb-1">
-                        Deskripsi
-                      </label>
-                      <textarea
-                        rows={2}
-                        value={selectedSection.data?.description || ''}
-                        onChange={(e) => updateSelectedData('description', e.target.value)}
-                        className="w-full border border-paper-200 rounded-lg p-2.5"
-                      />
-                    </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div>
-                        <label className="block font-mono text-[10px] uppercase text-roast-500 font-bold mb-1">
-                          Teks Tombol
-                        </label>
-                        <input
-                          value={selectedSection.data?.buttonText || ''}
-                          onChange={(e) => updateSelectedData('buttonText', e.target.value)}
-                          className="w-full border border-paper-200 rounded-lg p-2.5 font-bold"
-                        />
-                      </div>
-                      <div>
-                        <label className="block font-mono text-[10px] uppercase text-roast-500 font-bold mb-1">
-                          Link Tombol
-                        </label>
-                        <input
-                          value={selectedSection.data?.buttonLink || ''}
-                          onChange={(e) => updateSelectedData('buttonLink', e.target.value)}
-                          className="w-full border border-paper-200 rounded-lg p-2.5 font-mono"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* 12. CATALOG */}
-                {selectedSection.type === 'catalog' && (
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block font-mono text-[10px] uppercase text-roast-500 font-bold mb-1">
-                        Judul Seksi Katalog
-                      </label>
-                      <input
-                        value={selectedSection.data?.heading || ''}
-                        onChange={(e) => updateSelectedData('heading', e.target.value)}
-                        className="w-full border border-paper-200 rounded-lg p-2.5 font-serif font-bold"
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-mono text-[10px] uppercase text-roast-500 font-bold mb-1">
-                        Teks Link Semua Katalog
-                      </label>
-                      <input
-                        value={selectedSection.data?.allCatalogText || ''}
-                        onChange={(e) => updateSelectedData('allCatalogText', e.target.value)}
-                        className="w-full border border-paper-200 rounded-lg p-2.5"
-                      />
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
           ) : (
@@ -1059,17 +1128,17 @@ export default function PageBuilderAdminPage() {
         </div>
       </div>
 
-      {/* MODAL: SECTION LIBRARY (+ Tambah Section Baru) */}
+      {/* MODAL: SECTION LIBRARY */}
       {isLibraryOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl border border-paper-300 max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
             <div className="p-5 border-b border-paper-200 flex items-center justify-between">
               <div>
                 <h3 className="font-serif font-black text-lg text-roast-950">
-                  Pustaka Komponen Section
+                  Pustaka Komponen Section ({activePageInfo.badge})
                 </h3>
                 <p className="text-xs text-roast-500 mt-0.5">
-                  Pilih tipe seksi baru yang ingin kamu tambahkan ke dalam halaman website
+                  Pilih tipe seksi baru untuk ditambahkan ke halaman {activePageInfo.name}
                 </p>
               </div>
               <button

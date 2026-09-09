@@ -14,8 +14,27 @@ function sanitizeMarkdownContent(raw: string): string {
   // Support [DIAGRAM:type] shorthand
   let processed = raw.replace(/\[DIAGRAM:([a-z0-9\-]+)\]/g, '```diagram:$1\n```');
 
-  // Convert any stray $$...$$ into clean callout block
-  return processed.replace(/\$\$([\s\S]*?)\$\$/g, (_match, eq) => {
+  // Convert chemical formulas & symbols
+  processed = processed
+    .replace(/\$CO_2\$/g, 'CO₂')
+    .replace(/\$N_2\$/g, 'N₂')
+    .replace(/\$H_2O\$/g, 'H₂O')
+    .replace(/\$CaCO_3\$/g, 'CaCO₃')
+    .replace(/\$Ca\^\{2\+\}\$/g, 'Ca²⁺')
+    .replace(/\$Mg\^\{2\+\}\$/g, 'Mg²⁺')
+    .replace(/\$HCO_3\^-\$/g, 'HCO₃⁻')
+    .replace(/\$MgSO_4\$/g, 'MgSO₄')
+    .replace(/\$NaHCO_3\$/g, 'NaHCO₃')
+    .replace(/\$a_w\$/g, 'aw')
+    .replace(/\$\\rightarrow\$/g, '→')
+    .replace(/\$\\approx\$/g, '≈')
+    .replace(/\$\\times\$/g, '×')
+    .replace(/\$\\pm\$/g, '±')
+    .replace(/&RARR;/g, '→')
+    .replace(/&rarr;/g, '→');
+
+  // Convert block $$...$$
+  processed = processed.replace(/\$\$([\s\S]*?)\$\$/g, (_match, eq) => {
     let cleanEq = eq
       .replace(/\\text\{([^}]+)\}/g, '$1')
       .replace(/\\mathbf\{([^}]+)\}/g, '$1')
@@ -31,6 +50,34 @@ function sanitizeMarkdownContent(raw: string): string {
       .trim();
     return `\n> ☕ **Persamaan Parameter:**\n> **${cleanEq}**\n`;
   });
+
+  // Convert inline math $...$
+  processed = processed.replace(/\$([^\$\n]+)\$/g, (_match, inner) => {
+    return inner
+      .replace(/\\text\{([^}]+)\}/g, '$1')
+      .replace(/\\mathbf\{([^}]+)\}/g, '$1')
+      .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '($1 ÷ $2)')
+      .replace(/\\times/g, '×')
+      .replace(/\\approx/g, '≈')
+      .replace(/\\rightarrow/g, '→')
+      .replace(/\\Delta/g, 'Δ')
+      .replace(/\\quad/g, ' ')
+      .replace(/\\%/g, '%')
+      .replace(/\\pm/g, '±')
+      .replace(/\\/g, '')
+      .trim();
+  });
+
+  // Clean any remaining raw LaTeX keywords outside math
+  processed = processed
+    .replace(/\\text\{([^}]+)\}/g, '$1')
+    .replace(/\\mathbf\{([^}]+)\}/g, '$1')
+    .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '($1 ÷ $2)')
+    .replace(/\\approx/g, '≈')
+    .replace(/\\times/g, '×')
+    .replace(/\\rightarrow/g, '→');
+
+  return processed;
 }
 
 export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {

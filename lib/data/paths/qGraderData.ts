@@ -125,7 +125,7 @@ Di era terdahulu, buku teks sekolah sering memuat peta lidah (*tongue taste map*
 Secara fisiologis murni, lidah manusia **hanya mampu mendeteksi 5 rasa dasar**. Kompleksitas luar biasa yang kita deskripsikan sebagai "aroma melati", "stroberi matang", "karamel mentega", atau "rempah kayu manis" bukanlah rasa (*taste*), melainkan **Flavor** yang dihasilkan oleh kombinasi gustatori dan penciuman olfaktori.
 
 > ☕ **Persamaan Parameter:**
-> **\\text{Flavor} = \\text{Taste (Lidah)} + \\text{Aroma (Epitel Olfaktori)} + \\text{Mouthfeel (Saraf Trigeminal)}**
+> **Flavor = Taste (Lidah) + Aroma (Epitel Olfaktori) + Mouthfeel (Saraf Trigeminal)**
 
 * **Olfaction Ortonasal**: Molekul aroma volatil masuk langsung melalui lubang hidung luar saat kita mengendus bubuk kopi kering (*dry fragrance*) atau uap seduhan basah (*wet aroma*).
 * **Olfaction Retronasal**: Saat kopi diseruput (*slurping*) ke dalam rongga mulut, suhu hangat tubuh (37°C) mempercepat pelepasan senyawa volatil. Saat kita menelan, terjadi dorongan udara dari rongga faring naik ke belakang langit-langit lunak menuju epitel olfaktori hidung. Inilah yang menciptakan persepsi *in-mouth flavor* dan *aftertaste*.
@@ -212,11 +212,11 @@ Cupping adalah metode evaluasi sensorik terstandarisasi yang dirancang oleh **Sp
 Standar resmi SCA menetapkan rasio bubuk kopi terhadap air seduh:
 
 > ☕ **Persamaan Parameter:**
-> **\\text{Rasio SCA} = 8.25\\text{ gram}\\ (\\pm 0.25\\text{g})\\ \\text{bubuk kopi per } 150\\text{ ml air}**
+> **Rasio SCA = 8,25 gram (± 0,25 gram) bubuk kopi per 150 ml air**
 
-Hal ini setara dengan rasio konsentrasi **$0.055\\text{ g/ml}$** atau mendekati rasio seduh **1 : 18.18**.
-* Jika mangkuk cupping Anda bervolume $200\\text{ ml}$, gunakan $11.0\\text{ gram}$ kopi.
-* Jika bervolume $250\\text{ ml}$, gunakan $13.75\\text{ gram}$ kopi.
+Hal ini setara dengan rasio konsentrasi **0.055 g/ml** atau mendekati rasio seduh **1 : 18.18**.
+* Jika mangkuk cupping Anda bervolume 200 ml, gunakan 11.0 gram kopi.
+* Jika bervolume 250 ml, gunakan 13.75 gram kopi.
 
 > [!IMPORTANT]
 > **Toleransi Sampel**: Setiap lot kopi yang diuji wajib disiapkan minimal **5 cangkir (5 cups)** untuk mendeteksi keseragaman (*Uniformity*) dan memastikan ada atau tidaknya cangkir cacat (*defect cup*) akibat cacat petik atau fermentasi lokal.
@@ -225,7 +225,7 @@ Hal ini setara dengan rasio konsentrasi **$0.055\\text{ g/ml}$** atau mendekati 
 
 ### 2. Standar Ukuran Gilingan (*Grind Size Standard*)
 Ukuran gilingan cupping berada di rentang gilingan sedikit lebih kasar daripada filter pour-over standar:
-* **Spesifikasi SCA**: **70% hingga 75%** partikel bubuk harus lolos melewati ayakan standar **U.S. Standard 20-Mesh Sieve** (ukuran pori-pori $850\\ \\mu\\text{m}$ atau mikron).
+* **Spesifikasi SCA**: **70% hingga 75%** partikel bubuk harus lolos melewati ayakan standar **U.S. Standard 20-Mesh Sieve** (ukuran pori-pori 850 mum atau mikron).
 * Bubuk kopi digiling langsung ke dalam mangkuk cupping kering maksimal **15 menit** sebelum evaluasi aroma kering (*fragrance*). Jika tidak langsung diseduh, mangkuk wajib ditutup dengan penutup cupping kaca/keramik maksimal 30 menit.
 
 ---
@@ -234,12 +234,12 @@ Ukuran gilingan cupping berada di rentang gilingan sedikit lebih kasar daripada 
 
 | Parameter Kualitas Air | Standar Target SCA | Batas Toleransi yang Diizinkan |
 |---|---|---|
-| **Total Dissolved Solids (TDS)** | **150 ppm** | $75 - 250\\text{ ppm}$ |
-| **Kalsium Hardness ($Ca^{2+}$)** | **50–68 ppm** (as $CaCO_3$) | $17 - 85\\text{ ppm}$ |
-| **Total Alkalinitas (Buffer)** | **40 ppm** (as $CaCO_3$) | $22 - 75\\text{ ppm}$ |
-| **pH Air** | **7.00** (Netral Murni) | $6.50 - 8.00$ |
-| **Klorin Bebas (*Chlorine*)** | **0.00 mg/L** | $0.00\\text{ mg/L}$ (Nol Mutlak) |
-| **Suhu Air Saat Dituangkan** | **93.3°C (200°F)** | $\\pm 1.1°C$ ($92.2°C - 94.4°C$) |
+| **Total Dissolved Solids (TDS)** | **150 ppm** | 75 - 250 ppm |
+| **Kalsium Hardness (Ca²⁺)** | **50–68 ppm** (as CaCO₃) | 17 - 85 ppm |
+| **Total Alkalinitas (Buffer)** | **40 ppm** (as CaCO₃) | 22 - 75 ppm |
+| **pH Air** | **7.00** (Netral Murni) | 6.50 - 8.00 |
+| **Klorin Bebas (*Chlorine*)** | **0.00 mg/L** | 0.00 mg/L (Nol Mutlak) |
+| **Suhu Air Saat Dituangkan** | **93.3°C (200°F)** | ± 1.1°C (92.2°C - 94.4°C) |
     `,
     content_type: 'text',
     duration_minutes: 18,
@@ -542,7 +542,7 @@ Ujian **Triangulation Test** adalah salah satu modul paling menantang dalam sert
   * **1 cangkir** berisi kopi dari lot yang berbeda (*Sample B* / cangkir ganjil).
 * **Tugas Peserta**: Menyeruput ketiga cangkir dan mengidentifikasi dengan tepat mana cangkir yang berbeda (*odd cup*) sebelum waktu habis.
 * **Skala Ujian Penuh**: Terdiri dari **6 set segitiga (total 18 cangkir)** yang harus diselesaikan dalam waktu **45 menit**.
-* **Standar Kelulusan**: Peserta wajib menjawab dengan benar minimal **5 dari 6 set** (akurasi $\\ge 83.3\\%$) untuk dinyatakan lulus!
+* **Standar Kelulusan**: Peserta wajib menjawab dengan benar minimal **5 dari 6 set** (akurasi ≥ 83.3%) untuk dinyatakan lulus!
 
 ---
 
@@ -555,7 +555,7 @@ Mengapa ruang ujian triangulasi CQI diterangi oleh lampu neon merah redup?
 ---
 
 ### 3. Strategi Sensorik Menaklukkan Triangulasi:
-1. **Pemeriksaan Aroma Basah Awal**: Sebelum menyeruput, cium aroma uap ketiga cangkir secara berurutan: Cangkir 1 $\\rightarrow$ Cangkir 2 $\\rightarrow$ Cangkir 3. Perbedaan intensitas floral atau fruity sering kali sudah tercium di fase ini.
+1. **Pemeriksaan Aroma Basah Awal**: Sebelum menyeruput, cium aroma uap ketiga cangkir secara berurutan: Cangkir 1 → Cangkir 2 → Cangkir 3. Perbedaan intensitas floral atau fruity sering kali sudah tercium di fase ini.
 2. **Teknik Eliminasi Pasangan**: Bandingkan cangkir 1 dan cangkir 2. Jika terasa identik, maka kandidat terkuat cangkir berbeda adalah cangkir 3. Konfirmasi hipotesis ini dengan membandingkan cangkir 3 terhadap cangkir 1.
 3. **Fokus pada Atribut Kunci**: Jangan mencari semua rasa sekaligus! Fokuskan indra Anda pada satu atribut spesifik:
    * *Aftertaste*: Apakah salah satu cangkir meninggalkan sensasi lebih kering atau manis?
@@ -583,9 +583,9 @@ Mengapa ruang ujian triangulasi CQI diterangi oleh lampu neon merah redup?
 # Sensory Threshold: Mengukur Batas Kepekaan Indra Pengecap
 
 Sebelum seorang evaluator diizinkan menilai kopi, CQI melakukan tes kalibrasi ambang batas rasa menggunakan larutan air murni yang dicampur dengan zat kimia murni tingkat pangan (*food-grade chemical compounds*):
-1. **Manis (*Sweet*)**: Sukrosa murni ($C_{12}H_{22}O_{11}$).
-2. **Asam (*Sour*)**: Asam sitrat anhidrat ($C_6H_8O_7$).
-3. **Asin (*Salty*)**: Natrium klorida murni ($NaCl$).
+1. **Manis (*Sweet*)**: Sukrosa murni (C_{12}H_{22}O_{11}).
+2. **Asam (*Sour*)**: Asam sitrat anhidrat (C_6H_8O_7).
+3. **Asin (*Salty*)**: Natrium klorida murni (NaCl).
 
 ---
 
@@ -593,9 +593,9 @@ Sebelum seorang evaluator diizinkan menilai kopi, CQI melakukan tes kalibrasi am
 
 | Tingkat Intensitas | Sukrosa (Manis) | Asam Sitrat (Asam) | Natrium Klorida (Asin) |
 |---|---|---|---|
-| **Low (Rendah)** | $1.2\\text{ g/L}$ | $0.2\\text{ g/L}$ | $0.4\\text{ g/L}$ |
-| **Medium (Sedang)** | $2.4\\text{ g/L}$ | $0.4\\text{ g/L}$ | $0.8\\text{ g/L}$ |
-| **High (Tinggi)** | $4.8\\text{ g/L}$ | $0.8\\text{ g/L}$ | $1.6\\text{ g/L}$ |
+| **Low (Rendah)** | 1.2 g/L | 0.2 g/L | 0.4 g/L |
+| **Medium (Sedang)** | 2.4 g/L | 0.4 g/L | 0.8 g/L |
+| **High (Tinggi)** | 4.8 g/L | 0.8 g/L | 1.6 g/L |
 
 ---
 
@@ -630,10 +630,10 @@ Sebelum seorang evaluator diizinkan menilai kopi, CQI melakukan tes kalibrasi am
 # Formulir Cupping SCA: Panduan Lengkap Evaluasi 10 Atribut
 
 Formulir evaluasi sensorik SCA menggunakan skala interval **6.00 hingga 10.00** (dengan kelipatan 0.25 poin) untuk menilai atribut positif kopi specialty:
-* $6.00 - 6.75$: *Good* (Standar Kopi Komersial Tinggi)
-* $7.00 - 7.75$: *Very Good* (Standar Masuk Kopi Spesialti)
-* $8.00 - 8.75$: *Excellent* (Spesialti Premium)
-* $9.00 - 9.75$: *Outstanding* (Kualitas Lelang Dunia / Cup of Excellence)
+* 6.00 - 6.75: *Good* (Standar Kopi Komersial Tinggi)
+* 7.00 - 7.75: *Very Good* (Standar Masuk Kopi Spesialti)
+* 8.00 - 8.75: *Excellent* (Spesialti Premium)
+* 9.00 - 9.75: *Outstanding* (Kualitas Lelang Dunia / Cup of Excellence)
 
 ---
 
@@ -679,12 +679,12 @@ Tahap terakhir evaluasi cupping adalah menjumlahkan seluruh nilai untuk mendapat
 ### 1. Klasifikasi Status Mutu Berdasarkan Skor Total:
 
 > ☕ **Persamaan Parameter:**
-> **\\text{Total Score} = \\sum_{i=1}^{10} \\text{Atribut Poin} - \\text{Total Cacat (Defects)}**
+> **Total Score = Total 10 Atribut Poin - Total Cacat (Defects)**
 
-* **Skor $\\ge 90.00$**: *Specialty Superlative (Outstanding)* — Kopi langka lelang dunia (*Cup of Excellence* / Best of Panama).
-* **Skor $85.00 - 89.99$**: *Specialty Premium (Excellent)* — Kopi mikro-lot berkarakter luar biasa.
-* **Skor $80.00 - 84.99$**: *Specialty Grade (Very Good)* — Batas ambang resmi kopi masuk kategori spesialti.
-* **Skor $< 80.00$**: *Commercial Grade (Below Specialty)* — Tidak memenuhi syarat disebut sebagai kopi spesialti.
+* **Skor ≥ 90.00**: *Specialty Superlative (Outstanding)* — Kopi langka lelang dunia (*Cup of Excellence* / Best of Panama).
+* **Skor 85.00 - 89.99**: *Specialty Premium (Excellent)* — Kopi mikro-lot berkarakter luar biasa.
+* **Skor 80.00 - 84.99**: *Specialty Grade (Very Good)* — Batas ambang resmi kopi masuk kategori spesialti.
+* **Skor < 80.00**: *Commercial Grade (Below Specialty)* — Tidak memenuhi syarat disebut sebagai kopi spesialti.
 
 ---
 
@@ -701,7 +701,7 @@ SCA membagi cacat rasa menjadi dua kategori keparahan:
 
 #### Formula Matematis Pengurangan Cacat:
 > ☕ **Persamaan Parameter:**
-> **\\text{Total Defect Deduction} = (\\text{Jumlah Cangkir Taint} \\times 2) + (\\text{Jumlah Cangkir Fault} \\times 4)**
+> **Total Pengurangan Cacat = (Jumlah Cangkir Taint × 2) + (Jumlah Cangkir Fault × 4)**
 
 > [!CAUTION]
 > Jika sebuah cangkir terkena Fault, cangkir tersebut **otomatis kehilangan 2 poin Clean Cup, 2 poin Sweetness, dan 2 poin Uniformity** pada cangkir yang bersangkutan, ditambah penalti 4 poin defect. Akibatnya, satu cangkir fault langsung memangkas skor total hingga 10 poin, seketika menggugurkan kopi dari grade specialty!

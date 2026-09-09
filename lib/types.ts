@@ -380,3 +380,13 @@ export interface LandingPageConfig {
   };
 }
 
+export interface SitePageConfig {
+  id: string;
+  slug: string;
+  name: string;
+  seoTitle: string;
+  seoDescription: string;
+  sections: PageSectionItem[];
+}
+
+

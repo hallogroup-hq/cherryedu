@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
@@ -17,6 +17,14 @@ import {
   LogIn,
   LogOut,
   UserCircle2,
+  ChevronDown,
+  BookOpen,
+  Sparkles,
+  MessageSquare,
+  Briefcase,
+  Trophy,
+  Info,
+  Coffee,
 } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
@@ -24,28 +32,54 @@ export const Navbar: React.FC = () => {
   const router = useRouter();
   const { currentUser, bookmarks } = useCherryEdu();
   const { user, signOut } = useAuth();
+  
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
+  const [communityDropdownOpen, setCommunityDropdownOpen] = useState(false);
+
+  const toolsRef = useRef<HTMLDivElement>(null);
+  const communityRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdowns on route change or click outside
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setToolsDropdownOpen(false);
+    setCommunityDropdownOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (toolsRef.current && !toolsRef.current.contains(e.target as Node)) {
+        setToolsDropdownOpen(false);
+      }
+      if (communityRef.current && !communityRef.current.contains(e.target as Node)) {
+        setCommunityDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   if (pathname?.startsWith('/admin')) {
     return null;
   }
 
-  const navLinks = [
-    { href: '/paths', label: 'Kurikulum' },
-    { href: '/tools', label: 'Alat Seduh' },
-    { href: '/lexicon', label: 'Kamus Kopi' },
-    { href: '/flashcards', label: 'Flashcards' },
-    { href: '/forum', label: 'Komunitas' },
-    { href: '/jobs', label: 'Bursa Kerja' },
-    { href: '/leaderboard', label: 'Peringkat' },
-  ];
+  const isToolsActive =
+    pathname.startsWith('/tools') ||
+    pathname.startsWith('/lexicon') ||
+    pathname.startsWith('/flashcards');
+
+  const isCommunityActive =
+    pathname.startsWith('/forum') ||
+    pathname.startsWith('/jobs') ||
+    pathname.startsWith('/leaderboard');
 
   return (
     <header className="sticky top-0 z-40 bg-paper-50/95 backdrop-blur-md border-b border-paper-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-18 gap-4">
           {/* Brand Mark */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3 group shrink-0">
             <img
               src="/cherry-logo-tight.png"
               alt="Cherry Coffee Roastery"
@@ -61,54 +95,216 @@ export const Navbar: React.FC = () => {
             </div>
           </Link>
 
-          {/* Center Navigation Links (Editorial Minimalist) */}
-          <nav className="hidden md:flex items-center gap-4 lg:gap-6">
-            {navLinks.map((item) => {
-              const isActive = pathname.startsWith(item.href);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`text-xs uppercase tracking-wider font-semibold transition-all relative py-1 ${
-                    isActive
-                      ? 'text-cherry-800 font-bold'
-                      : 'text-roast-700 hover:text-roast-950'
-                  }`}
-                >
-                  {item.label}
-                  {isActive && (
-                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-cherry-700" />
-                  )}
-                </Link>
-              );
-            })}
+          {/* Center Navigation Links (Clean Editorial Grouping) */}
+          <nav className="hidden md:flex items-center gap-5 lg:gap-7">
+            {/* 1. Kurikulum */}
+            <Link
+              href="/paths"
+              className={`text-xs uppercase tracking-wider font-semibold transition-all relative py-1 ${
+                pathname.startsWith('/paths')
+                  ? 'text-cherry-800 font-bold'
+                  : 'text-roast-700 hover:text-roast-950'
+              }`}
+            >
+              Kurikulum
+              {pathname.startsWith('/paths') && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-cherry-700" />
+              )}
+            </Link>
+
+            {/* 2. Alat & Riset Dropdown */}
+            <div
+              ref={toolsRef}
+              className="relative"
+              onMouseEnter={() => setToolsDropdownOpen(true)}
+              onMouseLeave={() => setToolsDropdownOpen(false)}
+            >
+              <button
+                onClick={() => setToolsDropdownOpen(!toolsDropdownOpen)}
+                className={`text-xs uppercase tracking-wider font-semibold transition-all relative py-1 flex items-center gap-1 ${
+                  isToolsActive
+                    ? 'text-cherry-800 font-bold'
+                    : 'text-roast-700 hover:text-roast-950'
+                }`}
+              >
+                <span>Alat & Riset</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${toolsDropdownOpen ? 'rotate-180' : ''}`} />
+                {isToolsActive && (
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-cherry-700" />
+                )}
+              </button>
+
+              {toolsDropdownOpen && (
+                <div className="absolute top-full left-0 w-64 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                  <div className="bg-paper-50 rounded-xl border border-paper-300 shadow-card p-2 space-y-1">
+                    <Link
+                      href="/tools"
+                      onClick={() => setToolsDropdownOpen(false)}
+                      className={`flex items-start gap-2.5 p-2.5 rounded-lg text-left transition-colors ${
+                        pathname.startsWith('/tools') ? 'bg-paper-200/80 text-roast-950' : 'hover:bg-paper-100 text-roast-800'
+                      }`}
+                    >
+                      <Coffee className="w-4 h-4 text-cherry-700 mt-0.5 shrink-0" />
+                      <div>
+                        <div className="font-serif font-bold text-xs">Laboratorium Seduh</div>
+                        <div className="font-sans text-[11px] text-roast-500 leading-tight mt-0.5">
+                          Kalkulator rasio, Sensory Wheel, dan varietas
+                        </div>
+                      </div>
+                    </Link>
+
+                    <Link
+                      href="/lexicon"
+                      onClick={() => setToolsDropdownOpen(false)}
+                      className={`flex items-start gap-2.5 p-2.5 rounded-lg text-left transition-colors ${
+                        pathname.startsWith('/lexicon') ? 'bg-paper-200/80 text-roast-950' : 'hover:bg-paper-100 text-roast-800'
+                      }`}
+                    >
+                      <BookOpen className="w-4 h-4 text-cherry-700 mt-0.5 shrink-0" />
+                      <div>
+                        <div className="font-serif font-bold text-xs">Kamus Kopi SCA-ID</div>
+                        <div className="font-sans text-[11px] text-roast-500 leading-tight mt-0.5">
+                          60+ istilah resmi dengan audio pelafalan
+                        </div>
+                      </div>
+                    </Link>
+
+                    <Link
+                      href="/flashcards"
+                      onClick={() => setToolsDropdownOpen(false)}
+                      className={`flex items-start gap-2.5 p-2.5 rounded-lg text-left transition-colors ${
+                        pathname.startsWith('/flashcards') ? 'bg-paper-200/80 text-roast-950' : 'hover:bg-paper-100 text-roast-800'
+                      }`}
+                    >
+                      <Sparkles className="w-4 h-4 text-cherry-700 mt-0.5 shrink-0" />
+                      <div>
+                        <div className="font-serif font-bold text-xs">Flashcards Pengingat</div>
+                        <div className="font-sans text-[11px] text-roast-500 leading-tight mt-0.5">
+                          Latihan berkala sistem Spaced Repetition
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 3. Komunitas Dropdown */}
+            <div
+              ref={communityRef}
+              className="relative"
+              onMouseEnter={() => setCommunityDropdownOpen(true)}
+              onMouseLeave={() => setCommunityDropdownOpen(false)}
+            >
+              <button
+                onClick={() => setCommunityDropdownOpen(!communityDropdownOpen)}
+                className={`text-xs uppercase tracking-wider font-semibold transition-all relative py-1 flex items-center gap-1 ${
+                  isCommunityActive
+                    ? 'text-cherry-800 font-bold'
+                    : 'text-roast-700 hover:text-roast-950'
+                }`}
+              >
+                <span>Komunitas</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${communityDropdownOpen ? 'rotate-180' : ''}`} />
+                {isCommunityActive && (
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-cherry-700" />
+                )}
+              </button>
+
+              {communityDropdownOpen && (
+                <div className="absolute top-full left-0 w-64 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                  <div className="bg-paper-50 rounded-xl border border-paper-300 shadow-card p-2 space-y-1">
+                    <Link
+                      href="/forum"
+                      onClick={() => setCommunityDropdownOpen(false)}
+                      className={`flex items-start gap-2.5 p-2.5 rounded-lg text-left transition-colors ${
+                        pathname.startsWith('/forum') ? 'bg-paper-200/80 text-roast-950' : 'hover:bg-paper-100 text-roast-800'
+                      }`}
+                    >
+                      <MessageSquare className="w-4 h-4 text-roast-700 mt-0.5 shrink-0" />
+                      <div>
+                        <div className="font-serif font-bold text-xs">Forum Diskusi</div>
+                        <div className="font-sans text-[11px] text-roast-500 leading-tight mt-0.5">
+                          Tanya jawab teknis seduh & sangrai
+                        </div>
+                      </div>
+                    </Link>
+
+                    <Link
+                      href="/jobs"
+                      onClick={() => setCommunityDropdownOpen(false)}
+                      className={`flex items-start gap-2.5 p-2.5 rounded-lg text-left transition-colors ${
+                        pathname.startsWith('/jobs') ? 'bg-paper-200/80 text-roast-950' : 'hover:bg-paper-100 text-roast-800'
+                      }`}
+                    >
+                      <Briefcase className="w-4 h-4 text-roast-700 mt-0.5 shrink-0" />
+                      <div>
+                        <div className="font-serif font-bold text-xs">Bursa Kerja Barista</div>
+                        <div className="font-sans text-[11px] text-roast-500 leading-tight mt-0.5">
+                          Peluang karier di specialty coffee shop
+                        </div>
+                      </div>
+                    </Link>
+
+                    <Link
+                      href="/leaderboard"
+                      onClick={() => setCommunityDropdownOpen(false)}
+                      className={`flex items-start gap-2.5 p-2.5 rounded-lg text-left transition-colors ${
+                        pathname.startsWith('/leaderboard') ? 'bg-paper-200/80 text-roast-950' : 'hover:bg-paper-100 text-roast-800'
+                      }`}
+                    >
+                      <Trophy className="w-4 h-4 text-roast-700 mt-0.5 shrink-0" />
+                      <div>
+                        <div className="font-serif font-bold text-xs">Papan Peringkat</div>
+                        <div className="font-sans text-[11px] text-roast-500 leading-tight mt-0.5">
+                          Apresiasi pembelajar paling tekun
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 4. Tentang Kami */}
+            <Link
+              href="/about"
+              className={`text-xs uppercase tracking-wider font-semibold transition-all relative py-1 ${
+                pathname.startsWith('/about')
+                  ? 'text-cherry-800 font-bold'
+                  : 'text-roast-700 hover:text-roast-950'
+              }`}
+            >
+              Tentang Kami
+              {pathname.startsWith('/about') && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-cherry-700" />
+              )}
+            </Link>
           </nav>
 
           {/* Right Status & Controls */}
-          <div className="flex items-center gap-2.5 sm:gap-3">
-            {/* Minimalist Streak Stamp — hidden on mobile */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Unified Sleek Stats Pill (Streak + XP in One Compact Badge) */}
             <div
-              className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-paper-100 border border-paper-300 text-roast-800 text-xs font-mono"
-              title={`${currentUser.streak_count} hari berturut-turut`}
+              className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-paper-100/90 border border-paper-300 text-roast-900 text-xs font-mono shadow-2xs"
+              title={`${currentUser.streak_count} hari berturut-turut | ${currentUser.xp_points} XP`}
             >
-              <Flame className="w-3.5 h-3.5 text-crema-600 fill-crema-500" />
-              <span className="font-bold">{currentUser.streak_count}d</span>
+              <div className="flex items-center gap-1">
+                <Flame className="w-3.5 h-3.5 text-crema-600 fill-crema-500" />
+                <span className="font-bold">{currentUser.streak_count}d</span>
+              </div>
+              <span className="text-paper-400 select-none">•</span>
+              <div className="flex items-center gap-1">
+                <Zap className="w-3 h-3 text-cherry-700 fill-cherry-700" />
+                <span className="font-bold">{currentUser.xp_points}</span>
+                <span className="text-[10px] text-roast-500 font-sans">XP</span>
+              </div>
             </div>
 
-            {/* Minimalist XP Stamp — hidden on mobile */}
-            <div
-              className="hidden md:flex items-center gap-1 px-2.5 py-1 rounded-md bg-paper-100 border border-paper-300 text-roast-900 text-xs font-mono"
-              title={`${currentUser.xp_points} XP dikumpulkan`}
-            >
-              <Zap className="w-3 h-3 text-roast-700 fill-roast-700" />
-              <span className="font-bold">{currentUser.xp_points}</span>
-              <span className="text-[10px] text-roast-500 font-sans">XP</span>
-            </div>
-
-            {/* Bookmark Link — hidden on mobile */}
+            {/* Bookmark Link */}
             <Link
               href="/profile?tab=bookmarks"
-              className="relative hidden md:block p-1.5 text-roast-600 hover:text-roast-950 hover:bg-paper-200/50 rounded-md transition-colors"
+              className="relative hidden sm:block p-1.5 text-roast-600 hover:text-roast-950 hover:bg-paper-200/50 rounded-md transition-colors"
               title="Materi Disimpan"
             >
               <Bookmark className="w-4 h-4" />
@@ -130,7 +326,7 @@ export const Navbar: React.FC = () => {
             {currentUser.role === 'admin' && (
               <Link
                 href="/admin"
-                className="px-2.5 py-1 bg-cherry-700 hover:bg-cherry-800 text-white font-mono text-[10px] uppercase font-bold tracking-wider rounded-md transition-colors hidden sm:flex items-center gap-1 shadow-xs"
+                className="px-2.5 py-1 bg-roast-950 hover:bg-roast-900 text-paper-50 font-mono text-[10px] uppercase font-bold tracking-wider rounded-md transition-colors hidden sm:flex items-center gap-1 border border-roast-800"
                 title="Buka Konsol Pengelola & Tim Internal"
               >
                 <span>[ ADMIN ]</span>
@@ -141,19 +337,22 @@ export const Navbar: React.FC = () => {
 
             {/* Auth Section */}
             {user ? (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5">
                 <Link
                   href="/profile"
                   className="flex items-center gap-2 px-2.5 py-1.5 rounded-md border border-paper-300 bg-white hover:border-roast-400 transition-colors"
                   title="Profil Saya"
                 >
-                  <UserCircle2 className="w-5 h-5 text-roast-600" />
+                  <UserCircle2 className="w-4 h-4 text-roast-600" />
                   <span className="text-xs font-bold text-roast-950 hidden lg:block max-w-[90px] truncate">
                     {user.user_metadata?.name?.split(' ')[0] || user.email?.split('@')[0]}
                   </span>
                 </Link>
                 <button
-                  onClick={async () => { await signOut(); router.push('/login'); }}
+                  onClick={async () => {
+                    await signOut();
+                    router.push('/login');
+                  }}
                   className="p-1.5 text-roast-500 hover:text-cherry-700 hover:bg-cherry-50 rounded-md transition-colors"
                   title="Keluar"
                 >
@@ -182,48 +381,121 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-paper-300 bg-paper-50 px-6 py-5 space-y-4">
-          {/* User Stats Strip */}
-          <div className="flex items-center gap-3 pb-4 border-b border-paper-200">
+        <div className="md:hidden border-t border-paper-300 bg-paper-50 px-5 py-5 space-y-4 max-h-[80vh] overflow-y-auto">
+          {/* User Stats Strip on Mobile */}
+          <div className="flex items-center gap-3 pb-3 border-b border-paper-200">
             <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-paper-100 border border-paper-300 text-roast-800 text-xs font-mono">
               <Flame className="w-3.5 h-3.5 text-crema-600 fill-crema-500" />
               <span className="font-bold">{currentUser.streak_count}d streak</span>
             </div>
             <div className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-paper-100 border border-paper-300 text-roast-900 text-xs font-mono">
-              <Zap className="w-3 h-3 text-roast-700 fill-roast-700" />
+              <Zap className="w-3 h-3 text-cherry-700 fill-cherry-700" />
               <span className="font-bold">{currentUser.xp_points}</span>
               <span className="text-[10px] text-roast-500">XP</span>
             </div>
           </div>
 
-          <div className="font-mono text-[10px] uppercase tracking-widest text-roast-400">
-            Daftar Navigasi
-          </div>
-          {navLinks.map((item) => (
+          {/* Group 1: Kurikulum & Pembelajaran */}
+          <div className="space-y-1">
+            <span className="font-mono text-[9px] uppercase tracking-widest text-roast-400 block font-bold px-1">
+              PROGRAM & MATERI
+            </span>
             <Link
-              key={item.href}
-              href={item.href}
+              href="/paths"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block text-sm uppercase tracking-wider font-bold text-roast-900 py-1.5"
+              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-900 hover:bg-paper-100 text-sm font-bold"
             >
-              {item.label}
+              <BookOpen className="w-4 h-4 text-cherry-700" />
+              <span>Katalog Kurikulum & Silabus</span>
             </Link>
-          ))}
-          <div className="pt-3 border-t border-paper-300 flex flex-col gap-2 text-xs">
             <Link
               href="/onboarding"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2 py-1 text-cherry-800 font-semibold"
+              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
             >
-              <Compass className="w-4 h-4" />
+              <Compass className="w-4 h-4 text-roast-500" />
               <span>Panduan Penentuan Jalur Belajar</span>
+            </Link>
+          </div>
+
+          {/* Group 2: Alat & Riset */}
+          <div className="space-y-1 pt-2 border-t border-paper-200">
+            <span className="font-mono text-[9px] uppercase tracking-widest text-roast-400 block font-bold px-1">
+              ALAT & RISET KOPI
+            </span>
+            <Link
+              href="/tools"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-900 hover:bg-paper-100 text-sm font-bold"
+            >
+              <Coffee className="w-4 h-4 text-cherry-700" />
+              <span>Laboratorium Alat Seduh & Varietas</span>
+            </Link>
+            <Link
+              href="/lexicon"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
+            >
+              <BookOpen className="w-4 h-4 text-roast-500" />
+              <span>Kamus Kopi SCA-ID (Audio Lexicon)</span>
+            </Link>
+            <Link
+              href="/flashcards"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
+            >
+              <Sparkles className="w-4 h-4 text-roast-500" />
+              <span>Flashcards Spaced Repetition</span>
+            </Link>
+          </div>
+
+          {/* Group 3: Komunitas */}
+          <div className="space-y-1 pt-2 border-t border-paper-200">
+            <span className="font-mono text-[9px] uppercase tracking-widest text-roast-400 block font-bold px-1">
+              KOMUNITAS & KARIER
+            </span>
+            <Link
+              href="/forum"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-900 hover:bg-paper-100 text-sm font-bold"
+            >
+              <MessageSquare className="w-4 h-4 text-roast-700" />
+              <span>Forum Diskusi Barista</span>
+            </Link>
+            <Link
+              href="/jobs"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
+            >
+              <Briefcase className="w-4 h-4 text-roast-500" />
+              <span>Bursa Kerja Kopi</span>
+            </Link>
+            <Link
+              href="/leaderboard"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
+            >
+              <Trophy className="w-4 h-4 text-roast-500" />
+              <span>Papan Peringkat</span>
+            </Link>
+          </div>
+
+          {/* Group 4: Profil & Lembaga */}
+          <div className="pt-2 border-t border-paper-200 flex flex-col gap-1.5 text-xs">
+            <Link
+              href="/about"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2 p-2 rounded text-roast-800 hover:bg-paper-100 font-semibold"
+            >
+              <Info className="w-4 h-4 text-roast-500" />
+              <span>Tentang Kami (Cherry Roastery)</span>
             </Link>
             <Link
               href="/profile?tab=bookmarks"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2 py-1 text-roast-700"
+              className="flex items-center gap-2 p-2 rounded text-roast-700 hover:bg-paper-100"
             >
               <Bookmark className="w-4 h-4" />
               <span>Materi Disimpan {bookmarks.length > 0 ? `(${bookmarks.length})` : ''}</span>
@@ -231,16 +503,16 @@ export const Navbar: React.FC = () => {
             <Link
               href="/certificates"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2 py-1 text-roast-700"
+              className="flex items-center gap-2 p-2 rounded text-roast-700 hover:bg-paper-100"
             >
               <Award className="w-4 h-4" />
-              <span>Sertifikat Saya</span>
+              <span>Koleksi Sertifikat</span>
             </Link>
             {currentUser.role === 'admin' && (
               <Link
                 href="/admin"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center gap-2 py-1 text-cherry-700 font-mono font-bold"
+                className="flex items-center gap-2 p-2 rounded text-cherry-800 bg-cherry-50 font-mono font-bold border border-cherry-200 mt-1"
               >
                 <ShieldCheck className="w-4 h-4" />
                 <span>[ KONSOL PENGELOLA ADMIN ]</span>

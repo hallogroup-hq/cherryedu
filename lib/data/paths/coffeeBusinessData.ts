@@ -161,18 +161,18 @@ Mengetahui angka **Break-Even Point (BEP)** adalah kompas penunjuk arah bagi pem
 ### 1. Formula Matematis BEP Unit:
 
 > ☕ **Persamaan Parameter:**
-> **\\text{BEP (Unit Cup Bulanan)} = \\frac{\\text{Total Biaya Tetap Bulanan (Fixed Costs)}}{\\text{Harga Jual Rata-rata per Cup} - \\text{Biaya Variabel per Cup (HPP)}}**
+> **BEP (Unit Cup Bulanan) = (Total Biaya Tetap Bulanan (Fixed Costs) ÷ (Harga Jual Rata-rata per Cup - Biaya Variabel per Cup (HPP)))**
 
 Di mana:
-* $(\\text{Harga Jual} - \\text{HPP})$ disebut sebagai **Margin Kontribusi per Cup (*Contribution Margin*)**.
+* (Harga Jual - HPP) disebut sebagai **Margin Kontribusi per Cup (*Contribution Margin*)**.
 * Untuk mencari target cup harian:
   > ☕ **Persamaan Parameter:**
-> **\\text{BEP Harian} = \\frac{\\text{BEP Bulanan}}{30\\text{ hari}}**
+> **BEP Harian = (BEP Bulanan ÷ 30 hari)**
 
 ---
 
 ### 2. Simulasi Studi Kasus Kedai Kopi Nyata di Indonesia:
-Mari kita buat simulasi kedai kopi skala medium (*footprint* 50–70 $m^2$) di area suburban/kota:
+Mari kita buat simulasi kedai kopi skala medium (*footprint* 50–70 m^2) di area suburban/kota:
 
 #### A. Data Keuangan Bulanan:
 * Sewa tempat: Rp 8.000.000 / bulan
@@ -184,14 +184,14 @@ Mari kita buat simulasi kedai kopi skala medium (*footprint* 50–70 $m^2$) di a
 #### B. Data Penjualan per Cup (Rata-rata Menu):
 * Rata-rata Harga Jual per Cup: **Rp 24.000**
 * Rata-rata HPP Variabel per Cup (Kopi + Susu + Cup): **Rp 8.000**
-* Margin Kontribusi per Cup = $Rp\\ 24.000 - Rp\\ 8.000 = \\mathbf{Rp\\ 16.000}$
+* Margin Kontribusi per Cup = Rp 24.000 - Rp 8.000 = Rp 16.000
 
 #### C. Kalkulasi BEP:
 > ☕ **Persamaan Parameter:**
-> **\\text{BEP Bulanan} = \\frac{Rp\\ 23.000.000}{Rp\\ 16.000} = 1.437.5 \\approx \\mathbf{1.438\\text{ cup / bulan}}**
+> **BEP Bulanan = (Rp 23.000.000 ÷ Rp 16.000) = 1.437,5 ≈ 1.438 cup / bulan**
 
 > ☕ **Persamaan Parameter:**
-> **\\text{BEP Harian} = \\frac{1.438}{30} = \\mathbf{47.9} \\approx \\mathbf{48\\text{ cup / hari}}**
+> **BEP Harian = (1.438 ÷ 30) = 47,9 ≈ 48 cup / hari**
 
 > [!IMPORTANT]
 > **Interpretasi Bisnis**:
@@ -249,7 +249,7 @@ Mari kita buat simulasi kedai kopi skala medium (*footprint* 50–70 $m^2$) di a
 #### Penentuan Harga Jual (*Menu Pricing*):
 Jika total HPP riil Anda adalah **Rp 9.500** dan Anda menargetkan HPP berada di angka **35%**:
 > ☕ **Persamaan Parameter:**
-> **\\text{Harga Jual Ideal} = \\frac{\\text{HPP}}{0.35} = \\frac{Rp\\ 9.500}{0.35} = Rp\\ 27.142 \\approx \\mathbf{Rp\\ 28.000}**
+> **Harga Jual Ideal = (HPP ÷ 0.35) = (Rp  9.500 ÷ 0.35) = Rp  27.142 ≈ Rp  28.000**
 
 Dengan menjual di harga **Rp 28.000**, kedai Anda mengantongi laba kotor sebesar **Rp 18.500 per cup (margin 66%)**, memberi ruang yang sangat sehat untuk menutup biaya sewa, gaji karyawan, dan promosi.
     `,
@@ -287,28 +287,28 @@ Aplikasi pesan antar makanan online (GrabFood, GoFood, ShopeeFood) adalah salura
 ### 2. Simulasi Bahaya Menyamakan Harga Kasir dan Harga Online:
 Bayangkan Anda menjual Es Kopi Susu seharga **Rp 20.000** di kasir dengan HPP **Rp 9.500**:
 * **Penjualan Kasir (Dine-in)**:
-  * Laba Kotor = $Rp\\ 20.000 - Rp\\ 9.500 = \\mathbf{Rp\\ 10.500}$ (Margin 52.5%).
+  * Laba Kotor = Rp 20.000 - Rp 9.500 = Rp 10.500 (Margin 52.5%).
 * **Penjualan Online (Jika Harga Tetap Rp 20.000)**:
-  * Potongan Komisi 20% = $Rp\\ 4.000$.
-  * Uang yang cair ke rekening kedai = $Rp\\ 16.000$.
-  * Dikurangi HPP = $Rp\\ 16.000 - Rp\\ 9.500 = \\mathbf{Rp\\ 6.500}$!
+  * Potongan Komisi 20% = Rp 4.000.
+  * Uang yang cair ke rekening kedai = Rp 16.000.
+  * Dikurangi HPP = Rp 16.000 - Rp 9.500 = Rp 6.500!
   * Margin kotor anjlok menjadi hanya **32.5%**! Setelah dipotong biaya sewa dan gaji karyawan, Anda praktis berjualan tanpa profit atau bahkan nombok.
 
 ---
 
 ### 3. Rumus Penyesuaian Harga Menu Online (*Mark-up Formula*):
-Untuk mempertahankan perolehan uang bersih yang sama dengan harga kasir di tengah komisi merchant ($C = 20\\%$):
+Untuk mempertahankan perolehan uang bersih yang sama dengan harga kasir di tengah komisi merchant (C = 20%):
 
 > ☕ **Persamaan Parameter:**
-> **\\text{Harga Menu Online} = \\frac{\\text{Harga Kasir Target}}{1 - C}**
+> **Harga Menu Online = (Harga Kasir Target ÷ 1 - C)**
 
 #### Contoh Kasus:
 Jika Anda ingin menerima bersih **Rp 24.000** dari platform online:
 > ☕ **Persamaan Parameter:**
-> **\\text{Harga Menu Online} = \\frac{Rp\\ 24.000}{1 - 0.20} = \\frac{Rp\\ 24.000}{0.80} = \\mathbf{Rp\\ 30.000}**
+> **Harga Menu Online = (Rp 24.000 ÷ (1 - 0,20)) = (Rp 24.000 ÷ 0,80) = Rp 30.000**
 
 * Pelanggan membayar Rp 30.000 di aplikasi.
-* Platform memotong komisi 20% ($Rp\\ 6.000$).
+* Platform memotong komisi 20% (Rp 6.000).
 * Kedai Anda menerima bersih **Rp 24.000**, menjaga margin profitabilitas tetap kokoh.
     `,
     content_type: 'text',
@@ -460,7 +460,7 @@ Tahukah Anda bahwa **penyebab nomor satu kerusakan mesin espresso komersial di I
 ---
 
 ### 1. Bahaya Air Tanpa Filtrasi Terhadap Mesin Kopi:
-* **Kerak Kalsium Karbonat ($CaCO_3$)**: Mengendap pada dinding tembaga boiler dan membungkus elemen pemanas. Menyebabkan konsumsi listrik membengkak 30%, sensor suhu membaca salah, dan boiler akhirnya jebol.
+* **Kerak Kalsium Karbonat (CaCO₃)**: Mengendap pada dinding tembaga boiler dan membungkus elemen pemanas. Menyebabkan konsumsi listrik membengkak 30%, sensor suhu membaca salah, dan boiler akhirnya jebol.
 * **Klorin Bebas (*Chlorine*)**: Memicu korosi lubang jarum (*pitting corrosion*) pada logam kuningan dan baja tahan karat.
 * **Dampak Rasa**: Air sadah mematikan keasaman buah alami kopi dan menghasilkan rasa seduhan yang pahit berdebu.
 
@@ -473,7 +473,7 @@ Sistem filtrasi katrid karbon biasa tidak mampu menyaring mineral terlarut kalsi
 > Air Baku PAM/Tanah ➔ Sedimen 5 Mikron ➔ Karbon Aktif GAC ➔ Membran RO (TDS turun ke <15 ppm) ➔ Valve Bypass Remineralisasi (TDS diatur ke 100-130 ppm) ➔ Tangki Tekan ➔ Mesin Espresso
 
 #### Mengapa Perlu Remineralization Bypass Valve?
-Air murni hasil membran RO memiliki TDS mendekati $0 - 15\\text{ ppm}$ dengan sifat sedikit asam (agresif):
+Air murni hasil membran RO memiliki TDS mendekati 0 - 15 ppm dengan sifat sedikit asam (agresif):
 * Air dengan TDS terlalu rendah tidak memiliki mineral kalsium/magnesium untuk mengikat senyawa rasa kopi, sehingga espresso terasa asam hambar tanpa manis.
 * Selain itu, sensor level air di boiler mesin kopi mengandalkan konduktivitas listrik air; jika air terlalu murni, probe sensor tidak dapat membaca air dan boiler akan mengisi air secara berlebihan (*flooding*).
 * **Katup Remineralisasi Bypass**: Mencampurkan kembali sebagian air terfiltrasi bersih untuk mencapai **target TDS ideal SCA: 100 – 130 ppm** dengan total kesadahan kalsium aman (50–60 ppm).
@@ -510,8 +510,8 @@ Dilakukan setiap pagi **30–45 menit sebelum pintu kedai dibuka untuk umum**:
 1. **Pemanasan Mesin**: Nyalakan mesin minimal 20 menit sebelum kalibrasi agar suhu group head dan portafilter stabil di angka 93°C.
 2. **Purge Grinder**: Buang 15–20 gram bubuk kopi lama yang mengendap di dalam ruang burr grinder semalaman (*stale retention retention*).
 3. **Standar Target Kalibrasi (Double Shot)**:
-   * **Dosis Kering (*Dose*)**: $18.0\\text{ gram}\\ (\\pm 0.2\\text{g})$
-   * **Hasil Cairan (*Yield*)**: $36.0\\text{ gram}\\ (\\pm 1.0\\text{g})$ — Rasio Ekstraksi $1:2$
+   * **Dosis Kering (*Dose*)**: 18.0 gram (± 0.2g)
+   * **Hasil Cairan (*Yield*)**: 36.0 gram (± 1.0g) — Rasio Ekstraksi 1:2
    * **Waktu Ekstraksi (*Contact Time*)**: **26 hingga 30 detik**
 4. **Sensory Test Wajib**: Barista wajib mencicipi espresso hasil kalibrasi. Nilai apakah terdapat rasa asam menyengat (*under-extracted*) atau pahit kering (*over-extracted*). Lakukan penyesuaian klik mikro grinder hingga profil rasa seimbang, manis, dan beraroma karamel.
 5. **Catat Log Book**: Tulis angka setelan gilingan, suhu ruangan, dan waktu ekstraksi di papan log book harian bar.
@@ -816,7 +816,7 @@ Air adalah 98% komponen di dalam secangkir filter coffee dan 90% komponen di dal
 ### 1. Bahaya Air Baku Tanpa Sistem Filtrasi
 
 * **Air Sadah Berlebih (TDS > 200 ppm, Total Hardness Tinggi)**:
-  Ion kalsium ($Ca^{2+}$) dan bikarbonat bereaksi saat terkena panas boiler membentuk kerak padat kalsium karbonat (*limescale*). Kerak ini menyumbat pipa kapiler tembaga, merusak flowmeter, dan membuat mesin jebol.
+  Ion kalsium (Ca²⁺) dan bikarbonat bereaksi saat terkena panas boiler membentuk kerak padat kalsium karbonat (*limescale*). Kerak ini menyumbat pipa kapiler tembaga, merusak flowmeter, dan membuat mesin jebol.
 * **Air Murni Kosong (TDS < 30 ppm / RO Murni Tanpa Remineralisasi)**:
   Air yang terlalu kosong tidak memiliki ion magnesium untuk mengikat senyawa rasa kopi, sehingga hasil seduhan terasa sangat tipis, masam kecut menusuk, dan air bersifat korosif terhadap dinding boiler tembaga.
 

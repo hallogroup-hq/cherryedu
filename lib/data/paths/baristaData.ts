@@ -507,7 +507,9 @@ Miringkan cangkir keramik sekitar 45 derajat di awal untuk memperbesar kedalaman
 Dial-in adalah proses sistematis menemukan titik ekstraksi terbaik dari suatu profil biji sangrai. Tiga variabel utama yang dikendalikan barista adalah **Dose, Yield, dan Time**.
 
 #### Formula Matematis Rasio Seduh Espresso (Brew Ratio):
-$$\text{Brew Ratio} = \frac{\text{Dosis Bubuk (gram)}}{\text{Hasil Espresso Cair (gram)}}$$
+
+> ☕ **Formula:** Brew Ratio = (Dosis Bubuk (gram) ÷ Hasil Espresso Cair (gram))
+
 
 * **Ristretto (1:1 hingga 1:1.5)**: 18g bubuk menghasilkan 18g–27g espresso. Karakter: konsentrasi sangat pekat, keasaman buah dan minyak tebal, body bulat padat.
 * **Normale (1:2 hingga 1:2.2)**: 18g bubuk menghasilkan 36g–40g espresso. Karakter: rasio standar emas paling seimbang untuk specialty coffee single origin.
