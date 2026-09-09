@@ -336,18 +336,38 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
     if (existing) {
       setCurrentUserId(existing.id);
-      if (authUser.user_metadata?.name && authUser.user_metadata.name !== existing.name) {
+      const incomingName =
+        authUser.user_metadata?.full_name ||
+        authUser.user_metadata?.name;
+      const incomingAvatar =
+        authUser.user_metadata?.avatar_url ||
+        authUser.user_metadata?.picture;
+
+      if ((incomingName && incomingName !== existing.name) || (incomingAvatar && incomingAvatar !== existing.avatar_url)) {
         setUsers((prev) =>
           prev.map((u) =>
-            u.id === existing.id ? { ...u, name: authUser.user_metadata.name } : u
+            u.id === existing.id
+              ? {
+                  ...u,
+                  name: incomingName || u.name,
+                  avatar_url: incomingAvatar || u.avatar_url,
+                }
+              : u
           )
         );
       }
     } else {
       // Auto-provision profile for this real user
       const name =
+        authUser.user_metadata?.full_name ||
         authUser.user_metadata?.name ||
         (authUser.email ? authUser.email.split('@')[0] : 'Pembelajar Kopi');
+      const avatar_url =
+        authUser.user_metadata?.avatar_url ||
+        authUser.user_metadata?.picture ||
+        `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(
+          authUser.email || authUser.id
+        )}`;
       const coffeeRole = (authUser.user_metadata?.coffee_role as any) || 'barista';
       const isAdmin =
         authUser.email === 'admin@cherryedu.id' || authUser.user_metadata?.role === 'admin';
@@ -356,9 +376,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         id: authUser.id,
         name,
         email: authUser.email || '',
-        avatar_url: `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(
-          authUser.email || authUser.id
-        )}`,
+        avatar_url,
         bio: 'Pembelajar aktif di akademi kopi CherryEdu.',
         role: isAdmin ? 'admin' : 'learner',
         coffee_role: coffeeRole,

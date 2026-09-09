@@ -9,6 +9,7 @@ export interface AuthContextType {
   session: Session | null;
   loading: boolean;
   signIn: (email: string, password: string) => Promise<{ error: string | null }>;
+  signInWithGoogle: (redirectTo?: string) => Promise<{ error: string | null }>;
   signUp: (
     email: string,
     password: string,
@@ -42,6 +43,9 @@ function translateAuthError(message: string): string {
   }
   if (lower.includes('invalid') && lower.includes('email')) {
     return 'Format alamat email tidak valid. Gunakan email aktif yang benar.';
+  }
+  if (lower.includes('provider is not enabled') || lower.includes('unsupported provider')) {
+    return 'Fitur Masuk dengan Google belum diaktifkan di dashboard Supabase (Authentication → Providers → Google). Silakan gunakan formulir email & kata sandi di bawah.';
   }
   return message;
 }
@@ -145,6 +149,53 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
 
     return { error: null };
+  };
+
+  const signInWithGoogle = async (customRedirect?: string): Promise<{ error: string | null }> => {
+    try {
+      const origin = typeof window !== 'undefined' ? window.location.origin : 'https://cherryedu.vercel.app';
+      const callbackUrl = `${origin}/auth/callback${customRedirect ? `?next=${encodeURIComponent(customRedirect)}` : ''}`;
+
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: callbackUrl,
+          queryParams: {
+            access_type: 'offline',
+            prompt: 'consent',
+          },
+        },
+      });
+
+      if (error) {
+        return { error: translateAuthError(error.message) };
+      }
+
+      if (data?.url) {
+        // Preflight check: verify if Supabase has Google provider enabled
+        try {
+          const check = await fetch(data.url, { method: 'GET', redirect: 'manual' });
+          if (check.status === 400) {
+            const body = await check.json().catch(() => null);
+            if (body?.msg?.includes('provider is not enabled') || body?.error_code === 'validation_failed') {
+              return {
+                error:
+                  'Fitur 1-Klik Masuk dengan Google belum diaktifkan di konsol Supabase (Authentication → Providers → Google). Silakan gunakan formulir pendaftaran/masuk email & kata sandi di bawah.',
+              };
+            }
+          }
+        } catch {
+          // Preflight might fail due to network or CORS, continue with standard redirect
+        }
+
+        window.location.href = data.url;
+        return { error: null };
+      }
+
+      return { error: 'Tidak dapat menginisialisasi tautan autentikasi Google.' };
+    } catch (e: any) {
+      return { error: translateAuthError(e?.message || 'Gagal memulai login dengan Google.') };
+    }
   };
 
   const signUp = async (
@@ -255,7 +306,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   return (
-    <AuthContext.Provider value={{ user, session, loading, signIn, signUp, signInAsDemo, signOut }}>
+    <AuthContext.Provider
+      value={{ user, session, loading, signIn, signInWithGoogle, signUp, signInAsDemo, signOut }}
+    >
       {children}
     </AuthContext.Provider>
   );
