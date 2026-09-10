@@ -954,7 +954,7 @@ export const VarietyCompendium: React.FC = () => {
                 onClick={() => setIsMobileVarietyModalOpen(false)}
                 aria-hidden="true"
               />
-              <div className="relative z-10 w-full sm:max-w-xl bg-paper-50 rounded-t-2xl sm:rounded-2xl border border-paper-300 shadow-2xl p-5 sm:p-6 max-h-[88vh] overflow-y-auto space-y-4">
+              <div className="relative z-10 w-full sm:max-w-xl bg-paper-50 rounded-t-2xl sm:rounded-2xl border border-paper-300 shadow-2xl p-5 sm:p-6 max-h-[88vh] overflow-y-auto space-y-4 animate-in slide-in-from-bottom duration-250 ease-drawer">
                 {/* Header */}
                 <div className="flex items-center justify-between pb-3 border-b border-paper-300">
                   <div className="flex items-center gap-2">

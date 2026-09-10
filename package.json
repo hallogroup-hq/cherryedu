@@ -24,7 +24,9 @@
     "react-markdown": "^10.1.0",
     "recharts": "^3.10.1",
     "remark-gfm": "^4.0.1",
-    "tailwind-merge": "^2.5.4"
+    "sonner": "^2.0.8",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/canvas-confetti": "^1.9.0",

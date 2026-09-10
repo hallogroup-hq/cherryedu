@@ -7,6 +7,7 @@ import { useCherryEdu } from '@/lib/store';
 import { BrewCalculator } from '@/components/BrewCalculator';
 import { MarkdownRenderer } from '@/components/MarkdownRenderer';
 import { AudioNarrationPlayer } from '@/components/AudioNarrationPlayer';
+import { toast } from 'sonner';
 import {
   Bookmark,
   ChevronLeft,
@@ -79,6 +80,7 @@ export default function LessonPlayerPage() {
   const handleCompleteAndNext = () => {
     markLessonComplete(currentLesson.id, timeSpent);
     setCompletedNotification(true);
+    toast.success('Materi berhasil diselesaikan! +25 XP ditambahkan ke profil Anda.');
     setTimeout(() => {
       if (nextItem && nextItem.lesson) {
         router.push(`/paths/${path.slug}/lessons/${nextItem.lesson.id}`);
@@ -212,7 +214,7 @@ export default function LessonPlayerPage() {
         {/* Center / Main Editorial Reader */}
         <main className="lg:col-span-8 bg-white rounded-xl border border-paper-300 p-5 sm:p-8 lg:p-14 shadow-card">
           {completedNotification && (
-            <div className="mb-6 p-4 rounded bg-emerald-50 border border-emerald-300 font-mono text-xs text-emerald-900 flex items-center gap-2 animate-bounce">
+            <div className="mb-6 p-4 rounded bg-emerald-50 border border-emerald-300 font-mono text-xs text-emerald-900 flex items-center gap-2 animate-in fade-in slide-in-from-top-2 duration-200">
               <Check className="w-4 h-4 text-emerald-700 shrink-0" />
               <span>Materi berhasil diselesaikan! +25 XP ditambahkan ke profil Anda.</span>
             </div>

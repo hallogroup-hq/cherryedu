@@ -120,7 +120,7 @@ export default function ForumPage() {
       {isNewPostOpen && (
         <form
           onSubmit={handleCreatePost}
-          className="mb-10 p-6 sm:p-8 bg-paper-100/90 border border-paper-400 shadow-warm space-y-5 animate-fadeIn"
+          className="mb-10 p-6 sm:p-8 bg-paper-100/90 border border-paper-400 shadow-warm space-y-5 animate-in fade-in slide-in-from-top-2 duration-200 ease-out-strong"
         >
           <div className="flex justify-between items-center pb-3 border-b border-paper-300">
             <div>

@@ -87,9 +87,14 @@ const config: Config = {
         elevated: "0 12px 32px -4px rgba(20, 14, 12, 0.08), 0 4px 12px -2px rgba(20, 14, 12, 0.04)",
         diploma: "0 20px 48px -8px rgba(20, 14, 12, 0.12), 0 8px 16px -4px rgba(20, 14, 12, 0.06)",
       },
+      transitionTimingFunction: {
+        'out-strong': 'cubic-bezier(0.23, 1, 0.32, 1)',
+        'in-out-strong': 'cubic-bezier(0.77, 0, 0.175, 1)',
+        'drawer': 'cubic-bezier(0.32, 0.72, 0, 1)',
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
 
 export default config;

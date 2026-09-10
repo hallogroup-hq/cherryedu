@@ -230,7 +230,7 @@ export const InteractiveSunburstWheel: React.FC<InteractiveSunburstWheelProps> =
           <button
             type="button"
             onClick={() => handleRotate(-45)}
-            className="p-1.5 rounded hover:bg-paper-100 text-roast-700 hover:text-roast-950 transition-colors"
+            className="p-1.5 rounded hover:bg-paper-100 text-roast-700 hover:text-roast-950 transition-all duration-160 ease-out active:scale-[0.97]"
             title="Putar Berlawanan Jarum Jam (-45°)"
           >
             <RotateCcw className="w-3.5 h-3.5" />
@@ -238,7 +238,7 @@ export const InteractiveSunburstWheel: React.FC<InteractiveSunburstWheelProps> =
           <button
             type="button"
             onClick={handleResetRotation}
-            className="px-2 py-1 text-[10px] font-mono rounded hover:bg-paper-100 text-roast-600 font-bold"
+            className="px-2 py-1 text-[10px] font-mono rounded hover:bg-paper-100 text-roast-600 font-bold transition-all duration-160 ease-out active:scale-[0.97]"
             title="Reset Sudut Putar (0°)"
           >
             {rotationAngle}°
@@ -246,7 +246,7 @@ export const InteractiveSunburstWheel: React.FC<InteractiveSunburstWheelProps> =
           <button
             type="button"
             onClick={() => handleRotate(45)}
-            className="p-1.5 rounded hover:bg-paper-100 text-roast-700 hover:text-roast-950 transition-colors"
+            className="p-1.5 rounded hover:bg-paper-100 text-roast-700 hover:text-roast-950 transition-all duration-160 ease-out active:scale-[0.97]"
             title="Putar Searah Jarum Jam (+45°)"
           >
             <RotateCw className="w-3.5 h-3.5" />
@@ -255,10 +255,10 @@ export const InteractiveSunburstWheel: React.FC<InteractiveSunburstWheelProps> =
       </div>
 
       {/* SVG SUNBURST FLAVOR WHEEL */}
-      <div className="relative w-full max-w-[580px] sm:max-w-[620px] aspect-square flex items-center justify-center p-2 select-none">
+      <div className="relative w-full max-w-[580px] sm:max-w-[620px] aspect-square flex items-center justify-center p-2 select-none drop-shadow-md">
         <svg
           viewBox="0 0 640 640"
-          className="w-full h-full drop-shadow-md transition-transform duration-500 ease-out"
+          className="w-full h-full transition-transform duration-250 ease-out-strong will-change-transform"
           style={{ transform: `rotate(${rotationAngle}deg)` }}
         >
           <defs>

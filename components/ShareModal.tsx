@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useCherryEdu } from '@/lib/store';
 import { X, Check, Copy, Share2, Sparkles, Flame, Coffee, Award } from 'lucide-react';
+import { toast } from 'sonner';
 
 interface ShareModalProps {
   isOpen: boolean;
@@ -27,15 +28,16 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   const handleCopy = () => {
     navigator.clipboard.writeText(shareText);
     setCopied(true);
+    toast.success('Teks narasi berhasil disalin ke clipboard!');
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-roast-950/80 backdrop-blur-xs">
-      <div className="bg-paper-50 border border-paper-400 max-w-md w-full p-6 sm:p-7 shadow-warm relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-roast-950/80 backdrop-blur-xs animate-in fade-in duration-200">
+      <div className="bg-paper-50 border border-paper-400 max-w-md w-full p-6 sm:p-7 shadow-warm relative animate-in fade-in zoom-in-95 duration-200 ease-out-strong">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-1 text-roast-400 hover:text-roast-900"
+          className="absolute top-4 right-4 p-1 text-roast-400 hover:text-roast-900 transition-colors active:scale-[0.97]"
           aria-label="Tutup"
         >
           <X className="w-4 h-4" />
@@ -110,14 +112,14 @@ export const ShareModal: React.FC<ShareModalProps> = ({
         <div className="flex flex-col gap-2 font-mono text-xs">
           <button
             onClick={handleCopy}
-            className="w-full py-2.5 px-4 bg-roast-950 hover:bg-cherry-800 text-paper-50 uppercase tracking-wider font-bold flex items-center justify-center gap-2 transition-colors border border-roast-900 shadow-xs"
+            className="w-full py-2.5 px-4 bg-roast-950 hover:bg-cherry-800 text-paper-50 uppercase tracking-wider font-bold flex items-center justify-center gap-2 transition-all duration-150 ease-out active:scale-[0.97] border border-roast-900 shadow-xs"
           >
             {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
             <span>{copied ? 'Teks Narasi Disalin!' : 'Salin Teks Narasi Medsos'}</span>
           </button>
           <button
             onClick={onClose}
-            className="w-full py-2 px-4 bg-paper-100 hover:bg-paper-200 text-roast-700 uppercase tracking-wider transition-colors border border-paper-300"
+            className="w-full py-2 px-4 bg-paper-100 hover:bg-paper-200 text-roast-700 uppercase tracking-wider transition-all duration-150 ease-out active:scale-[0.97] border border-paper-300"
           >
             Tutup
           </button>

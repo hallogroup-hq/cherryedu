@@ -221,7 +221,7 @@ export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
           {(isPlaying || progressPercent > 0) && (
             <button
               onClick={handleStopReset}
-              className="p-2 rounded-lg bg-white hover:bg-paper-200 text-roast-700 border border-paper-300 transition-colors"
+              className="p-2 rounded-lg bg-white hover:bg-paper-200 text-roast-700 border border-paper-300 transition-all duration-160 ease-out active:scale-[0.97]"
               title="Hentikan & Reset Audio"
             >
               <RotateCcw className="w-4 h-4" />
@@ -231,7 +231,7 @@ export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
           {/* Main Play / Pause Button */}
           <button
             onClick={handleTogglePlay}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cherry-700 hover:bg-cherry-800 text-white font-mono text-xs uppercase font-bold tracking-wider shadow-xs transition-all active:scale-95"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cherry-700 hover:bg-cherry-800 text-white font-mono text-xs uppercase font-bold tracking-wider shadow-xs transition-transform duration-160 ease-out active:scale-[0.97]"
           >
             {isPlaying && !isPaused ? (
               <>
@@ -257,7 +257,7 @@ export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
           </div>
           <div className="w-full bg-paper-200 h-1.5 rounded-full overflow-hidden">
             <div
-              className="bg-cherry-700 h-full rounded-full transition-all duration-300"
+              className="bg-cherry-700 h-full rounded-full transition-[width] duration-150 ease-linear"
               style={{ width: `${progressPercent}%` }}
             />
           </div>

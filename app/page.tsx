@@ -369,7 +369,7 @@ export default function HomePage() {
                       <div className="pt-4 flex justify-center">
                         <Link
                           href={bData.buttonLink || '/paths/kopi-dari-hulu-ke-hilir'}
-                          className="px-8 py-3.5 bg-cherry-700 hover:bg-cherry-800 text-white rounded font-sans text-xs uppercase tracking-wider font-bold flex items-center gap-2 transition-all shadow-subtle hover:scale-105"
+                          className="px-8 py-3.5 bg-cherry-700 hover:bg-cherry-800 text-white rounded font-sans text-xs uppercase tracking-wider font-bold flex items-center gap-2 transition-all duration-160 ease-out shadow-subtle active:scale-[0.97]"
                         >
                           <span>{bData.buttonText}</span>
                           <ArrowRight className="w-4 h-4" />

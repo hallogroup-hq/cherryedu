@@ -179,7 +179,7 @@ export default function QuizPage() {
                     <button
                       key={ans.id}
                       onClick={() => handleSelectAnswer(currentQ.id, ans.id)}
-                      className={`w-full text-left p-4 border transition-all flex items-start gap-3.5 ${
+                      className={`w-full text-left p-4 border transition-colors duration-150 ease-out active:scale-[0.98] flex items-start gap-3.5 ${
                         isSelected
                           ? 'bg-paper-200/80 border-roast-950 shadow-xs ring-1 ring-roast-950 font-medium'
                           : 'bg-paper-100/50 border-paper-300 hover:border-roast-700 hover:bg-paper-100'
@@ -209,13 +209,13 @@ export default function QuizPage() {
               disabled={currentQIndex === 0}
               className="font-mono text-xs font-bold text-roast-500 hover:text-roast-950 disabled:opacity-30 uppercase tracking-wider"
             >
-              &larr; Soal Sebelumnya
+              ← Butir Sebelumnya
             </button>
 
             {currentQIndex < quizQuestions.length - 1 ? (
               <button
                 onClick={() => setCurrentQIndex(currentQIndex + 1)}
-                className="px-5 py-2.5 bg-roast-950 hover:bg-cherry-800 text-paper-50 font-mono text-xs uppercase tracking-wider font-bold transition-all border border-roast-900 shadow-xs"
+                className="px-5 py-2 bg-roast-950 hover:bg-roast-850 text-paper-50 font-mono text-xs uppercase tracking-wider font-bold transition-all duration-150 ease-out active:scale-[0.97] shadow-xs"
               >
                 Selanjutnya →
               </button>
@@ -223,7 +223,7 @@ export default function QuizPage() {
               <button
                 onClick={handleSubmit}
                 disabled={!allAnswered}
-                className="px-6 py-2.5 bg-cherry-700 hover:bg-cherry-800 disabled:bg-paper-300 disabled:text-roast-400 text-white font-mono text-xs uppercase tracking-wider font-bold transition-all shadow-xs border border-cherry-800"
+                className="px-6 py-2.5 bg-cherry-700 hover:bg-cherry-800 disabled:bg-paper-300 disabled:text-roast-400 text-white font-mono text-xs uppercase tracking-wider font-bold transition-all duration-150 ease-out active:scale-[0.97] shadow-xs border border-cherry-800"
               >
                 Selesaikan Ujian →
               </button>
@@ -233,7 +233,7 @@ export default function QuizPage() {
       ) : (
         /* Examination Results & Evaluation */
         <div className="space-y-8">
-          <div className="bg-paper-50 border-2 border-roast-950 p-8 sm:p-10 shadow-warm text-center relative">
+          <div className="bg-paper-50 border-2 border-roast-950 p-8 sm:p-10 shadow-warm text-center relative animate-in fade-in zoom-in-95 duration-300 ease-out-strong">
             <span
               className={`font-mono text-[10px] uppercase tracking-widest px-3 py-1 border font-bold ${
                 result?.passed
@@ -256,7 +256,7 @@ export default function QuizPage() {
 
             {/* Certificate Unlock Card */}
             {result?.certificateEarned && (
-              <div className="my-8 p-6 bg-roast-950 text-paper-50 text-left border-2 border-crema-500/60 shadow-warm">
+              <div className="my-8 p-6 bg-roast-950 text-paper-50 text-left border-2 border-crema-500/60 shadow-warm animate-in fade-in slide-in-from-bottom-3 duration-500 delay-150 fill-mode-both ease-out-strong">
                 <span className="font-mono text-[10px] uppercase tracking-widest text-crema-300 font-bold block mb-1">
                   [ DIPLOMA KELULUSAN RESMI DITERBITKAN ]
                 </span>

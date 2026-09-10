@@ -21,7 +21,7 @@ export const UserSwitcher: React.FC = () => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-2.5 py-1.5 rounded-md border border-paper-300 bg-white hover:border-roast-400 transition-colors"
+        className="flex items-center gap-2 px-2.5 py-1.5 rounded-md border border-paper-300 bg-white hover:border-roast-400 transition-all duration-150 ease-out active:scale-[0.97]"
         title="Ganti Persona Akun Pengujian"
       >
         <img
@@ -37,13 +37,17 @@ export const UserSwitcher: React.FC = () => {
             {currentUser.role}
           </div>
         </div>
-        <ChevronDown className="w-3.5 h-3.5 text-roast-400 ml-0.5" />
+        <ChevronDown
+          className={`w-3.5 h-3.5 text-roast-400 ml-0.5 transition-transform duration-200 ease-out ${
+            isOpen ? 'rotate-180 text-roast-700' : ''
+          }`}
+        />
       </button>
 
       {isOpen && (
         <>
           <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
-          <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-paper-50 rounded-xl shadow-elevated border border-paper-300 p-3 z-50 text-left">
+          <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-paper-50 rounded-xl shadow-elevated border border-paper-300 p-3 z-50 text-left origin-top-right animate-in fade-in zoom-in-95 duration-150 ease-out-strong">
             <div className="flex items-center justify-between pb-2 mb-2 border-b border-paper-200">
               <span className="font-mono text-[10px] uppercase tracking-widest text-roast-500 font-bold">
                 PILIH PERSONA UJI COBA
@@ -67,7 +71,7 @@ export const UserSwitcher: React.FC = () => {
                       switchUser(user.id);
                       setIsOpen(false);
                     }}
-                    className={`w-full flex items-start gap-3 p-3 rounded-lg text-left transition-all border ${
+                    className={`w-full flex items-start gap-3 p-3 rounded-lg text-left transition-colors duration-150 active:scale-[0.98] border ${
                       isSelected
                         ? 'bg-white border-roast-900 shadow-subtle ring-1 ring-roast-900'
                         : 'bg-paper-100/50 border-paper-200 hover:bg-white hover:border-paper-300'

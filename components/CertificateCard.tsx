@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Certificate } from '@/lib/types';
 import { Award, Check, Copy, ExternalLink, Printer, QrCode } from 'lucide-react';
+import { toast } from 'sonner';
 
 interface CertificateCardProps {
   certificate: Certificate;
@@ -20,6 +21,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, o
   const handleCopyLink = () => {
     navigator.clipboard.writeText(verificationUrl);
     setCopied(true);
+    toast.success('Tautan verifikasi diploma berhasil disalin!');
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -133,7 +135,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, o
         <div className="flex items-center gap-2">
           <button
             onClick={handleCopyLink}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-paper-100 hover:bg-paper-200 text-roast-800 transition-colors border border-paper-200"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-paper-100 hover:bg-paper-200 text-roast-800 transition-all duration-150 ease-out active:scale-[0.97] border border-paper-200"
           >
             {copied ? <Check className="w-3.5 h-3.5 text-emerald-700" /> : <Copy className="w-3.5 h-3.5" />}
             <span>{copied ? 'Tautan Disalin' : 'Salin Tautan'}</span>
@@ -141,7 +143,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, o
           <Link
             href={`/verify/${certificate.share_token}`}
             target="_blank"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-paper-100 hover:bg-paper-200 text-roast-800 transition-colors border border-paper-200"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-paper-100 hover:bg-paper-200 text-roast-800 transition-all duration-150 ease-out active:scale-[0.97] border border-paper-200"
           >
             <ExternalLink className="w-3.5 h-3.5" />
             <span>Verifikasi Publik</span>
@@ -151,7 +153,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, o
         <div className="flex items-center gap-2">
           <button
             onClick={() => window.print()}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-paper-100 hover:bg-paper-200 text-roast-800 transition-colors border border-paper-200"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-paper-100 hover:bg-paper-200 text-roast-800 transition-all duration-150 ease-out active:scale-[0.97] border border-paper-200"
           >
             <Printer className="w-3.5 h-3.5" />
             <span>Cetak Diploma</span>
@@ -159,7 +161,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, o
           {onShare && (
             <button
               onClick={onShare}
-              className="flex items-center gap-1.5 px-4 py-1.5 bg-roast-950 hover:bg-cherry-800 text-paper-50 rounded font-bold transition-colors shadow-subtle uppercase tracking-wider text-[11px]"
+              className="flex items-center gap-1.5 px-4 py-1.5 bg-roast-950 hover:bg-cherry-800 text-paper-50 rounded font-bold transition-all duration-150 ease-out active:scale-[0.97] shadow-subtle uppercase tracking-wider text-[11px]"
             >
               <span>Bagikan</span>
             </button>

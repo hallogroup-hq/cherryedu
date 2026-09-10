@@ -758,9 +758,9 @@ export const FlavorWheel: React.FC = () => {
 
       {/* 5. MOBILE BOTTOM SHEET MODAL (SLIDE-UP) */}
       {isMobileModalOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-xs p-0 sm:p-4">
+        <div className="fixed inset-0 z-50 lg:hidden flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-xs p-0 sm:p-4 animate-in fade-in duration-200">
           <div
-            className="bg-roast-950 text-paper-50 rounded-t-2xl sm:rounded-2xl border border-roast-800 w-full max-w-lg max-h-[85vh] flex flex-col shadow-2xl overflow-hidden animate-in slide-in-from-bottom duration-250"
+            className="bg-roast-950 text-paper-50 rounded-t-2xl sm:rounded-2xl border border-roast-800 w-full max-w-lg max-h-[85vh] flex flex-col shadow-2xl overflow-hidden animate-in slide-in-from-bottom duration-250 ease-drawer"
             role="dialog"
             aria-modal="true"
           >

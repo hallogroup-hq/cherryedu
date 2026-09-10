@@ -137,7 +137,7 @@ export const Navbar: React.FC = () => {
               </button>
 
               {toolsDropdownOpen && (
-                <div className="absolute top-full left-0 w-64 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                <div className="absolute top-full left-0 w-64 pt-2 z-50 origin-top-left animate-in fade-in zoom-in-95 slide-in-from-top-1 duration-150 ease-out-strong">
                   <div className="bg-paper-50 rounded-xl border border-paper-300 shadow-card p-2 space-y-1">
                     <Link
                       href="/tools"
@@ -214,7 +214,7 @@ export const Navbar: React.FC = () => {
               </button>
 
               {communityDropdownOpen && (
-                <div className="absolute top-full left-0 w-64 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                <div className="absolute top-full left-0 w-64 pt-2 z-50 origin-top-left animate-in fade-in zoom-in-95 slide-in-from-top-1 duration-150 ease-out-strong">
                   <div className="bg-paper-50 rounded-xl border border-paper-300 shadow-card p-2 space-y-1">
                     <Link
                       href="/forum"
@@ -396,7 +396,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-paper-300 bg-paper-50 px-5 py-5 space-y-4 max-h-[80vh] overflow-y-auto">
+        <div className="md:hidden border-t border-paper-300 bg-paper-50 px-5 py-5 space-y-4 max-h-[80vh] overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-200 ease-out-strong">
           {isAuthenticated ? (
             /* User Info & Stats Strip on Mobile */
             <div className="p-3 bg-paper-100 rounded-xl border border-paper-300 space-y-2.5">

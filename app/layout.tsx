@@ -5,6 +5,7 @@ import { CherryEduProvider } from '@/lib/store';
 import { AuthProvider } from '@/lib/auth';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { Toaster } from 'sonner';
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -38,6 +39,7 @@ export default function RootLayout({
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
+            <Toaster position="bottom-right" richColors closeButton />
           </CherryEduProvider>
         </AuthProvider>
       </body>
