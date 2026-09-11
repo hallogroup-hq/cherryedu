@@ -21,6 +21,7 @@ import {
   ArrowRight,
   BarChart3,
   Percent,
+  X,
 } from 'lucide-react';
 
 export interface BeanOrigin {
@@ -319,12 +320,78 @@ export function BlendDesigner() {
     setSlots(newSlots);
   };
 
+  // Custom user-defined beans
+  const [customBeans, setCustomBeans] = useState<BeanOrigin[]>([]);
+  const [isCustomBeanModalOpen, setIsCustomBeanModalOpen] = useState(false);
+
+  // Custom Bean Form State
+  const [formName, setFormName] = useState('');
+  const [formRegion, setFormRegion] = useState('');
+  const [formSpecies, setFormSpecies] = useState<'Arabica' | 'Fine Robusta'>('Arabica');
+  const [formProcess, setFormProcess] = useState('Full Washed');
+  const [formPrice, setFormPrice] = useState('165000');
+  const [formAltitude, setFormAltitude] = useState('1.200 - 1.400 mdpl');
+  const [formAcidity, setFormAcidity] = useState(6.0);
+  const [formSweetness, setFormSweetness] = useState(7.5);
+  const [formBody, setFormBody] = useState(6.5);
+  const [formCrema, setFormCrema] = useState(6.0);
+  const [formNotes, setFormNotes] = useState('Cokelat, Gula Kelapa, Jeruk');
+  const [formRole, setFormRole] = useState('Biji origin lokal pilihan sendiri.');
+
+  const allBeans = useMemo(() => {
+    return [...customBeans, ...BEAN_LIBRARY];
+  }, [customBeans]);
+
+  const handleSaveCustomBean = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formName.trim()) return;
+
+    const newBean: BeanOrigin = {
+      id: `custom-${Date.now()}`,
+      name: `${formName.trim()} [Lokal]`,
+      subRegion: formRegion.trim() || 'Kebun / Origin Sendiri',
+      species: formSpecies,
+      process: formProcess,
+      flavorNotes: formNotes
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean),
+      altitude: formAltitude.trim() || '1.000+ mdpl',
+      scores: {
+        acidity: Number(formAcidity),
+        sweetness: Number(formSweetness),
+        body: Number(formBody),
+        bitterness: formSpecies === 'Fine Robusta' ? 6.0 : 3.5,
+        crema: Number(formCrema),
+        caffeinePct: formSpecies === 'Fine Robusta' ? 2.1 : 1.25,
+      },
+      pricePerKgRoasted: Number(formPrice) || 120000,
+      roleDesc: formRole.trim() || 'Biji kopi lokal pilihan mandiri.',
+      colorAccent: formSpecies === 'Fine Robusta' ? '#78350F' : '#059669',
+    };
+
+    setCustomBeans((prev) => [newBean, ...prev]);
+
+    // Automatically assign or add to slots
+    if (slots.length < 4) {
+      setSlots([...slots, { beanId: newBean.id, percentage: 0, isLocked: false }]);
+    } else {
+      const newSlots = [...slots];
+      newSlots[newSlots.length - 1] = { ...newSlots[newSlots.length - 1], beanId: newBean.id };
+      setSlots(newSlots);
+    }
+
+    setFormName('');
+    setFormRegion('');
+    setIsCustomBeanModalOpen(false);
+  };
+
   // Add a new bean slot (up to 4)
   const handleAddSlot = () => {
     if (slots.length >= 4) return;
     // Find a bean not yet in slots, or default to any
     const usedIds = slots.map((s) => s.beanId);
-    const availableBean = BEAN_LIBRARY.find((b) => !usedIds.includes(b.id)) || BEAN_LIBRARY[0];
+    const availableBean = allBeans.find((b) => !usedIds.includes(b.id)) || allBeans[0];
     setSlots([...slots, { beanId: availableBean.id, percentage: 0, isLocked: false }]);
   };
 
@@ -382,7 +449,7 @@ export function BlendDesigner() {
     let robustaPct = 0;
 
     slots.forEach((slot) => {
-      const bean = BEAN_LIBRARY.find((b) => b.id === slot.beanId);
+      const bean = allBeans.find((b) => b.id === slot.beanId);
       if (!bean) return;
       const weight = slot.percentage / totalPercentage;
 
@@ -412,7 +479,7 @@ export function BlendDesigner() {
       arabicaRatio: Math.round(arabicaPct),
       robustaRatio: Math.round(robustaPct),
     };
-  }, [slots, totalPercentage, doseGrams]);
+  }, [slots, totalPercentage, doseGrams, allBeans]);
 
   // Economic calculations
   const economics = useMemo(() => {
@@ -471,7 +538,7 @@ export function BlendDesigner() {
   const dominantFlavors = useMemo(() => {
     const noteCounts: { [key: string]: number } = {};
     slots.forEach((slot) => {
-      const bean = BEAN_LIBRARY.find((b) => b.id === slot.beanId);
+      const bean = allBeans.find((b) => b.id === slot.beanId);
       if (!bean) return;
       bean.flavorNotes.forEach((note) => {
         noteCounts[note] = (noteCounts[note] || 0) + slot.percentage;
@@ -482,7 +549,7 @@ export function BlendDesigner() {
       .sort((a, b) => b[1] - a[1])
       .slice(0, 5)
       .map(([note]) => note);
-  }, [slots]);
+  }, [slots, allBeans]);
 
   // Copy blend sheet
   const handleCopyRecipe = () => {
@@ -490,7 +557,7 @@ export function BlendDesigner() {
       `=== FORMULA RACIKAN: ${blendName.toUpperCase()} ===`,
       `Komposisi (${metrics.arabicaRatio}% Arabica / ${metrics.robustaRatio}% Robusta):`,
       ...slots.map((slot) => {
-        const b = BEAN_LIBRARY.find((x) => x.id === slot.beanId);
+        const b = allBeans.find((x) => x.id === slot.beanId);
         return `• ${slot.percentage}% - ${b?.name} (${b?.process})`;
       }),
       '',
@@ -628,31 +695,41 @@ export function BlendDesigner() {
 
             {/* Component Slots */}
             <div className="space-y-4">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between flex-wrap gap-2">
                 <span className="font-mono text-xs uppercase tracking-wider text-roast-900 font-bold flex items-center gap-1.5">
                   <Layers className="w-4 h-4 text-cherry-700" /> Komponen Biji ({slots.length}/4 Origin)
                 </span>
-                {slots.length < 4 && (
+                <div className="flex items-center gap-2">
                   <button
-                    onClick={handleAddSlot}
-                    className="px-2.5 py-1 bg-paper-100 hover:bg-paper-200 border border-paper-300 text-roast-800 rounded-md font-mono text-[11px] flex items-center gap-1 transition-all active:scale-[0.98]"
+                    onClick={() => setIsCustomBeanModalOpen(true)}
+                    className="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 border border-amber-300 text-amber-900 rounded-md font-mono text-[11px] font-semibold flex items-center gap-1 transition-all active:scale-[0.98]"
+                    title="Tambah biji dari kebun/daerah sendiri ke dalam perpustakaan"
                   >
-                    <Plus className="w-3.5 h-3.5 text-cherry-700" />
-                    <span>Tambah Origin</span>
+                    <Sparkles className="w-3.5 h-3.5 text-amber-700" />
+                    <span>+ Biji Lokal Sendiri</span>
                   </button>
-                )}
+                  {slots.length < 4 && (
+                    <button
+                      onClick={handleAddSlot}
+                      className="px-2.5 py-1 bg-paper-100 hover:bg-paper-200 border border-paper-300 text-roast-800 rounded-md font-mono text-[11px] flex items-center gap-1 transition-all active:scale-[0.98]"
+                    >
+                      <Plus className="w-3.5 h-3.5 text-cherry-700" />
+                      <span>Tambah Origin</span>
+                    </button>
+                  )}
+                </div>
               </div>
 
               {slots.map((slot, index) => {
-                const currentBean = BEAN_LIBRARY.find((b) => b.id === slot.beanId) || BEAN_LIBRARY[0];
+                const currentBean = allBeans.find((b) => b.id === slot.beanId) || allBeans[0];
 
                 return (
                   <div
                     key={index}
                     className="p-4 rounded-xl border border-paper-300 bg-paper-100/50 space-y-3.5 hover:border-paper-400 transition-all"
                   >
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-                      <div className="flex items-center gap-2 flex-1">
+                    <div className="flex items-center justify-between gap-2.5">
+                      <div className="flex items-center gap-2 flex-1 min-w-0">
                         <span className="w-5 h-5 rounded-full bg-roast-950 text-paper-50 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">
                           {index + 1}
                         </span>
@@ -664,9 +741,9 @@ export function BlendDesigner() {
                             newSlots[index] = { ...newSlots[index], beanId: e.target.value };
                             setSlots(newSlots);
                           }}
-                          className="w-full sm:w-auto flex-1 bg-paper-50 border border-paper-300 rounded-lg px-2.5 py-1.5 font-sans font-semibold text-xs text-roast-950 outline-none focus:border-cherry-700 transition-colors"
+                          className="w-full min-w-0 flex-1 bg-paper-50 border border-paper-300 rounded-lg px-2.5 py-1.5 font-sans font-semibold text-xs text-roast-950 outline-none focus:border-cherry-700 transition-colors truncate"
                         >
-                          {BEAN_LIBRARY.map((b) => (
+                          {allBeans.map((b) => (
                             <option key={b.id} value={b.id}>
                               [{b.species === 'Arabica' ? 'Arabica' : 'Robusta'}] {b.name} ({b.process}) — Rp {b.pricePerKgRoasted.toLocaleString('id-ID')}/kg
                             </option>
@@ -674,7 +751,8 @@ export function BlendDesigner() {
                         </select>
                       </div>
 
-                      <div className="flex items-center gap-2 self-end sm:self-auto">
+                      {/* Action Buttons (Lock & Delete) */}
+                      <div className="flex items-center gap-1.5 shrink-0">
                         {/* Lock Button */}
                         <button
                           onClick={() => {
@@ -696,7 +774,7 @@ export function BlendDesigner() {
                         {slots.length > 1 && (
                           <button
                             onClick={() => handleRemoveSlot(index)}
-                            className="p-1.5 rounded-md border border-paper-300 bg-paper-50 text-roast-400 hover:text-rose-600 hover:border-rose-300 transition-colors"
+                            className="p-1.5 rounded-md border border-rose-200 bg-rose-50 text-rose-700 hover:bg-rose-100 hover:border-rose-400 transition-colors"
                             title="Hapus komponen ini"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
@@ -1074,6 +1152,213 @@ export function BlendDesigner() {
           </div>
         </div>
       </div>
+
+      {/* Custom Bean Creator Modal */}
+      {isCustomBeanModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-150">
+          <div className="bg-paper-50 border border-paper-300 rounded-2xl max-w-lg w-full p-5 sm:p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b border-paper-200 pb-3">
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-cherry-700" />
+                <h3 className="font-serif font-bold text-lg text-roast-950">
+                  Tambah Biji Kopi Lokal Sendiri
+                </h3>
+              </div>
+              <button
+                onClick={() => setIsCustomBeanModalOpen(false)}
+                className="p-1.5 rounded-lg hover:bg-paper-200 text-roast-500 hover:text-roast-800 transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <form onSubmit={handleSaveCustomBean} className="space-y-3.5 text-xs font-sans">
+              <p className="text-roast-600 leading-relaxed text-[11px]">
+                Masukkan data biji kopi dari kebun atau roastery langganan daerah Anda untuk disimulasikan ke dalam house blend kafe.
+              </p>
+
+              <div className="space-y-1">
+                <label className="font-mono text-[10px] uppercase font-bold text-roast-600 block">
+                  Nama Biji Kopi *
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formName}
+                  onChange={(e) => setFormName(e.target.value)}
+                  placeholder="Contoh: Dampit Malang Fine Robusta Puncak"
+                  className="w-full bg-paper-100 border border-paper-300 rounded-lg px-3 py-2 text-roast-950 font-medium focus:border-cherry-700 focus:bg-paper-50 outline-none"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="space-y-1">
+                  <label className="font-mono text-[10px] uppercase font-bold text-roast-600 block">
+                    Asal Wilayah / Kebun
+                  </label>
+                  <input
+                    type="text"
+                    value={formRegion}
+                    onChange={(e) => setFormRegion(e.target.value)}
+                    placeholder="Contoh: Lereng Semeru, Jawa Timur"
+                    className="w-full bg-paper-100 border border-paper-300 rounded-lg px-3 py-2 text-roast-950 font-medium focus:border-cherry-700 focus:bg-paper-50 outline-none"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="font-mono text-[10px] uppercase font-bold text-roast-600 block">
+                    Spesies Kopi
+                  </label>
+                  <select
+                    value={formSpecies}
+                    onChange={(e) => setFormSpecies(e.target.value as 'Arabica' | 'Fine Robusta')}
+                    className="w-full bg-paper-100 border border-paper-300 rounded-lg px-3 py-2 text-roast-950 font-medium focus:border-cherry-700 focus:bg-paper-50 outline-none"
+                  >
+                    <option value="Arabica">Arabica</option>
+                    <option value="Fine Robusta">Fine Robusta</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="space-y-1">
+                  <label className="font-mono text-[10px] uppercase font-bold text-roast-600 block">
+                    Proses Pasca-Panen
+                  </label>
+                  <select
+                    value={formProcess}
+                    onChange={(e) => setFormProcess(e.target.value)}
+                    className="w-full bg-paper-100 border border-paper-300 rounded-lg px-3 py-2 text-roast-950 font-medium focus:border-cherry-700 focus:bg-paper-50 outline-none"
+                  >
+                    <option value="Full Washed">Full Washed</option>
+                    <option value="Natural (Dry Process)">Natural (Dry Process)</option>
+                    <option value="Honey Process">Honey Process</option>
+                    <option value="Anaerobic / Winey">Anaerobic / Winey</option>
+                    <option value="Giling Basah (Wet Hulled)">Giling Basah (Wet Hulled)</option>
+                  </select>
+                </div>
+
+                <div className="space-y-1">
+                  <label className="font-mono text-[10px] uppercase font-bold text-roast-600 block">
+                    Harga Roasted (Rp / kg) *
+                  </label>
+                  <input
+                    type="number"
+                    required
+                    min="20000"
+                    step="5000"
+                    value={formPrice}
+                    onChange={(e) => setFormPrice(e.target.value)}
+                    className="w-full bg-paper-100 border border-paper-300 rounded-lg px-3 py-2 text-roast-950 font-mono font-medium focus:border-cherry-700 focus:bg-paper-50 outline-none"
+                  />
+                </div>
+              </div>
+
+              {/* Sensory Sliders */}
+              <div className="p-3 bg-paper-100/80 rounded-xl border border-paper-200 space-y-3">
+                <span className="font-mono text-[10px] uppercase font-bold text-roast-700 block">
+                  Estimasi Profil Sensorik (Skala 1 - 10):
+                </span>
+
+                <div className="grid grid-cols-2 gap-3 font-mono text-[11px]">
+                  <div>
+                    <div className="flex justify-between text-roast-600 mb-1">
+                      <span>Keasaman:</span>
+                      <strong className="text-roast-950">{formAcidity}</strong>
+                    </div>
+                    <input
+                      type="range"
+                      min="1"
+                      max="10"
+                      step="0.5"
+                      value={formAcidity}
+                      onChange={(e) => setFormAcidity(Number(e.target.value))}
+                      className="w-full accent-cherry-700 h-1.5 bg-paper-300 rounded cursor-pointer"
+                    />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-roast-600 mb-1">
+                      <span>Kemanisan:</span>
+                      <strong className="text-roast-950">{formSweetness}</strong>
+                    </div>
+                    <input
+                      type="range"
+                      min="1"
+                      max="10"
+                      step="0.5"
+                      value={formSweetness}
+                      onChange={(e) => setFormSweetness(Number(e.target.value))}
+                      className="w-full accent-amber-600 h-1.5 bg-paper-300 rounded cursor-pointer"
+                    />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-roast-600 mb-1">
+                      <span>Ketebalan Bodi:</span>
+                      <strong className="text-roast-950">{formBody}</strong>
+                    </div>
+                    <input
+                      type="range"
+                      min="1"
+                      max="10"
+                      step="0.5"
+                      value={formBody}
+                      onChange={(e) => setFormBody(Number(e.target.value))}
+                      className="w-full accent-amber-800 h-1.5 bg-paper-300 rounded cursor-pointer"
+                    />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-roast-600 mb-1">
+                      <span>Potensi Crema:</span>
+                      <strong className="text-roast-950">{formCrema}</strong>
+                    </div>
+                    <input
+                      type="range"
+                      min="1"
+                      max="10"
+                      step="0.5"
+                      value={formCrema}
+                      onChange={(e) => setFormCrema(Number(e.target.value))}
+                      className="w-full accent-yellow-700 h-1.5 bg-paper-300 rounded cursor-pointer"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <label className="font-mono text-[10px] uppercase font-bold text-roast-600 block">
+                  Catatan Rasa (Pisahkan dengan koma)
+                </label>
+                <input
+                  type="text"
+                  value={formNotes}
+                  onChange={(e) => setFormNotes(e.target.value)}
+                  placeholder="Contoh: Dark Chocolate, Gula Aren, Rempah Hangat"
+                  className="w-full bg-paper-100 border border-paper-300 rounded-lg px-3 py-2 text-roast-950 font-medium focus:border-cherry-700 focus:bg-paper-50 outline-none"
+                />
+              </div>
+
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-paper-200">
+                <button
+                  type="button"
+                  onClick={() => setIsCustomBeanModalOpen(false)}
+                  className="px-4 py-2 rounded-xl bg-paper-200 text-roast-700 hover:bg-paper-300 font-semibold transition-colors"
+                >
+                  Batal
+                </button>
+                <button
+                  type="submit"
+                  className="px-5 py-2 rounded-xl bg-roast-950 text-paper-50 hover:bg-roast-900 font-bold transition-all active:scale-[0.98]"
+                >
+                  Simpan & Gunakan di Blend
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

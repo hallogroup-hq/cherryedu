@@ -371,63 +371,61 @@ export const CupAnatomyVisualizer: React.FC = () => {
       </div>
 
       {/* Main Display Grid */}
-      <div className={`grid gap-6 ${compareMode ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 lg:grid-cols-12'}`}>
-        {/* Primary Cup Display */}
-        <div
-          className={`${
-            compareMode ? 'col-span-1' : 'lg:col-span-12'
-          } bg-paper-50 border border-paper-300 rounded-2xl p-6 shadow-subtle flex flex-col md:flex-row items-center gap-8 justify-between`}
-        >
+      {!compareMode ? (
+        /* Single Cup Display */
+        <div className="bg-paper-50 border border-paper-300 rounded-2xl p-6 sm:p-8 shadow-subtle flex flex-col md:flex-row items-center gap-8 justify-between">
           {/* Left / Graphic */}
           <div className="shrink-0 flex justify-center w-full md:w-auto">
             {renderCupGraphic(primaryDrink)}
           </div>
 
           {/* Right / Specs */}
-          <div className="flex-1 space-y-4 text-xs font-sans">
+          <div className="flex-1 space-y-4 text-xs font-sans w-full">
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-mono text-[10px] uppercase tracking-wider text-cherry-700 font-bold bg-cherry-50 px-2.5 py-0.5 rounded border border-cherry-200">
                   {primaryDrink.italianName}
                 </span>
                 <span className="font-mono text-[10px] text-roast-500">
-                  Total {primaryDrink.totalVolumeMl}ml
+                  Total Volume: {primaryDrink.totalVolumeMl}ml
                 </span>
               </div>
-              <h4 className="font-serif font-bold text-2xl text-roast-950 mt-1">
+              <h4 className="font-serif font-bold text-2xl sm:text-3xl text-roast-950 mt-1">
                 {primaryDrink.name}
               </h4>
-              <p className="text-roast-700 leading-relaxed mt-1">
+              <p className="text-roast-700 text-sm leading-relaxed mt-1.5">
                 {primaryDrink.description}
               </p>
             </div>
 
             {/* Quick Metrics */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px] font-mono">
-              <div className="p-2.5 bg-paper-100 rounded-lg border border-paper-200">
-                <span className="text-roast-500 block text-[9px]">RASIO:</span>
-                <strong className="text-roast-950 font-bold">{primaryDrink.ratioSummary}</strong>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs font-mono">
+              <div className="p-3 bg-paper-100 rounded-xl border border-paper-200 space-y-0.5">
+                <span className="text-roast-500 block text-[10px] uppercase">Rasio Klasik:</span>
+                <strong className="text-roast-950 font-bold text-xs block truncate">{primaryDrink.ratioSummary}</strong>
               </div>
-              <div className="p-2.5 bg-paper-100 rounded-lg border border-paper-200">
-                <span className="text-roast-500 block text-[9px]">SUHU SAJI:</span>
-                <strong className="text-roast-950 font-bold">{primaryDrink.servingTemp}</strong>
+              <div className="p-3 bg-paper-100 rounded-xl border border-paper-200 space-y-0.5">
+                <span className="text-roast-500 block text-[10px] uppercase">Suhu Saji:</span>
+                <strong className="text-roast-950 font-bold text-xs block">{primaryDrink.servingTemp}</strong>
               </div>
-              <div className="p-2.5 bg-paper-100 rounded-lg border border-paper-200">
-                <span className="text-roast-500 block text-[9px]">KAFEIN (EST):</span>
-                <strong className="text-roast-950 font-bold">~{primaryDrink.caffeineMg} mg</strong>
+              <div className="p-3 bg-paper-100 rounded-xl border border-paper-200 space-y-0.5">
+                <span className="text-roast-500 block text-[10px] uppercase">Kafein (Est):</span>
+                <strong className="text-roast-950 font-bold text-xs block">~{primaryDrink.caffeineMg} mg</strong>
               </div>
-              <div className="p-2.5 bg-paper-100 rounded-lg border border-paper-200">
-                <span className="text-roast-500 block text-[9px]">CANGKIR:</span>
-                <strong className="text-roast-950 font-bold truncate block">{primaryDrink.glassware.split(' ')[0]}</strong>
+              <div className="p-3 bg-paper-100 rounded-xl border border-paper-200 space-y-0.5">
+                <span className="text-roast-500 block text-[10px] uppercase">Wadah Saji:</span>
+                <strong className="text-roast-950 font-bold text-xs block truncate" title={primaryDrink.glassware}>
+                  {primaryDrink.glassware}
+                </strong>
               </div>
             </div>
 
             {/* Layer Breakdown */}
-            <div className="p-3.5 bg-paper-100/70 rounded-xl border border-paper-200 space-y-1.5">
+            <div className="p-4 bg-paper-100/70 rounded-xl border border-paper-200 space-y-2">
               <span className="font-mono text-[10px] uppercase tracking-wider text-roast-600 font-bold block">
                 KOMPOSISI URUTAN PENUANGAN:
               </span>
-              <ul className="space-y-1 text-xs">
+              <ul className="space-y-1.5 text-xs">
                 {primaryDrink.layers.map((layer, idx) => (
                   <li key={idx} className="flex items-center justify-between text-roast-800">
                     <span className="flex items-center gap-2">
@@ -435,7 +433,7 @@ export const CupAnatomyVisualizer: React.FC = () => {
                         className="w-3 h-3 rounded-full border border-paper-400 shrink-0"
                         style={{ backgroundColor: layer.color }}
                       />
-                      <span>{layer.name}</span>
+                      <span className="font-medium">{layer.name}</span>
                     </span>
                     <strong className="font-mono text-roast-950">{layer.volumeMl} ml</strong>
                   </li>
@@ -444,94 +442,150 @@ export const CupAnatomyVisualizer: React.FC = () => {
             </div>
 
             {/* Barista Rule Callout */}
-            <div className="p-3 bg-crema-50 border border-crema-200 rounded-xl flex items-start gap-2.5">
+            <div className="p-3.5 bg-crema-50 border border-crema-200 rounded-xl flex items-start gap-2.5">
               <Sparkles className="w-4 h-4 text-crema-700 shrink-0 mt-0.5" />
-              <div className="text-[11px] text-roast-800">
+              <div className="text-xs text-roast-800 leading-relaxed">
                 <strong>Kaidah Barista:</strong> {primaryDrink.baristaRule}
               </div>
             </div>
           </div>
         </div>
+      ) : (
+        /* Side-by-Side Comparison Mode */
+        <div className="space-y-6 animate-in zoom-in-95 duration-200">
+          {/* Side-by-Side Cup Visual Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+            {/* Primary Drink Card */}
+            <div className="bg-paper-50 border border-paper-300 rounded-2xl p-6 shadow-xs flex flex-col items-center text-center space-y-4">
+              <div className="space-y-1">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-cherry-700 font-bold bg-cherry-50 px-2.5 py-0.5 rounded border border-cherry-200">
+                  {primaryDrink.italianName}
+                </span>
+                <h4 className="font-serif font-bold text-2xl text-roast-950">
+                  {primaryDrink.name}
+                </h4>
+                <span className="font-mono text-xs text-roast-500 block">
+                  Total {primaryDrink.totalVolumeMl} ml • {primaryDrink.glassware}
+                </span>
+              </div>
 
-        {/* Secondary Cup Display (If Compare Mode) */}
-        {compareMode && (
-          <div className="col-span-1 bg-paper-50 border border-cherry-300 rounded-2xl p-6 shadow-subtle flex flex-col md:flex-row items-center gap-8 justify-between animate-in zoom-in-95 duration-150">
-            {/* Graphic */}
-            <div className="shrink-0 flex justify-center w-full md:w-auto">
-              {renderCupGraphic(secondaryDrink)}
+              <div className="py-2 flex justify-center">
+                {renderCupGraphic(primaryDrink)}
+              </div>
+
+              {/* Mini Layer Breakdown */}
+              <div className="w-full pt-3 border-t border-paper-200 text-left space-y-1.5 text-xs">
+                <span className="font-mono text-[10px] uppercase text-roast-500 font-bold block">
+                  Komposisi Lapisan:
+                </span>
+                {primaryDrink.layers.map((l, idx) => (
+                  <div key={idx} className="flex justify-between items-center text-roast-800">
+                    <span className="flex items-center gap-2 text-[11px]">
+                      <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: l.color }} />
+                      <span className="truncate">{l.name}</span>
+                    </span>
+                    <span className="font-mono font-bold text-roast-950 text-[11px] shrink-0">{l.volumeMl} ml</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Specs */}
-            <div className="flex-1 space-y-4 text-xs font-sans">
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-white bg-cherry-900 px-2.5 py-0.5 rounded font-bold">
-                    PEMBANDING: {secondaryDrink.italianName}
-                  </span>
-                  <span className="font-mono text-[10px] text-roast-500">
-                    {secondaryDrink.totalVolumeMl}ml
-                  </span>
-                </div>
-                <h4 className="font-serif font-bold text-2xl text-roast-950 mt-1">
+            {/* Secondary Drink Card */}
+            <div className="bg-paper-50 border border-cherry-300 rounded-2xl p-6 shadow-xs flex flex-col items-center text-center space-y-4">
+              <div className="space-y-1">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-white bg-cherry-900 px-2.5 py-0.5 rounded font-bold">
+                  PEMBANDING: {secondaryDrink.italianName}
+                </span>
+                <h4 className="font-serif font-bold text-2xl text-roast-950">
                   {secondaryDrink.name}
                 </h4>
-                <p className="text-roast-700 leading-relaxed mt-1">
-                  {secondaryDrink.description}
-                </p>
-              </div>
-
-              {/* Quick Metrics */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px] font-mono">
-                <div className="p-2.5 bg-paper-100 rounded-lg border border-paper-200">
-                  <span className="text-roast-500 block text-[9px]">RASIO:</span>
-                  <strong className="text-roast-950 font-bold">{secondaryDrink.ratioSummary}</strong>
-                </div>
-                <div className="p-2.5 bg-paper-100 rounded-lg border border-paper-200">
-                  <span className="text-roast-500 block text-[9px]">SUHU SAJI:</span>
-                  <strong className="text-roast-950 font-bold">{secondaryDrink.servingTemp}</strong>
-                </div>
-                <div className="p-2.5 bg-paper-100 rounded-lg border border-paper-200">
-                  <span className="text-roast-500 block text-[9px]">KAFEIN (EST):</span>
-                  <strong className="text-roast-950 font-bold">~{secondaryDrink.caffeineMg} mg</strong>
-                </div>
-                <div className="p-2.5 bg-paper-100 rounded-lg border border-paper-200">
-                  <span className="text-roast-500 block text-[9px]">CANGKIR:</span>
-                  <strong className="text-roast-950 font-bold truncate block">{secondaryDrink.glassware.split(' ')[0]}</strong>
-                </div>
-              </div>
-
-              {/* Layer Breakdown */}
-              <div className="p-3.5 bg-paper-100/70 rounded-xl border border-paper-200 space-y-1.5">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-roast-600 font-bold block">
-                  KOMPOSISI URUTAN:
+                <span className="font-mono text-xs text-roast-500 block">
+                  Total {secondaryDrink.totalVolumeMl} ml • {secondaryDrink.glassware}
                 </span>
-                <ul className="space-y-1 text-xs">
-                  {secondaryDrink.layers.map((layer, idx) => (
-                    <li key={idx} className="flex items-center justify-between text-roast-800">
-                      <span className="flex items-center gap-2">
-                        <span
-                          className="w-3 h-3 rounded-full border border-paper-400 shrink-0"
-                          style={{ backgroundColor: layer.color }}
-                        />
-                        <span>{layer.name}</span>
-                      </span>
-                      <strong className="font-mono text-roast-950">{layer.volumeMl} ml</strong>
-                    </li>
-                  ))}
-                </ul>
               </div>
 
-              {/* Barista Rule Callout */}
-              <div className="p-3 bg-paper-100 border border-paper-300 rounded-xl flex items-start gap-2.5">
-                <Sparkles className="w-4 h-4 text-cherry-700 shrink-0 mt-0.5" />
-                <div className="text-[11px] text-roast-800">
-                  <strong>Kaidah Barista:</strong> {secondaryDrink.baristaRule}
-                </div>
+              <div className="py-2 flex justify-center">
+                {renderCupGraphic(secondaryDrink)}
+              </div>
+
+              {/* Mini Layer Breakdown */}
+              <div className="w-full pt-3 border-t border-paper-200 text-left space-y-1.5 text-xs">
+                <span className="font-mono text-[10px] uppercase text-roast-500 font-bold block">
+                  Komposisi Lapisan:
+                </span>
+                {secondaryDrink.layers.map((l, idx) => (
+                  <div key={idx} className="flex justify-between items-center text-roast-800">
+                    <span className="flex items-center gap-2 text-[11px]">
+                      <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: l.color }} />
+                      <span className="truncate">{l.name}</span>
+                    </span>
+                    <span className="font-mono font-bold text-roast-950 text-[11px] shrink-0">{l.volumeMl} ml</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        )}
-      </div>
+
+          {/* Side-by-Side Cup Comparison Matrix Table */}
+          <div className="bg-paper-50 border border-paper-300 rounded-2xl overflow-hidden shadow-xs">
+            <div className="p-4 border-b border-paper-200 bg-paper-100/60 flex items-center justify-between">
+              <span className="font-mono text-xs uppercase tracking-wider text-roast-900 font-bold flex items-center gap-1.5">
+                <Layers className="w-4 h-4 text-cherry-700" /> Matriks Perbandingan Karakter Minuman
+              </span>
+              <span className="font-mono text-[10px] text-roast-500">Standar Barista SCA & WBC</span>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs font-sans">
+                <thead className="bg-paper-100/40 text-roast-600 font-mono text-[10px] uppercase border-b border-paper-200">
+                  <tr>
+                    <th className="p-3.5 w-1/4">Parameter</th>
+                    <th className="p-3.5 w-3/8 text-roast-950 font-bold font-serif text-sm">{primaryDrink.name}</th>
+                    <th className="p-3.5 w-3/8 text-cherry-900 font-bold font-serif text-sm">{secondaryDrink.name}</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-paper-200 font-sans text-xs">
+                  <tr className="hover:bg-paper-100/30">
+                    <td className="p-3.5 font-mono text-roast-500 font-semibold">Total Volume Cairan</td>
+                    <td className="p-3.5 font-mono font-bold text-roast-950">{primaryDrink.totalVolumeMl} ml</td>
+                    <td className="p-3.5 font-mono font-bold text-roast-950">{secondaryDrink.totalVolumeMl} ml</td>
+                  </tr>
+                  <tr className="hover:bg-paper-100/30">
+                    <td className="p-3.5 font-mono text-roast-500 font-semibold">Rasio Klasik</td>
+                    <td className="p-3.5 text-roast-800 font-medium">{primaryDrink.ratioSummary}</td>
+                    <td className="p-3.5 text-roast-800 font-medium">{secondaryDrink.ratioSummary}</td>
+                  </tr>
+                  <tr className="hover:bg-paper-100/30">
+                    <td className="p-3.5 font-mono text-roast-500 font-semibold">Wadah / Cangkir Saji</td>
+                    <td className="p-3.5 text-roast-800">{primaryDrink.glassware}</td>
+                    <td className="p-3.5 text-roast-800">{secondaryDrink.glassware}</td>
+                  </tr>
+                  <tr className="hover:bg-paper-100/30">
+                    <td className="p-3.5 font-mono text-roast-500 font-semibold">Suhu Penyajian Ideal</td>
+                    <td className="p-3.5 font-mono font-bold text-amber-900">{primaryDrink.servingTemp}</td>
+                    <td className="p-3.5 font-mono font-bold text-amber-900">{secondaryDrink.servingTemp}</td>
+                  </tr>
+                  <tr className="hover:bg-paper-100/30">
+                    <td className="p-3.5 font-mono text-roast-500 font-semibold">Estimasi Kafein</td>
+                    <td className="p-3.5 font-mono font-bold text-roast-900">~{primaryDrink.caffeineMg} mg</td>
+                    <td className="p-3.5 font-mono font-bold text-roast-900">~{secondaryDrink.caffeineMg} mg</td>
+                  </tr>
+                  <tr className="hover:bg-paper-100/30">
+                    <td className="p-3.5 font-mono text-roast-500 font-semibold">Deskripsi Karakter</td>
+                    <td className="p-3.5 text-roast-700 leading-relaxed">{primaryDrink.description}</td>
+                    <td className="p-3.5 text-roast-700 leading-relaxed">{secondaryDrink.description}</td>
+                  </tr>
+                  <tr className="hover:bg-paper-100/30 bg-crema-50/40">
+                    <td className="p-3.5 font-mono text-cherry-800 font-semibold">Kaidah Emas Barista</td>
+                    <td className="p-3.5 text-roast-900 italic leading-relaxed">{primaryDrink.baristaRule}</td>
+                    <td className="p-3.5 text-roast-900 italic leading-relaxed">{secondaryDrink.baristaRule}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

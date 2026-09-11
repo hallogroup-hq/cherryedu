@@ -87,16 +87,6 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/game/coffeele" className="hover:text-white transition-colors text-crema-300">
-                  Cherry Coffeele (Game Harian)
-                </Link>
-              </li>
-              <li>
-                <Link href="/assessment/barista" className="hover:text-white transition-colors">
-                  Uji Penilaian Barista (B2B)
-                </Link>
-              </li>
-              <li>
                 <Link href="/open-data" className="hover:text-white transition-colors">
                   Data Terbuka Nasional (BPS)
                 </Link>

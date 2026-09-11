@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Play, Pause, RotateCcw, Clock, Sparkles, Sliders, Calculator, Droplets, Layers } from 'lucide-react';
+import { Play, Pause, RotateCcw, Clock, Sparkles, Sliders, Calculator, Droplets, Layers, Check, ArrowRight, Info, Coffee, Flame, Compass } from 'lucide-react';
 
 interface BrewMethodConfig {
   id: string;
@@ -110,12 +110,114 @@ const BREW_METHODS: BrewMethodConfig[] = [
 
 import { BrewRecipe } from '@/lib/types';
 
+export interface ProcessGuide {
+  id: string;
+  name: string;
+  shortTag: string;
+  flavorProfile: string;
+  temperature: string;
+  tempDegrees: number;
+  recommendedRatio: number;
+  ratioRange: string;
+  doseGrams: number;
+  grindDesc: string;
+  extractionNotes: string;
+  baristaHack: string;
+  badgeColor: string;
+  borderAccent: string;
+}
+
+export const PROCESS_GUIDES: ProcessGuide[] = [
+  {
+    id: 'washed',
+    name: 'Full Washed (Wet Process)',
+    shortTag: 'Clarity & Clean Cup',
+    flavorProfile: 'Acidity jernih (sitrus/malic), floral melati, aftertaste clean dan bebas rasa lumpur/ferment.',
+    temperature: '92°C – 94°C',
+    tempDegrees: 93,
+    recommendedRatio: 16,
+    ratioRange: '1:15.5 – 1:16.5',
+    doseGrams: 15,
+    grindDesc: 'Medium-Fine (seperti garam dapur berbutir halus)',
+    extractionNotes: 'Lapisan lendir (mucilage) dicuci bersih sebelum dijemur. Porositas biji lebih padat dan membutuhkan suhu air tinggi untuk melarutkan asam organik manis tanpa rasa hampa.',
+    baristaHack: 'Lakukan agitasi lembut di awal blooming, hindari over-swirling agar partikel fines tidak menyumbat pori filter dan membuat aftertaste sepat.',
+    badgeColor: 'border-sky-300 bg-sky-50 text-sky-800',
+    borderAccent: 'border-sky-200 hover:border-sky-400 bg-sky-50/30'
+  },
+  {
+    id: 'natural',
+    name: 'Natural / Dry Process',
+    shortTag: 'Fruity & Sweet Jammy',
+    flavorProfile: 'Aroma beri hitam, buah plum matang, manis mirip selai buah, mouthfeel tebal berminyak.',
+    temperature: '88°C – 91°C',
+    tempDegrees: 90,
+    recommendedRatio: 15,
+    ratioRange: '1:14.5 – 1:15',
+    doseGrams: 15,
+    grindDesc: 'Medium (sedikit lebih kasar dari washed)',
+    extractionNotes: 'Biji dikeringkan bersama kulit & daging buah utuh. Gula alami tinggi dan mudah larut, namun rentan over-ekstraksi jika suhu air terlalu mendidih.',
+    baristaHack: 'Turunkan suhu air ke 89°C-90°C agar gula karamel alami tidak terbakar menjadi rasa pahit astringen/getir di pangkal lidah.',
+    badgeColor: 'border-amber-300 bg-amber-50 text-amber-800',
+    borderAccent: 'border-amber-200 hover:border-amber-400 bg-amber-50/30'
+  },
+  {
+    id: 'honey',
+    name: 'Honey / Pulped Natural',
+    shortTag: 'Balanced & Silky Sweet',
+    flavorProfile: 'Madu hutan, brown sugar, aprikot matang, keasaman lembut bulat, mouthfeel berkrim sutra.',
+    temperature: '90°C – 92°C',
+    tempDegrees: 91,
+    recommendedRatio: 15,
+    ratioRange: '1:15 – 1:15.5',
+    doseGrams: 16,
+    grindDesc: 'Medium (seragam, minim fines)',
+    extractionNotes: 'Kulit ceri dikupas tetapi sisa lendir (mucilage) dibiarkan menempel saat dijemur. Memberikan perpaduan apik antara kejernihan rasa washed dan manis kental natural.',
+    baristaHack: 'Gunakan teknik continuous pour berarus tenang di tengah bed kopi untuk menjaga suhu tetap stabil dan manisnya terlarut sempurna.',
+    badgeColor: 'border-yellow-300 bg-yellow-50 text-yellow-800',
+    borderAccent: 'border-yellow-200 hover:border-yellow-400 bg-yellow-50/30'
+  },
+  {
+    id: 'anaerobic',
+    name: 'Anaerobic / Extended Fermentation / Winey',
+    shortTag: 'Intense Exotic & Boozy',
+    flavorProfile: 'Aroma nangka matang, nanas bakar, stroberi fermentasi, rempah winey, keasaman laktat unik mirip yogurt buah.',
+    temperature: '86°C – 89°C',
+    tempDegrees: 88,
+    recommendedRatio: 16.5,
+    ratioRange: '1:16 – 1:17',
+    doseGrams: 14,
+    grindDesc: 'Medium-Coarse (hindari terlalu halus)',
+    extractionNotes: 'Biji difermentasi dalam tangki tertutup hampa oksigen. Selulosa biji sangat berpori dan tingkat keterlarutannya super tinggi dibanding proses biasa.',
+    baristaHack: 'Wajib gunakan air suhu rendah (86°C-88°C) dan rasio lebih longgar (1:16.5). Suhu mendidih akan memicu rasa cuka menusuk dan aroma buah eksotisnya hilang.',
+    badgeColor: 'border-purple-300 bg-purple-50 text-purple-800',
+    borderAccent: 'border-purple-200 hover:border-purple-400 bg-purple-50/30'
+  },
+  {
+    id: 'giling-basah',
+    name: 'Giling Basah (Wet Hulled - Khas Nusantara)',
+    shortTag: 'Heavy Body & Earthy Herbal',
+    flavorProfile: 'Cedarwood, tembakau manis, rempah kayu manis, cokelat hitam pekat, keasaman sangat rendah, mouthfeel sirup tebal.',
+    temperature: '90°C – 93°C',
+    tempDegrees: 92,
+    recommendedRatio: 14,
+    ratioRange: '1:13.5 – 1:14.5',
+    doseGrams: 16,
+    grindDesc: 'Medium-Coarse (cocok French Press, Tubruk, atau Aeropress)',
+    extractionNotes: 'Khas petani Sumatera, Flores & Sulawesi (dikupas pada kadar air 30-40%). Dinding sel biji unik menghasilkan body raksasa yang sangat tahan susu.',
+    baristaHack: 'Gunakan rasio rapat 1:14 atau metode immersion/aeropress. Body tebal dan nuansa rempahnya akan keluar maksimal tanpa rasa pahit abu gosong.',
+    badgeColor: 'border-emerald-300 bg-emerald-50 text-emerald-800',
+    borderAccent: 'border-emerald-200 hover:border-emerald-400 bg-emerald-50/30'
+  }
+];
+
 interface BrewCalculatorProps {
   initialRecipe?: BrewRecipe;
 }
 
 export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe }) => {
   const [calculatorMode, setCalculatorMode] = useState<'preset' | 'custom'>('preset');
+  const [activeAppliedGuide, setActiveAppliedGuide] = useState<string | null>(null);
+  const [appliedNotification, setAppliedNotification] = useState<string | null>(null);
 
   // Match initialRecipe to method if provided
   const matchedMethod = initialRecipe
@@ -142,6 +244,35 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
   // Timer
   const [timerSeconds, setTimerSeconds] = useState<number>(0);
   const [isTimerRunning, setIsTimerRunning] = useState<boolean>(false);
+
+  const applyProcessRecipe = (guide: ProcessGuide) => {
+    setActiveAppliedGuide(guide.id);
+    setCalculatorMode('custom');
+    setCustomCalculationBasis('dose-to-water');
+    setCustomDose(guide.doseGrams);
+    setCustomRatio(guide.recommendedRatio);
+    setCustomBypassWater(0);
+
+    // Also sync preset state in case user flips back
+    setDose(guide.doseGrams);
+    if (selectedMethod.ratioOptions.includes(Math.round(guide.recommendedRatio))) {
+      setRatio(Math.round(guide.recommendedRatio));
+    }
+
+    setAppliedNotification(
+      `✓ Formula proses ${guide.name} diterapkan: ${guide.doseGrams}g kopi, rasio 1:${guide.recommendedRatio} (${Math.round(guide.doseGrams * guide.recommendedRatio)}ml air @ ${guide.temperature})`
+    );
+
+    setTimeout(() => {
+      setAppliedNotification(null);
+    }, 6000);
+
+    // Scroll smoothly to the calculation panel
+    const calcHeader = document.getElementById('brew-calculator-header');
+    if (calcHeader) {
+      calcHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   useEffect(() => {
     let interval: any = null;
@@ -191,7 +322,7 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
   const estimatedLiquidYield = Math.max(0, Math.round(activeTotalWater - (activeDose * 2)));
 
   return (
-    <div className="bg-paper-50 rounded-xl border border-paper-400 p-6 sm:p-8 shadow-xs">
+    <div className="bg-paper-50 rounded-xl border border-paper-400 p-6 sm:p-8 shadow-xs" id="brew-calculator-header">
       {/* Top Header & Tactile Timer */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-paper-300">
         <div>
@@ -237,6 +368,22 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
           </button>
         </div>
       </div>
+
+      {/* Applied Formula Banner */}
+      {appliedNotification && (
+        <div className="mt-4 p-3 bg-emerald-900 text-emerald-100 border border-emerald-700 rounded-lg flex items-center justify-between text-xs font-mono animate-in fade-in duration-200">
+          <div className="flex items-center gap-2">
+            <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+            <span>{appliedNotification}</span>
+          </div>
+          <button
+            onClick={() => setAppliedNotification(null)}
+            className="text-emerald-300 hover:text-white text-xs px-2 py-0.5"
+          >
+            ✕
+          </button>
+        </div>
+      )}
 
       {/* Mode Switcher Tabs: Preset vs Custom */}
       <div className="mt-6 flex flex-col sm:flex-row gap-2 border-b border-paper-300 pb-3 font-mono text-xs">
@@ -687,6 +834,120 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
           </div>
         </div>
       )}
+
+      {/* PANDUAN EKSTRAKSI BERDASARKAN PROSES PASCA-PANEN (POST-HARVEST PROCESS DIAL-IN GUIDE) */}
+      <div className="mt-12 pt-8 border-t border-paper-400">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="font-mono text-[10px] tracking-widest text-cherry-700 font-bold uppercase bg-cherry-50 px-2 py-0.5 border border-cherry-200">
+                [ AGRONOMY TO EXTRACTION // HARVEST DIAL-IN ]
+              </span>
+            </div>
+            <h4 className="font-serif font-bold text-xl sm:text-2xl text-roast-950">
+              Panduan Seduh Berdasarkan Proses Pasca-Panen
+            </h4>
+            <p className="font-sans text-xs text-roast-600 mt-1 max-w-2xl">
+              Struktur selulosa dan kadar gula alami biji kopi berubah drastis sesuai cara pengolahannya di kebun. 
+              Gunakan panduan suhu, rasio, dan ukuran gilingan di bawah ini agar seduhan Anda tidak over atau under-ekstraksi.
+            </p>
+          </div>
+          <div className="font-mono text-[10px] text-roast-500 bg-paper-100 px-3 py-1.5 border border-paper-300 rounded self-start sm:self-auto">
+            1-Klik "Terapkan Resep" untuk mengisi kalkulator otomatis
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {PROCESS_GUIDES.map((guide) => {
+            const isCurrentlyApplied = activeAppliedGuide === guide.id;
+            return (
+              <div
+                key={guide.id}
+                className={`p-5 rounded-lg border transition-all flex flex-col justify-between ${
+                  isCurrentlyApplied
+                    ? 'border-cherry-800 bg-paper-50 ring-2 ring-cherry-700/20 shadow-sm'
+                    : guide.borderAccent
+                }`}
+              >
+                <div>
+                  {/* Process Name & Badge */}
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <h5 className="font-serif font-bold text-base text-roast-950 leading-tight">
+                      {guide.name}
+                    </h5>
+                    <span className={`text-[9px] font-mono font-bold px-2 py-0.5 border rounded uppercase shrink-0 ${guide.badgeColor}`}>
+                      {guide.shortTag}
+                    </span>
+                  </div>
+
+                  {/* Flavor Profile */}
+                  <p className="text-xs text-roast-700 italic mb-4 leading-relaxed bg-white/60 p-2 border border-paper-200 rounded">
+                    "{guide.flavorProfile}"
+                  </p>
+
+                  {/* Extraction Metrics Grid */}
+                  <div className="grid grid-cols-2 gap-2 font-mono text-[11px] mb-3">
+                    <div className="bg-paper-100/80 p-2 border border-paper-200 rounded">
+                      <span className="text-[9px] text-roast-500 uppercase block font-sans">Suhu Air Ideal</span>
+                      <span className="font-bold text-roast-900">{guide.temperature}</span>
+                    </div>
+                    <div className="bg-paper-100/80 p-2 border border-paper-200 rounded">
+                      <span className="text-[9px] text-roast-500 uppercase block font-sans">Rasio Anjuran</span>
+                      <span className="font-bold text-cherry-700">1 : {guide.recommendedRatio}</span>
+                    </div>
+                    <div className="bg-paper-100/80 p-2 border border-paper-200 rounded">
+                      <span className="text-[9px] text-roast-500 uppercase block font-sans">Dosis Seduh</span>
+                      <span className="font-bold text-roast-900">{guide.doseGrams} gram</span>
+                    </div>
+                    <div className="bg-paper-100/80 p-2 border border-paper-200 rounded">
+                      <span className="text-[9px] text-roast-500 uppercase block font-sans">Gilingan</span>
+                      <span className="font-bold text-roast-900">{guide.grindDesc.split(' ')[0]}</span>
+                    </div>
+                  </div>
+
+                  {/* Extraction Science & Hack */}
+                  <div className="space-y-2 text-[11px] text-roast-600 mb-4 font-sans leading-relaxed">
+                    <div className="bg-white/80 p-2.5 border border-paper-200 rounded">
+                      <strong className="text-roast-900 block font-mono text-[10px] uppercase mb-0.5">
+                        🔬 Sains Ekstraksi:
+                      </strong>
+                      {guide.extractionNotes}
+                    </div>
+                    <div className="bg-amber-50/80 p-2.5 border border-amber-200 rounded text-amber-950">
+                      <strong className="text-amber-900 block font-mono text-[10px] uppercase mb-0.5">
+                        💡 Barista Golden Hack:
+                      </strong>
+                      {guide.baristaHack}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Apply Button */}
+                <button
+                  onClick={() => applyProcessRecipe(guide)}
+                  className={`w-full py-2.5 px-3 rounded text-xs font-mono font-bold flex items-center justify-center gap-2 border transition-all ${
+                    isCurrentlyApplied
+                      ? 'bg-cherry-900 text-paper-50 border-cherry-950 shadow-xs'
+                      : 'bg-paper-100 hover:bg-roast-950 hover:text-paper-50 text-roast-800 border-paper-300'
+                  }`}
+                >
+                  {isCurrentlyApplied ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>Resep Sedang Aktif ({guide.doseGrams}g : {Math.round(guide.doseGrams * guide.recommendedRatio)}ml)</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Terapkan Resep Ini ({guide.doseGrams}g • 1:{guide.recommendedRatio})</span>
+                      <ArrowRight className="w-3 h-3 text-roast-400 group-hover:text-paper-50" />
+                    </>
+                  )}
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };

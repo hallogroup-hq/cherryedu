@@ -28,6 +28,8 @@ export interface GrinderModel {
   maxClicks: number;
   zeroPointDesc: string;
   notes: string;
+  isPopularInIndonesia?: boolean;
+  categoryBadge?: string;
   micronToSetting: (microns: number) => { display: string; clicks: number; detail?: string };
 }
 
@@ -118,44 +120,48 @@ export const BREW_METHOD_PROFILES: BrewMethodProfile[] = [
 
 export const POPULAR_GRINDERS: GrinderModel[] = [
   {
-    id: 'comandante-c40',
-    brand: 'Comandante',
-    name: 'C40 MK3 / MK4 Nitro Blade',
-    type: 'manual',
-    burrType: 'conical',
-    burrSize: '39mm Nitro Steel',
-    micronPerClick: 30,
-    minClicks: 0,
-    maxClicks: 40,
-    zeroPointDesc: 'Saat tuas engkol berhenti berputar bebas karena burr saling menyentuh.',
-    notes: 'Standar emas manual brew kejuaraan dunia. Toleransi distribusi ukuran partikel sangat ketat.',
+    id: 'latina-600n',
+    brand: 'Latina / Feima',
+    name: 'Latina 600N / Feima 600N',
+    type: 'electric',
+    burrType: 'flat',
+    burrSize: '60mm Stainless Flat Burr',
+    micronPerClick: 75,
+    minClicks: 1,
+    maxClicks: 8,
+    zeroPointDesc: 'Putar knop ke nomor 1 untuk titik terhalus (kalibrasi nol saat burr rapat).',
+    notes: 'Grinder sejuta kedai kopi Indonesia. Menggunakan dial 1 hingga 8 dengan toleransi setengah step (misal dial 3.5 untuk V60).',
+    isPopularInIndonesia: true,
+    categoryBadge: 'Standar Kedai Kopi RI 🇮🇩',
     micronToSetting: (microns) => {
-      const clicks = Math.round(microns / 30);
+      const dial = Math.min(8, Math.max(1, Number((1 + (microns - 200) / 140).toFixed(1))));
       return {
-        display: `${clicks} Clicks`,
-        clicks,
-        detail: `Rentang optimal: ${clicks - 1} – ${clicks + 1} klik dari titik nol`,
+        display: `Dial #${dial}`,
+        clicks: Math.round(dial * 2),
+        detail: dial <= 2.5 ? 'Zona Tubruk Halus / Mokapot' : dial <= 4.5 ? 'Zona Manual Brew / V60' : 'Zona French Press / Cold Brew',
       };
     },
   },
   {
-    id: 'comandante-red-clix',
-    brand: 'Comandante',
-    name: 'C40 dengan Red Clix Axle',
-    type: 'manual',
-    burrType: 'conical',
-    burrSize: '39mm Nitro Steel (Fine Thread)',
-    micronPerClick: 15,
+    id: 'eureka-mignon',
+    brand: 'Eureka',
+    name: 'Mignon Specialita / Manuale (55mm)',
+    type: 'electric',
+    burrType: 'flat',
+    burrSize: '55mm Hardened Steel Flat Burrs',
+    micronPerClick: 10,
     minClicks: 0,
-    maxClicks: 80,
-    zeroPointDesc: 'Ulir ganda dengan presisi 2x lipat dibanding axle standar.',
-    notes: 'Sangat disukai untuk dial-in espresso presisi tinggi pada mesin komersial.',
+    maxClicks: 60,
+    zeroPointDesc: 'Knop mikrometrik stepless dengan kalibrasi titik temu burr (chirp point).',
+    notes: 'Pilihan utama home barista & coffee bar prosumer di Indonesia untuk dial-in espresso presisi tinggi.',
+    isPopularInIndonesia: true,
+    categoryBadge: 'Prosumer Espresso Cafe',
     micronToSetting: (microns) => {
-      const clicks = Math.round(microns / 15);
+      const setting = Math.min(6, Math.max(0.5, Number((0.5 + (microns - 180) / 110).toFixed(1))));
       return {
-        display: `${clicks} Red Clicks`,
-        clicks,
-        detail: `Setara dengan ${(clicks / 2).toFixed(1)} klik standar`,
+        display: `Mikrometer #${setting}`,
+        clicks: Math.round(setting * 10),
+        detail: microns < 360 ? 'Zona Espresso 9 Bar' : 'Zona Filter (Putar Berlawanan Jam)',
       };
     },
   },
@@ -171,12 +177,131 @@ export const POPULAR_GRINDERS: GrinderModel[] = [
     maxClicks: 32,
     zeroPointDesc: 'Putar knop searah jarum jam hingga rapat penuh (jangan dipaksa melebihi klik nol).',
     notes: 'Grinder manual paling populer di Indonesia. C2 untuk filter, C3 ESP dilengkapi pelat mikrometer.',
+    isPopularInIndonesia: true,
+    categoryBadge: 'Favorit Manual Brew RI',
     micronToSetting: (microns) => {
       const clicks = Math.max(0, Math.round((microns - 60) / 33));
       return {
         display: `${clicks} Clicks`,
         clicks,
         detail: `Rekomendasi harian: ${clicks} klik dari rapat`,
+      };
+    },
+  },
+  {
+    id: 'hario-skerton',
+    brand: 'Hario',
+    name: 'Hario Skerton Pro / Mini Slim+',
+    type: 'manual',
+    burrType: 'conical',
+    burrSize: 'Ceramic Conical Burrs',
+    micronPerClick: 60,
+    minClicks: 1,
+    maxClicks: 16,
+    zeroPointDesc: 'Putar roda gerigi bergerigi di bawah burr searah jarum jam hingga rapat.',
+    notes: 'Grinder manual sejuta umat pemula di Indonesia. Menggunakan burr keramik dengan pengunci roda gerigi step.',
+    isPopularInIndonesia: true,
+    categoryBadge: 'Favorit Pemula Rumahan',
+    micronToSetting: (microns) => {
+      const clicks = Math.max(1, Math.min(16, Math.round(1 + (microns - 180) / 70)));
+      return {
+        display: `${clicks} Clicks`,
+        clicks,
+        detail: clicks <= 4 ? 'Fine (Moka Pot)' : clicks <= 9 ? 'Medium (V60)' : 'Coarse (French Press)',
+      };
+    },
+  },
+  {
+    id: 'kinu-m47',
+    brand: 'Kinu',
+    name: 'M47 Phoenix / Simplicity',
+    type: 'manual',
+    burrType: 'conical',
+    burrSize: '47mm Black Fusion Conical',
+    micronPerClick: 10,
+    minClicks: 0,
+    maxClicks: 50,
+    zeroPointDesc: 'Dial ulir mikrometer atas dengan 50 klik per putaran penuh (10 mikron per klik).',
+    notes: 'Grinder manual kasta tertinggi dengan konstruksi presisi baja Jerman, sangat populer di kalangan antusias manual brew & lever espresso Indonesia.',
+    isPopularInIndonesia: true,
+    categoryBadge: 'Manual Presisi Premium',
+    micronToSetting: (microns) => {
+      const clicks = Math.round(microns / 10);
+      const rotations = Math.floor(clicks / 50);
+      const sub = clicks % 50;
+      return {
+        display: `${rotations}.${Math.floor(sub / 5)} (${clicks} Klik)`,
+        clicks,
+        detail: `${rotations} putaran penuh + ${sub} klik mikron`,
+      };
+    },
+  },
+  {
+    id: 'mazzer-super-jolly',
+    brand: 'Mazzer',
+    name: 'Mazzer Super Jolly (Commercial)',
+    type: 'electric',
+    burrType: 'flat',
+    burrSize: '64mm Hardened Steel Flat Burrs',
+    micronPerClick: 20,
+    minClicks: 0,
+    maxClicks: 40,
+    zeroPointDesc: 'Kerah stepless ulir kuningan dengan pin pengunci kalibrasi titik nol.',
+    notes: 'Grinder komersial legendaris yang mengisi ratusan kafe gelombang ketiga di kota-kota besar Indonesia.',
+    isPopularInIndonesia: true,
+    categoryBadge: 'Komersial Cafe Klasik',
+    micronToSetting: (microns) => {
+      const notch = Math.min(10, Math.max(0.5, Number((0.5 + (microns - 200) / 80).toFixed(1))));
+      return {
+        display: `Collar Notch #${notch}`,
+        clicks: Math.round(notch * 10),
+        detail: 'Setting kalibrasi ring stepless Mazzer 64mm',
+      };
+    },
+  },
+  {
+    id: 'delonghi-kg79',
+    brand: "De'Longhi",
+    name: "De'Longhi KG79 / Dedica Grinder",
+    type: 'electric',
+    burrType: 'flat',
+    burrSize: 'Burr Wheel Elektrik',
+    micronPerClick: 65,
+    minClicks: 1,
+    maxClicks: 16,
+    zeroPointDesc: 'Pilihan selektor dial angka 1 (Fine) hingga 16 (Coarse).',
+    notes: 'Grinder elektrik pemula yang sangat umum dibeli bersama mesin espresso rumahan seperti DeLonghi Dedica.',
+    isPopularInIndonesia: true,
+    categoryBadge: 'Elektrik Rumahan Entry',
+    micronToSetting: (microns) => {
+      const setting = Math.max(1, Math.min(16, Math.round(1 + (microns - 200) / 65)));
+      return {
+        display: `Level #${setting}`,
+        clicks: setting,
+        detail: setting <= 4 ? 'Zona Fine' : setting <= 10 ? 'Zona Medium' : 'Zona Coarse',
+      };
+    },
+  },
+  {
+    id: 'comandante-c40',
+    brand: 'Comandante',
+    name: 'C40 MK3 / MK4 Nitro Blade',
+    type: 'manual',
+    burrType: 'conical',
+    burrSize: '39mm Nitro Steel',
+    micronPerClick: 30,
+    minClicks: 0,
+    maxClicks: 40,
+    zeroPointDesc: 'Saat tuas engkol berhenti berputar bebas karena burr saling menyentuh.',
+    notes: 'Standar emas manual brew kejuaraan dunia. Toleransi distribusi ukuran partikel sangat ketat.',
+    isPopularInIndonesia: true,
+    categoryBadge: 'Standar Kejuaraan Dunia',
+    micronToSetting: (microns) => {
+      const clicks = Math.round(microns / 30);
+      return {
+        display: `${clicks} Clicks`,
+        clicks,
+        detail: `Rentang optimal: ${clicks - 1} – ${clicks + 1} klik dari titik nol`,
       };
     },
   },
@@ -380,16 +505,26 @@ export const GrinderConverter: React.FC = () => {
     playClickSound(600 + (newMicrons / 1300) * 600);
   };
 
+  const [categoryFilter, setCategoryFilter] = useState<'indonesia' | 'all' | 'manual' | 'electric'>('indonesia');
+
   const filteredGrinders = useMemo(() => {
-    if (!searchQuery.trim()) return POPULAR_GRINDERS;
-    const q = searchQuery.toLowerCase();
-    return POPULAR_GRINDERS.filter(
-      (g) =>
+    return POPULAR_GRINDERS.filter((g) => {
+      // Category filter
+      if (categoryFilter === 'indonesia' && !g.isPopularInIndonesia) return false;
+      if (categoryFilter === 'manual' && g.type !== 'manual') return false;
+      if (categoryFilter === 'electric' && g.type !== 'electric') return false;
+
+      // Search query filter
+      if (!searchQuery.trim()) return true;
+      const q = searchQuery.toLowerCase();
+      return (
         g.brand.toLowerCase().includes(q) ||
         g.name.toLowerCase().includes(q) ||
-        g.burrType.toLowerCase().includes(q)
-    );
-  }, [searchQuery]);
+        g.burrType.toLowerCase().includes(q) ||
+        (g.categoryBadge && g.categoryBadge.toLowerCase().includes(q))
+      );
+    });
+  }, [searchQuery, categoryFilter]);
 
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
@@ -411,33 +546,30 @@ export const GrinderConverter: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex items-center gap-2 self-start md:self-auto shrink-0">
+          <div className="flex items-center gap-3 self-start md:self-auto">
             <button
               onClick={() => setSoundEnabled(!soundEnabled)}
-              className="p-2 bg-paper-50 hover:bg-paper-200 border border-paper-300 rounded-lg text-roast-600 transition-colors"
-              title={soundEnabled ? 'Matikan suara klik' : 'Aktifkan suara klik'}
+              className="p-2.5 rounded-xl bg-paper-50 border border-paper-300 text-roast-700 hover:text-roast-950 transition-colors"
+              title={soundEnabled ? 'Matikan efek audio dial click' : 'Nyalakan efek audio dial click'}
             >
               {soundEnabled ? <Volume2 className="w-4 h-4 text-cherry-700" /> : <VolumeX className="w-4 h-4 text-roast-400" />}
             </button>
+
             <button
-              onClick={() => {
-                setTargetMicrons(620);
-                setSelectedMethodId('v60');
-                playClickSound(500);
-              }}
-              className="px-3 py-1.5 bg-paper-50 hover:bg-paper-200 border border-paper-300 rounded-lg font-mono text-xs text-roast-700 flex items-center gap-1.5 transition-colors"
+              onClick={() => handleSelectMethod(BREW_METHOD_PROFILES[4])}
+              className="px-3.5 py-2 rounded-xl bg-roast-950 text-paper-50 hover:bg-roast-900 active:scale-[0.98] font-mono text-xs font-semibold flex items-center gap-2 shadow-xs transition-all"
             >
-              <RotateCcw className="w-3.5 h-3.5" />
-              <span>Reset V60</span>
+              <RotateCcw className="w-3.5 h-3.5 text-crema-300" />
+              <span>Reset ke V60 (620μm)</span>
             </button>
           </div>
         </div>
 
-        {/* Method Presets Bar */}
-        <div className="pt-4">
-          <label className="block font-mono text-[11px] uppercase tracking-wider text-roast-600 font-bold mb-2">
-            1. PILIH METODE SEDUH TARGET:
-          </label>
+        {/* 1. Target Brew Method Presets Selector */}
+        <div className="mt-5 space-y-2.5">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-roast-500 font-semibold block">
+            1. PILIH METODE SEDUH TARGET (QUICK MICRON PRESETS):
+          </span>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
             {BREW_METHOD_PROFILES.map((method) => {
               const isSelected = selectedMethodId === method.id;
@@ -445,7 +577,7 @@ export const GrinderConverter: React.FC = () => {
                 <button
                   key={method.id}
                   onClick={() => handleSelectMethod(method)}
-                  className={`p-2.5 rounded-xl border text-left transition-all flex flex-col justify-between active:scale-[0.98] ${
+                  className={`p-3 rounded-xl border text-left transition-all active:scale-[0.98] flex flex-col justify-between ${
                     isSelected
                       ? 'bg-roast-950 text-paper-50 border-roast-950 shadow-xs ring-1 ring-roast-900 scale-[1.02]'
                       : 'bg-paper-50 hover:bg-paper-200/80 text-roast-800 border-paper-300'
@@ -527,15 +659,16 @@ export const GrinderConverter: React.FC = () => {
 
       {/* Cross-Grinder Cards Grid */}
       <div className="space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-paper-300 pb-3">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-paper-300 pb-3">
           <div className="flex items-center gap-2">
             <Sliders className="w-4 h-4 text-cherry-700" />
             <h4 className="font-serif font-bold text-lg text-roast-950">
-              Hasil Konversi Pada 10 Grinder Populer
+              Hasil Konversi Pada {filteredGrinders.length} Grinder ({POPULAR_GRINDERS.length} Total Database)
             </h4>
           </div>
 
-          <div className="relative w-full sm:w-64">
+          {/* Search Box */}
+          <div className="relative w-full md:w-64">
             <Search className="w-3.5 h-3.5 text-roast-400 absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
@@ -547,21 +680,72 @@ export const GrinderConverter: React.FC = () => {
           </div>
         </div>
 
+        {/* Category Filter Tabs */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <button
+            onClick={() => setCategoryFilter('indonesia')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              categoryFilter === 'indonesia'
+                ? 'bg-roast-950 text-paper-50 shadow-xs ring-1 ring-roast-900'
+                : 'bg-paper-100 hover:bg-paper-200 text-roast-700 border border-paper-300'
+            }`}
+          >
+            🇮🇩 Populer di Indonesia
+          </button>
+          <button
+            onClick={() => setCategoryFilter('all')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              categoryFilter === 'all'
+                ? 'bg-roast-950 text-paper-50 shadow-xs ring-1 ring-roast-900'
+                : 'bg-paper-100 hover:bg-paper-200 text-roast-700 border border-paper-300'
+            }`}
+          >
+            Semua Grinder ({POPULAR_GRINDERS.length})
+          </button>
+          <button
+            onClick={() => setCategoryFilter('manual')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              categoryFilter === 'manual'
+                ? 'bg-roast-950 text-paper-50 shadow-xs ring-1 ring-roast-900'
+                : 'bg-paper-100 hover:bg-paper-200 text-roast-700 border border-paper-300'
+            }`}
+          >
+            Manual Hand Grinder
+          </button>
+          <button
+            onClick={() => setCategoryFilter('electric')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              categoryFilter === 'electric'
+                ? 'bg-roast-950 text-paper-50 shadow-xs ring-1 ring-roast-900'
+                : 'bg-paper-100 hover:bg-paper-200 text-roast-700 border border-paper-300'
+            }`}
+          >
+            Electric Cafe / Pro
+          </button>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredGrinders.map((grinder) => {
             const setting = grinder.micronToSetting(targetMicrons);
             return (
               <div
                 key={grinder.id}
-                className="bg-paper-50 border border-paper-300 rounded-xl p-4.5 hover:border-roast-700 transition-all flex flex-col justify-between shadow-2xs group"
+                className="bg-paper-50 border border-paper-300 rounded-xl p-4.5 hover:border-roast-700 transition-all flex flex-col justify-between shadow-2xs group hover:shadow-xs"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="font-mono text-[9px] uppercase tracking-wider text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
-                      {grinder.brand}
-                    </span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="font-mono text-[9px] uppercase tracking-wider text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
+                        {grinder.brand}
+                      </span>
+                      {grinder.categoryBadge && (
+                        <span className="font-mono text-[9px] text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 font-semibold">
+                          {grinder.categoryBadge}
+                        </span>
+                      )}
+                    </div>
                     <span className="font-mono text-[9px] text-roast-500 uppercase">
-                      {grinder.type === 'manual' ? 'Hand Grinder' : 'Electric Grinder'}
+                      {grinder.type === 'manual' ? 'Hand' : 'Electric'}
                     </span>
                   </div>
 
@@ -582,9 +766,26 @@ export const GrinderConverter: React.FC = () => {
                       </p>
                     )}
                   </div>
+
+                  {/* Tactile Visual Micron Spectrum Gauge */}
+                  <div className="space-y-1.5 my-3 bg-paper-100/60 p-2.5 rounded-xl border border-paper-200">
+                    <div className="flex justify-between text-[9px] font-mono text-roast-500">
+                      <span>Fine (100μ)</span>
+                      <span className="text-roast-900 font-bold bg-paper-50 px-1.5 py-0.2 rounded border border-paper-300">
+                        {targetMicrons} μm
+                      </span>
+                      <span>Coarse (1300μ)</span>
+                    </div>
+                    <div className="w-full h-2 bg-paper-200 rounded-full overflow-hidden relative">
+                      <div
+                        className="h-full bg-gradient-to-r from-cherry-700 via-amber-600 to-roast-900 rounded-full transition-all duration-150"
+                        style={{ width: `${Math.min(100, Math.max(6, ((targetMicrons - 100) / 1200) * 100))}%` }}
+                      />
+                    </div>
+                  </div>
                 </div>
 
-                <div className="mt-3 pt-3 border-t border-paper-200/80 text-[11px] space-y-1">
+                <div className="mt-2 pt-3 border-t border-paper-200/80 text-[11px] space-y-1">
                   <div className="flex justify-between text-roast-600">
                     <span>Burr:</span>
                     <strong className="text-roast-800 font-medium">{grinder.burrSize}</strong>
