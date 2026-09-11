@@ -26,6 +26,7 @@ import {
   Info,
   Coffee,
   Library,
+  Layers,
 } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
@@ -71,7 +72,10 @@ export const Navbar: React.FC = () => {
     pathname.startsWith('/tools') ||
     pathname.startsWith('/pustaka') ||
     pathname.startsWith('/lexicon') ||
-    pathname.startsWith('/flashcards');
+    pathname.startsWith('/flashcards') ||
+    pathname.startsWith('/game') ||
+    pathname.startsWith('/assessment') ||
+    pathname.startsWith('/open-data');
 
   const isCommunityActive =
     pathname.startsWith('/forum') ||
@@ -152,7 +156,55 @@ export const Navbar: React.FC = () => {
                       <div>
                         <div className="font-serif font-bold text-xs">Laboratorium Seduh</div>
                         <div className="font-sans text-[11px] text-roast-500 leading-tight mt-0.5">
-                          Kalkulator rasio, Sensory Wheel, dan varietas
+                          15 instrumen presisi: grinder, CVA, rasio & roasting
+                        </div>
+                      </div>
+                    </Link>
+
+                    <Link
+                      href="/game/coffeele"
+                      onClick={() => setToolsDropdownOpen(false)}
+                      className={`flex items-start gap-2.5 p-2.5 rounded-lg text-left transition-colors ${
+                        pathname.startsWith('/game') ? 'bg-paper-200/80 text-roast-950' : 'hover:bg-paper-100 text-roast-800'
+                      }`}
+                    >
+                      <Sparkles className="w-4 h-4 text-amber-600 mt-0.5 shrink-0" />
+                      <div>
+                        <div className="font-serif font-bold text-xs">Cherry Coffeele (Game)</div>
+                        <div className="font-sans text-[11px] text-roast-500 leading-tight mt-0.5">
+                          Tebak biji kopi misterius harian dalam 6 langkah
+                        </div>
+                      </div>
+                    </Link>
+
+                    <Link
+                      href="/assessment/barista"
+                      onClick={() => setToolsDropdownOpen(false)}
+                      className={`flex items-start gap-2.5 p-2.5 rounded-lg text-left transition-colors ${
+                        pathname.startsWith('/assessment') ? 'bg-paper-200/80 text-roast-950' : 'hover:bg-paper-100 text-roast-800'
+                      }`}
+                    >
+                      <Briefcase className="w-4 h-4 text-emerald-700 mt-0.5 shrink-0" />
+                      <div>
+                        <div className="font-serif font-bold text-xs">Uji Penilaian Barista (B2B)</div>
+                        <div className="font-sans text-[11px] text-roast-500 leading-tight mt-0.5">
+                          Tes pra-kerja teknis & scorecard standar kafe
+                        </div>
+                      </div>
+                    </Link>
+
+                    <Link
+                      href="/open-data"
+                      onClick={() => setToolsDropdownOpen(false)}
+                      className={`flex items-start gap-2.5 p-2.5 rounded-lg text-left transition-colors ${
+                        pathname.startsWith('/open-data') ? 'bg-paper-200/80 text-roast-950' : 'hover:bg-paper-100 text-roast-800'
+                      }`}
+                    >
+                      <Layers className="w-4 h-4 text-blue-700 mt-0.5 shrink-0" />
+                      <div>
+                        <div className="font-serif font-bold text-xs">Data Terbuka Nasional</div>
+                        <div className="font-sans text-[11px] text-roast-500 leading-tight mt-0.5">
+                          Dashboard harga farmgate & sebaran produksi kopi
                         </div>
                       </div>
                     </Link>
@@ -513,7 +565,31 @@ export const Navbar: React.FC = () => {
               className="flex items-center gap-2.5 p-2 rounded-lg text-roast-900 hover:bg-paper-100 text-sm font-bold"
             >
               <Coffee className="w-4 h-4 text-cherry-700" />
-              <span>Laboratorium Alat Seduh & Varietas</span>
+              <span>Laboratorium Alat Seduh (15 Instrumen)</span>
+            </Link>
+            <Link
+              href="/game/coffeele"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
+            >
+              <Sparkles className="w-4 h-4 text-amber-600" />
+              <span>Cherry Coffeele (Mini-Game Harian)</span>
+            </Link>
+            <Link
+              href="/assessment/barista"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
+            >
+              <Briefcase className="w-4 h-4 text-emerald-700" />
+              <span>Uji Penilaian Barista (B2B Test)</span>
+            </Link>
+            <Link
+              href="/open-data"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
+            >
+              <Layers className="w-4 h-4 text-blue-700" />
+              <span>Dashboard Data Terbuka Nasional</span>
             </Link>
             <Link
               href="/pustaka"

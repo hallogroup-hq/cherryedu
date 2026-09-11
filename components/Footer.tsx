@@ -78,21 +78,31 @@ export const Footer: React.FC = () => {
           {/* Col 3: Instrumen & Ekosistem */}
           <div className="md:col-span-2 space-y-3">
             <h4 className="font-mono text-[11px] uppercase tracking-widest text-crema-400 font-bold">
-              INSTRUMEN
+              INSTRUMEN & EKOSISTEM
             </h4>
             <ul className="space-y-2 text-xs font-sans text-roast-400">
               <li>
-                <Link href="/tools?tab=calculator" className="hover:text-white transition-colors">
-                  Kalkulator Rasio Kopi
+                <Link href="/tools" className="hover:text-white transition-colors">
+                  Laboratorium Seduh (15 Alat)
                 </Link>
               </li>
               <li>
-                <Link href="/tools?tab=flavor-wheel" className="hover:text-white transition-colors">
-                  SCA Flavor Wheel
+                <Link href="/game/coffeele" className="hover:text-white transition-colors text-crema-300">
+                  Cherry Coffeele (Game Harian)
                 </Link>
               </li>
               <li>
-                <Link href="/pustaka" className="hover:text-white transition-colors text-crema-300">
+                <Link href="/assessment/barista" className="hover:text-white transition-colors">
+                  Uji Penilaian Barista (B2B)
+                </Link>
+              </li>
+              <li>
+                <Link href="/open-data" className="hover:text-white transition-colors">
+                  Data Terbuka Nasional (BPS)
+                </Link>
+              </li>
+              <li>
+                <Link href="/pustaka" className="hover:text-white transition-colors">
                   Daftar Pustaka Ilmiah
                 </Link>
               </li>

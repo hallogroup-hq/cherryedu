@@ -8,6 +8,14 @@ import { VarietyCompendium } from '@/components/VarietyCompendium';
 import { EspressoDialIn } from '@/components/EspressoDialIn';
 import { WaterCalculator } from '@/components/WaterCalculator';
 import { SCACuppingForm } from '@/components/SCACuppingForm';
+import { GrinderConverter } from '@/components/GrinderConverter';
+import { CoffeeCompass } from '@/components/CoffeeCompass';
+import { CupAnatomyVisualizer } from '@/components/CupAnatomyVisualizer';
+import { BlendDesigner } from '@/components/BlendDesigner';
+import { LocalFlavorLexicon } from '@/components/LocalFlavorLexicon';
+import { GreenDefectTrainer } from '@/components/GreenDefectTrainer';
+import { RoastingSimulator } from '@/components/RoastingSimulator';
+import { HarvestCalendar } from '@/components/HarvestCalendar';
 import {
   Wrench,
   Compass,
@@ -28,16 +36,30 @@ import {
   Check,
   X,
   ArrowRight,
-  BookOpen
+  BookOpen,
+  Sliders,
+  Ratio,
+  PieChart,
+  Flame,
+  ShieldAlert,
+  Calendar,
 } from 'lucide-react';
 
 type ToolDomainId = 'bar-brew' | 'sensory-cupping' | 'terroir-botany';
 type ToolId =
   | 'calculator'
   | 'espresso-dial'
+  | 'grinder-converter'
+  | 'coffee-compass'
+  | 'cup-anatomy'
+  | 'blend-designer'
+  | 'roast-simulator'
   | 'water-lab'
   | 'flavor-wheel'
+  | 'local-lexicon'
   | 'cupping-sheet'
+  | 'green-defects'
+  | 'harvest-calendar'
   | 'atlas'
   | 'varieties';
 
@@ -61,6 +83,51 @@ const TOOLS_CATALOG: ToolDef[] = [
     badge: 'Preset & Custom',
     tagline: 'Kalkulasi dosis kopi, volume air, dan rasio seduh presisi dengan stopwatch taktil.',
     icon: Coffee,
+  },
+  {
+    id: 'grinder-converter',
+    domainId: 'bar-brew',
+    label: 'Cross-Grinder Click Converter',
+    shortLabel: 'Grinder Converter',
+    badge: '10 Grinder Dunia',
+    tagline: 'Konversi klik Comandante, Timemore, 1Zpresso, EK43, Fellow Ode, dan Baratza dalam satuan mikron (μm).',
+    icon: Sliders,
+  },
+  {
+    id: 'coffee-compass',
+    domainId: 'bar-brew',
+    label: 'Interactive Coffee Compass',
+    shortLabel: 'Coffee Compass',
+    badge: 'Diagnosis Rasa',
+    tagline: 'Solusi taktis rasa kopi sepat, pahit getir, asin, atau asam tajam dengan panduan kalibrasi 4 langkah.',
+    icon: Compass,
+  },
+  {
+    id: 'cup-anatomy',
+    domainId: 'bar-brew',
+    label: 'Visual Perbandingan Anatomi Cangkir',
+    shortLabel: 'Anatomi Cangkir',
+    badge: '12 Menu Kafe',
+    tagline: 'Visual rasio cross-section espresso, microfoam, air, dan suhu saji dengan mode side-by-side.',
+    icon: Layers,
+  },
+  {
+    id: 'blend-designer',
+    domainId: 'bar-brew',
+    label: 'Virtual Blend Designer & HPP',
+    shortLabel: 'Blend Designer',
+    badge: 'Kafe & Es Kopi Susu',
+    tagline: 'Simulasi racik house blend kafe, keseimbangan Arabica/Robusta, ketebalan crema, dan HPP per cup.',
+    icon: Sparkles,
+  },
+  {
+    id: 'roast-simulator',
+    domainId: 'bar-brew',
+    label: 'Virtual Drum Roasting Simulator',
+    shortLabel: 'Roast Simulator',
+    badge: 'BT, ET & RoR',
+    tagline: 'Simulasi kurva sangrai drum komersial, kontrol burner, airflow damper, dan audio letupan First Crack.',
+    icon: Flame,
   },
   {
     id: 'espresso-dial',
@@ -92,16 +159,43 @@ const TOOLS_CATALOG: ToolDef[] = [
     icon: Compass,
   },
   {
+    id: 'local-lexicon',
+    domainId: 'sensory-cupping',
+    label: 'Leksikon Rasa Lokal Nusantara',
+    shortLabel: 'Rasa Lokal',
+    badge: 'Palate Indonesia',
+    tagline: 'Kamus rasa buah tropis (salak, nangka, sirsak), gula aren, rempah, dan resep kalibrasi mandiri.',
+    icon: BookOpen,
+  },
+  {
     id: 'cupping-sheet',
     domainId: 'sensory-cupping',
-    label: 'SCA Cupping Sheet Digital',
-    shortLabel: 'SCA Cupping Form',
-    badge: '10 Atribut Resmi',
-    tagline: 'Lembar evaluasi cita rasa resmi SCA dengan penghitungan skor otomatis & ekspor.',
+    label: 'SCA Coffee Value Assessment (CVA)',
+    shortLabel: 'SCA CVA Form',
+    badge: 'Standar Resmi SCA',
+    tagline: 'Protokol cupping SCA terbaru dengan penilaian Descriptive (0-15), Affective, dan matriks 5 cangkir.',
     icon: ClipboardCheck,
+  },
+  {
+    id: 'green-defects',
+    domainId: 'sensory-cupping',
+    label: 'Green Coffee Defect Trainer',
+    shortLabel: 'Cacat Green Bean',
+    badge: 'SCA & SNI Fisik',
+    tagline: 'Atlas 13 cacat fisik biji kopi primer & sekunder dan kalkulator kepatuhan Specialty Grade 350g.',
+    icon: ShieldAlert,
   },
 
   // 3. Domain: Botani & Terroir
+  {
+    id: 'harvest-calendar',
+    domainId: 'terroir-botany',
+    label: 'Kalender Musim Panen Nusantara',
+    shortLabel: 'Kalender Panen',
+    badge: 'Siklus 12 Bulan',
+    tagline: 'Jadwal panen raya, panen selang, dan masa berbunga kopi di 19 origin Indonesia.',
+    icon: Calendar,
+  },
   {
     id: 'atlas',
     domainId: 'terroir-botany',
@@ -127,21 +221,21 @@ const TOOL_DOMAINS = [
     id: 'bar-brew' as ToolDomainId,
     name: 'Bar & Seduhan',
     shortName: 'Bar & Seduh',
-    count: '3 Instrumen',
+    count: '8 Instrumen',
     icon: Coffee,
   },
   {
     id: 'sensory-cupping' as ToolDomainId,
     name: 'Sensorik & Uji Rasa',
     shortName: 'Sensorik & Cupping',
-    count: '2 Instrumen',
+    count: '4 Instrumen',
     icon: Compass,
   },
   {
     id: 'terroir-botany' as ToolDomainId,
     name: 'Botani & Terroir Nusantara',
     shortName: 'Botani & Terroir',
-    count: '2 Kompendium',
+    count: '3 Kompendium',
     icon: MapPin,
   },
 ];
@@ -452,7 +546,7 @@ function ToolsPageContent() {
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-widest font-bold bg-cherry-100 text-cherry-900 border border-cherry-200">
-                7 INSTRUMEN RESMI
+                15 INSTRUMEN RESMI
               </span>
               <span className="text-[10px] font-mono text-roast-500">Standar SCA & CQI</span>
             </div>
@@ -713,10 +807,18 @@ function ToolsPageContent() {
 
       {/* Tab Content */}
       {activeTool === 'calculator' && <BrewCalculator />}
+      {activeTool === 'grinder-converter' && <GrinderConverter />}
+      {activeTool === 'coffee-compass' && <CoffeeCompass />}
+      {activeTool === 'cup-anatomy' && <CupAnatomyVisualizer />}
+      {activeTool === 'blend-designer' && <BlendDesigner />}
+      {activeTool === 'roast-simulator' && <RoastingSimulator />}
       {activeTool === 'espresso-dial' && <EspressoDialIn />}
       {activeTool === 'water-lab' && <WaterCalculator />}
       {activeTool === 'flavor-wheel' && <FlavorWheel />}
+      {activeTool === 'local-lexicon' && <LocalFlavorLexicon />}
       {activeTool === 'cupping-sheet' && <SCACuppingForm />}
+      {activeTool === 'green-defects' && <GreenDefectTrainer />}
+      {activeTool === 'harvest-calendar' && <HarvestCalendar />}
       {activeTool === 'varieties' && <VarietyCompendium />}
 
       {activeTool === 'atlas' && (
