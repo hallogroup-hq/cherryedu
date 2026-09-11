@@ -165,10 +165,10 @@ const TOOLS_CATALOG: ToolDef[] = [
   {
     id: 'cupping-sheet',
     domainId: 'sensory-cupping',
-    label: 'SCA Cupping Sheet (Standar CVA SCA)',
+    label: 'SCA Cupping Sheet (Klasik & CVA)',
     shortLabel: 'SCA Cupping Sheet',
-    badge: 'Standar Resmi CVA',
-    tagline: 'Form uji rasa standar SCA terbaru (CVA 2024–2026) dengan lembar penilaian Descriptive (0-15), Affective, dan matriks 5 cangkir.',
+    badge: '10 Atribut & Pentagram',
+    tagline: 'Formulir kalibrasi resmi SCA dengan grafik radar spider-web pentagram 10 atribut, stopwatch seduh, matriks 5 cangkir, serta mode SCA CVA.',
     icon: ClipboardCheck,
   },
   {
@@ -474,7 +474,8 @@ function ToolsPageContent() {
   useEffect(() => {
     const rawParam = searchParams.get('tab') || searchParams.get('tool');
     if (rawParam) {
-      const tabParam = rawParam === 'cupping' ? 'cupping-sheet' : rawParam;
+      const isCva = rawParam === 'cva' || rawParam === 'cva-sheet';
+      const tabParam = rawParam === 'cupping' || isCva ? 'cupping-sheet' : rawParam;
       if (TOOLS_CATALOG.some((t) => t.id === tabParam)) {
         setActiveTool(tabParam as ToolId);
       }
@@ -837,7 +838,17 @@ function ToolsPageContent() {
       {activeTool === 'water-lab' && <WaterCalculator />}
       {activeTool === 'flavor-wheel' && <FlavorWheel />}
       {activeTool === 'local-lexicon' && <LocalFlavorLexicon />}
-      {activeTool === 'cupping-sheet' && <SCACuppingForm />}
+      {activeTool === 'cupping-sheet' && (
+        <SCACuppingForm
+          initialStandard={
+            searchParams.get('mode') === 'cva' ||
+            searchParams.get('tab') === 'cva' ||
+            searchParams.get('tab') === 'cva-sheet'
+              ? 'cva'
+              : 'classic'
+          }
+        />
+      )}
       {activeTool === 'green-defects' && <GreenDefectTrainer />}
       {activeTool === 'harvest-calendar' && <HarvestCalendar />}
       {activeTool === 'varieties' && <VarietyCompendium />}

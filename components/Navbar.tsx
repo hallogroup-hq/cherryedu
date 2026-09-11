@@ -171,7 +171,7 @@ export const Navbar: React.FC = () => {
                       <div>
                         <div className="font-serif font-bold text-xs">SCA Cupping Sheet</div>
                         <div className="font-sans text-[11px] text-roast-500 leading-tight mt-0.5">
-                          Form uji rasa standar CVA resmi (Descriptive & Affective)
+                          Standar Klasik (Pentagram) & SCA CVA
                         </div>
                       </div>
                     </Link>
@@ -556,7 +556,7 @@ export const Navbar: React.FC = () => {
               className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
             >
               <ClipboardCheck className="w-4 h-4 text-cherry-700" />
-              <span>SCA Cupping Sheet (Standar CVA)</span>
+              <span>SCA Cupping Sheet (Klasik & CVA)</span>
             </Link>
             <Link
               href="/open-data"
