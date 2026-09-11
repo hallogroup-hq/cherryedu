@@ -1,11 +1,10 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
 import { CertificateCard } from '@/components/CertificateCard';
-import { CheckCircle2, XCircle, ShieldCheck, ArrowLeft, Coffee } from 'lucide-react';
+import { XCircle, ShieldCheck, ArrowLeft, Coffee } from "lucide-react";
 
 export default function PublicVerifyPage() {
   const params = useParams();

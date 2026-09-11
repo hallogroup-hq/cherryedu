@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import { useCherryEdu } from '@/lib/store';
 import { DEFAULT_LANDING_CONFIG, DEFAULT_LANDING_SECTIONS } from '@/lib/data/defaultLandingConfig';
@@ -13,9 +12,7 @@ import {
   Sparkles,
   Quote,
   Video,
-  Image as ImageIcon,
-  CheckCircle2,
-} from 'lucide-react';
+} from "lucide-react";
 
 export default function HomePage() {
   const { learningPaths, landingPageConfig } = useCherryEdu();
@@ -474,6 +471,7 @@ export default function HomePage() {
                     <div className="aspect-video w-full rounded-xl overflow-hidden bg-black/60 border border-white/10 flex items-center justify-center">
                       {data.url ? (
                         <iframe
+                          title={data.title || "Video Showcase"}
                           src={data.url}
                           className="w-full h-full"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -1,23 +1,18 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from "react";
 import {
   ClipboardCheck,
   CheckCircle2,
   XCircle,
   Award,
-  Clock,
-  Printer,
   Copy,
   RotateCcw,
-  Sparkles,
   Coffee,
-  AlertTriangle,
-  ChevronRight,
   User,
   Building2,
   Check,
-} from 'lucide-react';
+} from "lucide-react";
 
 interface Question {
   id: number;
@@ -86,7 +81,7 @@ const ASSESSMENT_QUESTIONS: Question[] = [
     ],
   },
   {
-    id: '3' as any,
+    id: 3,
     category: 'Dial-In & Ekstraksi',
     scenario:
       'Saat mendistribusikan bubuk kopi ke dalam portafilter, barista mendapati semburan air halus bertekanan tinggi di sisi basket (channeling). Cara paling efektif mencegahnya adalah:',
@@ -583,7 +578,7 @@ export default function BaristaAssessmentPage() {
                   return (
                     <button
                       key={optIdx}
-                      onClick={() => handleSelectOption(q.id as any, optIdx)}
+                      onClick={() => handleSelectOption(q.id, optIdx)}
                       disabled={isSubmitted}
                       className={`w-full p-3 sm:p-3.5 rounded-xl border text-left text-xs transition-all flex items-start gap-3 active:scale-[0.99] ${optStyle}`}
                     >

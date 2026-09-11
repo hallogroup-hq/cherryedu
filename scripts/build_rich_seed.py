@@ -1,5 +1,4 @@
 # scripts/build_rich_seed.py
-import json
 
 def get_foundation_lessons():
     return [

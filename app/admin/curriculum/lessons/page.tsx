@@ -14,20 +14,13 @@ import {
   Quote,
   AlertCircle,
   Minus,
-  Eye,
   Save,
-  Clock,
-  Circle,
   CheckCircle2,
-  Trash2,
   X,
   BookOpen,
   Filter,
   ExternalLink,
-  Sparkles,
-  Coffee,
-  Code2,
-} from 'lucide-react';
+} from "lucide-react";
 
 type BlockType = 'text' | 'heading' | 'image' | 'video' | 'quote' | 'callout' | 'divider';
 
@@ -361,7 +354,7 @@ function LessonEditorContent() {
     if (pathModules.length > 0 && !pathModules.some((m) => m.id === selectedModuleId)) {
       setSelectedModuleId(pathModules[0].id);
     }
-  }, [selectedPathId, pathModules]);
+  }, [selectedPathId, pathModules, selectedModuleId]);
 
   const moduleLessons = lessons.filter((l) => l.module_id === selectedModuleId);
   const [selectedLessonId, setSelectedLessonId] = useState<string>(
@@ -664,7 +657,7 @@ function LessonEditorContent() {
                       </label>
                       <select
                         value={lessonStatus}
-                        onChange={(e) => setLessonStatus(e.target.value as any)}
+                        onChange={(e) => setLessonStatus(e.target.value as 'draft' | 'published')}
                         className={`text-xs font-mono font-bold border rounded p-1.5 ${
                           lessonStatus === 'published'
                             ? 'bg-emerald-50 border-emerald-300 text-emerald-800'

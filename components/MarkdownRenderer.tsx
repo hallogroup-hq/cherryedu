@@ -12,7 +12,7 @@ interface MarkdownRendererProps {
 function sanitizeMarkdownContent(raw: string): string {
   if (!raw) return '';
   // Support [DIAGRAM:type] shorthand
-  let processed = raw.replace(/\[DIAGRAM:([a-z0-9\-]+)\]/g, '```diagram:$1\n```');
+  let processed = raw.replace(/\[DIAGRAM:([a-z0-9-]+)\]/g, '```diagram:$1\n```');
 
   // Convert chemical formulas & symbols
   processed = processed
@@ -52,7 +52,7 @@ function sanitizeMarkdownContent(raw: string): string {
   });
 
   // Convert inline math $...$
-  processed = processed.replace(/\$([^\$\n]+)\$/g, (_match, inner) => {
+  processed = processed.replace(/\$([^$\n]+)\$/g, (_match, inner) => {
     return inner
       .replace(/\\text\{([^}]+)\}/g, '$1')
       .replace(/\\mathbf\{([^}]+)\}/g, '$1')
@@ -176,7 +176,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
           ),
           hr: () => <hr className="my-8 border-t border-paper-300" />,
           code: ({ className, children, ...props }: any) => {
-            const match = /language-diagram:([a-z0-9\-]+)/.exec(className || '');
+            const match = /language-diagram:([a-z0-9-]+)/.exec(className || '');
             if (match) {
               const diagramType = match[1];
               return <CoffeeDiagram type={diagramType} />;
@@ -187,9 +187,9 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
               </code>
             );
           },
-          pre: ({ children }: any) => {
-            if (React.isValidElement(children)) {
-              const childProps = children.props as any;
+          pre: ({ children }: { children?: React.ReactNode }) => {
+            if (React.isValidElement<{ className?: string }>(children)) {
+              const childProps = children.props;
               if (childProps?.className && String(childProps.className).startsWith('language-diagram:')) {
                 return <div className="not-prose my-6">{children}</div>;
               }

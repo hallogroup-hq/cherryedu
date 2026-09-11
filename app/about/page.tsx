@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { useCherryEdu } from '@/lib/store';
 import { DEFAULT_SITE_PAGES } from '@/lib/data/defaultSitePages';
 import { SitePageRenderer } from '@/components/SitePageRenderer';

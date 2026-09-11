@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from "react";
 import { useCherryEdu } from '@/lib/store';
-import { Briefcase, Check, X, Eye, Search, Plus } from 'lucide-react';
+import { Check, X, Search, Plus } from "lucide-react";
 
 export default function JobsAdminPage() {
   const { jobListings, jobApplications } = useCherryEdu();
@@ -33,7 +33,7 @@ export default function JobsAdminPage() {
           { id: 'listings', label: `Lowongan (${jobListings.length})` },
           { id: 'applications', label: `Lamaran (${jobApplications.length})` },
         ].map((t) => (
-          <button key={t.id} onClick={() => setTab(t.id as any)}
+          <button key={t.id} onClick={() => setTab(t.id as 'listings' | 'applications')}
             className={`px-4 py-2 font-mono text-xs uppercase tracking-wider font-bold border-b-2 transition-colors ${tab === t.id ? 'border-roast-950 text-roast-950' : 'border-transparent text-roast-400 hover:text-roast-700'}`}>
             {t.label}
           </button>

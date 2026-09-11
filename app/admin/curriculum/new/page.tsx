@@ -6,12 +6,9 @@ import { useRouter } from 'next/navigation';
 import {
   ArrowLeft,
   Save,
-  Layers,
   Clock,
-  Sparkles,
-  Upload,
   CheckCircle2,
-} from 'lucide-react';
+} from "lucide-react";
 import { PathLayerType, PathLevel, PathTargetRole } from '@/lib/types';
 
 export default function NewLearningPathPage() {

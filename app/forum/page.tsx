@@ -7,15 +7,12 @@ import { ForumCategory } from '@/lib/types';
 import {
   MessageSquare,
   ThumbsUp,
-  Award,
   Sparkles,
   Plus,
   Send,
   Pin,
-  Coffee,
-  CheckCircle2,
   X,
-} from 'lucide-react';
+} from "lucide-react";
 
 const CATEGORIES: { id: ForumCategory | 'all'; label: string }[] = [
   { id: 'all', label: 'Semua Wacana' },

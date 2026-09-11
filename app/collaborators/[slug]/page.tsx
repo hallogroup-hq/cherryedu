@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
@@ -14,13 +13,12 @@ import {
   ArrowLeft,
   Coffee,
   Sparkles,
-  Flame,
-} from 'lucide-react';
+} from "lucide-react";
 
 export default function CollaboratorProfilePage() {
   const params = useParams();
-  const slug = params.slug as string;
-  const { learningPaths, lessons } = useCherryEdu();
+  const _slug = params.slug as string;
+  const { learningPaths: _learningPaths, lessons } = useCherryEdu();
 
   // For prototype, resolve Fahrul M.W or fallback
   const collaborator = {

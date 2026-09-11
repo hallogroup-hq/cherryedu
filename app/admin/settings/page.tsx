@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Settings, Save, Upload, Type, Palette, Award, Globe } from 'lucide-react';
+import { useState } from "react";
+import { Save, Upload, Palette, Award, Globe } from "lucide-react";
 
 export default function SettingsAdminPage() {
   const [saved, setSaved] = useState(false);

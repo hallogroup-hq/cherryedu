@@ -1,22 +1,14 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from "react";
 import {
   BarChart3,
   TrendingUp,
   Download,
-  Coins,
-  MapPin,
-  Sparkles,
-  Info,
-  Calendar,
-  Layers,
-  ArrowUpRight,
   ShieldCheck,
   Check,
   Coffee,
-  Globe2,
-} from 'lucide-react';
+} from "lucide-react";
 
 interface PriceRecord {
   month: string;

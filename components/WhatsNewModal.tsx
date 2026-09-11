@@ -51,6 +51,7 @@ export const WhatsNewModal: React.FC = () => {
         className="relative w-full max-w-2xl bg-paper-50 border border-paper-400 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] animate-in zoom-in-95 duration-200"
         role="dialog"
         aria-modal="true"
+        aria-labelledby="whats-new-modal-title"
       >
         {/* Header */}
         <div className="bg-paper-100 p-5 sm:p-6 border-b border-paper-300 relative">
@@ -71,7 +72,7 @@ export const WhatsNewModal: React.FC = () => {
             </span>
           </div>
 
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-roast-950 tracking-tight">
+          <h2 id="whats-new-modal-title" className="font-serif text-2xl sm:text-3xl font-bold text-roast-950 tracking-tight">
             Apa yang Baru di Cherry Edu? 🎉
           </h2>
           <p className="font-sans text-xs sm:text-sm text-roast-600 mt-1">

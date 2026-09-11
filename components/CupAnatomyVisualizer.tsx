@@ -1,18 +1,12 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState } from "react";
 import {
   Coffee,
   Layers,
   Sparkles,
-  Info,
-  Check,
-  ArrowRight,
-  Droplets,
-  Flame,
-  Scale,
   Split,
-} from 'lucide-react';
+} from "lucide-react";
 
 export interface DrinkLayer {
   name: string;

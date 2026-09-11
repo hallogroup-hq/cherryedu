@@ -1,10 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
-import Link from 'next/link';
+import { useState } from "react";
 import { useRouter } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
-import { Compass, CheckCircle, ArrowRight, Sparkles, Coffee, Award, BookOpen } from 'lucide-react';
+import { ArrowRight, Coffee } from "lucide-react";
 
 interface DiagnosticQuestion {
   id: number;

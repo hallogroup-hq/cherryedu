@@ -147,10 +147,10 @@ export const DEFAULT_LANDING_SECTIONS: PageSectionItem[] = [
 
 export const DEFAULT_LANDING_CONFIG: LandingPageConfig = {
   sections: DEFAULT_LANDING_SECTIONS,
-  hero: DEFAULT_LANDING_SECTIONS[0].data as any,
-  manifesto: DEFAULT_LANDING_SECTIONS[1].data as any,
-  catalog: DEFAULT_LANDING_SECTIONS[2].data as any,
-  tools: DEFAULT_LANDING_SECTIONS[3].data as any,
-  comparison: DEFAULT_LANDING_SECTIONS[4].data as any,
-  bottomCta: DEFAULT_LANDING_SECTIONS[5].data as any,
+  hero: DEFAULT_LANDING_SECTIONS[0].data as unknown as LandingPageConfig['hero'],
+  manifesto: DEFAULT_LANDING_SECTIONS[1].data as unknown as LandingPageConfig['manifesto'],
+  catalog: DEFAULT_LANDING_SECTIONS[2].data as unknown as LandingPageConfig['catalog'],
+  tools: DEFAULT_LANDING_SECTIONS[3].data as unknown as LandingPageConfig['tools'],
+  comparison: DEFAULT_LANDING_SECTIONS[4].data as unknown as LandingPageConfig['comparison'],
+  bottomCta: DEFAULT_LANDING_SECTIONS[5].data as unknown as LandingPageConfig['bottomCta'],
 };

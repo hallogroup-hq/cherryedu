@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from "react";
 import Link from 'next/link';
 import { useCherryEdu } from '@/lib/store';
 import {
@@ -13,18 +13,15 @@ import {
   Eye,
   EyeOff,
   GripVertical,
-  Clock,
-  MoreHorizontal,
   CheckCircle2,
   Circle,
   ArrowUpDown,
-  Copy,
-} from 'lucide-react';
+} from "lucide-react";
 
 export default function CurriculumPage() {
   const { learningPaths, modules, lessons } = useCherryEdu();
   const [selectedPath, setSelectedPath] = useState<string | null>(null);
-  const [view, setView] = useState<'paths' | 'modules'>('paths');
+  const [_view, setView] = useState<'paths' | 'modules'>('paths');
 
   const selectedPathData = learningPaths.find((p) => p.id === selectedPath);
   const pathModules = selectedPath

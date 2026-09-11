@@ -1,8 +1,7 @@
 'use client';
 
-import React from 'react';
 import { useCherryEdu } from '@/lib/store';
-import { Trophy, Flame, Zap, Award, Sparkles, Coffee, ShieldCheck } from 'lucide-react';
+import { Flame } from "lucide-react";
 
 export default function LeaderboardPage() {
   const { users, currentUser } = useCherryEdu();
@@ -11,7 +10,6 @@ export default function LeaderboardPage() {
   const sortedUsers = [...users].sort((a, b) => b.xp_points - a.xp_points);
 
   const topThree = sortedUsers.slice(0, 3);
-  const remainingUsers = sortedUsers.slice(3);
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">

@@ -1,9 +1,5 @@
 import { LearningPath, Module, Lesson, Quiz, Question } from '../../types';
 
-// ============================================================================
-// 1. LEARNING PATH DEFINITION: POST-HARVEST & GREEN COFFEE PATH
-// ============================================================================
-
 export const POST_HARVEST_PATH: LearningPath = {
   id: 'path-post-harvest',
   title: 'Green Coffee & Post-Harvest Processing Specialist Path',
@@ -22,10 +18,6 @@ export const POST_HARVEST_PATH: LearningPath = {
   total_modules: 6,
   created_at: '2026-08-10T00:00:00Z',
 };
-
-// ============================================================================
-// 2. MODULES: POST-HARVEST PATH (MOD-P1 s/d MOD-P6)
-// ============================================================================
 
 export const POST_HARVEST_MODULES: Module[] = [
   {
@@ -90,12 +82,7 @@ export const POST_HARVEST_MODULES: Module[] = [
   },
 ];
 
-// ============================================================================
-// 3. LESSONS: POST-HARVEST PATH
-// ============================================================================
-
 export const POST_HARVEST_LESSONS: Lesson[] = [
-  // --- Modul P-1: Taksonomi & Botani Kopi ---
   {
     id: 'les-p1-1',
     module_id: 'mod-p1',
@@ -195,7 +182,6 @@ Indonesia memiliki keanekaragaman varietas Arabika yang sangat unik akibat perca
     ],
   },
 
-  // --- Modul P-2: Agronomi & Elevasi MDPL ---
   {
     id: 'les-p2-1',
     module_id: 'mod-p2',
@@ -285,7 +271,6 @@ Tanah Andosol terbentuk dari pelapukan abu dan batuan piroklastik letusan gunung
     ],
   },
 
-  // --- Modul P-3: Panen Selektif & Refraktometer Brix ---
   {
     id: 'les-p3-1',
     module_id: 'mod-p3',
@@ -387,7 +372,6 @@ Begitu ceri tiba di stasiun basah, langkah pertama sebelum dikupas adalah memasu
     ],
   },
 
-  // --- Modul P-4: Pasca Panen Klasik Nusantara ---
   {
     id: 'les-p4-1',
     module_id: 'mod-p4',
@@ -486,7 +470,6 @@ Pada proses Honey, kulit ceri luar dikupas, tetapi **sebagian atau seluruh lapis
     ],
   },
 
-  // --- Modul P-5: Bioproses Eksperimental Modern ---
   {
     id: 'les-p5-1',
     module_id: 'mod-p5',
@@ -574,7 +557,6 @@ Dipelopori oleh prosesor inovatif seperti Diego Bermudez (Finca El Paraiso, Kolo
     ],
   },
 
-  // --- Modul P-6: Pengeringan Presisi, Grading & GrainPro ---
   {
     id: 'les-p6-1',
     module_id: 'mod-p6',

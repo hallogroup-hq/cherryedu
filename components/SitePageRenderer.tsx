@@ -5,14 +5,8 @@ import Link from 'next/link';
 import { PageSectionItem } from '@/lib/types';
 import {
   ArrowRight,
-  Compass,
-  Sparkles,
   Quote,
-  Video,
-  Image as ImageIcon,
-  CheckCircle2,
-  ExternalLink,
-} from 'lucide-react';
+} from "lucide-react";
 
 interface SitePageRendererProps {
   sections: PageSectionItem[];

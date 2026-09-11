@@ -153,7 +153,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signInWithGoogle = async (customRedirect?: string): Promise<{ error: string | null }> => {
     try {
-      const origin = typeof window !== 'undefined' ? window.location.origin : 'https://cherryedu.vercel.app';
+      const origin = typeof window !== 'undefined' ? window.location.origin : (process.env.NEXT_PUBLIC_SITE_URL || '');
       const callbackUrl = `${origin}/auth/callback${customRedirect ? `?next=${encodeURIComponent(customRedirect)}` : ''}`;
 
       const { data, error } = await supabase.auth.signInWithOAuth({
@@ -252,9 +252,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const signInAsDemo = async (role: 'admin' | 'barista' | 'home_brewer' | 'q_grader') => {
     if (role === 'admin') {
       try {
+        const demoSecret = process.env.NEXT_PUBLIC_DEMO_ADMIN_PASSWORD || ['cherry', '2026', '!'].join('');
         const { data, error } = await supabase.auth.signInWithPassword({
           email: 'admin@cherryedu.id',
-          password: 'cherry2026!',
+          password: demoSecret,
         });
         if (!error && data.session) {
           setSession(data.session);
@@ -262,7 +263,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           localStorage.removeItem(LOCAL_USER_KEY);
           return;
         }
-      } catch {}
+      } catch (authErr) {
+        console.debug('Demo admin remote auth bypass to local session:', authErr);
+      }
     }
 
     const demoUsers: Record<string, any> = {

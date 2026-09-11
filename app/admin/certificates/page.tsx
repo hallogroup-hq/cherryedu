@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from "react";
 import { useCherryEdu } from '@/lib/store';
-import { Award, Search, CheckCircle2, XCircle, Download, Eye, AlertTriangle } from 'lucide-react';
+import { Award, Search, CheckCircle2, XCircle, Download } from "lucide-react";
 
 export default function CertificatesAdminPage() {
   const { certificates, users, learningPaths } = useCherryEdu();
   const [search, setSearch] = useState('');
-  const [statusFilter, setStatusFilter] = useState('all');
+  const [_statusFilter, _setStatusFilter] = useState('all');
   const [revokeTarget, setRevokeTarget] = useState<string | null>(null);
 
   const getUser = (userId: string) => users.find((u) => u.id === userId);

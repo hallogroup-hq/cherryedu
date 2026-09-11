@@ -1,21 +1,14 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from "react";
 import {
   Calendar,
-  MapPin,
-  Sparkles,
-  Info,
   Filter,
-  Check,
-  ChevronRight,
-  Sun,
   CloudRain,
   Mountain,
   Coffee,
   Clock,
-  Layers,
-} from 'lucide-react';
+} from "lucide-react";
 
 export type HarvestPhase = 'main' | 'fly' | 'flower' | 'pruning';
 
@@ -543,7 +536,6 @@ export function HarvestCalendar() {
             <div className="divide-y divide-paper-200">
               {filteredRegions.map((region) => {
                 const isSelected = activeRegion.id === region.id;
-                const statusInMonth = region.schedule[selectedMonth];
 
                 return (
                   <div

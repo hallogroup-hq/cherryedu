@@ -49,7 +49,7 @@ function LoginContent() {
     try {
       await signInAsDemo(role);
       router.push(redirectUrl);
-    } catch (e) {
+    } catch (_e) {
       setError('Gagal masuk sebagai akun demo.');
     } finally {
       setDemoLoading(null);

@@ -1,9 +1,5 @@
 import { LearningPath, Module, Lesson, Quiz, Question } from '../../types';
 
-// ============================================================================
-// 1. LEARNING PATH DEFINITION: Q GRADER & SENSORY SPECIALIST PATH
-// ============================================================================
-
 export const Q_GRADER_PATH: LearningPath = {
   id: 'path-qgrader',
   title: 'Q Grader & Sensory Specialist Path: Standar Evaluasi Kualitas Kopi Dunia',
@@ -22,10 +18,6 @@ export const Q_GRADER_PATH: LearningPath = {
   total_modules: 6,
   created_at: '2026-08-10T00:00:00Z',
 };
-
-// ============================================================================
-// 2. MODULES: Q GRADER PATH (MOD-Q1 s/d MOD-Q6)
-// ============================================================================
 
 export const Q_GRADER_MODULES: Module[] = [
   {
@@ -90,12 +82,7 @@ export const Q_GRADER_MODULES: Module[] = [
   },
 ];
 
-// ============================================================================
-// 3. LESSONS: Q GRADER SPECIALIST PATH
-// ============================================================================
-
 export const Q_GRADER_LESSONS: Lesson[] = [
-  // --- Modul Q-1: Fisiologi Sensorik Manusia ---
   {
     id: 'les-q1-1',
     module_id: 'mod-q1',
@@ -196,7 +183,6 @@ Untuk menjaga ketajaman indra selama sesi evaluasi intensif:
     ],
   },
 
-  // --- Modul Q-2: Standar Laboratorium Cupping SCA ---
   {
     id: 'les-q2-1',
     module_id: 'mod-q2',
@@ -316,7 +302,6 @@ Gunakan dua sendok cupping secara bersamaan untuk menyendok busa putih kecokelat
     ],
   },
 
-  // --- Modul Q-3: Pelatihan Olfaktori & Kit Le Nez du Café ---
   {
     id: 'les-q3-1',
     module_id: 'mod-q3',
@@ -431,7 +416,6 @@ Keahlian terpenting seorang Q Grader bukanlah sekadar memuji kopi enak, melainka
     ],
   },
 
-  // --- Modul Q-4: Kimiawi Asam Organik Kopi ---
   {
     id: 'les-q4-1',
     module_id: 'mod-q4',
@@ -524,7 +508,6 @@ Asam klorogenat adalah kelompok molekul ester asam fenolat (terutama asam kafeat
     ],
   },
 
-  // --- Modul Q-5: Uji Triangulasi & Ambang Batas Sensorik ---
   {
     id: 'les-q5-1',
     module_id: 'mod-q5',
@@ -621,7 +604,6 @@ Sebelum seorang evaluator diizinkan menilai kopi, CQI melakukan tes kalibrasi am
     ],
   },
 
-  // --- Modul Q-6: Penguasaan SCA Cupping Form & Scoring ---
   {
     id: 'les-q6-1',
     module_id: 'mod-q6',

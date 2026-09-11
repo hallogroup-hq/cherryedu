@@ -1,18 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import {
-  Coffee,
-  Sliders,
-  Timer,
-  AlertTriangle,
-  CheckCircle2,
-  ArrowRight,
-  RotateCcw,
-  Sparkles,
-  Droplets,
-  HelpCircle,
-} from 'lucide-react';
+import { Sliders, RotateCcw } from "lucide-react";
 
 interface DialInState {
   dose: number; // in grams
@@ -29,7 +18,7 @@ export const EspressoDialIn: React.FC = () => {
   const [time, setTime] = useState<number>(27);
   const [tasteIssue, setTasteIssue] = useState<DialInState['tasteIssue']>('sour');
   const [streamVisual, setStreamVisual] = useState<DialInState['streamVisual']>('gushing');
-  const [cremaType, setCremaType] = useState<DialInState['cremaType']>('pale');
+  const [_cremaType, setCremaType] = useState<DialInState['cremaType']>('pale');
 
   // Calculations
   const ratio = useMemo(() => {

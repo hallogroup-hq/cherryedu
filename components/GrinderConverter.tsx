@@ -4,17 +4,11 @@ import React, { useState, useMemo } from 'react';
 import {
   Sliders,
   RotateCcw,
-  Sparkles,
   Info,
-  Check,
   Search,
-  ArrowRight,
-  Coffee,
-  Layers,
-  ChevronDown,
   Volume2,
   VolumeX,
-} from 'lucide-react';
+} from "lucide-react";
 
 export interface GrinderModel {
   id: string;
@@ -474,7 +468,9 @@ export const GrinderConverter: React.FC = () => {
   const playClickSound = (pitch = 800) => {
     if (!soundEnabled || typeof window === 'undefined') return;
     try {
-      const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+      const AudioCtxConstructor = window.AudioContext || (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+      if (!AudioCtxConstructor) return;
+      const audioCtx = new AudioCtxConstructor();
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
       osc.type = 'sine';
@@ -485,8 +481,8 @@ export const GrinderConverter: React.FC = () => {
       gain.connect(audioCtx.destination);
       osc.start();
       osc.stop(audioCtx.currentTime + 0.04);
-    } catch {
-      // AudioContext fallback
+    } catch (soundErr) {
+      console.debug('AudioContext not active yet:', soundErr);
     }
   };
 

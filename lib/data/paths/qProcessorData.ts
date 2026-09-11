@@ -1,9 +1,5 @@
 import { LearningPath, Module, Lesson, Quiz, Question } from '../../types';
 
-// ============================================================================
-// 1. LEARNING PATH DEFINITION: Q PROCESSOR SPECIALIZATION PATH
-// ============================================================================
-
 export const Q_PROCESSOR_PATH: LearningPath = {
   id: 'path-q-processor',
   title: 'Q Processor Specialization Path: Standar Bioproses & Pasca-Panen Spesialti Dunia',
@@ -22,10 +18,6 @@ export const Q_PROCESSOR_PATH: LearningPath = {
   total_modules: 8,
   created_at: '2026-08-15T00:00:00Z',
 };
-
-// ============================================================================
-// 2. MODULES: Q PROCESSOR SPECIALIZATION (MOD-QP1 s/d MOD-QP8)
-// ============================================================================
 
 export const Q_PROCESSOR_MODULES: Module[] = [
   {
@@ -110,14 +102,7 @@ export const Q_PROCESSOR_MODULES: Module[] = [
   },
 ];
 
-// ============================================================================
-// 3. LESSONS: Q PROCESSOR SPECIALIZATION PATH (24 MATERI LENGKAP)
-// ============================================================================
-
 export const Q_PROCESSOR_LESSONS: Lesson[] = [
-  // --------------------------------------------------------------------------
-  // MODUL QP-1: Prinsip CQI Q Processing, Fisiologi Buah & Sortasi Panen
-  // --------------------------------------------------------------------------
   {
     id: 'les-qp1-1',
     module_id: 'mod-qp1',
@@ -271,9 +256,6 @@ Jeda waktu antara pemetikan di pohon dan dimulainya pemrosesan disebut **Lag Tim
     ],
   },
 
-  // --------------------------------------------------------------------------
-  // MODUL QP-2: Mikrobiologi & Biokimia Fermentasi Kopi Terkendali
-  // --------------------------------------------------------------------------
   {
     id: 'les-qp2-1',
     module_id: 'mod-qp2',
@@ -427,9 +409,6 @@ Sebagai pendamping pH meter, uji fisik manual dilakukan:
     ],
   },
 
-  // --------------------------------------------------------------------------
-  // MODUL QP-3: Protokol Olah Basah (Washed), Demucilation & Soaking Presisi
-  // --------------------------------------------------------------------------
   {
     id: 'les-qp3-1',
     module_id: 'mod-qp3',
@@ -564,9 +543,6 @@ Mengapa perendaman air dingin menghasilkan perbedaan dramatis di meja cupping?
     ],
   },
 
-  // --------------------------------------------------------------------------
-  // MODUL QP-4: Protokol Natural, Honey & Inovasi Giling Basah Nusantara
-  // --------------------------------------------------------------------------
   {
     id: 'les-qp4-1',
     module_id: 'mod-qp4',
@@ -713,9 +689,6 @@ Q Processor modern di Indonesia mampu memproduksi kopi Giling Basah dengan skor 
     ],
   },
 
-  // --------------------------------------------------------------------------
-  // MODUL QP-5: Bioproses Eksperimental: Anaerobik, Karbonik, Inokulasi & Co-Fermentasi
-  // --------------------------------------------------------------------------
   {
     id: 'les-qp5-1',
     module_id: 'mod-qp5',
@@ -871,9 +844,6 @@ Tren penambahan buah (persik, nanas, markisa), rempah (kayu manis), atau ragi be
     ],
   },
 
-  // --------------------------------------------------------------------------
-  // MODUL QP-6: Termodinamika Pengeringan & Manajemen Aktivitas Air (aw)
-  // --------------------------------------------------------------------------
   {
     id: 'les-qp6-1',
     module_id: 'mod-qp6',
@@ -943,7 +913,7 @@ Di masa lalu, industri kopi hanya mengukur persentase **Kadar Air (Moisture Cont
   * Alat ukur: Moisture tester kapasitif (seperti Sinar, Dole, atau Wile Coffee).
 * **Water Activity ($a_w$)**:
   * Mengukur **energi bebas / ketersediaan molekul air** yang dapat digunakan oleh mikroorganisme (bakteri, jamur) untuk bertumbuh dan melangsungkan reaksi enzimatik degradasi.
-  * Standar aman CQI Q Processing: **$a_w \le 0.60$** (Rentang ideal: **0.53 – 0.58 $a_w$** pada suhu 25°C).
+  * Standar aman CQI Q Processing: **$a_w le 0.60$** (Rentang ideal: **0.53 – 0.58 $a_w$** pada suhu 25°C).
   * Alat ukur: *Water Activity Meter* berbasis cermin titik embun (*chilled mirror dew point*).
 
 ---
@@ -1032,9 +1002,6 @@ Ketika kapasitas panen harian di kebun mencapai puluhan ton, pengeringan matahar
     ],
   },
 
-  // --------------------------------------------------------------------------
-  // MODUL QP-7: Stabilisasi (Reposo), Dry Milling & Sortasi Mutu Ekspor
-  // --------------------------------------------------------------------------
   {
     id: 'les-qp7-1',
     module_id: 'mod-qp7',
@@ -1177,9 +1144,6 @@ Mesin penyortir warna modern menggunakan kamera CCD atau sensor inframerah berke
     ],
   },
 
-  // --------------------------------------------------------------------------
-  // MODUL QP-8: Diagnostik Cacat Sensorik, SOP Logbook CQI & Kelestarian Wet Mill
-  // --------------------------------------------------------------------------
   {
     id: 'les-qp8-1',
     module_id: 'mod-qp8',
@@ -1360,10 +1324,6 @@ Limbah padat kulit ceri (*pulp*) mencapai 40–50% dari total berat panen segar:
   },
 ];
 
-// ============================================================================
-// 4. QUIZZES: Q PROCESSOR SPECIALIZATION (8 MODUL + 1 UJIAN SERTIFIKASI AKHIR)
-// ============================================================================
-
 export const Q_PROCESSOR_QUIZZES: Quiz[] = [
   {
     id: 'quiz-qp1',
@@ -1476,12 +1436,7 @@ export const Q_PROCESSOR_QUIZZES: Quiz[] = [
   },
 ];
 
-// ============================================================================
-// 5. QUESTIONS: Q PROCESSOR SPECIALIZATION PATH
-// ============================================================================
-
 export const Q_PROCESSOR_QUESTIONS: Question[] = [
-  // --- Kuis Modul QP-1 ---
   {
     id: 'q-qp1-1',
     quiz_id: 'quiz-qp1',
@@ -1543,7 +1498,6 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     ],
   },
 
-  // --- Kuis Modul QP-2 ---
   {
     id: 'q-qp2-1',
     quiz_id: 'quiz-qp2',
@@ -1590,7 +1544,6 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     ],
   },
 
-  // --- Kuis Modul QP-3 ---
   {
     id: 'q-qp3-1',
     quiz_id: 'quiz-qp3',
@@ -1622,7 +1575,6 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     ],
   },
 
-  // --- Kuis Modul QP-4 ---
   {
     id: 'q-qp4-1',
     quiz_id: 'quiz-qp4',
@@ -1654,7 +1606,6 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     ],
   },
 
-  // --- Kuis Modul QP-5 ---
   {
     id: 'q-qp5-1',
     quiz_id: 'quiz-qp5',
@@ -1686,7 +1637,6 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     ],
   },
 
-  // --- Kuis Modul QP-6 ---
   {
     id: 'q-qp6-1',
     quiz_id: 'quiz-qp6',
@@ -1718,7 +1668,6 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     ],
   },
 
-  // --- Kuis Modul QP-7 ---
   {
     id: 'q-qp7-1',
     quiz_id: 'quiz-qp7',
@@ -1750,7 +1699,6 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     ],
   },
 
-  // --- Kuis Modul QP-8 ---
   {
     id: 'q-qp8-1',
     quiz_id: 'quiz-qp8',
@@ -1782,7 +1730,6 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     ],
   },
 
-  // --- UJIAN SERTIFIKASI AKHIR (FINAL EXAM: QUIZ-QP-FINAL) ---
   {
     id: 'q-qpf-1',
     quiz_id: 'quiz-qp-final',

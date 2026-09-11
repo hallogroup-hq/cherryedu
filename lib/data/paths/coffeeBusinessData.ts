@@ -1,9 +1,5 @@
 import { LearningPath, Module, Lesson, Quiz, Question } from '../../types';
 
-// ============================================================================
-// 1. LEARNING PATH DEFINITION: COFFEE BUSINESS PATH
-// ============================================================================
-
 export const COFFEE_BUSINESS_PATH: LearningPath = {
   id: 'path-coffee-business',
   title: 'Coffee Business & Shop Management Specialist Path',
@@ -22,10 +18,6 @@ export const COFFEE_BUSINESS_PATH: LearningPath = {
   total_modules: 6,
   created_at: '2026-08-10T00:00:00Z',
 };
-
-// ============================================================================
-// 2. MODULES: COFFEE BUSINESS PATH (MOD-BIZ1 s/d MOD-BIZ6)
-// ============================================================================
 
 export const COFFEE_BUSINESS_MODULES: Module[] = [
   {
@@ -90,12 +82,7 @@ export const COFFEE_BUSINESS_MODULES: Module[] = [
   },
 ];
 
-// ============================================================================
-// 3. LESSONS: COFFEE BUSINESS PATH
-// ============================================================================
-
 export const COFFEE_BUSINESS_LESSONS: Lesson[] = [
-  // --- Modul BIZ-1: Kelayakan Finansial & BEP ---
   {
     id: 'les-biz1-1',
     module_id: 'mod-biz1',
@@ -213,7 +200,6 @@ Mari kita buat simulasi kedai kopi skala medium (*footprint* 50–70 m^2) di are
     ],
   },
 
-  // --- Modul BIZ-2: Kalkulasi HPP & Menu Pricing ---
   {
     id: 'les-biz2-1',
     module_id: 'mod-biz2',
@@ -325,7 +311,6 @@ Jika Anda ingin menerima bersih **Rp 24.000** dari platform online:
     ],
   },
 
-  // --- Modul BIZ-3: Bar Ergonomics & Desain Kokpit ---
   {
     id: 'les-biz3-1',
     module_id: 'mod-biz3',
@@ -409,7 +394,6 @@ Setelah stasiun ekstraksi kopi tertata rapi, titik kemacetan (*bottleneck*) beri
     ],
   },
 
-  // --- Modul BIZ-4: Kurasi Mesin & Reverse Osmosis ---
   {
     id: 'les-biz4-1',
     module_id: 'mod-biz4',
@@ -492,7 +476,6 @@ Air murni hasil membran RO memiliki TDS mendekati 0 - 15 ppm dengan sifat sediki
     ],
   },
 
-  // --- Modul BIZ-5: SOP Operasional & Barista Hospitality ---
   {
     id: 'les-biz5-1',
     module_id: 'mod-biz5',
@@ -590,7 +573,6 @@ Pada jam sibuk pagi (08:00–10:00) atau makan siang (12:00–14:00), tim bar ha
     ],
   },
 
-  // --- Modul BIZ-6: Manajemen Stok FIFO & Growth Hacking ---
   {
     id: 'les-biz6-1',
     module_id: 'mod-biz6',

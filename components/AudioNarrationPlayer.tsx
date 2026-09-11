@@ -10,9 +10,7 @@ import {
   Loader2,
   Volume2,
   Mic,
-  User,
-  SlidersHorizontal,
-} from 'lucide-react';
+} from "lucide-react";
 import { toast } from 'sonner';
 
 interface AudioNarrationPlayerProps {
@@ -42,27 +40,16 @@ const VOICE_OPTIONS: { id: NeuralVoice; label: string; gender: string; badge: st
 function cleanMarkdownForSpeech(md: string): string {
   if (!md) return '';
   return md
-    // remove images
     .replace(/!\[([^\]]*)\]\([^)]*\)/g, '')
-    // remove markdown links but keep label
     .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
-    // remove code blocks
     .replace(/```[\s\S]*?```/g, '')
-    // remove inline code
     .replace(/`([^`]+)`/g, '$1')
-    // remove headings markers
     .replace(/#{1,6}\s+/g, '')
-    // remove blockquote symbols
     .replace(/>\s+/g, '')
-    // remove bullet points
     .replace(/^[*\-+]\s+/gm, '')
-    // remove numbered list markers
     .replace(/^\d+\.\s+/gm, '')
-    // remove bold/italic markers
     .replace(/[*_]{1,3}([^*_]+)[*_]{1,3}/g, '$1')
-    // remove custom diagram shorthand
     .replace(/\[DIAGRAM:[^\]]+\]/g, '')
-    // remove tables
     .replace(/\|[^\n]+\|/g, '')
     // expand common coffee abbreviations for natural phonetic reading
     .replace(/°C\b/g, ' derajat Celcius')

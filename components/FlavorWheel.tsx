@@ -3,22 +3,15 @@
 import React, { useState, useMemo } from 'react';
 import {
   Compass,
-  Sparkles,
-  Info,
   Droplets,
   AlertTriangle,
-  CheckCircle2,
   ChevronRight,
-  BookOpen,
   X,
   Search,
   Globe2,
   Flag,
   LayoutGrid,
-  RotateCw,
-  Flame,
-  Award,
-} from 'lucide-react';
+} from "lucide-react";
 import {
   SensoryMacroCategory,
   SensoryDescriptor,

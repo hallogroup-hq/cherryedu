@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Certificate } from '@/lib/types';
-import { Award, Check, Copy, ExternalLink, Printer, QrCode } from 'lucide-react';
+import { Check, Copy, ExternalLink, Printer, QrCode } from "lucide-react";
 import { toast } from 'sonner';
 
 interface CertificateCardProps {

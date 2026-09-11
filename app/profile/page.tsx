@@ -11,16 +11,12 @@ import {
   Zap,
   Award,
   BookOpen,
-  Bookmark,
   Briefcase,
-  CheckCircle2,
   Edit,
   RotateCcw,
   Sparkles,
-  MapPin,
-  Calendar,
   LogOut,
-} from 'lucide-react';
+} from "lucide-react";
 
 function ProfileContent() {
   const router = useRouter();

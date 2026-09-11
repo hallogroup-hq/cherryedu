@@ -1,9 +1,5 @@
 import { LearningPath, Module, Lesson, Quiz, Question } from '../../types';
 
-// ============================================================================
-// 1. LEARNING PATH: BARISTA SPECIALIZATION
-// ============================================================================
-
 export const BARISTA_PATH: LearningPath = {
   id: 'path-barista',
   title: 'Barista Specialization Path: Sertifikasi Profesional Kompetensi Bar',
@@ -22,10 +18,6 @@ export const BARISTA_PATH: LearningPath = {
   total_modules: 10,
   created_at: '2026-08-05T00:00:00Z',
 };
-
-// ============================================================================
-// 2. MODULES: BARISTA SPECIALIZATION (MOD-B1 s/d MOD-B10)
-// ============================================================================
 
 export const BARISTA_MODULES: Module[] = [
   {
@@ -129,10 +121,6 @@ export const BARISTA_MODULES: Module[] = [
     created_at: '2026-08-05T00:00:00Z',
   },
 ];
-
-// ============================================================================
-// 3. LESSONS: BARISTA SPECIALIZATION PATH (30 MATERI LENGKAP)
-// ============================================================================
 
 export const BARISTA_LESSONS: Lesson[] = [
   {
@@ -1414,10 +1402,6 @@ Bar kopi adalah perpaduan antara air bertekanan tinggi, uap bertemperatur 125°C
   },
 ];
 
-// ============================================================================
-// 4. QUIZZES: BARISTA SPECIALIZATION PATH
-// ============================================================================
-
 export const BARISTA_QUIZZES: Quiz[] = [
   {
     id: 'quiz-b1',
@@ -1531,10 +1515,6 @@ export const BARISTA_QUIZZES: Quiz[] = [
     created_at: '2026-08-05T00:00:00Z',
   },
 ];
-
-// ============================================================================
-// 5. QUESTIONS: BARISTA SPECIALIZATION PATH
-// ============================================================================
 
 export const BARISTA_QUESTIONS: Question[] = [
   {

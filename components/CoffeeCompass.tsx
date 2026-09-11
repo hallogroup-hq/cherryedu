@@ -2,18 +2,13 @@
 
 import React, { useState } from 'react';
 import {
-  Compass,
   RotateCcw,
-  Sparkles,
-  ArrowRight,
   CheckCircle2,
-  AlertTriangle,
-  Info,
   Droplets,
   Sliders,
   Flame,
   Layers,
-} from 'lucide-react';
+} from "lucide-react";
 
 interface DefectSymptom {
   id: string;

@@ -1,21 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from "react";
 import { useCherryEdu } from '@/lib/store';
 import {
   HelpCircle,
   Plus,
   Trash2,
-  CheckCircle2,
   Save,
   Clock,
   Award,
-  Layers,
-  ChevronRight,
-  Eye,
-  AlertCircle,
-  Copy,
-} from 'lucide-react';
+} from "lucide-react";
 
 interface QuestionDraft {
   id: string;

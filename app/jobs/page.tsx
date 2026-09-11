@@ -1,20 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
 import { JobListing } from '@/lib/types';
 import {
   MapPin,
-  Award,
   Filter,
   Check,
-  Plus,
-  Clock,
   Search,
   SlidersHorizontal,
-} from 'lucide-react';
+} from "lucide-react";
 
 export default function JobsPage() {
   const router = useRouter();
@@ -44,7 +40,7 @@ export default function JobsPage() {
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
   const [newJobTitle, setNewJobTitle] = useState<string>('');
   const [newJobCity, setNewJobCity] = useState<string>('Jakarta Selatan');
-  const [newJobType, setNewJobType] = useState<'full_time' | 'part_time'>('full_time');
+  const [newJobType, _setNewJobType] = useState<'full_time' | 'part_time'>('full_time');
   const [newJobSalary, setNewJobSalary] = useState<string>('Rp 5.500.000 – Rp 7.500.000');
   const [newJobDesc, setNewJobDesc] = useState<string>('');
   const [newJobRequireCert, setNewJobRequireCert] = useState<boolean>(true);

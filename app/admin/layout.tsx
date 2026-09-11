@@ -19,15 +19,11 @@ import {
   ChevronRight,
   Menu,
   X,
-  FileText,
   Users2,
-  Layers,
-  HelpCircle,
   Palette,
-  GripVertical,
   ShieldCheck,
   AlertTriangle,
-} from 'lucide-react';
+} from "lucide-react";
 
 interface NavItem {
   href: string;

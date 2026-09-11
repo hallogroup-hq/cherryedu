@@ -1,5 +1,3 @@
-import json
-
 barista_ts = '''import { LearningPath, Module, Lesson, Quiz, Question } from '../../types';
 
 // ============================================================================

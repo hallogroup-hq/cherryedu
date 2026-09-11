@@ -1,24 +1,21 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from "react";
 import { useCherryEdu } from '@/lib/store';
 import {
   Search,
   Filter,
-  UserCheck,
   UserX,
-  ChevronDown,
   Award,
   TrendingUp,
   BookOpen,
-  MoreHorizontal,
   Mail,
   Shield,
   Eye,
-} from 'lucide-react';
+} from "lucide-react";
 
 export default function UsersAdminPage() {
-  const { users, certificates, quizAttempts, learningPaths } = useCherryEdu();
+  const { users, certificates, learningPaths: _learningPaths } = useCherryEdu();
   const [search, setSearch] = useState('');
   const [roleFilter, setRoleFilter] = useState('all');
   const [selectedUser, setSelectedUser] = useState<typeof users[0] | null>(null);
@@ -36,8 +33,6 @@ export default function UsersAdminPage() {
 
   const getUserCerts = (userId: string) =>
     certificates.filter((c) => c.user_id === userId);
-  const getUserQuizAttempts = (userId: string) =>
-    quizAttempts.filter((a) => a.user_id === userId);
 
   const roleColors: Record<string, string> = {
     admin: 'bg-cherry-50 text-cherry-800 border-cherry-200',

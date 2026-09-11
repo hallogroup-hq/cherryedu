@@ -17,7 +17,6 @@ import { GreenDefectTrainer } from '@/components/GreenDefectTrainer';
 import { RoastingSimulator } from '@/components/RoastingSimulator';
 import { HarvestCalendar } from '@/components/HarvestCalendar';
 import {
-  Wrench,
   Compass,
   Coffee,
   MapPin,
@@ -26,24 +25,20 @@ import {
   Filter,
   Mountain,
   Layers,
-  Tag,
   GitFork,
   Gauge,
   Droplets,
   ClipboardCheck,
   SlidersHorizontal,
-  ChevronDown,
   Check,
   X,
   ArrowRight,
   BookOpen,
   Sliders,
-  Ratio,
-  PieChart,
   Flame,
   ShieldAlert,
   Calendar,
-} from 'lucide-react';
+} from "lucide-react";
 
 type ToolDomainId = 'bar-brew' | 'sensory-cupping' | 'terroir-botany';
 type ToolId =
@@ -253,7 +248,6 @@ interface CoffeeRegion {
 }
 
 const INDONESIAN_REGIONS: CoffeeRegion[] = [
-  // --- SUMATRA ---
   {
     name: 'Aceh Gayo',
     subRegion: 'Takengon & Bener Meriah, Aceh',
@@ -310,7 +304,6 @@ const INDONESIAN_REGIONS: CoffeeRegion[] = [
     imageUrl: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop&q=80',
   },
 
-  // --- JAWA ---
   {
     name: 'Java Preanger (Pangalengan & Ciwidey)',
     subRegion: 'Bandung Selatan, Jawa Barat',
@@ -367,7 +360,6 @@ const INDONESIAN_REGIONS: CoffeeRegion[] = [
     imageUrl: 'https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=600&auto=format&fit=crop&q=80',
   },
 
-  // --- BALI & NUSA TENGGARA ---
   {
     name: 'Bali Kintamani',
     subRegion: 'Kecamatan Kintamani, Bangli, Bali',
@@ -413,7 +405,6 @@ const INDONESIAN_REGIONS: CoffeeRegion[] = [
     imageUrl: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop&q=80',
   },
 
-  // --- SULAWESI ---
   {
     name: 'Toraja Kalosi & Sapan',
     subRegion: 'Tana Toraja & Toraja Utara, Sulawesi Selatan',
@@ -448,7 +439,6 @@ const INDONESIAN_REGIONS: CoffeeRegion[] = [
     imageUrl: 'https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?w=600&auto=format&fit=crop&q=80',
   },
 
-  // --- PAPUA ---
   {
     name: 'Wamena Lembah Baliem',
     subRegion: 'Lembah Baliem, Jayawijaya, Papua Pegunungan',

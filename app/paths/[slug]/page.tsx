@@ -1,13 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from "react";
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
 import {
   Clock,
   Layers,
-  Lock,
   Unlock,
   Check,
   PlayCircle,
@@ -16,7 +15,7 @@ import {
   ArrowRight,
   ChevronDown,
   ChevronUp,
-} from 'lucide-react';
+} from "lucide-react";
 
 export default function PathDetailPage() {
   const params = useParams();
@@ -230,8 +229,6 @@ export default function PathDetailPage() {
             const isExpanded = expandedModules[mod.id] ?? false;
 
             const completedLessonsInMod = modLessons.filter((l) => isLessonCompleted(l.id)).length;
-            const isModCompleted =
-              modLessons.length > 0 && completedLessonsInMod === modLessons.length;
 
             return (
               <div

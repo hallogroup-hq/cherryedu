@@ -1,25 +1,15 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { 
-  Sparkles, 
-  Search, 
-  Filter, 
-  Layers, 
-  Mountain, 
-  ShieldCheck, 
-  ShieldAlert, 
-  Coffee, 
-  GitFork, 
-  Award, 
-  Info, 
-  BookOpen, 
-  ChevronRight, 
-  Globe2,
-  TreePine,
-  ExternalLink,
-  X
-} from 'lucide-react';
+import {
+  Search,
+  Filter,
+  Coffee,
+  GitFork,
+  BookOpen,
+  ChevronRight,
+  X,
+} from "lucide-react";
 
 export interface CoffeeVariety {
   id: string;
@@ -41,9 +31,6 @@ export interface CoffeeVariety {
 }
 
 export const COFFEE_VARIETIES: CoffeeVariety[] = [
-  // ==========================================
-  // KELOMPOK 1: VARIETAS UNGGUL NUSANTARA
-  // ==========================================
   {
     id: 'var-ateng-super',
     name: 'Ateng Super (Ateng Jaluk)',
@@ -225,9 +212,6 @@ export const COFFEE_VARIETIES: CoffeeVariety[] = [
     sensoryRoastingNotes: 'Kerapatan biji yang padat menjadikannya favorit roastery specialty untuk campuran espresso blend bertubuh penuh.',
   },
 
-  // ==========================================
-  // KELOMPOK 2: LELUHUR KLASIK DUNIA (WORLD HERITAGE)
-  // ==========================================
   {
     id: 'var-typica-original',
     name: 'Typica (The Noble Ancestor)',
@@ -373,9 +357,6 @@ export const COFFEE_VARIETIES: CoffeeVariety[] = [
     sensoryRoastingNotes: 'Menjadi salah satu tetua genetik dari persilangan legendaris Pacamara.',
   },
 
-  // ==========================================
-  // KELOMPOK 3: EKSOTIS & JUARA DUNIA (COMPETITION ROYALTY)
-  // ==========================================
   {
     id: 'var-geisha',
     name: 'Geisha / Gesha (The Crown Jewel)',
@@ -521,9 +502,6 @@ export const COFFEE_VARIETIES: CoffeeVariety[] = [
     sensoryRoastingNotes: 'Dipopulerkan oleh Sasa Sestic saat menjuarai World Barista Championship 2015. Memberikan dimensi rasa rempah aromatik dingin yang tiada duanya.',
   },
 
-  // ==========================================
-  // KELOMPOK 4: SPESIES NON-ARABIKA BERKUALITAS TINGGI
-  // ==========================================
   {
     id: 'var-robusta-tugusari',
     name: 'Fine Robusta Klon Tugusari',

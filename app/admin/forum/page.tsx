@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from "react";
 import { useCherryEdu } from '@/lib/store';
-import { MessageSquare, Pin, Trash2, Search, Flag, Eye } from 'lucide-react';
+import { Pin, Trash2, Search } from "lucide-react";
 
 export default function ForumAdminPage() {
   const { posts, comments } = useCherryEdu();

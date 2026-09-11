@@ -1,23 +1,16 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from "react";
 import {
-  ClipboardCheck,
   Check,
-  RotateCcw,
   Sparkles,
-  Info,
   Layers,
   Copy,
-  Download,
-  AlertTriangle,
   Coffee,
-  Flame,
   Award,
   ShieldCheck,
   Activity,
-  Sliders,
-} from 'lucide-react';
+} from "lucide-react";
 
 export interface CVAPreset {
   id: string;

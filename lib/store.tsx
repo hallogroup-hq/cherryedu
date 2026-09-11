@@ -171,7 +171,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     },
   ]);
   const [certificates, setCertificates] = useState<Certificate[]>(SEED_CERTIFICATES);
-  const [badges, setBadges] = useState<Badge[]>(SEED_BADGES);
+  const [badges, _setBadges] = useState<Badge[]>(SEED_BADGES);
   const [userBadges, setUserBadges] = useState<UserBadge[]>([
     { id: 'ub-1', user_id: 'user-budi', badge_id: 'badge-pioneer', earned_at: '2026-08-16T10:00:00Z' },
     { id: 'ub-2', user_id: 'user-budi', badge_id: 'badge-perfect-score', earned_at: '2026-08-21T11:30:00Z' },
@@ -368,7 +368,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(
           authUser.email || authUser.id
         )}`;
-      const coffeeRole = (authUser.user_metadata?.coffee_role as any) || 'barista';
+      const coffeeRole = (authUser.user_metadata?.coffee_role as User['coffee_role']) || 'barista';
       const isAdmin =
         authUser.email === 'admin@cherryedu.id' || authUser.user_metadata?.role === 'admin';
 
@@ -390,7 +390,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       setUsers((prev) => [newUser, ...prev]);
       setCurrentUserId(newUser.id);
     }
-  }, [authUser]);
+  }, [authUser, users]);
 
   const currentUser: User = useMemo(() => {
     if (!isAuthenticated && currentUserId === 'guest') {

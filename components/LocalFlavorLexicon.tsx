@@ -1,21 +1,15 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from "react";
 import {
-  Compass,
   Search,
   Sparkles,
-  Info,
   Layers,
   MapPin,
   FlaskConical,
-  BookOpen,
   ChevronRight,
   Filter,
-  Check,
-  Coffee,
-  RotateCcw,
-} from 'lucide-react';
+} from "lucide-react";
 
 export interface LocalFlavorItem {
   id: string;

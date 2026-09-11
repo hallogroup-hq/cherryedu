@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from "react";
 import Link from 'next/link';
 import { useCherryEdu } from '@/lib/store';
 import { Clock, Layers, ArrowRight, Lock, Check } from 'lucide-react';

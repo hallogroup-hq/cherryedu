@@ -4,19 +4,12 @@ import React from 'react';
 import {
   Flame,
   Droplets,
-  Activity,
   Layers,
-  Thermometer,
   Coffee,
   GitBranch,
   Compass,
   Sparkles,
-  Award,
-  CircleDot,
-  ArrowRight,
-  Maximize2,
-  CheckCircle2
-} from 'lucide-react';
+} from "lucide-react";
 
 interface CoffeeDiagramProps {
   type: string;

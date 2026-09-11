@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useCherryEdu } from '@/lib/store';
-import { X, Check, Copy, Share2, Sparkles, Flame, Coffee, Award } from 'lucide-react';
+import { X, Check, Copy, Coffee, Award } from "lucide-react";
 import { toast } from 'sonner';
 
 interface ShareModalProps {

@@ -34,9 +34,6 @@ export interface SensoryMacroCategory {
 
 export type SensoryStandardType = 'international' | 'national';
 
-// -------------------------------------------------------------
-// 1. STANDAR INTERNASIONAL (SCA & WCR COFFEE TASTER'S FLAVOR WHEEL)
-// -------------------------------------------------------------
 export const SCA_WCR_INTERNATIONAL_DATA: SensoryMacroCategory[] = [
   {
     id: 'fruity',
@@ -799,9 +796,6 @@ export const SCA_WCR_INTERNATIONAL_DATA: SensoryMacroCategory[] = [
   },
 ];
 
-// -------------------------------------------------------------
-// 2. STANDAR NASIONAL (RODA RASA KOPI NUSANTARA - SCAI / 5758 / PUSLITKOKA)
-// -------------------------------------------------------------
 export const INDONESIAN_NATIONAL_DATA: SensoryMacroCategory[] = [
   {
     id: 'buah-tropis-nusantara',

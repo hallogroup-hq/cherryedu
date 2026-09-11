@@ -4,25 +4,19 @@ import React, { useState, useMemo } from 'react';
 import {
   Layers,
   Sparkles,
-  Sliders,
-  RotateCcw,
   Copy,
   Check,
   Coffee,
   Coins,
   ShieldAlert,
-  Flame,
-  Droplets,
   Plus,
   Trash2,
   Lock,
   Unlock,
-  Info,
-  ArrowRight,
   BarChart3,
   Percent,
   X,
-} from 'lucide-react';
+} from "lucide-react";
 
 export interface BeanOrigin {
   id: string;
@@ -330,13 +324,13 @@ export function BlendDesigner() {
   const [formSpecies, setFormSpecies] = useState<'Arabica' | 'Fine Robusta'>('Arabica');
   const [formProcess, setFormProcess] = useState('Full Washed');
   const [formPrice, setFormPrice] = useState('165000');
-  const [formAltitude, setFormAltitude] = useState('1.200 - 1.400 mdpl');
+  const [formAltitude, _setFormAltitude] = useState('1.200 - 1.400 mdpl');
   const [formAcidity, setFormAcidity] = useState(6.0);
   const [formSweetness, setFormSweetness] = useState(7.5);
   const [formBody, setFormBody] = useState(6.5);
   const [formCrema, setFormCrema] = useState(6.0);
   const [formNotes, setFormNotes] = useState('Cokelat, Gula Kelapa, Jeruk');
-  const [formRole, setFormRole] = useState('Biji origin lokal pilihan sendiri.');
+  const [formRole, _setFormRole] = useState('Biji origin lokal pilihan sendiri.');
 
   const allBeans = useMemo(() => {
     return [...customBeans, ...BEAN_LIBRARY];

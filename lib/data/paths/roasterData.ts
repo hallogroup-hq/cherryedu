@@ -1,9 +1,5 @@
 import { LearningPath, Module, Lesson, Quiz, Question } from '../../types';
 
-// ============================================================================
-// 1. LEARNING PATH DEFINITION: ROASTER SPECIALIZATION PATH
-// ============================================================================
-
 export const ROASTER_PATH: LearningPath = {
   id: 'path-roaster',
   title: 'Roaster Specialization Path: Sains & Seni Penyangraian Kopi',
@@ -22,10 +18,6 @@ export const ROASTER_PATH: LearningPath = {
   total_modules: 6,
   created_at: '2026-08-10T00:00:00Z',
 };
-
-// ============================================================================
-// 2. MODULES: ROASTER SPECIALIZATION PATH (MOD-R1 s/d MOD-R6)
-// ============================================================================
 
 export const ROASTER_MODULES: Module[] = [
   {
@@ -90,12 +82,7 @@ export const ROASTER_MODULES: Module[] = [
   },
 ];
 
-// ============================================================================
-// 3. LESSONS: ROASTER SPECIALIZATION PATH
-// ============================================================================
-
 export const ROASTER_LESSONS: Lesson[] = [
-  // --- Modul R-1: Karakteristik Fisik Green Bean ---
   {
     id: 'les-r1-1',
     module_id: 'mod-r1',
@@ -215,7 +202,6 @@ Peaberry terjadi ketika salah satu dari dua bakal biji di dalam ceri kopi gagal 
     ],
   },
 
-  // --- Modul R-2: Termodinamika & Mekanisme Transfer Panas ---
   {
     id: 'les-r2-1',
     module_id: 'mod-r2',
@@ -232,7 +218,7 @@ Penyangraian kopi pada hakikatnya adalah disiplin termodinamika terapan. Di dala
 ### 1. Konduksi (Q_{cond})
 Konduksi adalah transfer energi panas melalui kontak fisik langsung antar molekul padat:
 > ☕ **Persamaan Parameter:**
-> **Q_{cond} = -k A (\Δ T ÷ \Δ x)**
+> **Q_{cond} = -k A (Δ T ÷ Δ x)**
 Di mana k adalah konduktivitas termal material drum, A luas area kontak, dan (Δ T ÷ Δ x) gradien suhu.
 
 * **Sumber di Mesin Sangrai**: Kontak langsung antara permukaan biji kopi dengan dinding silinder drum yang membara, atau kontak antar biji kopi yang saling bergesekan.
@@ -335,7 +321,6 @@ Aliran udara di dalam mesin drum ditarik oleh *exhaust blower fan*. Fungsinya me
     ],
   },
 
-  // --- Modul R-3: Kinetika Reaksi Kimia & Fase Penyangraian ---
   {
     id: 'les-r3-1',
     module_id: 'mod-r3',
@@ -448,7 +433,6 @@ Dalam terminologi sangrai modern yang dipelopori oleh Scott Rao dan SCA, proses 
     ],
   },
 
-  // --- Modul R-4: Manajemen Kurva Roasting, RoR & DTR ---
   {
     id: 'les-r4-1',
     module_id: 'mod-r4',
@@ -529,7 +513,7 @@ Fase pengembangan (*Development Time*) adalah jendela waktu sejak letupan pertam
 ### 1. Formula Development Time Ratio (DTR)
 
 > ☕ **Persamaan Parameter:**
-> **DTR (%) = (\Development Time ÷ Total Roasting Time) × 100**
+> **DTR (%) = (Development Time ÷ Total Roasting Time) × 100**
 
 #### Contoh Perhitungan Kasus:
 * Total waktu sangrai (*Total Roasting Time*): **10 menit 00 detik** (600 detik).
@@ -574,7 +558,6 @@ Proses penyangraian **belum selesai** saat biji keluar dari drum! Biji kopi yang
     ],
   },
 
-  // --- Modul R-5: Diagnosis Cacat Penyangraian ---
   {
     id: 'les-r5-1',
     module_id: 'mod-r5',
@@ -682,7 +665,6 @@ Untuk memvalidasi underdevelopment secara ilmiah, roaster mengukur warna bubuk m
     ],
   },
 
-  // --- Modul R-6: Batch Production QC & Degassing ---
   {
     id: 'les-r6-1',
     module_id: 'mod-r6',

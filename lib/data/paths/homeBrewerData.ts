@@ -1,11 +1,6 @@
 import { Lesson, Quiz, Question } from '../../types';
 
-// ==========================================
-// HOME BREWER SPECIALIZATION PATH DATA
-// ==========================================
-
 export const HOME_BREWER_EXPANDED_LESSONS: Lesson[] = [
-  // --- Modul H-1: Memulai Home Brewing Tanpa Bingung ---
   {
     id: 'les-h1-2',
     module_id: 'mod-h1',
@@ -51,7 +46,6 @@ Biji kopi yang baru keluar dari mesin sangrai (*fresh roast*) mengandung gas kar
     ],
   },
 
-  // --- Modul H-2: Grinder & Distribusi Ukuran Partikel ---
   {
     id: 'les-h2-2',
     module_id: 'mod-h2',
@@ -97,7 +91,6 @@ Bagi pengguna grinder manual berkualitas tinggi:
     ],
   },
 
-  // --- Modul H-3: Rekayasa Air Seduh Rumahan ---
   {
     id: 'les-h3-2',
     module_id: 'mod-h3',
@@ -151,7 +144,6 @@ Secangkir kopi seduh manual terdiri dari **98.5% air** dan hanya 1.5% senyawa pa
     ],
   },
 
-  // --- Modul H-4: Ekstraksi V60 Presisi ---
   {
     id: 'les-h4-2',
     module_id: 'mod-h4',
@@ -221,7 +213,6 @@ Filosofi: Menghasilkan ekstraksi setinggi dan seseragam mungkin tanpa terjadi ch
     ],
   },
 
-  // --- Modul H-5: Immersion Dripper & French Press Bebas Ampas ---
   {
     id: 'les-h5-2',
     module_id: 'mod-h5',
@@ -283,7 +274,6 @@ Cara konvensional mengajarkan: seduh kopi 4 menit, lalu tekan plunger logam samp
     ],
   },
 
-  // --- Modul H-7: Seduhan Dingin & Es Kopi ---
   {
     id: 'les-h7-2',
     module_id: 'mod-h7',
@@ -354,7 +344,6 @@ Saat membuat Japanese Iced Pour Over, total air seduhan dibagi menjadi:
     ],
   },
 
-  // --- Modul H-8: Espresso Manual Rumahan ---
   {
     id: 'les-h8-1',
     module_id: 'mod-h8',
@@ -418,7 +407,6 @@ Mesin espresso manual bertekanan tuas (*lever machine*) seperti **Flair Espresso
     ],
   },
 
-  // --- Modul H-9: Kreasi Kopi Susu & Sirup Rumahan ---
   {
     id: 'les-h9-2',
     module_id: 'mod-h9',
@@ -467,7 +455,6 @@ Bagi home brewer tanpa wand steam mesin komersial:
     ],
   },
 
-  // --- Modul H-10: Sensory Kalibrasi Mandiri & Maintenance ---
   {
     id: 'les-h10-2',
     module_id: 'mod-h10',

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth';
-import { Coffee, Eye, EyeOff, Loader2, AlertCircle, CheckCircle2, Sparkles, Compass } from 'lucide-react';
+import { Coffee, Eye, EyeOff, Loader2, AlertCircle, CheckCircle2, Sparkles } from "lucide-react";
 import { CoffeeRole } from '@/lib/types';
 
 export default function RegisterPage() {
@@ -62,7 +62,7 @@ export default function RegisterPage() {
   const handleInstantBypass = () => {
     // Allows user or reviewer to immediately log into their newly registered persona
     const localRole = coffeeRole === 'home_brewer' ? 'home_brewer' : coffeeRole === 'q_grader' ? 'q_grader' : 'barista';
-    signInAsDemo(localRole as any);
+    signInAsDemo(localRole);
     router.push('/profile');
   };
 

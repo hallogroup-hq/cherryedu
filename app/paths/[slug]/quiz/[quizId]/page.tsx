@@ -1,23 +1,20 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from "react";
 import Link from 'next/link';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
 import confetti from 'canvas-confetti';
 import {
   Clock,
   Check,
   X,
-  Award,
-  ArrowRight,
   RotateCcw,
   ArrowLeft,
-} from 'lucide-react';
+} from "lucide-react";
 
 export default function QuizPage() {
   const params = useParams();
-  const router = useRouter();
   const slug = params.slug as string;
   const quizId = params.quizId as string;
 
@@ -39,6 +36,26 @@ export default function QuizPage() {
 
   const [timeLeft, setTimeLeft] = useState<number>(quiz ? quiz.time_limit_minutes * 60 : 600);
 
+  const handleSubmit = useCallback(() => {
+    if (!quiz) return;
+    const res = submitQuiz(quiz.id, selectedAnswers);
+    setResult(res);
+    setSubmitted(true);
+
+    if (res.passed) {
+      try {
+        confetti({
+          particleCount: 100,
+          spread: 60,
+          origin: { y: 0.6 },
+          colors: ['#7E1D2A', '#CFA946', '#211814'],
+        });
+      } catch (err) {
+        console.warn('Gagal memicu efek selebrasi confetti kuis:', err);
+      }
+    }
+  }, [quiz, selectedAnswers, submitQuiz]);
+
   useEffect(() => {
     if (submitted) return;
     const timer = setInterval(() => {
@@ -52,7 +69,7 @@ export default function QuizPage() {
       });
     }, 1000);
     return () => clearInterval(timer);
-  }, [submitted]);
+  }, [submitted, handleSubmit]);
 
   if (!quiz || !path) {
     return (
@@ -74,23 +91,6 @@ export default function QuizPage() {
   const handleSelectAnswer = (questionId: string, answerId: string) => {
     if (submitted) return;
     setSelectedAnswers((prev) => ({ ...prev, [questionId]: answerId }));
-  };
-
-  const handleSubmit = () => {
-    const res = submitQuiz(quiz.id, selectedAnswers);
-    setResult(res);
-    setSubmitted(true);
-
-    if (res.passed) {
-      try {
-        confetti({
-          particleCount: 100,
-          spread: 60,
-          origin: { y: 0.6 },
-          colors: ['#7E1D2A', '#CFA946', '#211814'],
-        });
-      } catch (e) {}
-    }
   };
 
   const currentQ = quizQuestions[currentQIndex];

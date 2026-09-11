@@ -1,23 +1,17 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from "react";
 import { BrewRecipe } from '@/lib/types';
 import {
   Play,
   Pause,
   RotateCcw,
   Clock,
-  Droplets,
-  Flame,
-  Scale,
-  Sparkles,
   CheckCircle2,
   Check,
-  ChevronRight,
-  ChevronLeft,
   Volume2,
   VolumeX,
-} from 'lucide-react';
+} from "lucide-react";
 
 interface InteractiveBrewGuideProps {
   recipe: BrewRecipe;
@@ -34,9 +28,9 @@ export const InteractiveBrewGuide: React.FC<InteractiveBrewGuideProps> = ({ reci
   const playBeep = () => {
     if (!soundEnabled || typeof window === 'undefined') return;
     try {
-      const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
-      if (!AudioContext) return;
-      const ctx = new AudioContext();
+      const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+      if (!AudioContextClass) return;
+      const ctx = new AudioContextClass();
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
       osc.type = 'sine';
@@ -47,8 +41,8 @@ export const InteractiveBrewGuide: React.FC<InteractiveBrewGuideProps> = ({ reci
       gain.connect(ctx.destination);
       osc.start();
       osc.stop(ctx.currentTime + 0.35);
-    } catch {
-      // Audio context might be restricted before user interaction
+    } catch (e) {
+      console.debug('AudioContext not active yet:', e);
     }
   };
 

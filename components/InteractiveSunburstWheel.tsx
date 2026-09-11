@@ -7,7 +7,7 @@ import {
   SensoryDescriptor,
   SensoryStandardType,
 } from '@/lib/data/sensoryWheelData';
-import { RotateCw, RotateCcw, Compass, Sparkles, ZoomIn, Info } from 'lucide-react';
+import { RotateCw, RotateCcw } from "lucide-react";
 
 interface InteractiveSunburstWheelProps {
   data: SensoryMacroCategory[];
@@ -298,10 +298,8 @@ export const InteractiveSunburstWheel: React.FC<InteractiveSunburstWheelProps> =
 
               // Text rotation adjustments
               let textRotate = midAngle - 90;
-              let flipText = false;
               if (midAngle > 90 && midAngle < 270) {
                 textRotate += 180;
-                flipText = true;
               }
 
               // Determine fill opacity and borders
@@ -317,6 +315,10 @@ export const InteractiveSunburstWheel: React.FC<InteractiveSunburstWheelProps> =
                 fillOpacity = 1;
                 strokeColor = '#FFFFFF';
                 strokeWidth = 2;
+              } else if (isMacroActive) {
+                fillOpacity = 1;
+                strokeColor = '#E6D7B8';
+                strokeWidth = 1.5;
               }
 
               return (

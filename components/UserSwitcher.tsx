@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useCherryEdu } from '@/lib/store';
-import { Check, ChevronDown, User as UserIcon } from 'lucide-react';
+import { Check, ChevronDown } from "lucide-react";
 
 export const UserSwitcher: React.FC = () => {
   const { users, currentUser, switchUser } = useCherryEdu();

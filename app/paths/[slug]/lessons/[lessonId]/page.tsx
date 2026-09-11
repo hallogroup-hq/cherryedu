@@ -1,10 +1,9 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
-import { BrewCalculator } from '@/components/BrewCalculator';
 import { InteractiveBrewGuide } from '@/components/InteractiveBrewGuide';
 import { MarkdownRenderer } from '@/components/MarkdownRenderer';
 import { AudioNarrationPlayer } from '@/components/AudioNarrationPlayer';
@@ -19,8 +18,7 @@ import {
   Award,
   List,
   Sparkles,
-  BookOpen,
-} from 'lucide-react';
+} from "lucide-react";
 
 export default function LessonPlayerPage() {
   const params = useParams();

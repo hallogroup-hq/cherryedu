@@ -1,16 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import {
-  Droplets,
-  FlaskConical,
-  Sparkles,
-  Info,
-  CheckCircle2,
-  Sliders,
-  RotateCcw,
-  Beaker,
-} from 'lucide-react';
+import { FlaskConical } from "lucide-react";
 
 interface WaterPreset {
   id: string;

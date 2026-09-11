@@ -38,50 +38,7 @@
   background: #957D71;
 }
 
-/* Editorial Markdown Typography for Lessons */
-.lesson-prose {
-  color: #2B201B;
-}
 
-.lesson-prose h1 {
-  @apply text-2xl sm:text-4xl font-serif font-black text-roast-950 mt-8 mb-4 tracking-tight;
-}
-
-.lesson-prose h2 {
-  @apply text-xl sm:text-2xl font-serif font-bold text-roast-900 mt-8 mb-3 tracking-tight border-b border-paper-300/80 pb-2;
-}
-
-.lesson-prose h3 {
-  @apply text-base sm:text-lg font-sans font-bold uppercase tracking-wider text-roast-800 mt-6 mb-2.5;
-}
-
-.lesson-prose p {
-  @apply text-sm sm:text-base leading-relaxed text-roast-800 mb-5 font-normal;
-}
-
-.lesson-prose ul {
-  @apply list-disc list-outside space-y-2 text-sm sm:text-base text-roast-800 mb-6 pl-5;
-}
-
-.lesson-prose ol {
-  @apply list-decimal list-outside space-y-2 text-sm sm:text-base text-roast-800 mb-6 pl-5;
-}
-
-.lesson-prose blockquote {
-  @apply border-l-2 border-cherry-700 bg-paper-100/80 px-5 py-4 my-6 text-roast-900 text-sm italic rounded-r-lg;
-}
-
-.lesson-prose table {
-  @apply w-full text-left text-xs sm:text-sm text-roast-800 border-collapse my-6 border border-paper-300 rounded-lg overflow-hidden;
-}
-
-.lesson-prose th {
-  @apply bg-paper-200/80 text-roast-950 px-4 py-3 font-mono font-bold text-xs uppercase tracking-wider border-b border-paper-300;
-}
-
-.lesson-prose td {
-  @apply px-4 py-3 border-b border-paper-200 bg-white/60;
-}
 
 /* Print Diploma Certificate Optimization */
 @media print {

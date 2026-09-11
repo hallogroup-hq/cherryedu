@@ -1,24 +1,12 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from "react";
 import {
-  ShieldAlert,
   Search,
-  Sparkles,
-  Info,
-  Layers,
   Award,
   AlertTriangle,
   RotateCcw,
-  Check,
-  CheckCircle2,
-  XCircle,
-  Eye,
-  Sliders,
-  HelpCircle,
-  Bug,
-  Flame,
-} from 'lucide-react';
+} from "lucide-react";
 
 export interface GreenDefect {
   id: string;
@@ -409,7 +397,7 @@ export function GreenDefectTrainer() {
                 ].map((f) => (
                   <button
                     key={f.id}
-                    onClick={() => setFilterCategory(f.id as any)}
+                    onClick={() => setFilterCategory(f.id as 'all' | 'primary' | 'secondary')}
                     className={`px-2.5 py-1 rounded-lg text-xs font-medium border transition-all ${
                       filterCategory === f.id
                         ? 'bg-roast-950 text-paper-50 border-roast-950'

@@ -10,7 +10,10 @@
     "db:setup": "npx ts-node scripts/setup-db.ts",
     "db:schema": "npx ts-node scripts/setup-db.ts --schema-only",
     "db:seed": "npx ts-node scripts/setup-db.ts --seed-only",
-    "db:reset": "npx ts-node scripts/setup-db.ts --reset"
+    "db:reset": "npx ts-node scripts/setup-db.ts --reset",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:report": "playwright show-report"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.6",
@@ -30,6 +33,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^20.17.6",
     "@types/react": "^18.3.12",

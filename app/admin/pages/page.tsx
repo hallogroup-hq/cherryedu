@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useCherryEdu } from '@/lib/store';
 import { DEFAULT_SITE_PAGES } from '@/lib/data/defaultSitePages';
-import { PageSectionItem, PageSectionType, SitePageConfig } from '@/lib/types';
+import { PageSectionItem, PageSectionType, SitePageConfig, LandingPageConfig } from '@/lib/types';
 import {
   Layers,
   Type,
@@ -18,22 +18,17 @@ import {
   Layout,
   Table as TableIcon,
   Megaphone,
-  ArrowRight,
   Plus,
   Trash2,
   Copy,
   Video,
   Quote,
-  Check,
-  Palette,
-  ExternalLink,
   BookOpen,
   Coffee,
   Briefcase,
   Phone,
   Settings,
-  HelpCircle,
-} from 'lucide-react';
+} from "lucide-react";
 
 const SECTION_LIBRARY: {
   type: PageSectionType;
@@ -263,12 +258,12 @@ export default function PageBuilderAdminPage() {
     if (selectedPageId === 'home') {
       updateLandingPageConfig({
         sections,
-        hero: (sections.find((s) => s.type === 'hero')?.data as any) || landingPageConfig?.hero,
-        manifesto: (sections.find((s) => s.type === 'manifesto')?.data as any) || landingPageConfig?.manifesto,
-        catalog: (sections.find((s) => s.type === 'catalog')?.data as any) || landingPageConfig?.catalog,
-        tools: (sections.find((s) => s.type === 'tools')?.data as any) || landingPageConfig?.tools,
-        comparison: (sections.find((s) => s.type === 'comparison')?.data as any) || landingPageConfig?.comparison,
-        bottomCta: (sections.find((s) => s.type === 'bottomCta')?.data as any) || landingPageConfig?.bottomCta,
+        hero: (sections.find((s) => s.type === 'hero')?.data as unknown as LandingPageConfig['hero']) || landingPageConfig?.hero,
+        manifesto: (sections.find((s) => s.type === 'manifesto')?.data as unknown as LandingPageConfig['manifesto']) || landingPageConfig?.manifesto,
+        catalog: (sections.find((s) => s.type === 'catalog')?.data as unknown as LandingPageConfig['catalog']) || landingPageConfig?.catalog,
+        tools: (sections.find((s) => s.type === 'tools')?.data as unknown as LandingPageConfig['tools']) || landingPageConfig?.tools,
+        comparison: (sections.find((s) => s.type === 'comparison')?.data as unknown as LandingPageConfig['comparison']) || landingPageConfig?.comparison,
+        bottomCta: (sections.find((s) => s.type === 'bottomCta')?.data as unknown as LandingPageConfig['bottomCta']) || landingPageConfig?.bottomCta,
       });
     }
 

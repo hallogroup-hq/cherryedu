@@ -7,13 +7,12 @@ import {
   Question,
   Certificate,
   Badge,
-  UserBadge,
   Post,
   Comment,
   JobListing,
   JobApplication,
   Enrollment,
-} from '../types';
+} from "../types";
 import {
   HOME_BREWER_EXPANDED_LESSONS,
   HOME_BREWER_QUIZZES,
@@ -48,12 +47,10 @@ import {
   COFFEE_BUSINESS_QUESTIONS,
 } from './paths/coffeeBusinessData';
 import {
-  BARISTA_PATH,
-  BARISTA_MODULES,
   BARISTA_LESSONS,
   BARISTA_QUIZZES,
   BARISTA_QUESTIONS,
-} from './paths/baristaData';
+} from "./paths/baristaData";
 import {
   Q_PROCESSOR_PATH,
   Q_PROCESSOR_MODULES,
@@ -278,7 +275,6 @@ export const SEED_PATHS: LearningPath[] = [
 
 // 4. MODULES
 export const SEED_MODULES: Module[] = [
-  // --- Foundation Modules (F-1 to F-7) ---
   {
     id: 'mod-f1',
     learning_path_id: 'path-foundation',
@@ -357,7 +353,6 @@ export const SEED_MODULES: Module[] = [
     created_at: '2026-08-01T00:00:00Z',
   },
 
-  // --- Barista Path Modules (B-1 to B-10) ---
   {
     id: 'mod-b1',
     learning_path_id: 'path-barista',
@@ -459,7 +454,6 @@ export const SEED_MODULES: Module[] = [
     created_at: '2026-08-05T00:00:00Z',
   },
 
-  // --- Home Brewer Path Modules (H-1 to H-10) ---
   {
     id: 'mod-h1',
     learning_path_id: 'path-home-brewer',
@@ -1686,7 +1680,7 @@ Petani dan processor kopi tidak lagi membiarkan fermentasi berjalan acak secara 
 >   Lingkungan tanpa oksigen menekan bakteri pembusuk aerobik dan memicu kerja enzimatis ragi (*Saccharomyces cerevisiae*) serta bakteri asam laktat untuk mensintesis ester buah tropis unik (nangka, mangga, markisa).
 >
 > * **Pengawasan Sensorik Real-Time:**  
->   Suhu tangki dijaga dingin ($16^\circ\text{C} - 19^\circ\text{C}$) dan derajat keasaman (pH) dipantau agar tidak turun di bawah ambang bahaya asam cuka (pH 3.8).
+>   Suhu tangki dijaga dingin ($16^circ\text{C} - 19^circ\text{C}$) dan derajat keasaman (pH) dipantau agar tidak turun di bawah ambang bahaya asam cuka (pH 3.8).
 
 ### 1. Anaerobic Fermentation (Fermentasi Anaerobik)
 Pada fermentasi tradisional di bak terbuka, bakteri pembusuk aerobik dan jamur liar berinteraksi bebas dengan oksigen, memicu risiko pembusukan cepat.
@@ -2105,7 +2099,7 @@ Mereka membuktikan secara matematis bahwa tidak semua mineral diciptakan setara 
 
 | Parameter Kation Logam | Kation Magnesium ($\text{Mg}^{2+}$) | Kation Kalsium ($\text{Ca}^{2+}$) |
 | :--- | :--- | :--- |
-| **Jari-Jari Ionik** | Kecil ($0.72\text{ \AA}$) | Lebih besar ($1.00\text{ \AA}$) |
+| **Jari-Jari Ionik** | Kecil ($0.72\text{ AA}$) | Lebih besar ($1.00\text{ AA}$) |
 | **Kerapatan Muatan Listrik** | Sangat padat berkonsentrasi tinggi | Lebih renggang terdistribusi |
 | **Daya Ikat Senyawa Rasa** | Kuat mengikat senyawa asam buah sitrat/malat & nada floral | Kuat mengikat senyawa bodi, gula karamel, & cokelat |
 | **Keamanan untuk Mesin Espresso** | **Sangat Ramah Mesin** (Garam magnesium sangat mudah larut) | **Waspada Kerak Kapur** (Membentuk endapan batu kapur $\text{CaCO}_3$) |
@@ -3682,7 +3676,6 @@ export const SEED_QUESTIONS: Question[] = [
       { id: "ans-bar-8d", question_id: "q-bar-8", answer_text: "10 menit", is_correct: false, order_index: 4 },
     ],
   },
-  // --- HOME BREWER FINAL EXAM QUESTIONS ---
   {
     id: "q-hb-1",
     quiz_id: "quiz-final-home-brewer",

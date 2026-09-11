@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Plus, Edit2, Trash2, Instagram, Globe, CheckCircle2, Circle, Users2 } from 'lucide-react';
+import { useState } from "react";
+import { Plus, Edit2, Trash2, Users2 } from "lucide-react";
 
 interface Collaborator {
   id: string;

@@ -33,7 +33,7 @@ export const Navbar: React.FC = () => {
   const pathname = usePathname();
   const router = useRouter();
   const { currentUser, bookmarks, isAuthenticated } = useCherryEdu();
-  const { user, signOut } = useAuth();
+  const { user: _user, signOut } = useAuth();
   
   const userBookmarks = bookmarks.filter((b) => b.user_id === currentUser.id);
 

@@ -4,21 +4,15 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   Flame,
   Wind,
-  RotateCw,
   Play,
   Square,
   RotateCcw,
-  Sparkles,
   Info,
-  AlertTriangle,
   Award,
   Volume2,
   VolumeX,
-  TrendingUp,
   Activity,
-  Layers,
-  Check,
-} from 'lucide-react';
+} from "lucide-react";
 
 interface TelemetryPoint {
   timeSec: number;
@@ -156,8 +150,8 @@ export function RoastingSimulator() {
   // Machine Controls
   const [burnerPower, setBurnerPower] = useState(activeProfile.initialBurner); // 0-100%
   const [airflow, setAirflow] = useState(activeProfile.initialAirflow); // 1-5
-  const [drumRpm, setDrumRpm] = useState(65); // 50-80 RPM
-  const [batchSize, setBatchSize] = useState(1000); // 1000g
+  const [drumRpm, _setDrumRpm] = useState(65); // 50-80 RPM
+  const [batchSize, _setBatchSize] = useState(1000); // 1000g
 
   // Live Telemetry
   const [currentTime, setCurrentTime] = useState(0); // seconds
@@ -181,9 +175,13 @@ export function RoastingSimulator() {
     if (!soundEnabled) return;
     try {
       if (!audioCtxRef.current) {
-        audioCtxRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+        const AudioContextConstructor = window.AudioContext || (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+        if (AudioContextConstructor) {
+          audioCtxRef.current = new AudioContextConstructor();
+        }
       }
       const ctx = audioCtxRef.current;
+      if (!ctx) return;
       if (ctx.state === 'suspended') ctx.resume();
 
       const osc = ctx.createOscillator();
@@ -261,11 +259,20 @@ export function RoastingSimulator() {
     setIsRunning(true);
   };
 
+  const playCrackPopRef = useRef(playCrackPop);
+
   const handleDrop = () => {
     setIsRunning(false);
     setIsFinished(true);
     setDropPoint({ time: currentTime, temp: beanTemp });
   };
+
+  const handleDropRef = useRef(handleDrop);
+
+  useEffect(() => {
+    playCrackPopRef.current = playCrackPop;
+    handleDropRef.current = handleDrop;
+  });
 
   const handleReset = () => {
     setIsRunning(false);
@@ -320,13 +327,13 @@ export function RoastingSimulator() {
             let crackExotherm = 0;
             if (prevBt >= 196 && prevBt <= 204) {
               crackExotherm = 0.15; // moisture flash boiling produces energy
-              if (Math.random() > 0.4) playCrackPop(false);
+              if (Math.random() > 0.4) playCrackPopRef.current(false);
             }
 
             // Exothermic energy during Second Crack (224°C - 232°C)
             if (prevBt >= 224 && prevBt <= 232) {
               crackExotherm = 0.10; // carbon matrix fracturing
-              if (Math.random() > 0.35) playCrackPop(true);
+              if (Math.random() > 0.35) playCrackPopRef.current(true);
             }
 
             deltaBt = ((heatInput - airflowCooling + crackExotherm) * naturalDecline) / beanThermalInertia;
@@ -378,7 +385,7 @@ export function RoastingSimulator() {
 
           // Auto-drop safety if overheats beyond 238°C
           if (newBt >= 238) {
-            handleDrop();
+            handleDropRef.current();
           }
 
           return newBt;

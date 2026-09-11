@@ -1,18 +1,14 @@
 'use client';
 
-import React, { useMemo } from 'react';
 import { useCherryEdu } from '@/lib/store';
 import {
   TrendingUp,
   Users,
-  BookOpen,
   Award,
   BarChart3,
-  Clock,
   ChevronUp,
   ChevronDown,
-  ArrowRight,
-} from 'lucide-react';
+} from "lucide-react";
 import {
   BarChart,
   Bar,
@@ -30,7 +26,7 @@ import {
 } from 'recharts';
 
 export default function AnalyticsPage() {
-  const { users, lessons, learningPaths, certificates, quizAttempts, modules } = useCherryEdu();
+  const { users, lessons, learningPaths, certificates, quizAttempts, modules: _modules } = useCherryEdu();
 
   const totalStudents = users.filter((u) => u.role === 'learner' || u.role === 'expert').length;
   const passedQuizzes = quizAttempts.filter((a) => a.passed).length;

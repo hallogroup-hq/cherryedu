@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from "react";
 import Link from 'next/link';
 import { useCherryEdu } from '@/lib/store';
 import { CertificateCard } from '@/components/CertificateCard';
 import { ShareModal } from '@/components/ShareModal';
-import { Award, BookOpen, Sparkles, ShieldCheck } from 'lucide-react';
+import { Award, BookOpen } from "lucide-react";
 
 export default function CertificatesGalleryPage() {
   const { currentUser, certificates, isAuthenticated } = useCherryEdu();

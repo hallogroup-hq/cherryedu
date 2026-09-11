@@ -1,21 +1,18 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from "react";
 import Link from 'next/link';
 import { COFFEE_LEXICON, LexiconTerm } from '@/lib/data/lexiconData';
 import {
   Search,
-  BookOpen,
   Volume2,
   Copy,
   Check,
-  Tag,
   ArrowRight,
   Filter,
   Sparkles,
   Info,
-  Compass,
-} from 'lucide-react';
+} from "lucide-react";
 
 const CATEGORIES = [
   'Semua',

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from "react";
 import Link from 'next/link';
 import {
   BookOpen,
@@ -8,16 +8,9 @@ import {
   Award,
   Filter,
   CheckCircle2,
-  FileText,
-  Bookmark,
   GraduationCap,
-  Layers,
-  Sparkles,
   ShieldCheck,
-  Building2,
-  ChevronRight,
-  ArrowLeft,
-} from 'lucide-react';
+} from "lucide-react";
 
 interface ReferenceItem {
   id: string;
@@ -32,7 +25,6 @@ interface ReferenceItem {
 }
 
 const OFFICIAL_REFERENCES: ReferenceItem[] = [
-  // --- KATEGORI 1: STANDAR & PROTOKOL RESMI (SCA & CQI) ---
   {
     id: 'ref-sca-cupping',
     category: 'sca_cqi',
@@ -110,7 +102,6 @@ const OFFICIAL_REFERENCES: ReferenceItem[] = [
     ],
   },
 
-  // --- KATEGORI 2: BUKU LITERATUR KLASIK & PANDUAN STANDAR DUNIA ---
   {
     id: 'ref-hoffmann-atlas',
     category: 'classic_books',
@@ -202,7 +193,6 @@ const OFFICIAL_REFERENCES: ReferenceItem[] = [
     ],
   },
 
-  // --- KATEGORI 3: RISET GENETIK, BOTANI & AGRONOMI (WCR & KEW) ---
   {
     id: 'ref-wcr-catalog',
     category: 'wcr_agronomy',
@@ -249,7 +239,6 @@ const OFFICIAL_REFERENCES: ReferenceItem[] = [
     ],
   },
 
-  // --- KATEGORI 4: STANDAR NASIONAL INDONESIA (BSN) & RISET PUSLITKOKA ---
   {
     id: 'ref-sni-green-coffee',
     category: 'national_sni',
@@ -296,7 +285,6 @@ const OFFICIAL_REFERENCES: ReferenceItem[] = [
     ],
   },
 
-  // --- KATEGORI 5: JURNAL ILMIAH PEER-REVIEWED TERAKREDITASI ---
   {
     id: 'ref-farah-roasting',
     category: 'peer_reviewed',

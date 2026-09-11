@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Play, Pause, RotateCcw, Clock, Sparkles, Sliders, Calculator, Droplets, Layers, Check, ArrowRight, Info, Coffee, Flame, Compass } from 'lucide-react';
+import { Play, Pause, RotateCcw, Clock, Sliders, Layers, Check, ArrowRight, Coffee } from "lucide-react";
 
 interface BrewMethodConfig {
   id: string;

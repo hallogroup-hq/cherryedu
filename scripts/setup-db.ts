@@ -20,14 +20,12 @@
 
 import fs from 'fs';
 import path from 'path';
-import { createClient } from '@supabase/supabase-js';
 
 // ─── Config ────────────────────────────────────────────────────────────────
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL
   || 'https://yswtpmwfzqqeguiwogvj.supabase.co';
 
-const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY
-  || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlzd3RwbXdmenFxZWd1aXdvZ3ZqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4ODY3MzI5MSwiZXhwIjoyMTA0MjQ5MjkxfQ.PgXTfrJOWW7Mfak3iNUjPox0eHMjEjC1N0__X-5ShDo';
+const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 
@@ -79,12 +77,7 @@ function banner(text: string) {
  *     /query endpoint (available on Supabase self-hosted / direct Postgres).
  */
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, {
-  auth: {
-    persistSession: false,
-    autoRefreshToken: false,
-  },
-});
+
 
 /**
  * Split a SQL file into individual statements.

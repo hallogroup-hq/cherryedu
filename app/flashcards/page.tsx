@@ -1,12 +1,11 @@
 'use client';
 
-import React, { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useCallback } from "react";
 import Link from 'next/link';
 import { FLASHCARDS_DATA, Flashcard } from '@/lib/data/flashcardsData';
 import { useCherryEdu } from '@/lib/store';
 import {
   Sparkles,
-  Layers,
   RotateCw,
   CheckCircle2,
   AlertCircle,
@@ -15,12 +14,10 @@ import {
   Award,
   ArrowLeft,
   ArrowRight,
-  Shuffle,
   RotateCcw,
   Lightbulb,
-  Check,
   Flame,
-} from 'lucide-react';
+} from "lucide-react";
 
 const CATEGORIES = [
   'Semua Dek',
@@ -61,6 +58,43 @@ export default function FlashcardsPage() {
     setDeckCompleted(false);
   }, [selectedCategory]);
 
+  const handleNext = useCallback(() => {
+    if (currentIndex < deck.length - 1) {
+      setCurrentIndex((prev) => prev + 1);
+      setIsFlipped(false);
+      setShowHint(false);
+    } else {
+      setDeckCompleted(true);
+      awardXP(50);
+    }
+  }, [currentIndex, deck.length, awardXP]);
+
+  const handlePrev = useCallback(() => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1);
+      setIsFlipped(false);
+      setShowHint(false);
+    }
+  }, [currentIndex]);
+
+  const handleResponse = useCallback((level: 'hard' | 'medium' | 'easy') => {
+    if (!currentCard) return;
+
+    if (level === 'easy') {
+      if (!masteredIds.includes(currentCard.id)) {
+        setMasteredIds((prev) => [...prev, currentCard.id]);
+      }
+      setReviewIds((prev) => prev.filter((id) => id !== currentCard.id));
+    } else {
+      if (!reviewIds.includes(currentCard.id)) {
+        setReviewIds((prev) => [...prev, currentCard.id]);
+      }
+      setMasteredIds((prev) => prev.filter((id) => id !== currentCard.id));
+    }
+
+    handleNext();
+  }, [currentCard, masteredIds, reviewIds, handleNext]);
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -79,44 +113,7 @@ export default function FlashcardsPage() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isFlipped, currentIndex, deckCompleted, currentCard]);
-
-  const handleNext = () => {
-    if (currentIndex < deck.length - 1) {
-      setCurrentIndex((prev) => prev + 1);
-      setIsFlipped(false);
-      setShowHint(false);
-    } else {
-      setDeckCompleted(true);
-      awardXP(50);
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prev) => prev - 1);
-      setIsFlipped(false);
-      setShowHint(false);
-    }
-  };
-
-  const handleResponse = (level: 'hard' | 'medium' | 'easy') => {
-    if (!currentCard) return;
-
-    if (level === 'easy') {
-      if (!masteredIds.includes(currentCard.id)) {
-        setMasteredIds((prev) => [...prev, currentCard.id]);
-      }
-      setReviewIds((prev) => prev.filter((id) => id !== currentCard.id));
-    } else {
-      if (!reviewIds.includes(currentCard.id)) {
-        setReviewIds((prev) => [...prev, currentCard.id]);
-      }
-      setMasteredIds((prev) => prev.filter((id) => id !== currentCard.id));
-    }
-
-    handleNext();
-  };
+  }, [isFlipped, currentIndex, deckCompleted, currentCard, handleResponse]);
 
   const handlePronounce = () => {
     if (!currentCard || typeof window === 'undefined' || !window.speechSynthesis) return;
@@ -140,12 +137,6 @@ export default function FlashcardsPage() {
 
     setIsSpeaking(true);
     window.speechSynthesis.speak(utterance);
-  };
-
-  const handleShuffle = () => {
-    setCurrentIndex(0);
-    setIsFlipped(false);
-    setShowHint(false);
   };
 
   const handleResetSession = () => {
