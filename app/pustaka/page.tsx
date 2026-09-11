@@ -370,8 +370,8 @@ export default function PustakaPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-3">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-crema-400 font-bold bg-roast-900 px-2.5 py-1 rounded border border-roast-800">
-                [ DOKUMEN PERTANGGUNGJAWABAN AKADEMIS ]
+              <span className="font-mono text-xs uppercase tracking-widest text-crema-400 font-bold">
+                Dokumen Pertanggungjawaban Akademis
               </span>
             </div>
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
@@ -461,7 +461,7 @@ export default function PustakaPage() {
               <div>
                 {/* Header Tag */}
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="font-mono text-[9px] uppercase tracking-widest text-cherry-800 font-bold bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-cherry-800 font-bold">
                     {ref.category === 'sca_cqi' && 'Standar Asosiasi Internasional'}
                     {ref.category === 'classic_books' && 'Buku Literatur Terverifikasi'}
                     {ref.category === 'wcr_agronomy' && 'Riset Botani & Agronomi'}

@@ -64,12 +64,10 @@ export const WhatsNewModal: React.FC = () => {
           </button>
 
           <div className="flex items-center gap-2 mb-1.5">
-            <span className="font-mono text-[10px] tracking-widest text-cherry-700 font-bold uppercase bg-cherry-50 px-2.5 py-0.5 rounded border border-cherry-200">
-              [ CATATAN RILIS // CHERRY EDU v1.2 ]
+            <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+              Catatan Rilis • CherryEdu v1.2
             </span>
-            <span className="font-mono text-[10px] text-emerald-800 bg-emerald-50 border border-emerald-300 px-2 py-0.5 rounded font-bold">
-              Versi Terbaru
-            </span>
+            <span className="font-mono text-xs text-roast-400">• Versi Terbaru</span>
           </div>
 
           <h2 id="whats-new-modal-title" className="font-serif text-2xl sm:text-3xl font-bold text-roast-950 tracking-tight">

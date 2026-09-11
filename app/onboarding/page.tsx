@@ -186,11 +186,11 @@ export default function OnboardingPage() {
             {/* Step Indicator Ledger */}
             <div className="flex items-center justify-between gap-4 pb-4 mb-6 border-b border-paper-300 font-mono">
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-cherry-700 bg-cherry-50 px-2 py-0.5 border border-cherry-200">
-                  [ DIAGNOSIS MINAT ]
+                <span className="font-mono text-xs font-bold uppercase tracking-widest text-cherry-800">
+                  Diagnosis Minat
                 </span>
-                <span className="text-[11px] text-roast-500 uppercase">
-                  PERTANYAAN {currentStep + 1} DARI {QUESTIONS.length}
+                <span className="text-[11px] text-roast-400 uppercase">
+                  • Pertanyaan {currentStep + 1} dari {QUESTIONS.length}
                 </span>
               </div>
 
@@ -276,8 +276,8 @@ export default function OnboardingPage() {
           /* Result Screen */
           <div className="py-4">
             <div className="text-center mb-8">
-              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-cherry-700 bg-cherry-50 px-2.5 py-1 border border-cherry-200">
-                [ HASIL ASESMEN SELESAI ]
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-cherry-800">
+                Hasil Asesmen Selesai
               </span>
 
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-roast-950 mt-3 mb-2 tracking-tight">
@@ -293,7 +293,7 @@ export default function OnboardingPage() {
               {/* Step 1: Foundation (Mandatory) */}
               <div className="bg-roast-950 text-paper-50 p-6 border border-roast-900 shadow-warm">
                 <div className="flex items-center justify-between font-mono text-[10px] font-bold text-crema-300 mb-2">
-                  <span>[ LANGKAH 1 — WAJIB FONDASI ]</span>
+                  <span>Langkah 1 • Wajib Fondasi</span>
                   <span className="border border-crema-500/40 px-2 py-0.5">7 MODUL INTI</span>
                 </div>
                 <h4 className="font-serif text-xl font-bold text-paper-50">
@@ -307,7 +307,7 @@ export default function OnboardingPage() {
               {/* Step 2: Recommended Specialization */}
               <div className="bg-paper-100 border-2 border-cherry-700 p-6 shadow-xs">
                 <div className="flex items-center justify-between font-mono text-[10px] font-bold text-cherry-700 mb-2">
-                  <span>[ LANGKAH 2 — SPESIALISASI TERPILIH ]</span>
+                  <span>Langkah 2 • Spesialisasi Terpilih</span>
                   <span className="bg-cherry-700 text-paper-50 px-2 py-0.5 uppercase">
                     REKOMENDASI 98% MATCH
                   </span>

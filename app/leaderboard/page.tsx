@@ -16,12 +16,10 @@ export default function LeaderboardPage() {
       {/* Header Ledger */}
       <div className="border-b border-paper-300 pb-8 mb-10">
         <div className="flex items-center gap-2 mb-3">
-          <span className="font-mono text-[10px] tracking-widest text-cherry-700 font-semibold uppercase bg-cherry-50 px-2 py-0.5 border border-cherry-200">
-            [ ACADEMY ROLL OF HONOUR — 2026 ]
+          <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+            Academy Roll of Honour — 2026
           </span>
-          <span className="font-mono text-[10px] text-roast-500 uppercase">
-            REGISTRI CAPAIAN KOMPETENSI
-          </span>
+          <span className="font-mono text-xs text-roast-400">• Registri Capaian Kompetensi</span>
         </div>
         <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-roast-950 tracking-tight">
           Tabel Kehormatan Pembelajar Kopi
@@ -37,8 +35,8 @@ export default function LeaderboardPage() {
         {/* 2nd Place (Silver) */}
         {topThree[1] && (
           <div className="order-2 sm:order-1 bg-paper-50 border border-paper-400 p-6 text-center shadow-xs relative">
-            <span className="font-mono text-[9px] uppercase tracking-widest text-roast-600 block mb-2 font-bold">
-              [ PERINGKAT II — PERAK ]
+            <span className="font-mono text-[10px] uppercase tracking-widest text-roast-600 block mb-2 font-bold">
+              Peringkat II • Perak
             </span>
             <img
               src={topThree[1].avatar_url}
@@ -60,8 +58,8 @@ export default function LeaderboardPage() {
         {/* 1st Place (Gold Medallion - Distinguished) */}
         {topThree[0] && (
           <div className="order-1 sm:order-2 bg-paper-100 border-2 border-crema-500 p-7 text-center shadow-warm relative -translate-y-2">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-crema-700 block mb-2 font-bold">
-              ★ [ PERINGKAT I — EMAS ] ★
+            <span className="font-mono text-xs uppercase tracking-widest text-crema-700 block mb-2 font-bold">
+              ★ Peringkat I • Emas ★
             </span>
             <img
               src={topThree[0].avatar_url}
@@ -83,8 +81,8 @@ export default function LeaderboardPage() {
         {/* 3rd Place (Bronze) */}
         {topThree[2] && (
           <div className="order-3 bg-paper-50 border border-paper-400 p-6 text-center shadow-xs relative">
-            <span className="font-mono text-[9px] uppercase tracking-widest text-amber-800 block mb-2 font-bold">
-              [ PERINGKAT III — PERUNGGU ]
+            <span className="font-mono text-[10px] uppercase tracking-widest text-amber-800 block mb-2 font-bold">
+              Peringkat III • Perunggu
             </span>
             <img
               src={topThree[2].avatar_url}
@@ -107,8 +105,8 @@ export default function LeaderboardPage() {
       {/* Full Registry Ledger */}
       <div className="bg-paper-50 border border-paper-300 shadow-xs">
         <div className="px-5 py-3.5 bg-paper-200 border-b border-paper-300 flex justify-between items-center font-mono text-[10px] font-bold uppercase tracking-wider text-roast-700">
-          <span>[ POSISI & PROFIL PEMBELAJAR ]</span>
-          <span>[ STREAK / AKUMULASI XP ]</span>
+          <span>Posisi & Profil Pembelajar</span>
+          <span>Streak & Akumulasi XP</span>
         </div>
 
         <div className="divide-y divide-paper-200">

@@ -243,14 +243,15 @@ export const FlavorWheel: React.FC = () => {
           {/* Header Bar */}
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 border-b border-paper-300">
             <div>
-              <div className="flex items-center gap-2 mb-1 flex-wrap">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 border border-cherry-200">
-                  DUAL SENSORY STANDARD
+              <div className="flex items-center gap-3 mb-1 flex-wrap">
+                <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+                  Dual Sensory Standard
                 </span>
-                <span className="font-mono text-[10px] text-roast-500">
+                <span className="text-roast-400 font-mono text-xs">•</span>
+                <span className="font-mono text-xs text-roast-600">
                   {standardType === 'international'
-                    ? 'STANDAR GLOBAL SCA & WORLD COFFEE RESEARCH'
-                    : 'STANDAR NASIONAL KOPI INDONESIA (SCAI / 5758 LAB)'}
+                    ? 'Standar Global SCA & World Coffee Research'
+                    : 'Standar Nasional Kopi Indonesia (SCAI / 5758 Lab)'}
                 </span>
               </div>
               <h3 className="font-serif font-black text-2xl sm:text-3xl text-roast-950">
@@ -642,15 +643,15 @@ export const FlavorWheel: React.FC = () => {
             <div className="lg:col-span-5 bg-roast-950 text-paper-50 p-6 rounded-xl border border-roast-900 shadow-subtle flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="pb-3 border-b border-roast-800">
-                  <span className="font-mono text-[9px] uppercase tracking-widest text-blue-400 block font-semibold">
-                    [ SPESIFIKASI ASAM ORGANIK ]
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-crema-400 block font-bold">
+                    Spesifikasi Asam Organik
                   </span>
                   <h4 className="font-serif font-bold text-2xl text-paper-50 mt-1">{selectedAcid.name}</h4>
-                  <span className="text-xs font-mono text-blue-300 font-semibold">{selectedAcid.chemicalName}</span>
+                  <span className="text-xs font-mono text-crema-300 font-semibold">{selectedAcid.chemicalName}</span>
                 </div>
 
                 <div>
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-blue-400 block mb-1 font-semibold">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-crema-400 block mb-1 font-semibold">
                     Persepsi Sensorik di Lidah:
                   </span>
                   <p className="text-xs text-paper-100 font-sans italic bg-roast-900 p-3 rounded border border-roast-800 leading-relaxed">

@@ -339,12 +339,10 @@ export function LocalFlavorLexicon() {
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
-                [ INDONESIAN PALATE SENSORY WHEEL ]
+              <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+                Indonesian Palate Sensory Wheel
               </span>
-              <span className="font-mono text-[10px] text-roast-500 bg-paper-200/70 px-2 py-0.5 rounded">
-                Leksikon Rasa Otentik Nusantara
-              </span>
+              <span className="font-mono text-xs text-roast-400">• Leksikon Rasa Otentik Nusantara</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-roast-950 tracking-tight">
               Leksikon Rasa Kopi Lokal Nusantara
@@ -477,7 +475,7 @@ export function LocalFlavorLexicon() {
           <div className="bg-paper-50 border border-paper-300 rounded-2xl p-5 sm:p-6 shadow-xs space-y-5">
             <div className="border-b border-paper-200 pb-4 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
+                <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
                   {activeItem.categoryLabel} • {activeItem.intensity} Intensity
                 </span>
                 <span className="font-mono text-xs text-roast-500">ID: #{activeItem.id}</span>

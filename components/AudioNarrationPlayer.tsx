@@ -339,12 +339,12 @@ export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
 
             <div>
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase font-bold tracking-wider text-cherry-900 bg-cherry-100/90 border border-cherry-200 px-2.5 py-0.5 rounded-full shadow-2xs">
-                  <Sparkles className="w-3 h-3 text-amber-600" />
+                <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase font-bold tracking-wider text-roast-900 bg-paper-200 border border-paper-300 px-2 py-0.5">
+                  <Sparkles className="w-3 h-3 text-crema-600" />
                   Mode Listen & Brew
                 </span>
-                <span className="inline-flex items-center gap-1 font-mono text-[10px] font-semibold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full">
-                  AI Neural Voice
+                <span className="inline-flex items-center gap-1 font-mono text-[10px] font-semibold text-roast-600 bg-paper-100 border border-paper-200 px-2 py-0.5">
+                  Neural Voice
                 </span>
                 {isPlaying && !isPaused && (
                   <span className="flex items-center gap-1.5 text-[10px] font-mono text-cherry-800 font-bold animate-pulse">

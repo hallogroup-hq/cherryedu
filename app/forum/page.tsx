@@ -81,12 +81,10 @@ export default function ForumPage() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <span className="font-mono text-[10px] tracking-widest text-cherry-700 font-semibold uppercase bg-cherry-50 px-2 py-0.5 border border-cherry-200">
-                [ VOL. 04 — FORUM KALIBRASI & WACANA ]
+              <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+                Vol. 04 — Forum Kalibrasi & Wacana
               </span>
-              <span className="font-mono text-[10px] text-roast-500 uppercase">
-                RUANG DISKUSI TERBUKA HULU-HILIR
-              </span>
+              <span className="font-mono text-xs text-roast-400">• Ruang Diskusi Terbuka Hulu-Hilir</span>
             </div>
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-roast-950 tracking-tight">
               Forum Kalibrasi & Pertukaran Wawasan
@@ -121,8 +119,8 @@ export default function ForumPage() {
         >
           <div className="flex justify-between items-center pb-3 border-b border-paper-300">
             <div>
-              <span className="font-mono text-[10px] uppercase text-cherry-700 tracking-wider block font-semibold">
-                [ ENTRY BARU ]
+              <span className="font-mono text-xs uppercase text-cherry-800 tracking-wider block font-bold">
+                Entry Baru
               </span>
               <h3 className="font-serif text-lg font-bold text-roast-950">
                 Terbitkan Topik Kalibrasi / Pertanyaan
@@ -256,7 +254,7 @@ export default function ForumPage() {
                       </span>
                       {post.author_role === 'expert' ? (
                         <span className="font-mono text-[9px] uppercase tracking-widest px-1.5 py-0.5 bg-roast-950 text-crema-300 font-bold border border-roast-900">
-                          [ Q-GRADER VERIFIED ]
+                          Q-Grader Verified
                         </span>
                       ) : (
                         <span className="font-mono text-[9px] uppercase tracking-wider text-roast-500 bg-paper-200 px-1.5 py-0.5">
@@ -276,12 +274,12 @@ export default function ForumPage() {
 
                 <div className="flex items-center gap-2">
                   {post.is_pinned && (
-                    <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase font-bold text-cherry-700 bg-cherry-50 px-2 py-0.5 border border-cherry-200">
-                      <Pin className="w-3 h-3" /> DISEMATKAN
+                    <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase font-bold text-cherry-800">
+                      <Pin className="w-3 h-3 text-cherry-700" /> Disematkan
                     </span>
                   )}
                   <span className="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 bg-paper-200 text-roast-700 border border-paper-300">
-                    [ {post.category.replace('_', ' ')} ]
+                    {post.category.replace('_', ' ')}
                   </span>
                 </div>
               </div>
@@ -290,7 +288,7 @@ export default function ForumPage() {
               <h2 className="font-serif text-xl sm:text-2xl font-bold text-roast-950 mb-3 leading-snug tracking-tight">
                 {post.title}
               </h2>
-              <p className="font-sans text-xs sm:text-sm text-roast-800 leading-relaxed whitespace-pre-line mb-6">
+              <p className="font-sans text-xs sm:text-sm text-roast-800 leading-relaxed whitespace-pre-line">
                 {post.content}
               </p>
 
@@ -300,11 +298,11 @@ export default function ForumPage() {
                   onClick={() => toggleLike(post.id, 'post')}
                   className={`inline-flex items-center gap-1.5 px-3 py-1.5 border transition-colors ${
                     liked
-                      ? 'bg-cherry-50 border-cherry-300 text-cherry-700 font-bold'
+                      ? 'bg-paper-200 border-paper-400 text-roast-950 font-bold'
                       : 'bg-paper-100 border-paper-300 text-roast-700 hover:border-roast-800'
                   }`}
                 >
-                  <ThumbsUp className={`w-3.5 h-3.5 ${liked ? 'fill-cherry-700' : ''}`} />
+                  <ThumbsUp className={`w-3.5 h-3.5 ${liked ? 'fill-roast-900' : ''}`} />
                   <span>{post.likes_count} Suka</span>
                 </button>
 
@@ -321,7 +319,7 @@ export default function ForumPage() {
               {postComments.length > 0 && (
                 <div className="mt-6 pt-6 border-t border-paper-300/80 space-y-3">
                   <div className="font-mono text-[10px] uppercase tracking-wider text-roast-500 font-semibold mb-2">
-                    [ ARSIP TANGGAPAN & CATATAN KURATOR ]
+                    Arsip Tanggapan & Catatan Kurator
                   </div>
                   {postComments.map((comm) => (
                     <div

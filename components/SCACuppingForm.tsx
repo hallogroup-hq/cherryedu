@@ -302,16 +302,16 @@ export function SCACuppingForm() {
     const totalScore = Math.max(0, Math.min(100, Number((hedonicSum + (cupBonus - 30) - defectPenalty).toFixed(2))));
 
     let gradeTitle = 'Below Specialty Grade / Commercial';
-    let gradeBadgeColor = 'bg-rose-100 text-rose-800 border-rose-300';
+    let gradeBadgeColor = 'bg-paper-100 text-roast-600 border-paper-300';
     if (totalScore >= 90.0) {
       gradeTitle = 'Exemplary / COE Superlative (Kopi Istimewa Langka)';
-      gradeBadgeColor = 'bg-purple-100 text-purple-900 border-purple-300';
+      gradeBadgeColor = 'bg-roast-950 text-paper-50 border-roast-900 shadow-xs';
     } else if (totalScore >= 85.0) {
       gradeTitle = 'Outstanding Specialty Coffee (Luar Biasa / Micro-lot)';
-      gradeBadgeColor = 'bg-emerald-100 text-emerald-900 border-emerald-300';
+      gradeBadgeColor = 'bg-paper-200 text-roast-950 border-paper-400 font-bold';
     } else if (totalScore >= 80.0) {
       gradeTitle = 'Very Good Specialty Coffee (Sangat Baik / Single Origin)';
-      gradeBadgeColor = 'bg-amber-100 text-amber-900 border-amber-300';
+      gradeBadgeColor = 'bg-paper-100 text-roast-900 border-paper-300 font-semibold';
     }
 
     return {
@@ -382,16 +382,17 @@ export function SCACuppingForm() {
         <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-cherry-700/5 blur-3xl pointer-events-none" />
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
           <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
-                [ PROTOKOL TERBARU DUNIA: SCA COFFEE VALUE ASSESSMENT (CVA) ]
+            <div className="flex items-center gap-3 mb-1">
+              <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+                SCA Coffee Value Assessment (CVA) Protocol
               </span>
-              <span className="font-mono text-[10px] text-roast-500 bg-paper-200/70 px-2 py-0.5 rounded">
-                Standar Cupping Resmi 2024–2026
+              <span className="text-roast-400 font-mono text-xs">•</span>
+              <span className="font-mono text-xs text-roast-600">
+                Standar Cupping Resmi SCA
               </span>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-roast-950 tracking-tight">
-              SCA Coffee Value Assessment (CVA) Sensory Sheet
+              SCA Cupping Sheet (Standar CVA SCA)
             </h2>
             <p className="text-xs sm:text-sm text-roast-600 max-w-2xl leading-relaxed">
               Standar evaluasi rasa kopi global resmi dari Specialty Coffee Association. Memisahkan evaluasi objektif (<strong>Descriptive</strong>) dari preferensi mutu (<strong>Affective</strong>) demi akurasi dan objektivitas tertinggi.
@@ -857,7 +858,7 @@ export function SCACuppingForm() {
             <div className="flex items-center justify-between border-b border-roast-800 pb-4">
               <div>
                 <span className="font-mono text-[9px] uppercase tracking-widest text-crema-300 font-bold block">
-                  [ HASIL AKHIR EVALUASI RESMI ]
+                  Hasil Akhir Evaluasi Resmi
                 </span>
                 <h3 className="font-serif text-lg font-bold text-paper-50">SCA CVA Total Score</h3>
               </div>

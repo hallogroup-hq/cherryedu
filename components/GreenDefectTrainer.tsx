@@ -341,11 +341,12 @@ export function GreenDefectTrainer() {
         <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-cherry-700/5 blur-3xl pointer-events-none" />
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
           <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
-                [ STANDAR FISIK BIJI: SCA & SNI 01-2907-2008 ]
+            <div className="flex items-center gap-3 mb-1">
+              <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+                Standar Fisik Biji: SCA & SNI 01-2907-2008
               </span>
-              <span className="font-mono text-[10px] text-roast-500 bg-paper-200/70 px-2 py-0.5 rounded">
+              <span className="text-roast-400 font-mono text-xs">•</span>
+              <span className="font-mono text-xs text-roast-600">
                 Sample 350 Gram Protocol
               </span>
             </div>
@@ -545,8 +546,8 @@ export function GreenDefectTrainer() {
           <div className="lg:col-span-7 bg-paper-50 border border-paper-300 rounded-2xl p-5 sm:p-6 shadow-xs space-y-5">
             <div className="flex items-center justify-between border-b border-paper-200 pb-3">
               <div>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-cherry-700 font-bold block">
-                  [ PROTOKOL SAMPLING RESMI: 350 GRAM ]
+                <span className="font-mono text-[10px] uppercase tracking-wider text-cherry-800 font-bold block">
+                  Protokol Sampling Resmi: 350 Gram
                 </span>
                 <h3 className="font-serif text-lg font-bold text-roast-950">
                   Formulir Hitung Cacat Sampel Green Bean
@@ -632,7 +633,7 @@ export function GreenDefectTrainer() {
               <div className="flex items-center justify-between border-b border-roast-800 pb-4">
                 <div>
                   <span className="font-mono text-[9px] uppercase tracking-widest text-crema-300 font-bold block">
-                    [ PENETAPAN KELAS MUTU RESMI ]
+                    Penetapan Kelas Mutu Resmi
                   </span>
                   <h3 className="font-serif text-lg font-bold text-paper-50">Hasil Penilaian Sampel 350g</h3>
                 </div>

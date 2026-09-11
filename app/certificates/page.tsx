@@ -18,12 +18,10 @@ export default function CertificatesGalleryPage() {
       {/* Header Ledger */}
       <div className="border-b border-paper-300 pb-8 mb-10">
         <div className="flex items-center gap-2 mb-3">
-          <span className="font-mono text-[10px] tracking-widest text-cherry-700 font-semibold uppercase bg-cherry-50 px-2 py-0.5 border border-cherry-200">
-            [ PORTFOLIO DIPLOMA & KREDENSIAL RESMI ]
+          <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+            Portfolio Diploma & Kredensial Resmi
           </span>
-          <span className="font-mono text-[10px] text-roast-500 uppercase">
-            REGISTRASI KOMPETENSI KOPI
-          </span>
+          <span className="font-mono text-xs text-roast-400">• Registrasi Kompetensi Kopi</span>
         </div>
         <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-roast-950 tracking-tight">
           Koleksi Sertifikat Kelulusan
@@ -39,8 +37,8 @@ export default function CertificatesGalleryPage() {
           <div className="w-12 h-12 border border-paper-400 bg-paper-200 text-roast-600 flex items-center justify-center mx-auto mb-4">
             <Award className="w-6 h-6" />
           </div>
-          <span className="font-mono text-[10px] uppercase tracking-widest text-roast-500 block font-semibold mb-1">
-            [ PORTAL KREDENSIAL PEMBELAJAR ]
+          <span className="font-mono text-xs uppercase tracking-widest text-roast-500 block font-bold mb-1">
+            Portal Kredensial Pembelajar
           </span>
           <h3 className="font-serif text-xl font-bold text-roast-950 mb-2">
             Masuk untuk Melihat Sertifikat Anda
@@ -80,8 +78,8 @@ export default function CertificatesGalleryPage() {
           <div className="w-12 h-12 border border-paper-400 bg-paper-200 text-roast-600 flex items-center justify-center mx-auto mb-4">
             <Award className="w-6 h-6" />
           </div>
-          <span className="font-mono text-[10px] uppercase tracking-widest text-roast-500 block font-semibold mb-1">
-            [ BELUM ADA DIPLOMA TERBIT ]
+          <span className="font-mono text-xs uppercase tracking-widest text-roast-500 block font-bold mb-1">
+            Belum Ada Diploma Terbit
           </span>
           <h3 className="font-serif text-xl font-bold text-roast-950 mb-2">
             Dokumen Kelulusan Belum Tersedia

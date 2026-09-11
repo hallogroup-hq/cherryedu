@@ -93,8 +93,8 @@ export const WaterCalculator: React.FC = () => {
       {/* Header Ledger */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-l-2 border-cherry-700 pl-4 py-1">
         <div>
-          <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-semibold block">
-            [ APPARATUS 06 — WATER RECIPE & MINERAL LAB ]
+          <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold block mb-1">
+            Apparatus 06 • Water Recipe & Mineral Lab
           </span>
           <h3 className="font-serif text-xl sm:text-2xl font-bold text-roast-950">
             Sains Rekayasa Air Seduh Spesialti (Water Chemistry)
@@ -273,8 +273,8 @@ export const WaterCalculator: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
               {/* Buffer Bottle */}
               <div className="bg-paper-100 p-4 border border-paper-300 space-y-1">
-                <span className="font-mono text-[10px] text-cherry-700 uppercase tracking-wider block font-bold">
-                  [ BOTOL A — BUFFER BIKARBONAT ]
+                <span className="font-mono text-[10px] text-cherry-800 uppercase tracking-wider block font-bold">
+                  Botol A • Buffer Bikarbonat
                 </span>
                 <div className="flex items-baseline gap-2">
                   <span className="text-3xl font-serif font-black text-roast-950">
@@ -289,8 +289,8 @@ export const WaterCalculator: React.FC = () => {
 
               {/* Hardness Bottle */}
               <div className="bg-paper-100 p-4 border border-paper-300 space-y-1">
-                <span className="font-mono text-[10px] text-emerald-800 uppercase tracking-wider block font-bold">
-                  [ BOTOL B — HARDNESS MAGNESIUM ]
+                <span className="font-mono text-[10px] text-roast-700 uppercase tracking-wider block font-bold">
+                  Botol B • Hardness Magnesium
                 </span>
                 <div className="flex items-baseline gap-2">
                   <span className="text-3xl font-serif font-black text-roast-950">
@@ -321,8 +321,8 @@ export const WaterCalculator: React.FC = () => {
 
           {/* How to Make the 2 Stock Concentrate Bottles Reference Ledger */}
           <div className="bg-roast-950 text-paper-100 p-6 sm:p-8 border border-roast-900 space-y-4">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-crema-300 font-bold block">
-              [ PANDUAN MEMBUAT 2 BOTOL KONSENTRAT INDUK (STOCK SOLUTION) ]
+            <span className="font-mono text-xs uppercase tracking-widest text-crema-400 font-bold block">
+              Panduan Membuat 2 Botol Konsentrat Induk (Stock Solution)
             </span>
             <p className="font-sans text-xs text-paper-300 leading-relaxed">
               Dua botol ini hanya perlu diracik sekali dan tahan digunakan untuk berbulan-bulan (cukup disimpan dalam botol kaca gelap tertutup):

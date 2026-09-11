@@ -309,12 +309,10 @@ export default function OpenDataPage() {
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
-                [ INDONESIA COFFEE OPEN DATA ECOSYSTEM ]
+              <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+                Indonesia Coffee Open Data Ecosystem
               </span>
-              <span className="font-mono text-[10px] text-roast-500 bg-paper-200/70 px-2 py-0.5 rounded">
-                BPS & Ditjenbun Integrated 2026
-              </span>
+              <span className="font-mono text-xs text-roast-400">• BPS & Ditjenbun Integrated 2026</span>
             </div>
             <h1 className="font-serif text-2xl sm:text-4xl font-bold text-roast-950 tracking-tight">
               Dashboard Data Terbuka Perkopian Nasional
@@ -367,8 +365,8 @@ export default function OpenDataPage() {
       <div className="space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <span className="font-mono text-[10px] uppercase tracking-wider text-cherry-700 font-bold block">
-              [ TREN HARGA TINGKAT PETANI & PASAR (2025–2026) ]
+            <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold block">
+              Tren Harga Tingkat Petani & Pasar (2025–2026)
             </span>
             <h2 className="font-serif text-xl sm:text-2xl font-bold text-roast-950">
               Rally Harga Komoditas Kopi Nasional (IDR / kg)
@@ -584,8 +582,8 @@ export default function OpenDataPage() {
       <div className="space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <span className="font-mono text-[10px] uppercase tracking-wider text-cherry-700 font-bold block">
-              [ AGREGAT PRODUKSI WILAYAH ]
+            <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold block">
+              Agregat Produksi Wilayah
             </span>
             <h2 className="font-serif text-xl sm:text-2xl font-bold text-roast-950">
               Sebaran Produksi Kopi 10 Provinsi Terbesar

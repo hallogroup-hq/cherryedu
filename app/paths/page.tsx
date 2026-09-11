@@ -132,12 +132,12 @@ export default function PathsPage() {
                 {/* Content */}
                 <div className="p-6 space-y-3">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold block">
-                      [ {path.target_role === 'all'
-                        ? 'FONDASI HULU KE HILIR'
+                    <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold block">
+                      {path.target_role === 'all'
+                        ? 'Fondasi Hulu ke Hilir'
                         : path.target_role === 'barista'
-                        ? 'SPESIALISASI BARISTA'
-                        : 'SPESIALISASI HOME BREWER'} ]
+                        ? 'Spesialisasi Barista'
+                        : 'Spesialisasi Home Brewer'}
                     </span>
                   </div>
 

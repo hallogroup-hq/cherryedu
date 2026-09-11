@@ -185,10 +185,10 @@ export const CoffeeCompass: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-paper-300/80 pb-5">
           <div>
             <div className="flex items-center gap-2 mb-1.5">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-100 px-2 py-0.5 rounded border border-cherry-200">
-                [ EXTRACTION COMPASS // TROUBLESHOOTING ENGINE ]
+              <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+                Extraction Compass • Troubleshooting Engine
               </span>
-              <span className="text-[10px] font-mono text-roast-500 hidden sm:inline">• Kaidah Ekstraksi Barista Hustle</span>
+              <span className="text-xs font-mono text-roast-400 hidden sm:inline">• Kaidah Ekstraksi Barista Hustle</span>
             </div>
             <h3 className="font-serif text-xl sm:text-2xl font-bold text-roast-950">
               Interactive Coffee Brewing Compass

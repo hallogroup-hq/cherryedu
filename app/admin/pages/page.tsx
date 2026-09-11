@@ -359,8 +359,8 @@ export default function PageBuilderAdminPage() {
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 border border-cherry-200">
-              MULTI-PAGE BUILDER & CMS
+            <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+              Multi-Page Builder & CMS
             </span>
             <span className="font-mono text-[10px] text-roast-500">
               6 HALAMAN UTAMA TERHUBUNG

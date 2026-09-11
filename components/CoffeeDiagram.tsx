@@ -464,7 +464,7 @@ export const CoffeeDiagram: React.FC<CoffeeDiagramProps> = ({ type, caption }) =
                   <div className="p-3 bg-white rounded border-l-4 border-l-cherry-700 border border-paper-200">
                     <div className="flex justify-between items-center mb-1">
                       <span className="font-bold text-roast-900">FASE 2: TEXTURING / ROLLING</span>
-                      <span className="font-mono text-[10px] text-cherry-700 bg-cherry-50 px-1.5 py-0.5 rounded font-bold">37°C - 65°C</span>
+                      <span className="font-mono text-[10px] text-roast-700 bg-paper-100 border border-paper-200 px-1.5 py-0.5 rounded font-bold">37°C - 65°C</span>
                     </div>
                     <p className="text-roast-600 text-[11px]">
                       Tenggelamkan tip 1 cm lebih dalam. Matikan suara desis. Pusaran vortex melipat dan menghancurkan gelembung besar menjadi kilau *microfoam sutra wet paint*.
@@ -698,8 +698,8 @@ export const CoffeeDiagram: React.FC<CoffeeDiagramProps> = ({ type, caption }) =
                   INFOGRAFIS: PETA 6 TITIK KRITIS RANTAI NILAI KOPI SPECIALTY
                 </span>
               </div>
-              <span className="font-mono text-[10px] text-cherry-700 uppercase bg-cherry-50 px-2.5 py-0.5 rounded border border-cherry-200 font-bold self-start sm:self-auto">
-                Dari Pohon ke Cangkir
+              <span className="font-mono text-xs text-roast-500 uppercase tracking-wider font-semibold self-start sm:self-auto">
+                • Dari Pohon ke Cangkir
               </span>
             </div>
 

@@ -95,11 +95,12 @@ export default function PathDetailPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <div className="md:col-span-8 space-y-4">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-semibold bg-cherry-50 px-2 py-0.5 border border-cherry-200">
-                  {path.layer_type === 'foundation' ? '[ FOUNDATION LAYER • WAJIB ]' : '[ SPECIALIZATION TRACK ]'}
+              <div className="flex items-center gap-3 mb-1">
+                <span className="font-mono text-xs uppercase tracking-widest font-bold text-cherry-800">
+                  {path.layer_type === 'foundation' ? 'Foundation Layer • Wajib' : 'Specialization Track'}
                 </span>
-                <span className="font-mono text-xs text-roast-500 uppercase">
+                <span className="text-roast-400 font-mono text-xs">•</span>
+                <span className="font-mono text-xs text-roast-600">
                   Tingkat: <strong className="text-roast-900 font-bold">{path.level}</strong>
                 </span>
               </div>
@@ -172,7 +173,7 @@ export default function PathDetailPage() {
                   {!prereqCheck.allowed ? (
                     <div className="space-y-2.5">
                       <div className="p-3.5 bg-paper-100 border border-paper-300 font-mono text-[11px] text-roast-700 leading-relaxed">
-                        <strong className="text-roast-950 block mb-1 font-bold">[ PRASYARAT WAJIB ]</strong>
+                        <strong className="text-roast-950 block mb-1 font-bold">Prasyarat Wajib</strong>
                         Selesaikan 7 modul di Foundation Layer terlebih dahulu untuk membuka jalur spesialisasi ini.
                       </div>
                       <Link
@@ -241,7 +242,7 @@ export default function PathDetailPage() {
                   className="w-full p-5 flex items-center justify-between text-left hover:bg-paper-100/50 transition-colors"
                 >
                   <div className="flex items-start gap-4">
-                    <span className="font-mono text-xs font-bold text-cherry-700 bg-cherry-50 px-2.5 py-1 border border-cherry-200 shrink-0 mt-0.5">
+                    <span className="font-mono text-xs font-bold text-roast-900 bg-paper-200 px-2.5 py-1 border border-paper-300 shrink-0 mt-0.5">
                       {String(mIdx + 1).padStart(2, '0')}
                     </span>
                     <div>
@@ -307,7 +308,7 @@ export default function PathDetailPage() {
                     ) : (
                       <div className="p-4 bg-paper-100/60 border border-dashed border-paper-300 font-mono text-xs text-roast-600 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                         <div className="flex items-center gap-2">
-                          <span className="font-bold text-cherry-700">[ KURIKULUM PRAKTIK ]</span>
+                          <span className="font-bold text-cherry-800">Kurikulum Praktik:</span>
                           <span className="font-sans text-xs">Materi modul ini sedang dalam proses penyusunan masterclass bersama tim roastery.</span>
                         </div>
                         <span className="text-[9px] uppercase tracking-widest px-2 py-0.5 bg-paper-200 border border-paper-300 text-roast-500 font-bold self-start sm:self-auto">
@@ -349,7 +350,7 @@ export default function PathDetailPage() {
           <div className="mt-10 bg-roast-950 text-paper-50 p-8 shadow-warm border-2 border-crema-500/60 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
             <div className="space-y-2 text-center sm:text-left">
               <span className="font-mono text-[10px] uppercase tracking-widest text-crema-300 font-bold block">
-                [ UJIAN AKHIR KELULUSAN RESMI ]
+                Ujian Akhir Kelulusan Resmi
               </span>
               <h3 className="text-2xl font-serif font-black text-white">
                 {finalExam.title}

@@ -165,10 +165,10 @@ const TOOLS_CATALOG: ToolDef[] = [
   {
     id: 'cupping-sheet',
     domainId: 'sensory-cupping',
-    label: 'SCA Coffee Value Assessment (CVA)',
-    shortLabel: 'SCA CVA Form',
-    badge: 'Standar Resmi SCA',
-    tagline: 'Protokol cupping SCA terbaru dengan penilaian Descriptive (0-15), Affective, dan matriks 5 cangkir.',
+    label: 'SCA Cupping Sheet (Standar CVA SCA)',
+    shortLabel: 'SCA Cupping Sheet',
+    badge: 'Standar Resmi CVA',
+    tagline: 'Form uji rasa standar SCA terbaru (CVA 2024–2026) dengan lembar penilaian Descriptive (0-15), Affective, dan matriks 5 cangkir.',
     icon: ClipboardCheck,
   },
   {
@@ -472,9 +472,12 @@ function ToolsPageContent() {
 
   // Sync with ?tab= or ?tool= URL parameter
   useEffect(() => {
-    const tabParam = searchParams.get('tab') || searchParams.get('tool');
-    if (tabParam && TOOLS_CATALOG.some((t) => t.id === tabParam)) {
-      setActiveTool(tabParam as ToolId);
+    const rawParam = searchParams.get('tab') || searchParams.get('tool');
+    if (rawParam) {
+      const tabParam = rawParam === 'cupping' ? 'cupping-sheet' : rawParam;
+      if (TOOLS_CATALOG.some((t) => t.id === tabParam)) {
+        setActiveTool(tabParam as ToolId);
+      }
     }
   }, [searchParams]);
 
@@ -534,11 +537,12 @@ function ToolsPageContent() {
       <div className="border-b border-paper-300 pb-6 mb-6 sm:mb-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-widest font-bold bg-cherry-100 text-cherry-900 border border-cherry-200">
-                15 INSTRUMEN RESMI
+            <div className="flex items-center gap-3 mb-2">
+              <span className="font-mono text-xs uppercase tracking-widest font-bold text-cherry-800">
+                15 Instrumen Resmi
               </span>
-              <span className="text-[10px] font-mono text-roast-500">Standar SCA & CQI</span>
+              <span className="text-roast-400 font-mono text-xs">•</span>
+              <span className="font-mono text-xs text-roast-600">Standar SCA & CQI</span>
             </div>
             <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold text-roast-950 tracking-tight">
               Laboratorium Seduh & Riset Kopi
@@ -546,6 +550,33 @@ function ToolsPageContent() {
             <p className="mt-2 text-xs sm:text-sm text-roast-700 max-w-2xl leading-relaxed">
               Instrumen presisi untuk kalibrasi seduhan di bar atau meja uji, leksikon roda rasa SCA, kompendium botani varietas kopi, formulasi air mineral, dan lembar cupping digital.
             </p>
+
+            {/* Quick Flagship Bar for 1-Click Access */}
+            <div className="flex flex-wrap items-center gap-1.5 pt-3">
+              <span className="font-mono text-[10px] uppercase tracking-wider text-roast-500 mr-1">
+                Akses Cepat:
+              </span>
+              {[
+                { id: 'calculator', label: 'Kalkulator Rasio' },
+                { id: 'cupping-sheet', label: 'SCA Cupping Sheet' },
+                { id: 'flavor-wheel', label: 'Roda Rasa SCA' },
+                { id: 'roast-simulator', label: 'Roast Simulator' },
+                { id: 'blend-designer', label: 'Blend Designer' },
+                { id: 'atlas', label: 'Atlas Nusantara' },
+              ].map((quick) => (
+                <button
+                  key={quick.id}
+                  onClick={() => handleSelectTool(quick.id as ToolId)}
+                  className={`font-mono text-[11px] px-2.5 py-1 rounded-md transition-colors border ${
+                    activeTool === quick.id
+                      ? 'bg-roast-950 text-paper-50 border-roast-950 font-bold'
+                      : 'bg-paper-100 hover:bg-paper-200 text-roast-700 border-paper-300'
+                  }`}
+                >
+                  {quick.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Quick Catalogue Action Button */}
@@ -653,12 +684,12 @@ function ToolsPageContent() {
             <ActiveIcon className="w-5 h-5 text-crema-300" />
           </div>
           <div className="min-w-0">
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="font-mono text-[9px] uppercase tracking-wider text-cherry-700 font-bold">
-                [ DOMAIN: {activeDomain.name.toUpperCase()} ]
+            <div className="flex items-center gap-2 flex-wrap mb-1">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-800 font-bold">
+                Domain: {activeDomain.name}
               </span>
               <span className="text-[10px] text-roast-400">•</span>
-              <span className="text-[10px] font-mono text-roast-600 bg-paper-200/80 px-2 py-0.5 rounded">
+              <span className="text-[10px] font-mono text-roast-600 font-medium">
                 {activeToolDef.badge}
               </span>
             </div>
@@ -816,8 +847,8 @@ function ToolsPageContent() {
           {/* Header Description */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-l-2 border-cherry-700 pl-4 py-1">
             <div>
-              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-semibold block">
-                [ AGROCLIMATIC COMPENDIUM NUSANTARA ]
+              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-800 font-bold block">
+                Agroclimatic Compendium Nusantara
               </span>
               <h3 className="font-serif text-xl sm:text-2xl font-bold text-roast-950">
                 Peta Karakteristik Origin Kopi Indonesia (19 Wilayah Utama)
@@ -912,7 +943,7 @@ function ToolsPageContent() {
                   <div className="absolute inset-0 bg-gradient-to-t from-roast-950/95 via-roast-950/30 to-transparent" />
                   <div className="absolute bottom-3 left-4 right-4 text-paper-50">
                     <span className="font-mono text-[9px] uppercase tracking-widest text-crema-300 block font-semibold">
-                      [ GUGUSAN: {region.island} ]
+                      Gugusan: {region.island}
                     </span>
                     <h4 className="font-serif text-xl font-bold text-paper-50 leading-tight">{region.name}</h4>
                     <span className="text-[11px] text-paper-200 font-sans block mt-0.5 opacity-90">
@@ -952,8 +983,8 @@ function ToolsPageContent() {
                   </div>
 
                   <div className="pt-3 border-t border-paper-300 bg-paper-100/50 -mx-5 -mb-5 p-4 mt-3">
-                    <span className="font-mono text-[9px] uppercase tracking-wider text-cherry-700 block mb-1 font-bold">
-                      [ SENSORY NOTES / CUPPING PROFILE ]
+                    <span className="font-mono text-[9px] uppercase tracking-wider text-cherry-800 block mb-1 font-bold">
+                      Sensory Notes & Cupping Profile
                     </span>
                     <p className="font-serif italic text-roast-950 text-xs leading-relaxed font-medium">
                       &ldquo;{region.flavorNotes}&rdquo;

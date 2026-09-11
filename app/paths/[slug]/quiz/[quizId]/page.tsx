@@ -110,8 +110,8 @@ export default function QuizPage() {
               <span>Kembali ke Silabus: {path.title}</span>
             </Link>
             <div className="flex items-center gap-2 mb-1">
-              <span className="font-mono text-[9px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-1.5 py-0.5 border border-cherry-200">
-                [ RUANG UJI KOMPETENSI RESMI ]
+              <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+                Ruang Uji Kompetensi Resmi
               </span>
             </div>
             <h1 className="text-xl sm:text-2xl font-serif font-black text-roast-950">
@@ -140,7 +140,7 @@ export default function QuizPage() {
           {/* Question Index Bar */}
           <div className="flex flex-wrap items-center justify-between gap-2 pb-5 mb-6 border-b border-paper-200">
             <span className="font-mono text-xs font-bold text-cherry-800 uppercase tracking-wider">
-              [ BUTIR SOAL {currentQIndex + 1} DARI {quizQuestions.length} ]
+              Butir Soal {currentQIndex + 1} dari {quizQuestions.length}
             </span>
             <div className="flex flex-wrap gap-1.5">
               {quizQuestions.map((q, idx) => {
@@ -241,7 +241,7 @@ export default function QuizPage() {
                   : 'bg-rose-950 text-rose-100 border-rose-800'
               }`}
             >
-              {result?.passed ? '[ STATUS: LULUS KOMPETENSI RESMI ]' : '[ STATUS: BELUM MEMENUHI STANDAR ]'}
+              {result?.passed ? 'Status: Lulus Kompetensi Resmi' : 'Status: Belum Memenuhi Standar'}
             </span>
 
             <h2 className="text-4xl sm:text-5xl font-serif font-black text-roast-950 mt-4 mb-2">
@@ -257,8 +257,8 @@ export default function QuizPage() {
             {/* Certificate Unlock Card */}
             {result?.certificateEarned && (
               <div className="my-8 p-6 bg-roast-950 text-paper-50 text-left border-2 border-crema-500/60 shadow-warm animate-in fade-in slide-in-from-bottom-3 duration-500 delay-150 fill-mode-both ease-out-strong">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-crema-300 font-bold block mb-1">
-                  [ DIPLOMA KELULUSAN RESMI DITERBITKAN ]
+                <span className="font-mono text-xs uppercase tracking-widest text-crema-400 font-bold block mb-1">
+                  Diploma Kelulusan Resmi Diterbitkan
                 </span>
                 <h3 className="font-serif font-bold text-xl text-white">
                   {result.certificateEarned.path_title}

@@ -297,6 +297,31 @@ export default function HomePage() {
                   </div>
 
                   <BrewCalculator />
+
+                  <div className="mt-8 p-4 sm:p-5 bg-paper-100/80 border border-paper-300 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="text-center sm:text-left">
+                      <span className="font-serif font-bold text-sm sm:text-base text-roast-950 block">
+                        Butuh lembar uji rasa profesional atau simulasi sangrai?
+                      </span>
+                      <span className="font-sans text-xs text-roast-600 mt-0.5 block">
+                        Gunakan SCA Cupping Sheet (CVA Standards), Sensory Flavor Wheel, Simulator Roasting Drum, dan 15 instrumen presisi lainnya.
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <Link
+                        href="/tools?tab=cupping-sheet"
+                        className="px-3.5 py-2 bg-roast-950 hover:bg-cherry-800 text-paper-50 rounded-lg font-mono text-xs font-semibold transition-colors"
+                      >
+                        Buka SCA Cupping Sheet &rarr;
+                      </Link>
+                      <Link
+                        href="/tools"
+                        className="px-3 py-2 bg-paper-50 hover:bg-paper-200 text-roast-800 border border-paper-300 rounded-lg font-mono text-xs transition-colors"
+                      >
+                        Semua Alat
+                      </Link>
+                    </div>
+                  </div>
                 </section>
               );
             }

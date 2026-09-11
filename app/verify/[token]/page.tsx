@@ -34,9 +34,9 @@ export default function PublicVerifyPage() {
             </div>
           </Link>
 
-          <span className="font-mono text-xs text-crema-300 flex items-center gap-1.5 self-start sm:self-auto">
+          <span className="font-mono text-xs text-crema-300 flex items-center gap-1.5 self-start sm:self-auto font-bold uppercase tracking-wider">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>[ PROTOKOL VERIFIKASI RESMI ]</span>
+            <span>Protokol Verifikasi Resmi</span>
           </span>
         </div>
 
@@ -75,8 +75,8 @@ export default function PublicVerifyPage() {
             <div className="w-12 h-12 border border-rose-400 bg-rose-50 text-rose-700 flex items-center justify-center mx-auto mb-4">
               <XCircle className="w-6 h-6" />
             </div>
-            <span className="font-mono text-[10px] uppercase tracking-widest text-rose-700 block font-bold mb-1">
-              [ KREDENSIAL TIDAK DITEMUKAN ]
+            <span className="font-mono text-xs uppercase tracking-widest text-rose-700 block font-bold mb-1">
+              Kredensial Tidak Ditemukan
             </span>
             <h2 className="font-serif text-xl font-bold text-roast-950 mb-2">
               Sertifikat Tidak Terdaftar

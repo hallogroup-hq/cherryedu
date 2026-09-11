@@ -289,7 +289,7 @@ export default function JobsPage() {
                         </div>
 
                         {job.requires_certificate && (
-                          <span className="font-mono text-[10px] uppercase tracking-wider px-2 py-1 rounded bg-cherry-50 border border-cherry-200 text-cherry-800 font-bold self-start">
+                          <span className="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-paper-200 border border-paper-300 text-roast-900 font-bold self-start">
                             Wajib Sertifikat CherryEdu
                           </span>
                         )}

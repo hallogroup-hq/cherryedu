@@ -284,11 +284,12 @@ export const CupAnatomyVisualizer: React.FC = () => {
       <div className="bg-paper-100/90 border border-paper-300 rounded-2xl p-4 sm:p-6 shadow-xs">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-paper-300/80 pb-5">
           <div>
-            <div className="flex items-center gap-2 mb-1.5">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-100 px-2 py-0.5 rounded border border-cherry-200">
-                [ DRINK ANATOMY // RATIO CROSS-SECTION ]
+            <div className="flex items-center gap-3 mb-1.5">
+              <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+                Drink Anatomy • Ratio Cross-Section
               </span>
-              <span className="text-[10px] font-mono text-roast-500 hidden sm:inline">• 12 Ragam Minuman Kafe Dunia</span>
+              <span className="text-roast-400 font-mono text-xs">•</span>
+              <span className="text-xs font-mono text-roast-600">12 Ragam Minuman Kafe Dunia</span>
             </div>
             <h3 className="font-serif text-xl sm:text-2xl font-bold text-roast-950">
               Visual Anatomi & Perbandingan Cangkir Kopi
@@ -377,7 +378,7 @@ export const CupAnatomyVisualizer: React.FC = () => {
           <div className="flex-1 space-y-4 text-xs font-sans w-full">
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-cherry-700 font-bold bg-cherry-50 px-2.5 py-0.5 rounded border border-cherry-200">
+                <span className="font-mono text-xs uppercase tracking-wider text-cherry-800 font-bold">
                   {primaryDrink.italianName}
                 </span>
                 <span className="font-mono text-[10px] text-roast-500">
@@ -452,7 +453,7 @@ export const CupAnatomyVisualizer: React.FC = () => {
             {/* Primary Drink Card */}
             <div className="bg-paper-50 border border-paper-300 rounded-2xl p-6 shadow-xs flex flex-col items-center text-center space-y-4">
               <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-cherry-700 font-bold bg-cherry-50 px-2.5 py-0.5 rounded border border-cherry-200">
+                <span className="font-mono text-xs uppercase tracking-wider text-cherry-800 font-bold">
                   {primaryDrink.italianName}
                 </span>
                 <h4 className="font-serif font-bold text-2xl text-roast-950">

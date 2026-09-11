@@ -132,8 +132,8 @@ export default function RegisterPage() {
         <div className="bg-white rounded-2xl shadow-elevated border border-paper-300 p-6 sm:p-8">
           <div className="flex items-center justify-between pb-4 mb-5 border-b border-paper-200">
             <h1 className="font-serif font-bold text-xl text-roast-950">Daftar Akun Baru</h1>
-            <span className="text-[10px] font-mono uppercase tracking-widest text-cherry-700 bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200 font-semibold">
-              +50 XP WELCOME BONUS
+            <span className="text-[10px] font-mono uppercase tracking-widest text-cherry-800 font-bold">
+              +50 XP Welcome Bonus
             </span>
           </div>
 

@@ -52,7 +52,7 @@ export const UserSwitcher: React.FC = () => {
               <span className="font-mono text-[10px] uppercase tracking-widest text-roast-500 font-bold">
                 PILIH PERSONA UJI COBA
               </span>
-              <span className="text-[10px] font-mono text-cherry-700 bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
+              <span className="text-[10px] font-mono text-roast-500">
                 Demo Switcher
               </span>
             </div>

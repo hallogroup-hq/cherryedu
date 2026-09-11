@@ -106,7 +106,7 @@ export const SitePageRenderer: React.FC<SitePageRendererProps> = ({ sections, fa
                         )}
 
                         {d.cardAltitude && (
-                          <div className="mb-4 font-mono text-[11px] text-cherry-700 bg-cherry-50 px-2.5 py-1.5 rounded border border-cherry-200">
+                          <div className="mb-4 font-mono text-[11px] text-roast-900 bg-paper-100 px-2.5 py-1.5 rounded border border-paper-300">
                             {d.cardAltitude}
                           </div>
                         )}

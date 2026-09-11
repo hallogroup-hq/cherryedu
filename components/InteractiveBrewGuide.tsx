@@ -93,9 +93,9 @@ export const InteractiveBrewGuide: React.FC<InteractiveBrewGuideProps> = ({ reci
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-paper-300">
         <div>
           <div className="flex items-center gap-2 mb-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-cherry-700 animate-pulse"></span>
-            <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-800 font-bold bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
-              [ RESEP SEDUH INTERAKTIF // BREW-ALONG GUIDE ]
+            <span className="w-2 h-2 rounded-full bg-cherry-700 animate-pulse"></span>
+            <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+              Resep Seduh Interaktif • Brew-Along Guide
             </span>
           </div>
           <h3 className="font-serif font-bold text-2xl text-roast-950">

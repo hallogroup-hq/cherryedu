@@ -123,8 +123,6 @@ export interface ProcessGuide {
   grindDesc: string;
   extractionNotes: string;
   baristaHack: string;
-  badgeColor: string;
-  borderAccent: string;
 }
 
 export const PROCESS_GUIDES: ProcessGuide[] = [
@@ -141,8 +139,6 @@ export const PROCESS_GUIDES: ProcessGuide[] = [
     grindDesc: 'Medium-Fine (seperti garam dapur berbutir halus)',
     extractionNotes: 'Lapisan lendir (mucilage) dicuci bersih sebelum dijemur. Porositas biji lebih padat dan membutuhkan suhu air tinggi untuk melarutkan asam organik manis tanpa rasa hampa.',
     baristaHack: 'Lakukan agitasi lembut di awal blooming, hindari over-swirling agar partikel fines tidak menyumbat pori filter dan membuat aftertaste sepat.',
-    badgeColor: 'border-sky-300 bg-sky-50 text-sky-800',
-    borderAccent: 'border-sky-200 hover:border-sky-400 bg-sky-50/30'
   },
   {
     id: 'natural',
@@ -157,8 +153,6 @@ export const PROCESS_GUIDES: ProcessGuide[] = [
     grindDesc: 'Medium (sedikit lebih kasar dari washed)',
     extractionNotes: 'Biji dikeringkan bersama kulit & daging buah utuh. Gula alami tinggi dan mudah larut, namun rentan over-ekstraksi jika suhu air terlalu mendidih.',
     baristaHack: 'Turunkan suhu air ke 89°C-90°C agar gula karamel alami tidak terbakar menjadi rasa pahit astringen/getir di pangkal lidah.',
-    badgeColor: 'border-amber-300 bg-amber-50 text-amber-800',
-    borderAccent: 'border-amber-200 hover:border-amber-400 bg-amber-50/30'
   },
   {
     id: 'honey',
@@ -173,8 +167,6 @@ export const PROCESS_GUIDES: ProcessGuide[] = [
     grindDesc: 'Medium (seragam, minim fines)',
     extractionNotes: 'Kulit ceri dikupas tetapi sisa lendir (mucilage) dibiarkan menempel saat dijemur. Memberikan perpaduan apik antara kejernihan rasa washed dan manis kental natural.',
     baristaHack: 'Gunakan teknik continuous pour berarus tenang di tengah bed kopi untuk menjaga suhu tetap stabil dan manisnya terlarut sempurna.',
-    badgeColor: 'border-yellow-300 bg-yellow-50 text-yellow-800',
-    borderAccent: 'border-yellow-200 hover:border-yellow-400 bg-yellow-50/30'
   },
   {
     id: 'anaerobic',
@@ -189,8 +181,6 @@ export const PROCESS_GUIDES: ProcessGuide[] = [
     grindDesc: 'Medium-Coarse (hindari terlalu halus)',
     extractionNotes: 'Biji difermentasi dalam tangki tertutup hampa oksigen. Selulosa biji sangat berpori dan tingkat keterlarutannya super tinggi dibanding proses biasa.',
     baristaHack: 'Wajib gunakan air suhu rendah (86°C-88°C) dan rasio lebih longgar (1:16.5). Suhu mendidih akan memicu rasa cuka menusuk dan aroma buah eksotisnya hilang.',
-    badgeColor: 'border-purple-300 bg-purple-50 text-purple-800',
-    borderAccent: 'border-purple-200 hover:border-purple-400 bg-purple-50/30'
   },
   {
     id: 'giling-basah',
@@ -205,8 +195,6 @@ export const PROCESS_GUIDES: ProcessGuide[] = [
     grindDesc: 'Medium-Coarse (cocok French Press, Tubruk, atau Aeropress)',
     extractionNotes: 'Khas petani Sumatera, Flores & Sulawesi (dikupas pada kadar air 30-40%). Dinding sel biji unik menghasilkan body raksasa yang sangat tahan susu.',
     baristaHack: 'Gunakan rasio rapat 1:14 atau metode immersion/aeropress. Body tebal dan nuansa rempahnya akan keluar maksimal tanpa rasa pahit abu gosong.',
-    badgeColor: 'border-emerald-300 bg-emerald-50 text-emerald-800',
-    borderAccent: 'border-emerald-200 hover:border-emerald-400 bg-emerald-50/30'
   }
 ];
 
@@ -326,9 +314,9 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
       {/* Top Header & Tactile Timer */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-paper-300">
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="font-mono text-[10px] tracking-widest text-cherry-700 font-bold uppercase bg-cherry-50 px-2 py-0.5 border border-cherry-200">
-              [ APPARATUS LAB // RATIO ENGINE ]
+          <div className="mb-1">
+            <span className="font-mono text-xs tracking-widest text-cherry-800 font-bold uppercase">
+              Apparatus Lab • Ratio Engine
             </span>
           </div>
           <h3 className="font-serif font-bold text-2xl text-roast-950">
@@ -396,7 +384,7 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
           }`}
         >
           <Layers className="w-3.5 h-3.5 text-cherry-600" />
-          <span>[ 01 ] PRESET ALAT SEDUH POPULER</span>
+          <span>01 • Preset Alat Seduh Populer</span>
         </button>
 
         <button
@@ -408,7 +396,7 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
           }`}
         >
           <Sliders className="w-3.5 h-3.5 text-crema-500" />
-          <span>[ 02 ] MODE BEBAS (CUSTOM RATIO & DOSE)</span>
+          <span>02 • Mode Bebas (Custom Ratio & Dose)</span>
         </button>
       </div>
 
@@ -498,8 +486,8 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
 
               {/* Tips & Extraction Specs */}
               <div className="pt-4 border-t border-paper-300 space-y-2 text-xs font-sans">
-                <div className="font-mono text-[10px] text-roast-500 uppercase font-semibold">
-                  [ SPESIFIKASI STANDAR ALAT ]
+                <div className="font-mono text-[10px] text-roast-500 uppercase font-bold tracking-wider">
+                  Spesifikasi Standar Alat
                 </div>
                 <div className="grid grid-cols-2 gap-3 font-mono text-[11px]">
                   <div className="bg-paper-50 p-2.5 border border-paper-200">
@@ -839,9 +827,9 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
       <div className="mt-12 pt-8 border-t border-paper-400">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="font-mono text-[10px] tracking-widest text-cherry-700 font-bold uppercase bg-cherry-50 px-2 py-0.5 border border-cherry-200">
-                [ AGRONOMY TO EXTRACTION // HARVEST DIAL-IN ]
+            <div className="mb-1">
+              <span className="font-mono text-xs tracking-widest text-cherry-800 font-bold uppercase">
+                Agronomy to Extraction • Harvest Dial-In
               </span>
             </div>
             <h4 className="font-serif font-bold text-xl sm:text-2xl text-roast-950">
@@ -863,10 +851,10 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
             return (
               <div
                 key={guide.id}
-                className={`p-5 rounded-lg border transition-all flex flex-col justify-between ${
+                className={`p-5 rounded-xl border transition-all flex flex-col justify-between ${
                   isCurrentlyApplied
-                    ? 'border-cherry-800 bg-paper-50 ring-2 ring-cherry-700/20 shadow-sm'
-                    : guide.borderAccent
+                    ? 'border-roast-950 bg-paper-100/70 ring-1 ring-roast-950 shadow-sm'
+                    : 'bg-paper-50 border-paper-300 hover:border-roast-400 shadow-2xs'
                 }`}
               >
                 <div>
@@ -875,31 +863,31 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
                     <h5 className="font-serif font-bold text-base text-roast-950 leading-tight">
                       {guide.name}
                     </h5>
-                    <span className={`text-[9px] font-mono font-bold px-2 py-0.5 border rounded uppercase shrink-0 ${guide.badgeColor}`}>
+                    <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-roast-500 shrink-0">
                       {guide.shortTag}
                     </span>
                   </div>
 
                   {/* Flavor Profile */}
-                  <p className="text-xs text-roast-700 italic mb-4 leading-relaxed bg-white/60 p-2 border border-paper-200 rounded">
+                  <p className="text-xs text-roast-700 italic mb-4 leading-relaxed bg-paper-100/60 p-2.5 border border-paper-200 rounded-lg">
                     "{guide.flavorProfile}"
                   </p>
 
                   {/* Extraction Metrics Grid */}
                   <div className="grid grid-cols-2 gap-2 font-mono text-[11px] mb-3">
-                    <div className="bg-paper-100/80 p-2 border border-paper-200 rounded">
+                    <div className="bg-paper-100/70 p-2 border border-paper-200 rounded-lg">
                       <span className="text-[9px] text-roast-500 uppercase block font-sans">Suhu Air Ideal</span>
                       <span className="font-bold text-roast-900">{guide.temperature}</span>
                     </div>
-                    <div className="bg-paper-100/80 p-2 border border-paper-200 rounded">
+                    <div className="bg-paper-100/70 p-2 border border-paper-200 rounded-lg">
                       <span className="text-[9px] text-roast-500 uppercase block font-sans">Rasio Anjuran</span>
                       <span className="font-bold text-cherry-700">1 : {guide.recommendedRatio}</span>
                     </div>
-                    <div className="bg-paper-100/80 p-2 border border-paper-200 rounded">
+                    <div className="bg-paper-100/70 p-2 border border-paper-200 rounded-lg">
                       <span className="text-[9px] text-roast-500 uppercase block font-sans">Dosis Seduh</span>
                       <span className="font-bold text-roast-900">{guide.doseGrams} gram</span>
                     </div>
-                    <div className="bg-paper-100/80 p-2 border border-paper-200 rounded">
+                    <div className="bg-paper-100/70 p-2 border border-paper-200 rounded-lg">
                       <span className="text-[9px] text-roast-500 uppercase block font-sans">Gilingan</span>
                       <span className="font-bold text-roast-900">{guide.grindDesc.split(' ')[0]}</span>
                     </div>
@@ -907,14 +895,14 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
 
                   {/* Extraction Science & Hack */}
                   <div className="space-y-2 text-[11px] text-roast-600 mb-4 font-sans leading-relaxed">
-                    <div className="bg-white/80 p-2.5 border border-paper-200 rounded">
+                    <div className="bg-paper-100/60 p-2.5 border border-paper-200 rounded-lg">
                       <strong className="text-roast-900 block font-mono text-[10px] uppercase mb-0.5">
                         🔬 Sains Ekstraksi:
                       </strong>
                       {guide.extractionNotes}
                     </div>
-                    <div className="bg-amber-50/80 p-2.5 border border-amber-200 rounded text-amber-950">
-                      <strong className="text-amber-900 block font-mono text-[10px] uppercase mb-0.5">
+                    <div className="bg-paper-100/90 p-2.5 border border-paper-300 rounded-lg text-roast-800">
+                      <strong className="text-cherry-800 block font-mono text-[10px] uppercase mb-0.5 font-bold">
                         💡 Barista Golden Hack:
                       </strong>
                       {guide.baristaHack}
@@ -925,15 +913,15 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
                 {/* Apply Button */}
                 <button
                   onClick={() => applyProcessRecipe(guide)}
-                  className={`w-full py-2.5 px-3 rounded text-xs font-mono font-bold flex items-center justify-center gap-2 border transition-all ${
+                  className={`w-full py-2.5 px-3 rounded-lg text-xs font-mono font-bold flex items-center justify-center gap-2 border transition-all ${
                     isCurrentlyApplied
-                      ? 'bg-cherry-900 text-paper-50 border-cherry-950 shadow-xs'
+                      ? 'bg-roast-950 text-paper-50 border-roast-950 shadow-xs'
                       : 'bg-paper-100 hover:bg-roast-950 hover:text-paper-50 text-roast-800 border-paper-300'
                   }`}
                 >
                   {isCurrentlyApplied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
+                      <Check className="w-3.5 h-3.5 text-crema-300" />
                       <span>Resep Sedang Aktif ({guide.doseGrams}g : {Math.round(guide.doseGrams * guide.recommendedRatio)}ml)</span>
                     </>
                   ) : (

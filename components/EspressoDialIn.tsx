@@ -152,8 +152,8 @@ export const EspressoDialIn: React.FC = () => {
       {/* Header Ledger */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-l-2 border-cherry-700 pl-4 py-1">
         <div>
-          <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-semibold block">
-            [ APPARATUS 05 — ESPRESSO DIAL-IN LAB ]
+          <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold block mb-1">
+            Apparatus 05 • Espresso Dial-In Lab
           </span>
           <h3 className="font-serif text-xl sm:text-2xl font-bold text-roast-950">
             Kompas Kalibrasi Segitiga Espresso (Dose - Yield - Time)
@@ -187,7 +187,7 @@ export const EspressoDialIn: React.FC = () => {
           {/* Dose Slider */}
           <div className="space-y-2">
             <div className="flex justify-between items-center text-xs font-mono">
-              <span className="text-roast-700 font-bold uppercase">[ A ] Dosis Bubuk Kering (Dose)</span>
+              <span className="text-roast-700 font-bold uppercase">A • Dosis Bubuk Kering (Dose)</span>
               <span className="bg-paper-200 text-roast-950 px-2 py-0.5 border border-paper-300 font-bold">
                 {dose.toFixed(1)} gram
               </span>
@@ -211,7 +211,7 @@ export const EspressoDialIn: React.FC = () => {
           {/* Yield Slider */}
           <div className="space-y-2">
             <div className="flex justify-between items-center text-xs font-mono">
-              <span className="text-roast-700 font-bold uppercase">[ B ] Cairan di Cangkir (Yield)</span>
+              <span className="text-roast-700 font-bold uppercase">B • Cairan di Cangkir (Yield)</span>
               <span className="bg-paper-200 text-roast-950 px-2 py-0.5 border border-paper-300 font-bold">
                 {yieldAmount.toFixed(1)} gram
               </span>
@@ -235,7 +235,7 @@ export const EspressoDialIn: React.FC = () => {
           {/* Time Slider */}
           <div className="space-y-2">
             <div className="flex justify-between items-center text-xs font-mono">
-              <span className="text-roast-700 font-bold uppercase">[ C ] Waktu Ekstraksi Total</span>
+              <span className="text-roast-700 font-bold uppercase">C • Waktu Ekstraksi Total</span>
               <span className="bg-paper-200 text-roast-950 px-2 py-0.5 border border-paper-300 font-bold">
                 {time} detik
               </span>
@@ -302,7 +302,7 @@ export const EspressoDialIn: React.FC = () => {
                 >
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-serif font-bold">{item.label}</span>
-                    {tasteIssue === item.id && <span className="font-mono text-[9px] text-crema-300">[ TERPILIH ]</span>}
+                    {tasteIssue === item.id && <span className="font-mono text-[9px] text-crema-300">• Terpilih</span>}
                   </div>
                   <p className={`text-[10px] mt-0.5 leading-relaxed ${tasteIssue === item.id ? 'text-paper-200' : 'text-roast-500'}`}>
                     {item.note}
@@ -315,7 +315,7 @@ export const EspressoDialIn: React.FC = () => {
           {/* Stream Visual Behavior */}
           <div className="pt-3 border-t border-paper-200 space-y-2">
             <span className="font-mono text-[10px] uppercase tracking-widest text-roast-500 font-bold block">
-              [ 3. OBSERVASI ALIRAN KELUAR DARI SPOUT ]
+              3. Observasi Aliran Keluar dari Spout
             </span>
             <div className="grid grid-cols-2 gap-2 text-xs font-mono">
               {[
@@ -362,7 +362,7 @@ export const EspressoDialIn: React.FC = () => {
                     : 'bg-cherry-950 text-cherry-100 border-cherry-900'
                 }`}
               >
-                [ {diagnosis.status} ]
+                {diagnosis.status}
               </span>
               <span className="font-mono text-[11px] text-roast-500">
                 Fase: {diagnosis.extractionPhase}
@@ -406,8 +406,8 @@ export const EspressoDialIn: React.FC = () => {
 
           {/* Golden Rules of Espresso Extraction Reference Ledger */}
           <div className="bg-roast-950 text-paper-100 p-6 sm:p-8 border border-roast-900 space-y-4">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-crema-300 font-bold block">
-              [ HUKUM EKSTRAKSI ESPRESSO SPECIALTY ]
+            <span className="font-mono text-xs uppercase tracking-widest text-crema-400 font-bold block">
+              Hukum Ekstraksi Espresso Specialty
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-sans text-paper-300 leading-relaxed">
               <div className="border-l border-crema-500/40 pl-3">

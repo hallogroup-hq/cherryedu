@@ -104,10 +104,12 @@ export default function CoffeeLexiconPage() {
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-paper-300 pb-6">
             <div>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cherry-50 border border-cherry-200 text-cherry-800 text-[11px] font-mono font-bold tracking-wider uppercase mb-2">
-                <Sparkles className="w-3.5 h-3.5 text-cherry-600" />
-                SCA & CQI Curated Terminology
-              </span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+                  SCA & CQI Curated Terminology
+                </span>
+                <span className="font-mono text-xs text-roast-400">• Glosarium Otoritatif</span>
+              </div>
               <h1 className="font-serif text-3xl sm:text-4xl font-black text-roast-950 tracking-tight">
                 Glosarium & Kamus Kopi Interaktif
               </h1>

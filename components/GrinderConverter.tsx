@@ -529,10 +529,10 @@ export const GrinderConverter: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-paper-300/80 pb-5">
           <div>
             <div className="flex items-center gap-2 mb-1.5">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-100 px-2 py-0.5 rounded border border-cherry-200">
-                [ CROSS-GRINDER CLICK CONVERTER // MIKRON ENGINE ]
+              <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+                Cross-Grinder Click Converter • Mikron Engine
               </span>
-              <span className="text-[10px] font-mono text-roast-500 hidden sm:inline">• Toleransi Kalibrasi ±25μm</span>
+              <span className="text-xs font-mono text-roast-400 hidden sm:inline">• Toleransi Kalibrasi ±25μm</span>
             </div>
             <h3 className="font-serif text-xl sm:text-2xl font-bold text-roast-950">
               Konverter Dial & Klik Grinder Kopi Dunia
@@ -730,13 +730,13 @@ export const GrinderConverter: React.FC = () => {
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <div className="flex items-center gap-1.5">
-                      <span className="font-mono text-[9px] uppercase tracking-wider text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-roast-900 font-bold">
                         {grinder.brand}
                       </span>
                       {grinder.categoryBadge && (
-                        <span className="font-mono text-[9px] text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 font-semibold">
-                          {grinder.categoryBadge}
+                        <span className="font-mono text-[9px] text-roast-500">
+                          • {grinder.categoryBadge}
                         </span>
                       )}
                     </div>

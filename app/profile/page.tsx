@@ -77,8 +77,8 @@ function ProfileContent() {
             <UserIcon className="w-8 h-8" />
           </div>
 
-          <span className="font-mono text-[10px] uppercase tracking-widest text-roast-500 font-bold block mb-2">
-            [ PORTAL PEMBELAJAR RESMI CHERRYEDU ]
+          <span className="font-mono text-xs uppercase tracking-widest text-roast-500 font-bold block mb-2">
+            Portal Pembelajar Resmi CherryEdu
           </span>
           <h1 className="font-serif text-3xl sm:text-4xl font-bold text-roast-950 mb-3 tracking-tight">
             Masuk untuk Mengakses Portofolio & Progres Belajar
@@ -129,11 +129,11 @@ function ProfileContent() {
       {/* Profile Dossier Header */}
       <div className="bg-paper-50 border border-paper-400 p-6 sm:p-8 shadow-xs mb-10">
         <div className="flex items-center gap-2 mb-4 pb-3 border-b border-paper-200">
-          <span className="font-mono text-[10px] tracking-widest text-cherry-700 font-semibold uppercase">
-            [ DOSSIER PEMBELAJAR — NO. CHR-ACADEMY-{currentUser.id.slice(0, 6).toUpperCase()} ]
+          <span className="font-mono text-xs tracking-widest text-cherry-800 font-bold uppercase">
+            Dossier Pembelajar • No. CHR-ACADEMY-{currentUser.id.slice(0, 6).toUpperCase()}
           </span>
-          <span className="font-mono text-[10px] text-roast-400 uppercase hidden sm:inline">
-            • BUKU INDUK REGISTRASI KREDENSIAL
+          <span className="font-mono text-xs text-roast-400 uppercase hidden sm:inline">
+            • Buku Induk Registrasi Kredensial
           </span>
         </div>
 
@@ -232,7 +232,7 @@ function ProfileContent() {
         {/* Telemetry Strip */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-5 font-mono">
           <div className="bg-paper-100 border border-paper-300 p-3 text-center">
-            <span className="text-[10px] text-roast-500 uppercase block font-semibold">[ KONSISTENSI ]</span>
+            <span className="text-[10px] text-roast-500 uppercase block font-bold tracking-wider">Konsistensi</span>
             <div className="text-sm font-bold text-cherry-700 flex items-center justify-center gap-1 mt-1">
               <Flame className="w-3.5 h-3.5 fill-cherry-600 text-cherry-600" />
               <span>{currentUser.streak_count} Hari Streak</span>
@@ -240,7 +240,7 @@ function ProfileContent() {
           </div>
 
           <div className="bg-paper-100 border border-paper-300 p-3 text-center">
-            <span className="text-[10px] text-roast-500 uppercase block font-semibold">[ TOTAL XP ]</span>
+            <span className="text-[10px] text-roast-500 uppercase block font-bold tracking-wider">Total XP</span>
             <div className="text-sm font-bold text-roast-950 flex items-center justify-center gap-1 mt-1">
               <Zap className="w-3.5 h-3.5 text-crema-600 fill-crema-500" />
               <span>{currentUser.xp_points.toLocaleString('id-ID')} XP</span>
@@ -248,7 +248,7 @@ function ProfileContent() {
           </div>
 
           <div className="bg-paper-100 border border-paper-300 p-3 text-center">
-            <span className="text-[10px] text-roast-500 uppercase block font-semibold">[ SERTIFIKAT ]</span>
+            <span className="text-[10px] text-roast-500 uppercase block font-bold tracking-wider">Sertifikat</span>
             <div className="text-sm font-bold text-roast-950 flex items-center justify-center gap-1 mt-1">
               <Award className="w-3.5 h-3.5 text-crema-600" />
               <span>{userCerts.length} Dokumen</span>
@@ -256,7 +256,7 @@ function ProfileContent() {
           </div>
 
           <div className="bg-paper-100 border border-paper-300 p-3 text-center">
-            <span className="text-[10px] text-roast-500 uppercase block font-semibold">[ LENCANA ]</span>
+            <span className="text-[10px] text-roast-500 uppercase block font-bold tracking-wider">Lencana</span>
             <div className="text-sm font-bold text-roast-950 flex items-center justify-center gap-1 mt-1">
               <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
               <span>{userBadgesList.length} Hallmarks</span>
@@ -275,7 +275,7 @@ function ProfileContent() {
               : 'bg-paper-50 text-roast-700 border-paper-300 hover:border-roast-700'
           }`}
         >
-          [ 01 ] JALUR KURIKULUM ({userEnrollments.length})
+          01 • Jalur Kurikulum ({userEnrollments.length})
         </button>
 
         <button
@@ -286,7 +286,7 @@ function ProfileContent() {
               : 'bg-paper-50 text-roast-700 border-paper-300 hover:border-roast-700'
           }`}
         >
-          [ 02 ] LENCANA GUILD ({userBadgesList.length})
+          02 • Lencana Guild ({userBadgesList.length})
         </button>
 
         <button
@@ -297,7 +297,7 @@ function ProfileContent() {
               : 'bg-paper-50 text-roast-700 border-paper-300 hover:border-roast-700'
           }`}
         >
-          [ 03 ] DIPLOMA RESMI ({userCerts.length})
+          03 • Diploma Resmi ({userCerts.length})
         </button>
 
         <button
@@ -308,7 +308,7 @@ function ProfileContent() {
               : 'bg-paper-50 text-roast-700 border-paper-300 hover:border-roast-700'
           }`}
         >
-          [ 04 ] ARSIP BACAAN ({userBookmarks.length})
+          04 • Arsip Bacaan ({userBookmarks.length})
         </button>
 
         <button
@@ -319,7 +319,7 @@ function ProfileContent() {
               : 'bg-paper-50 text-roast-700 border-paper-300 hover:border-roast-700'
           }`}
         >
-          [ 05 ] LAMARAN BAR ({userApps.length})
+          05 • Lamaran Bar ({userApps.length})
         </button>
       </div>
 
@@ -338,8 +338,8 @@ function ProfileContent() {
                   className="bg-paper-50 border border-paper-300 p-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:border-roast-900/40 transition-all"
                 >
                   <div className="space-y-2">
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-cherry-700 block">
-                      {path.layer_type === 'foundation' ? '[ FONDASI UTAMA / WAJIB SEMUA JALUR ]' : '[ SPESIALISASI LANJUTAN ]'}
+                    <span className="font-mono text-xs font-bold uppercase tracking-widest text-cherry-800 block">
+                      {path.layer_type === 'foundation' ? 'Fondasi Utama • Wajib Semua Jalur' : 'Spesialisasi Lanjutan'}
                     </span>
                     <h3 className="font-serif text-xl font-bold text-roast-950">{path.title}</h3>
                     <div className="w-56 sm:w-72 space-y-1 pt-1 font-mono">
@@ -393,7 +393,7 @@ function ProfileContent() {
                   {badge.description}
                 </p>
                 {owned ? (
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-cherry-800 bg-cherry-50 border border-cherry-200 px-2 py-0.5 mt-3 block">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-roast-900 font-semibold bg-paper-200 border border-paper-300 px-2 py-0.5 mt-3 block">
                     Diraih: {new Date(owned.earned_at).toLocaleDateString('id-ID')}
                   </span>
                 ) : (
@@ -418,7 +418,7 @@ function ProfileContent() {
               >
                 <div>
                   <span className="font-mono text-[10px] uppercase text-roast-500 block">
-                    [ NO. REGISTRI: {cert.certificate_number} ]
+                    No. Registri: {cert.certificate_number}
                   </span>
                   <h3 className="font-serif text-lg font-bold text-roast-950 mt-1">
                     {cert.path_title}

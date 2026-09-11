@@ -363,12 +363,10 @@ export default function BaristaAssessmentPage() {
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
-                [ B2B CAFE OWNER SUITE ]
+              <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+                B2B Cafe Owner Suite
               </span>
-              <span className="font-mono text-[10px] text-roast-500 bg-paper-200/70 px-2 py-0.5 rounded">
-                Standar Kualifikasi Staf Bar
-              </span>
+              <span className="font-mono text-xs text-roast-400">• Standar Kualifikasi Staf Bar</span>
             </div>
             <h1 className="font-serif text-2xl sm:text-3xl font-bold text-roast-950 tracking-tight">
               Uji Penilaian Barista untuk Pemilik Kafe
@@ -431,8 +429,8 @@ export default function BaristaAssessmentPage() {
         <div className="mb-8 p-6 sm:p-8 rounded-2xl bg-roast-950 text-paper-50 shadow-xl border border-roast-800 space-y-5 animate-in zoom-in-95 duration-200">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-roast-800 pb-4">
             <div>
-              <span className="font-mono text-[9px] uppercase tracking-widest text-crema-300 font-bold block">
-                [ HASIL EVALUASI AKHIR REKRUTMEN ]
+              <span className="font-mono text-xs uppercase tracking-widest text-crema-400 font-bold block mb-0.5">
+                Hasil Evaluasi Akhir Rekrutmen
               </span>
               <h3 className="font-serif text-xl font-bold">
                 Laporan Penilaian: {candidateName || 'Kandidat'}
@@ -534,7 +532,7 @@ export default function BaristaAssessmentPage() {
                   <span className="w-6 h-6 rounded-full bg-roast-950 text-paper-50 font-mono text-xs font-bold flex items-center justify-center">
                     {qIdx + 1}
                   </span>
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
+                  <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
                     {q.category}
                   </span>
                 </div>

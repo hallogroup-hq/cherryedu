@@ -580,11 +580,12 @@ export function BlendDesigner() {
         <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-cherry-700/5 blur-3xl pointer-events-none" />
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
           <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
-                [ SIMULATOR FORMULASI HOUSE BLEND KAFE ]
+            <div className="flex items-center gap-3 mb-1">
+              <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+                Simulator Formulasi House Blend Kafe
               </span>
-              <span className="font-mono text-[10px] text-roast-500 bg-paper-200/70 px-2 py-0.5 rounded">
+              <span className="text-roast-400 font-mono text-xs">•</span>
+              <span className="font-mono text-xs text-roast-600">
                 Multi-Origin Radar & HPP Matrix
               </span>
             </div>

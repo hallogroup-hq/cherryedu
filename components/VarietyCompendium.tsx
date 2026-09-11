@@ -619,11 +619,12 @@ export const VarietyCompendium: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-l-2 border-cherry-700 pl-4 py-1">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 border border-cherry-200">
-              [ BOTANICAL GENETICS // COMPENDIUM ]
+            <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+              Botanical Genetics • Compendium
             </span>
-            <span className="font-mono text-[10px] text-roast-500 uppercase">
-              30 VARIETAS KOPI PILIHAN
+            <span className="text-roast-400 font-mono text-xs">•</span>
+            <span className="font-mono text-xs text-roast-600">
+              30 Varietas Kopi Pilihan
             </span>
           </div>
           <h3 className="font-serif text-2xl sm:text-3xl font-bold text-roast-950">
@@ -812,8 +813,8 @@ export const VarietyCompendium: React.FC = () => {
                   {/* Header Badge */}
                   <div className="pb-4 border-b border-paper-300">
                     <div className="flex items-center justify-between gap-2 mb-1.5">
-                      <span className="font-mono text-[9px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 border border-cherry-200">
-                        [ SPESIMEN DOSSIER BOTANI ]
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-800 font-bold">
+                        Spesimen Dossier Botani
                       </span>
                       <span className="font-mono text-[10px] italic text-roast-500">
                         {selectedVariety.species}
@@ -893,7 +894,7 @@ export const VarietyCompendium: React.FC = () => {
                   {/* Flavor Profile Box */}
                   <div className="p-3.5 bg-paper-100 rounded border-l-4 border-l-cherry-700 text-xs font-sans space-y-1">
                     <span className="font-mono text-[10px] uppercase tracking-wider text-cherry-800 font-bold block">
-                      [ POTENSI SENSORI / CUPPING PROFILE ]
+                      Potensi Sensori & Cupping Profile
                     </span>
                     <p className="font-serif italic text-roast-950 font-medium text-sm leading-relaxed">
                       &ldquo;{selectedVariety.flavorProfile}&rdquo;
@@ -936,8 +937,8 @@ export const VarietyCompendium: React.FC = () => {
                 {/* Header */}
                 <div className="flex items-center justify-between pb-3 border-b border-paper-300">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-[9px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 border border-cherry-200">
-                      [ DOSSIER VARIETAS ]
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-800 font-bold">
+                      Dossier Varietas
                     </span>
                     <span className="font-mono text-[10px] italic text-roast-500">
                       {selectedVariety.species}
@@ -1027,7 +1028,7 @@ export const VarietyCompendium: React.FC = () => {
                 {/* Flavor Profile Box */}
                 <div className="p-3.5 bg-paper-100 rounded border-l-4 border-l-cherry-700 text-xs font-sans space-y-1">
                   <span className="font-mono text-[10px] uppercase tracking-wider text-cherry-800 font-bold block">
-                    [ POTENSI SENSORI / CUPPING PROFILE ]
+                    Potensi Sensori & Cupping Profile
                   </span>
                   <p className="font-serif italic text-roast-950 font-medium text-sm leading-relaxed">
                     &ldquo;{selectedVariety.flavorProfile}&rdquo;
@@ -1068,8 +1069,8 @@ export const VarietyCompendium: React.FC = () => {
       {activeSubTab === 'lineage-tree' && (
         <div className="bg-paper-50 rounded-xl border border-paper-300 p-6 sm:p-8 shadow-subtle space-y-8">
           <div>
-            <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold block mb-1">
-              [ GENEALOGICAL TAXONOMY MAP ]
+            <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-800 font-bold block mb-1">
+              Genealogical Taxonomy Map
             </span>
             <h4 className="font-serif font-bold text-2xl text-roast-950">
               Pohon Silsilah Genetika Kopi Dunia & Nusantara

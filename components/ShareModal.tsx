@@ -44,8 +44,8 @@ export const ShareModal: React.FC<ShareModalProps> = ({
         </button>
 
         <div className="flex items-center gap-2 mb-2">
-          <span className="font-mono text-[10px] tracking-widest text-cherry-700 font-semibold uppercase bg-cherry-50 px-2 py-0.5 border border-cherry-200">
-            [ BAGIKAN PENCAPAIAN ]
+          <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+            Bagikan Pencapaian
           </span>
         </div>
         <h3 className="font-serif text-2xl font-bold text-roast-950 mb-1 tracking-tight">

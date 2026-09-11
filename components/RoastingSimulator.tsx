@@ -40,7 +40,6 @@ export interface TargetRoastProfile {
   recommendedOrigins: string;
   flavorHighlights: string[];
   roasterAdvice: string;
-  badgeColor: string;
 }
 
 export const ROAST_PROFILES: TargetRoastProfile[] = [
@@ -60,7 +59,6 @@ export const ROAST_PROFILES: TargetRoastProfile[] = [
     recommendedOrigins: 'Gayo Washed, Kerinci Honey, Toraja Sapan, Bali Kintamani',
     flavorHighlights: ['Floral Melati', 'Crisp Citrus Lemon', 'Teh Hijau / Bergamot', 'Bright Malic'],
     roasterAdvice: 'Turunkan burner 15-20% sebelum First Crack agar RoR melandai teratur dan tidak crash. Drop tepat saat letupan FC melambat.',
-    badgeColor: 'border-sky-300 bg-sky-50 text-sky-800'
   },
   {
     id: 'arabica-medium',
@@ -78,7 +76,6 @@ export const ROAST_PROFILES: TargetRoastProfile[] = [
     recommendedOrigins: 'Flores Bajawa Natural, Ijen Anaerobic, Kamojang Honey, Mandheling',
     flavorHighlights: ['Brown Sugar', 'Cokelat Susu', 'Stone Fruit / Aprikot', 'Silky Body'],
     roasterAdvice: 'Perpanjang fase Maillard (160°C - 196°C) untuk mengunci karamelisasi gula alami buah. Sangat fleksibel untuk V60 maupun Espresso manis.',
-    badgeColor: 'border-amber-300 bg-amber-50 text-amber-800'
   },
   {
     id: 'fine-robusta',
@@ -96,7 +93,6 @@ export const ROAST_PROFILES: TargetRoastProfile[] = [
     recommendedOrigins: 'Temanggung Natural Robusta, Lampung Tanggamus, Dampit Malang, Bengkulu',
     flavorHighlights: ['Dark Chocolate 70%', 'Roasted Hazelnut', 'Molasses', 'Crema Raksasa'],
     roasterAdvice: 'Densitas Robusta lebih rapat. Gunakan panas konduktif stabil di awal, dan naikkan airflow damper ke level 4 di akhir Maillard untuk membuang aroma woody mentah.',
-    badgeColor: 'border-emerald-300 bg-emerald-50 text-emerald-800'
   },
   {
     id: 'house-blend',
@@ -114,7 +110,6 @@ export const ROAST_PROFILES: TargetRoastProfile[] = [
     recommendedOrigins: '60% Arabica Mandheling/Toraja + 40% Fine Robusta Dampit',
     flavorHighlights: ['Caramel Fudge', 'Kakao Pekat', 'Heavy Mouthfeel', 'Crema Emas Tahan Lama'],
     roasterAdvice: 'Rasio emas untuk bahan baku Es Kopi Susu Aren dan Americano kafe komersial. Memiliki ketahanan rasa tinggi saat tercampur susu segar.',
-    badgeColor: 'border-purple-300 bg-purple-50 text-purple-800'
   },
   {
     id: 'dark-roast',
@@ -132,7 +127,6 @@ export const ROAST_PROFILES: TargetRoastProfile[] = [
     recommendedOrigins: 'Arabica Giling Basah Sumatera, Robusta Komersial (Kopi Tubruk Tradisional)',
     flavorHighlights: ['Smoky Aromatic', 'Bittersweet Cocoa', 'Zero Acidity', 'Oily Rich Body'],
     roasterAdvice: 'Masuk di ambang Second Crack (224°C+). Wajib set airflow maksimal (Level 5) untuk meniup asap pekat agar biji tidak berbau sangit terpanggang.',
-    badgeColor: 'border-rose-300 bg-rose-50 text-rose-800'
   }
 ];
 
@@ -496,11 +490,12 @@ export function RoastingSimulator() {
         <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-cherry-700/5 blur-3xl pointer-events-none" />
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
           <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
-                [ ARTISANAL DRUM ROASTER TELEMETRY ]
+            <div className="flex items-center gap-3 mb-1">
+              <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+                Artisanal Drum Roaster Telemetry
               </span>
-              <span className="font-mono text-[10px] text-roast-500 bg-paper-200/70 px-2 py-0.5 rounded">
+              <span className="text-roast-400 font-mono text-xs">•</span>
+              <span className="font-mono text-xs text-roast-600">
                 Real-Time BT, ET & RoR Curve
               </span>
             </div>
@@ -593,8 +588,8 @@ export function RoastingSimulator() {
       <div className="bg-paper-100/90 border border-paper-300 rounded-2xl p-4 sm:p-5 shadow-xs space-y-3">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
-            <span className="font-mono text-[10px] tracking-widest text-cherry-700 font-bold uppercase block">
-              [ TARGET PROFILE PRESET // ARABICA VS ROBUSTA ]
+            <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold block mb-0.5">
+              Target Profile Preset • Arabica vs Robusta
             </span>
             <h3 className="font-serif font-bold text-base text-roast-950">
               Pilih Target Profil Sangrai Sesuai Spesies & Metode Seduh
@@ -620,8 +615,8 @@ export function RoastingSimulator() {
                 }`}
               >
                 <div className="flex items-center justify-between gap-1 mb-1">
-                  <span className={`text-[9px] font-bold px-1.5 py-0.5 border rounded uppercase ${
-                    isSelected ? 'bg-white/20 text-paper-50 border-white/30' : prof.badgeColor
+                  <span className={`text-[10px] font-bold uppercase tracking-wider ${
+                    isSelected ? 'text-crema-300' : 'text-cherry-800'
                   }`}>
                     {prof.species}
                   </span>
@@ -972,9 +967,9 @@ export function RoastingSimulator() {
       <div className="pt-8 border-t border-paper-300">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="font-mono text-[10px] tracking-widest text-cherry-700 font-bold uppercase bg-cherry-50 px-2 py-0.5 border border-cherry-200">
-                [ ROAST SCIENCE // VARIETAL THERMODYNAMICS ]
+            <div className="mb-1">
+              <span className="font-mono text-xs tracking-widest text-cherry-800 font-bold uppercase">
+                Roast Science • Varietal Thermodynamics
               </span>
             </div>
             <h3 className="font-serif font-bold text-xl sm:text-2xl text-roast-950">

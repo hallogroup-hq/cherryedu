@@ -412,12 +412,10 @@ export function HarvestCalendar() {
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
-                [ SIKLUS AGROKLIMATIK NUSANTARA ]
+              <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
+                Siklus Agroklimatik Nusantara
               </span>
-              <span className="font-mono text-[10px] text-roast-500 bg-paper-200/70 px-2 py-0.5 rounded">
-                12-Month Crop Timeline
-              </span>
+              <span className="font-mono text-xs text-roast-400">• 12-Month Crop Timeline</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-roast-950 tracking-tight">
               Kalender Musim Panen Kopi Nusantara
@@ -601,7 +599,7 @@ export function HarvestCalendar() {
           <div className="bg-paper-50 border border-paper-300 rounded-2xl p-5 sm:p-6 shadow-xs space-y-5">
             <div className="border-b border-paper-200 pb-4 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-700 font-bold bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200">
+                <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
                   {activeRegion.island} • {activeRegion.species}
                 </span>
                 <span className="font-mono text-xs text-roast-500">Elevasi: {activeRegion.elevation}</span>
