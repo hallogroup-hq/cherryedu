@@ -58,6 +58,11 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/paths/q-processor-specialization" className="hover:text-white transition-colors text-crema-300 font-semibold">
+                  Q Processing Specialist (CQI)
+                </Link>
+              </li>
+              <li>
                 <Link href="/paths/home-brewer-specialization" className="hover:text-white transition-colors">
                   Home Brewer Track
                 </Link>
@@ -77,13 +82,18 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-xs font-sans text-roast-400">
               <li>
-                <Link href="/tools" className="hover:text-white transition-colors">
+                <Link href="/tools?tab=calculator" className="hover:text-white transition-colors">
                   Kalkulator Rasio Kopi
                 </Link>
               </li>
               <li>
-                <Link href="/tools" className="hover:text-white transition-colors">
+                <Link href="/tools?tab=flavor-wheel" className="hover:text-white transition-colors">
                   SCA Flavor Wheel
+                </Link>
+              </li>
+              <li>
+                <Link href="/pustaka" className="hover:text-white transition-colors text-crema-300">
+                  Daftar Pustaka Ilmiah
                 </Link>
               </li>
               <li>

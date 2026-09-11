@@ -108,18 +108,34 @@ const BREW_METHODS: BrewMethodConfig[] = [
   },
 ];
 
-export const BrewCalculator: React.FC = () => {
+import { BrewRecipe } from '@/lib/types';
+
+interface BrewCalculatorProps {
+  initialRecipe?: BrewRecipe;
+}
+
+export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe }) => {
   const [calculatorMode, setCalculatorMode] = useState<'preset' | 'custom'>('preset');
 
+  // Match initialRecipe to method if provided
+  const matchedMethod = initialRecipe
+    ? BREW_METHODS.find((m) =>
+        m.name.toLowerCase().includes(initialRecipe.method.toLowerCase()) ||
+        initialRecipe.method.toLowerCase().includes(m.name.toLowerCase())
+      ) || BREW_METHODS[0]
+    : BREW_METHODS[0];
+
   // Preset state
-  const [selectedMethod, setSelectedMethod] = useState<BrewMethodConfig>(BREW_METHODS[0]);
-  const [dose, setDose] = useState<number>(BREW_METHODS[0].defaultDose);
-  const [ratio, setRatio] = useState<number>(BREW_METHODS[0].defaultRatio);
+  const [selectedMethod, setSelectedMethod] = useState<BrewMethodConfig>(matchedMethod);
+  const [dose, setDose] = useState<number>(
+    initialRecipe?.coffee_dose_grams || matchedMethod.defaultDose
+  );
+  const [ratio, setRatio] = useState<number>(matchedMethod.defaultRatio);
 
   // Custom state
   const [customCalculationBasis, setCustomCalculationBasis] = useState<'dose-to-water' | 'water-to-dose'>('dose-to-water');
-  const [customDose, setCustomDose] = useState<number>(16);
-  const [customWaterTarget, setCustomWaterTarget] = useState<number>(250);
+  const [customDose, setCustomDose] = useState<number>(initialRecipe?.coffee_dose_grams || 16);
+  const [customWaterTarget, setCustomWaterTarget] = useState<number>(initialRecipe?.water_amount_ml || 250);
   const [customRatio, setCustomRatio] = useState<number>(15.5);
   const [customBypassWater, setCustomBypassWater] = useState<number>(0);
 

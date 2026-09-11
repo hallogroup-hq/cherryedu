@@ -2,7 +2,7 @@
 // Based on CherryEdu_ERD.md v2.0
 
 export type UserPlatformRole = 'learner' | 'expert' | 'employer' | 'admin';
-export type CoffeeRole = 'barista' | 'home_brewer' | 'roaster' | 'q_grader' | 'farmer' | 'consumer' | 'undecided' | 'business';
+export type CoffeeRole = 'barista' | 'home_brewer' | 'roaster' | 'q_grader' | 'farmer' | 'consumer' | 'undecided' | 'business' | 'q_processor';
 
 export interface User {
   id: string;
@@ -21,7 +21,7 @@ export interface User {
 }
 
 export type PathLayerType = 'foundation' | 'specialization';
-export type PathTargetRole = 'barista' | 'home_brewer' | 'roaster' | 'q_grader' | 'farmer' | 'business' | 'all';
+export type PathTargetRole = 'barista' | 'home_brewer' | 'roaster' | 'q_grader' | 'farmer' | 'business' | 'all' | 'q_processor';
 export type PathLevel = 'beginner' | 'intermediate' | 'advanced' | 'full';
 
 export interface LearningPath {

@@ -25,6 +25,7 @@ import {
   Trophy,
   Info,
   Coffee,
+  Library,
 } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
@@ -68,6 +69,7 @@ export const Navbar: React.FC = () => {
 
   const isToolsActive =
     pathname.startsWith('/tools') ||
+    pathname.startsWith('/pustaka') ||
     pathname.startsWith('/lexicon') ||
     pathname.startsWith('/flashcards');
 
@@ -151,6 +153,22 @@ export const Navbar: React.FC = () => {
                         <div className="font-serif font-bold text-xs">Laboratorium Seduh</div>
                         <div className="font-sans text-[11px] text-roast-500 leading-tight mt-0.5">
                           Kalkulator rasio, Sensory Wheel, dan varietas
+                        </div>
+                      </div>
+                    </Link>
+
+                    <Link
+                      href="/pustaka"
+                      onClick={() => setToolsDropdownOpen(false)}
+                      className={`flex items-start gap-2.5 p-2.5 rounded-lg text-left transition-colors ${
+                        pathname.startsWith('/pustaka') ? 'bg-paper-200/80 text-roast-950' : 'hover:bg-paper-100 text-roast-800'
+                      }`}
+                    >
+                      <Library className="w-4 h-4 text-cherry-700 mt-0.5 shrink-0" />
+                      <div>
+                        <div className="font-serif font-bold text-xs">Daftar Pustaka Ilmiah</div>
+                        <div className="font-sans text-[11px] text-roast-500 leading-tight mt-0.5">
+                          18+ rujukan resmi SCA, CQI, WCR, & Puslitkoka
                         </div>
                       </div>
                     </Link>
@@ -496,6 +514,14 @@ export const Navbar: React.FC = () => {
             >
               <Coffee className="w-4 h-4 text-cherry-700" />
               <span>Laboratorium Alat Seduh & Varietas</span>
+            </Link>
+            <Link
+              href="/pustaka"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
+            >
+              <Library className="w-4 h-4 text-cherry-700" />
+              <span>Daftar Pustaka & Literatur Resmi</span>
             </Link>
             <Link
               href="/lexicon"

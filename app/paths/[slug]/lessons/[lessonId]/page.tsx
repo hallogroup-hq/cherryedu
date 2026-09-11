@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
 import { BrewCalculator } from '@/components/BrewCalculator';
+import { InteractiveBrewGuide } from '@/components/InteractiveBrewGuide';
 import { MarkdownRenderer } from '@/components/MarkdownRenderer';
 import { AudioNarrationPlayer } from '@/components/AudioNarrationPlayer';
 import { toast } from 'sonner';
@@ -17,6 +18,8 @@ import {
   Check,
   Award,
   List,
+  Sparkles,
+  BookOpen,
 } from 'lucide-react';
 
 export default function LessonPlayerPage() {
@@ -220,15 +223,32 @@ export default function LessonPlayerPage() {
             </div>
           )}
 
-          {/* Reading Meta */}
-          <div className="flex items-center gap-3 pb-4 border-b border-paper-200 font-mono text-[11px] text-roast-500">
-            <span className="flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5" />
+          {/* Reading Meta & Metadata Belajar */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 pb-4 border-b border-paper-200 font-mono text-[11px] text-roast-500">
+            <span className="flex items-center gap-1 bg-paper-100 px-2 py-0.5 rounded border border-paper-300">
+              <Clock className="w-3.5 h-3.5 text-cherry-700" />
               {currentLesson.duration_minutes} Menit Baca
             </span>
             <span>•</span>
-            <span className="uppercase">{currentLesson.content_type}</span>
+            <span className="uppercase bg-paper-100 px-2 py-0.5 rounded border border-paper-300">{currentLesson.content_type}</span>
+            <span>•</span>
+            <span className="text-roast-600 truncate max-w-[200px]">{path.title}</span>
           </div>
+
+          {/* Executive Summary Callout Box */}
+          {currentLesson.summary && (
+            <div className="my-6 p-4 sm:p-5 rounded-xl bg-paper-100/90 border-l-4 border-cherry-700 border-y border-r border-paper-300 shadow-xs">
+              <div className="flex items-center gap-2 mb-2">
+                <Sparkles className="w-4 h-4 text-cherry-700" />
+                <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-800 font-bold">
+                  RINGKASAN EKSEKUTIF MATERI (EXECUTIVE SUMMARY)
+                </span>
+              </div>
+              <p className="font-sans text-xs sm:text-sm text-roast-900 leading-relaxed">
+                {currentLesson.summary}
+              </p>
+            </div>
+          )}
 
           {/* Mode Audio Narasi Listen & Brew */}
           <AudioNarrationPlayer
@@ -238,15 +258,17 @@ export default function LessonPlayerPage() {
 
           {/* Key Takeaways Card */}
           {currentLesson.key_takeaways && currentLesson.key_takeaways.length > 0 && (
-            <div className="my-8 p-5 rounded-lg bg-paper-100 border border-paper-300">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-roast-500 font-bold block mb-2">
-                RINGKASAN ESENSIAL (KEY TAKEAWAYS)
+            <div className="my-8 p-5 rounded-xl bg-white border border-paper-300 shadow-subtle">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-800 font-bold block mb-3 pb-1 border-b border-paper-200">
+                POIN KUNCI PEMBELAJARAN (KEY TAKEAWAYS)
               </span>
-              <ul className="space-y-1.5 text-xs sm:text-sm text-roast-800">
+              <ul className="space-y-2 text-xs sm:text-sm text-roast-800 font-sans">
                 {currentLesson.key_takeaways.map((pt, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <span className="text-cherry-700 font-bold">●</span>
-                    <span>{pt}</span>
+                  <li key={idx} className="flex items-start gap-2.5">
+                    <span className="w-4 h-4 rounded-full bg-cherry-100 text-cherry-800 flex items-center justify-center font-mono text-[10px] font-bold shrink-0 mt-0.5">
+                      ✓
+                    </span>
+                    <span className="leading-relaxed">{pt}</span>
                   </li>
                 ))}
               </ul>
@@ -258,16 +280,22 @@ export default function LessonPlayerPage() {
             <MarkdownRenderer content={currentLesson.content} />
           </div>
 
-          {/* Embedded Brew Recipe Calculator */}
+          {/* Embedded Interactive Brew Guide */}
           {currentLesson.brew_recipe && (
             <div className="my-10 pt-8 border-t border-paper-300">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-800 font-bold block mb-1">
-                PRAKTIK SEDUH INTERAKTIF
-              </span>
-              <h3 className="font-serif font-bold text-xl text-roast-950 mb-4">
-                Formula Seduh: {currentLesson.brew_recipe.method}
-              </h3>
-              <BrewCalculator />
+              <InteractiveBrewGuide recipe={currentLesson.brew_recipe} />
+
+              <div className="mt-4 p-4 rounded-xl bg-paper-100 border border-paper-300 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div className="text-xs text-roast-700 font-sans text-center sm:text-left">
+                  Ingin menghitung rasio kustom bebas atau mencoba formula bypass?
+                </div>
+                <Link
+                  href="/tools"
+                  className="font-mono text-xs text-cherry-800 hover:text-roast-950 font-bold uppercase tracking-wider flex items-center gap-1 shrink-0"
+                >
+                  Buka Laboratorium Seduh Lengkap &rarr;
+                </Link>
+              </div>
             </div>
           )}
 

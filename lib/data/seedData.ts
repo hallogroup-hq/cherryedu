@@ -54,6 +54,13 @@ import {
   BARISTA_QUIZZES,
   BARISTA_QUESTIONS,
 } from './paths/baristaData';
+import {
+  Q_PROCESSOR_PATH,
+  Q_PROCESSOR_MODULES,
+  Q_PROCESSOR_LESSONS,
+  Q_PROCESSOR_QUIZZES,
+  Q_PROCESSOR_QUESTIONS,
+} from './paths/qProcessorData';
 
 
 // 1. SEED USERS
@@ -196,6 +203,14 @@ export const SEED_BADGES: Badge[] = [
     trigger_type: 'first_apply',
     trigger_value: 1,
   },
+  {
+    id: 'badge-q-processor',
+    name: 'Certified Q Processing Specialist',
+    description: 'Menyelesaikan seluruh kurikulum Q Processor Specialization Path dan lulus ujian sertifikasi.',
+    icon_url: '🔬',
+    trigger_type: 'complete_path',
+    trigger_value: 4,
+  },
 ];
 
 // 3. LEARNING PATHS
@@ -258,6 +273,7 @@ export const SEED_PATHS: LearningPath[] = [
   Q_GRADER_PATH,
   POST_HARVEST_PATH,
   COFFEE_BUSINESS_PATH,
+  Q_PROCESSOR_PATH,
 ];
 
 // 4. MODULES
@@ -548,6 +564,7 @@ export const SEED_MODULES: Module[] = [
   ...Q_GRADER_MODULES,
   ...POST_HARVEST_MODULES,
   ...COFFEE_BUSINESS_MODULES,
+  ...Q_PROCESSOR_MODULES,
 ];
 
 // 5. LESSONS
@@ -3063,6 +3080,7 @@ Perjalanan belajar kopi rumahan akan berlipat ganda kenikmatannya saat Anda berb
   ...Q_GRADER_LESSONS,
   ...POST_HARVEST_LESSONS,
   ...COFFEE_BUSINESS_LESSONS,
+  ...Q_PROCESSOR_LESSONS,
 ];
 
 // 6. QUIZZES
@@ -3183,6 +3201,7 @@ export const SEED_QUIZZES: Quiz[] = [
   ...Q_GRADER_QUIZZES,
   ...POST_HARVEST_QUIZZES,
   ...COFFEE_BUSINESS_QUIZZES,
+  ...Q_PROCESSOR_QUIZZES,
 ];
 
 // 7. QUESTIONS & ANSWERS
@@ -3782,6 +3801,7 @@ export const SEED_QUESTIONS: Question[] = [
   ...Q_GRADER_QUESTIONS,
   ...POST_HARVEST_QUESTIONS,
   ...COFFEE_BUSINESS_QUESTIONS,
+  ...Q_PROCESSOR_QUESTIONS,
 ];
 
 // 8. INITIAL ENROLLMENTS

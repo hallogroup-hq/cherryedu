@@ -1,13 +1,150 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { BrewCalculator } from '@/components/BrewCalculator';
 import { FlavorWheel } from '@/components/FlavorWheel';
 import { VarietyCompendium } from '@/components/VarietyCompendium';
 import { EspressoDialIn } from '@/components/EspressoDialIn';
 import { WaterCalculator } from '@/components/WaterCalculator';
 import { SCACuppingForm } from '@/components/SCACuppingForm';
-import { Wrench, Compass, Coffee, MapPin, Sparkles, Search, Filter, Mountain, Layers, Tag, GitFork, Gauge, Droplets, ClipboardCheck } from 'lucide-react';
+import {
+  Wrench,
+  Compass,
+  Coffee,
+  MapPin,
+  Sparkles,
+  Search,
+  Filter,
+  Mountain,
+  Layers,
+  Tag,
+  GitFork,
+  Gauge,
+  Droplets,
+  ClipboardCheck,
+  SlidersHorizontal,
+  ChevronDown,
+  Check,
+  X,
+  ArrowRight,
+  BookOpen
+} from 'lucide-react';
+
+type ToolDomainId = 'bar-brew' | 'sensory-cupping' | 'terroir-botany';
+type ToolId =
+  | 'calculator'
+  | 'espresso-dial'
+  | 'water-lab'
+  | 'flavor-wheel'
+  | 'cupping-sheet'
+  | 'atlas'
+  | 'varieties';
+
+interface ToolDef {
+  id: ToolId;
+  domainId: ToolDomainId;
+  label: string;
+  shortLabel: string;
+  badge: string;
+  tagline: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+const TOOLS_CATALOG: ToolDef[] = [
+  // 1. Domain: Bar & Seduhan
+  {
+    id: 'calculator',
+    domainId: 'bar-brew',
+    label: 'Kalkulator Rasio & Timer',
+    shortLabel: 'Kalkulator Rasio',
+    badge: 'Preset & Custom',
+    tagline: 'Kalkulasi dosis kopi, volume air, dan rasio seduh presisi dengan stopwatch taktil.',
+    icon: Coffee,
+  },
+  {
+    id: 'espresso-dial',
+    domainId: 'bar-brew',
+    label: 'Espresso Dial-In Solver',
+    shortLabel: 'Espresso Dial-In',
+    badge: 'Diagnosis Ekstraksi',
+    tagline: 'Pecahkan under/over ekstraksi, ukuran gilingan, dosis, dan laju alir (flow rate).',
+    icon: Gauge,
+  },
+  {
+    id: 'water-lab',
+    domainId: 'bar-brew',
+    label: 'Water Chemistry Lab',
+    shortLabel: 'Water Lab',
+    badge: 'Mineral & Buffer',
+    tagline: 'Kalkulasi kesadahan mineral GH/KH, buffer bikarbonat, dan resep air seduh SCA.',
+    icon: Droplets,
+  },
+
+  // 2. Domain: Sensorik & Cupping
+  {
+    id: 'flavor-wheel',
+    domainId: 'sensory-cupping',
+    label: 'Sensory Flavor Wheel',
+    shortLabel: 'Flavor Wheel',
+    badge: 'Standar SCA & WCR',
+    tagline: 'Roda rasa interaktif 3 tingkat, leksikon sensori WCR, dan profil asam organik.',
+    icon: Compass,
+  },
+  {
+    id: 'cupping-sheet',
+    domainId: 'sensory-cupping',
+    label: 'SCA Cupping Sheet Digital',
+    shortLabel: 'SCA Cupping Form',
+    badge: '10 Atribut Resmi',
+    tagline: 'Lembar evaluasi cita rasa resmi SCA dengan penghitungan skor otomatis & ekspor.',
+    icon: ClipboardCheck,
+  },
+
+  // 3. Domain: Botani & Terroir
+  {
+    id: 'atlas',
+    domainId: 'terroir-botany',
+    label: 'Atlas Origin Kopi Nusantara',
+    shortLabel: 'Atlas Nusantara',
+    badge: '19 Wilayah',
+    tagline: 'Kompendium elevasi, iklim mikro, varietas, pasca-panen, dan profil 19 origin Indonesia.',
+    icon: MapPin,
+  },
+  {
+    id: 'varieties',
+    domainId: 'terroir-botany',
+    label: 'Ensiklopedia Varietas Kopi',
+    shortLabel: 'Ensiklopedia Varietas',
+    badge: 'Botani & Agronomi',
+    tagline: 'Silsilah genetik Typica, Bourbon, Catimor, mutasi alami, dan ketahanan penyakit.',
+    icon: GitFork,
+  },
+];
+
+const TOOL_DOMAINS = [
+  {
+    id: 'bar-brew' as ToolDomainId,
+    name: 'Bar & Seduhan',
+    shortName: 'Bar & Seduh',
+    count: '3 Instrumen',
+    icon: Coffee,
+  },
+  {
+    id: 'sensory-cupping' as ToolDomainId,
+    name: 'Sensorik & Uji Rasa',
+    shortName: 'Sensorik & Cupping',
+    count: '2 Instrumen',
+    icon: Compass,
+  },
+  {
+    id: 'terroir-botany' as ToolDomainId,
+    name: 'Botani & Terroir Nusantara',
+    shortName: 'Botani & Terroir',
+    count: '2 Kompendium',
+    icon: MapPin,
+  },
+];
 
 interface CoffeeRegion {
   name: string;
@@ -242,12 +379,49 @@ const INDONESIAN_REGIONS: CoffeeRegion[] = [
   },
 ];
 
-export default function ToolsPage() {
-  const [activeTab, setActiveTab] = useState<
-    'calculator' | 'flavor-wheel' | 'atlas' | 'varieties' | 'espresso-dial' | 'water-lab' | 'cupping-sheet'
-  >('calculator');
+function ToolsPageContent() {
+  const searchParams = useSearchParams();
+  const [activeTool, setActiveTool] = useState<ToolId>('calculator');
+  const [isSwitcherOpen, setIsSwitcherOpen] = useState<boolean>(false);
   const [selectedIsland, setSelectedIsland] = useState<string>('Semua');
   const [searchQuery, setSearchQuery] = useState<string>('');
+
+  // Sync with ?tab= or ?tool= URL parameter
+  useEffect(() => {
+    const tabParam = searchParams.get('tab') || searchParams.get('tool');
+    if (tabParam && TOOLS_CATALOG.some((t) => t.id === tabParam)) {
+      setActiveTool(tabParam as ToolId);
+    }
+  }, [searchParams]);
+
+  const activeToolDef = useMemo(() => {
+    return TOOLS_CATALOG.find((t) => t.id === activeTool) || TOOLS_CATALOG[0];
+  }, [activeTool]);
+
+  const activeDomain = useMemo(() => {
+    return TOOL_DOMAINS.find((d) => d.id === activeToolDef.domainId) || TOOL_DOMAINS[0];
+  }, [activeToolDef]);
+
+  const domainTools = useMemo(() => {
+    return TOOLS_CATALOG.filter((t) => t.domainId === activeDomain.id);
+  }, [activeDomain]);
+
+  const handleSelectTool = (toolId: ToolId) => {
+    setActiveTool(toolId);
+    setIsSwitcherOpen(false);
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      url.searchParams.set('tab', toolId);
+      window.history.replaceState({}, '', url.toString());
+    }
+  };
+
+  const handleSelectDomain = (domainId: ToolDomainId) => {
+    const firstToolInDomain = TOOLS_CATALOG.find((t) => t.domainId === domainId);
+    if (firstToolInDomain) {
+      handleSelectTool(firstToolInDomain.id);
+    }
+  };
 
   const islands = ['Semua', 'Sumatra', 'Jawa', 'Bali & Nusa Tenggara', 'Sulawesi', 'Papua'];
 
@@ -268,55 +442,284 @@ export default function ToolsPage() {
     });
   }, [selectedIsland, searchQuery]);
 
+  const ActiveIcon = activeToolDef.icon;
+
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-      {/* Header */}
-      <div className="border-b border-paper-300 pb-6 mb-6">
-        <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-roast-950 tracking-tight">
-          Laboratorium Seduh & Atlas Nusantara
-        </h1>
-        <p className="mt-2 text-xs sm:text-sm text-roast-700 max-w-2xl leading-relaxed">
-          Kompilasi instrumen presisi untuk kalibrasi seduhan di bar atau meja uji, leksikon sensori SCA, ensiklopedia botani varietas kopi, dial-in espresso, formulasi air seduh, serta lembar evaluasi cupping digital.
-        </p>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      {/* Header Section */}
+      <div className="border-b border-paper-300 pb-6 mb-6 sm:mb-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-widest font-bold bg-cherry-100 text-cherry-900 border border-cherry-200">
+                7 INSTRUMEN RESMI
+              </span>
+              <span className="text-[10px] font-mono text-roast-500">Standar SCA & CQI</span>
+            </div>
+            <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold text-roast-950 tracking-tight">
+              Laboratorium Seduh & Riset Kopi
+            </h1>
+            <p className="mt-2 text-xs sm:text-sm text-roast-700 max-w-2xl leading-relaxed">
+              Instrumen presisi untuk kalibrasi seduhan di bar atau meja uji, leksikon roda rasa SCA, kompendium botani varietas kopi, formulasi air mineral, dan lembar cupping digital.
+            </p>
+          </div>
+
+          {/* Quick Catalogue Action Button */}
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => setIsSwitcherOpen(true)}
+              className="flex items-center gap-2 px-3.5 py-2.5 bg-paper-100 hover:bg-paper-200 border border-paper-300 rounded-xl text-roast-900 font-mono text-xs font-semibold shadow-2xs transition-all w-full sm:w-auto justify-center"
+            >
+              <SlidersHorizontal className="w-3.5 h-3.5 text-cherry-700" />
+              <span>Semua Instrumen ({TOOLS_CATALOG.length})</span>
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Navigation Tabs - Clean Sleek Horizontal Scrollable */}
-      <div className="border-b border-paper-300 mb-8 pb-1">
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none">
-          {[
-            { id: 'calculator', label: 'Kalkulator Rasio', icon: Coffee },
-            { id: 'flavor-wheel', label: 'Sensory Flavor Wheel', icon: Compass },
-            { id: 'atlas', label: `Atlas Origin (${INDONESIAN_REGIONS.length})`, icon: MapPin },
-            { id: 'varieties', label: 'Ensiklopedia Varietas', icon: GitFork },
-            { id: 'espresso-dial', label: 'Espresso Dial-In', icon: Gauge },
-            { id: 'water-lab', label: 'Water Lab', icon: Droplets },
-            { id: 'cupping-sheet', label: 'SCA Cupping Sheet', icon: ClipboardCheck },
-          ].map((tab) => {
-            const Icon = tab.icon;
-            const isActive = activeTab === tab.id;
+      {/* Navigation Domain Architecture */}
+      <div className="space-y-3 mb-6 sm:mb-8">
+        {/* Tier 1: 3 Major Functional Domains */}
+        <div className="grid grid-cols-3 gap-2 sm:gap-3">
+          {TOOL_DOMAINS.map((domain) => {
+            const isDomainActive = activeDomain.id === domain.id;
+            const DomainIcon = domain.icon;
             return (
               <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
-                className={`px-4 py-2.5 rounded-lg font-sans text-xs tracking-wide transition-all flex items-center gap-2 whitespace-nowrap shrink-0 ${
-                  isActive
-                    ? 'bg-roast-950 text-paper-50 font-bold shadow-xs'
-                    : 'bg-paper-100/70 text-roast-700 hover:text-roast-950 hover:bg-paper-200 border border-paper-300/60'
+                key={domain.id}
+                onClick={() => handleSelectDomain(domain.id)}
+                className={`p-2.5 sm:p-3.5 rounded-xl border text-left transition-all relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-2 ${
+                  isDomainActive
+                    ? 'bg-roast-950 text-paper-50 border-roast-950 shadow-sm ring-1 ring-roast-950'
+                    : 'bg-paper-100/80 text-roast-800 border-paper-300 hover:bg-paper-200/90'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-crema-300' : 'text-roast-500'}`} />
-                <span>{tab.label}</span>
+                <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                  <div
+                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center shrink-0 ${
+                      isDomainActive ? 'bg-roast-900 text-crema-300' : 'bg-paper-200 text-roast-600'
+                    }`}
+                  >
+                    <DomainIcon className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0">
+                    <span
+                      className={`text-[11px] sm:text-xs font-serif font-bold truncate block leading-tight ${
+                        isDomainActive ? 'text-paper-50' : 'text-roast-950'
+                      }`}
+                    >
+                      {domain.name}
+                    </span>
+                    <span
+                      className={`text-[9px] sm:text-[10px] font-mono hidden sm:block ${
+                        isDomainActive ? 'text-paper-300' : 'text-roast-500'
+                      }`}
+                    >
+                      {domain.count}
+                    </span>
+                  </div>
+                </div>
+                {isDomainActive && (
+                  <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-crema-400 shrink-0" />
+                )}
               </button>
             );
           })}
         </div>
+
+        {/* Tier 2: Sub-Instrument Pills for Current Domain (Wraps Cleanly, No Cut-Off) */}
+        <div className="bg-paper-100/60 border border-paper-300/80 rounded-xl p-2 sm:p-2.5">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+            <span className="font-mono text-[10px] uppercase tracking-wider text-roast-500 px-2 py-1 hidden sm:inline-block">
+              PILIH ALAT:
+            </span>
+            {domainTools.map((tool) => {
+              const isToolActive = activeTool === tool.id;
+              const ToolIcon = tool.icon;
+              return (
+                <button
+                  key={tool.id}
+                  onClick={() => handleSelectTool(tool.id)}
+                  className={`flex-1 sm:flex-initial px-3 sm:px-3.5 py-2 rounded-lg font-sans text-xs tracking-wide transition-all flex items-center justify-center sm:justify-start gap-2 ${
+                    isToolActive
+                      ? 'bg-roast-950 text-paper-50 font-bold shadow-xs'
+                      : 'bg-paper-50 text-roast-700 hover:text-roast-950 hover:bg-paper-200/90 border border-paper-300/70'
+                  }`}
+                >
+                  <ToolIcon className={`w-3.5 h-3.5 ${isToolActive ? 'text-crema-300' : 'text-roast-500'}`} />
+                  <span className="leading-tight">{tool.shortLabel}</span>
+                  <span
+                    className={`text-[9px] font-mono px-1.5 py-0.2 rounded hidden md:inline-block ${
+                      isToolActive ? 'bg-roast-800 text-paper-200' : 'bg-paper-200 text-roast-600'
+                    }`}
+                  >
+                    {tool.badge}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
-      {/* Tab Content */}
-      {activeTab === 'calculator' && <BrewCalculator />}
-      {activeTab === 'flavor-wheel' && <FlavorWheel />}
+      {/* Active Instrument Context Banner */}
+      <div className="mb-6 bg-paper-100/80 border border-paper-300 rounded-xl p-3.5 sm:p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-lg bg-roast-950 text-paper-50 flex items-center justify-center shrink-0">
+            <ActiveIcon className="w-5 h-5 text-crema-300" />
+          </div>
+          <div className="min-w-0">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="font-mono text-[9px] uppercase tracking-wider text-cherry-700 font-bold">
+                [ DOMAIN: {activeDomain.name.toUpperCase()} ]
+              </span>
+              <span className="text-[10px] text-roast-400">•</span>
+              <span className="text-[10px] font-mono text-roast-600 bg-paper-200/80 px-2 py-0.5 rounded">
+                {activeToolDef.badge}
+              </span>
+            </div>
+            <h2 className="font-serif font-bold text-base sm:text-lg text-roast-950 leading-snug">
+              {activeToolDef.label}
+            </h2>
+            <p className="font-sans text-xs text-roast-600 line-clamp-1 sm:line-clamp-none">
+              {activeToolDef.tagline}
+            </p>
+          </div>
+        </div>
 
-      {activeTab === 'atlas' && (
+        <div className="flex items-center gap-2 self-end sm:self-auto shrink-0">
+          <button
+            onClick={() => setIsSwitcherOpen(true)}
+            className="px-2.5 py-1.5 bg-paper-50 hover:bg-paper-200 border border-paper-300 text-roast-800 rounded-lg font-mono text-xs flex items-center gap-1.5 transition-colors"
+          >
+            <SlidersHorizontal className="w-3.5 h-3.5 text-cherry-700" />
+            <span>Katalog Lengkap</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Switcher Modal / Bottom Sheet */}
+      {isSwitcherOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-roast-950/60 backdrop-blur-xs animate-in fade-in duration-150">
+          <div
+            className="bg-paper-50 w-full max-w-2xl rounded-2xl border border-paper-300 shadow-2xl overflow-hidden flex flex-col max-h-[90vh] animate-in zoom-in-95 duration-150"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="px-5 py-4 border-b border-paper-300 flex items-center justify-between bg-paper-100">
+              <div className="flex items-center gap-2.5">
+                <SlidersHorizontal className="w-4 h-4 text-cherry-700" />
+                <div>
+                  <h3 className="font-serif font-bold text-base text-roast-950">
+                    Katalog Laboratorium Seduh
+                  </h3>
+                  <p className="font-sans text-xs text-roast-500">
+                    Pilih instrumen presisi yang ingin Anda gunakan
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => setIsSwitcherOpen(false)}
+                className="p-1.5 text-roast-500 hover:text-roast-950 rounded-lg hover:bg-paper-200 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Modal Body: Grouped by Domains */}
+            <div className="p-5 overflow-y-auto space-y-6">
+              {TOOL_DOMAINS.map((domain) => {
+                const toolsInDomain = TOOLS_CATALOG.filter((t) => t.domainId === domain.id);
+                const DomainIcon = domain.icon;
+                return (
+                  <div key={domain.id} className="space-y-2.5">
+                    <div className="flex items-center gap-2">
+                      <DomainIcon className="w-4 h-4 text-cherry-700" />
+                      <h4 className="font-mono text-xs uppercase tracking-wider text-roast-900 font-bold">
+                        {domain.name} ({toolsInDomain.length})
+                      </h4>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {toolsInDomain.map((tool) => {
+                        const isSelected = activeTool === tool.id;
+                        const ToolIcon = tool.icon;
+                        return (
+                          <button
+                            key={tool.id}
+                            onClick={() => handleSelectTool(tool.id)}
+                            className={`p-3 rounded-xl border text-left transition-all flex items-start justify-between gap-3 ${
+                              isSelected
+                                ? 'bg-roast-950 text-paper-50 border-roast-950 shadow-xs'
+                                : 'bg-paper-100/70 hover:bg-paper-200/90 text-roast-800 border-paper-300'
+                            }`}
+                          >
+                            <div className="flex items-start gap-2.5">
+                              <div
+                                className={`p-2 rounded-lg mt-0.5 shrink-0 ${
+                                  isSelected
+                                    ? 'bg-roast-900 text-crema-300'
+                                    : 'bg-paper-200 text-roast-700'
+                                }`}
+                              >
+                                <ToolIcon className="w-4 h-4" />
+                              </div>
+                              <div>
+                                <div className="flex items-center gap-1.5">
+                                  <span
+                                    className={`font-serif font-bold text-xs ${
+                                      isSelected ? 'text-paper-50' : 'text-roast-950'
+                                    }`}
+                                  >
+                                    {tool.label}
+                                  </span>
+                                </div>
+                                <p
+                                  className={`text-[11px] font-sans line-clamp-2 mt-0.5 leading-relaxed ${
+                                    isSelected ? 'text-paper-300' : 'text-roast-600'
+                                  }`}
+                                >
+                                  {tool.tagline}
+                                </p>
+                              </div>
+                            </div>
+                            {isSelected ? (
+                              <Check className="w-4 h-4 text-crema-300 shrink-0 mt-1" />
+                            ) : (
+                              <ArrowRight className="w-4 h-4 text-roast-400 shrink-0 mt-1 opacity-0 group-hover:opacity-100" />
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Modal Footer */}
+            <div className="px-5 py-3 border-t border-paper-300 bg-paper-100 flex items-center justify-between text-xs text-roast-500 font-mono">
+              <span>SCA & CQI Technical Standards</span>
+              <button
+                onClick={() => setIsSwitcherOpen(false)}
+                className="px-3 py-1 bg-roast-950 text-paper-50 rounded text-xs font-bold"
+              >
+                Tutup
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Tab Content */}
+      {activeTool === 'calculator' && <BrewCalculator />}
+      {activeTool === 'espresso-dial' && <EspressoDialIn />}
+      {activeTool === 'water-lab' && <WaterCalculator />}
+      {activeTool === 'flavor-wheel' && <FlavorWheel />}
+      {activeTool === 'cupping-sheet' && <SCACuppingForm />}
+      {activeTool === 'varieties' && <VarietyCompendium />}
+
+      {activeTool === 'atlas' && (
         <div className="space-y-8">
           {/* Header Description */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-l-2 border-cherry-700 pl-4 py-1">
@@ -470,11 +873,21 @@ export default function ToolsPage() {
           </div>
         </div>
       )}
-
-      {activeTab === 'varieties' && <VarietyCompendium />}
-      {activeTab === 'espresso-dial' && <EspressoDialIn />}
-      {activeTab === 'water-lab' && <WaterCalculator />}
-      {activeTab === 'cupping-sheet' && <SCACuppingForm />}
     </div>
+  );
+}
+
+export default function ToolsPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-[50vh] flex flex-col items-center justify-center p-8 text-center font-mono text-xs text-roast-500 space-y-2">
+          <div className="w-8 h-8 rounded-full border-2 border-cherry-700 border-t-transparent animate-spin mx-auto" />
+          <span>Memuat Laboratorium Seduh & Riset Kopi...</span>
+        </div>
+      }
+    >
+      <ToolsPageContent />
+    </Suspense>
   );
 }
