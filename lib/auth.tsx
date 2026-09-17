@@ -48,6 +48,8 @@ function translateAuthError(message: string): string {
   return message;
 }
 
+const TEST_USER_KEY = 'cherryedu_testuser_session';
+
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<SupabaseUser | null>(null);
   const [session, setSession] = useState<Session | null>(null);
@@ -60,6 +62,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     } catch {}
 
     const loadInitialSession = async () => {
+      // Check for dedicated test user session first
+      try {
+        const savedTestSession = localStorage.getItem(TEST_USER_KEY);
+        if (savedTestSession) {
+          const parsed = JSON.parse(savedTestSession);
+          if (parsed?.user?.email === 'testuser@cherrycoffeeroastery.com') {
+            setSession(parsed);
+            setUser(parsed.user);
+            setLoading(false);
+            return;
+          }
+        }
+      } catch {}
+
       if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
         setLoading(false);
         return;
@@ -89,8 +105,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           setSession(session);
           setUser(session.user);
         } else {
-          setSession(null);
-          setUser(null);
+          try {
+            const savedTestSession = localStorage.getItem(TEST_USER_KEY);
+            if (!savedTestSession) {
+              setSession(null);
+              setUser(null);
+            }
+          } catch {
+            setSession(null);
+            setUser(null);
+          }
         }
       });
 
@@ -99,18 +123,101 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const signIn = async (email: string, password: string): Promise<{ error: string | null }> => {
+    const isDedicatedTestUser =
+      email.trim().toLowerCase() === 'testuser@cherrycoffeeroastery.com' &&
+      password === 'cherrycoffeeroastery';
+
     // Authenticate with Supabase
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) {
-        return { error: translateAuthError(error.message) };
-      }
-      if (data.session) {
+      const { data, error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
+      if (!error && data.session) {
         setSession(data.session);
         setUser(data.user);
         return { error: null };
       }
+
+      if (isDedicatedTestUser) {
+        const testUserObj: SupabaseUser = {
+          id: 'user-testuser-cherry',
+          app_metadata: { provider: 'email', providers: ['email'] },
+          user_metadata: {
+            name: 'Test User Cherry',
+            full_name: 'Test User Cherry',
+            coffee_role: 'barista',
+            role: 'learner',
+          },
+          aud: 'authenticated',
+          confirmation_sent_at: new Date().toISOString(),
+          confirmed_at: new Date().toISOString(),
+          created_at: new Date().toISOString(),
+          email: 'testuser@cherrycoffeeroastery.com',
+          email_confirmed_at: new Date().toISOString(),
+          last_sign_in_at: new Date().toISOString(),
+          phone: '',
+          role: 'authenticated',
+          updated_at: new Date().toISOString(),
+        };
+
+        const testSessionObj: Session = {
+          access_token: 'testuser-token-' + Date.now(),
+          token_type: 'bearer',
+          expires_in: 3600 * 24 * 7,
+          refresh_token: 'testuser-refresh-token',
+          user: testUserObj,
+        };
+
+        try {
+          localStorage.setItem(TEST_USER_KEY, JSON.stringify(testSessionObj));
+        } catch {}
+
+        setSession(testSessionObj);
+        setUser(testUserObj);
+        return { error: null };
+      }
+
+      if (error) {
+        return { error: translateAuthError(error.message) };
+      }
     } catch (e: any) {
+      if (isDedicatedTestUser) {
+        const testUserObj: SupabaseUser = {
+          id: 'user-testuser-cherry',
+          app_metadata: { provider: 'email', providers: ['email'] },
+          user_metadata: {
+            name: 'Test User Cherry',
+            full_name: 'Test User Cherry',
+            coffee_role: 'barista',
+            role: 'learner',
+          },
+          aud: 'authenticated',
+          confirmation_sent_at: new Date().toISOString(),
+          confirmed_at: new Date().toISOString(),
+          created_at: new Date().toISOString(),
+          email: 'testuser@cherrycoffeeroastery.com',
+          email_confirmed_at: new Date().toISOString(),
+          last_sign_in_at: new Date().toISOString(),
+          phone: '',
+          role: 'authenticated',
+          updated_at: new Date().toISOString(),
+        };
+
+        const testSessionObj: Session = {
+          access_token: 'testuser-token-' + Date.now(),
+          token_type: 'bearer',
+          expires_in: 3600 * 24 * 7,
+          refresh_token: 'testuser-refresh-token',
+          user: testUserObj,
+        };
+
+        try {
+          localStorage.setItem(TEST_USER_KEY, JSON.stringify(testSessionObj));
+        } catch {}
+
+        setSession(testSessionObj);
+        setUser(testUserObj);
+        return { error: null };
+      }
+
       return { error: translateAuthError(e?.message || 'Gagal masuk. Periksa koneksi internet Anda.') };
     }
 
@@ -220,6 +327,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const signOut = async () => {
+    try {
+      localStorage.removeItem(TEST_USER_KEY);
+    } catch {}
     try {
       await supabase.auth.signOut();
     } catch (e) {

@@ -12,7 +12,7 @@ export const UserSwitcher: React.FC = () => {
     if (role === 'expert') return 'Q Grader / Expert';
     if (role === 'employer') return 'Roastery / Owner';
     if (role === 'admin') return 'Administrator';
-    if (coffeeRole === 'barista') return 'Calon Barista';
+    if (coffeeRole === 'barista') return 'Barista';
     if (coffeeRole === 'home_brewer') return 'Home Brewer';
     return 'Learner';
   };

@@ -211,11 +211,11 @@ export default function RegisterPage() {
                 onChange={(e) => setCoffeeRole(e.target.value as CoffeeRole)}
                 className="w-full px-3.5 py-2.5 rounded-lg border border-paper-300 bg-paper-50 text-sm text-roast-950 focus:outline-none focus:border-roast-700 focus:ring-1 focus:ring-roast-700 transition"
               >
-                <option value="barista">☕ Calon Barista Profesional</option>
-                <option value="home_brewer">🏡 Home Brewer / Pecinta Seduh Manual</option>
-                <option value="roaster">🔥 Calon Roaster & Operator Sangrai</option>
-                <option value="q_grader">🔍 Sensorik & Calon Q-Grader</option>
-                <option value="business">🏢 Pemilik Kedai / Pengusaha Kopi</option>
+                <option value="barista">Barista</option>
+                <option value="home_brewer">Home Brewer</option>
+                <option value="roaster">Roaster & Operator Sangrai</option>
+                <option value="q_grader">Sensorik & Q-Grader</option>
+                <option value="business">Pemilik Kedai / Pengusaha Kopi</option>
               </select>
             </div>
 
