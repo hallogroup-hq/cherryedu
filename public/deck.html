@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cherry Edu — Master Presentation Deck (14 Slides)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-paper: #FAF7F2;
+      --bg-paper-card: #FFFFFF;
+      --bg-paper-subtle: #F7F3EC;
+      --border-paper: #E5DAC8;
+      --border-subtle: #EFE8DC;
+      --text-espresso: #140E0C;
+      --text-roast: #44342C;
+      --text-muted: #745E53;
+      --cherry-primary: #7E1D2A;
+      --cherry-light: #BE4252;
+      --cherry-badge: #F9E5E7;
+      --gold-crema: #8F6726;
+      --gold-light: #EDDDA4;
+      --gold-badge: #F5ECCB;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-paper);
+      color: var(--text-espresso);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    header.deck-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 36px;
+      border-bottom: 1px solid var(--border-paper);
+      background: #FFFFFF;
+      position: relative;
+      z-index: 20;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo-img {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-title {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--cherry-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-tag {
+      background: var(--bg-paper-subtle);
+      border: 1px solid var(--border-paper);
+      color: var(--text-muted);
+      font-size: 0.68rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .deck-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-pill {
+      background: var(--bg-paper-subtle);
+      border: 1px solid var(--border-paper);
+      color: var(--text-roast);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .btn-pill:hover {
+      background: #EFE8DC;
+      color: var(--text-espresso);
+    }
+    .btn-pill.active {
+      background: var(--cherry-badge);
+      border-color: var(--cherry-primary);
+      color: var(--cherry-primary);
+    }
+
+    .btn-download-pdf {
+      background: var(--cherry-primary);
+      color: #FFFFFF;
+      border: 1px solid var(--cherry-primary);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s ease;
+    }
+    .btn-download-pdf:hover {
+      background: #651822;
+    }
+
+    /* Progress bar */
+    .progress-track {
+      width: 100%;
+      height: 3px;
+      background: var(--border-subtle);
+      position: relative;
+      z-index: 20;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 7.14%;
+      background: var(--cherry-primary);
+      transition: width 0.3s ease;
+    }
+
+    /* Viewport */
+    main.slide-viewport {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 48px;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      max-width: 1280px;
+      max-height: 84vh;
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* Dark Slide Overrides (Slide 1 & 14) */
+    .slide.dark-theme {
+      background: #140E0C;
+      color: #FAF7F2;
+      border-radius: 16px;
+      padding: 44px 52px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+    }
+    .slide.dark-theme .slide-title {
+      color: #FFFFFF;
+    }
+    .slide.dark-theme .slide-subtitle {
+      color: #D4C7C0;
+    }
+
+    /* Typography */
+    .slide-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .slide-category {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--cherry-primary);
+      background: var(--cherry-badge);
+      padding: 3px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(126, 29, 42, 0.2);
+    }
+    .dark-theme .slide-category {
+      color: var(--gold-light);
+      background: rgba(237, 221, 164, 0.12);
+      border-color: rgba(237, 221, 164, 0.25);
+    }
+    .slide-number-tag {
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .dark-theme .slide-number-tag {
+      color: #8F7668;
+    }
+
+    .slide-title {
+      font-family: var(--font-serif);
+      font-size: 2.35rem;
+      font-weight: 600;
+      line-height: 1.18;
+      color: var(--text-espresso);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .slide-title span.italic-accent {
+      font-style: italic;
+      color: var(--cherry-primary);
+    }
+    .dark-theme .slide-title span.italic-accent {
+      color: var(--gold-light);
+    }
+
+    .slide-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-roast);
+      margin-bottom: 24px;
+      line-height: 1.55;
+      max-width: 980px;
+    }
+
+    /* Cards */
+    .card-paper {
+      background: var(--bg-paper-card);
+      border: 1px solid var(--border-paper);
+      border-radius: 10px;
+      padding: 20px 24px;
+      box-shadow: 0 4px 16px rgba(20, 14, 12, 0.04);
+    }
+    .card-highlight {
+      background: #FFF7F8;
+      border: 1.5px solid #E8A3AC;
+      border-radius: 10px;
+      padding: 20px 24px;
+    }
+    .card-dark {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 22px 26px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    /* Footer */
+    footer.deck-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 36px;
+      border-top: 1px solid var(--border-paper);
+      background: #FFFFFF;
+      position: relative;
+      z-index: 20;
+    }
+
+    .slide-tracker {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .slide-tracker strong {
+      color: var(--text-espresso);
+      font-size: 1rem;
+    }
+
+    .nav-arrow-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      background: var(--bg-paper-subtle);
+      border: 1px solid var(--border-paper);
+      color: var(--text-espresso);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.15s ease;
+    }
+    .nav-btn:hover {
+      background: var(--cherry-primary);
+      border-color: var(--cherry-primary);
+      color: #FFFFFF;
+    }
+
+    .keyboard-hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    kbd {
+      background: var(--bg-paper-subtle);
+      border: 1px solid var(--border-paper);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 0.68rem;
+      color: var(--text-espresso);
+      font-family: monospace;
+    }
+
+    /* Speaker Notes Drawer */
+    .notes-drawer {
+      position: fixed;
+      bottom: 60px;
+      left: 36px;
+      right: 36px;
+      background: #FFFFFF;
+      border: 1.5px solid var(--cherry-primary);
+      border-radius: 10px;
+      padding: 16px 22px;
+      z-index: 50;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+      display: none;
+    }
+    .notes-drawer.open {
+      display: block;
+    }
+    .notes-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-paper);
+    }
+    .notes-title {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--cherry-primary);
+      letter-spacing: 0.08em;
+    }
+    .notes-content {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--text-roast);
+      max-height: 140px;
+      overflow-y: auto;
+    }
+
+    /* Menu Modal */
+    .menu-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 14, 12, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      display: none;
+      flex-direction: column;
+      padding: 40px;
+      overflow-y: auto;
+    }
+    .menu-modal.open {
+      display: flex;
+    }
+    .menu-container {
+      background: #FAF7F2;
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 1100px;
+      margin: auto;
+      width: 100%;
+      border: 1px solid var(--border-paper);
+    }
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .menu-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-paper);
+      border-radius: 8px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .menu-card:hover {
+      border-color: var(--cherry-primary);
+      background: #FFF7F8;
+    }
+    .menu-card-num {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--cherry-primary);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .menu-card-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-espresso);
+      line-height: 1.35;
+    }
+
+    /* Comparison Table */
+    table.editorial-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      background: #FFFFFF;
+      border: 1px solid var(--border-paper);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    table.editorial-table th {
+      background: var(--bg-paper-subtle);
+      padding: 12px 16px;
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-paper);
+    }
+    table.editorial-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-espresso);
+      line-height: 1.45;
+    }
+    table.editorial-table tr:last-child td {
+      border-bottom: none;
+    }
+    table.editorial-table td.highlight-col {
+      background: #FFF7F8;
+      color: var(--cherry-primary);
+      font-weight: 700;
+      border-left: 2px solid var(--cherry-primary);
+    }
+
+    @media (max-width: 1024px) {
+      .grid-4, .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .slide-title { font-size: 1.8rem; }
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="deck-header">
+    <div class="brand-group">
+      <img src="/cherry-logo.png" alt="Cherry Logo" class="brand-logo-img" onerror="this.src='/cherry-logo-white.png'" />
+      <div class="brand-title">
+        CHERRY EDU
+        <span class="brand-tag">Master Deck (14 Slides)</span>
+      </div>
+    </div>
+    <div class="deck-controls">
+      <button class="btn-pill" id="btn-menu" title="Daftar Slide (Tekan M)">
+        <span>☰</span> Daftar Slide
+      </button>
+      <button class="btn-pill" id="btn-notes" title="Catatan Presenter (Tekan N)">
+        <span>🎙️</span> Notes
+      </button>
+      <button class="btn-pill" id="btn-fullscreen" title="Layar Penuh (Tekan F)">
+        <span>⛶</span> Fullscreen
+      </button>
+      <a href="/CherryEdu_Pitch_Deck.pdf" download="CherryEdu_Pitch_Deck.pdf" class="btn-download-pdf">
+        <span>📥</span> Unduh PDF Deck
+      </a>
+      <a href="https://cherryedu.vercel.app" target="_blank" class="btn-pill" style="color: var(--cherry-primary); font-weight: 700;">
+        <span>☕</span> Buka Web Live
+      </a>
+    </div>
+  </header>
+
+  <!-- Progress Bar -->
+  <div class="progress-track">
+    <div class="progress-fill" id="progress-bar"></div>
+  </div>
+
+  <!-- Slide Viewport -->
+  <main class="slide-viewport">
+
+    <!-- SLIDE 01: COVER -->
+    <div class="slide dark-theme active" data-index="0" data-notes="Bikin coffee shop di Indonesia hari ini relatif gampang: sewa ruko, beli mesin espresso puluhan juta, pasang interior estetik. Yang susah: menjaga rasa kopi tetap konsisten setiap hari. Cherry Edu lahir dari lantai kerja kami sendiri di Cherry Coffee Roastery. Kami membangun platform ini bukan cuma untuk bacaan, tapi alat kerja nyata di meja bar: kurikulum sains hulu-ke-hilir, alat kalibrasi harian di smartphone barista, evaluasi berbasis kasus lapangan, dan sertifikasi yang bisa diverifikasi langsung oleh pemilik kafe.">
+      <div class="slide-meta">
+        <span class="slide-category">☕ Diinisiasi oleh Team Cherry Coffee Roastery</span>
+        <span class="slide-number-tag">Halaman 01 / 14</span>
+      </div>
+      <h1 class="slide-title" style="font-size: 3.2rem; margin-bottom: 12px;">
+        Memahami Kopi dari Hulu ke Hilir:<br>
+        <span class="italic-accent">Dari Tanah Petani hingga Meja Barista.</span>
+      </h1>
+      <p class="slide-subtitle" style="font-size: 1.15rem; color: #D4C7C0; margin-bottom: 36px;">
+        Kurikulum sains terstruktur, 6 alat kalibrasi harian di meja bar, dan standarisasi keahlian berbasis studi kasus lapangan—tanpa biaya kursus puluhan juta rupiah.
+      </p>
+
+      <div class="grid-4">
+        <div class="card-dark">
+          <div style="font-family: var(--font-serif); font-size: 2.4rem; font-weight: 700; color: #EDDDA4; line-height: 1;">160</div>
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #CFA946; font-weight: 700; text-transform: uppercase; margin: 4px 0;">Materi Kurikulum</div>
+          <div style="font-size: 0.8rem; color: #B8A398;">8 jalur spesialisasi dari botani kebun sampai manajemen kedai.</div>
+        </div>
+        <div class="card-dark">
+          <div style="font-family: var(--font-serif); font-size: 2.4rem; font-weight: 700; color: #EDDDA4; line-height: 1;">6 Tools</div>
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #CFA946; font-weight: 700; text-transform: uppercase; margin: 4px 0;">Alat Bar di Smartphone</div>
+          <div style="font-size: 0.8rem; color: #B8A398;">Dial-in espresso, brew calculator, form SCA, dan kalkulator air.</div>
+        </div>
+        <div class="card-dark">
+          <div style="font-family: var(--font-serif); font-size: 2.4rem; font-weight: 700; color: #EDDDA4; line-height: 1;">80%</div>
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #CFA946; font-weight: 700; text-transform: uppercase; margin: 4px 0;">Standar Lulus Kasus</div>
+          <div style="font-size: 0.8rem; color: #B8A398;">Evaluasi kasus nyata dengan verifikasi publik (/verify/[token]).</div>
+        </div>
+        <div class="card-dark">
+          <div style="font-family: var(--font-serif); font-size: 2.4rem; font-weight: 700; color: #EDDDA4; line-height: 1;">Live Web</div>
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #CFA946; font-weight: 700; text-transform: uppercase; margin: 4px 0;">cherryedu.vercel.app</div>
+          <div style="font-size: 0.8rem; color: #B8A398;">Sudah beroperasi penuh dan diuji langsung oleh komunitas barista.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 02: REALITAS DI MEJA BAR -->
+    <div class="slide" data-index="1" data-notes="Sebagai pelaku roastery dan pemilik gerai, kami merasakan langsung 3 kebocoran ini: Pertama, pemborosan biji kopi saat kalibrasi pagi. Barista baru menghabiskan ratusan gram beans setiap pagi hanya untuk kalibrasi espresso. Kedua, turnover barista. Masa kerja barista rata-rata cuma 4-8 bulan, tiap kali resign, owner pusing melatih dari nol. Ketiga, sertifikasi offline harganya 8-25 juta per orang, ga masuk akal buat 95% pemilik kafe. Sementara di medsos isinya mitos acak.">
+      <div class="slide-meta">
+        <span class="slide-category">Realitas Meja Bar</span>
+        <span class="slide-number-tag">Halaman 02 / 14</span>
+      </div>
+      <h2 class="slide-title">Investasi Mesin Ratusan Juta, Tapi <span class="italic-accent">Kalibrasi Bar Masih Tebak-Tebakan</span></h2>
+      <p class="slide-subtitle">
+        Kedai kopi modern menjamur di berbagai kota, namun mutu seduhan harian masih rapuh karena ketiadaan standar pelatihan yang terjangkau.
+      </p>
+
+      <div class="grid-3">
+        <div class="card-highlight">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: #7E1D2A; text-transform: uppercase; margin-bottom: 6px;">BOCOR 200–500G BEANS / HARI</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.45rem; color: #7E1D2A; margin-bottom: 8px;">Wastage Kalibrasi 'Kira-Kira'</h3>
+          <p style="font-size: 0.86rem; color: #5A473D; line-height: 1.55;">
+            Setiap pagi, barista membuang ratusan gram biji kopi spesialti hanya untuk mencari rasa yang pas dengan cara menebak-nebak. Tanpa pemahaman mikrometrik gilingan, jutaan rupiah bahan baku terbuang sia-sia setiap bulan.
+          </p>
+        </div>
+
+        <div class="card-paper">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: #8F6726; text-transform: uppercase; margin-bottom: 6px;">TURNOVER TINGGI (4–8 BULAN)</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--text-espresso); margin-bottom: 8px;">Siklus Pelatihan Berulang dari Nol</h3>
+          <p style="font-size: 0.86rem; color: #5A473D; line-height: 1.55;">
+            Masa kerja barista di Indonesia rata-rata sangat singkat. Setiap kali barista andalan mengundurkan diri, pemilik kafe harus mengulang proses pelatihan staf baru dari nol selama berminggu-minggu, dan konsistensi rasa langsung anjlok.
+          </p>
+        </div>
+
+        <div class="card-paper">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: #638059; text-transform: uppercase; margin-bottom: 6px;">BIAYA KURSUS RP 8JT – 25JT</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--text-espresso); margin-bottom: 8px;">Pelatihan Formal Terlalu Mahal</h3>
+          <p style="font-size: 0.86rem; color: #5A473D; line-height: 1.55;">
+            Sertifikasi offline konvensional tidak masuk akal bagi 95% pemilik kedai kopi mandiri. Sementara itu, belajar sendiri dari medsos terpecah-pecah tanpa kurikulum yang jelas, dan banyak menyebarkan mitos keliru di meja bar.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 03: SOLUSI CHERRY EDU -->
+    <div class="slide" data-index="2" data-notes="Cherry Edu tidak berhenti pada teori di layar. Kami menciptakan alat kerja yang hidup di meja bar. Ketika barista bingung kenapa espressonya terasa terlalu asam dan encer, mereka buka Dial-In Tool di ponsel, langsung dapat instruksi presisi pergeseran grinder dan rasio. Barista paham sainsnya, mempraktikkannya dengan tools digital, membuktikan keahliannya melalui evaluasi studi kasus, dan pemilik kafe dapat memverifikasi kompetensi mereka via QR code.">
+      <div class="slide-meta">
+        <span class="slide-category">Solusi Terpadu</span>
+        <span class="slide-number-tag">Halaman 03 / 14</span>
+      </div>
+      <h2 class="slide-title">Bukan Sekadar Bacaan Teori, Tapi <span class="italic-accent">Alat Kerja Harian di Meja Bar</span></h2>
+      <p class="slide-subtitle">
+        Cherry Edu menghubungkan sains kopi yang benar dengan alat kerja praktis di smartphone barista dan pembuktian kompetensi nyata.
+      </p>
+
+      <div class="grid-3">
+        <div class="card-paper" style="border-top: 3px solid #7E1D2A;">
+          <div style="font-size: 2rem; margin-bottom: 8px;">📖</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-espresso); margin-bottom: 6px;">1. Kurikulum Sains Lengkap</h3>
+          <p style="font-size: 0.85rem; color: #5A473D; line-height: 1.55; margin-bottom: 12px;">
+            160 materi komprehensif dalam Bahasa Indonesia yang lugas dan berbasis data ilmiah. Membahas botani ceri, metode fermentasi, termodinamika sangrai, kimia ekstraksi, hingga HPP kedai kopi.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #7E1D2A; font-weight: 700;">✓ 8 Jalur Spesialisasi • Farm to Cup</div>
+        </div>
+
+        <div class="card-paper" style="border-top: 3px solid #CFA946;">
+          <div style="font-size: 2rem; margin-bottom: 8px;">📱</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-espresso); margin-bottom: 6px;">2. Alat Kalibrasi Meja Bar</h3>
+          <p style="font-size: 0.85rem; color: #5A473D; line-height: 1.55; margin-bottom: 12px;">
+            6 alat bantu kerja harian langsung di browser ponsel: asisten dial-in espresso, kalkulator seduh manual V60 ber-timer, lembar cupping SCA 100 poin, dan kalkulator formulasi air mineral.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #8F6726; font-weight: 700;">✓ Digunakan Setiap Pagi di Bar</div>
+        </div>
+
+        <div class="card-paper" style="border-top: 3px solid #638059;">
+          <div style="font-size: 2rem; margin-bottom: 8px;">🛡️</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-espresso); margin-bottom: 6px;">3. Standarisasi & Bursa Kerja</h3>
+          <p style="font-size: 0.85rem; color: #5A473D; line-height: 1.55; margin-bottom: 12px;">
+            Ujian berbasis simulasi kasus nyata dengan standar kelulusan 80%. Dilengkapi tautan verifikasi publik mandiri (/verify/[token]) dan portal bursa kerja khusus kedai kopi (/jobs).
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #3B4E34; font-weight: 700;">✓ Scan QR untuk Cek Nilai & Status</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 04: ALUR BELAJAR -->
+    <div class="slide" data-index="3" data-notes="Bagaimana alur pengguna di Cherry Edu? Dimulai dari pemahaman fondasi sains hulu-ke-hilir agar memiliki logika rasa yang objektif. Kemudian mereka membawa materi itu ke depan mesin seduh dengan 6 tools interaktif kami. Lalu mereka diuji dengan studi kasus nyata bar berstandar kelulusan 80%. Hasilnya adalah sertifikat ber-QR yang langsung menghubungkan mereka dengan lowongan kerja kafe.">
+      <div class="slide-meta">
+        <span class="slide-category">Alur Pengalaman</span>
+        <span class="slide-number-tag">Halaman 04 / 14</span>
+      </div>
+      <h2 class="slide-title">Dari Pemahaman Kebun Hingga <span class="italic-accent">Standarisasi Barista di Kedai</span></h2>
+      <p class="slide-subtitle">
+        Alur terstruktur yang membimbing pembelajar dari logika rasa dasar hingga kesiapan operasional profesional di meja bar.
+      </p>
+
+      <div class="grid-4">
+        <div class="card-paper">
+          <div style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: #7E1D2A; line-height: 1; margin-bottom: 8px;">01</div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-espresso); margin-bottom: 6px;">Fondasi Sains Hulu-Hilir</h3>
+          <p style="font-size: 0.82rem; color: #5A473D; line-height: 1.5;">
+            Memahami agronomi ceri, metode pasca-panen, reaksi Maillard sangrai, dan variabel ekstraksi sebelum memegang mesin komersial.
+          </p>
+        </div>
+
+        <div class="card-paper">
+          <div style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: #CFA946; line-height: 1; margin-bottom: 8px;">02</div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-espresso); margin-bottom: 6px;">Praktik Meja Bar Live</h3>
+          <p style="font-size: 0.82rem; color: #5A473D; line-height: 1.5;">
+            Teori diuji langsung di bar: kalibrasi espresso pagi via Dial-In Tool, hitung rasio seduh, dan evaluasi sensori green beans di form SCA digital.
+          </p>
+        </div>
+
+        <div class="card-paper">
+          <div style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: #638059; line-height: 1; margin-bottom: 8px;">03</div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-espresso); margin-bottom: 6px;">Ujian Kasus Nyata (80%)</h3>
+          <p style="font-size: 0.82rem; color: #5A473D; line-height: 1.5;">
+            Mendiagnosa kendala nyata di bar: mengatasi channeling, koreksi rasa abnormal, dan menyusun SOP bar 14 hari tanpa hafalan buta.
+          </p>
+        </div>
+
+        <div class="card-highlight">
+          <div style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: #7E1D2A; line-height: 1; margin-bottom: 8px;">04</div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: #7E1D2A; margin-bottom: 6px;">Sertifikat QR & Rekrutmen</h3>
+          <p style="font-size: 0.82rem; color: #5A473D; line-height: 1.5;">
+            Lulusan terverifikasi memperoleh token publik permanen yang dapat langsung dilampirkan pada bursa kerja kedai kopi (/jobs).
+          </p>
+        </div>
+      </div>
+
+      <div style="border-left: 3px solid #7E1D2A; padding: 14px 20px; background: #F9E5E7; border-radius: 0 8px 8px 0; margin-top: 24px;">
+        <p style="font-family: var(--font-serif); font-size: 1.15rem; font-style: italic; color: #50141C; line-height: 1.5;">
+          "Seorang barista yang hebat wajib tahu varietas dan fermentasi di kebun. Seorang petani modern wajib tahu cara menyeduh dan meng-cupping hasil panennya."
+        </p>
+      </div>
+    </div>
+
+    <!-- SLIDE 05: 8 JALUR SPESIALISASI -->
+    <div class="slide" data-index="4" data-notes="Ini adalah silabus kurikulum Cherry Edu: 160 materi yang terbagi ke dalam 8 jalur spesialisasi. Kami menghubungkan seluruh rantai pasok: mulai dari agronomi kebun dan bioproses fermentasi bagi petani, teknik sangrai bagi roaster, kalibrasi espresso dan fisika susu bagi barista, hingga kalkulasi HPP dan SOP operasional bagi pemilik kedai kopi. Kurikulum terlengkap yang ditulis dalam Bahasa Indonesia.">
+      <div class="slide-meta">
+        <span class="slide-category">Katalog Kurikulum</span>
+        <span class="slide-number-tag">Halaman 05 / 14</span>
+      </div>
+      <h2 class="slide-title">160 Materi Lengkap: <span class="italic-accent">Dari Kebun Petani Sampai Pemilik Kafe</span></h2>
+      <p class="slide-subtitle">
+        Memetakan seluruh aspek teknis dan operasional industri kopi modern dalam Bahasa Indonesia yang lugas dan teruji.
+      </p>
+
+      <div class="grid-4" style="gap: 14px;">
+        <div class="card-paper" style="padding: 14px 16px;">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #7E1D2A; font-weight: 700; text-transform: uppercase;">7 Modul • 32 Materi</div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-espresso); margin: 3px 0 4px 0;">1. Fondasi Hulu-Hilir</h4>
+          <p style="font-size: 0.78rem; color: #5A473D; line-height: 1.4;">Rantai pasok, botani ceri, silsilah varietas, metode olah, sangrai dasar, dan sensori.</p>
+        </div>
+        <div class="card-paper" style="padding: 14px 16px;">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #7E1D2A; font-weight: 700; text-transform: uppercase;">10 Modul • 30 Materi</div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-espresso); margin: 3px 0 4px 0;">2. Barista Komersial</h4>
+          <p style="font-size: 0.78rem; color: #5A473D; line-height: 1.4;">Dial-in mikrometrik, fisika buih susu 65°C, latte art, mocktail, dan efisiensi alur bar.</p>
+        </div>
+        <div class="card-paper" style="padding: 14px 16px;">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #7E1D2A; font-weight: 700; text-transform: uppercase;">7 Modul • 24 Materi</div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-espresso); margin: 3px 0 4px 0;">3. Manual Brewing</h4>
+          <p style="font-size: 0.78rem; color: #5A473D; line-height: 1.4;">Pour over V60 (4:6 method), Aeropress, formulasi mineral air, dan mitigasi seduhan.</p>
+        </div>
+        <div class="card-paper" style="padding: 14px 16px;">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #7E1D2A; font-weight: 700; text-transform: uppercase;">6 Modul • 18 Materi</div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-espresso); margin: 3px 0 4px 0;">4. Roasting Profesional</h4>
+          <p style="font-size: 0.78rem; color: #5A473D; line-height: 1.4;">Telemetri suhu RoR, reaksi Maillard, first crack, dan konsistensi batch sangrai.</p>
+        </div>
+        <div class="card-paper" style="padding: 14px 16px;">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #7E1D2A; font-weight: 700; text-transform: uppercase;">6 Modul • 18 Materi</div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-espresso); margin: 3px 0 4px 0;">5. Sensory & Cupping</h4>
+          <p style="font-size: 0.78rem; color: #5A473D; line-height: 1.4;">Penilaian 10 atribut sensori SCA, identifikasi defect rasa, dan kalibrasi deskriptor.</p>
+        </div>
+        <div class="card-paper" style="padding: 14px 16px;">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #7E1D2A; font-weight: 700; text-transform: uppercase;">6 Modul • 18 Materi</div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-espresso); margin: 3px 0 4px 0;">6. Olah Biji Hijau</h4>
+          <p style="font-size: 0.78rem; color: #5A473D; line-height: 1.4;">Petik merah Brix 18–24°, penjemuran meja gantung, sortasi fisik, dan penyimpanan.</p>
+        </div>
+        <div class="card-paper" style="padding: 14px 16px;">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #7E1D2A; font-weight: 700; text-transform: uppercase;">8 Modul • 20 Materi</div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-espresso); margin: 3px 0 4px 0;">7. Bioproses Pasca-Panen</h4>
+          <p style="font-size: 0.78rem; color: #5A473D; line-height: 1.4;">Fermentasi anaerobik terukur, kurva pH/suhu, inokulasi ragi, dan kontrol kadar air.</p>
+        </div>
+        <div class="card-paper" style="padding: 14px 16px;">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #7E1D2A; font-weight: 700; text-transform: uppercase;">6 Modul • 18 Materi</div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-espresso); margin: 3px 0 4px 0;">8. Manajemen Kedai</h4>
+          <p style="font-size: 0.78rem; color: #5A473D; line-height: 1.4;">Perhitungan HPP cangkir, SOP bar 14 hari, manajemen inventori, dan strategi margin.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 06: ALAT KERJA HARIAN DI MEJA BAR -->
+    <div class="slide" data-index="5" data-notes="Ini adalah penggerak retensi harian platform kami: 6 Pro Tools di ponsel. Barista tidak hanya membaca kurikulum, tapi membukanya setiap pagi jam 8 saat kalibrasi bar. Begitu espresso terasa terlalu asam dan encer, barista membuka Dial-In tool, dan tool langsung menghitung rekomendasi gilingan dan rasio. Waktu hemat, biji kopi selamat.">
+      <div class="slide-meta">
+        <span class="slide-category">Alat Meja Bar di Ponsel</span>
+        <span class="slide-number-tag">Halaman 06 / 14</span>
+      </div>
+      <h2 class="slide-title">Alat Kalibrasi di HP Barista: <span class="italic-accent">Cepat, Presisi, Tanpa Aplikasi Tambahan</span></h2>
+      <p class="slide-subtitle">
+        6 instrumen kerja harian yang dibuka barista setiap pagi di meja bar sebelum menyajikan cangkir pertama kepada pelanggan.
+      </p>
+
+      <div class="grid-3">
+        <div class="card-paper">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #10B981; font-weight: 700; text-transform: uppercase; margin-bottom: 3px;">● KALIBRASI ESPRESSO</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--text-espresso); margin-bottom: 6px;">Espresso Dial-In Assistant</h3>
+          <p style="font-size: 0.82rem; color: #5A473D; line-height: 1.5;">
+            Masukkan rasa yang muncul (asam tajam / pahit sepet) ➔ Sistem otomatis hitung rekomendasi pergeseran mikron grinder dan rasio ekstraksi.
+          </p>
+        </div>
+
+        <div class="card-paper">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #10B981; font-weight: 700; text-transform: uppercase; margin-bottom: 3px;">● SEDUH MANUAL</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--text-espresso); margin-bottom: 6px;">Smart Brew Calculator</h3>
+          <p style="font-size: 0.82rem; color: #5A473D; line-height: 1.5;">
+            Kalkulator rasio gramasi kopi-air untuk V60 (metode 4:6), Aeropress, French Press, lengkap dengan auto-timer tahapan tuangan seduh.
+          </p>
+        </div>
+
+        <div class="card-paper">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #10B981; font-weight: 700; text-transform: uppercase; margin-bottom: 3px;">● UJI SENSORI RESMI</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--text-espresso); margin-bottom: 6px;">Form Cupping SCA Digital</h3>
+          <p style="font-size: 0.82rem; color: #5A473D; line-height: 1.5;">
+            Lembar penilaian 100 poin resmi dengan kalkulasi otomatis pemotongan nilai cacat (defects) dan grade mutu spesialti tanpa boros kertas.
+          </p>
+        </div>
+
+        <div class="card-paper">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #10B981; font-weight: 700; text-transform: uppercase; margin-bottom: 3px;">● KALIBRASI RASA</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--text-espresso); margin-bottom: 6px;">Interactive Flavor Wheel</h3>
+          <p style="font-size: 0.82rem; color: #5A473D; line-height: 1.5;">
+            Roda rasa multi-lapis interaktif untuk menyelaraskan kosakata aroma dan rasa cangkir kopi secara baku dan objektif.
+          </p>
+        </div>
+
+        <div class="card-paper">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #10B981; font-weight: 700; text-transform: uppercase; margin-bottom: 3px;">● SAINS MINERAL AIR</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--text-espresso); margin-bottom: 6px;">Kalkulator Kimia Air Seduh</h3>
+          <p style="font-size: 0.82rem; color: #5A473D; line-height: 1.5;">
+            Panduan formulasi mineral air seduh terukur berbasis target General Hardness (GH kalsium/magnesium) dan Alkalinity (KH bikarbonat).
+          </p>
+        </div>
+
+        <div class="card-paper">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #10B981; font-weight: 700; text-transform: uppercase; margin-bottom: 3px;">● DATABASE KULTIVAR</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--text-espresso); margin-bottom: 6px;">Kompendium Varietas Kopi</h3>
+          <p style="font-size: 0.82rem; color: #5A473D; line-height: 1.5;">
+            Basis data silsilah genetika varietas kopi nusantara dan dunia, elevasi ideal (masl), serta potensi profil rasa bawaan setiap kultivar.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 07: DIAGRAM SAINS KOPI VISUAL -->
+    <div class="slide" data-index="6" data-notes="Salah satu kelemahan terbesar edukasi kopi konvensional adalah teorinya terlalu abstrak. Di Cherry Edu, pembelajar melihat sainsnya secara nyata. Mereka melihat bagaimana sudut steam wand 15 derajat menciptakan pusaran mikro yang mengemulsi susu secara sempurna. Mereka melihat posisi cangkir di Brewing Control Chart saat kopi terasa encer atau pahit. Visualisasi membuat pemahaman terbentuk dalam hitungan menit.">
+      <div class="slide-meta">
+        <span class="slide-category">Visual Sains Terintegrasi</span>
+        <span class="slide-number-tag">Halaman 07 / 14</span>
+      </div>
+      <h2 class="slide-title">Membedah Sains Kopi Menjadi <span class="italic-accent">Diagram Teknis yang Mudah Dipahami</span></h2>
+      <p class="slide-subtitle">
+        Menghilangkan penjelasan abstrak melalui representasi visual interaktif yang memperjelas hubungan variabel seduhan dan profil rasa cangkir.
+      </p>
+
+      <div class="grid-2">
+        <div class="card-paper">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #7E1D2A; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">DIAGRAM 01 • EKSTRAKSI OBJEKTIF</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-espresso); margin-bottom: 6px;">Brewing Control Chart (Extraction Yield vs TDS)</h3>
+          <p style="font-size: 0.85rem; color: #5A473D; line-height: 1.55;">
+            Memetakan titik temu antara laju ekstraksi (18–22%) dan kepekatan larutan (TDS 1,15–1,45%). Membantu barista mendiagnosa zona Under-extracted (asam tajam) vs Over-extracted (pahit sepet) secara objektif.
+          </p>
+        </div>
+
+        <div class="card-paper">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #7E1D2A; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">DIAGRAM 02 • TERMODINAMIKA SANGRAI</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-espresso); margin-bottom: 6px;">Roast Curve Telemetry (Bean Temp & Rate of Rise)</h3>
+          <p style="font-size: 0.85rem; color: #5A473D; line-height: 1.55;">
+            Visualisasi perpindahan panas konveksi drum roaster. Menjelaskan dinamika penurunan Rate of Rise (RoR) yang stabil dari fase pengeringan, reaksi Maillard, hingga First Crack terkontrol.
+          </p>
+        </div>
+
+        <div class="card-paper">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #7E1D2A; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">DIAGRAM 03 • FISIKA TEKSTUR SUSU</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-espresso); margin-bottom: 6px;">Fisika Turbulensi Vortex Susu (Sudut Wand 15°)</h3>
+          <p style="font-size: 0.85rem; color: #5A473D; line-height: 1.55;">
+            Panduan posisi ujung steam wand: sudut 15° dan kedalaman 1–2 cm untuk menghasilkan mikro-emulsi sutra pada suhu optimal 60–65°C tanpa memecah struktur protein susu.
+          </p>
+        </div>
+
+        <div class="card-paper">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #7E1D2A; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">DIAGRAM 04 • KIMIA EKSTRAKSI ESPRESSO</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-espresso); margin-bottom: 6px;">Dinamika Aliran Espresso 3 Fase</h3>
+          <p style="font-size: 0.85rem; color: #5A473D; line-height: 1.55;">
+            Penampang ekstraksi shot espresso: Fase Ristretto (asam organik dan minyak volatil), Fase Normale (pelarutan karamel dan body), dan Fase Lungo (komponen pahit dan kafein berlebih).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 08: STANDARISASI KREDENSIAL & REKRUTMEN -->
+    <div class="slide" data-index="7" data-notes="Banyak sertifikat online di internet saat ini tidak dihargai karena bisa didapat hanya dengan klik next-next saja. Di Cherry Edu, kami terapkan passing grade 80% berbasis simulasi kasus nyata. Selain itu, setiap sertifikat memiliki QR code verifikasi publik di sistem kami. Owner kafe tinggal scan QR di resume pelamar dan langsung tahu kompetensi nyatanya. Ini memangkas waktu seleksi staf hingga 70%.">
+      <div class="slide-meta">
+        <span class="slide-category">Standarisasi & Rekrutmen</span>
+        <span class="slide-number-tag">Halaman 08 / 14</span>
+      </div>
+      <h2 class="slide-title">Sertifikasi yang <span class="italic-accent">Bermanfaat Nyata bagi Pemilik Usaha</span></h2>
+      <p class="slide-subtitle">
+        Menghilangkan keraguan pemilik kafe saat merekrut staf baru lewat bukti penguasaan materi yang dapat divalidasi langsung secara publik.
+      </p>
+
+      <div class="grid-2">
+        <div class="card-highlight">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #7E1D2A; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">STANDAR KELULUSAN 80% • QR VERIFIKASI MANDIRI</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: #7E1D2A; margin-bottom: 8px;">Verifikasi Publik Mandiri (/verify/[token])</h3>
+          <p style="font-size: 0.85rem; color: #5A473D; line-height: 1.55; margin-bottom: 14px;">
+            Sertifikat Cherry Edu tidak diberikan secara cuma-cuma. Setiap lembar sertifikat memiliki tautan unik dan kode QR permanen di sistem produksi.
+          </p>
+          <div style="background: #FFFFFF; border: 1px solid var(--border-paper); border-radius: 6px; padding: 12px; font-size: 0.8rem; color: var(--text-espresso); line-height: 1.5;">
+            <strong>Saat Pemilik Kafe Memindai QR Code Pelamar:</strong><br>
+            • Konfirmasi nama lengkap & tanggal kelulusan resmi.<br>
+            • Skor ujian studi kasus (wajib minimal 80%).<br>
+            • Rincian materi teknis yang telah dikuasai kandidat.<br>
+            • Memastikan pelamar tidak membeli sertifikat kosong.
+          </div>
+        </div>
+
+        <div class="card-paper">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #638059; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">INTEGRASI DUA ARAH DENGAN INDUSTRI</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--text-espresso); margin-bottom: 8px;">Bursa Kerja Khusus Kedai Kopi (/jobs)</h3>
+          <p style="font-size: 0.85rem; color: #5A473D; line-height: 1.55; margin-bottom: 14px;">
+            Menjembatani kedai kopi yang membutuhkan barista terstandar dengan lulusan yang telah teruji kompetensinya.
+          </p>
+          <div style="background: var(--bg-paper-subtle); border: 1px solid var(--border-paper); border-radius: 6px; padding: 12px; font-size: 0.8rem; color: var(--text-espresso); line-height: 1.5;">
+            <strong>Dampak Operasional bagi Pemilik Kafe:</strong><br>
+            • Memangkas waktu skrining pelamar hingga <strong>70%</strong>.<br>
+            • Menghindari perekrutan barista yang belum paham dasar ekstraksi.<br>
+            • Masa orientasi staf baru di bar berkurang dari 4 minggu ke <strong>7 hari</strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 09: TABEL PERBANDINGAN INDUSTRI -->
+    <div class="slide" data-index="8" data-notes="Di mana posisi Cherry Edu? Kursus offline mutunya bagus tapi biayanya puluhan juta rupiah—tidak terjangkau bagi mayoritas barista dan kedai kopi mandiri. Belajar di media sosial gratis, tapi materinya tercecer, penuh mitos, dan sering menyesatkan saat diterapkan di bar. Platform kursus umum isinya hanya video rekaman tanpa alat bantu kerja seduh. Cherry Edu mengambil posisi paling tepat: kurikulum sedalam akademi formal, kepraktisan alat kerja digital langsung di smartphone, dan biaya yang sangat terjangkau.">
+      <div class="slide-meta">
+        <span class="slide-category">Perbandingan Solusi</span>
+        <span class="slide-number-tag">Halaman 09 / 14</span>
+      </div>
+      <h2 class="slide-title">Solusi Tepat di Antara <span class="italic-accent">Kursus Offline Mahal dan Konten Acak</span></h2>
+      <p class="slide-subtitle">
+        Menggabungkan kedalaman materi akademi formal, kepraktisan alat kerja digital di meja bar, dan biaya yang sangat terjangkau.
+      </p>
+
+      <table class="editorial-table">
+        <thead>
+          <tr>
+            <th>Kriteria Evaluasi</th>
+            <th>Kursus Offline Konvensional</th>
+            <th>Konten Medsos / YouTube</th>
+            <th>Platform Kursus Online Umum</th>
+            <th style="background: #7E1D2A; color: #FFFFFF;">CHERRY EDU</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Biaya Pelatihan</strong></td>
+            <td>Rp 8Jt – Rp 25Jt / modul</td>
+            <td>Gratis (Iklan Acak)</td>
+            <td>Rp 200Rb – Rp 1Jt</td>
+            <td class="highlight-col">Akses Dasar Gratis / Rp 49rb Pro</td>
+          </tr>
+          <tr>
+            <td><strong>Kelengkapan Materi</strong></td>
+            <td>Hanya modul yang dibayar</td>
+            <td>Tercecer & tidak terstruktur</td>
+            <td>Teori umum / minim konteks</td>
+            <td class="highlight-col">Hulu ke Hilir Lengkap (160 Materi)</td>
+          </tr>
+          <tr>
+            <td><strong>Landasan Ilmiah</strong></td>
+            <td>Standar tapi kaku</td>
+            <td>Banyak mitos & asumsi</td>
+            <td>Teori tanpa telaah data</td>
+            <td class="highlight-col">Sains Teruji & Bebas Mitos Industri</td>
+          </tr>
+          <tr>
+            <td><strong>Alat Kerja di Bar</strong></td>
+            <td>Lembar kertas panduan</td>
+            <td>Tidak tersedia</td>
+            <td>Tidak tersedia</td>
+            <td class="highlight-col">6 Tools Digital Langsung di HP Barista</td>
+          </tr>
+          <tr>
+            <td><strong>Validitas Sertifikat</strong></td>
+            <td>Ijazah fisik lokal</td>
+            <td>Tidak ada</td>
+            <td>PDF umum tanpa verifikasi</td>
+            <td class="highlight-col">Tautan Verifikasi Publik Mandiri Real-Time</td>
+          </tr>
+          <tr>
+            <td><strong>Penyaluran Kerja</strong></td>
+            <td>Tergantung relasi instruktur</td>
+            <td>Tidak ada</td>
+            <td>Tidak ada</td>
+            <td class="highlight-col">Bursa Kerja Kedai Kopi Terintegrasi</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SLIDE 10: MODEL BISNIS & FINANSIAL -->
+    <div class="slide" data-index="9" data-notes="Model bisnis kami digerakkan oleh dua mesin yang saling memperkuat: Pertama B2C: barista mandiri dan home brewer yang berlangganan Rp 49.000 per bulan. Harganya lebih murah dari segelas kopi di kafe, sehingga hambatan konversinya sangat rendah. Kedua B2B: pemilik kedai kopi yang berlangganan sistem pelatihan kami untuk staf bar mereka. Dibanding membayar konsultan jutaan rupiah setiap ada barista baru, pemilik kafe cukup membayar ratusan ribu per bulan. Margin software di atas 85%, siap diskalakan.">
+      <div class="slide-meta">
+        <span class="slide-category">Model Bisnis & Finansial</span>
+        <span class="slide-number-tag">Halaman 10 / 14</span>
+      </div>
+      <h2 class="slide-title">Pendapatan Berulang dari <span class="italic-accent">Pengguna Mandiri dan Kedai Kopi</span></h2>
+      <p class="slide-subtitle">
+        Model bisnis berbasis perangkat lunak awan dengan margin kotor di atas 85%, tanpa beban biaya inventori fisik materi.
+      </p>
+
+      <div class="grid-2" style="margin-bottom: 16px;">
+        <div class="card-paper" style="border-top: 3px solid #7E1D2A;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #7E1D2A; font-weight: 700; text-transform: uppercase;">SEGMEN B2C: BARISTA & HOME BREWER</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--text-espresso); margin-top: 4px;">Langganan Pro Individu</h3>
+          <div style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: #7E1D2A; margin: 6px 0;">Rp 49.000 <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">/ Bulan</span></div>
+          <p style="font-size: 0.85rem; color: #5A473D; line-height: 1.5;">
+            Akses menyeluruh ke seluruh materi spesialisasi lanjutan, hak evaluasi ujian studi kasus, dan penerbitan sertifikat digital resmi terverifikasi bagi praktisi mandiri.
+          </p>
+        </div>
+
+        <div class="card-highlight" style="border-top: 3px solid #CFA946; background: #FFFDF9; border-color: #E8DFC8;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #8F6726; font-weight: 700; text-transform: uppercase;">SEGMEN B2B: PEMILIK KEDAI KOPI</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--text-espresso); margin-top: 4px;">Paket Pelatihan Tim Bar Kafe</h3>
+          <div style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: #8F6726; margin: 6px 0;">Rp 299Rb – 799Rb <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">/ Gerai / Bln</span></div>
+          <p style="font-size: 0.85rem; color: #5A473D; line-height: 1.5;">
+            Solusi orientasi staf baru bagi pemilik kedai kopi independen dan multi-outlet. Menggantikan biaya konsultan mahal dan memangkas waktu orientasi staf dari 4 minggu menjadi 7 hari.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card-paper" style="padding: 12px 18px;">
+          <strong style="font-size: 0.88rem; color: var(--text-espresso);">Listing Lowongan Prioritas (/jobs)</strong>
+          <p style="font-size: 0.78rem; color: #5A473D; margin-top: 2px;">Biaya publikasi lowongan prioritas bagi kedai kopi yang butuh rekrutmen cepat tenaga teruji.</p>
+        </div>
+        <div class="card-paper" style="padding: 12px 18px;">
+          <strong style="font-size: 0.88rem; color: var(--text-espresso);">Sensory Kit & Beans Kalibrasi</strong>
+          <p style="font-size: 0.78rem; color: #5A473D; margin-top: 2px;">Paket biji sangrai terstandar dari Cherry Coffee Roastery untuk latihan cupping mandiri.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 11: STRATEGI DISTRIBUSI & PERTUMBUHAN -->
+    <div class="slide" data-index="10" data-notes="Bagaimana kami mendistribusikan produk tanpa bakar uang pemasaran secara membabi-buta? Jawabannya adalah adopsi alami dan efek jaringan. Barista memakai alat dial-in gratis tiap pagi di bar, lalu merekomendasikannya ke sesama rekan barista di komunitas. Di sisi lain, Cherry Coffee Roastery memaketkan Cherry Edu sebagai kurikulum SOP seduh ke setiap kafe mitra roastery. Ditambah bursa kerja yang menarik pencari kerja untuk belajar dan tersertifikasi.">
+      <div class="slide-meta">
+        <span class="slide-category">Distribusi Pasar</span>
+        <span class="slide-number-tag">Halaman 11 / 14</span>
+      </div>
+      <h2 class="slide-title">Cara Kami Tumbuh <span class="italic-accent">Tanpa Bakar Uang Pemasaran yang Boros</span></h2>
+      <p class="slide-subtitle">
+        Membangun adopsi pengguna secara alami melalui utilitas alat kerja harian di bar dan jaringan kemitraan roastery yang sudah berjalan.
+      </p>
+
+      <div class="grid-3">
+        <div class="card-paper" style="border-top: 3px solid #7E1D2A;">
+          <div style="font-size: 1.8rem; margin-bottom: 8px;">⚡</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-espresso); margin-bottom: 8px;">1. Adopsi Alami Barista</h3>
+          <p style="font-size: 0.85rem; color: #5A473D; line-height: 1.55;">
+            Modul fondasi dasar dan alat dial-in dibuka bebas biaya. Barista menggunakannya setiap pagi di bar, lalu merekomendasikannya ke sesama rekan barista di komunitas dan media sosial secara sukarela karena merasakan manfaat langsungnya.
+          </p>
+        </div>
+
+        <div class="card-paper" style="border-top: 3px solid #CFA946;">
+          <div style="font-size: 1.8rem; margin-bottom: 8px;">🤝</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-espresso); margin-bottom: 8px;">2. Sinergi Cherry Roastery</h3>
+          <p style="font-size: 0.85rem; color: #5A473D; line-height: 1.55;">
+            Sebagai micro-roastery aktif, kami memiliki basis kafe mitra yang disuplai biji kopi. Cherry Edu dipaketkan sebagai kurikulum SOP seduh resmi bagi setiap kedai kopi rekanan roastery untuk memastikan kualitas cangkir mereka terjaga.
+          </p>
+        </div>
+
+        <div class="card-paper" style="border-top: 3px solid #638059;">
+          <div style="font-size: 1.8rem; margin-bottom: 8px;">🔄</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-espresso); margin-bottom: 8px;">3. Efek Bursa Kerja (/jobs)</h3>
+          <p style="font-size: 0.85rem; color: #5A473D; line-height: 1.55;">
+            Kedai kopi membuka lowongan di /jobs dengan prasyarat sertifikat Cherry Edu ➔ Mendorong pencari kerja belajar dan menyelesaikan modul ➔ Bertambahnya lulusan berkualitas menarik lebih banyak pemilik kafe untuk bergabung.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 12: ROADMAP BISNIS -->
+    <div class="slide" data-index="11" data-notes="Roadmap bisnis kami terbagi menjadi 4 fase yang sangat jelas dan terukur: Saat ini kami berada di Fase 1: produk kami telah live secara penuh, 160 materi kurikulum dan 6 tools sudah beroperasi, dan kami sedang memvalidasi penggunaannya pada 25 kedai kopi rekanan di Jabodetabek dan Bandung. Di awal tahun depan, kami mengaktifkan Fase 2: meluncurkan paket langganan B2B untuk pemilik kafe dengan target 100 gerai pertama dan 1.500 subscriber Pro. Lalu ekspansi ke hub regional di akhir 2027 hingga menjadi standar nasional di 2028.">
+      <div class="slide-meta">
+        <span class="slide-category">Roadmap Bisnis</span>
+        <span class="slide-number-tag">Halaman 12 / 14</span>
+      </div>
+      <h2 class="slide-title">Rencana Pengembangan Bertahap: <span class="italic-accent">Dari Validasi Lokal Menuju Standar Nasional</span></h2>
+      <p class="slide-subtitle">
+        Fokus bisnis yang terukur, beralih dari pengujian materi di komunitas hingga ekspansi jaringan kemitraan kedai kopi di seluruh Indonesia.
+      </p>
+
+      <div class="grid-4">
+        <div class="card-highlight" style="background: #FFFDF9; border-color: #E8DFC8;">
+          <div style="font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; color: #8F6726; margin-bottom: 4px;">FASE 1 • BERJALAN</div>
+          <div style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: var(--text-espresso); margin-bottom: 6px;">Validasi & Pilot Kafe</div>
+          <div style="font-size: 0.75rem; color: #8F6726; font-weight: 600; margin-bottom: 8px;">Q3 – Q4 2026</div>
+          <p style="font-size: 0.78rem; color: #5A473D; line-height: 1.5;">
+            • 160 materi & 6 tools live.<br>
+            • 5.000 pengguna komunitas.<br>
+            • Pilot kurikulum di 25–30 kafe mitra Jabodetabek & Bandung.
+          </p>
+        </div>
+
+        <div class="card-paper">
+          <div style="font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; color: #7E1D2A; margin-bottom: 4px;">FASE 2 • TARGET DEKAT</div>
+          <div style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: var(--text-espresso); margin-bottom: 6px;">Komersialisasi B2B</div>
+          <div style="font-size: 0.75rem; color: #7E1D2A; font-weight: 600; margin-bottom: 8px;">Q1 – Q2 2027</div>
+          <p style="font-size: 0.78rem; color: #5A473D; line-height: 1.5;">
+            • Rilis paket bisnis kafe.<br>
+            • Target 100 kafe berbayar.<br>
+            • 1.500 pelanggan Pro aktif.<br>
+            • Monetisasi bursa kerja prioritas.
+          </p>
+        </div>
+
+        <div class="card-paper">
+          <div style="font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; color: #3B4E34; margin-bottom: 4px;">FASE 3 • EKSPANSI</div>
+          <div style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: var(--text-espresso); margin-bottom: 6px;">Hub Kopi Regional</div>
+          <div style="font-size: 0.75rem; color: #3B4E34; font-weight: 600; margin-bottom: 8px;">H2 2027</div>
+          <p style="font-size: 0.78rem; color: #5A473D; line-height: 1.5;">
+            • Ekspansi ke Surabaya, Bali, Jogja, Medan.<br>
+            • Bundling sensory beans roastery.<br>
+            • Target 300+ kafe & 10.000 user.
+          </p>
+        </div>
+
+        <div class="card-paper">
+          <div style="font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; color: #5A473D; margin-bottom: 4px;">FASE 4 • STANDAR INDUSTRI</div>
+          <div style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: var(--text-espresso); margin-bottom: 6px;">Standarisasi Nasional</div>
+          <div style="font-size: 0.75rem; color: #5A473D; font-weight: 600; margin-bottom: 8px;">2028</div>
+          <p style="font-size: 0.78rem; color: #5A473D; line-height: 1.5;">
+            • Kerjasama asosiasi kopi & SMK.<br>
+            • Kompetisi seduh tahunan.<br>
+            • Standar sertifikasi kopi nomor satu di Indonesia.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 13: TIM INISIATOR -->
+    <div class="slide" data-index="12" data-notes="Banyak platform edukasi digital dibangun oleh perusahaan teknologi yang tidak memahami seluk beluk industri yang mereka masuki. Cherry Edu berbeda karena kami lahir dari lantai kerja industri kopi. Kami di Cherry Coffee Roastery setiap hari menyangrai biji kopi, mengkalibrasi grinder, mencicipi hasil ekstraksi, dan melayani pelanggan di meja bar. Kami tahu persis berapa gram biji kopi yang terbuang sia-sia saat kalibrasi salah. Cherry Edu dibangun dari pengalaman nyata di balik bar untuk memecahkan masalah operasional yang sesungguhnya.">
+      <div class="slide-meta">
+        <span class="slide-category">Tim Inisiator</span>
+        <span class="slide-number-tag">Halaman 13 / 14</span>
+      </div>
+      <h2 class="slide-title">Bukan Agensi Teknologi di Luar Industri, Tapi <span class="italic-accent">Tim Praktisi di Meja Bar</span></h2>
+      <p class="slide-subtitle">
+        Cherry Edu lahir dari lantai kerja roastery kami sendiri untuk memecahkan masalah operasional yang kami hadapi setiap hari.
+      </p>
+
+      <div class="grid-2">
+        <div class="card-highlight">
+          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: #7E1D2A; margin-bottom: 10px;">
+            Diinisiasi oleh Team Cherry Coffee Roastery
+          </h3>
+          <p style="font-size: 0.88rem; color: #5A473D; line-height: 1.6; margin-bottom: 14px;">
+            Kami adalah praktisi sangrai, barista, dan pengelola operasional kedai kopi aktif di Indonesia. Setiap hari kami membakar biji kopi, menguji profil rasa di meja cupping, mengkalibrasi mesin espresso komersial, dan melatih staf bar kami sendiri.
+          </p>
+          <div style="background: #FFFFFF; border: 1px solid #E8A3AC; border-radius: 6px; padding: 12px; font-size: 0.82rem; color: #7E1D2A; line-height: 1.5;">
+            "Kami merasakan sendiri frustrasi saat ratusan gram kopi terbuang sia-sia tiap kalibrasi pagi, dan pusingnya pemilik kafe saat head barista mendadak resign. Platform ini kami buat untuk menyelesaikan masalah nyata kami sendiri dan rekan-rekan pengusaha kafe."
+          </div>
+        </div>
+
+        <div class="card-paper">
+          <h3 style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--text-espresso); margin-bottom: 10px;">
+            Kenapa Kami Memiliki Keunggulan Lapangan?
+          </h3>
+          <div style="font-size: 0.84rem; color: #5A473D; line-height: 1.6;">
+            <p style="margin-bottom: 10px;">
+              <strong>1. Akses Langsung ke Rantai Pasok:</strong> Kami terhubung langsung dengan prosesor dan petani di Gayo, Toraja, hingga Bali, sehingga kurikulum kami berakar pada realitas kebun nusantara, bukan teori asing.
+            </p>
+            <p style="margin-bottom: 10px;">
+              <strong>2. Pengujian Nyata di Bar:</strong> Setiap materi kurikulum dan rumus alat bantu diuji langsung oleh tim barista kami di meja bar sebelum dirilis ke publik.
+            </p>
+            <p>
+              <strong>3. Hubungan Suplai B2B:</strong> Jaringan suplai biji kopi roastery menjadi gerbang terpercaya untuk mengadopsi kurikulum pelatihan Cherry Edu di puluhan kedai kopi mitra.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 14: KEMITRAAN & PENUTUP -->
+    <div class="slide dark-theme" data-index="13" data-notes="Cangkir kopi yang luar biasa tidak lahir dari kebetulan, melainkan dari pemahaman sains yang tepat dan rasa hormat pada setiap butir ceri kopi nusantara. Kami mengundang pemilik kedai kopi untuk bergabung dalam standarisasi tim bar, mitra strategis dan investor untuk bersama mengakselerasi ekspansi kami, dan komunitas untuk mulai menggunakan tools harian kami di cherryedu.vercel.app. Terima kasih.">
+      <div class="slide-meta">
+        <span class="slide-category">Kemitraan & Penutup</span>
+        <span class="slide-number-tag">Halaman 14 / 14</span>
+      </div>
+      <h2 class="slide-title" style="font-size: 2.8rem; margin-bottom: 10px;">
+        Mari Bersama Memajukan Kualitas & <span class="italic-accent">Standar Industri Kopi Indonesia.</span>
+      </h2>
+      <p class="slide-subtitle" style="font-size: 1.05rem; color: #D4C7C0; margin-bottom: 28px;">
+        Cangkir kopi yang luar biasa tercipta dari pemahaman sains yang tepat dan rasa hormat pada setiap butir ceri kopi nusantara.
+      </p>
+
+      <div class="grid-3" style="margin-bottom: 24px;">
+        <div class="card-dark" style="border-top: 3px solid #EDDDA4;">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #EDDDA4; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">UNTUK PEMILIK KEDAI KOPI</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; color: #FFFFFF; margin-bottom: 6px;">Standarisasi Staf Bar Anda</h3>
+          <p style="font-size: 0.8rem; color: #D4C7C0; line-height: 1.5;">
+            Adopsi kurikulum Cherry Edu untuk orientasi barista baru. Pangkas pemborosan bahan baku saat kalibrasi pagi dan jaga konsistensi rasa seduhan tim bar Anda.
+          </p>
+        </div>
+
+        <div class="card-dark" style="border-top: 3px solid #BE4252;">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #FDA4AF; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">UNTUK MITRA & INVESTOR</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; color: #FFFFFF; margin-bottom: 6px;">Akselerasi Ekspansi B2B</h3>
+          <p style="font-size: 0.8rem; color: #D4C7C0; line-height: 1.5;">
+            Bergabunglah dalam putaran tahap awal kami untuk mempercepat pengembangan fitur manajemen tim kafe dan ekspansi ke hub kopi regional di Indonesia.
+          </p>
+        </div>
+
+        <div class="card-dark" style="border-top: 3px solid #638059;">
+          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #A7F3D0; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">UNTUK BARISTA & BREWER</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; color: #FFFFFF; margin-bottom: 6px;">Mulai Belajar Hari Ini</h3>
+          <p style="font-size: 0.8rem; color: #D4C7C0; line-height: 1.5;">
+            Akses materi fondasi hulu-hilir dan 6 alat kerja meja bar secara bebas biaya di smartphone Anda hari ini di cherryedu.vercel.app.
+          </p>
+        </div>
+      </div>
+
+      <div class="card-dark" style="padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.03);">
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 0.7rem; color: #EDDDA4; text-transform: uppercase;">KANAL INFORMASI & KEMITRAAN RESMI</div>
+          <div style="font-size: 0.95rem; color: #FFFFFF; margin-top: 2px;">
+            Platform Web: <strong>cherryedu.vercel.app</strong> • Email: <strong>halo@cherryroastery.id</strong> • Jakarta Selatan
+          </div>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #EDDDA4;">
+          Team Cherry Coffee Roastery © 2026
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer Navigation -->
+  <footer class="deck-footer">
+    <div class="slide-tracker">
+      HALAMAN <strong id="current-slide-num">01</strong> / <span id="total-slide-num">14</span>
+    </div>
+    <div class="nav-arrow-group">
+      <button class="nav-btn" id="btn-prev" title="Slide Sebelumnya (Arrow Left)">◀</button>
+      <button class="nav-btn" id="btn-next" title="Slide Selanjutnya (Arrow Right)">▶</button>
+    </div>
+    <div class="keyboard-hint">
+      Navigasi: <kbd>◀</kbd> <kbd>▶</kbd> • Notes: <kbd>N</kbd> • Menu: <kbd>M</kbd> • Fullscreen: <kbd>F</kbd>
+    </div>
+  </footer>
+
+  <!-- Speaker Notes Drawer -->
+  <div class="notes-drawer" id="notes-drawer">
+    <div class="notes-header">
+      <div class="notes-title">🎙️ Catatan Presenter (Speaker Notes)</div>
+      <button class="btn-pill" id="close-notes-btn" style="padding: 2px 8px; font-size: 0.72rem;">✕ Tutup</button>
+    </div>
+    <div class="notes-content" id="notes-content">
+      Catatan presenter akan tampil di sini.
+    </div>
+  </div>
+
+  <!-- Slide List Menu Modal -->
+  <div class="menu-modal" id="menu-modal">
+    <div class="menu-container">
+      <div class="menu-header">
+        <div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--text-espresso); font-weight: 700;">Daftar Halaman Presentasi (14 Slide)</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2px;">Pilih slide untuk langsung berpindah ke bagian tersebut</p>
+        </div>
+        <button class="btn-pill" id="close-menu-btn" style="padding: 6px 14px; font-size: 0.85rem;">✕ Tutup (Esc)</button>
+      </div>
+      <div class="menu-grid" id="menu-grid"></div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+
+    const currentSlideNumEl = document.getElementById('current-slide-num');
+    const totalSlideNumEl = document.getElementById('total-slide-num');
+    const progressBar = document.getElementById('progress-bar');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    const btnNotes = document.getElementById('btn-notes');
+    const notesDrawer = document.getElementById('notes-drawer');
+    const notesContent = document.getElementById('notes-content');
+    const closeNotesBtn = document.getElementById('close-notes-btn');
+    const btnMenu = document.getElementById('btn-menu');
+    const menuModal = document.getElementById('menu-modal');
+    const menuGrid = document.getElementById('menu-grid');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const btnFullscreen = document.getElementById('btn-fullscreen');
+
+    totalSlideNumEl.textContent = totalSlides.toString().padStart(2, '0');
+
+    // Populate Menu Modal
+    slides.forEach((slide, idx) => {
+      const card = document.createElement('div');
+      card.className = 'menu-card';
+      const category = slide.querySelector('.slide-category')?.textContent || 'Slide';
+      const title = slide.querySelector('.slide-title')?.textContent.replace(/[\n\r]+|\s{2,}/g, ' ').trim() || `Halaman ${idx + 1}`;
+      card.innerHTML = `
+        <div class="menu-card-num">HALAMAN ${String(idx + 1).padStart(2, '0')} — ${category}</div>
+        <div class="menu-card-title">${title}</div>
+      `;
+      card.addEventListener('click', () => {
+        goToSlide(idx);
+        menuModal.classList.remove('open');
+      });
+      menuGrid.appendChild(card);
+    });
+
+    function updateSlide() {
+      slides.forEach((slide, idx) => {
+        if (idx === currentIndex) {
+          slide.classList.add('active');
+          const notes = slide.getAttribute('data-notes') || 'Tidak ada catatan presenter untuk slide ini.';
+          notesContent.textContent = notes;
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      currentSlideNumEl.textContent = String(currentIndex + 1).padStart(2, '0');
+      const progressPercent = ((currentIndex + 1) / totalSlides) * 100;
+      progressBar.style.width = progressPercent + '%';
+    }
+
+    function nextSlide() {
+      if (currentIndex < totalSlides - 1) {
+        currentIndex++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlide();
+      }
+    }
+
+    function goToSlide(index) {
+      if (index >= 0 && index < totalSlides) {
+        currentIndex = index;
+        updateSlide();
+      }
+    }
+
+    // Event Listeners
+    btnNext.addEventListener('click', nextSlide);
+    btnPrev.addEventListener('click', prevSlide);
+
+    btnNotes.addEventListener('click', () => {
+      notesDrawer.classList.toggle('open');
+      btnNotes.classList.toggle('active');
+    });
+
+    closeNotesBtn.addEventListener('click', () => {
+      notesDrawer.classList.remove('open');
+      btnNotes.classList.remove('active');
+    });
+
+    btnMenu.addEventListener('click', () => {
+      menuModal.classList.add('open');
+    });
+
+    closeMenuBtn.addEventListener('click', () => {
+      menuModal.classList.remove('open');
+    });
+
+    btnFullscreen.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => console.log(err));
+      } else {
+        document.exitFullscreen();
+      }
+    });
+
+    // Keyboard Navigation
+    document.addEventListener('keydown', (e) => {
+      if (menuModal.classList.contains('open')) {
+        if (e.key === 'Escape') {
+          menuModal.classList.remove('open');
+        }
+        return;
+      }
+
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'Backspace') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key.toLowerCase() === 'n') {
+        notesDrawer.classList.toggle('open');
+        btnNotes.classList.toggle('active');
+      } else if (e.key.toLowerCase() === 'f') {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(err => console.log(err));
+        } else {
+          document.exitFullscreen();
+        }
+      } else if (e.key.toLowerCase() === 'm') {
+        menuModal.classList.toggle('open');
+      }
+    });
+
+    // Initialize first slide
+    updateSlide();
+  </script>
+</body>
+</html>

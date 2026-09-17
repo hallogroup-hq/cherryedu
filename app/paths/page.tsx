@@ -6,7 +6,7 @@ import { useCherryEdu } from '@/lib/store';
 import { Clock, Layers, ArrowRight, Lock, Check } from 'lucide-react';
 
 export default function PathsPage() {
-  const { learningPaths, enrollments, currentUser, getPathProgress, canEnrollInPath } = useCherryEdu();
+  const { learningPaths, enrollments, currentUser, getPathProgress, canEnrollInPath, isAuthenticated } = useCherryEdu();
   const [filterLayer, setFilterLayer] = useState<'all' | 'foundation' | 'specialization'>('all');
 
   const filteredPaths = learningPaths.filter((path) => {
@@ -181,7 +181,7 @@ export default function PathsPage() {
               <div className="p-6 pt-0">
                 {path.is_published ? (
                   <Link
-                    href={`/paths/${path.slug}`}
+                    href={isAuthenticated ? `/paths/${path.slug}` : `/login?redirect=/paths/${path.slug}`}
                     className={`w-full py-2.5 font-mono text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 transition-all border shadow-xs ${
                       isEnrolled
                         ? 'bg-roast-950 hover:bg-cherry-800 text-paper-50 border-roast-950'
@@ -190,7 +190,7 @@ export default function PathsPage() {
                         : 'bg-roast-950 hover:bg-cherry-800 text-paper-50 border-roast-950'
                     }`}
                   >
-                    <span>{isEnrolled ? 'Lanjutkan Pembelajaran' : 'Buka Silabus Lengkap'}</span>
+                    <span>{isEnrolled ? 'Lanjutkan Pembelajaran' : (isAuthenticated ? 'Buka Silabus Lengkap' : 'Masuk untuk Buka Silabus')}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 ) : (

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
@@ -8,6 +8,8 @@ import {
   Clock,
   Layers,
   Unlock,
+  Lock,
+  Loader2,
   Check,
   PlayCircle,
   HelpCircle,
@@ -29,6 +31,7 @@ export default function PathDetailPage() {
     quizzes,
     currentUser,
     isAuthenticated,
+    authLoading,
     enrollments,
     enrollInPath,
     canEnrollInPath,
@@ -43,6 +46,60 @@ export default function PathDetailPage() {
   });
 
   const path = learningPaths.find((p) => p.slug === slug);
+
+  useEffect(() => {
+    if (!authLoading && !isAuthenticated) {
+      router.replace(`/login?redirect=/paths/${slug}`);
+    }
+  }, [authLoading, isAuthenticated, slug, router]);
+
+  if (authLoading) {
+    return (
+      <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 text-center">
+        <Loader2 className="w-8 h-8 animate-spin text-cherry-700 mb-3" />
+        <p className="font-mono text-xs uppercase tracking-widest text-roast-600">
+          Memverifikasi Akses Silabus...
+        </p>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
+        <div className="bg-paper-50 border-2 border-roast-900 p-8 sm:p-12 shadow-elevated rounded-xl">
+          <div className="w-16 h-16 bg-cherry-50 border border-cherry-200 text-cherry-700 flex items-center justify-center rounded-2xl mx-auto mb-5 shadow-xs">
+            <Lock className="w-8 h-8" />
+          </div>
+
+          <span className="font-mono text-xs uppercase tracking-widest text-roast-500 font-bold block mb-2">
+            Akses Silabus Terkunci
+          </span>
+          <h1 className="font-serif text-2xl sm:text-3xl font-bold text-roast-950 mb-3 tracking-tight">
+            Masuk untuk Membuka Silabus & Modul
+          </h1>
+          <p className="font-sans text-xs sm:text-sm text-roast-700 max-w-lg mx-auto leading-relaxed mb-8">
+            Silabus dan seluruh modul kurikulum <strong>{path?.title || 'pembelajaran'}</strong> hanya dapat diakses setelah masuk ke akun CherryEdu Anda.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              href={`/login?redirect=/paths/${slug}`}
+              className="w-full sm:w-auto px-6 py-3 bg-roast-950 hover:bg-cherry-800 text-white font-bold text-xs sm:text-sm rounded-lg transition text-center shadow-xs"
+            >
+              Masuk / Login Sekarang
+            </Link>
+            <Link
+              href={`/register?redirect=/paths/${slug}`}
+              className="w-full sm:w-auto px-6 py-3 bg-white hover:bg-paper-100 border border-paper-400 text-roast-950 font-bold text-xs sm:text-sm rounded-lg transition text-center"
+            >
+              Daftar Akun Baru
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (!path) {
     return (

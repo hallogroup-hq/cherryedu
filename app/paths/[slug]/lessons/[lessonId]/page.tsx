@@ -18,6 +18,8 @@ import {
   Award,
   List,
   Sparkles,
+  Lock,
+  Loader2,
 } from "lucide-react";
 
 export default function LessonPlayerPage() {
@@ -30,6 +32,8 @@ export default function LessonPlayerPage() {
     learningPaths,
     modules,
     lessons,
+    isAuthenticated,
+    authLoading,
     markLessonComplete,
     isLessonCompleted,
     toggleBookmark,
@@ -41,11 +45,60 @@ export default function LessonPlayerPage() {
   const [isTocOpen, setIsTocOpen] = useState<boolean>(false);
 
   useEffect(() => {
+    if (!authLoading && !isAuthenticated) {
+      router.replace(`/login?redirect=/paths/${slug}/lessons/${lessonId}`);
+    }
+  }, [authLoading, isAuthenticated, slug, lessonId, router]);
+
+  useEffect(() => {
     const timer = setInterval(() => {
       setTimeSpent((prev) => prev + 1);
     }, 1000);
     return () => clearInterval(timer);
   }, []);
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-paper-50 flex flex-col items-center justify-center p-6 text-center">
+        <Loader2 className="w-8 h-8 animate-spin text-cherry-700 mb-3" />
+        <p className="font-mono text-xs uppercase tracking-widest text-roast-600">
+          Memverifikasi Akses Materi Silabus...
+        </p>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-paper-50 flex items-center justify-center p-4">
+        <div className="max-w-md w-full bg-paper-50 border-2 border-roast-900 p-8 text-center shadow-elevated rounded-xl">
+          <div className="w-14 h-14 bg-cherry-50 border border-cherry-200 text-cherry-700 flex items-center justify-center rounded-2xl mx-auto mb-4 shadow-xs">
+            <Lock className="w-7 h-7" />
+          </div>
+          <h2 className="font-serif text-2xl font-bold text-roast-950 mb-2">
+            Materi Silabus Terkunci
+          </h2>
+          <p className="font-sans text-xs text-roast-700 mb-6 leading-relaxed">
+            Anda harus masuk ke akun CherryEdu untuk membaca modul, mencatat progres, dan mengikuti ujian silabus ini.
+          </p>
+          <div className="flex flex-col gap-2.5">
+            <Link
+              href={`/login?redirect=/paths/${slug}/lessons/${lessonId}`}
+              className="w-full py-2.5 bg-roast-950 hover:bg-cherry-800 text-white font-bold text-xs rounded-lg transition shadow-xs text-center"
+            >
+              Masuk / Login Sekarang
+            </Link>
+            <Link
+              href={`/paths/${slug}`}
+              className="w-full py-2.5 bg-white hover:bg-paper-100 border border-paper-400 text-roast-800 font-bold text-xs rounded-lg transition text-center"
+            >
+              Kembali ke Silabus
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const path = learningPaths.find((p) => p.slug === slug);
   const currentLesson = lessons.find((l) => l.id === lessonId);

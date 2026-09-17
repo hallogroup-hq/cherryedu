@@ -60,49 +60,21 @@ import {
 } from './paths/qProcessorData';
 
 
-// 1. SEED USERS
+// 1. SEED USERS (Akun resmi sistem, tanpa akun pembelajar fiktif)
 export const SEED_USERS: User[] = [
   {
-    id: 'user-budi',
-    name: 'Budi Santoso',
-    email: 'budi@cherryedu.id',
-    avatar_url: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80',
-    bio: 'Fresh graduate & calon barista. Sedang mendalami sains kopi dari hulu ke hilir untuk siap berkarir di specialty coffee bar.',
-    role: 'learner',
-    coffee_role: 'barista',
-    city: 'Surabaya',
-    xp_points: 380,
-    streak_count: 5,
+    id: 'dc87f849-262a-4124-ae54-26dafa1d90e3',
+    name: 'Admin CherryEdu',
+    email: 'admin@cherryedu.id',
+    avatar_url: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80',
+    bio: 'System Administrator & Curriculum Manager CherryEdu.',
+    role: 'admin',
+    coffee_role: 'roaster',
+    city: 'Jakarta',
+    xp_points: 0,
+    streak_count: 0,
     last_active_date: '2026-09-06',
-    created_at: '2026-08-15T08:00:00Z',
-  },
-  {
-    id: 'user-sari',
-    name: 'Sari Wulandari',
-    email: 'sari@cherryedu.id',
-    avatar_url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80',
-    bio: 'Home brewer antusias di Bandung. Gemar menyeduh V60 & Aeropress dengan single origin nusantara.',
-    role: 'learner',
-    coffee_role: 'home_brewer',
-    city: 'Bandung',
-    xp_points: 520,
-    streak_count: 8,
-    last_active_date: '2026-09-06',
-    created_at: '2026-08-10T09:30:00Z',
-  },
-  {
-    id: 'user-hendra',
-    name: 'Fahrul M.W (Q Grader)',
-    email: 'fahrul@cherryroastery.id',
-    avatar_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
-    bio: 'Head of Quality & Roaster di Cherry Coffee Roastery. Certified Q Grader & Sensory Judge.',
-    role: 'expert',
-    coffee_role: 'q_grader',
-    city: 'Jakarta Selatan',
-    xp_points: 2450,
-    streak_count: 32,
-    last_active_date: '2026-09-06',
-    created_at: '2026-07-01T10:00:00Z',
+    created_at: '2026-05-01T00:00:00Z',
   },
   {
     id: 'user-cherry-hq',
@@ -113,24 +85,10 @@ export const SEED_USERS: User[] = [
     role: 'employer',
     coffee_role: 'roaster',
     city: 'Jakarta Selatan',
-    xp_points: 1800,
-    streak_count: 14,
+    xp_points: 0,
+    streak_count: 0,
     last_active_date: '2026-09-06',
     created_at: '2026-06-01T08:00:00Z',
-  },
-  {
-    id: 'user-admin',
-    name: 'Admin CherryEdu',
-    email: 'admin@cherryedu.id',
-    avatar_url: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80',
-    bio: 'System Administrator & Curriculum Manager CherryEdu.',
-    role: 'admin',
-    coffee_role: 'roaster',
-    city: 'Jakarta',
-    xp_points: 3500,
-    streak_count: 60,
-    last_active_date: '2026-09-06',
-    created_at: '2026-05-01T00:00:00Z',
   },
 ];
 
@@ -3797,99 +3755,55 @@ export const SEED_QUESTIONS: Question[] = [
   ...Q_PROCESSOR_QUESTIONS,
 ];
 
-// 8. INITIAL ENROLLMENTS
-export const SEED_ENROLLMENTS: Enrollment[] = [
-  {
-    id: 'enr-budi-found',
-    user_id: 'user-budi',
-    learning_path_id: 'path-foundation',
-    status: 'active',
-    progress_percent: 57,
-    enrolled_at: '2026-08-16T10:00:00Z',
-    completed_at: null,
-    last_accessed_at: '2026-09-06T03:00:00Z',
-  },
-  {
-    id: 'enr-sari-found',
-    user_id: 'user-sari',
-    learning_path_id: 'path-foundation',
-    status: 'completed',
-    progress_percent: 100,
-    enrolled_at: '2026-08-11T09:00:00Z',
-    completed_at: '2026-08-25T14:30:00Z',
-    last_accessed_at: '2026-09-05T19:00:00Z',
-  },
-  {
-    id: 'enr-sari-home',
-    user_id: 'user-sari',
-    learning_path_id: 'path-home-brewer',
-    status: 'active',
-    progress_percent: 30,
-    enrolled_at: '2026-08-26T08:00:00Z',
-    completed_at: null,
-    last_accessed_at: '2026-09-06T02:30:00Z',
-  },
-];
+// 8. INITIAL ENROLLMENTS (Dikosongkan untuk user nyata)
+export const SEED_ENROLLMENTS: Enrollment[] = [];
 
-// 9. INITIAL CERTIFICATES
-export const SEED_CERTIFICATES: Certificate[] = [
-  {
-    id: 'cert-sari-found',
-    user_id: 'user-sari',
-    learning_path_id: 'path-foundation',
-    certificate_number: 'CHE-2026-FOUND-000188',
-    certificate_url: '/verify/che-sari-fnd-8823',
-    share_token: 'che-sari-fnd-8823',
-    issued_at: '2026-08-25T14:30:00Z',
-    user_name: 'Sari Wulandari',
-    path_title: 'Foundation: Kopi dari Hulu ke Hilir',
-    grade_text: 'Distinction (Score: 95%)',
-  },
-];
+// 9. INITIAL CERTIFICATES (Dikosongkan untuk user nyata)
+export const SEED_CERTIFICATES: Certificate[] = [];
 
-// 10. FORUM POSTS & COMMENTS
+// 10. FORUM POSTS & COMMENTS (Diskusi resmi akademi & expert)
 export const SEED_POSTS: Post[] = [
   {
     id: 'post-1',
-    user_id: 'user-budi',
+    user_id: 'dc87f849-262a-4124-ae54-26dafa1d90e3',
     title: 'Perbedaan Rasa Yellow Honey vs Black Honey saat diseduh V60?',
     content:
-      'Halo teman-teman! Saya baru mencoba biji Gayo Honey Process. Di kemasannya tertulis "Black Honey", aromanya manis sekali seperti kismis. Apa beda mendasarnya dibanding Yellow Honey saat diekstraksi dengan V60? Apakah perlu suhu air yang berbeda?',
+      'Diskusi Komunitas: Saat mencoba biji Gayo Honey Process dengan label "Black Honey", aroma manisnya sangat intens seperti kismis & plum matang. Apa beda mendasarnya dibanding Yellow Honey saat diekstraksi dengan V60? Apakah perlu penyesuaian suhu air & grind size?',
     category: 'processing',
     likes_count: 14,
-    comments_count: 2,
+    comments_count: 1,
     is_pinned: false,
     created_at: '2026-09-04T10:15:00Z',
-    author_name: 'Budi Santoso',
-    author_avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80',
-    author_role: 'learner',
-    author_coffee_role: 'barista',
+    author_name: 'Tim Edukasi CherryEdu',
+    author_avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80',
+    author_role: 'admin',
+    author_coffee_role: 'roaster',
   },
   {
     id: 'post-2',
-    user_id: 'user-sari',
-    title: 'Tips Konsistensi Microfoam untuk Latte Art Tulip dengan Susu Oat',
+    user_id: 'dc87f849-262a-4124-ae54-26dafa1d90e3',
+    title: 'Tips Konsistensi Microfoam untuk Latte Art Tulip dengan Susu Nabati (Oat)',
     content:
-      'Sedang latihan bikin tulip latte art di rumah pakai oat milk. Tapi busanya sering cepat pecah dan memisah dari espresso dalam 2 menit. Apakah suhu steaming oat milk harus lebih rendah dari susu sapi?',
+      'Eksplorasi Barista: Saat membuat tulip latte art menggunakan oat milk, busa sering kali cepat pecah jika suhu steaming terlalu tinggi. Berapa batas suhu steaming ideal oat milk agar emulsi microfoam tetap glossy & elastis?',
     category: 'barista',
     likes_count: 23,
-    comments_count: 3,
+    comments_count: 1,
     is_pinned: true,
     created_at: '2026-09-05T08:30:00Z',
-    author_name: 'Sari Wulandari',
-    author_avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80',
-    author_role: 'learner',
-    author_coffee_role: 'home_brewer',
+    author_name: 'Redaksi CherryEdu',
+    author_avatar: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=150&auto=format&fit=crop&q=80',
+    author_role: 'admin',
+    author_coffee_role: 'barista',
   },
   {
     id: 'post-3',
-    user_id: 'user-hendra',
+    user_id: 'dc87f849-262a-4124-ae54-26dafa1d90e3',
     title: 'Agronomi: Mengapa Biji Kopi Toraja Memiliki Body Lebih Tebal dari Jawa?',
     content:
       'Mari diskusikan sisi agronomi! Toraja berada di rentang altitude 1.400 - 1.800 mdpl dengan formasi tanah liat berlempung vulkanis tua. Varietas S-795 dan Typica lokal di sana mengalami siklus fotosintesis lambat yang memadatkan selulosa biji. Ini alasan utama mengapa di meja cupping, Toraja selalu menonjolkan sirup cokelat pekat dan body tebal.',
     category: 'agronomy',
     likes_count: 48,
-    comments_count: 4,
+    comments_count: 1,
     is_pinned: false,
     created_at: '2026-09-02T14:00:00Z',
     author_name: 'Fahrul M.W (Q Grader)',
@@ -3903,10 +3817,10 @@ export const SEED_COMMENTS: Comment[] = [
   {
     id: 'comm-1',
     post_id: 'post-1',
-    user_id: 'user-hendra',
+    user_id: 'dc87f849-262a-4124-ae54-26dafa1d90e3',
     parent_comment_id: null,
     content:
-      'Halo Budi! Beda utamanya ada pada sisa mucilage (lendir gula) saat dijemur. Yellow Honey menyisakan ~25% mucilage dan dijemur cepat di bawah matahari terik, sehingga rasanya lebih clean dan asam buahnya cerah. Sedangkan Black Honey menyisakan 100% mucilage dan dijemur sangat lambat di tempat teduh (slow drying), memicu fermentasi alami gula yang menghasilkan rasa madu karamel, body sirup tebal, dan aroma kismis. Untuk V60 Black Honey, gunakan suhu air sedikit lebih rendah (89°C - 90°C) agar rasa manis karamelnya tidak berubah menjadi pahit gosong.',
+      'Beda utamanya ada pada sisa mucilage (lendir gula) saat penjemuran. Yellow Honey menyisakan ~25% mucilage dan dijemur cepat di bawah terik matahari, menghasilkan rasa lebih clean & asam buah cerah. Sedangkan Black Honey menyisakan 100% mucilage dan dijemur sangat lambat di tempat teduh (slow drying), memicu fermentasi alami gula yang menghasilkan madu karamel, sirup kental, dan kismis. Untuk V60 Black Honey, turunkan suhu air ke 89°C – 90°C agar manisnya tidak berubah pahit gosong.',
     is_expert_answer: true,
     likes_count: 18,
     created_at: '2026-09-04T11:20:00Z',
@@ -3917,25 +3831,11 @@ export const SEED_COMMENTS: Comment[] = [
   },
   {
     id: 'comm-2',
-    post_id: 'post-1',
-    user_id: 'user-sari',
-    parent_comment_id: null,
-    content: 'Wah penjelasan Kak Hendra jelas banget! Kebetulan aku juga baru nyeduh Gayo Black Honey pakai rasio 1:16 di 90°C, aftertaste manisnya tahan lama banget di mulut.',
-    is_expert_answer: false,
-    likes_count: 4,
-    created_at: '2026-09-04T12:05:00Z',
-    author_name: 'Sari Wulandari',
-    author_avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80',
-    author_role: 'learner',
-    author_coffee_role: 'home_brewer',
-  },
-  {
-    id: 'comm-3',
     post_id: 'post-2',
-    user_id: 'user-hendra',
+    user_id: 'dc87f849-262a-4124-ae54-26dafa1d90e3',
     parent_comment_id: null,
     content:
-      'Tepat sekali Sari! Protein oat milk (kebanyakan berbasis protein nabati dan minyak canola teresterifikasi) sangat sensitif terhadap panas. Jaga suhu steaming oat milk maksimal di **55°C – 58°C**. Jangan pernah lewat dari 60°C karena emulsi minyaknya akan pecah. Saat pouring, campur kanvas lebih lembut karena berat jenis oat milk lebih padat dibanding susu sapi.',
+      'Protein oat milk sangat sensitif terhadap temperatur tinggi. Jaga suhu steaming oat milk maksimal di 55°C – 58°C, jangan pernah melampaui 60°C karena kestabilan emulsi minyak nabatinya akan pecah. Saat pouring, campur kanvas lebih lembut karena berat jenis oat milk lebih padat dibanding susu sapi.',
     is_expert_answer: true,
     likes_count: 15,
     created_at: '2026-09-05T09:10:00Z',
@@ -4022,46 +3922,6 @@ export const SEED_JOBS: JobListing[] = [
   },
 ];
 
-// 12. INITIAL JOB APPLICATIONS
-export const SEED_JOB_APPLICATIONS: JobApplication[] = [
-  {
-    id: 'app-1',
-    job_listing_id: 'job-1',
-    applicant_id: 'user-budi',
-    applicant_name: 'Budi Santoso',
-    applicant_email: 'budi@cherryedu.id',
-    applicant_coffee_role: 'barista',
-    cover_letter: 'Saya telah menyelesaikan seluruh kurikulum Foundation dan Barista Specialization di CherryEdu. Menguasai dial-in espresso rasio 1:2, teknik WDT, dan steaming microfoam silky untuk latte art tulip. Siap berkontribusi di flagship store Senopati.',
-    status: 'applied',
-    applied_at: '2026-09-04T10:00:00Z',
-    has_cherry_cert: true,
-    certificate_number: 'CHE-2026-FND-882391',
-  },
-  {
-    id: 'app-2',
-    job_listing_id: 'job-2',
-    applicant_id: 'user-sari',
-    applicant_name: 'Sari Wulandari',
-    applicant_email: 'sari@cherryedu.id',
-    applicant_coffee_role: 'home_brewer',
-    cover_letter: 'Antusiasme saya pada seduh manual V60 dan Aeropress mendorong saya untuk berkarir di Titik Temu Seminyak. Lulusan Foundation dengan predikat Distinction.',
-    status: 'reviewed',
-    applied_at: '2026-09-05T14:20:00Z',
-    has_cherry_cert: true,
-    certificate_number: 'CHE-2026-FND-449102',
-  },
-  {
-    id: 'app-3',
-    job_listing_id: 'job-3',
-    applicant_id: 'user-budi',
-    applicant_name: 'Budi Santoso',
-    applicant_email: 'budi@cherryedu.id',
-    applicant_coffee_role: 'barista',
-    cover_letter: 'Sangat tertarik menjadi Coffee Storyteller di Anomali Bandung. Memahami agroklimatologi 19 origin nusantara dari Aceh Gayo hingga Wamena Lembah Baliem.',
-    status: 'shortlisted',
-    applied_at: '2026-09-03T16:45:00Z',
-    has_cherry_cert: true,
-    certificate_number: 'CHE-2026-FND-882391',
-  },
-];
+// 12. INITIAL JOB APPLICATIONS (Dikosongkan untuk user nyata)
+export const SEED_JOB_APPLICATIONS: JobApplication[] = [];
 

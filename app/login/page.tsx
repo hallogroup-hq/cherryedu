@@ -4,10 +4,10 @@ import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '@/lib/auth';
-import { Coffee, Eye, EyeOff, Loader2, AlertCircle, ShieldCheck, Sparkles, UserCircle } from 'lucide-react';
+import { Coffee, Eye, EyeOff, Loader2, AlertCircle } from 'lucide-react';
 
 function LoginContent() {
-  const { signIn, signInWithGoogle, signInAsDemo } = useAuth();
+  const { signIn, signInWithGoogle } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirectUrl = searchParams.get('redirect') || '/';
@@ -17,7 +17,6 @@ function LoginContent() {
   const [showPass, setShowPass] = useState(false);
   const [loading, setLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
-  const [demoLoading, setDemoLoading] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const handleGoogleLogin = async () => {
@@ -40,19 +39,6 @@ function LoginContent() {
       setLoading(false);
     } else {
       router.push(redirectUrl);
-    }
-  };
-
-  const handleDemoLogin = async (role: 'admin' | 'barista' | 'home_brewer' | 'q_grader') => {
-    setDemoLoading(role);
-    setError(null);
-    try {
-      await signInAsDemo(role);
-      router.push(redirectUrl);
-    } catch (_e) {
-      setError('Gagal masuk sebagai akun demo.');
-    } finally {
-      setDemoLoading(null);
     }
   };
 
@@ -81,8 +67,8 @@ function LoginContent() {
         <div className="bg-white rounded-2xl shadow-elevated border border-paper-300 p-6 sm:p-8">
           <div className="flex items-center justify-between pb-4 mb-5 border-b border-paper-200">
             <h1 className="font-serif font-bold text-xl text-roast-950">Masuk ke Akun</h1>
-            <span className="text-[10px] font-mono uppercase tracking-widest text-roast-500 bg-paper-100 px-2 py-0.5 rounded border border-paper-200">
-              SESI NYATA
+            <span className="text-[10px] font-mono uppercase tracking-widest text-cherry-800 bg-cherry-50 px-2 py-0.5 rounded border border-cherry-200 font-semibold">
+              CherryEdu
             </span>
           </div>
 
@@ -97,7 +83,7 @@ function LoginContent() {
           <button
             type="button"
             onClick={handleGoogleLogin}
-            disabled={googleLoading || loading || Boolean(demoLoading)}
+            disabled={googleLoading || loading}
             className="w-full py-3 px-4 bg-white hover:bg-paper-50 text-roast-900 font-semibold text-sm rounded-lg border border-paper-300 shadow-xs transition flex items-center justify-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed group"
           >
             {googleLoading ? (
@@ -126,7 +112,7 @@ function LoginContent() {
           </button>
 
           {/* Divider */}
-          <div className="relative my-4 flex items-center justify-center">
+          <div className="relative my-5 flex items-center justify-center">
             <div className="border-t border-paper-200 w-full" />
             <span className="bg-white px-3 text-[10px] font-mono tracking-wider uppercase text-roast-400 shrink-0">
               atau dengan email & kata sandi
@@ -176,77 +162,13 @@ function LoginContent() {
 
             <button
               type="submit"
-              disabled={loading || Boolean(demoLoading)}
+              disabled={loading || googleLoading}
               className="w-full py-3 bg-roast-950 hover:bg-roast-850 text-white font-bold text-sm rounded-lg transition flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed shadow-xs"
             >
               {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Coffee className="w-4 h-4" />}
               <span>{loading ? 'Memverifikasi...' : 'Masuk Sekarang'}</span>
             </button>
           </form>
-
-          {/* Quick Demo Personas */}
-          <div className="mt-6 pt-5 border-t border-paper-200">
-            <div className="flex items-center justify-between mb-2.5">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-roast-500 font-bold flex items-center gap-1">
-                <Sparkles className="w-3 h-3 text-crema-600" />
-                <span>Masuk Cepat untuk Pengujian:</span>
-              </span>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                disabled={loading || Boolean(demoLoading)}
-                onClick={() => handleDemoLogin('admin')}
-                className="p-2 text-left bg-paper-100 hover:bg-paper-200 border border-paper-300 rounded-lg transition text-xs flex items-center gap-2"
-              >
-                <ShieldCheck className="w-3.5 h-3.5 text-cherry-700 shrink-0" />
-                <div className="truncate">
-                  <div className="font-bold text-roast-950 leading-tight">Admin</div>
-                  <div className="text-[10px] text-roast-500 font-mono">admin@cherryedu.id</div>
-                </div>
-              </button>
-
-              <button
-                type="button"
-                disabled={loading || Boolean(demoLoading)}
-                onClick={() => handleDemoLogin('barista')}
-                className="p-2 text-left bg-paper-100 hover:bg-paper-200 border border-paper-300 rounded-lg transition text-xs flex items-center gap-2"
-              >
-                <Coffee className="w-3.5 h-3.5 text-amber-700 shrink-0" />
-                <div className="truncate">
-                  <div className="font-bold text-roast-950 leading-tight">Budi Barista</div>
-                  <div className="text-[10px] text-roast-500 font-mono">Calon Barista</div>
-                </div>
-              </button>
-
-              <button
-                type="button"
-                disabled={loading || Boolean(demoLoading)}
-                onClick={() => handleDemoLogin('home_brewer')}
-                className="p-2 text-left bg-paper-100 hover:bg-paper-200 border border-paper-300 rounded-lg transition text-xs flex items-center gap-2"
-              >
-                <UserCircle className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
-                <div className="truncate">
-                  <div className="font-bold text-roast-950 leading-tight">Sari Brewer</div>
-                  <div className="text-[10px] text-roast-500 font-mono">Home Brewer</div>
-                </div>
-              </button>
-
-              <button
-                type="button"
-                disabled={loading || Boolean(demoLoading)}
-                onClick={() => handleDemoLogin('q_grader')}
-                className="p-2 text-left bg-paper-100 hover:bg-paper-200 border border-paper-300 rounded-lg transition text-xs flex items-center gap-2"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-indigo-700 shrink-0" />
-                <div className="truncate">
-                  <div className="font-bold text-roast-950 leading-tight">Fahrul Q-Grader</div>
-                  <div className="text-[10px] text-roast-500 font-mono">Certified Expert</div>
-                </div>
-              </button>
-            </div>
-          </div>
 
           <p className="mt-6 text-center text-xs text-roast-600">
             Belum punya akun CherryEdu?{' '}

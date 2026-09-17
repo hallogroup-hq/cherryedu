@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 export default function HomePage() {
-  const { learningPaths, landingPageConfig } = useCherryEdu();
+  const { learningPaths, landingPageConfig, isAuthenticated } = useCherryEdu();
   const cfg = landingPageConfig || DEFAULT_LANDING_CONFIG;
 
   const sections: PageSectionItem[] =
@@ -260,14 +260,14 @@ export default function HomePage() {
 
                           <div className="p-5 pt-0">
                             <Link
-                              href={`/paths/${path.slug}`}
+                              href={isAuthenticated ? `/paths/${path.slug}` : `/login?redirect=/paths/${path.slug}`}
                               className={`w-full py-2.5 rounded font-sans text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-1.5 transition-colors ${
                                 isFoundation
                                   ? 'bg-roast-950 hover:bg-cherry-800 text-paper-50'
                                   : 'bg-paper-100 hover:bg-paper-200 text-roast-900 border border-paper-300'
                               }`}
                             >
-                              <span>Eksplorasi Silabus</span>
+                              <span>{isAuthenticated ? 'Eksplorasi Silabus' : 'Masuk untuk Eksplorasi'}</span>
                               <ArrowRight className="w-3.5 h-3.5" />
                             </Link>
                           </div>

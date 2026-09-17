@@ -22,8 +22,6 @@ export interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-const LOCAL_USER_KEY = 'cherryedu_local_auth_user';
-
 function translateAuthError(message: string): string {
   const lower = message.toLowerCase();
   if (lower.includes('invalid login credentials') || lower.includes('invalid_grant')) {
@@ -56,15 +54,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check local demo user or Supabase session
+    // Proactively purge any leftover demo auth user
+    try {
+      localStorage.removeItem('cherryedu_local_auth_user');
+    } catch {}
+
     const loadInitialSession = async () => {
       if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-        const savedLocal = localStorage.getItem(LOCAL_USER_KEY);
-        if (savedLocal) {
-          try {
-            setUser(JSON.parse(savedLocal));
-          } catch {}
-        }
         setLoading(false);
         return;
       }
@@ -74,14 +70,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         if (session?.user) {
           setSession(session);
           setUser(session.user);
-          localStorage.removeItem(LOCAL_USER_KEY);
         } else {
-          const savedLocal = localStorage.getItem(LOCAL_USER_KEY);
-          if (savedLocal) {
-            try {
-              setUser(JSON.parse(savedLocal));
-            } catch {}
-          }
+          setSession(null);
+          setUser(null);
         }
       } catch (err) {
         console.warn('Failed to get Supabase session:', err);
@@ -94,22 +85,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
       const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-        if (session) {
+        if (session?.user) {
           setSession(session);
           setUser(session.user);
-          localStorage.removeItem(LOCAL_USER_KEY);
         } else {
-          const savedLocal = localStorage.getItem(LOCAL_USER_KEY);
-          if (savedLocal) {
-            try {
-              setUser(JSON.parse(savedLocal));
-            } catch {
-              setUser(null);
-            }
-          } else {
-            setSession(null);
-            setUser(null);
-          }
+          setSession(null);
+          setUser(null);
         }
       });
 
@@ -118,30 +99,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const signIn = async (email: string, password: string): Promise<{ error: string | null }> => {
-    // Quick path for admin demo
-    if (email === 'admin@cherryedu.id' && password === 'cherry2026!') {
-      try {
-        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-        if (!error && data.session) {
-          setSession(data.session);
-          setUser(data.user);
-          localStorage.removeItem(LOCAL_USER_KEY);
-          return { error: null };
-        }
-      } catch {}
-    }
-
-    // Try Supabase auth
+    // Authenticate with Supabase
     try {
       const { data, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) {
-        // If email not confirmed, check if user was registered locally
         return { error: translateAuthError(error.message) };
       }
       if (data.session) {
         setSession(data.session);
         setUser(data.user);
-        localStorage.removeItem(LOCAL_USER_KEY);
         return { error: null };
       }
     } catch (e: any) {
@@ -172,20 +138,24 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
 
       if (data?.url) {
-        // Preflight check: verify if Supabase has Google provider enabled
+        // Preflight verification with fast timeout to check if Google provider is active in Supabase
         try {
-          const check = await fetch(data.url, { method: 'GET', redirect: 'manual' });
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 1800);
+          const check = await fetch(data.url, { method: 'GET', redirect: 'manual', signal: controller.signal });
+          clearTimeout(timeoutId);
+
           if (check.status === 400) {
             const body = await check.json().catch(() => null);
             if (body?.msg?.includes('provider is not enabled') || body?.error_code === 'validation_failed') {
               return {
                 error:
-                  'Fitur 1-Klik Masuk dengan Google belum diaktifkan di konsol Supabase (Authentication → Providers → Google). Silakan gunakan formulir pendaftaran/masuk email & kata sandi di bawah.',
+                  'Fitur 1-Klik Masuk dengan Google belum diaktifkan di konsol Supabase (Authentication → Providers → Google). Silakan gunakan pendaftaran atau login dengan email & kata sandi terlebih dahulu.',
               };
             }
           }
         } catch {
-          // Preflight might fail due to network or CORS, continue with standard redirect
+          // Preflight might fail due to network, CORS, or abort; proceed directly with OAuth navigation
         }
 
         window.location.href = data.url;
@@ -222,25 +192,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       const needsConfirmation = !data.session;
 
-      // Save to registered users registry in localStorage
-      if (data.user) {
-        try {
-          const registeredUsers = JSON.parse(localStorage.getItem('cherryedu_registered_users') || '[]');
-          registeredUsers.push({
-            id: data.user.id,
-            email,
-            name,
-            coffee_role: coffeeRole,
-            created_at: new Date().toISOString(),
-          });
-          localStorage.setItem('cherryedu_registered_users', JSON.stringify(registeredUsers));
-        } catch {}
-
-        if (data.session) {
-          setUser(data.user);
-          setSession(data.session);
-          localStorage.removeItem(LOCAL_USER_KEY);
-        }
+      if (data.user && data.session) {
+        setUser(data.user);
+        setSession(data.session);
       }
 
       return { error: null, needsConfirmation };
@@ -251,50 +205,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signInAsDemo = async (role: 'admin' | 'barista' | 'home_brewer' | 'q_grader') => {
     if (role === 'admin') {
-      try {
-        const demoSecret = process.env.NEXT_PUBLIC_DEMO_ADMIN_PASSWORD || ['cherry', '2026', '!'].join('');
-        const { data, error } = await supabase.auth.signInWithPassword({
-          email: 'admin@cherryedu.id',
-          password: demoSecret,
-        });
-        if (!error && data.session) {
-          setSession(data.session);
-          setUser(data.user);
-          localStorage.removeItem(LOCAL_USER_KEY);
-          return;
-        }
-      } catch (authErr) {
-        console.debug('Demo admin remote auth bypass to local session:', authErr);
+      const demoSecret = process.env.NEXT_PUBLIC_DEMO_ADMIN_PASSWORD || ['cherry', '2026', '!'].join('');
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: 'admin@cherryedu.id',
+        password: demoSecret,
+      });
+      if (!error && data.session) {
+        setSession(data.session);
+        setUser(data.user);
+        return;
       }
     }
-
-    const demoUsers: Record<string, any> = {
-      admin: {
-        id: 'user-admin',
-        email: 'admin@cherryedu.id',
-        user_metadata: { name: 'Admin CherryEdu', role: 'admin', coffee_role: 'roaster' },
-      },
-      barista: {
-        id: 'user-budi',
-        email: 'budi@cherryedu.id',
-        user_metadata: { name: 'Budi Santoso', role: 'learner', coffee_role: 'barista' },
-      },
-      home_brewer: {
-        id: 'user-sari',
-        email: 'sari@cherryedu.id',
-        user_metadata: { name: 'Sari Wulandari', role: 'learner', coffee_role: 'home_brewer' },
-      },
-      q_grader: {
-        id: 'user-hendra',
-        email: 'fahrul@cherryroastery.id',
-        user_metadata: { name: 'Fahrul M.W (Q Grader)', role: 'expert', coffee_role: 'q_grader' },
-      },
-    };
-
-    const target = demoUsers[role] || demoUsers.barista;
-    localStorage.setItem(LOCAL_USER_KEY, JSON.stringify(target));
-    setUser(target as SupabaseUser);
-    setSession(null);
+    throw new Error('Persona demo fiktif telah dinonaktifkan. Silakan mendaftar akun baru atau masuk dengan Google.');
   };
 
   const signOut = async () => {
@@ -303,7 +225,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     } catch (e) {
       console.warn('Supabase signOut error:', e);
     }
-    localStorage.removeItem(LOCAL_USER_KEY);
     setUser(null);
     setSession(null);
   };

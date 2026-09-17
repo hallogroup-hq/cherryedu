@@ -62,6 +62,7 @@ interface CherryEduContextType {
   currentUser: User;
   isAuthenticated: boolean;
   isGuest: boolean;
+  authLoading: boolean;
   users: User[];
   learningPaths: LearningPath[];
   modules: Module[];
@@ -122,14 +123,14 @@ interface CherryEduContextType {
 
 const CherryEduContext = createContext<CherryEduContextType | undefined>(undefined);
 
-const STORAGE_KEY = 'cherryedu_state_v7';
+const STORAGE_KEY = 'cherryedu_state_v8';
 
 export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { user: authUser } = useAuth();
+  const { user: authUser, loading: authLoading } = useAuth();
   const isAuthenticated = Boolean(authUser);
   const isGuest = !isAuthenticated;
 
-  // Initialize with seed data or LocalStorage
+  // Initialize with clean seed data (no fictitious learners) or LocalStorage
   const [users, setUsers] = useState<User[]>(SEED_USERS);
   const [currentUserId, setCurrentUserId] = useState<string>('guest');
   const [learningPaths, setLearningPaths] = useState<LearningPath[]>(SEED_PATHS);
@@ -138,80 +139,106 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const [quizzes, setQuizzes] = useState<Quiz[]>(SEED_QUIZZES);
   const [questions, setQuestions] = useState<Question[]>(SEED_QUESTIONS);
   const [enrollments, setEnrollments] = useState<Enrollment[]>(SEED_ENROLLMENTS);
-  const [userProgress, setUserProgress] = useState<UserProgress[]>([
-    {
-      id: 'prog-1',
-      user_id: 'user-budi',
-      lesson_id: 'les-f1-1',
-      status: 'completed',
-      time_spent_seconds: 480,
-      completed_at: '2026-08-20T10:00:00Z',
-      updated_at: '2026-08-20T10:00:00Z',
-    },
-    {
-      id: 'prog-2',
-      user_id: 'user-budi',
-      lesson_id: 'les-f1-2',
-      status: 'completed',
-      time_spent_seconds: 600,
-      completed_at: '2026-08-21T11:00:00Z',
-      updated_at: '2026-08-21T11:00:00Z',
-    },
-  ]);
-  const [quizAttempts, setQuizAttempts] = useState<QuizAttempt[]>([
-    {
-      id: 'att-1',
-      user_id: 'user-budi',
-      quiz_id: 'quiz-f1',
-      score: 100,
-      passed: true,
-      answers_snapshot: { 'q-f1-1': 'ans-1', 'q-f1-2': 'ans-6', 'q-f1-3': 'ans-10' },
-      attempt_number: 1,
-      attempted_at: '2026-08-21T11:30:00Z',
-    },
-  ]);
+  const [userProgress, setUserProgress] = useState<UserProgress[]>([]);
+  const [quizAttempts, setQuizAttempts] = useState<QuizAttempt[]>([]);
   const [certificates, setCertificates] = useState<Certificate[]>(SEED_CERTIFICATES);
   const [badges, _setBadges] = useState<Badge[]>(SEED_BADGES);
-  const [userBadges, setUserBadges] = useState<UserBadge[]>([
-    { id: 'ub-1', user_id: 'user-budi', badge_id: 'badge-pioneer', earned_at: '2026-08-16T10:00:00Z' },
-    { id: 'ub-2', user_id: 'user-budi', badge_id: 'badge-perfect-score', earned_at: '2026-08-21T11:30:00Z' },
-    { id: 'ub-3', user_id: 'user-sari', badge_id: 'badge-pioneer', earned_at: '2026-08-11T09:00:00Z' },
-    { id: 'ub-4', user_id: 'user-sari', badge_id: 'badge-foundation', earned_at: '2026-08-25T14:30:00Z' },
-  ]);
+  const [userBadges, setUserBadges] = useState<UserBadge[]>([]);
   const [posts, setPosts] = useState<Post[]>(SEED_POSTS);
   const [comments, setComments] = useState<Comment[]>(SEED_COMMENTS);
-  const [likes, setLikes] = useState<Like[]>([
-    { id: 'lk-1', user_id: 'user-budi', target_id: 'post-2', target_type: 'post', created_at: '2026-09-05T09:00:00Z' },
-  ]);
+  const [likes, setLikes] = useState<Like[]>([]);
   const [jobListings, setJobListings] = useState<JobListing[]>(SEED_JOBS);
   const [jobApplications, setJobApplications] = useState<JobApplication[]>(SEED_JOB_APPLICATIONS);
-  const [bookmarks, setBookmarks] = useState<Bookmark[]>([
-    { id: 'bm-1', user_id: 'user-budi', lesson_id: 'les-f4-1', created_at: '2026-09-01T10:00:00Z' },
-  ]);
+  const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
   const [landingPageConfig, setLandingPageConfig] = useState<LandingPageConfig>(DEFAULT_LANDING_CONFIG);
   const [sitePages, setSitePages] = useState<Record<string, SitePageConfig>>(DEFAULT_SITE_PAGES);
 
   // Load from localStorage on client mount
   useEffect(() => {
     try {
+      // Proactively clear legacy v7 and demo auth storage
+      localStorage.removeItem('cherryedu_state_v7');
+      localStorage.removeItem('cherryedu_local_auth_user');
+
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (parsed.users) setUsers(parsed.users);
-        if (parsed.currentUserId && parsed.currentUserId !== 'user-budi' && parsed.currentUserId !== 'guest') {
+        if (parsed.users) {
+          const cleanUsers = parsed.users.filter(
+            (u: User) =>
+              u.id !== 'user-budi' &&
+              u.id !== 'user-sari' &&
+              !u.email?.toLowerCase().includes('budi@') &&
+              !u.email?.toLowerCase().includes('sari@')
+          );
+          setUsers(cleanUsers.length > 0 ? cleanUsers : SEED_USERS);
+        }
+        if (
+          parsed.currentUserId &&
+          parsed.currentUserId !== 'user-budi' &&
+          parsed.currentUserId !== 'user-sari' &&
+          parsed.currentUserId !== 'guest'
+        ) {
           setCurrentUserId(parsed.currentUserId);
         }
-        if (parsed.enrollments) setEnrollments(parsed.enrollments);
-        if (parsed.userProgress) setUserProgress(parsed.userProgress);
-        if (parsed.quizAttempts) setQuizAttempts(parsed.quizAttempts);
-        if (parsed.certificates) setCertificates(parsed.certificates);
-        if (parsed.userBadges) setUserBadges(parsed.userBadges);
+        if (parsed.enrollments) {
+          setEnrollments(
+            parsed.enrollments.filter(
+              (e: Enrollment) => e.user_id !== 'user-budi' && e.user_id !== 'user-sari'
+            )
+          );
+        }
+        if (parsed.userProgress) {
+          setUserProgress(
+            parsed.userProgress.filter(
+              (p: UserProgress) => p.user_id !== 'user-budi' && p.user_id !== 'user-sari'
+            )
+          );
+        }
+        if (parsed.quizAttempts) {
+          setQuizAttempts(
+            parsed.quizAttempts.filter(
+              (a: QuizAttempt) => a.user_id !== 'user-budi' && a.user_id !== 'user-sari'
+            )
+          );
+        }
+        if (parsed.certificates) {
+          setCertificates(
+            parsed.certificates.filter(
+              (c: Certificate) => c.user_id !== 'user-budi' && c.user_id !== 'user-sari'
+            )
+          );
+        }
+        if (parsed.userBadges) {
+          setUserBadges(
+            parsed.userBadges.filter(
+              (b: UserBadge) => b.user_id !== 'user-budi' && b.user_id !== 'user-sari'
+            )
+          );
+        }
         if (parsed.posts) setPosts(parsed.posts);
         if (parsed.comments) setComments(parsed.comments);
-        if (parsed.likes) setLikes(parsed.likes);
+        if (parsed.likes) {
+          setLikes(
+            parsed.likes.filter((l: Like) => l.user_id !== 'user-budi' && l.user_id !== 'user-sari')
+          );
+        }
         if (parsed.jobListings) setJobListings(parsed.jobListings);
-        if (parsed.jobApplications) setJobApplications(parsed.jobApplications);
-        if (parsed.bookmarks) setBookmarks(parsed.bookmarks);
+        if (parsed.jobApplications) {
+          setJobApplications(
+            parsed.jobApplications.filter(
+              (a: JobApplication) =>
+                a.applicant_id !== 'user-budi' && a.applicant_id !== 'user-sari'
+            )
+          );
+        }
+        if (parsed.bookmarks) {
+          setBookmarks(
+            parsed.bookmarks.filter(
+              (b: Bookmark) => b.user_id !== 'user-budi' && b.user_id !== 'user-sari'
+            )
+          );
+        }
 
         // Smart merge learning paths
         if (parsed.learningPaths) {
@@ -335,7 +362,6 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     );
 
     if (existing) {
-      setCurrentUserId(existing.id);
       const incomingName =
         authUser.user_metadata?.full_name ||
         authUser.user_metadata?.name;
@@ -343,18 +369,26 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         authUser.user_metadata?.avatar_url ||
         authUser.user_metadata?.picture;
 
-      if ((incomingName && incomingName !== existing.name) || (incomingAvatar && incomingAvatar !== existing.avatar_url)) {
+      const shouldUpdateId = existing.id !== authUser.id;
+      const shouldUpdateName = incomingName && incomingName !== existing.name;
+      const shouldUpdateAvatar = incomingAvatar && incomingAvatar !== existing.avatar_url;
+
+      if (shouldUpdateId || shouldUpdateName || shouldUpdateAvatar) {
         setUsers((prev) =>
           prev.map((u) =>
             u.id === existing.id
               ? {
                   ...u,
+                  id: authUser.id,
                   name: incomingName || u.name,
                   avatar_url: incomingAvatar || u.avatar_url,
                 }
               : u
           )
         );
+        setCurrentUserId(authUser.id);
+      } else {
+        setCurrentUserId(existing.id);
       }
     } else {
       // Auto-provision profile for this real user
@@ -932,6 +966,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         currentUser,
         isAuthenticated,
         isGuest,
+        authLoading,
         users,
         learningPaths,
         modules,

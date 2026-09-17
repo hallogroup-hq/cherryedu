@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth';
-import { Coffee, Eye, EyeOff, Loader2, AlertCircle, CheckCircle2, Sparkles } from "lucide-react";
+import { Coffee, Eye, EyeOff, Loader2, AlertCircle, CheckCircle2 } from "lucide-react";
 import { CoffeeRole } from '@/lib/types';
 
 export default function RegisterPage() {
-  const { signUp, signInWithGoogle, signInAsDemo } = useAuth();
+  const { signUp, signInWithGoogle } = useAuth();
   const router = useRouter();
 
   const [name, setName] = useState('');
@@ -59,13 +59,6 @@ export default function RegisterPage() {
     }
   };
 
-  const handleInstantBypass = () => {
-    // Allows user or reviewer to immediately log into their newly registered persona
-    const localRole = coffeeRole === 'home_brewer' ? 'home_brewer' : coffeeRole === 'q_grader' ? 'q_grader' : 'barista';
-    signInAsDemo(localRole);
-    router.push('/profile');
-  };
-
   if (successInfo) {
     return (
       <div className="min-h-screen bg-paper-100 flex items-center justify-center px-4 py-12">
@@ -81,27 +74,20 @@ export default function RegisterPage() {
             <strong className="text-roast-950 font-mono text-xs">{successInfo.email}</strong>
           </p>
 
-          <div className="p-4 bg-paper-100 rounded-xl border border-paper-200 text-left mb-6 space-y-2">
-            <div className="flex items-center gap-1.5 text-xs font-bold text-roast-900">
-              <Sparkles className="w-3.5 h-3.5 text-crema-600" />
-              <span>Akses Pengujian Cepat:</span>
-            </div>
-            <p className="text-[11px] text-roast-600 leading-relaxed">
-              Jika email verifikasi memerlukan waktu masuk ke inbox atau ingin langsung mencoba platform sekarang, Anda dapat langsung mengaktifkan sesi:
-            </p>
-            <button
-              onClick={handleInstantBypass}
-              className="w-full mt-2 py-2.5 px-4 bg-roast-950 hover:bg-roast-850 text-white font-bold text-xs rounded-lg transition text-center shadow-xs"
-            >
-              Lanjut Masuk Sekarang (Aktivasi Instan) →
-            </button>
+          <div className="p-4 bg-paper-50 rounded-xl border border-paper-200 text-left mb-6 space-y-2 text-xs text-roast-700">
+            <p className="font-semibold text-roast-950">Langkah Selanjutnya:</p>
+            <ol className="list-decimal pl-4 space-y-1 text-[11px] leading-relaxed">
+              <li>Buka kotak masuk (atau folder spam/promosi) email Anda.</li>
+              <li>Klik tautan konfirmasi untuk mengaktifkan akun akademi.</li>
+              <li>Setelah terkonfirmasi, Anda dapat langsung masuk dengan email & kata sandi Anda.</li>
+            </ol>
           </div>
 
           <Link
             href="/login"
-            className="inline-block text-xs font-mono text-roast-600 hover:text-cherry-800 transition underline underline-offset-4"
+            className="block w-full py-3 px-4 bg-roast-950 hover:bg-roast-850 text-white font-bold text-xs rounded-lg transition text-center shadow-xs"
           >
-            Kembali ke Halaman Masuk
+            Lanjut ke Halaman Masuk →
           </Link>
         </div>
       </div>
