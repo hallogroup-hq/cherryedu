@@ -448,7 +448,7 @@ export function PaymentModal({
               {/* GoPay & QRIS Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-sky-50 border border-sky-200 text-sky-800 rounded-full text-xs font-bold">
                 <QrCode className="w-3.5 h-3.5 text-sky-600" />
-                GoPay Merchant / QRIS Nasional
+                GoPay Merchant • CV Kreativitas Anak Bangsa
               </div>
 
               <div>
@@ -458,8 +458,13 @@ export function PaymentModal({
                 <div className="text-2xl sm:text-3xl font-mono font-black text-roast-950 mt-0.5">
                   Rp {activeTx.final_amount.toLocaleString('id-ID')}
                 </div>
-                <div className="text-[11px] font-mono text-roast-600 mt-1">
-                  ID Transaksi: <span className="font-bold text-roast-900">{activeTx.trx_id || activeTx.id}</span>
+                <div className="text-[11px] font-mono text-roast-600 mt-1 flex flex-wrap items-center justify-center gap-x-2">
+                  <span>Merchant: <strong className="text-roast-900">CV Kreativitas Anak Bangsa</strong></span>
+                  <span className="text-roast-300">•</span>
+                  <span>NMID: <strong className="text-roast-900">ID1026582958595</strong></span>
+                </div>
+                <div className="text-[10px] font-mono text-roast-400 mt-0.5">
+                  ID Transaksi: {activeTx.trx_id || activeTx.id}
                 </div>
               </div>
 
