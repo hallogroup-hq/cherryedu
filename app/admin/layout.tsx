@@ -23,6 +23,8 @@ import {
   Palette,
   ShieldCheck,
   AlertTriangle,
+  CreditCard,
+  Tag,
 } from "lucide-react";
 
 interface NavItem {
@@ -35,6 +37,8 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { href: '/admin', label: 'Overview', icon: LayoutDashboard },
+  { href: '/admin/transactions', label: 'Keuangan & Pro', icon: CreditCard },
+  { href: '/admin/vouchers', label: 'Voucher Diskon', icon: Tag },
   { href: '/admin/analytics', label: 'Analytics', icon: BarChart3 },
   {
     href: '/admin/curriculum',

@@ -15,6 +15,9 @@ import {
   CheckCircle2,
   AlertTriangle,
   ArrowUpRight,
+  CreditCard,
+  Tag,
+  Crown,
 } from 'lucide-react';
 
 export default function AdminOverviewPage() {
@@ -27,16 +30,23 @@ export default function AdminOverviewPage() {
     posts,
     quizAttempts,
     currentUser,
+    transactions,
+    vouchers,
   } = useCherryEdu();
 
   const isAdmin = currentUser.role === 'admin';
 
   const totalStudents = users.filter((u) => u.role === 'learner' || u.role === 'expert').length;
+  const proSubscribers = users.filter((u) => u.is_pro).length;
   const totalCerts = certificates.length;
   const totalLessons = lessons.length;
   const totalPaths = learningPaths.length;
   const totalJobs = jobListings.length;
   const totalPosts = posts.length;
+
+  const totalRevenue = (transactions || [])
+    .filter((t) => t.status === 'paid')
+    .reduce((acc, curr) => acc + curr.final_amount, 0);
 
   const examPassRate = useMemo(() => {
     if (quizAttempts.length === 0) return 100;
@@ -57,6 +67,26 @@ export default function AdminOverviewPage() {
   }
 
   const kpiCards = [
+    {
+      label: 'Pendapatan Bersih',
+      value: `Rp ${(totalRevenue).toLocaleString('id-ID')}`,
+      icon: CreditCard,
+      color: 'bg-emerald-950',
+      textColor: 'text-emerald-100',
+      iconColor: 'text-emerald-400',
+      href: '/admin/transactions',
+      trend: `${(transactions || []).filter((t) => t.status === 'paid').length} transaksi lunas`,
+    },
+    {
+      label: 'Member Pro Aktif',
+      value: proSubscribers,
+      icon: Crown,
+      color: 'bg-amber-950',
+      textColor: 'text-amber-100',
+      iconColor: 'text-amber-400',
+      href: '/admin/transactions',
+      trend: 'Akses penuh spesialisasi',
+    },
     {
       label: 'Total Pelajar',
       value: totalStudents,
@@ -101,27 +131,27 @@ export default function AdminOverviewPage() {
 
   const quickActions = [
     {
+      href: '/admin/transactions',
+      label: 'Kelola Pembayaran & Pro',
+      desc: 'Pantau QRIS dan manual grant Pro',
+      icon: CreditCard,
+    },
+    {
+      href: '/admin/vouchers',
+      label: 'Buat Voucher Diskon',
+      desc: 'Kupon promo % atau potongan harga',
+      icon: Tag,
+    },
+    {
       href: '/admin/curriculum',
       label: 'Tambah Materi Baru',
       desc: 'Buat lesson atau learning path',
       icon: BookOpen,
     },
     {
-      href: '/admin/collaborators',
-      label: 'Tambah Kolaborator',
-      desc: 'Profil barista / champion',
-      icon: Users,
-    },
-    {
-      href: '/admin/pages',
-      label: 'Edit Homepage',
-      desc: 'Ubah konten halaman utama',
-      icon: MessageSquare,
-    },
-    {
       href: '/admin/users',
-      label: 'Kelola Users',
-      desc: 'Lihat progress & suspend akun',
+      label: 'Kelola Users & Role',
+      desc: 'Lihat status akun & lisensi Pro',
       icon: Users,
     },
   ];
@@ -240,6 +270,20 @@ export default function AdminOverviewPage() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
+            {
+              href: '/admin/transactions',
+              title: 'Keuangan & Pro Membership',
+              desc: 'Monitoring omset, pembayaran QRIS GoPay, status langganan, dan manual grant akses.',
+              icon: CreditCard,
+              badge: 'FINANCE',
+            },
+            {
+              href: '/admin/vouchers',
+              title: 'Voucher & Diskon',
+              desc: 'Manajemen kupon potongan persen/nominal, batas pemakaian, dan validasi masa aktif.',
+              icon: Tag,
+              badge: 'PROMO',
+            },
             {
               href: '/admin/curriculum',
               title: 'Kurikulum & Materi',

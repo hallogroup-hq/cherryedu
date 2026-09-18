@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
+import { PaymentModal } from '@/components/PaymentModal';
 import {
   Clock,
   Layers,
@@ -17,6 +18,7 @@ import {
   ArrowRight,
   ChevronDown,
   ChevronUp,
+  Sparkles,
 } from "lucide-react";
 
 export default function PathDetailPage() {
@@ -37,8 +39,11 @@ export default function PathDetailPage() {
     canEnrollInPath,
     isLessonCompleted,
     getPathProgress,
+    isPro,
+    isModuleAccessible,
   } = useCherryEdu();
 
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [expandedModules, setExpandedModules] = useState<Record<string, boolean>>({
     'mod-f1': true,
     'mod-b1': true,
@@ -265,6 +270,38 @@ export default function PathDetailPage() {
 
       {/* Syllabus / Module List */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+        {/* Pro Specialization Teaser Banner */}
+        {path.layer_type !== 'foundation' && path.slug !== 'foundation-kopi' && !isPro && (
+          <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-amber-500/5 to-transparent border-2 border-amber-300 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-800 shrink-0 shadow-2xs">
+                <Sparkles className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-sm font-bold text-roast-950 font-serif">
+                    Jalur Spesialisasi Eksklusif Pro
+                  </h3>
+                  <span className="px-2 py-0.5 text-[9px] font-mono font-black uppercase bg-amber-200 text-amber-900 rounded-full">
+                    Freemium Preview
+                  </span>
+                </div>
+                <p className="text-xs text-roast-600 mt-0.5">
+                  Modul 1 dapat dipelajari gratis sebagai pratinjau. Upgrade ke Pro untuk membuka modul lanjutan & sertifikat.
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => setIsPaymentModalOpen(true)}
+              className="px-5 py-2.5 bg-cherry-800 hover:bg-cherry-900 text-white font-bold text-xs rounded-xl transition shadow-sm shrink-0 flex items-center justify-center gap-1.5"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Upgrade Pro (Mulai Rp 49rb)</span>
+            </button>
+          </div>
+        )}
+
         <div className="flex items-center justify-between pb-4 mb-6 border-b border-paper-300">
           <div>
             <span className="font-mono text-xs uppercase tracking-widest text-roast-500 font-bold block mb-1">
@@ -285,13 +322,16 @@ export default function PathDetailPage() {
             const modLessons = lessons.filter((l) => l.module_id === mod.id);
             const modQuiz = quizzes.find((q) => q.module_id === mod.id);
             const isExpanded = expandedModules[mod.id] ?? false;
+            const isAccessible = isModuleAccessible(path.slug, mod.id);
 
             const completedLessonsInMod = modLessons.filter((l) => isLessonCompleted(l.id)).length;
 
             return (
               <div
                 key={mod.id}
-                className="bg-paper-50 border border-paper-300 shadow-xs hover:border-roast-800 transition-all"
+                className={`bg-paper-50 border shadow-xs transition-all ${
+                  isAccessible ? 'border-paper-300 hover:border-roast-800' : 'border-amber-300/80 bg-amber-50/20'
+                }`}
               >
                 {/* Module Bar */}
                 <button
@@ -303,9 +343,17 @@ export default function PathDetailPage() {
                       {String(mIdx + 1).padStart(2, '0')}
                     </span>
                     <div>
-                      <h3 className="font-serif font-bold text-base sm:text-lg text-roast-950">
-                        {mod.title}
-                      </h3>
+                      <div className="flex items-center gap-2">
+                        <h3 className="font-serif font-bold text-base sm:text-lg text-roast-950">
+                          {mod.title}
+                        </h3>
+                        {!isAccessible && (
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-100 border border-amber-300 text-amber-900 font-mono text-[9px] font-black uppercase">
+                            <Lock className="w-2.5 h-2.5 text-amber-700" />
+                            PRO
+                          </span>
+                        )}
+                      </div>
                       <p className="text-xs text-roast-600 mt-0.5 line-clamp-1 font-sans">
                         {mod.description}
                       </p>
@@ -355,9 +403,22 @@ export default function PathDetailPage() {
 
                             <Link
                               href={`/paths/${path.slug}/lessons/${lesson.id}`}
-                              className="shrink-0 ml-3 px-3.5 py-1.5 bg-paper-50 border border-paper-300 font-mono text-[11px] uppercase tracking-wider font-bold text-roast-900 hover:text-cherry-800 hover:border-roast-800 transition-all shadow-xs"
+                              className={`shrink-0 ml-3 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-wider font-bold transition-all shadow-xs flex items-center gap-1.5 ${
+                                isAccessible
+                                  ? 'bg-paper-50 border border-paper-300 text-roast-900 hover:text-cherry-800 hover:border-roast-800'
+                                  : 'bg-amber-50 border border-amber-300 text-amber-900 hover:bg-amber-100'
+                              }`}
                             >
-                              {completed ? 'Ulas Materi' : 'Buka Materi →'}
+                              {!isAccessible ? (
+                                <>
+                                  <Lock className="w-3 h-3 text-amber-700" />
+                                  <span>Buka (Pro)</span>
+                                </>
+                              ) : completed ? (
+                                'Ulas Materi'
+                              ) : (
+                                'Buka Materi →'
+                              )}
                             </Link>
                           </div>
                         );
@@ -389,9 +450,14 @@ export default function PathDetailPage() {
 
                         <Link
                           href={`/paths/${path.slug}/quiz/${modQuiz.id}`}
-                          className="px-3.5 py-1.5 bg-roast-950 hover:bg-cherry-800 text-paper-50 text-[11px] font-bold uppercase tracking-wider transition-colors border border-roast-900 shadow-xs"
+                          className={`px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider transition-colors border shadow-xs flex items-center gap-1.5 ${
+                            isAccessible
+                              ? 'bg-roast-950 hover:bg-cherry-800 text-paper-50 border-roast-900'
+                              : 'bg-amber-100 hover:bg-amber-200 text-amber-900 border-amber-300'
+                          }`}
                         >
-                          Mulai Ujian Kuis
+                          {!isAccessible && <Lock className="w-3 h-3 text-amber-700" />}
+                          <span>{isAccessible ? 'Mulai Ujian Kuis' : 'Ujian Kuis (Pro)'}</span>
                         </Link>
                       </div>
                     )}
@@ -426,6 +492,12 @@ export default function PathDetailPage() {
           </div>
         )}
       </div>
+
+      <PaymentModal
+        isOpen={isPaymentModalOpen}
+        onClose={() => setIsPaymentModalOpen(false)}
+        sourceContext={`Silabus: ${path.title}`}
+      />
     </div>
   );
 }
