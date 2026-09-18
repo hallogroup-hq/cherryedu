@@ -4,6 +4,10 @@
 export type UserPlatformRole = 'learner' | 'expert' | 'employer' | 'admin';
 export type CoffeeRole = 'barista' | 'home_brewer' | 'roaster' | 'q_grader' | 'farmer' | 'consumer' | 'undecided' | 'business' | 'q_processor';
 
+export type SubscriptionTier = 'free' | 'pro' | 'enterprise';
+export type SubscriptionCycle = 'monthly' | 'annual';
+export type PaymentStatus = 'pending' | 'paid' | 'expired' | 'failed';
+
 export interface User {
   id: string;
   name: string;
@@ -16,6 +20,10 @@ export interface User {
   xp_points: number;
   streak_count: number;
   last_active_date: string;
+  is_pro?: boolean;
+  subscription_tier?: SubscriptionTier;
+  subscription_expires_at?: string;
+  subscription_cycle?: SubscriptionCycle;
   created_at: string;
   updated_at?: string;
 }
@@ -387,6 +395,43 @@ export interface SitePageConfig {
   seoTitle: string;
   seoDescription: string;
   sections: PageSectionItem[];
+}
+
+export interface Voucher {
+  id: string;
+  code: string;
+  discount_type: 'percentage' | 'fixed';
+  discount_value: number; // percentage (e.g. 30 for 30%) or fixed amount in IDR (e.g. 20000)
+  min_purchase?: number;
+  max_discount?: number;
+  expires_at?: string;
+  usage_limit?: number;
+  usage_count: number;
+  is_active: boolean;
+  description?: string;
+  created_at: string;
+}
+
+export interface PaymentTransaction {
+  id: string;
+  user_id: string;
+  user_name: string;
+  user_email: string;
+  plan_tier: SubscriptionTier;
+  cycle: SubscriptionCycle;
+  original_amount: number;
+  discount_amount: number;
+  final_amount: number;
+  voucher_code?: string;
+  status: PaymentStatus;
+  payment_method: 'gopay_qris' | 'manual_admin';
+  qris_id?: string;
+  trx_id?: string;
+  qris_code?: string;
+  qris_url?: string;
+  expires_at?: string;
+  created_at: string;
+  paid_at?: string;
 }
 
 

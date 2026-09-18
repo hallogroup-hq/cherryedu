@@ -33,7 +33,7 @@ import {
 export const Navbar: React.FC = () => {
   const pathname = usePathname();
   const router = useRouter();
-  const { currentUser, bookmarks, isAuthenticated } = useCherryEdu();
+  const { currentUser, bookmarks, isAuthenticated, isPro } = useCherryEdu();
   const { user: _user, signOut } = useAuth();
   
   const userBookmarks = bookmarks.filter((b) => b.user_id === currentUser.id);
@@ -335,6 +335,24 @@ export const Navbar: React.FC = () => {
                 <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-cherry-700" />
               )}
             </Link>
+
+            {/* 5. Paket Pro */}
+            <Link
+              href="/pricing"
+              className={`text-xs uppercase tracking-wider font-semibold transition-all relative py-1 flex items-center gap-1.5 ${
+                pathname === '/pricing'
+                  ? 'text-cherry-800 font-bold'
+                  : 'text-roast-700 hover:text-roast-950'
+              }`}
+            >
+              <span>Paket Pro</span>
+              <span className="px-1.5 py-0.5 text-[9px] font-mono font-black uppercase bg-gradient-to-r from-amber-400 to-amber-500 text-roast-950 rounded-sm shadow-2xs leading-none">
+                PRO
+              </span>
+              {pathname === '/pricing' && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-cherry-700" />
+              )}
+            </Link>
           </nav>
 
           {/* Right Status & Controls */}
@@ -357,6 +375,26 @@ export const Navbar: React.FC = () => {
                     <span className="text-[10px] text-roast-500 font-sans">XP</span>
                   </div>
                 </div>
+
+                {/* Pro Status or Upgrade CTA */}
+                {isPro ? (
+                  <div
+                    className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-400/20 to-amber-500/20 border border-amber-400/60 text-amber-900 text-[10px] font-mono font-black uppercase tracking-wider shadow-2xs"
+                    title="Keanggotaan CherryEdu Pro Aktif"
+                  >
+                    <Sparkles className="w-3 h-3 text-amber-600 fill-amber-500" />
+                    <span>PRO</span>
+                  </div>
+                ) : (
+                  <Link
+                    href="/pricing"
+                    className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-roast-950 font-mono text-[10px] font-black uppercase rounded-md shadow-2xs transition"
+                    title="Upgrade ke CherryEdu Pro"
+                  >
+                    <Sparkles className="w-3 h-3 text-roast-950" />
+                    <span>Upgrade Pro</span>
+                  </Link>
+                )}
 
                 {/* Bookmark Link */}
                 <Link
@@ -487,7 +525,26 @@ export const Navbar: React.FC = () => {
                   <span className="font-bold">{currentUser.xp_points}</span>
                   <span className="text-[10px] text-roast-500">XP</span>
                 </div>
+                {isPro && (
+                  <div className="ml-auto flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-[10px] font-mono font-black uppercase shadow-2xs">
+                    <Sparkles className="w-3 h-3 text-amber-600 fill-amber-500" />
+                    <span>PRO</span>
+                  </div>
+                )}
               </div>
+              {!isPro && (
+                <Link
+                  href="/pricing"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full py-2 px-3 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 text-roast-950 font-bold text-xs flex items-center justify-between shadow-2xs"
+                >
+                  <span className="flex items-center gap-1.5 font-sans">
+                    <Sparkles className="w-4 h-4" />
+                    Upgrade ke CherryEdu Pro
+                  </span>
+                  <span className="font-mono text-[10px] font-black">Mulai Rp 49rb &rarr;</span>
+                </Link>
+              )}
             </div>
           ) : (
             /* Guest Welcome Banner on Mobile */
@@ -625,6 +682,19 @@ export const Navbar: React.FC = () => {
 
           {/* Group 4: Profil & Lembaga */}
           <div className="pt-2 border-t border-paper-200 flex flex-col gap-1.5 text-xs">
+            <Link
+              href="/pricing"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center justify-between p-2 rounded-lg bg-amber-50 border border-amber-200 text-amber-950 font-bold"
+            >
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-amber-600" />
+                <span>Paket Langganan Pro</span>
+              </div>
+              <span className="text-[9px] font-mono px-2 py-0.5 bg-amber-200 rounded text-amber-900 uppercase font-black">
+                Mulai Rp 49k
+              </span>
+            </Link>
             <Link
               href="/about"
               onClick={() => setIsMobileMenuOpen(false)}

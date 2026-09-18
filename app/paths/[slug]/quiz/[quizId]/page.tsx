@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
+import { ProPaywallBanner } from '@/components/ProPaywallBanner';
 import confetti from 'canvas-confetti';
 import {
   Clock,
@@ -21,7 +22,7 @@ export default function QuizPage() {
   const slug = params.slug as string;
   const quizId = params.quizId as string;
 
-  const { learningPaths, quizzes, questions, submitQuiz, isAuthenticated, authLoading } = useCherryEdu();
+  const { learningPaths, quizzes, questions, submitQuiz, isAuthenticated, authLoading, isPro } = useCherryEdu();
 
   const path = learningPaths.find((p) => p.slug === slug);
   const quiz = quizzes.find((q) => q.id === quizId);
@@ -130,6 +131,36 @@ export default function QuizPage() {
         <Link href="/paths" className="mt-3 inline-block font-mono text-xs uppercase text-cherry-700 underline">
           &larr; Kembali ke Silabus
         </Link>
+      </div>
+    );
+  }
+
+  const isSpecialization = path.layer_type !== 'foundation' && path.slug !== 'foundation-kopi';
+  if (isSpecialization && !isPro) {
+    return (
+      <div className="min-h-screen bg-paper-50 flex flex-col">
+        <div className="sticky top-16 z-30 bg-paper-50/95 backdrop-blur-md border-b border-paper-300 px-4 sm:px-6 py-2.5">
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            <Link
+              href={`/paths/${path.slug}`}
+              className="flex items-center gap-2 text-xs font-mono font-bold text-roast-600 hover:text-roast-950 transition"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Kembali ke Silabus</span>
+            </Link>
+            <span className="text-xs font-mono uppercase text-roast-500 font-bold">
+              {path.title}
+            </span>
+          </div>
+        </div>
+
+        <div className="flex-1 flex items-center justify-center p-4">
+          <ProPaywallBanner
+            pathTitle={path.title}
+            pathSlug={path.slug}
+            lessonTitle={`Ujian Sertifikasi: ${quiz.title}`}
+          />
+        </div>
       </div>
     );
   }

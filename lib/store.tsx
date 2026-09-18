@@ -24,7 +24,18 @@ import {
   ForumCategory,
   LandingPageConfig,
   SitePageConfig,
+  SubscriptionTier,
+  SubscriptionCycle,
+  PaymentStatus,
+  PaymentTransaction,
+  Voucher,
 } from './types';
+import {
+  PRICING_PLANS,
+  INITIAL_VOUCHERS,
+  requestDynamicQRIS,
+  verifyQRISStatus,
+} from './paymentGateway';
 import {
   SEED_USERS,
   SEED_BADGES,
@@ -81,6 +92,23 @@ interface CherryEduContextType {
   jobListings: JobListing[];
   jobApplications: JobApplication[];
   bookmarks: Bookmark[];
+  transactions: PaymentTransaction[];
+  vouchers: Voucher[];
+  isPro: boolean;
+
+  // Monetization Actions
+  applyVoucher: (code: string, amount: number) => { valid: boolean; discountAmount: number; finalAmount: number; message: string; voucher?: Voucher };
+  createPaymentTransaction: (cycle: SubscriptionCycle, voucherCode?: string) => Promise<{ success: boolean; transaction?: PaymentTransaction; error?: string }>;
+  checkPaymentStatus: (transactionId: string) => Promise<{ paid: boolean; transaction?: PaymentTransaction }>;
+  simulatePaymentSuccess: (transactionId: string) => void;
+  grantProAccess: (userId: string, durationMonths?: number, cycle?: SubscriptionCycle) => void;
+  revokeProAccess: (userId: string) => void;
+  addVoucher: (voucher: Voucher) => void;
+  updateVoucher: (voucherId: string, data: Partial<Voucher>) => void;
+  deleteVoucher: (voucherId: string) => void;
+  toggleVoucherStatus: (voucherId: string) => void;
+  isLessonAccessible: (pathSlug: string, moduleId: string, lessonId?: string) => boolean;
+  isModuleAccessible: (pathSlug: string, moduleId: string) => boolean;
 
   // Actions
   switchUser: (userId: string) => void; // admin-only: view-as user
@@ -150,6 +178,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const [jobListings, setJobListings] = useState<JobListing[]>(SEED_JOBS);
   const [jobApplications, setJobApplications] = useState<JobApplication[]>(SEED_JOB_APPLICATIONS);
   const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
+  const [transactions, setTransactions] = useState<PaymentTransaction[]>([]);
+  const [vouchers, setVouchers] = useState<Voucher[]>(INITIAL_VOUCHERS);
   const [landingPageConfig, setLandingPageConfig] = useState<LandingPageConfig>(DEFAULT_LANDING_CONFIG);
   const [sitePages, setSitePages] = useState<Record<string, SitePageConfig>>(DEFAULT_SITE_PAGES);
 
@@ -239,6 +269,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
             )
           );
         }
+        if (parsed.transactions) setTransactions(parsed.transactions);
+        if (parsed.vouchers) setVouchers(parsed.vouchers);
 
         // Smart merge learning paths
         if (parsed.learningPaths) {
@@ -312,6 +344,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         jobListings,
         jobApplications,
         bookmarks,
+        transactions,
+        vouchers,
         lessons,
         learningPaths,
         modules,
@@ -338,6 +372,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     jobListings,
     jobApplications,
     bookmarks,
+    transactions,
+    vouchers,
     lessons,
     learningPaths,
     modules,
@@ -437,6 +473,205 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     );
     return matched || (isAuthenticated ? users[0] : GUEST_USER);
   }, [isAuthenticated, users, currentUserId, authUser]);
+
+  const isPro = useMemo(() => {
+    if (currentUser.role === 'admin') return true;
+    if (currentUser.is_pro) {
+      if (!currentUser.subscription_expires_at) return true;
+      return new Date(currentUser.subscription_expires_at) > new Date();
+    }
+    return false;
+  }, [currentUser]);
+
+  const isModuleAccessible = (pathSlug: string, moduleId: string): boolean => {
+    if (isPro) return true;
+    const path = learningPaths.find((p) => p.slug === pathSlug);
+    if (!path) return true;
+    // Foundation path is 100% free for all
+    if (path.layer_type === 'foundation' || path.slug === 'foundation-kopi') {
+      return true;
+    }
+    // For specialization paths, only module index 0 (the first module) is free
+    const pathModules = modules
+      .filter((m) => m.learning_path_id === path.id)
+      .sort((a, b) => a.order_index - b.order_index);
+    const modIndex = pathModules.findIndex((m) => m.id === moduleId);
+    return modIndex === 0;
+  };
+
+  const isLessonAccessible = (pathSlug: string, moduleId: string, _lessonId?: string): boolean => {
+    if (isPro) return true;
+    return isModuleAccessible(pathSlug, moduleId);
+  };
+
+  const grantProAccess = (userId: string, durationMonths = 1, cycle: SubscriptionCycle = 'monthly') => {
+    const expiryDate = new Date();
+    expiryDate.setMonth(expiryDate.getMonth() + durationMonths);
+
+    setUsers((prev) =>
+      prev.map((u) => {
+        if (u.id === userId) {
+          return {
+            ...u,
+            is_pro: true,
+            subscription_tier: 'pro',
+            subscription_cycle: cycle,
+            subscription_expires_at: expiryDate.toISOString(),
+          };
+        }
+        return u;
+      })
+    );
+  };
+
+  const revokeProAccess = (userId: string) => {
+    setUsers((prev) =>
+      prev.map((u) => {
+        if (u.id === userId) {
+          return {
+            ...u,
+            is_pro: false,
+            subscription_tier: 'free',
+            subscription_expires_at: undefined,
+            subscription_cycle: undefined,
+          };
+        }
+        return u;
+      })
+    );
+  };
+
+  const applyVoucher = (code: string, amount: number) => {
+    const cleanCode = code.trim().toUpperCase();
+    const v = vouchers.find((item) => item.code.toUpperCase() === cleanCode && item.is_active);
+    if (!v) {
+      return { valid: false, discountAmount: 0, finalAmount: amount, message: 'Kode voucher tidak ditemukan atau tidak aktif.' };
+    }
+    if (v.expires_at && new Date(v.expires_at) < new Date()) {
+      return { valid: false, discountAmount: 0, finalAmount: amount, message: 'Masa berlaku kupon telah berakhir.' };
+    }
+    if (v.usage_limit && v.usage_count >= v.usage_limit) {
+      return { valid: false, discountAmount: 0, finalAmount: amount, message: 'Batas kuota pemakaian kupon telah tercapai.' };
+    }
+    if (v.min_purchase && amount < v.min_purchase) {
+      return { valid: false, discountAmount: 0, finalAmount: amount, message: `Minimal transaksi untuk kupon ini adalah Rp ${v.min_purchase.toLocaleString('id-ID')}` };
+    }
+
+    let discount = 0;
+    if (v.discount_type === 'percentage') {
+      discount = Math.round((amount * v.discount_value) / 100);
+      if (v.max_discount && discount > v.max_discount) {
+        discount = v.max_discount;
+      }
+    } else {
+      discount = v.discount_value;
+    }
+
+    const finalAmount = Math.max(0, amount - discount);
+    return {
+      valid: true,
+      discountAmount: discount,
+      finalAmount,
+      message: `Voucher "${v.code}" berhasil diterapkan! Hemat Rp ${discount.toLocaleString('id-ID')}`,
+      voucher: v,
+    };
+  };
+
+  const createPaymentTransaction = async (cycle: SubscriptionCycle, voucherCode?: string) => {
+    const baseAmount = cycle === 'annual' ? PRICING_PLANS.pro.annual.amount : PRICING_PLANS.pro.monthly.amount;
+    let discount = 0;
+    let finalAmount = baseAmount;
+    let appliedVoucherCode: string | undefined = undefined;
+
+    if (voucherCode) {
+      const vResult = applyVoucher(voucherCode, baseAmount);
+      if (vResult.valid) {
+        discount = vResult.discountAmount;
+        finalAmount = vResult.finalAmount;
+        appliedVoucherCode = vResult.voucher?.code;
+      }
+    }
+
+    const qrisResult = await requestDynamicQRIS(finalAmount);
+
+    const tx: PaymentTransaction = {
+      id: 'tx_' + Math.random().toString(36).substring(2, 10),
+      user_id: currentUser.id,
+      user_name: currentUser.name || 'Pengguna CherryEdu',
+      user_email: currentUser.email,
+      plan_tier: 'pro',
+      cycle,
+      original_amount: baseAmount,
+      discount_amount: discount,
+      final_amount: finalAmount,
+      voucher_code: appliedVoucherCode,
+      status: 'pending',
+      payment_method: 'gopay_qris',
+      qris_id: qrisResult.qris_id,
+      trx_id: qrisResult.trx_id,
+      qris_code: qrisResult.qris_code,
+      qris_url: qrisResult.qris_image_url,
+      expires_at: qrisResult.expires_at,
+      created_at: new Date().toISOString(),
+    };
+
+    setTransactions((prev) => [tx, ...prev]);
+
+    if (appliedVoucherCode) {
+      setVouchers((prev) =>
+        prev.map((v) =>
+          v.code.toUpperCase() === appliedVoucherCode?.toUpperCase()
+            ? { ...v, usage_count: (v.usage_count || 0) + 1 }
+            : v
+        )
+      );
+    }
+
+    return { success: true, transaction: tx };
+  };
+
+  const checkPaymentStatus = async (transactionId: string) => {
+    const tx = transactions.find((t) => t.id === transactionId);
+    if (!tx) return { paid: false };
+    if (tx.status === 'paid') return { paid: true, transaction: tx };
+
+    const qrisCheck = await verifyQRISStatus(tx.qris_id || '', tx.trx_id, tx.final_amount);
+    if (qrisCheck.paid) {
+      const durationMonths = tx.cycle === 'annual' ? 12 : 1;
+      grantProAccess(tx.user_id, durationMonths, tx.cycle);
+
+      const updatedTx: PaymentTransaction = {
+        ...tx,
+        status: 'paid',
+        paid_at: new Date().toISOString(),
+      };
+      setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
+      return { paid: true, transaction: updatedTx };
+    }
+    return { paid: false, transaction: tx };
+  };
+
+  const simulatePaymentSuccess = (transactionId: string) => {
+    const tx = transactions.find((t) => t.id === transactionId);
+    if (!tx) return;
+
+    const durationMonths = tx.cycle === 'annual' ? 12 : 1;
+    grantProAccess(tx.user_id, durationMonths, tx.cycle);
+
+    const updatedTx: PaymentTransaction = {
+      ...tx,
+      status: 'paid',
+      paid_at: new Date().toISOString(),
+    };
+    setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
+  };
+
+  const addVoucher = (v: Voucher) => setVouchers((prev) => [v, ...prev]);
+  const updateVoucher = (id: string, data: Partial<Voucher>) =>
+    setVouchers((prev) => prev.map((v) => (v.id === id ? { ...v, ...data } : v)));
+  const deleteVoucher = (id: string) => setVouchers((prev) => prev.filter((v) => v.id !== id));
+  const toggleVoucherStatus = (id: string) =>
+    setVouchers((prev) => prev.map((v) => (v.id === id ? { ...v, is_active: !v.is_active } : v)));
 
   // Helper to add XP to user
   const awardXP = (userId: string, points: number) => {
@@ -985,6 +1220,21 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         jobListings,
         jobApplications,
         bookmarks,
+        transactions,
+        vouchers,
+        isPro,
+        applyVoucher,
+        createPaymentTransaction,
+        checkPaymentStatus,
+        simulatePaymentSuccess,
+        grantProAccess,
+        revokeProAccess,
+        addVoucher,
+        updateVoucher,
+        deleteVoucher,
+        toggleVoucherStatus,
+        isLessonAccessible,
+        isModuleAccessible,
         landingPageConfig,
         updateLandingPageConfig,
         sitePages,

@@ -46,7 +46,7 @@ test.describe('Suite TS-05: Otentikasi & Akun Pengguna', () => {
     // Ensure no emoji and no "Calon" in option texts
     for (const opt of optionTexts) {
       expect(opt).not.toContain('Calon');
-      expect(opt).not.toMatch(/[\u{1F300}-\u{1F6FF}]/u);
+      expect(opt).not.toMatch(/[\uD800-\uDBFF][\uDC00-\uDFFF]/);
     }
   });
 
