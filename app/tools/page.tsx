@@ -38,7 +38,11 @@ import {
   Flame,
   ShieldAlert,
   Calendar,
+  Crown,
 } from "lucide-react";
+import { useCherryEdu } from '@/lib/store';
+import { PaymentModal } from '@/components/PaymentModal';
+import { ToolPaywallBanner } from '@/components/ToolPaywallBanner';
 
 type ToolDomainId = 'bar-brew' | 'sensory-cupping' | 'terroir-botany';
 type ToolId =
@@ -465,10 +469,29 @@ const INDONESIAN_REGIONS: CoffeeRegion[] = [
 
 function ToolsPageContent() {
   const searchParams = useSearchParams();
+  const {
+    isPro,
+    remainingToolQuota,
+    isToolAllowed,
+    recordToolUsage,
+  } = useCherryEdu();
+
   const [activeTool, setActiveTool] = useState<ToolId>('calculator');
   const [isSwitcherOpen, setIsSwitcherOpen] = useState<boolean>(false);
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState<boolean>(false);
   const [selectedIsland, setSelectedIsland] = useState<string>('Semua');
   const [searchQuery, setSearchQuery] = useState<string>('');
+
+  const visitedToolsInSession = React.useRef<Set<string>>(new Set());
+
+  // Record 1 session per distinct tool opened if not Pro and tool is allowed
+  useEffect(() => {
+    if (isPro) return;
+    if (!visitedToolsInSession.current.has(activeTool)) {
+      visitedToolsInSession.current.add(activeTool);
+      recordToolUsage(activeTool);
+    }
+  }, [activeTool, isPro, recordToolUsage]);
 
   // Sync with ?tab= or ?tool= URL parameter
   useEffect(() => {
@@ -580,8 +603,30 @@ function ToolsPageContent() {
             </div>
           </div>
 
-          {/* Quick Catalogue Action Button */}
-          <div className="flex items-center gap-2 shrink-0">
+          {/* Quick Catalogue & Quota Action Buttons */}
+          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+            {/* Quota Indicator Pill */}
+            {isPro ? (
+              <div className="inline-flex items-center gap-1.5 px-3 py-2 bg-amber-50 border border-amber-300 text-amber-900 rounded-xl text-xs font-mono font-bold shadow-2xs">
+                <Crown className="w-3.5 h-3.5 text-amber-600" />
+                <span>Akses Pro Unlimited</span>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setIsPaymentModalOpen(true)}
+                className="inline-flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-amber-50 to-orange-50 hover:from-amber-100 hover:to-orange-100 border border-amber-300 text-amber-950 rounded-xl text-xs font-mono font-bold shadow-2xs transition group"
+                title="Buka akses tanpa batas dengan langganan Pro"
+              >
+                <span className="flex h-2 w-2 relative">
+                  <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${remainingToolQuota <= 3 ? 'bg-rose-400' : 'bg-amber-400'}`}></span>
+                  <span className={`relative inline-flex rounded-full h-2 w-2 ${remainingToolQuota <= 3 ? 'bg-rose-500' : 'bg-amber-500'}`}></span>
+                </span>
+                <span>Uji Coba: <strong className={remainingToolQuota <= 3 ? 'text-rose-700 font-black' : 'text-amber-950'}>{remainingToolQuota}/10</strong> Sesi</span>
+                <span className="text-cherry-700 underline text-[11px] group-hover:text-cherry-900 font-semibold">Upgrade Pro →</span>
+              </button>
+            )}
+
             <button
               onClick={() => setIsSwitcherOpen(true)}
               className="flex items-center gap-2 px-3.5 py-2.5 bg-paper-100 hover:bg-paper-200 border border-paper-300 rounded-xl text-roast-900 font-mono text-xs font-semibold shadow-2xs transition-all w-full sm:w-auto justify-center"
@@ -827,9 +872,17 @@ function ToolsPageContent() {
         </div>
       )}
 
-      {/* Tab Content */}
-      {activeTool === 'calculator' && <BrewCalculator />}
-      {activeTool === 'grinder-converter' && <GrinderConverter />}
+      {/* Tab Content / Quota Protected Area */}
+      {!isToolAllowed ? (
+        <ToolPaywallBanner
+          toolName={activeToolDef.label}
+          toolBadge={activeToolDef.badge}
+          onOpenPayment={() => setIsPaymentModalOpen(true)}
+        />
+      ) : (
+        <>
+          {activeTool === 'calculator' && <BrewCalculator />}
+          {activeTool === 'grinder-converter' && <GrinderConverter />}
       {activeTool === 'coffee-compass' && <CoffeeCompass />}
       {activeTool === 'cup-anatomy' && <CupAnatomyVisualizer />}
       {activeTool === 'blend-designer' && <BlendDesigner />}
@@ -1007,6 +1060,16 @@ function ToolsPageContent() {
           </div>
         </div>
       )}
+        </>
+      )}
+
+      {/* Embedded Checkout Modal */}
+      <PaymentModal
+        isOpen={isPaymentModalOpen}
+        onClose={() => setIsPaymentModalOpen(false)}
+        defaultCycle="monthly"
+        sourceContext="tools_quota"
+      />
     </div>
   );
 }

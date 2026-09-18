@@ -96,7 +96,11 @@ interface CherryEduContextType {
   vouchers: Voucher[];
   isPro: boolean;
 
-  // Monetization Actions
+  // Monetization Actions & Quota
+  toolUsageCount: number;
+  remainingToolQuota: number;
+  isToolAllowed: boolean;
+  recordToolUsage: (toolId?: string) => { allowed: boolean; remaining: number; isPro: boolean };
   applyVoucher: (code: string, amount: number) => { valid: boolean; discountAmount: number; finalAmount: number; message: string; voucher?: Voucher };
   createPaymentTransaction: (cycle: SubscriptionCycle, voucherCode?: string) => Promise<{ success: boolean; transaction?: PaymentTransaction; error?: string }>;
   checkPaymentStatus: (transactionId: string) => Promise<{ paid: boolean; transaction?: PaymentTransaction }>;
@@ -183,12 +187,20 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const [landingPageConfig, setLandingPageConfig] = useState<LandingPageConfig>(DEFAULT_LANDING_CONFIG);
   const [sitePages, setSitePages] = useState<Record<string, SitePageConfig>>(DEFAULT_SITE_PAGES);
 
+  const TOOL_FREE_LIMIT = 10;
+  const [toolUsageCount, setToolUsageCount] = useState<number>(0);
+
   // Load from localStorage on client mount
   useEffect(() => {
     try {
       // Proactively clear legacy v7 and demo auth storage
       localStorage.removeItem('cherryedu_state_v7');
       localStorage.removeItem('cherryedu_local_auth_user');
+
+      const savedToolCount = localStorage.getItem('cherryedu_tool_usage_count');
+      if (savedToolCount) {
+        setToolUsageCount(parseInt(savedToolCount, 10) || 0);
+      }
 
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
@@ -482,6 +494,30 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     }
     return false;
   }, [currentUser]);
+
+  const remainingToolQuota = isPro ? Infinity : Math.max(0, TOOL_FREE_LIMIT - toolUsageCount);
+  const isToolAllowed = isPro || toolUsageCount < TOOL_FREE_LIMIT;
+
+  const recordToolUsage = (_toolId?: string) => {
+    if (isPro) {
+      return { allowed: true, remaining: Infinity, isPro: true };
+    }
+    if (toolUsageCount >= TOOL_FREE_LIMIT) {
+      return { allowed: false, remaining: 0, isPro: false };
+    }
+    const nextCount = toolUsageCount + 1;
+    setToolUsageCount(nextCount);
+    try {
+      localStorage.setItem('cherryedu_tool_usage_count', nextCount.toString());
+    } catch (e) {
+      console.warn('Failed to save tool usage count to localStorage:', e);
+    }
+    return {
+      allowed: true,
+      remaining: Math.max(0, TOOL_FREE_LIMIT - nextCount),
+      isPro: false,
+    };
+  };
 
   const isModuleAccessible = (pathSlug: string, moduleId: string): boolean => {
     if (isPro) return true;
@@ -1223,6 +1259,10 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         transactions,
         vouchers,
         isPro,
+        toolUsageCount,
+        remainingToolQuota,
+        isToolAllowed,
+        recordToolUsage,
         applyVoucher,
         createPaymentTransaction,
         checkPaymentStatus,
