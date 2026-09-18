@@ -16,7 +16,6 @@ import {
   Tag,
   ArrowRight,
   RefreshCw,
-  Zap,
   Coffee,
   Check,
   Award,
@@ -42,7 +41,6 @@ export function PaymentModal({
     applyVoucher,
     createPaymentTransaction,
     checkPaymentStatus,
-    simulatePaymentSuccess,
   } = useCherryEdu();
 
   const [cycle, setCycle] = useState<SubscriptionCycle>(defaultCycle);
@@ -171,16 +169,6 @@ export function PaymentModal({
     } finally {
       setIsChecking(false);
     }
-  };
-
-  const handleSimulatePayment = () => {
-    if (!activeTx) return;
-    simulatePaymentSuccess(activeTx.id);
-    triggerSuccess({
-      ...activeTx,
-      status: 'paid',
-      paid_at: new Date().toISOString(),
-    });
   };
 
   const triggerSuccess = (tx: PaymentTransaction) => {
@@ -517,16 +505,20 @@ export function PaymentModal({
                   {isChecking ? 'Memeriksa Mutasi GoPay...' : 'Saya Sudah Bayar (Cek Sekarang)'}
                 </button>
 
-                {/* Developer Simulator Button */}
-                <button
-                  type="button"
-                  onClick={handleSimulatePayment}
-                  className="w-full py-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-800 text-[11px] font-mono font-bold rounded-lg transition flex items-center justify-center gap-1.5"
-                  title="Simulasi bayar instan untuk keperluan testing tanpa gateway live"
-                >
-                  <Zap className="w-3.5 h-3.5 text-emerald-600" />
-                  ⚡ Simulasikan Pembayaran Sukses (Testing Mode)
-                </button>
+                {/* Support Confirmation Note */}
+                <div className="pt-2 text-center border-t border-paper-200 mt-2">
+                  <p className="text-[11px] text-roast-500 leading-relaxed">
+                    Sudah transfer tapi status belum terverifikasi?{' '}
+                    <a
+                      href={`https://wa.me/6281234567890?text=Halo%20Admin%20CherryEdu,%20saya%20sudah%20membayar%20QRIS%20Pro%20dengan%20ID%20Transaksi:%20${encodeURIComponent(activeTx.trx_id || activeTx.id)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cherry-700 font-semibold hover:underline inline-block mt-0.5"
+                    >
+                      Konfirmasi ke WhatsApp Support →
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           )}

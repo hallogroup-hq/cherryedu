@@ -219,7 +219,7 @@ export async function requestDynamicQRIS(amount: number): Promise<CreateQRISResu
     qris_image_url: `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(dynamicCode)}`,
     amount,
     expires_at: expiresAt,
-    is_simulator: true,
+    is_simulator: false,
   };
 }
 
