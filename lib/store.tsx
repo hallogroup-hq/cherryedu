@@ -150,6 +150,9 @@ interface CherryEduContextType {
   updateLearningPath: (pathId: string, data: Partial<LearningPath>) => void;
   addLearningPath: (path: LearningPath) => void;
   deleteLearningPath: (pathId: string) => void;
+  updateQuiz: (quizId: string, data: Partial<Quiz>) => void;
+  updateQuizQuestions: (quizId: string, newQuestions: Question[]) => void;
+  saveQuizWithQuestions: (quizId: string, quizData: Partial<Quiz>, newQuestions: Question[]) => void;
   resetAllData: () => void;
 }
 
@@ -323,10 +326,11 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
           setQuizzes(SEED_QUIZZES);
         }
 
-        // Smart merge questions
+        // Smart merge questions: for quizzes that have saved questions, use them without reviving deleted seed questions
         if (parsed.questions) {
-          const existingQuesIds = new Set(parsed.questions.map((q: Question) => q.id));
-          setQuestions([...parsed.questions, ...SEED_QUESTIONS.filter((sq) => !existingQuesIds.has(sq.id))]);
+          const savedQuizIds = new Set(parsed.questions.map((q: Question) => q.quiz_id));
+          const newSeedQuestions = SEED_QUESTIONS.filter((sq) => !savedQuizIds.has(sq.quiz_id));
+          setQuestions([...parsed.questions, ...newSeedQuestions]);
         } else {
           setQuestions(SEED_QUESTIONS);
         }
@@ -1169,6 +1173,25 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     setLearningPaths((prev) => prev.filter((p) => p.id !== pathId));
   };
 
+  const updateQuiz = (quizId: string, data: Partial<Quiz>) => {
+    setQuizzes((prev) => prev.map((q) => (q.id === quizId ? { ...q, ...data } : q)));
+  };
+
+  const updateQuizQuestions = (quizId: string, newQuestions: Question[]) => {
+    setQuestions((prev) => {
+      const others = prev.filter((q) => q.quiz_id !== quizId);
+      return [...others, ...newQuestions];
+    });
+  };
+
+  const saveQuizWithQuestions = (quizId: string, quizData: Partial<Quiz>, newQuestions: Question[]) => {
+    setQuizzes((prev) => prev.map((q) => (q.id === quizId ? { ...q, ...quizData } : q)));
+    setQuestions((prev) => {
+      const others = prev.filter((q) => q.quiz_id !== quizId);
+      return [...others, ...newQuestions];
+    });
+  };
+
   const updateLandingPageConfig = (config: Partial<LandingPageConfig>) => {
     setLandingPageConfig((prev) => ({
       ...prev,
@@ -1285,6 +1308,9 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         updateLearningPath,
         addLearningPath,
         deleteLearningPath,
+        updateQuiz,
+        updateQuizQuestions,
+        saveQuizWithQuestions,
         switchUser,
         updateUserProfile,
         awardXP: (points: number) => awardXP(currentUser.id, points),
