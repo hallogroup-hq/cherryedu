@@ -31,6 +31,10 @@ function LoginContent() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!email.trim() || !password) {
+      setError('Harap masukkan email atau username beserta kata sandi.');
+      return;
+    }
     setLoading(true);
     setError(null);
     const result = await signIn(email, password);
@@ -119,17 +123,19 @@ function LoginContent() {
             </span>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form noValidate onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-xs font-mono uppercase tracking-wider text-roast-700 font-semibold mb-1.5">
-                Alamat Email
+                Alamat Email atau Username
               </label>
               <input
                 type="email"
                 required
+                autoCapitalize="none"
+                autoCorrect="off"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="nama@email.com"
+                placeholder="nama@email.com atau testuser"
                 className="w-full px-3.5 py-2.5 rounded-lg border border-paper-300 bg-paper-50 text-sm text-roast-950 placeholder-roast-400 focus:outline-none focus:border-roast-700 focus:ring-1 focus:ring-roast-700 transition"
               />
             </div>

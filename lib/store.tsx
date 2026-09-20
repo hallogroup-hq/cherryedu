@@ -413,6 +413,10 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         (authUser.email && u.email.toLowerCase() === authUser.email.toLowerCase())
     );
 
+    const isTestUser =
+      authUser.id === 'user-testuser-cherry' ||
+      authUser.email?.toLowerCase().includes('testuser');
+
     if (existing) {
       const incomingName =
         authUser.user_metadata?.full_name ||
@@ -425,7 +429,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       const shouldUpdateName = incomingName && incomingName !== existing.name;
       const shouldUpdateAvatar = incomingAvatar && incomingAvatar !== existing.avatar_url;
 
-      if (shouldUpdateId || shouldUpdateName || shouldUpdateAvatar) {
+      if (shouldUpdateId || shouldUpdateName || shouldUpdateAvatar || (isTestUser && !existing.is_pro)) {
         setUsers((prev) =>
           prev.map((u) =>
             u.id === existing.id
@@ -434,6 +438,14 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
                   id: authUser.id,
                   name: incomingName || u.name,
                   avatar_url: incomingAvatar || u.avatar_url,
+                  ...(isTestUser
+                    ? {
+                        is_pro: true,
+                        subscription_tier: 'pro',
+                        subscription_cycle: 'annual',
+                        subscription_expires_at: '2099-12-31T23:59:59Z',
+                      }
+                    : {}),
                 }
               : u
           )
@@ -460,15 +472,21 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
       const newUser: User = {
         id: authUser.id,
-        name,
+        name: isTestUser ? 'Test User (All Access)' : name,
         email: authUser.email || '',
         avatar_url,
-        bio: 'Pembelajar aktif di akademi kopi CherryEdu.',
+        bio: isTestUser
+          ? 'Akun pengujian pembelajar resmi Cherry Coffee Roastery (All Access Pro Member).'
+          : 'Pembelajar aktif di akademi kopi CherryEdu.',
         role: isAdmin ? 'admin' : 'learner',
         coffee_role: coffeeRole,
         city: authUser.user_metadata?.city || 'Indonesia',
-        xp_points: 50,
-        streak_count: 1,
+        xp_points: isTestUser ? 750 : 50,
+        streak_count: isTestUser ? 14 : 1,
+        is_pro: isTestUser || false,
+        subscription_tier: isTestUser ? 'pro' : 'free',
+        subscription_cycle: isTestUser ? 'annual' : undefined,
+        subscription_expires_at: isTestUser ? '2099-12-31T23:59:59Z' : undefined,
         last_active_date: new Date().toISOString().slice(0, 10),
         created_at: new Date().toISOString(),
       };
@@ -492,6 +510,12 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
   const isPro = useMemo(() => {
     if (currentUser.role === 'admin') return true;
+    if (
+      currentUser.id === 'user-testuser-cherry' ||
+      currentUser.email?.toLowerCase().includes('testuser')
+    ) {
+      return true;
+    }
     if (currentUser.is_pro) {
       if (!currentUser.subscription_expires_at) return true;
       return new Date(currentUser.subscription_expires_at) > new Date();
@@ -752,6 +776,15 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
   // BUSINESS RULE: Foundation First (PRD & ERD section 5.1 & Catatan Implementasi)
   const canEnrollInPath = (pathId: string): { allowed: boolean; reason?: string } => {
+    if (
+      currentUser.role === 'admin' ||
+      currentUser.id === 'user-testuser-cherry' ||
+      currentUser.email?.toLowerCase().includes('testuser') ||
+      isPro
+    ) {
+      return { allowed: true };
+    }
+
     const targetPath = learningPaths.find((p) => p.id === pathId);
     if (!targetPath) return { allowed: false, reason: 'Learning path tidak ditemukan.' };
 

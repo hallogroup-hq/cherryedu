@@ -78,16 +78,20 @@ export const SEED_USERS: User[] = [
   },
   {
     id: 'user-testuser-cherry',
-    name: 'Test User Cherry',
+    name: 'Test User (All Access)',
     email: 'testuser@cherrycoffeeroastery.com',
     avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
-    bio: 'Akun pengujian pembelajar resmi Cherry Coffee Roastery.',
+    bio: 'Akun pengujian pembelajar resmi Cherry Coffee Roastery (All Access Pro Member).',
     role: 'learner',
     coffee_role: 'barista',
     city: 'Jakarta',
-    xp_points: 0,
-    streak_count: 0,
-    last_active_date: '2026-09-17',
+    xp_points: 750,
+    streak_count: 14,
+    is_pro: true,
+    subscription_tier: 'pro',
+    subscription_cycle: 'annual',
+    subscription_expires_at: '2099-12-31T23:59:59Z',
+    last_active_date: '2026-09-20',
     created_at: '2026-09-17T00:00:00Z',
   },
   {
@@ -3769,8 +3773,82 @@ export const SEED_QUESTIONS: Question[] = [
   ...Q_PROCESSOR_QUESTIONS,
 ];
 
-// 8. INITIAL ENROLLMENTS (Dikosongkan untuk user nyata)
-export const SEED_ENROLLMENTS: Enrollment[] = [];
+// 8. INITIAL ENROLLMENTS (Disediakan untuk akun pengujian all-akses)
+export const SEED_ENROLLMENTS: Enrollment[] = [
+  {
+    id: 'enroll-testuser-foundation',
+    user_id: 'user-testuser-cherry',
+    learning_path_id: 'path-foundation',
+    status: 'completed',
+    progress_percent: 100,
+    enrolled_at: '2026-09-17T00:00:00Z',
+    completed_at: '2026-09-18T00:00:00Z',
+    last_accessed_at: '2026-09-20T00:00:00Z',
+  },
+  {
+    id: 'enroll-testuser-barista',
+    user_id: 'user-testuser-cherry',
+    learning_path_id: 'path-barista',
+    status: 'active',
+    progress_percent: 100,
+    enrolled_at: '2026-09-18T00:00:00Z',
+    last_accessed_at: '2026-09-20T00:00:00Z',
+  },
+  {
+    id: 'enroll-testuser-home-brewer',
+    user_id: 'user-testuser-cherry',
+    learning_path_id: 'path-home-brewer',
+    status: 'active',
+    progress_percent: 100,
+    enrolled_at: '2026-09-18T00:00:00Z',
+    last_accessed_at: '2026-09-20T00:00:00Z',
+  },
+  {
+    id: 'enroll-testuser-roaster',
+    user_id: 'user-testuser-cherry',
+    learning_path_id: 'path-roaster',
+    status: 'active',
+    progress_percent: 100,
+    enrolled_at: '2026-09-18T00:00:00Z',
+    last_accessed_at: '2026-09-20T00:00:00Z',
+  },
+  {
+    id: 'enroll-testuser-q-grader',
+    user_id: 'user-testuser-cherry',
+    learning_path_id: 'path-q-grader',
+    status: 'active',
+    progress_percent: 100,
+    enrolled_at: '2026-09-18T00:00:00Z',
+    last_accessed_at: '2026-09-20T00:00:00Z',
+  },
+  {
+    id: 'enroll-testuser-post-harvest',
+    user_id: 'user-testuser-cherry',
+    learning_path_id: 'path-post-harvest',
+    status: 'active',
+    progress_percent: 100,
+    enrolled_at: '2026-09-18T00:00:00Z',
+    last_accessed_at: '2026-09-20T00:00:00Z',
+  },
+  {
+    id: 'enroll-testuser-business',
+    user_id: 'user-testuser-cherry',
+    learning_path_id: 'path-coffee-business',
+    status: 'active',
+    progress_percent: 100,
+    enrolled_at: '2026-09-18T00:00:00Z',
+    last_accessed_at: '2026-09-20T00:00:00Z',
+  },
+  {
+    id: 'enroll-testuser-processor',
+    user_id: 'user-testuser-cherry',
+    learning_path_id: 'path-q-processor',
+    status: 'active',
+    progress_percent: 100,
+    enrolled_at: '2026-09-18T00:00:00Z',
+    last_accessed_at: '2026-09-20T00:00:00Z',
+  },
+];
 
 // 9. INITIAL CERTIFICATES (Dikosongkan untuk user nyata)
 export const SEED_CERTIFICATES: Certificate[] = [];

@@ -67,7 +67,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         const savedTestSession = localStorage.getItem(TEST_USER_KEY);
         if (savedTestSession) {
           const parsed = JSON.parse(savedTestSession);
-          if (parsed?.user?.email === 'testuser@cherrycoffeeroastery.com') {
+          if (
+            parsed?.user?.id === 'user-testuser-cherry' ||
+            parsed?.user?.email === 'testuser@cherrycoffeeroastery.com' ||
+            parsed?.user?.email === 'testuser@cherryedu.id'
+          ) {
             setSession(parsed);
             setUser(parsed.user);
             setLoading(false);
@@ -123,9 +127,61 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const signIn = async (email: string, password: string): Promise<{ error: string | null }> => {
-    const isDedicatedTestUser =
-      email.trim().toLowerCase() === 'testuser@cherrycoffeeroastery.com' &&
-      password === 'cherrycoffeeroastery';
+    const cleanInput = email.trim().toLowerCase();
+    const isTestUserIdentifier =
+      cleanInput === 'testuser' ||
+      cleanInput === 'testuser@cherryedu.id' ||
+      cleanInput === 'testuser@cherrycoffeeroastery.com';
+    const isTestUserPassword =
+      password === 'cherrycoffeeroastery' ||
+      password === 'cherry2026!' ||
+      password === 'testuser' ||
+      password === 'testuser123' ||
+      password === 'testuser2026';
+    const isDedicatedTestUser = isTestUserIdentifier && isTestUserPassword;
+
+    if (isDedicatedTestUser) {
+      const testUserObj: SupabaseUser = {
+        id: 'user-testuser-cherry',
+        app_metadata: { provider: 'email', providers: ['email'] },
+        user_metadata: {
+          name: 'Test User (All Access)',
+          full_name: 'Test User (All Access)',
+          coffee_role: 'barista',
+          role: 'learner',
+          is_pro: true,
+          subscription_tier: 'pro',
+          subscription_cycle: 'annual',
+          subscription_expires_at: '2099-12-31T23:59:59Z',
+        },
+        aud: 'authenticated',
+        confirmation_sent_at: new Date().toISOString(),
+        confirmed_at: new Date().toISOString(),
+        created_at: new Date().toISOString(),
+        email: 'testuser@cherrycoffeeroastery.com',
+        email_confirmed_at: new Date().toISOString(),
+        last_sign_in_at: new Date().toISOString(),
+        phone: '',
+        role: 'authenticated',
+        updated_at: new Date().toISOString(),
+      };
+
+      const testSessionObj: Session = {
+        access_token: 'testuser-token-' + Date.now(),
+        token_type: 'bearer',
+        expires_in: 3600 * 24 * 7,
+        refresh_token: 'testuser-refresh-token',
+        user: testUserObj,
+      };
+
+      try {
+        localStorage.setItem(TEST_USER_KEY, JSON.stringify(testSessionObj));
+      } catch {}
+
+      setSession(testSessionObj);
+      setUser(testUserObj);
+      return { error: null };
+    }
 
     // Authenticate with Supabase
     try {
@@ -136,88 +192,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         return { error: null };
       }
 
-      if (isDedicatedTestUser) {
-        const testUserObj: SupabaseUser = {
-          id: 'user-testuser-cherry',
-          app_metadata: { provider: 'email', providers: ['email'] },
-          user_metadata: {
-            name: 'Test User Cherry',
-            full_name: 'Test User Cherry',
-            coffee_role: 'barista',
-            role: 'learner',
-          },
-          aud: 'authenticated',
-          confirmation_sent_at: new Date().toISOString(),
-          confirmed_at: new Date().toISOString(),
-          created_at: new Date().toISOString(),
-          email: 'testuser@cherrycoffeeroastery.com',
-          email_confirmed_at: new Date().toISOString(),
-          last_sign_in_at: new Date().toISOString(),
-          phone: '',
-          role: 'authenticated',
-          updated_at: new Date().toISOString(),
-        };
-
-        const testSessionObj: Session = {
-          access_token: 'testuser-token-' + Date.now(),
-          token_type: 'bearer',
-          expires_in: 3600 * 24 * 7,
-          refresh_token: 'testuser-refresh-token',
-          user: testUserObj,
-        };
-
-        try {
-          localStorage.setItem(TEST_USER_KEY, JSON.stringify(testSessionObj));
-        } catch {}
-
-        setSession(testSessionObj);
-        setUser(testUserObj);
-        return { error: null };
-      }
-
       if (error) {
         return { error: translateAuthError(error.message) };
       }
     } catch (e: any) {
-      if (isDedicatedTestUser) {
-        const testUserObj: SupabaseUser = {
-          id: 'user-testuser-cherry',
-          app_metadata: { provider: 'email', providers: ['email'] },
-          user_metadata: {
-            name: 'Test User Cherry',
-            full_name: 'Test User Cherry',
-            coffee_role: 'barista',
-            role: 'learner',
-          },
-          aud: 'authenticated',
-          confirmation_sent_at: new Date().toISOString(),
-          confirmed_at: new Date().toISOString(),
-          created_at: new Date().toISOString(),
-          email: 'testuser@cherrycoffeeroastery.com',
-          email_confirmed_at: new Date().toISOString(),
-          last_sign_in_at: new Date().toISOString(),
-          phone: '',
-          role: 'authenticated',
-          updated_at: new Date().toISOString(),
-        };
-
-        const testSessionObj: Session = {
-          access_token: 'testuser-token-' + Date.now(),
-          token_type: 'bearer',
-          expires_in: 3600 * 24 * 7,
-          refresh_token: 'testuser-refresh-token',
-          user: testUserObj,
-        };
-
-        try {
-          localStorage.setItem(TEST_USER_KEY, JSON.stringify(testSessionObj));
-        } catch {}
-
-        setSession(testSessionObj);
-        setUser(testUserObj);
-        return { error: null };
-      }
-
       return { error: translateAuthError(e?.message || 'Gagal masuk. Periksa koneksi internet Anda.') };
     }
 

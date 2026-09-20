@@ -77,4 +77,19 @@ test.describe('Suite TS-05: Otentikasi & Akun Pengguna', () => {
     await page.waitForURL(url => !url.pathname.includes('/login'));
     expect(page.url()).not.toContain('/login');
   });
+
+  test('TC-05-06: Test user with username "testuser" can log in with all access', async ({ page }) => {
+    await page.goto('/login');
+
+    await page.locator('input[type="email"]').fill('testuser');
+    await page.locator('input[type="password"]').fill('cherry2026!');
+    await page.getByRole('button', { name: /Masuk Sekarang/i }).click();
+
+    // Successfully navigates away from /login
+    await page.waitForURL(url => !url.pathname.includes('/login'));
+    expect(page.url()).not.toContain('/login');
+
+    // Verify PRO status is active
+    await expect(page.locator('text=PRO').first()).toBeVisible();
+  });
 });
