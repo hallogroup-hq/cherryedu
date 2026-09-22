@@ -17,6 +17,21 @@ export const metadata: Metadata = {
     description:
       'Latih refleks ingatan untuk ujian sertifikasi kopi dengan metode Spaced Repetition ilmiah.',
     url: 'https://edu.cherrycoffeeroastery.com/flashcards',
+    images: [
+      {
+        url: '/og/og-tools.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'CherryEdu Kartu Hafalan Uji Cepat Kopi',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kartu Hafalan & Uji Cepat Kopi | CherryEdu',
+    description:
+      'Latih refleks ingatan untuk ujian sertifikasi kopi dengan metode Spaced Repetition ilmiah.',
+    images: ['/og/og-tools.jpg'],
   },
   alternates: {
     canonical: 'https://edu.cherrycoffeeroastery.com/flashcards',

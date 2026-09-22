@@ -91,10 +91,22 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/icon.png',
-        width: 512,
-        height: 512,
-        alt: 'CherryEdu Logo — Indonesian Specialty Coffee Academy',
+        url: '/og/og-main.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'CherryEdu — Platform & Akademi Edukasi Kopi Indonesia',
+      },
+      {
+        url: '/og/og-curriculum.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'CherryEdu — Kurikulum Kopi Hulu ke Hilir',
+      },
+      {
+        url: '/og/og-tools.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'CherryEdu — Lab & Sains Kopi Digital',
       },
     ],
   },
@@ -104,7 +116,7 @@ export const metadata: Metadata = {
     description:
       'Edukasi kopi komprehensif dari hulu ke hilir berstandar SCA & CQI. Gratis jalur Foundation.',
     creator: '@cherrycoffee',
-    images: ['/icon.png'],
+    images: ['/og/og-main.jpg'],
   },
   robots: {
     index: true,

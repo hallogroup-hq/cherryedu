@@ -16,6 +16,21 @@ export const metadata: Metadata = {
     description:
       'Investasi terbaik untuk akselerasi karir dan bisnis kopi specialty Anda di Indonesia.',
     url: 'https://edu.cherrycoffeeroastery.com/pricing',
+    images: [
+      {
+        url: '/og/og-main.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'CherryEdu Paket Pro Akademi Kopi',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Paket Langganan & Biaya Kursus Kopi Pro | CherryEdu',
+    description:
+      'Investasi terbaik untuk akselerasi karir dan bisnis kopi specialty Anda di Indonesia.',
+    images: ['/og/og-main.jpg'],
   },
   alternates: {
     canonical: 'https://edu.cherrycoffeeroastery.com/pricing',

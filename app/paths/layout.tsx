@@ -19,6 +19,21 @@ export const metadata: Metadata = {
     description:
       'Tingkatkan karir kopi Anda dengan silabus terstruktur berstandar SCA dan sertifikat kelulusan digital resmi.',
     url: 'https://edu.cherrycoffeeroastery.com/paths',
+    images: [
+      {
+        url: '/og/og-curriculum.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'CherryEdu Kurikulum Kopi Hulu ke Hilir',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Katalog Kurikulum & Kursus Kopi Terstruktur | CherryEdu',
+    description:
+      'Tingkatkan karir kopi Anda dengan silabus terstruktur berstandar SCA dan sertifikat kelulusan digital resmi.',
+    images: ['/og/og-curriculum.jpg'],
   },
   alternates: {
     canonical: 'https://edu.cherrycoffeeroastery.com/paths',

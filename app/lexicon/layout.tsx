@@ -19,6 +19,21 @@ export const metadata: Metadata = {
     description:
       'Ensiklopedia dan glosarium istilah kopi terlengkap dari hulu ke hilir dalam bahasa Indonesia.',
     url: 'https://edu.cherrycoffeeroastery.com/lexicon',
+    images: [
+      {
+        url: '/og/og-tools.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'CherryEdu Kamus Istilah Kopi & Sensorik',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kamus Istilah Kopi Specialty Indonesia | CherryEdu',
+    description:
+      'Ensiklopedia dan glosarium istilah kopi terlengkap dari hulu ke hilir dalam bahasa Indonesia.',
+    images: ['/og/og-tools.jpg'],
   },
   alternates: {
     canonical: 'https://edu.cherrycoffeeroastery.com/lexicon',

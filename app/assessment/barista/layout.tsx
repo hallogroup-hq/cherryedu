@@ -18,6 +18,21 @@ export const metadata: Metadata = {
     description:
       'Evaluasi pemahaman teknis barista pra-kerja dengan skenario nyata dan laporan radar kompetensi.',
     url: 'https://edu.cherrycoffeeroastery.com/assessment/barista',
+    images: [
+      {
+        url: '/og/og-tools.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'CherryEdu Simulasi Uji Kompetensi Barista Pra-Kerja',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Simulasi Uji Kompetensi Barista Pra-Kerja | CherryEdu',
+    description:
+      'Evaluasi pemahaman teknis barista pra-kerja dengan skenario nyata dan laporan radar kompetensi.',
+    images: ['/og/og-tools.jpg'],
   },
   alternates: {
     canonical: 'https://edu.cherrycoffeeroastery.com/assessment/barista',
