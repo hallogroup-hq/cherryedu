@@ -268,19 +268,24 @@ export default function AdminTransactionsPage() {
                           <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                           Lunas
                         </span>
-                      ) : tx.status === 'pending' ? (
+                      ) : (tx.status === 'pending' && (!tx.expires_at || new Date(tx.expires_at) >= new Date())) ? (
                         <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-amber-50 border border-amber-200 text-amber-800 rounded-full font-mono text-[10px] font-bold animate-pulse">
                           <Clock className="w-3 h-3 text-amber-600" />
                           Pending
                         </span>
                       ) : (
                         <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-rose-50 border border-rose-200 text-rose-800 rounded-full font-mono text-[10px] font-bold">
-                          Expired
+                          <AlertCircle className="w-3 h-3 text-rose-600" />
+                          Kadaluarsa
                         </span>
                       )}
                     </td>
                     <td className="p-3.5 text-right">
-                      {tx.status === 'pending' && (
+                      {tx.status === 'paid' ? (
+                        <span className="text-emerald-700 font-mono text-[11px] font-bold">
+                          ✓ Terverifikasi
+                        </span>
+                      ) : (tx.status === 'pending' && (!tx.expires_at || new Date(tx.expires_at) >= new Date())) ? (
                         <button
                           type="button"
                           onClick={() => {
@@ -291,6 +296,18 @@ export default function AdminTransactionsPage() {
                           title="Tandai pembayaran ini telah lunas"
                         >
                           Tandai Lunas
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            simulatePaymentSuccess(tx.id);
+                            toast.success(`Transaksi kadaluarsa ${tx.trx_id || tx.id} berhasil dipulihkan & dilunaskan!`);
+                          }}
+                          className="px-2.5 py-1 bg-amber-600 hover:bg-amber-700 text-white font-mono text-[10px] font-bold rounded transition"
+                          title="Pengguna membayar telat? Pulihkan dan aktifkan akun Pro"
+                        >
+                          Pulihkan & Lunas
                         </button>
                       )}
                     </td>

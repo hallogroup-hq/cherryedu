@@ -10,6 +10,7 @@ import {
   Check,
   Search,
   SlidersHorizontal,
+  Briefcase,
 } from "lucide-react";
 
 export default function JobsPage() {
@@ -252,82 +253,104 @@ export default function JobsPage() {
             </div>
 
             <div className="space-y-4">
-              {filteredJobs.map((job) => {
-                const hasApplied = userApplications.some((a) => a.job_listing_id === job.id);
+              {filteredJobs.length === 0 ? (
+                <div className="bg-white rounded-xl border border-paper-300 p-12 text-center shadow-subtle flex flex-col items-center justify-center">
+                  <div className="w-14 h-14 rounded-full bg-paper-100 flex items-center justify-center mb-4 text-roast-400">
+                    <Briefcase className="w-7 h-7" />
+                  </div>
+                  <h3 className="font-serif font-bold text-lg text-roast-950 mb-1">
+                    Belum Ada Lowongan Aktif
+                  </h3>
+                  <p className="text-xs text-roast-500 max-w-md mx-auto font-sans leading-relaxed">
+                    Saat ini belum ada lowongan kerja barista atau roastery yang dipublikasikan. Jika Anda pemilik bisnis coffee shop, beralihlah ke mode rekruter untuk memasang lowongan.
+                  </p>
+                  {!isEmployerMode && (
+                    <button
+                      onClick={() => setIsEmployerMode(true)}
+                      className="mt-5 px-4 py-2 bg-roast-950 hover:bg-cherry-800 text-paper-50 rounded font-sans text-xs uppercase tracking-wider font-bold transition-colors shadow-subtle"
+                    >
+                      Buka Lowongan Sebagai Rekruter
+                    </button>
+                  )}
+                </div>
+              ) : (
+                filteredJobs.map((job) => {
+                  const hasApplied = userApplications.some((a) => a.job_listing_id === job.id);
 
-                return (
-                  <div
-                    key={job.id}
-                    className="bg-white rounded-xl border border-paper-300 p-6 shadow-subtle hover:border-roast-400 transition-all flex flex-col justify-between"
-                  >
-                    <div>
-                      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
-                        <div className="flex items-start gap-4">
-                          <img
-                            src={job.company_logo || 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=120'}
-                            alt={job.company_name}
-                            className="w-12 h-12 rounded-lg object-cover border border-paper-300 shrink-0"
-                          />
-                          <div>
-                            <span className="font-mono text-[11px] uppercase tracking-wider text-cherry-800 font-bold">
-                              {job.company_name}
-                            </span>
-                            <h3 className="font-serif font-bold text-lg text-roast-950 mt-0.5">
-                              {job.title}
-                            </h3>
-                            <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-roast-500 mt-1">
-                              <span className="flex items-center gap-1">
-                                <MapPin className="w-3.5 h-3.5" />
-                                {job.location} ({job.city})
+                  return (
+                    <div
+                      key={job.id}
+                      className="bg-white rounded-xl border border-paper-300 p-6 shadow-subtle hover:border-roast-400 transition-all flex flex-col justify-between"
+                    >
+                      <div>
+                        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
+                          <div className="flex items-start gap-4">
+                            <img
+                              src={job.company_logo || 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=120'}
+                              alt={job.company_name}
+                              className="w-12 h-12 rounded-lg object-cover border border-paper-300 shrink-0"
+                            />
+                            <div>
+                              <span className="font-mono text-[11px] uppercase tracking-wider text-cherry-800 font-bold">
+                                {job.company_name}
                               </span>
-                              <span>•</span>
-                              <span>{job.job_type === 'full_time' ? 'Full Time' : 'Part Time'}</span>
-                              <span>•</span>
-                              <span className="font-bold text-roast-900">{job.salary_range}</span>
+                              <h3 className="font-serif font-bold text-lg text-roast-950 mt-0.5">
+                                {job.title}
+                              </h3>
+                              <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-roast-500 mt-1">
+                                <span className="flex items-center gap-1">
+                                  <MapPin className="w-3.5 h-3.5" />
+                                  {job.location} ({job.city})
+                                </span>
+                                <span>•</span>
+                                <span>{job.job_type === 'full_time' ? 'Full Time' : 'Part Time'}</span>
+                                <span>•</span>
+                                <span className="font-bold text-roast-900">{job.salary_range}</span>
+                              </div>
                             </div>
                           </div>
+
+                          {job.requires_certificate && (
+                            <span className="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-paper-200 border border-paper-300 text-roast-900 font-bold self-start">
+                              Wajib Sertifikat CherryEdu
+                            </span>
+                          )}
                         </div>
 
-                        {job.requires_certificate && (
-                          <span className="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-paper-200 border border-paper-300 text-roast-900 font-bold self-start">
-                            Wajib Sertifikat CherryEdu
-                          </span>
-                        )}
+                        <p className="text-xs sm:text-sm text-roast-700 leading-relaxed line-clamp-3 mb-4 font-normal">
+                          {job.description}
+                        </p>
                       </div>
 
-                      <p className="text-xs sm:text-sm text-roast-700 leading-relaxed line-clamp-3 mb-4 font-normal">
-                        {job.description}
-                      </p>
-                    </div>
-
-                    <div className="pt-4 border-t border-paper-200 flex items-center justify-between">
-                      <span className="font-mono text-[10px] text-roast-400">
-                        Tayang: {new Date(job.created_at).toLocaleDateString('id-ID')}
-                      </span>
-
-                      {hasApplied ? (
-                        <span className="font-mono text-xs font-bold text-emerald-800 flex items-center gap-1">
-                          <Check className="w-3.5 h-3.5" />
-                          <span>Lamaran Terkirim</span>
+                      <div className="pt-4 border-t border-paper-200 flex items-center justify-between">
+                        <span className="font-mono text-[10px] text-roast-400">
+                          Tayang: {new Date(job.created_at).toLocaleDateString('id-ID')}
                         </span>
-                      ) : (
-                        <button
-                          onClick={() => {
-                            if (!isAuthenticated) {
-                              router.push('/login?redirect=/jobs');
-                              return;
-                            }
-                            setApplyingJob(job);
-                          }}
-                          className="px-4 py-2 bg-roast-950 hover:bg-cherry-800 text-paper-50 rounded font-sans text-xs uppercase tracking-wider font-bold transition-colors shadow-subtle"
-                        >
-                          Lamar Posisi Ini (+20 XP)
-                        </button>
-                      )}
+
+                        {hasApplied ? (
+                          <span className="font-mono text-xs font-bold text-emerald-800 flex items-center gap-1">
+                            <Check className="w-3.5 h-3.5" />
+                            <span>Lamaran Terkirim</span>
+                          </span>
+                        ) : (
+                          <button
+                            onClick={() => {
+                              if (!isAuthenticated) {
+                                router.push('/login?redirect=/jobs');
+                                return;
+                              }
+                              setApplyingJob(job);
+                            }}
+                            className="px-4 py-2 bg-roast-950 hover:bg-cherry-800 text-paper-50 rounded font-sans text-xs uppercase tracking-wider font-bold transition-colors shadow-subtle"
+                          >
+                            Lamar Posisi Ini (+20 XP)
+                          </button>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })
+              )}
             </div>
           </div>
           </div>

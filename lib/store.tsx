@@ -53,6 +53,14 @@ import {
 } from './data/seedData';
 import { DEFAULT_LANDING_CONFIG } from './data/defaultLandingConfig';
 import { DEFAULT_SITE_PAGES } from './data/defaultSitePages';
+import {
+  syncProfileToSupabase,
+  fetchProfilesFromSupabase,
+  updateProStatusInSupabase,
+  syncTransactionToSupabase,
+  fetchTransactionsFromSupabase,
+  updateTransactionStatusInSupabase,
+} from './dbSync';
 
 export const GUEST_USER: User = {
   id: 'guest',
@@ -137,6 +145,7 @@ interface CherryEduContextType {
   applyForJob: (jobId: string, coverLetter: string) => { success: boolean; message: string };
   updateApplicationStatus: (applicationId: string, newStatus: JobApplication['status']) => void;
   createJobListing: (job: Omit<JobListing, 'id' | 'created_at' | 'employer_id'>) => JobListing;
+  deleteJobListing: (jobId: string) => void;
   getCertificateByToken: (token: string) => Certificate | undefined;
   getUserCertificates: (userId?: string) => Certificate[];
   getUserBadges: (userId?: string) => (Badge & { earned_at: string })[];
@@ -268,12 +277,21 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
             parsed.likes.filter((l: Like) => l.user_id !== 'user-budi' && l.user_id !== 'user-sari')
           );
         }
-        if (parsed.jobListings) setJobListings(parsed.jobListings);
+        if (parsed.jobListings) {
+          const cleanJobs = parsed.jobListings.filter(
+            (j: JobListing) => !['job-1', 'job-2', 'job-3', 'job-4'].includes(j.id)
+          );
+          setJobListings(cleanJobs);
+        } else {
+          setJobListings([]);
+        }
         if (parsed.jobApplications) {
           setJobApplications(
             parsed.jobApplications.filter(
               (a: JobApplication) =>
-                a.applicant_id !== 'user-budi' && a.applicant_id !== 'user-sari'
+                a.applicant_id !== 'user-budi' &&
+                a.applicant_id !== 'user-sari' &&
+                !['job-1', 'job-2', 'job-3', 'job-4'].includes(a.job_listing_id)
             )
           );
         }
@@ -284,7 +302,16 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
             )
           );
         }
-        if (parsed.transactions) setTransactions(parsed.transactions);
+        if (parsed.transactions) {
+          const now = new Date();
+          const autoExpired = parsed.transactions.map((t: PaymentTransaction) => {
+            if (t.status === 'pending' && t.expires_at && new Date(t.expires_at) < now) {
+              return { ...t, status: 'expired' as const };
+            }
+            return t;
+          });
+          setTransactions(autoExpired);
+        }
         if (parsed.vouchers) setVouchers(parsed.vouchers);
 
         // Smart merge learning paths
@@ -338,6 +365,32 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         if (parsed.landingPageConfig) setLandingPageConfig(parsed.landingPageConfig);
         if (parsed.sitePages) setSitePages(parsed.sitePages);
       }
+
+      // Asynchronously fetch latest registered profiles and transactions from Supabase
+      fetchProfilesFromSupabase().then((remoteUsers) => {
+        if (remoteUsers && remoteUsers.length > 0) {
+          setUsers((prev) => {
+            const userMap = new Map<string, User>();
+            prev.forEach((u) => userMap.set(u.id, u));
+            remoteUsers.forEach((ru) => {
+              const local = userMap.get(ru.id);
+              userMap.set(ru.id, local ? { ...local, ...ru } : ru);
+            });
+            return Array.from(userMap.values());
+          });
+        }
+      });
+
+      fetchTransactionsFromSupabase().then((remoteTx) => {
+        if (remoteTx && remoteTx.length > 0) {
+          setTransactions((prev) => {
+            const txMap = new Map<string, PaymentTransaction>();
+            prev.forEach((t) => txMap.set(t.id, t));
+            remoteTx.forEach((rt) => txMap.set(rt.id, rt));
+            return Array.from(txMap.values());
+          });
+        }
+      });
     } catch (e) {
       console.warn('Failed to load CherryEdu state from localStorage:', e);
     }
@@ -494,6 +547,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
       setUsers((prev) => [newUser, ...prev]);
       setCurrentUserId(newUser.id);
+      syncProfileToSupabase(newUser);
     }
   }, [authUser, users]);
 
@@ -587,6 +641,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         return u;
       })
     );
+
+    updateProStatusInSupabase(userId, true, 'pro', cycle, expiryDate.toISOString());
   };
 
   const revokeProAccess = (userId: string) => {
@@ -604,6 +660,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         return u;
       })
     );
+
+    updateProStatusInSupabase(userId, false, 'free');
   };
 
   const applyVoucher = (code: string, amount: number) => {
@@ -681,6 +739,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     };
 
     setTransactions((prev) => [tx, ...prev]);
+    syncTransactionToSupabase(tx);
 
     if (appliedVoucherCode) {
       setVouchers((prev) =>
@@ -700,6 +759,17 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     if (!tx) return { paid: false };
     if (tx.status === 'paid') return { paid: true, transaction: tx };
 
+    // Auto-expire transactions when time limit has elapsed
+    if (tx.status === 'pending' && tx.expires_at && new Date(tx.expires_at) < new Date()) {
+      const expiredTx: PaymentTransaction = {
+        ...tx,
+        status: 'expired',
+      };
+      setTransactions((prev) => prev.map((t) => (t.id === transactionId ? expiredTx : t)));
+      updateTransactionStatusInSupabase(tx.id, 'expired');
+      return { paid: false, status: 'expired', transaction: expiredTx };
+    }
+
     const qrisCheck = await verifyQRISStatus(tx.qris_id || '', tx.trx_id, tx.final_amount);
     if (qrisCheck.paid) {
       const durationMonths = tx.cycle === 'annual' ? 12 : 1;
@@ -711,6 +781,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         paid_at: new Date().toISOString(),
       };
       setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
+      updateTransactionStatusInSupabase(tx.id, 'paid', updatedTx.paid_at);
       return { paid: true, transaction: updatedTx };
     }
     return { paid: false, transaction: tx };
@@ -729,6 +800,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       paid_at: new Date().toISOString(),
     };
     setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
+    updateTransactionStatusInSupabase(tx.id, 'paid', updatedTx.paid_at);
   };
 
   const addVoucher = (v: Voucher) => setVouchers((prev) => [v, ...prev]);
@@ -1164,6 +1236,11 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     return newJob;
   };
 
+  const deleteJobListing = (jobId: string) => {
+    setJobListings((prev) => prev.filter((j) => j.id !== jobId));
+    setJobApplications((prev) => prev.filter((a) => a.job_listing_id !== jobId));
+  };
+
   const getCertificateByToken = (token: string): Certificate | undefined => {
     return certificates.find((c) => c.share_token.toLowerCase() === token.toLowerCase());
   };
@@ -1364,6 +1441,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         applyForJob,
         updateApplicationStatus,
         createJobListing,
+        deleteJobListing,
         getCertificateByToken,
         getUserCertificates,
         getUserBadges,

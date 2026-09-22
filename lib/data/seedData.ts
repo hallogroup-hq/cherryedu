@@ -3951,81 +3951,8 @@ export const SEED_COMMENTS: Comment[] = [
   },
 ];
 
-// 11. JOB LISTINGS & APPLICATIONS
-export const SEED_JOBS: JobListing[] = [
-  {
-    id: 'job-1',
-    employer_id: 'user-cherry-hq',
-    company_name: 'Cherry Coffee Roastery',
-    company_logo: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=120&auto=format&fit=crop&q=80',
-    title: 'Senior Barista & Head of Bar',
-    description:
-      'Kami mencari Senior Barista berpengalaman untuk memimpin tim bar di flaghsip store Senopati, Jakarta Selatan. Bertanggung jawab atas kalibrasi espresso harian, dial-in origin musiman, kontrol SOP kebersihan, dan mentoring barista junior. Prioritas diberikan bagi lulusan CherryEdu.',
-    location: 'Senopati, Kebayoran Baru',
-    city: 'Jakarta Selatan',
-    job_type: 'full_time',
-    role_type: 'barista',
-    salary_range: 'Rp 5.500.000 – Rp 7.500.000',
-    requires_certificate: true,
-    is_active: true,
-    created_at: '2026-09-01T08:00:00Z',
-    expires_at: '2026-10-01T00:00:00Z',
-  },
-  {
-    id: 'job-2',
-    employer_id: 'user-cherry-hq',
-    company_name: 'Titik Temu Coffee',
-    company_logo: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=120&auto=format&fit=crop&q=80',
-    title: 'Manual Brew & Specialty Barista',
-    description:
-      'Titik Temu membuka kesempatan bagi barista yang menyukai eksplorasi seduh manual (V60, Aeropress, Kalita) dan hospitality hangat. Menguasai sensory tasting notes dan kalibrasi gilingan.',
-    location: 'Seminyak, Badung',
-    city: 'Bali',
-    job_type: 'full_time',
-    role_type: 'barista',
-    salary_range: 'Rp 4.800.000 – Rp 6.200.000',
-    requires_certificate: false,
-    is_active: true,
-    created_at: '2026-09-03T09:30:00Z',
-    expires_at: '2026-10-15T00:00:00Z',
-  },
-  {
-    id: 'job-3',
-    employer_id: 'user-cherry-hq',
-    company_name: 'Anomali Coffee',
-    company_logo: 'https://images.unsplash.com/photo-1497636577773-f1231844b336?w=120&auto=format&fit=crop&q=80',
-    title: 'Barista & Coffee Storyteller',
-    description:
-      'Membawakan cerita kopi Indonesia kepada pengunjung. Wajib memahami perbedaan karakter single origin dari Aceh hingga Papua. Lulusan kurikulum Foundation CherryEdu sangat diutamakan.',
-    location: 'Dago, Coblong',
-    city: 'Bandung',
-    job_type: 'full_time',
-    role_type: 'barista',
-    salary_range: 'Rp 4.200.000 – Rp 5.500.000',
-    requires_certificate: true,
-    is_active: true,
-    created_at: '2026-09-04T11:00:00Z',
-    expires_at: '2026-10-05T00:00:00Z',
-  },
-  {
-    id: 'job-4',
-    employer_id: 'user-cherry-hq',
-    company_name: 'Tanamera Coffee',
-    company_logo: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=120&auto=format&fit=crop&q=80',
-    title: 'Assistant Roaster & QC Lab',
-    description:
-      'Membantu master roaster mencatat roast profile, melakukan sample roasting, dan menyiapkan meja cupping evaluasi harian.',
-    location: 'Gubeng',
-    city: 'Surabaya',
-    job_type: 'full_time',
-    role_type: 'roaster',
-    salary_range: 'Rp 5.000.000 – Rp 6.800.000',
-    requires_certificate: true,
-    is_active: true,
-    created_at: '2026-09-02T13:00:00Z',
-    expires_at: '2026-10-02T00:00:00Z',
-  },
-];
+// 11. JOB LISTINGS & APPLICATIONS (Dikosongkan - lowongan fiktif dihapus untuk produksi)
+export const SEED_JOBS: JobListing[] = [];
 
 // 12. INITIAL JOB APPLICATIONS (Dikosongkan untuk user nyata)
 export const SEED_JOB_APPLICATIONS: JobApplication[] = [];

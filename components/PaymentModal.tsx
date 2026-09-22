@@ -19,6 +19,7 @@ import {
   Coffee,
   Check,
   Award,
+  AlertCircle,
 } from 'lucide-react';
 
 interface PaymentModalProps {
@@ -485,25 +486,50 @@ export function PaymentModal({
                 </span>
               </div>
 
-              {/* Status Notice */}
-              <div className="w-full max-w-sm p-3 bg-amber-50/80 border border-amber-200/80 rounded-xl text-xs text-amber-900 text-left flex items-start gap-2.5">
-                <div className="w-2 h-2 rounded-full bg-amber-500 mt-1.5 animate-ping shrink-0" />
-                <p className="leading-relaxed">
-                  Sistem otomatis mengecek mutasi GoPay setiap 6 detik. Begitu Anda selesai membayar, halaman akan otomatis membuka akun Pro.
-                </p>
-              </div>
+              {/* Status Notice or Expired State */}
+              {timeLeft <= 0 ? (
+                <div className="w-full max-w-sm p-4 bg-rose-50 border border-rose-200 rounded-xl text-center space-y-2">
+                  <div className="flex items-center justify-center gap-1.5 text-rose-800 font-bold text-xs">
+                    <AlertCircle className="w-4 h-4 text-rose-600" />
+                    <span>Waktu Pembayaran Telah Habis</span>
+                  </div>
+                  <p className="text-xs text-rose-700 font-sans">
+                    Kode QRIS dinamis ini telah kadaluarsa demi keamanan transaksi. Silakan buat kode QRIS baru.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setTimeLeft(300);
+                      handleProceedToQR();
+                    }}
+                    className="w-full py-2.5 bg-roast-950 hover:bg-roast-850 text-white font-mono text-xs font-bold rounded-lg transition mt-1"
+                  >
+                    Buat Ulang QRIS Pembayaran
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <div className="w-full max-w-sm p-3 bg-amber-50/80 border border-amber-200/80 rounded-xl text-xs text-amber-900 text-left flex items-start gap-2.5">
+                    <div className="w-2 h-2 rounded-full bg-amber-500 mt-1.5 animate-ping shrink-0" />
+                    <p className="leading-relaxed">
+                      Sistem otomatis mengecek mutasi GoPay setiap 6 detik. Begitu Anda selesai membayar, halaman akan otomatis membuka akun Pro.
+                    </p>
+                  </div>
 
-              {/* Action Buttons */}
-              <div className="w-full max-w-sm space-y-2 pt-1">
-                <button
-                  type="button"
-                  onClick={handleCheckStatusManual}
-                  disabled={isChecking || timeLeft <= 0}
-                  className="w-full py-3 bg-roast-950 hover:bg-cherry-800 disabled:bg-paper-400 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-sm"
-                >
-                  <RefreshCw className={`w-4 h-4 ${isChecking ? 'animate-spin' : ''}`} />
-                  {isChecking ? 'Memeriksa Mutasi GoPay...' : 'Saya Sudah Bayar (Cek Sekarang)'}
-                </button>
+                  {/* Action Buttons */}
+                  <div className="w-full max-w-sm space-y-2 pt-1">
+                    <button
+                      type="button"
+                      onClick={handleCheckStatusManual}
+                      disabled={isChecking}
+                      className="w-full py-3 bg-roast-950 hover:bg-cherry-800 disabled:bg-paper-400 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-sm"
+                    >
+                      <RefreshCw className={`w-4 h-4 ${isChecking ? 'animate-spin' : ''}`} />
+                      {isChecking ? 'Memeriksa Mutasi GoPay...' : 'Saya Sudah Bayar (Cek Sekarang)'}
+                    </button>
+                  </div>
+                </>
+              )}
 
                 {/* Support Confirmation Note */}
                 <div className="pt-2 text-center border-t border-paper-200 mt-2">
@@ -520,7 +546,6 @@ export function PaymentModal({
                   </p>
                 </div>
               </div>
-            </div>
           )}
 
           {/* STEP 3: SUCCESS CELEBRATION */}

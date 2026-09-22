@@ -6,8 +6,8 @@ test.describe('Suite TS-06 & TS-08: Talent Services, Komunitas & Verifikasi Sert
 
     await expect(page.locator('h1, h2').first()).toContainText(/Lowongan|Karier|Talenta/i);
 
-    // Verify job listing card exists
-    const jobCards = page.locator('article, div[class*="rounded"]:has-text("Lamar"), div:has-text("Full-time")');
+    // Verify job listing card or empty state container exists
+    const jobCards = page.locator('article, div[class*="rounded"]:has-text("Lamar"), div:has-text("Belum Ada Lowongan"), div:has-text("Full-time")');
     await expect(jobCards.first()).toBeVisible();
 
     // Verify search filter input exists
