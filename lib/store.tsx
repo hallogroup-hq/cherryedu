@@ -257,11 +257,14 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
           );
         }
         if (parsed.certificates) {
-          setCertificates(
-            parsed.certificates.filter(
-              (c: Certificate) => c.user_id !== 'user-budi' && c.user_id !== 'user-sari'
-            )
+          const userCerts = parsed.certificates.filter(
+            (c: Certificate) => c.user_id !== 'user-budi' && c.user_id !== 'user-sari'
           );
+          const existingCertIds = new Set(userCerts.map((c: Certificate) => c.id));
+          const seedCertsToAdd = SEED_CERTIFICATES.filter((sc) => !existingCertIds.has(sc.id));
+          setCertificates([...userCerts, ...seedCertsToAdd]);
+        } else {
+          setCertificates(SEED_CERTIFICATES);
         }
         if (parsed.userBadges) {
           setUserBadges(
@@ -1242,7 +1245,14 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const getCertificateByToken = (token: string): Certificate | undefined => {
-    return certificates.find((c) => c.share_token.toLowerCase() === token.toLowerCase());
+    if (!token) return undefined;
+    const clean = token.trim().toLowerCase();
+    return certificates.find(
+      (c) =>
+        c.share_token.toLowerCase() === clean ||
+        c.certificate_number.toLowerCase() === clean ||
+        c.id.toLowerCase() === clean
+    );
   };
 
   const getUserCertificates = (userId: string = currentUser.id): Certificate[] => {

@@ -118,7 +118,7 @@ export const Footer: React.FC = () => {
               Verifikasi keabsahan sertifikat lulusan secara publik:
             </p>
             <Link
-              href="/verify/che-sari-fnd-8823"
+              href="/verify"
               className="inline-flex items-center gap-1 font-mono text-[11px] text-crema-300 hover:text-white transition-colors underline underline-offset-4"
             >
               <span>Periksa Kredensial</span>

@@ -3854,7 +3854,7 @@ export const SEED_ENROLLMENTS: Enrollment[] = [
 export const SEED_CERTIFICATES: Certificate[] = [
   {
     id: 'cert-sari-fnd-001',
-    user_id: 'user-sari',
+    user_id: 'dc87f849-262a-4124-ae54-26dafa1d90e3',
     learning_path_id: 'path-foundation',
     certificate_number: 'CHE-2026-FOUND-000188',
     certificate_url: 'https://edu.cherrycoffeeroastery.com/verify/che-sari-fnd-8823',
