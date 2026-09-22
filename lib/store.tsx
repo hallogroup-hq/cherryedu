@@ -468,7 +468,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         )}`;
       const coffeeRole = (authUser.user_metadata?.coffee_role as User['coffee_role']) || 'barista';
       const isAdmin =
-        authUser.email === 'admin@cherryedu.id' || authUser.user_metadata?.role === 'admin';
+        authUser.email === 'admin@cherryedu.id' ||
+        (authUser as any).app_metadata?.role === 'admin';
 
       const newUser: User = {
         id: authUser.id,

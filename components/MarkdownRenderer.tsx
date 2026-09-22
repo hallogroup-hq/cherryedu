@@ -200,6 +200,30 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
               </pre>
             );
           },
+          a: ({ href, children }) => {
+            const trimmedHref = (href || '').trim();
+            const isDisallowed =
+              trimmedHref.toLowerCase().startsWith('javascript:') ||
+              trimmedHref.toLowerCase().startsWith('data:') ||
+              trimmedHref.toLowerCase().startsWith('vbscript:');
+
+            if (isDisallowed || !trimmedHref) {
+              return <span className="font-semibold underline decoration-dotted">{children}</span>;
+            }
+
+            const isExternal = trimmedHref.startsWith('http://') || trimmedHref.startsWith('https://');
+
+            return (
+              <a
+                href={trimmedHref}
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noopener noreferrer nofollow' : undefined}
+                className="text-cherry-700 underline underline-offset-2 hover:text-cherry-800 transition-colors font-medium"
+              >
+                {children}
+              </a>
+            );
+          },
           img: ({ src, alt }) => (
             <span className="block my-8 rounded-xl overflow-hidden border border-paper-300 bg-paper-100/90 shadow-subtle not-prose">
               <span className="flex items-center justify-between px-3.5 py-2 bg-paper-200/90 border-b border-paper-300 text-roast-900 font-mono text-[10px] uppercase font-bold tracking-wider">

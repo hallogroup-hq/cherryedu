@@ -289,11 +289,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const signInAsDemo = async (role: 'admin' | 'barista' | 'home_brewer' | 'q_grader') => {
-    if (role === 'admin') {
-      const demoSecret = process.env.NEXT_PUBLIC_DEMO_ADMIN_PASSWORD || ['cherry', '2026', '!'].join('');
+    const configuredDemoSecret = process.env.NEXT_PUBLIC_DEMO_ADMIN_PASSWORD;
+    if (role === 'admin' && configuredDemoSecret) {
       const { data, error } = await supabase.auth.signInWithPassword({
         email: 'admin@cherryedu.id',
-        password: demoSecret,
+        password: configuredDemoSecret,
       });
       if (!error && data.session) {
         setSession(data.session);
@@ -301,7 +301,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         return;
       }
     }
-    throw new Error('Persona demo fiktif telah dinonaktifkan. Silakan mendaftar akun baru atau masuk dengan Google.');
+    throw new Error('Fitur login demo instan dinonaktifkan demi keamanan. Silakan login menggunakan email & kata sandi resmi Anda.');
   };
 
   const signOut = async () => {

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { MsEdgeTTS, OUTPUT_FORMAT } from 'msedge-tts';
+import { checkRateLimit, getClientIp, isAllowedOrigin } from '@/lib/rateLimit';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -10,6 +11,7 @@ const ALLOWED_VOICES: Record<string, string> = {
 };
 
 const DEFAULT_VOICE = 'id-ID-GadisNeural';
+const MAX_TEXT_LENGTH = 5000; // Limit payload to ~5-7 minutes of audio to prevent DoS
 
 function escapeXml(str: string): string {
   return str
@@ -68,6 +70,35 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+  // 1. Origin Verification (Anti-CSRF & Anti-Hotlinking)
+  if (!isAllowedOrigin(req)) {
+    return NextResponse.json(
+      { error: 'Akses ditolak: Permintaan lintas domain tidak diizinkan.' },
+      { status: 403 }
+    );
+  }
+
+  // 2. Sliding Window Rate Limiting (10 requests/minute per client IP)
+  const clientIp = getClientIp(req);
+  const rateLimit = checkRateLimit(`tts:${clientIp}`, 10, 60000);
+
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      {
+        error: 'Terlalu banyak permintaan sintesis audio. Silakan coba lagi sebentar.',
+        retryAfter: rateLimit.resetSeconds,
+      },
+      {
+        status: 429,
+        headers: {
+          'Retry-After': String(rateLimit.resetSeconds),
+          'X-RateLimit-Limit': String(rateLimit.limit),
+          'X-RateLimit-Remaining': '0',
+        },
+      }
+    );
+  }
+
   try {
     const body = await req.json();
     const { text, voice } = body;
@@ -87,11 +118,17 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Safety limit: max 20,000 chars (~15-20 minutes of audio)
-    const sanitizedText = trimmed.slice(0, 20000);
-    const selectedVoice = ALLOWED_VOICES[voice] || DEFAULT_VOICE;
+    if (trimmed.length > MAX_TEXT_LENGTH) {
+      return NextResponse.json(
+        { error: `Teks melebihi batas maksimum (${MAX_TEXT_LENGTH} karakter).` },
+        { status: 400 }
+      );
+    }
 
-    const chunks = splitTextIntoChunks(sanitizedText, 2200);
+    // Strict voice parameter lookup against whitelist
+    const selectedVoice = (voice && ALLOWED_VOICES[voice]) ? ALLOWED_VOICES[voice] : DEFAULT_VOICE;
+
+    const chunks = splitTextIntoChunks(trimmed, 2200);
     const tts = new MsEdgeTTS();
     await tts.setMetadata(selectedVoice, OUTPUT_FORMAT.AUDIO_24KHZ_48KBITRATE_MONO_MP3);
 
@@ -142,6 +179,9 @@ export async function POST(req: NextRequest) {
         'Content-Type': 'audio/mpeg',
         'Content-Length': fullAudio.length.toString(),
         'Cache-Control': 'public, max-age=86400, stale-while-revalidate=604800',
+        'X-Content-Type-Options': 'nosniff',
+        'X-RateLimit-Limit': String(rateLimit.limit),
+        'X-RateLimit-Remaining': String(rateLimit.remaining),
       },
     });
   } catch (error: any) {
