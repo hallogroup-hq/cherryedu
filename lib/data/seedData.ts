@@ -3850,8 +3850,21 @@ export const SEED_ENROLLMENTS: Enrollment[] = [
   },
 ];
 
-// 9. INITIAL CERTIFICATES (Dikosongkan untuk user nyata)
-export const SEED_CERTIFICATES: Certificate[] = [];
+// 9. INITIAL CERTIFICATES
+export const SEED_CERTIFICATES: Certificate[] = [
+  {
+    id: 'cert-sari-fnd-001',
+    user_id: 'user-sari',
+    learning_path_id: 'path-foundation',
+    certificate_number: 'CHE-2026-FOUND-000188',
+    certificate_url: 'https://cherryedu.vercel.app/verify/che-sari-fnd-8823',
+    share_token: 'che-sari-fnd-8823',
+    issued_at: '2026-08-15T00:00:00Z',
+    user_name: 'Sari Wulandari',
+    path_title: 'Foundation: Kopi dari Hulu ke Hilir',
+    grade_text: 'Distinction (96/100)',
+  },
+];
 
 // 10. FORUM POSTS & COMMENTS (Diskusi resmi akademi & expert)
 export const SEED_POSTS: Post[] = [

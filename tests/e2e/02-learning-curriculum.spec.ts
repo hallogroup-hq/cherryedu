@@ -30,6 +30,13 @@ test.describe('Suite TS-02: Kurikulum & Learning Paths', () => {
   });
 
   test('TC-02-02: Path detail page renders syllabus modules and lesson links', async ({ page }) => {
+    // Log in with all-access testuser
+    await page.goto('/login');
+    await page.locator('input[type="email"]').fill('testuser');
+    await page.locator('input[type="password"]').fill('cherry2026!');
+    await page.getByRole('button', { name: /Masuk Sekarang/i }).click();
+    await page.waitForURL(url => !url.pathname.includes('/login'));
+
     await page.goto('/paths/kopi-dari-hulu-ke-hilir');
 
     // Heading
@@ -48,9 +55,17 @@ test.describe('Suite TS-02: Kurikulum & Learning Paths', () => {
   });
 
   test('TC-02-03: Lesson player loads reading content, markdown, and completion button', async ({ page }) => {
+    // Log in with all-access testuser
+    await page.goto('/login');
+    await page.locator('input[type="email"]').fill('testuser');
+    await page.locator('input[type="password"]').fill('cherry2026!');
+    await page.getByRole('button', { name: /Masuk Sekarang/i }).click();
+    await page.waitForURL(url => !url.pathname.includes('/login'));
+
     // Navigate directly to the first lesson in Foundation
     await page.goto('/paths/kopi-dari-hulu-ke-hilir');
     const firstLessonLink = page.locator('a[href*="/lessons/"]').first();
+    await expect(firstLessonLink).toBeVisible();
     await firstLessonLink.click();
 
     // Ensure lesson content is loaded

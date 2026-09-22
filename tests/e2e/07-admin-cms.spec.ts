@@ -13,13 +13,13 @@ test.describe('Suite TS-09: CMS & Admin Panel Access', () => {
     await expect(loginLink.first()).toBeVisible();
   });
 
-  test('TC-09-02: Admin demo login grants access to /admin overview and KPIs', async ({ page }) => {
-    // Login as admin demo
+  test('TC-09-02: Admin login grants access to /admin overview and KPIs', async ({ page }) => {
+    // Login as admin
     await page.goto('/login');
 
-    const adminDemoBtn = page.getByRole('button', { name: /Admin/i }).first();
-    await expect(adminDemoBtn).toBeVisible();
-    await adminDemoBtn.click();
+    await page.locator('input[type="email"]').fill('admin@cherryedu.id');
+    await page.locator('input[type="password"]').fill('cherryadmin2026');
+    await page.getByRole('button', { name: /Masuk Sekarang/i }).click();
 
     await page.waitForTimeout(1000);
 
