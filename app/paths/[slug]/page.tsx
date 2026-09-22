@@ -18,7 +18,6 @@ import {
   ArrowRight,
   ChevronDown,
   ChevronUp,
-  Sparkles,
 } from "lucide-react";
 
 export default function PathDetailPage() {
@@ -275,7 +274,7 @@ export default function PathDetailPage() {
           <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-amber-500/5 to-transparent border-2 border-amber-300 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-800 shrink-0 shadow-2xs">
-                <Sparkles className="w-5 h-5" />
+                <Lock className="w-5 h-5" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
@@ -296,8 +295,8 @@ export default function PathDetailPage() {
               onClick={() => setIsPaymentModalOpen(true)}
               className="px-5 py-2.5 bg-cherry-800 hover:bg-cherry-900 text-white font-bold text-xs rounded-xl transition shadow-sm shrink-0 flex items-center justify-center gap-1.5"
             >
-              <Sparkles className="w-3.5 h-3.5" />
               <span>Upgrade Pro (Mulai Rp 49rb)</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
         )}

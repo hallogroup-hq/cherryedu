@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Lock, ArrowRight, Check, Sparkles, Sliders, Droplets, Gauge, Flame } from 'lucide-react';
+import { Lock, ArrowRight, Check, Sliders, Droplets, Gauge, Flame } from 'lucide-react';
 
 interface ToolPaywallBannerProps {
   toolName: string;
@@ -33,7 +33,7 @@ export function ToolPaywallBanner({
 
       {/* Quota Exhausted Badge */}
       <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-amber-500/15 border border-amber-400 text-amber-950 rounded-full text-xs font-mono font-bold uppercase tracking-wider mb-3">
-        <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+        <Lock className="w-3.5 h-3.5 text-amber-700" />
         Batas 10x Uji Coba Gratis Tercapai
       </div>
 
@@ -55,7 +55,7 @@ export function ToolPaywallBanner({
       {/* Pro Features Grid */}
       <div className="bg-white border border-paper-300 rounded-2xl p-5 mb-6 text-left max-w-xl mx-auto shadow-sm">
         <div className="text-xs font-bold text-roast-950 flex items-center gap-2 mb-3 pb-2 border-b border-paper-200">
-          <Sparkles className="w-4 h-4 text-amber-600" />
+          <Check className="w-4 h-4 text-emerald-600" />
           <span>Keuntungan Akses Penuh CherryEdu Pro:</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-roast-700">

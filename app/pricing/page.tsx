@@ -7,7 +7,6 @@ import { PRICING_PLANS } from '@/lib/paymentGateway';
 import { SubscriptionCycle } from '@/lib/types';
 import { PaymentModal } from '@/components/PaymentModal';
 import {
-  Sparkles,
   Check,
   X,
   HelpCircle,
@@ -110,10 +109,6 @@ export default function PricingPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-cherry-50 border border-cherry-200 text-cherry-800 rounded-full text-xs font-mono font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-cherry-700" />
-            Investasi Pendidikan Kopi Terbaik
-          </div>
           <h1 className="font-serif text-3xl sm:text-5xl font-black text-roast-950 tracking-tight leading-tight">
             Tingkatkan Standar Sains & Karier Kopi Anda
           </h1>
@@ -296,7 +291,6 @@ export default function PricingPage() {
                   onClick={() => setIsModalOpen(true)}
                   className="w-full py-3.5 bg-gradient-to-r from-cherry-800 to-cherry-900 hover:from-cherry-900 hover:to-roast-950 text-white font-bold text-xs rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-cherry-900/25"
                 >
-                  <Sparkles className="w-4 h-4 text-amber-300" />
                   <span>Upgrade ke CherryEdu Pro Sekarang</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
@@ -403,8 +397,8 @@ export default function PricingPage() {
               onClick={() => setIsModalOpen(true)}
               className="px-8 py-3.5 bg-amber-400 hover:bg-amber-300 text-roast-950 font-bold text-xs uppercase tracking-wider font-mono rounded-xl transition shadow-md flex items-center gap-2"
             >
-              <Sparkles className="w-4 h-4" />
               <span>Daftar Pro Sekarang</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
