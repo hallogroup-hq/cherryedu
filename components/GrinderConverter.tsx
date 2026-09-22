@@ -80,7 +80,7 @@ export const BREW_METHOD_PROFILES: BrewMethodProfile[] = [
     idealMicronRange: [500, 780],
     defaultMicrons: 620,
     description: 'Partikel seperti garam meja kasar untuk perkolasi lancar tanpa clogging.',
-    sensoryFocus: 'Menonjolkan kejernihan rasa asam buah cerah (*acidity*), floral, dan aftertaste bersih.',
+    sensoryFocus: 'Menonjolkan kejernihan rasa asam buah cerah (acidity), floral, dan aftertaste bersih.',
     iconLabel: 'Medium',
   },
   {
@@ -805,7 +805,7 @@ export const GrinderConverter: React.FC = () => {
         <Info className="w-5 h-5 text-cherry-700 shrink-0 mt-0.5" />
         <div className="text-xs text-roast-800 leading-relaxed space-y-1">
           <strong className="text-roast-950 font-bold block font-serif text-sm">
-            Catatan Kalibrasi Titik Nol (*Zero Point*):
+            Catatan Kalibrasi Titik Nol (Zero Point):
           </strong>
           <p>
             Setiap unit grinder memiliki titik nol alami yang sedikit bervariasi akibat toleransi perakitan pabrik. Selalu temukan titik nol unit Anda (saat kedua burr saling menyentuh dan tuas tidak dapat berputar bebas) sebelum menghitung jumlah klik di atas.

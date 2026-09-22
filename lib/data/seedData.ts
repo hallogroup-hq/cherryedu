@@ -752,7 +752,7 @@ Sejarah konsumsi kopi modern dikelompokkan oleh para sosiolog dan sejarawan kopi
     key_takeaways: [
       "Gelombang Pertama (First Wave): Aksesibilitas massal kopi instan sachet dan kaleng pasca Perang Dunia II.",
       "Gelombang Kedua (Second Wave): Komersialisasi minuman berbasis espresso (latte, cappuccino, flavored syrup) dipelopori oleh kedai waralaba modern.",
-      "Gelombang Ketiga (Third Wave): Apresiasi kopi layaknya *fine wine*, mengedepankan terroir kebun, seduh manual (manual brew), dan pemanggangan terang.",
+      "Gelombang Ketiga (Third Wave): Apresiasi kopi layaknya fine wine, mengedepankan terroir kebun, seduh manual (manual brew), dan pemanggangan terang.",
       "Gelombang Keempat (Fourth Wave): Sains biokimia terapan, inokulasi mikroba presisi, varietas langka (Geisha, Eugenioides), dan kejuaraan barista global."
 ],
   },
@@ -872,7 +872,7 @@ Pada sekitar 5% hingga 8% buah ceri di sebuah pohon, salah satu dari dua ovula g
       "Tanaman kopi termasuk dalam famili botani Rubiaceae, genus Coffea.",
       "Buah kopi (kopi ceri) tersusun atas 5 lapisan: Eksokarp (kulit luar), Mesokarp (mucilage lendir), Endokarp (parchment/kulit tanduk), Spermoderm (kulit ari/silverskin), dan Endosperma (biji kopi hijau).",
       "Mucilage adalah lapisan berdaging yang kaya akan sukrosa, glukosa, dan pektin, menjadi bahan bakar utama proses fermentasi.",
-      "Umumnya buah kopi menghasilkan 2 biji pipih berhadapan (*flat beans*), namun mutasi alami 5% menghasilkan biji tunggal bulat yang disebut Peaberry (Kopi Lanang)."
+      "Umumnya buah kopi menghasilkan 2 biji pipih berhadapan (flat beans), namun mutasi alami 5% menghasilkan biji tunggal bulat yang disebut Peaberry (Kopi Lanang)."
 ],
   },
   {

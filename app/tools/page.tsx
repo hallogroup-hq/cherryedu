@@ -372,7 +372,7 @@ const INDONESIAN_REGIONS: CoffeeRegion[] = [
     varieties: 'Kobra, Kartika, Typica',
     processing: 'Fully Washed Subak Abian, Natural, Extended Anaerobic',
     flavorNotes: 'Mandarin orange, sweet tangerine, vanilla pod, brown butter, sweet honey aftertaste',
-    description: 'Sistem irigasi agraris sakral Subak Abian dan tumpang sari (*intercropping*) dengan kebun jeruk Kintamani memberikan profil rasa sitrus manis khas yang telah bersertifikat Indikasi Geografis.',
+    description: 'Sistem irigasi agraris sakral Subak Abian dan tumpang sari (intercropping) dengan kebun jeruk Kintamani memberikan profil rasa sitrus manis khas yang telah bersertifikat Indikasi Geografis.',
     imageUrl: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop&q=80',
   },
   {
@@ -451,7 +451,7 @@ const INDONESIAN_REGIONS: CoffeeRegion[] = [
     varieties: 'Typica Blue Mountain warisan 1950-an',
     processing: 'Fully Washed Organik Tradisional',
     flavorNotes: 'Sweet herbal, cocoa butter, roasted almond, orange peel, super clean smooth body',
-    description: 'Ditanam 100% organik tanpa pupuk kimia sintetis oleh suku Dani di lembah pegunungan Jayawijaya. Varietas murni Typica peninggalan masa lalu dengan kebersihan rasa (*clean cup*) yang luar biasa jernih.',
+    description: 'Ditanam 100% organik tanpa pupuk kimia sintetis oleh suku Dani di lembah pegunungan Jayawijaya. Varietas murni Typica peninggalan masa lalu dengan kebersihan rasa (clean cup) yang luar biasa jernih.',
     imageUrl: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop&q=80',
   },
   {

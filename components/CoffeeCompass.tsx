@@ -115,12 +115,12 @@ const DEFECT_SYMPTOMS: DefectSymptom[] = [
     vector: { x: -60, y: 50 },
     headline: 'Low Strength (% TDS): Kekuatan seduhan di bawah 1.15%',
     explanation:
-      'Seduhan terasa seperti air berwarna cokelat tanpa kekentalan (*viskositas*). Partikel terlarut total terlalu sedikit.',
+      'Seduhan terasa seperti air berwarna cokelat tanpa kekentalan (viskositas). Partikel terlarut total terlalu sedikit.',
     actions: {
       grind: 'Haluskan gilingan 1 klik.',
       ratio: 'Gunakan dosis kopi lebih banyak (misal 15g ke 16.5g untuk volume air yang sama).',
       temp: 'Pastikan suhu air tidak turun di bawah 90°C saat menyeduh.',
-      technique: 'Perlambat laju penuangan air (*flow rate*) dari gooseneck kettle.',
+      technique: 'Perlambat laju penuangan air (flow rate) dari gooseneck kettle.',
     },
   },
   {
@@ -147,7 +147,7 @@ const DEFECT_SYMPTOMS: DefectSymptom[] = [
     vector: { x: 40, y: 40 },
     headline: 'Over-Concentrated with Fines: Partikel debu menutupi kejernihan',
     explanation:
-      'Kopi tidak memiliki kejernihan rasa (*clarity*). Tasting notes seperti melati atau jeruk nipis tidak terdefinisi karena tertutup partikel fines micro.',
+      'Kopi tidak memiliki kejernihan rasa (clarity). Tasting notes seperti melati atau jeruk nipis tidak terdefinisi karena tertutup partikel fines micro.',
     actions: {
       grind: 'Kasar gilingan 1.5 klik dan ayak fines jika menggunakan grinder blade/entry-level.',
       ratio: 'Tingkatkan rasio air ke 1:16.',

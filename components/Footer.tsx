@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
               </div>
             </div>
             <p className="text-xs text-roast-400 leading-relaxed max-w-sm">
-              Platform kurikulum kopi independen pertama di Indonesia yang mengintegrasikan sains agronomi hulu (*farm*) hingga seni ekstraksi hilir (*cup*). Inisiatif dari Cherry Coffee Roastery.
+              Platform kurikulum kopi independen di Indonesia yang mencakup rantai proses dari kebun hingga seduhan cangkir. Inisiatif dari Cherry Coffee Roastery.
             </p>
             <div className="font-mono text-[10px] text-roast-500 uppercase tracking-widest">
               JAKARTA • BANDUNG • GAYO • BALI

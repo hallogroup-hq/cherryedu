@@ -457,7 +457,7 @@ export const CoffeeDiagram: React.FC<CoffeeDiagramProps> = ({ type, caption }) =
                       <span className="font-mono text-[10px] text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded font-bold">8°C - 37°C</span>
                     </div>
                     <p className="text-roast-600 text-[11px]">
-                      Tip wand tepat 1 mm di bawah permukaan susu. Suara mendesis halus (*ch-ch-ch*). Udara disuntikkan sebelum protein whey mengalami denaturasi.
+                      Tip wand tepat 1 mm di bawah permukaan susu dengan desisan halus terkontrol. Udara dimasukkan sebelum protein whey terdenaturasi.
                     </p>
                   </div>
 
@@ -467,7 +467,7 @@ export const CoffeeDiagram: React.FC<CoffeeDiagramProps> = ({ type, caption }) =
                       <span className="font-mono text-[10px] text-roast-700 bg-paper-100 border border-paper-200 px-1.5 py-0.5 rounded font-bold">37°C - 65°C</span>
                     </div>
                     <p className="text-roast-600 text-[11px]">
-                      Tenggelamkan tip 1 cm lebih dalam. Matikan suara desis. Pusaran vortex melipat dan menghancurkan gelembung besar menjadi kilau *microfoam sutra wet paint*.
+                      Tenggelamkan tip 1 cm lebih dalam. Hentikan desisan. Pusaran vortex melipat gelembung besar menjadi microfoam halus berkilau.
                     </p>
                   </div>
                 </div>
@@ -515,7 +515,7 @@ export const CoffeeDiagram: React.FC<CoffeeDiagramProps> = ({ type, caption }) =
                   <span className="font-bold text-amber-950 text-xs">Kalsium (Ekstraktor Body)</span>
                 </div>
                 <p className="text-[11px] text-amber-900 leading-relaxed">
-                  Mengikat senyawa gula karamel dan bodi lebih kuat. Namun jika berlebih di atas 100 ppm, berisiko tinggi membentuk kerak kapur (*limescale*) pada boiler mesin. Target: <strong>30 – 50 ppm</strong>.
+                  Mengikat senyawa gula karamel dan bodi lebih kuat. Namun jika berlebih di atas 100 ppm, berisiko tinggi membentuk kerak kapur (limescale) pada boiler mesin. Target: <strong>30 – 50 ppm</strong>.
                 </p>
               </div>
 
@@ -577,7 +577,7 @@ export const CoffeeDiagram: React.FC<CoffeeDiagramProps> = ({ type, caption }) =
                         <strong>Typica Murni (Batavia 1696)</strong> → Bergendal & Juria (Aceh/Flores). Rasa clean cup, floral melati.
                       </li>
                       <li className="p-1.5 bg-white rounded border border-paper-200">
-                        <strong>Maragogype (Mutasi Alami)</strong> → Biji gajah raksasa (*Elephant Bean*).
+                        <strong>Maragogype (Mutasi Alami)</strong> → Biji berukuran ekstra besar (Elephant Bean).
                       </li>
                       <li className="p-1.5 bg-white rounded border border-paper-200">
                         <strong>Geisha / Gesha (Ethiopia T2722)</strong> → Ketenaran Panama Hacienda La Esmeralda, profil melati bergamot.
@@ -612,7 +612,7 @@ export const CoffeeDiagram: React.FC<CoffeeDiagramProps> = ({ type, caption }) =
                     PERSILANGAN HIBRIDA NUSANTARA: HIBRIDO DE TIMOR (TIM-TIM)
                   </div>
                   <p className="text-[11px] text-paper-200">
-                    Persilangan alami spontan Arabica x Robusta di Timor Leste tahun 1920-an. Membawa gen ketahanan karat daun (*Hemileia vastatrix*). Menjadi induk bagi: <strong>Catimor, Sigarar Utang (Ateng Super Toba), dan S-795</strong>.
+                    Persilangan alami Arabica x Robusta di Timor Leste tahun 1920-an. Membawa gen ketahanan karat daun (Hemileia vastatrix). Menjadi induk bagi: <strong>Catimor, Sigarar Utang (Ateng Super Toba), dan S-795</strong>.
                   </p>
                 </div>
               </div>
@@ -765,7 +765,7 @@ export const CoffeeDiagram: React.FC<CoffeeDiagramProps> = ({ type, caption }) =
                     Melakukan sortasi rambang air (pemisahan buah kopong/floaters), depulping, fermentasi mikrobiologis terkontrol (Washed, Honey, Natural, Anaerobik), dan penjemuran para-para.
                   </p>
                   <div className="text-[11px] font-mono text-roast-500 bg-paper-100 p-2 rounded border border-paper-200">
-                    <strong className="text-roast-900">Peran Kritis:</strong> Mengunci kejernihan rasa (*clean cup*) atau kompleksitas buah fermentasi tanpa kontaminasi kapang/jamur.
+                    <strong className="text-roast-900">Peran Kritis:</strong> Menjaga kejernihan rasa (clean cup) dan kompleksitas fermentasi tanpa kontaminasi kapang atau jamur.
                   </div>
                 </div>
               </div>
@@ -795,7 +795,7 @@ export const CoffeeDiagram: React.FC<CoffeeDiagramProps> = ({ type, caption }) =
                     </span>
                   </div>
                   <p className="text-xs text-roast-700 leading-relaxed mb-2">
-                    Mengupas kulit tanduk (*hulling*), memilah ukuran biji (*screen size grading*), memisahkan densitas dengan *gravity table*, cupping QC kelayakan ekspor, dan mengemas dalam karung GrainPro.
+                    Mengupas kulit tanduk (hulling), memilah ukuran biji (size grading), memisahkan densitas dengan gravity table, cupping QC ekspor, dan mengemas dalam karung GrainPro.
                   </p>
                   <div className="text-[11px] font-mono text-roast-500 bg-paper-100 p-2 rounded border border-paper-200">
                     <strong className="text-roast-900">Peran Kritis:</strong> Menghilangkan cacat fisik biji dan menjaga kesegaran kadar air selama pengiriman antar pulau / benua.
@@ -828,7 +828,7 @@ export const CoffeeDiagram: React.FC<CoffeeDiagramProps> = ({ type, caption }) =
                     </span>
                   </div>
                   <p className="text-xs text-roast-700 leading-relaxed mb-2">
-                    Mengendalikan termodinamika drum (konveksi, konduksi, radiasi), memandu laju kenaikan suhu (*Rate of Rise* / RoR), memicu reaksi Maillard, dan mengkaramelisasi gula tanpa rasa hangus (*baked*).
+                    Mengendalikan termodinamika drum (konveksi, konduksi, radiasi), memandu laju kenaikan suhu (Rate of Rise / RoR), memicu reaksi Maillard, dan mengkaramelisasi gula tanpa rasa hangus (baked).
                   </p>
                   <div className="text-[11px] font-mono text-roast-500 bg-paper-100 p-2 rounded border border-paper-200">
                     <strong className="text-roast-900">Peran Kritis:</strong> Mentransformasi prekursor rasa mentah menjadi lebih dari 800 molekul senyawa aromatik yang siap larut dalam air.
@@ -861,10 +861,10 @@ export const CoffeeDiagram: React.FC<CoffeeDiagramProps> = ({ type, caption }) =
                     </span>
                   </div>
                   <p className="text-xs text-roast-700 leading-relaxed mb-2">
-                    Mengkalibrasi ukuran gilingan mikro (*grind dial-in*), merekayasa komposisi kimia air seduh (magnesium & buffer kalsium), mengontrol hidrodinamika turbulensi, dan menyajikan keramahan (*hospitality*).
+                    Mengkalibrasi ukuran gilingan (grind dial-in), merekayasa komposisi kimia air seduh, mengontrol hidrodinamika turbulensi, dan menyajikan seduhan kepada pelanggan.
                   </p>
                   <div className="text-[11px] font-mono text-roast-500 bg-paper-100 p-2 rounded border border-paper-200">
-                    <strong className="text-roast-900">Peran Kritis:</strong> Melarutkan senyawa rasa seimbang ke cangkir dan menjadi duta penyampai cerita (*storyteller*) perjalanan kopi ke penikmat.
+                    <strong className="text-roast-900">Peran Kritis:</strong> Melarutkan senyawa rasa seimbang ke cangkir dan menceritakan perjalanan kopi kepada penikmat.
                   </div>
                 </div>
               </div>

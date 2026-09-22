@@ -1220,7 +1220,7 @@ export const VarietyCompendium: React.FC = () => {
             <strong className="text-roast-950 font-bold block mb-1">
               Catatan Penting bagi Calon Q-Grader & Roaster:
             </strong>
-            Varietas menentukan <strong>potensi rasa dasar (*flavor ceiling*)</strong> dan kerapatan selulosa biji. Namun, bagaimana potensi tersebut terwujud di cangkir 100% dipengaruhi oleh ketinggian elevasi kebun (MDPL), kedisiplinan petik merah 100%, ketepatan metode pasca panen (Washed, Natural, Honey, Anaerobic), dan kepiawaian roaster mengatur kurva laju kenaikan suhu (RoR).
+            Varietas menentukan <strong>potensi rasa dasar (flavor ceiling)</strong> dan kerapatan selulosa biji. Namun, bagaimana potensi tersebut terwujud di cangkir 100% dipengaruhi oleh ketinggian elevasi kebun (MDPL), kedisiplinan petik merah 100%, ketepatan metode pasca panen (Washed, Natural, Honey, Anaerobic), dan kepiawaian roaster mengatur kurva laju kenaikan suhu (RoR).
           </div>
         </div>
       )}

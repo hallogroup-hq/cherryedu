@@ -284,7 +284,7 @@ export const InteractiveBrewGuide: React.FC<InteractiveBrewGuideProps> = ({ reci
             <div>
               <strong>Seduhan Selesai Sempurna!</strong>
               <div className="text-[11px] text-emerald-900">
-                Aduk kopi di dalam server secara melingkar (*swirl*) sebelum dituangkan ke cangkir agar suhu dan TDS homogen.
+                Aduk kopi di dalam server secara melingkar (swirl) sebelum dituangkan ke cangkir agar suhu dan TDS homogen.
               </div>
             </div>
           </div>

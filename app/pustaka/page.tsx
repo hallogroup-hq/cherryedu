@@ -141,9 +141,9 @@ const OFFICIAL_REFERENCES: ReferenceItem[] = [
     publisherOrInstitution: 'Scott Rao Publishing, USA',
     scopeInCherryEdu: 'Roaster Specialization Path (Modul R-1 s/d R-8), Foundation (Modul F-5: Sains Roasting)',
     summary:
-      'Karya monumental panduan penyangraian kopi presisi. Merumuskan hukum termodinamika drum roaster, konsep Charge Temperature, Turning Point, kurva Rate of Rise (RoR) yang menurun mulus (*smoothly declining RoR*), pencegahan RoR crash/flick, dan persentase Development Time Ratio (DTR 15%–20%).',
+      'Karya monumental panduan penyangraian kopi presisi. Merumuskan hukum termodinamika drum roaster, konsep Charge Temperature, Turning Point, kurva Rate of Rise (RoR) yang menurun mulus (smoothly declining RoR), pencegahan RoR crash/flick, dan persentase Development Time Ratio (DTR 15%–20%).',
     keyContributions: [
-      'Tiga Perintah Utama Roasting (*Three Commandments of Roasting*).',
+      'Tiga Perintah Utama Roasting (Three Commandments of Roasting).',
       'Pengendalian transfer panas konduksi drum vs konveksi aliran udara panas.',
     ],
   },
@@ -158,7 +158,7 @@ const OFFICIAL_REFERENCES: ReferenceItem[] = [
     summary:
       'Hasil kolaborasi riset antara Juara Barista UK dan pakar kimia teoretis MIT. Menggunakan pemodelan komputasi kuantum untuk membuktikan bahwa ion Magnesium (Mg²⁺) memiliki afinitas pengikatan senyawa oksigen aromatik kopi yang lebih tinggi dibanding Kalsium (Ca²⁺), serta memetakan peran buffer bikarbonat.',
     keyContributions: [
-      'Peta Poligon Ekstraksi Air Seduh (*The Water Quality Extract Polygon*).',
+      'Peta Poligon Ekstraksi Air Seduh (The Water Quality Extract Polygon).',
       'Resep formulasi air seduh konsentrat menggunakan garam Epsom (MgSO4) dan Baking Soda (NaHCO3).',
     ],
   },
@@ -186,7 +186,7 @@ const OFFICIAL_REFERENCES: ReferenceItem[] = [
     publisherOrInstitution: 'Rob Hoos Consulting, Oregon, USA',
     scopeInCherryEdu: 'Roaster Specialization Path (Modul R-3: Kinetika Reaksi Maillard & R-4: Profiling Rasa)',
     summary:
-      'Panduan praktis modulasi profil rasa di mesin sangrai: manipulasi waktu fase pengeringan (*drying phase*) untuk mengatur body, fase Maillard untuk mengatur persepsi rasa manis dan kekentalan, serta fase development untuk menentukan spektrum asam sitrat vs malat vs asam asetat.',
+      'Panduan praktis modulasi profil rasa di mesin sangrai: manipulasi waktu fase pengeringan (drying phase) untuk mengatur body, fase Maillard untuk mengatur persepsi rasa manis dan kekentalan, serta fase development untuk menentukan spektrum asam sitrat vs malat vs asam asetat.',
     keyContributions: [
       'Korelasi durasi fase Maillard terhadap sintesis senyawa melanoik dan body kopi.',
       'Pengaruh laju akhir sangrai terhadap penajaman atau peluruhan asam organik.',
@@ -202,7 +202,7 @@ const OFFICIAL_REFERENCES: ReferenceItem[] = [
     publisherOrInstitution: 'World Coffee Research, Texas, USA',
     scopeInCherryEdu: 'Foundation (Modul F-3: Varietas Nusantara), Ensiklopedia Varietas Botani, Post-Harvest Path',
     summary:
-      'Basis data genetik dan agronomi terverifikasi secara DNA: pohon silsilah Typica dan Bourbon, introgressi Hibrido de Timor (HdT), ketahanan terhadap karat daun (*Hemileia vastatrix*), potensi kualitas cangkir, ketinggian tanam rekomendasi, dan morfologi pohon.',
+      'Basis data genetik dan agronomi terverifikasi secara DNA: pohon silsilah Typica dan Bourbon, introgressi Hibrido de Timor (HdT), ketahanan terhadap karat daun (Hemileia vastatrix), potensi kualitas cangkir, ketinggian tanam rekomendasi, dan morfologi pohon.',
     keyContributions: [
       'Pemberian data silsilah genetik akurat untuk varietas lokal Indonesia (Tim-Tim, Ateng, S-795).',
       'Klasifikasi ketahanan varietas terhadap serangan hama nematoda dan penyakit jamur.',
@@ -217,7 +217,7 @@ const OFFICIAL_REFERENCES: ReferenceItem[] = [
     publisherOrInstitution: 'World Coffee Research',
     scopeInCherryEdu: 'Foundation (Modul F-7), Sensory Flavor Wheel Tool, Q Grader Specialization Path',
     summary:
-      'Kamus istilah rasa kopi berbasis sains universal yang menjadi fondasi resmi dari Roda Rasa SCA (*SCA Coffee Taster’s Flavor Wheel*). Menetapkan 110 atribut sensorik, definisi terukur, serta bahan acuan kalibrasi fisik (*physical reference standards*) yang dapat dibeli di laboratorium pangan.',
+      'Kamus istilah rasa kopi berbasis sains universal yang menjadi fondasi resmi dari Roda Rasa SCA (SCA Coffee Taster’s Flavor Wheel). Menetapkan 110 atribut sensorik, definisi terukur, serta bahan acuan kalibrasi fisik (physical reference standards) yang dapat dibeli di laboratorium pangan.',
     keyContributions: [
       'Menyediakan acuan intensitas rasa berskala 1–15 yang terkalibrasi secara kuantitatif.',
       'Menstandarkan kosakata evaluasi kualitas sensorik kopi dunia.',
@@ -232,7 +232,7 @@ const OFFICIAL_REFERENCES: ReferenceItem[] = [
     publisherOrInstitution: 'Royal Botanic Gardens, Kew, London, UK',
     scopeInCherryEdu: 'Foundation (Modul F-2: Agronomi & F-3: Varietas), Post-Harvest Path',
     summary:
-      'Penelitian komprehensif taksonomi genus *Coffea* (124+ spesies liar): keanekaragaman genetik di Afrika, adaptasi terhadap kenaikan suhu iklim global, reintroduksi spesies liar tahan panas (*Coffea stenophylla* dan *Coffea liberica*), serta pelestarian hutan hujan agroforestri.',
+      'Penelitian komprehensif taksonomi genus Coffea (124+ spesies liar): keanekaragaman genetik di Afrika, adaptasi terhadap kenaikan suhu iklim global, reintroduksi spesies liar tahan panas (Coffea stenophylla dan Coffea liberica), serta pelestarian hutan hujan agroforestri.',
     keyContributions: [
       'Menjelaskan perbedaan sitologi antara Coffea arabica alotetraploid (44 kromosom) dan diploid (22 kromosom).',
       'Pentingnya naungan kanopi hutan agroforestri untuk memperlambat maturasi ceri kopi.',
@@ -378,7 +378,7 @@ export default function PustakaPage() {
               Daftar Pustaka & Rujukan Resmi
             </h1>
             <p className="mt-4 text-xs sm:text-sm text-roast-300 leading-relaxed font-sans">
-              Seluruh silabus, modul, panduan seduh, parameter kimia, dan ujian sertifikasi CherryEdu dirancang berdasarkan kompilasi standar otoritatif internasional (**Specialty Coffee Association**, **Coffee Quality Institute**, **World Coffee Research**), literatur buku klasik perkopian, **Standar Nasional Indonesia (BSN)**, balai riset **Puslitkoka Jember**, serta puluhan jurnal sains *peer-reviewed*.
+              Silabus, modul, panduan seduh, parameter kimia, dan ujian sertifikasi CherryEdu disusun merujuk standar Specialty Coffee Association, Coffee Quality Institute, World Coffee Research, Standar Nasional Indonesia (BSN), balai riset Puslitkoka Jember, serta jurnal sains kopi terpublikasi.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-mono text-roast-400">

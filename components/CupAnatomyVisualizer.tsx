@@ -155,7 +155,7 @@ export const DRINK_PROFILES: DrinkProfile[] = [
     servingTemp: '62°C – 65°C',
     caffeineMg: 65,
     ratioSummary: 'Aturan Sepertiga (1/3 Kopi, 1/3 Susu, 1/3 Busa)',
-    description: 'Mahakarya Italia klasik. Dicirikan oleh kubah busa microfoam elastis yang tebal dan empuk seperti bantal (*cushiony head*).',
+    description: 'Mahakarya Italia klasik. Dicirikan oleh kubah busa microfoam elastis yang tebal dan empuk seperti bantal (cushiony head).',
     baristaRule: 'Busa harus cukup kokoh untuk menahan taburan cokelat atau gula pasir selama 3 detik.',
     layers: [
       { name: 'Espresso Normale', volumeMl: 36, color: '#24140E', textColor: '#F5EBE6' },
@@ -222,8 +222,8 @@ export const DRINK_PROFILES: DrinkProfile[] = [
     servingTemp: '2°C – 4°C (Dingin Menyegarkan)',
     caffeineMg: 95,
     ratioSummary: '40% Es Batu Server + 60% Seduhan Panas',
-    description: 'Metode seduh dingin tercepat dan paling aromatik. Kopi panas V60 menetes langsung membentur bongkahan es batu, mengunci volatil aroma bunga dan buah melalui kejutan termal (*thermal shock*).',
-    baristaRule: 'Jauh lebih cerah (*bright acidity*) dan aromatik dibanding Cold Brew yang direndam 18 jam.',
+    description: 'Metode seduh dingin tercepat dan paling aromatik. Kopi panas V60 menetes langsung membentur bongkahan es batu, mengunci volatil aroma bunga dan buah melalui kejutan termal (thermal shock).',
+    baristaRule: 'Jauh lebih cerah (bright acidity) dan aromatik dibanding Cold Brew yang direndam 18 jam.',
     layers: [
       { name: 'Solid Clear Ice Cubes (40%)', volumeMl: 100, color: '#DCEBFA', textColor: '#1A365D', pattern: 'ice' },
       { name: 'Flash-Chilled Filter Coffee (60%)', volumeMl: 150, color: '#5B3726', textColor: '#FAF7F2' },
@@ -295,7 +295,7 @@ export const CupAnatomyVisualizer: React.FC = () => {
               Visual Anatomi & Perbandingan Cangkir Kopi
             </h3>
             <p className="font-sans text-xs sm:text-sm text-roast-600 mt-1 max-w-2xl leading-relaxed">
-              Pahami perbedaan mendasar antara Flat White, Cappuccino, Latte, Cortado, hingga Long Black melalui penampang melintang rasio cairan, ketebalan busa susu (*microfoam*), dan suhu saji.
+              Pahami perbedaan mendasar antara Flat White, Cappuccino, Latte, Cortado, hingga Long Black melalui penampang melintang rasio cairan, ketebalan busa susu (microfoam), dan suhu saji.
             </p>
           </div>
 

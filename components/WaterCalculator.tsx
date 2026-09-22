@@ -314,7 +314,7 @@ export const WaterCalculator: React.FC = () => {
                 <li>Timbang dengan timbangan presisi 0.1g: masukkan <strong>{recipe.bufferGrams}g Konsentrat Botol A</strong> ke dalam wadah air.</li>
                 <li>Masukkan <strong>{recipe.hardnessGrams}g Konsentrat Botol B</strong> ke dalam wadah yang sama.</li>
                 <li>Tutup wadah dan kocok perlahan selama 15 detik sampai ion mineral terlarut merata.</li>
-                <li>Air seduh siap dimasukkan ke ketel (*kettle*) pour-over atau tangki mesin espresso.</li>
+                <li>Air seduh siap dimasukkan ke ketel (kettle) pour-over atau tangki mesin espresso.</li>
               </ol>
             </div>
           </div>
