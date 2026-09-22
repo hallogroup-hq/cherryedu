@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Certificate } from '@/lib/types';
-import { Check, Copy, ExternalLink, Printer, QrCode } from "lucide-react";
+import { Check, Copy, ExternalLink, Printer, QrCode, Linkedin, Download } from "lucide-react";
 import { toast } from 'sonner';
 
 interface CertificateCardProps {
@@ -18,6 +18,14 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, o
     ? `${window.location.origin}/verify/${certificate.share_token}`
     : `/verify/${certificate.share_token}`;
 
+  const issueDate = new Date(certificate.issued_at);
+  const issueYear = issueDate.getFullYear();
+  const issueMonth = issueDate.getMonth() + 1;
+  const certName = certificate.path_title || 'Sertifikasi Kopi Specialty';
+  const orgName = 'Cherry Coffee Roastery';
+
+  const linkedInAddUrl = `https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=${encodeURIComponent(certName)}&organizationName=${encodeURIComponent(orgName)}&issueYear=${issueYear}&issueMonth=${issueMonth}&certUrl=${encodeURIComponent(verificationUrl)}&certId=${encodeURIComponent(certificate.certificate_number)}`;
+
   const handleCopyLink = () => {
     navigator.clipboard.writeText(verificationUrl);
     setCopied(true);
@@ -25,10 +33,17 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, o
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleDownloadPDF = () => {
+    toast.info('Menyiapkan format A4 Landscape... Pilih "Simpan sebagai PDF" di dialog cetak.');
+    setTimeout(() => {
+      window.print();
+    }, 300);
+  };
+
   return (
     <div className="space-y-4">
       {/* Archival Diploma Frame */}
-      <div className="relative bg-[#FCFAF5] border border-[#D5CABE] rounded-xl p-8 sm:p-14 shadow-diploma text-center overflow-hidden">
+      <div className="diploma-frame relative bg-[#FCFAF5] border border-[#D5CABE] rounded-xl p-8 sm:p-14 shadow-diploma text-center overflow-hidden">
         {/* Subtle Decorative Guilloche Border */}
         <div className="absolute inset-3 border border-[#E5DAC8] pointer-events-none rounded" />
         <div className="absolute inset-4 border border-[#ECE2D2] pointer-events-none rounded" />
@@ -132,7 +147,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, o
 
       {/* Action Buttons Bar */}
       <div className="flex flex-wrap items-center justify-between gap-2 p-3 bg-white rounded-lg border border-paper-300 text-xs font-mono">
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={handleCopyLink}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-paper-100 hover:bg-paper-200 text-roast-800 transition-all duration-150 ease-out active:scale-[0.97] border border-paper-200"
@@ -150,13 +165,35 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, o
           </Link>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
+          {/* Add to LinkedIn Button */}
+          <a
+            href={linkedInAddUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#0A66C2] hover:bg-[#004182] text-white font-bold transition-all duration-150 ease-out active:scale-[0.97] shadow-xs"
+            title="Tambahkan sertifikat ini ke profil LinkedIn Anda"
+          >
+            <Linkedin className="w-3.5 h-3.5 fill-current" />
+            <span>Add to LinkedIn</span>
+          </a>
+
+          {/* Download PDF / Print Button */}
+          <button
+            onClick={handleDownloadPDF}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-roast-900 hover:bg-cherry-900 text-paper-50 font-bold transition-all duration-150 ease-out active:scale-[0.97] shadow-xs"
+            title="Unduh atau simpan sertifikat dalam format PDF A4 Landscape"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>Unduh PDF</span>
+          </button>
+
           <button
             onClick={() => window.print()}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-paper-100 hover:bg-paper-200 text-roast-800 transition-all duration-150 ease-out active:scale-[0.97] border border-paper-200"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded bg-paper-100 hover:bg-paper-200 text-roast-800 transition-all duration-150 ease-out active:scale-[0.97] border border-paper-200"
           >
             <Printer className="w-3.5 h-3.5" />
-            <span>Cetak Diploma</span>
+            <span>Cetak</span>
           </button>
           {onShare && (
             <button

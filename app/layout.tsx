@@ -7,6 +7,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { WhatsNewModal } from '@/components/WhatsNewModal';
 import { Toaster } from 'sonner';
+import { PWAInstallPrompt } from '@/components/PWAInstallPrompt';
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -73,6 +74,11 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'fK9i-P0UsMyuG4BWL6QYSrxf1NBqYE-CwOokXpcc-pY',
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'CherryEdu',
   },
   openGraph: {
     title: 'CherryEdu — Platform & Akademi Edukasi Kopi Terlengkap di Indonesia',
@@ -236,6 +242,8 @@ export default function RootLayout({
             `,
           }}
         />
+        <meta name="theme-color" content="#140E0C" />
+        <link rel="apple-touch-icon" href="/icon.png" />
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased bg-paper-50 text-roast-950 selection:bg-cherry-100 selection:text-cherry-900">
         <AuthProvider>
@@ -245,6 +253,7 @@ export default function RootLayout({
             <Footer />
             <WhatsNewModal />
             <Toaster position="bottom-right" richColors closeButton />
+            <PWAInstallPrompt />
           </CherryEduProvider>
         </AuthProvider>
       </body>

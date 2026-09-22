@@ -182,6 +182,26 @@ export function PaymentModal({
       origin: { y: 0.6 },
     });
     toast.success('Pembayaran QRIS Berhasil! Akun Anda kini aktif sebagai CherryEdu Pro.');
+
+    // Asynchronously dispatch confirmation & receipt email
+    if (currentUser?.email) {
+      const expiresDate = new Date();
+      expiresDate.setDate(expiresDate.getDate() + (tx.cycle === 'annual' ? 365 : 30));
+      fetch('/api/email/subscription', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          toEmail: currentUser.email,
+          userName: currentUser.name || 'Rekan Barista',
+          planName: 'CherryEdu Pro',
+          cycle: tx.cycle === 'annual' ? 'annual' : 'monthly',
+          amount: tx.final_amount,
+          transactionId: tx.id,
+          expiresAt: expiresDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
+          isRenewal: isPro,
+        }),
+      }).catch((err) => console.error('[PaymentModal] Error sending confirmation email:', err));
+    }
   };
 
   const formatTime = (seconds: number) => {
