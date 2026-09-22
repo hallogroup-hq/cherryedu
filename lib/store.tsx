@@ -21,6 +21,7 @@ import {
   JobListing,
   JobApplication,
   Bookmark,
+  UserNote,
   ForumCategory,
   LandingPageConfig,
   SitePageConfig,
@@ -100,6 +101,7 @@ interface CherryEduContextType {
   jobListings: JobListing[];
   jobApplications: JobApplication[];
   bookmarks: Bookmark[];
+  notes: UserNote[];
   transactions: PaymentTransaction[];
   vouchers: Voucher[];
   isPro: boolean;
@@ -138,6 +140,18 @@ interface CherryEduContextType {
   ) => { score: number; passed: boolean; certificateEarned?: Certificate; xpEarned: number };
   toggleBookmark: (lessonId: string) => void;
   isBookmarked: (lessonId: string) => boolean;
+  createNote: (data: {
+    title: string;
+    content: string;
+    tags?: string[];
+    lesson_id?: string;
+    lesson_title?: string;
+    path_slug?: string;
+    source_url?: string;
+  }) => UserNote;
+  updateNote: (id: string, updates: Partial<UserNote>) => void;
+  deleteNote: (id: string) => void;
+  getUserNotes: (userId?: string) => UserNote[];
   createPost: (title: string, content: string, category: ForumCategory) => Post;
   createComment: (postId: string, content: string, parentCommentId?: string | null) => Comment;
   toggleLike: (targetId: string, targetType: 'post' | 'comment') => void;
@@ -194,6 +208,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const [jobListings, setJobListings] = useState<JobListing[]>(SEED_JOBS);
   const [jobApplications, setJobApplications] = useState<JobApplication[]>(SEED_JOB_APPLICATIONS);
   const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
+  const [notes, setNotes] = useState<UserNote[]>([]);
   const [transactions, setTransactions] = useState<PaymentTransaction[]>([]);
   const [vouchers, setVouchers] = useState<Voucher[]>(INITIAL_VOUCHERS);
   const [landingPageConfig, setLandingPageConfig] = useState<LandingPageConfig>(DEFAULT_LANDING_CONFIG);
@@ -304,6 +319,9 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
               (b: Bookmark) => b.user_id !== 'user-budi' && b.user_id !== 'user-sari'
             )
           );
+        }
+        if (parsed.notes) {
+          setNotes(parsed.notes);
         }
         if (parsed.transactions) {
           const now = new Date();
@@ -416,6 +434,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         jobListings,
         jobApplications,
         bookmarks,
+        notes,
         transactions,
         vouchers,
         lessons,
@@ -444,6 +463,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     jobListings,
     jobApplications,
     bookmarks,
+    notes,
     transactions,
     vouchers,
     lessons,
@@ -1100,6 +1120,52 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     return bookmarks.some((b) => b.user_id === currentUser.id && b.lesson_id === lessonId);
   };
 
+  const createNote = (data: {
+    title: string;
+    content: string;
+    tags?: string[];
+    lesson_id?: string;
+    lesson_title?: string;
+    path_slug?: string;
+    source_url?: string;
+  }): UserNote => {
+    const newNote: UserNote = {
+      id: `note-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+      user_id: currentUser.id,
+      title: data.title.trim() || 'Catatan Baru',
+      content: data.content,
+      tags: data.tags && data.tags.length > 0 ? data.tags : ['Umum'],
+      lesson_id: data.lesson_id,
+      lesson_title: data.lesson_title,
+      path_slug: data.path_slug,
+      source_url: data.source_url,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    };
+
+    setNotes((prev) => [newNote, ...prev]);
+    return newNote;
+  };
+
+  const updateNote = (id: string, updates: Partial<UserNote>) => {
+    setNotes((prev) =>
+      prev.map((n) =>
+        n.id === id && n.user_id === currentUser.id
+          ? { ...n, ...updates, updated_at: new Date().toISOString() }
+          : n
+      )
+    );
+  };
+
+  const deleteNote = (id: string) => {
+    setNotes((prev) => prev.filter((n) => !(n.id === id && n.user_id === currentUser.id)));
+  };
+
+  const getUserNotes = (userId?: string): UserNote[] => {
+    const targetId = userId || currentUser.id;
+    return notes.filter((n) => n.user_id === targetId);
+  };
+
   const createPost = (title: string, content: string, category: ForumCategory): Post => {
     const newPost: Post = {
       id: `post-${Date.now()}`,
@@ -1400,6 +1466,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         jobListings,
         jobApplications,
         bookmarks,
+        notes,
         transactions,
         vouchers,
         isPro,
@@ -1444,6 +1511,10 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         submitQuiz,
         toggleBookmark,
         isBookmarked,
+        createNote,
+        updateNote,
+        deleteNote,
+        getUserNotes,
         createPost,
         createComment,
         toggleLike,

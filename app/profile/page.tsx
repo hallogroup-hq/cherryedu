@@ -16,7 +16,17 @@ import {
   RotateCcw,
   Sparkles,
   LogOut,
+  PenTool,
+  Plus,
+  Trash2,
+  Copy,
+  Check,
+  ExternalLink,
+  FileText,
+  Clock,
 } from "lucide-react";
+import { NotebookDrawer } from '@/components/NotebookDrawer';
+import { toast } from 'sonner';
 
 function ProfileContent() {
   const router = useRouter();
@@ -39,6 +49,8 @@ function ProfileContent() {
     updateUserProfile,
     resetAllData,
     getPathProgress,
+    getUserNotes,
+    deleteNote,
   } = useCherryEdu();
 
   const [activeTab, setActiveTab] = useState<string>(initialTab);
@@ -46,6 +58,9 @@ function ProfileContent() {
   const [nameInput, setNameInput] = useState<string>(currentUser.name);
   const [bioInput, setBioInput] = useState<string>(currentUser.bio);
   const [cityInput, setCityInput] = useState<string>(currentUser.city);
+  const [isNotebookOpen, setIsNotebookOpen] = useState<boolean>(false);
+  const [activeNoteId, setActiveNoteId] = useState<string | null>(null);
+  const [copiedNoteId, setCopiedNoteId] = useState<string | null>(null);
 
   useEffect(() => {
     setNameInput(currentUser.name);
@@ -58,6 +73,7 @@ function ProfileContent() {
   const userEnrollments = enrollments.filter((e) => e.user_id === currentUser.id);
   const userBookmarks = bookmarks.filter((b) => b.user_id === currentUser.id);
   const userApps = jobApplications.filter((a) => a.applicant_id === currentUser.id);
+  const userNotes = getUserNotes(currentUser.id);
 
   const handleSaveProfile = (e: React.FormEvent) => {
     e.preventDefault();
@@ -230,7 +246,7 @@ function ProfileContent() {
         )}
 
         {/* Telemetry Strip */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-5 font-mono">
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 pt-5 font-mono">
           <div className="bg-paper-100 border border-paper-300 p-3 text-center">
             <span className="text-[10px] text-roast-500 uppercase block font-bold tracking-wider">Konsistensi</span>
             <div className="text-sm font-bold text-cherry-700 flex items-center justify-center gap-1 mt-1">
@@ -260,6 +276,14 @@ function ProfileContent() {
             <div className="text-sm font-bold text-roast-950 flex items-center justify-center gap-1 mt-1">
               <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
               <span>{userBadgesList.length} Hallmarks</span>
+            </div>
+          </div>
+
+          <div className="bg-paper-100 border border-paper-300 p-3 text-center col-span-2 sm:col-span-1">
+            <span className="text-[10px] text-roast-500 uppercase block font-bold tracking-wider">Catatan</span>
+            <div className="text-sm font-bold text-roast-950 flex items-center justify-center gap-1 mt-1">
+              <PenTool className="w-3.5 h-3.5 text-cherry-700" />
+              <span>{userNotes.length} Catatan</span>
             </div>
           </div>
         </div>
@@ -320,6 +344,17 @@ function ProfileContent() {
           }`}
         >
           05 • Lamaran Bar ({userApps.length})
+        </button>
+
+        <button
+          onClick={() => setActiveTab('notes')}
+          className={`px-4 py-2 uppercase tracking-wider whitespace-nowrap transition-all border ${
+            activeTab === 'notes'
+              ? 'bg-roast-950 text-paper-50 border-roast-950 font-bold'
+              : 'bg-paper-50 text-roast-700 border-paper-300 hover:border-roast-700'
+          }`}
+        >
+          06 • Catatan Belajar ({userNotes.length})
         </button>
       </div>
 
@@ -526,6 +561,168 @@ function ProfileContent() {
           )}
         </div>
       )}
+
+      {/* Tab 6: Notes / Notebook */}
+      {activeTab === 'notes' && (
+        <div className="space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-paper-100 border border-paper-300 p-4 rounded-xl">
+            <div>
+              <h3 className="font-serif font-bold text-base text-roast-950">
+                Buku Catatan Barista & Rangkuman Belajar
+              </h3>
+              <p className="text-xs text-roast-600 font-sans mt-0.5">
+                Simpan rasio seduh, dial-in espresso, catatan cupping, dan intisari materi Anda secara privat.
+              </p>
+            </div>
+            <button
+              onClick={() => {
+                setActiveNoteId(null);
+                setIsNotebookOpen(true);
+              }}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-roast-950 hover:bg-cherry-900 text-white font-mono text-xs font-bold transition-all shadow-xs shrink-0 self-start sm:self-auto"
+            >
+              <Plus className="w-4 h-4" />
+              <span>Tulis Catatan Baru</span>
+            </button>
+          </div>
+
+          {userNotes.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {userNotes.map((note) => {
+                const noteDate = new Date(note.updated_at || note.created_at);
+                const formattedDate = noteDate.toLocaleDateString('id-ID', {
+                  day: 'numeric',
+                  month: 'short',
+                  year: 'numeric',
+                });
+
+                return (
+                  <div
+                    key={note.id}
+                    className="bg-paper-50 p-5 border border-paper-300 hover:border-roast-800 transition-all rounded-xl shadow-2xs flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex justify-between items-start gap-2 mb-2">
+                        <h4 className="font-serif text-sm font-bold text-roast-950 line-clamp-1">
+                          {note.title}
+                        </h4>
+                        <div className="flex items-center gap-1 shrink-0">
+                          <button
+                            onClick={() => {
+                              const text = `${note.title}\n\n${note.content}${note.lesson_title ? `\n\n(Materi: ${note.lesson_title})` : ''}`;
+                              navigator.clipboard.writeText(text);
+                              setCopiedNoteId(note.id);
+                              toast.success('Catatan disalin ke clipboard');
+                              setTimeout(() => setCopiedNoteId(null), 2000);
+                            }}
+                            className="p-1 rounded hover:bg-paper-200 text-roast-500 hover:text-roast-800"
+                            title="Salin Catatan"
+                          >
+                            {copiedNoteId === note.id ? (
+                              <Check className="w-3.5 h-3.5 text-emerald-600" />
+                            ) : (
+                              <Copy className="w-3.5 h-3.5" />
+                            )}
+                          </button>
+                          <button
+                            onClick={() => {
+                              if (confirm('Hapus catatan ini secara permanen?')) {
+                                deleteNote(note.id);
+                                toast.success('Catatan berhasil dihapus.');
+                              }
+                            }}
+                            className="p-1 rounded hover:bg-rose-50 text-roast-400 hover:text-rose-600"
+                            title="Hapus Catatan"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      </div>
+
+                      <p className="font-sans text-xs text-roast-700 whitespace-pre-line line-clamp-4 leading-relaxed mb-4">
+                        {note.content || '(Catatan kosong)'}
+                      </p>
+                    </div>
+
+                    <div className="pt-3 border-t border-paper-200 space-y-2">
+                      <div className="flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-roast-500">
+                        <div className="flex flex-wrap items-center gap-1">
+                          {note.tags?.map((t) => (
+                            <span
+                              key={t}
+                              className="px-2 py-0.5 rounded bg-paper-100 text-roast-700 border border-paper-300"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                        <span className="flex items-center gap-1 text-roast-400">
+                          <Clock className="w-2.5 h-2.5" />
+                          <span>{formattedDate}</span>
+                        </span>
+                      </div>
+
+                      {note.lesson_title && note.path_slug && note.lesson_id && (
+                        <Link
+                          href={`/paths/${note.path_slug}/lessons/${note.lesson_id}`}
+                          className="inline-flex items-center gap-1 text-[11px] font-mono text-cherry-800 hover:text-cherry-950 font-bold hover:underline"
+                        >
+                          <ExternalLink className="w-3 h-3" />
+                          <span className="truncate">Materi: {note.lesson_title}</span>
+                        </Link>
+                      )}
+
+                      <div className="pt-1">
+                        <button
+                          onClick={() => {
+                            setActiveNoteId(note.id);
+                            setIsNotebookOpen(true);
+                          }}
+                          className="w-full text-center py-1.5 rounded-lg border border-paper-300 hover:border-roast-900 bg-white hover:bg-paper-100 text-roast-800 font-mono text-[11px] font-bold transition-all"
+                        >
+                          Buka di Notebook Editor
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="text-center py-14 bg-paper-50 border border-paper-300 p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-xl bg-paper-200 text-roast-400 flex items-center justify-center mx-auto mb-3">
+                <FileText className="w-6 h-6" />
+              </div>
+              <h4 className="font-serif font-bold text-sm text-roast-900 mb-1">
+                Belum Ada Catatan Belajar
+              </h4>
+              <p className="font-sans text-xs text-roast-600 max-w-sm mx-auto mb-5 leading-relaxed">
+                Anda belum membuat catatan materi atau resep seduh. Buat catatan sekarang atau klik tombol melayang di pojok kanan bawah saat mempelajari materi.
+              </p>
+              <button
+                onClick={() => {
+                  setActiveNoteId(null);
+                  setIsNotebookOpen(true);
+                }}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-roast-950 hover:bg-cherry-900 text-white font-mono text-xs font-bold transition-all shadow-xs"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                <span>Buat Catatan Pertama</span>
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Notebook Drawer modal */}
+      <NotebookDrawer
+        isOpen={isNotebookOpen}
+        onClose={() => {
+          setIsNotebookOpen(false);
+          setActiveNoteId(null);
+        }}
+        defaultNoteId={activeNoteId}
+      />
 
       {/* Reset Demo Data footer */}
       <div className="mt-12 pt-6 border-t border-paper-300 flex justify-between items-center font-mono text-xs text-roast-500">

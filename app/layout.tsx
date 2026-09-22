@@ -8,6 +8,7 @@ import { Footer } from '@/components/Footer';
 import { WhatsNewModal } from '@/components/WhatsNewModal';
 import { Toaster } from 'sonner';
 import { PWAInstallPrompt } from '@/components/PWAInstallPrompt';
+import { FloatingActionButton } from '@/components/FloatingActionButton';
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -254,6 +255,7 @@ export default function RootLayout({
             <WhatsNewModal />
             <Toaster position="bottom-right" richColors closeButton />
             <PWAInstallPrompt />
+            <FloatingActionButton />
           </CherryEduProvider>
         </AuthProvider>
       </body>

@@ -12,10 +12,8 @@ import {
   XCircle,
   ExternalLink,
   Award,
-  QrCode,
   FileCheck2,
   Lock,
-  ArrowRight,
   RotateCcw,
 } from 'lucide-react';
 
@@ -48,16 +46,11 @@ export default function PublicVerifySearchPage() {
     setFoundCert(null);
   };
 
-  const sampleTokens = [
-    { label: 'Token Digital', value: 'che-sari-fnd-8823' },
-    { label: 'Nomor Sertifikat', value: 'CHE-2026-FOUND-000188' },
-  ];
-
   return (
-    <div className="min-h-screen bg-paper-50 text-roast-950 py-10 sm:py-16">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        {/* Top Header */}
-        <div className="text-center space-y-3">
+    <div className="min-h-screen bg-paper-50 text-roast-950 py-10 sm:py-16 print:min-h-0 print:py-0 print:px-0 print:bg-white print:m-0">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 print:max-w-none print:w-full print:p-0 print:m-0 print:space-y-0">
+        {/* Top Header - Hidden in Print */}
+        <div className="text-center space-y-3 print:hidden">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-roast-100/70 border border-paper-300 rounded-full text-roast-700 font-mono text-[10px] uppercase tracking-widest font-bold">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
             <span>Public Credential Registry • Protokol Verifikasi Resmi</span>
@@ -72,8 +65,8 @@ export default function PublicVerifySearchPage() {
           </p>
         </div>
 
-        {/* Search Box Card */}
-        <div className="bg-white border border-paper-200 rounded-2xl p-6 sm:p-8 shadow-xs space-y-4">
+        {/* Search Box Card - Hidden in Print */}
+        <div className="bg-white border border-paper-200 rounded-2xl p-6 sm:p-8 shadow-xs space-y-4 print:hidden">
           <form onSubmit={handleSubmit} className="space-y-3">
             <label className="block font-mono text-[11px] uppercase tracking-wider text-roast-500 font-bold">
               Masukkan Nomor Registrasi Dokumen atau Token Verifikasi
@@ -86,7 +79,7 @@ export default function PublicVerifySearchPage() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Contoh: CHE-2026-FOUND-000188 atau che-sari-fnd-8823"
+                  placeholder="Ketik Nomor Sertifikat (CHE-...) atau Kode Token..."
                   className="w-full pl-10 pr-4 py-3 text-xs sm:text-sm font-mono border border-paper-300 rounded-xl bg-paper-50/50 text-roast-900 placeholder:text-roast-400 placeholder:font-sans focus:outline-none focus:border-roast-500 focus:bg-white transition-colors"
                 />
               </div>
@@ -101,36 +94,16 @@ export default function PublicVerifySearchPage() {
               </button>
             </div>
           </form>
-
-          {/* Sample Token Helpers */}
-          <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-paper-100 text-xs">
-            <span className="font-mono text-[10px] uppercase text-roast-400 font-bold">
-              Coba Contoh Terdaftar:
-            </span>
-            {sampleTokens.map((sample) => (
-              <button
-                key={sample.value}
-                type="button"
-                onClick={() => {
-                  setSearchQuery(sample.value);
-                  performSearch(sample.value);
-                }}
-                className="inline-flex items-center gap-1 px-2.5 py-1 bg-paper-100 hover:bg-paper-200 border border-paper-200 rounded-lg font-mono text-[11px] text-roast-700 transition-colors"
-              >
-                <span>{sample.label}:</span>
-                <code className="text-cherry-800 font-bold">{sample.value}</code>
-              </button>
-            ))}
-          </div>
         </div>
 
         {/* Search Results Area */}
         {hasSearched && (
-          <div className="space-y-6 pt-2">
+          <div className="space-y-6 pt-2 print:space-y-0 print:pt-0">
             {foundCert ? (
               /* Success / Found State */
-              <div className="space-y-6">
-                <div className="bg-emerald-50 border-2 border-emerald-300/80 rounded-2xl p-6 sm:p-7 shadow-xs">
+              <div className="space-y-6 print:space-y-0">
+                {/* Status Box - Hidden in Print */}
+                <div className="bg-emerald-50 border-2 border-emerald-300/80 rounded-2xl p-6 sm:p-7 shadow-xs print:hidden">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 mb-4 border-b border-emerald-200/60">
                     <div className="flex items-center gap-2.5">
                       <div className="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
@@ -192,9 +165,9 @@ export default function PublicVerifySearchPage() {
                   </div>
                 </div>
 
-                {/* Certificate Visual Presentation */}
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
+                {/* Certificate Visual Presentation - Only this renders in Print */}
+                <div className="space-y-3 print:space-y-0 print:m-0 print:p-0">
+                  <div className="flex items-center justify-between print:hidden">
                     <span className="font-mono text-[11px] uppercase tracking-wider text-roast-400 font-bold">
                       Pratinjau Dokumen Sertifikat Digital
                     </span>
@@ -211,8 +184,8 @@ export default function PublicVerifySearchPage() {
                 </div>
               </div>
             ) : (
-              /* Not Found State */
-              <div className="bg-white border border-paper-300 rounded-2xl p-8 sm:p-12 text-center space-y-4 shadow-xs">
+              /* Not Found State - Hidden in Print */
+              <div className="bg-white border border-paper-300 rounded-2xl p-8 sm:p-12 text-center space-y-4 shadow-xs print:hidden">
                 <div className="w-12 h-12 rounded-full bg-rose-50 border border-rose-200 text-rose-600 flex items-center justify-center mx-auto">
                   <XCircle className="w-6 h-6" />
                 </div>
@@ -254,8 +227,8 @@ export default function PublicVerifySearchPage() {
           </div>
         )}
 
-        {/* Educational / Trust Features Section */}
-        <div className="pt-6 border-t border-paper-200">
+        {/* Educational / Trust Features Section - Hidden in Print */}
+        <div className="pt-6 border-t border-paper-200 print:hidden">
           <h2 className="font-serif font-bold text-lg sm:text-xl text-roast-950 mb-4 text-center">
             Standar Verifikasi & Integritas Dokumen CherryEdu
           </h2>

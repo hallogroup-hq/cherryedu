@@ -434,4 +434,18 @@ export interface PaymentTransaction {
   paid_at?: string;
 }
 
+export interface UserNote {
+  id: string;
+  user_id: string;
+  title: string;
+  content: string;
+  tags?: string[];
+  lesson_id?: string;
+  lesson_title?: string;
+  path_slug?: string;
+  source_url?: string;
+  created_at: string;
+  updated_at: string;
+}
+
 
