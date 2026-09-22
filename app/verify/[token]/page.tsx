@@ -30,10 +30,10 @@ export default function PublicVerifyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-roast-950 text-paper-100 pt-10 pb-20">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-roast-950 text-paper-100 pt-10 pb-20 print:min-h-0 print:bg-white print:p-0 print:m-0">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 print:p-0 print:m-0 print:max-w-none">
         {/* Top Brand & Registry Bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-roast-800 text-paper-200">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-roast-800 text-paper-200 print:hidden">
           <Link href="/" className="flex items-center gap-3 group">
             <img
               src="/cherry-logo-white.png"
@@ -66,9 +66,9 @@ export default function PublicVerifyPage() {
         </div>
 
         {certificate ? (
-          <div className="space-y-8">
+          <div className="space-y-8 print:space-y-0">
             {/* Top Back Link */}
-            <div>
+            <div className="print:hidden">
               <Link
                 href="/verify"
                 className="inline-flex items-center gap-1.5 font-mono text-xs text-crema-300 hover:text-white transition-colors"
@@ -79,7 +79,7 @@ export default function PublicVerifyPage() {
             </div>
 
             {/* Official Verification Ledger Banner */}
-            <div className="bg-roast-900 border-2 border-crema-500/50 p-6 sm:p-8 text-paper-100 shadow-warm relative overflow-hidden">
+            <div className="bg-roast-900 border-2 border-crema-500/50 p-6 sm:p-8 text-paper-100 shadow-warm relative overflow-hidden print:hidden">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 mb-4 border-b border-roast-800">
                 <div className="flex items-center gap-2">
                   <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-emerald-400 bg-emerald-950/80 px-2 py-0.5 border border-emerald-500/40">
@@ -107,7 +107,7 @@ export default function PublicVerifyPage() {
           </div>
         ) : (
           /* Invalid / Not Found State */
-          <div className="bg-paper-50 text-roast-950 border border-paper-400 p-8 sm:p-12 text-center shadow-warm max-w-lg mx-auto my-12 space-y-5">
+          <div className="bg-paper-50 text-roast-950 border border-paper-400 p-8 sm:p-12 text-center shadow-warm max-w-lg mx-auto my-12 space-y-5 print:hidden">
             <div className="w-12 h-12 border border-rose-400 bg-rose-50 text-rose-700 flex items-center justify-center mx-auto">
               <XCircle className="w-6 h-6" />
             </div>

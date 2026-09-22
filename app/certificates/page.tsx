@@ -14,9 +14,9 @@ export default function CertificatesGalleryPage() {
   const userCerts = certificates.filter((c) => c.user_id === currentUser.id);
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 print:py-0 print:px-0 print:m-0 print:max-w-none">
       {/* Header Ledger */}
-      <div className="border-b border-paper-300 pb-8 mb-10">
+      <div className="border-b border-paper-300 pb-8 mb-10 print:hidden">
         <div className="flex items-center gap-2 mb-3">
           <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
             Portfolio Diploma & Kredensial Resmi
@@ -33,7 +33,7 @@ export default function CertificatesGalleryPage() {
 
       {!isAuthenticated ? (
         /* Guest State */
-        <div className="bg-paper-50 border border-paper-400 p-8 sm:p-12 text-center shadow-xs max-w-lg mx-auto">
+        <div className="bg-paper-50 border border-paper-400 p-8 sm:p-12 text-center shadow-xs max-w-lg mx-auto print:hidden">
           <div className="w-12 h-12 border border-paper-400 bg-paper-200 text-roast-600 flex items-center justify-center mx-auto mb-4">
             <Award className="w-6 h-6" />
           </div>
@@ -62,9 +62,9 @@ export default function CertificatesGalleryPage() {
           </div>
         </div>
       ) : userCerts.length > 0 ? (
-        <div className="space-y-12">
+        <div className="space-y-12 print:space-y-0">
           {userCerts.map((cert) => (
-            <div key={cert.id} className="space-y-4">
+            <div key={cert.id} className="space-y-4 print:space-y-0">
               <CertificateCard
                 certificate={cert}
                 onShare={() => setSelectedCertForShare(cert)}
@@ -74,7 +74,7 @@ export default function CertificatesGalleryPage() {
         </div>
       ) : (
         /* Empty State */
-        <div className="bg-paper-50 border border-paper-400 p-8 sm:p-12 text-center shadow-xs max-w-lg mx-auto">
+        <div className="bg-paper-50 border border-paper-400 p-8 sm:p-12 text-center shadow-xs max-w-lg mx-auto print:hidden">
           <div className="w-12 h-12 border border-paper-400 bg-paper-200 text-roast-600 flex items-center justify-center mx-auto mb-4">
             <Award className="w-6 h-6" />
           </div>

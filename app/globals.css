@@ -43,28 +43,63 @@
 /* Print Diploma Certificate Optimization */
 @page {
   size: A4 landscape;
-  margin: 10mm;
+  margin: 6mm;
 }
 
 @media print {
-  header, footer, nav, button, aside, .no-print {
-    display: none !important;
-  }
+  /* 1. Global Reset */
+  html,
   body {
     background: #FFFFFF !important;
     padding: 0 !important;
     margin: 0 !important;
     color: #140E0C !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
+
+  /* 2. Hide all non-printable elements */
+  header,
+  footer,
+  nav,
+  aside,
+  button,
+  form,
+  input,
+  .no-print,
+  .print-hide,
+  [data-sonner-toaster],
+  [data-sonner-toast],
+  .sonner-toast,
+  .pwa-prompt,
+  #google-analytics,
+  #microsoft-clarity {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  /* 3. Certificate container formatting: single-page landscape fit */
   .diploma-frame {
     box-shadow: none !important;
     border: 2px solid #8C7565 !important;
     page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-before: avoid !important;
+    page-break-after: avoid !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
+    background-color: #FCFAF5 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 }
 

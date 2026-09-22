@@ -34,74 +34,71 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, o
   };
 
   const handleDownloadPDF = () => {
-    toast.info('Menyiapkan format A4 Landscape... Pilih "Simpan sebagai PDF" di dialog cetak.');
-    setTimeout(() => {
-      window.print();
-    }, 300);
+    window.print();
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 print:space-y-0 print:m-0 print:p-0">
       {/* Archival Diploma Frame */}
-      <div className="diploma-frame relative bg-[#FCFAF5] border border-[#D5CABE] rounded-xl p-8 sm:p-14 shadow-diploma text-center overflow-hidden">
+      <div className="diploma-frame relative bg-[#FCFAF5] border border-[#D5CABE] rounded-xl p-8 sm:p-14 shadow-diploma text-center overflow-hidden print:p-6 print:m-0 print:border-2 print:border-[#8C7565] print:rounded-lg print:shadow-none print:w-full print:max-w-none">
         {/* Subtle Decorative Guilloche Border */}
         <div className="absolute inset-3 border border-[#E5DAC8] pointer-events-none rounded" />
         <div className="absolute inset-4 border border-[#ECE2D2] pointer-events-none rounded" />
 
         {/* Certificate Header */}
-        <div className="flex flex-col items-center mb-8 relative z-10">
+        <div className="flex flex-col items-center mb-8 relative z-10 print:mb-2">
           <img
             src="/cherry-logo-tight.png"
             alt="Cherry Coffee Roastery"
-            className="h-16 w-auto object-contain mb-3 drop-shadow-xs"
+            className="h-16 w-auto object-contain mb-3 drop-shadow-xs print:h-11 print:mb-1"
           />
-          <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-roast-600 block">
+          <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-roast-600 block print:text-[10px]">
             CHERRY COFFEE ROASTERY ACADEMY
           </span>
-          <span className="text-[10px] font-mono tracking-wider text-roast-400 uppercase">
+          <span className="text-[10px] font-mono tracking-wider text-roast-400 uppercase print:text-[9px]">
             INDONESIA SPECIALTY COFFEE CURRICULUM
           </span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-black text-roast-950 mt-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-serif font-black text-roast-950 mt-4 tracking-tight print:text-2xl print:mt-1">
             Certificate of Completion
           </h2>
-          <div className="font-mono text-[10px] uppercase tracking-widest text-roast-500 mt-1">
+          <div className="font-mono text-[10px] uppercase tracking-widest text-roast-500 mt-1 print:text-[9px] print:mt-0.5">
             CREDENTIAL NO: {certificate.certificate_number}
           </div>
         </div>
 
         {/* Certificate Body */}
-        <div className="space-y-4 max-w-xl mx-auto my-8 relative z-10">
-          <p className="font-mono text-xs uppercase tracking-wider text-roast-500">
+        <div className="space-y-4 max-w-xl mx-auto my-8 relative z-10 print:my-2 print:space-y-1">
+          <p className="font-mono text-xs uppercase tracking-wider text-roast-500 print:text-[10px]">
             Diberikan secara terhormat kepada:
           </p>
 
-          <div className="text-3xl sm:text-4xl font-serif font-extrabold text-roast-950 tracking-tight border-b border-paper-300 pb-3 px-6 inline-block">
+          <div className="text-3xl sm:text-4xl font-serif font-extrabold text-roast-950 tracking-tight border-b border-paper-300 pb-3 px-6 inline-block print:text-2xl print:pb-1">
             {certificate.user_name || 'Alumnus CherryEdu'}
           </div>
 
-          <p className="text-xs sm:text-sm text-roast-700 leading-relaxed font-sans max-w-md mx-auto pt-2">
+          <p className="text-xs sm:text-sm text-roast-700 leading-relaxed font-sans max-w-md mx-auto pt-2 print:text-[11px] print:pt-1">
             Telah menyelesaikan seluruh rangkaian silabus hulu-ke-hilir dan dinyatakan lulus ujian kompetensi resmi berstandar SCA untuk:
           </p>
 
-          <div className="font-serif font-bold text-lg sm:text-xl text-roast-950 bg-paper-100/80 px-6 py-2 rounded border border-paper-300 inline-block mt-2">
+          <div className="font-serif font-bold text-lg sm:text-xl text-roast-950 bg-paper-100/80 px-6 py-2 rounded border border-paper-300 inline-block mt-2 print:text-base print:py-1 print:px-4 print:mt-1">
             {certificate.path_title || 'Foundation: Kopi dari Hulu ke Hilir'}
           </div>
 
           {certificate.grade_text && (
-            <div className="font-mono text-xs text-cherry-800 font-bold block pt-1">
+            <div className="font-mono text-xs text-cherry-800 font-bold block pt-1 print:text-[11px] print:pt-0.5">
               PREDIKAT: {certificate.grade_text.toUpperCase()}
             </div>
           )}
         </div>
 
         {/* Signatures & Seal Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-end pt-8 border-t border-paper-200 mt-8 max-w-xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 print:grid-cols-3 gap-6 print:gap-3 items-end pt-8 border-t border-paper-200 mt-8 max-w-xl mx-auto relative z-10 print:mt-2 print:pt-2">
           {/* Left: Date */}
-          <div className="text-center sm:text-left font-mono text-xs text-roast-600">
+          <div className="text-center sm:text-left print:text-left font-mono text-xs text-roast-600">
             <span className="block text-[9px] uppercase tracking-widest text-roast-400 font-bold">
               Tanggal Kelulusan
             </span>
-            <span className="font-bold text-roast-900 mt-1 block">
+            <span className="font-bold text-roast-900 mt-1 block print:text-[11px]">
               {new Date(certificate.issued_at).toLocaleDateString('id-ID', {
                 day: 'numeric',
                 month: 'long',
@@ -112,7 +109,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, o
 
           {/* Middle: Minimalist Gold Seal */}
           <div className="flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full border border-crema-600/50 bg-crema-50/80 flex items-center justify-center text-crema-800 shadow-subtle p-2">
+            <div className="w-16 h-16 print:w-13 print:h-13 rounded-full border border-crema-600/50 bg-crema-50/80 flex items-center justify-center text-crema-800 shadow-subtle p-2">
               <div className="text-[8px] font-mono font-bold text-center uppercase tracking-tighter leading-tight border border-dashed border-crema-600/40 rounded-full w-full h-full flex flex-col items-center justify-center">
                 <span>★ VERIFIED ★</span>
                 <span className="font-serif font-black text-[9px]">CHERRY</span>
@@ -122,11 +119,11 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, o
           </div>
 
           {/* Right: Signature */}
-          <div className="text-center sm:text-right font-mono text-xs">
+          <div className="text-center sm:text-right print:text-right font-mono text-xs">
             <div className="font-serif italic text-base font-bold text-roast-950">
               Fahrul M.W
             </div>
-            <div className="w-32 border-b border-roast-400 mx-auto sm:ml-auto sm:mr-0 my-1" />
+            <div className="w-32 border-b border-roast-400 mx-auto sm:ml-auto sm:mr-0 print:ml-auto print:mr-0 my-1" />
             <span className="block text-[9px] uppercase text-roast-500 leading-tight">
               Head of Quality & Q Grader<br />Cherry Coffee Roastery
             </span>
@@ -134,7 +131,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, o
         </div>
 
         {/* Verification Strip Footer */}
-        <div className="mt-8 pt-4 border-t border-dashed border-paper-300 flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] font-mono text-roast-500 relative z-10">
+        <div className="mt-8 pt-4 border-t border-dashed border-paper-300 flex flex-col sm:flex-row print:flex-row items-center justify-between gap-3 text-[10px] font-mono text-roast-500 relative z-10 print:mt-2 print:pt-1">
           <span className="flex items-center gap-1.5 text-emerald-800">
             ● Kredensial Tercatat di Buku Induk Digital CherryEdu
           </span>
@@ -145,8 +142,8 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, o
         </div>
       </div>
 
-      {/* Action Buttons Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-2 p-3 bg-white rounded-lg border border-paper-300 text-xs font-mono">
+      {/* Action Buttons Bar - Completely hidden in Print */}
+      <div className="flex flex-wrap items-center justify-between gap-2 p-3 bg-white rounded-lg border border-paper-300 text-xs font-mono print:hidden">
         <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={handleCopyLink}
