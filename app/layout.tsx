@@ -71,6 +71,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  verification: {
+    google: 'fK9i-P0UsMyuG4BWL6QYSrxf1NBqYE-CwOokXpcc-pY',
+  },
   openGraph: {
     title: 'CherryEdu — Platform & Akademi Edukasi Kopi Terlengkap di Indonesia',
     description:
