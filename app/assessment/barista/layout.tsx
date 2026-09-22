@@ -1,0 +1,33 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Simulasi Uji Kompetensi Barista Pra-Kerja',
+  description:
+    'Instrumen penilaian objektif kualifikasi barista untuk pemilik kafe dan calon barista: Uji skenario dial-in espresso, sains pemanasan susu, sanitasi alat espresso, hospitality, dan efisiensi bar.',
+  keywords: [
+    'uji kompetensi barista',
+    'tes wawancara barista',
+    'soal tes barista',
+    'skenario uji barista kafe',
+    'sertifikasi profesi barista',
+    'asesmen barista indonesia',
+    'evaluasi kerja barista',
+  ],
+  openGraph: {
+    title: 'Simulasi Uji Kompetensi Barista Pra-Kerja | CherryEdu',
+    description:
+      'Evaluasi pemahaman teknis barista pra-kerja dengan skenario nyata dan laporan radar kompetensi.',
+    url: 'https://cherryedu.vercel.app/assessment/barista',
+  },
+  alternates: {
+    canonical: 'https://cherryedu.vercel.app/assessment/barista',
+  },
+};
+
+export default function BaristaAssessmentLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
+}

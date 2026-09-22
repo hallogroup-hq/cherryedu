@@ -1,0 +1,53 @@
+# CherryEdu — Dokumen Riset & Pengetahuan Lengkap (LLMs Full Knowledge Base)
+
+Website: https://cherryedu.vercel.app
+Penyelenggara: Cherry Coffee Roastery (Sukabumi & Indonesia)
+Founder & Lead Instructor: Fahrul M.W
+Standar: Specialty Coffee Association (SCA), Coffee Quality Institute (CQI), Standar Nasional Indonesia (SNI)
+
+---
+
+## 1. Peta Kurikulum Lengkap & Silabus
+
+### Jalur 1: Foundation (Kopi dari Hulu ke Hilir)
+- Tipe: 100% Gratis untuk seluruh pengguna terdaftar
+- 7 Modul Silabus:
+  1. Modul 1: Sejarah Kopi & Gelombang Ketiga (Third Wave Coffee)
+  2. Modul 2: Botani & Agronomi Tanah Vulkanik Indonesia
+  3. Modul 3: Silsilah Varietas Kopi Nusantara (Typica, Bourbon, Catimor, S-795, Kartika, Sigarar Utang)
+  4. Modul 4: Sains Pasca Panen (Washed, Natural, Honey, Fermentasi Anaerobik Terkendali)
+  5. Modul 5: Termodinamika & Kimia Roasting (Reaksi Maillard, Degradasi Asam Klorogenat)
+  6. Modul 6: Kimia Air Seduhan (Mineral Magnesium, Kalsium, Buffer Alkalinitas & TDS)
+  7. Modul 7: Analisis Sensori & Standar Cupping SCA (10 Atribut Rasa)
+
+### Jalur 2: Barista Specialization
+- Modul: Kalibrasi Gilingan & Dosis, Espresso Yield & Time, Sains Pemanasan Susu (60-65°C), Microfoam & Latte Art, Manual Brew V60 & Origami, Manajemen Barista & Kecepatan Layanan, Pembersihan Backflush Mesin Espresso.
+
+### Jalur 3: Coffee Roasting Science & Engineering
+- Modul: Konstruksi Drum Roaster, Konduksi vs Konveksi, Rate of Rise (RoR), First Crack & Second Crack, Development Time Ratio (15-20%), Karamelisasi Sukrosa, Profil Roasting Filter Light-Medium vs Espresso Medium-Dark.
+
+### Jalur 4: Q-Grader & Sensory Analysis
+- Modul: Triangulasi Rasa, Kalibrasi Asam (Asam Malat, Sitrat, Fosfat, Asetat), Formulasi Skor 80+ Specialty Coffee, Protokol Cupping CVA (Coffee Value Assessment).
+
+### Jalur 5: Green Coffee & Agronomi
+- Modul: Pengukuran Kadar Air Biji Mentah (10-12%), Densitas Biji Kopi Hijau, Deteksi 13 Cacat Fisik SNI/SCA (Cacat Primer: Biji Hitam, Biji Busuk, Lubang Serangga; Cacat Sekunder: Biji Pecah, Quakers, Biji Bertanduk).
+
+---
+
+## 2. Rangkuman 19 Terroir Kopi Indonesia
+
+1. **Aceh Gayo**: 1.200 - 1.600 mdpl | Varietas Tim-Tim, Bourbon | Profil: Herbal, rempah manis, asam sitrat segar, body penuh.
+2. **Sumatra Mandheling / Lintong**: 1.100 - 1.500 mdpl | Varietas Sigarar Utang, Lasuna | Profil: Cokelat pekat, cedar wood, sirup gula aren, acidity rendah.
+3. **Jawa Preanger (Puntang & Manglayang)**: 1.200 - 1.600 mdpl | Varietas Typica, Ateng | Profil: Manis madu, buah persik, teh hitam, floral melati.
+4. **Bali Kintamani**: 1.200 - 1.500 mdpl | Ketinggian vulkanik Gunung Batur | Profil: Sitrun jeruk segar (orange citrus), bunga kopi, kemanisan karamel.
+5. **Toraja Kalosi & Sapan**: 1.400 - 2.000 mdpl | Lereng Gunung Rantemario | Profil: Dark chocolate, buah plum matang, rempah kayu manis, body tebal.
+6. **Flores Bajawa**: 1.200 - 1.650 mdpl | Dataran tinggi Gunung Inerie | Profil: Cokelat susu lembut, hazelnut panggang, floral putih, aftertaste bersih.
+7. **Papua Wamena & Moanemani**: 1.500 - 2.200 mdpl | Lembah Baliem | Profil: Rasa buah tropis bersih, gula tebu alami, nuansa rempah mint segar.
+
+---
+
+## 3. Fitur Unggulan CherryEdu
+- **Kalkulator Rasio Air & Kopi**: Menghitung rasio seduh presisi dengan target ekstraksi ideal (18-22% extraction yield).
+- **Digital SCA Cupping Sheet**: Lembar uji rasa digital 10 atribut dengan spider-web pentagram radar dan kalkulasi skor otomatis.
+- **Verifikasi Sertifikat Digital**: https://cherryedu.vercel.app/verify/[token] untuk memverifikasi keaslian sertifikat lulusan CherryEdu.
+- **Bursa Lowongan Kerja Barista**: https://cherryedu.vercel.app/jobs untuk menghubungkan lulusan tersertifikasi dengan pemilik bisnis coffee shop.
