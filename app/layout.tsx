@@ -7,7 +7,6 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { WhatsNewModal } from '@/components/WhatsNewModal';
 import { Toaster } from 'sonner';
-import Analytics from '@/components/analytics/Analytics';
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -224,6 +223,19 @@ export default function RootLayout({
             `,
           }}
         />
+        {/* Microsoft Clarity */}
+        <script
+          id="microsoft-clarity"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(c,l,a,r,i,t,y){
+                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "ymfli7aain");
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased bg-paper-50 text-roast-950 selection:bg-cherry-100 selection:text-cherry-900">
         <AuthProvider>
@@ -233,7 +245,6 @@ export default function RootLayout({
             <Footer />
             <WhatsNewModal />
             <Toaster position="bottom-right" richColors closeButton />
-            <Analytics />
           </CherryEduProvider>
         </AuthProvider>
       </body>
