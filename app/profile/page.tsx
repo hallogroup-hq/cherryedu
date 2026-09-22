@@ -14,7 +14,7 @@ import {
   Briefcase,
   Edit,
   RotateCcw,
-  Sparkles,
+  Shield,
   LogOut,
   PenTool,
   Plus,
@@ -274,7 +274,7 @@ function ProfileContent() {
           <div className="bg-paper-100 border border-paper-300 p-3 text-center">
             <span className="text-[10px] text-roast-500 uppercase block font-bold tracking-wider">Lencana</span>
             <div className="text-sm font-bold text-roast-950 flex items-center justify-center gap-1 mt-1">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+              <Shield className="w-3.5 h-3.5 text-emerald-600" />
               <span>{userBadgesList.length} Hallmarks</span>
             </div>
           </div>
@@ -303,6 +303,17 @@ function ProfileContent() {
         </button>
 
         <button
+          onClick={() => setActiveTab('notes')}
+          className={`px-4 py-2 uppercase tracking-wider whitespace-nowrap transition-all border ${
+            activeTab === 'notes'
+              ? 'bg-roast-950 text-paper-50 border-roast-950 font-bold'
+              : 'bg-paper-50 text-roast-700 border-paper-300 hover:border-roast-700'
+          }`}
+        >
+          02 • Catatan Belajar ({userNotes.length})
+        </button>
+
+        <button
           onClick={() => setActiveTab('badges')}
           className={`px-4 py-2 uppercase tracking-wider whitespace-nowrap transition-all border ${
             activeTab === 'badges'
@@ -310,7 +321,7 @@ function ProfileContent() {
               : 'bg-paper-50 text-roast-700 border-paper-300 hover:border-roast-700'
           }`}
         >
-          02 • Lencana Guild ({userBadgesList.length})
+          03 • Lencana Guild ({userBadgesList.length})
         </button>
 
         <button
@@ -321,7 +332,7 @@ function ProfileContent() {
               : 'bg-paper-50 text-roast-700 border-paper-300 hover:border-roast-700'
           }`}
         >
-          03 • Diploma Resmi ({userCerts.length})
+          04 • Diploma Resmi ({userCerts.length})
         </button>
 
         <button
@@ -332,7 +343,7 @@ function ProfileContent() {
               : 'bg-paper-50 text-roast-700 border-paper-300 hover:border-roast-700'
           }`}
         >
-          04 • Arsip Bacaan ({userBookmarks.length})
+          05 • Arsip Bacaan ({userBookmarks.length})
         </button>
 
         <button
@@ -343,18 +354,7 @@ function ProfileContent() {
               : 'bg-paper-50 text-roast-700 border-paper-300 hover:border-roast-700'
           }`}
         >
-          05 • Lamaran Bar ({userApps.length})
-        </button>
-
-        <button
-          onClick={() => setActiveTab('notes')}
-          className={`px-4 py-2 uppercase tracking-wider whitespace-nowrap transition-all border ${
-            activeTab === 'notes'
-              ? 'bg-roast-950 text-paper-50 border-roast-950 font-bold'
-              : 'bg-paper-50 text-roast-700 border-paper-300 hover:border-roast-700'
-          }`}
-        >
-          06 • Catatan Belajar ({userNotes.length})
+          06 • Lamaran Bar ({userApps.length})
         </button>
       </div>
 
@@ -408,161 +408,7 @@ function ProfileContent() {
         </div>
       )}
 
-      {/* Tab 2: Badges Collection */}
-      {activeTab === 'badges' && (
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {badges.map((badge) => {
-            const owned = userBadgesList.find((ub) => ub.id === badge.id);
-            return (
-              <div
-                key={badge.id}
-                className={`p-6 border text-center transition-all flex flex-col items-center justify-between ${
-                  owned
-                    ? 'bg-paper-100 border-crema-500 shadow-xs'
-                    : 'bg-paper-50/50 border-paper-200 opacity-40 grayscale'
-                }`}
-              >
-                <div className="text-4xl mb-3">{badge.icon_url}</div>
-                <h4 className="font-serif text-sm font-bold text-roast-950 mb-1">{badge.name}</h4>
-                <p className="font-sans text-[11px] text-roast-600 leading-snug">
-                  {badge.description}
-                </p>
-                {owned ? (
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-roast-900 font-semibold bg-paper-200 border border-paper-300 px-2 py-0.5 mt-3 block">
-                    Diraih: {new Date(owned.earned_at).toLocaleDateString('id-ID')}
-                  </span>
-                ) : (
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-roast-400 mt-3 block">
-                    Terkunci
-                  </span>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      )}
-
-      {/* Tab 3: Certificates */}
-      {activeTab === 'certificates' && (
-        <div className="space-y-4">
-          {userCerts.length > 0 ? (
-            userCerts.map((cert) => (
-              <div
-                key={cert.id}
-                className="bg-paper-50 border border-paper-300 p-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-5"
-              >
-                <div>
-                  <span className="font-mono text-[10px] uppercase text-roast-500 block">
-                    No. Registri: {cert.certificate_number}
-                  </span>
-                  <h3 className="font-serif text-lg font-bold text-roast-950 mt-1">
-                    {cert.path_title}
-                  </h3>
-                  <div className="font-mono text-xs text-cherry-700 font-bold mt-1">
-                    PREDIKAT: {cert.grade_text?.toUpperCase() || 'LULUS KOMPETEN'}
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <Link
-                    href={`/verify/${cert.share_token}`}
-                    target="_blank"
-                    className="px-4 py-2 border border-paper-400 bg-paper-100 hover:border-roast-900 text-roast-800 font-mono text-xs uppercase tracking-wider transition-colors"
-                  >
-                    Verifikasi Publik
-                  </Link>
-                  <Link
-                    href="/certificates"
-                    className="px-4 py-2 bg-cherry-700 hover:bg-cherry-800 text-paper-50 font-mono text-xs uppercase tracking-wider font-bold transition-colors"
-                  >
-                    Buka Diploma
-                  </Link>
-                </div>
-              </div>
-            ))
-          ) : (
-            <div className="text-center py-12 bg-paper-50 border border-paper-300 p-6 font-mono text-xs text-roast-500">
-              Belum ada diploma kelulusan yang diterbitkan. Selesaikan seluruh modul dan lulus ujian akhir kompetensi.
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Tab 4: Bookmarks */}
-      {activeTab === 'bookmarks' && (
-        <div className="space-y-3">
-          {userBookmarks.length > 0 ? (
-            userBookmarks.map((bm) => {
-              const les = lessons.find((l) => l.id === bm.lesson_id);
-              if (!les) return null;
-
-              return (
-                <div
-                  key={bm.id}
-                  className="bg-paper-50 p-5 border border-paper-300 shadow-2xs flex justify-between items-center"
-                >
-                  <div>
-                    <span className="font-serif text-sm font-bold text-roast-950 block">{les.title}</span>
-                    <span className="font-mono text-[10px] text-roast-500 block mt-1">
-                      DURASI: {les.duration_minutes} MENIT • DISIMPAN: {new Date(bm.created_at).toLocaleDateString('id-ID')}
-                    </span>
-                  </div>
-
-                  <Link
-                    href="/paths"
-                    className="px-4 py-1.5 bg-paper-200 border border-paper-300 hover:border-roast-900 font-mono text-xs uppercase text-roast-900 font-bold transition-colors"
-                  >
-                    Buka Modul
-                  </Link>
-                </div>
-              );
-            })
-          ) : (
-            <div className="text-center py-12 bg-paper-50 border border-paper-300 p-6 font-mono text-xs text-roast-500">
-              Belum ada materi pelajaran yang diarsipkan.
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Tab 5: Applications */}
-      {activeTab === 'applications' && (
-        <div className="space-y-3">
-          {userApps.length > 0 ? (
-            userApps.map((app) => {
-              const job = jobListings.find((j) => j.id === app.job_listing_id);
-              return (
-                <div
-                  key={app.id}
-                  className="bg-paper-50 p-5 border border-paper-300 shadow-2xs space-y-2 text-xs"
-                >
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h4 className="font-serif text-sm font-bold text-roast-950">{job?.title || 'Posisi Barista'}</h4>
-                      <span className="font-mono text-[11px] text-roast-600">{job?.company_name} ({job?.city})</span>
-                    </div>
-                    <span className="px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase bg-paper-200 text-roast-800 border border-paper-300">
-                      STATUS: {app.status.toUpperCase()}
-                    </span>
-                  </div>
-                  <p className="font-sans text-xs text-roast-700 italic bg-paper-100 p-3 border-l-2 border-paper-400">
-                    &ldquo;{app.cover_letter}&rdquo;
-                  </p>
-                  <span className="font-mono text-[10px] text-roast-400 block">
-                    DIKIRIM: {new Date(app.applied_at).toLocaleString('id-ID')}
-                  </span>
-                </div>
-              );
-            })
-          ) : (
-            <div className="text-center py-12 bg-paper-50 border border-paper-300 p-6 font-mono text-xs text-roast-500">
-              Belum ada berkas lamaran bar yang dikirimkan.
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Tab 6: Notes / Notebook */}
+      {/* Tab 2: Catatan Belajar (Notebook) */}
       {activeTab === 'notes' && (
         <div className="space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-paper-100 border border-paper-300 p-4 rounded-xl">
@@ -713,6 +559,162 @@ function ProfileContent() {
           )}
         </div>
       )}
+
+      {/* Tab 3: Badges Collection */}
+      {activeTab === 'badges' && (
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {badges.map((badge) => {
+            const owned = userBadgesList.find((ub) => ub.id === badge.id);
+            return (
+              <div
+                key={badge.id}
+                className={`p-6 border text-center transition-all flex flex-col items-center justify-between ${
+                  owned
+                    ? 'bg-paper-100 border-crema-500 shadow-xs'
+                    : 'bg-paper-50/50 border-paper-200 opacity-40 grayscale'
+                }`}
+              >
+                <div className="text-4xl mb-3">{badge.icon_url}</div>
+                <h4 className="font-serif text-sm font-bold text-roast-950 mb-1">{badge.name}</h4>
+                <p className="font-sans text-[11px] text-roast-600 leading-snug">
+                  {badge.description}
+                </p>
+                {owned ? (
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-roast-900 font-semibold bg-paper-200 border border-paper-300 px-2 py-0.5 mt-3 block">
+                    Diraih: {new Date(owned.earned_at).toLocaleDateString('id-ID')}
+                  </span>
+                ) : (
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-roast-400 mt-3 block">
+                    Terkunci
+                  </span>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Tab 4: Certificates */}
+      {activeTab === 'certificates' && (
+        <div className="space-y-4">
+          {userCerts.length > 0 ? (
+            userCerts.map((cert) => (
+              <div
+                key={cert.id}
+                className="bg-paper-50 border border-paper-300 p-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-5"
+              >
+                <div>
+                  <span className="font-mono text-[10px] uppercase text-roast-500 block">
+                    No. Registri: {cert.certificate_number}
+                  </span>
+                  <h3 className="font-serif text-lg font-bold text-roast-950 mt-1">
+                    {cert.path_title}
+                  </h3>
+                  <div className="font-mono text-xs text-cherry-700 font-bold mt-1">
+                    PREDIKAT: {cert.grade_text?.toUpperCase() || 'LULUS KOMPETEN'}
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <Link
+                    href={`/verify/${cert.share_token}`}
+                    target="_blank"
+                    className="px-4 py-2 border border-paper-400 bg-paper-100 hover:border-roast-900 text-roast-800 font-mono text-xs uppercase tracking-wider transition-colors"
+                  >
+                    Verifikasi Publik
+                  </Link>
+                  <Link
+                    href="/certificates"
+                    className="px-4 py-2 bg-cherry-700 hover:bg-cherry-800 text-paper-50 font-mono text-xs uppercase tracking-wider font-bold transition-colors"
+                  >
+                    Buka Diploma
+                  </Link>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="text-center py-12 bg-paper-50 border border-paper-300 p-6 font-mono text-xs text-roast-500">
+              Belum ada diploma kelulusan yang diterbitkan. Selesaikan seluruh modul dan lulus ujian akhir kompetensi.
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Tab 5: Bookmarks */}
+      {activeTab === 'bookmarks' && (
+        <div className="space-y-3">
+          {userBookmarks.length > 0 ? (
+            userBookmarks.map((bm) => {
+              const les = lessons.find((l) => l.id === bm.lesson_id);
+              if (!les) return null;
+
+              return (
+                <div
+                  key={bm.id}
+                  className="bg-paper-50 p-5 border border-paper-300 shadow-2xs flex justify-between items-center"
+                >
+                  <div>
+                    <span className="font-serif text-sm font-bold text-roast-950 block">{les.title}</span>
+                    <span className="font-mono text-[10px] text-roast-500 block mt-1">
+                      DURASI: {les.duration_minutes} MENIT • DISIMPAN: {new Date(bm.created_at).toLocaleDateString('id-ID')}
+                    </span>
+                  </div>
+
+                  <Link
+                    href="/paths"
+                    className="px-4 py-1.5 bg-paper-200 border border-paper-300 hover:border-roast-900 font-mono text-xs uppercase text-roast-900 font-bold transition-colors"
+                  >
+                    Buka Modul
+                  </Link>
+                </div>
+              );
+            })
+          ) : (
+            <div className="text-center py-12 bg-paper-50 border border-paper-300 p-6 font-mono text-xs text-roast-500">
+              Belum ada materi pelajaran yang diarsipkan.
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Tab 6: Applications */}
+      {activeTab === 'applications' && (
+        <div className="space-y-3">
+          {userApps.length > 0 ? (
+            userApps.map((app) => {
+              const job = jobListings.find((j) => j.id === app.job_listing_id);
+              return (
+                <div
+                  key={app.id}
+                  className="bg-paper-50 p-5 border border-paper-300 shadow-2xs space-y-2 text-xs"
+                >
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h4 className="font-serif text-sm font-bold text-roast-950">{job?.title || 'Posisi Barista'}</h4>
+                      <span className="font-mono text-[11px] text-roast-600">{job?.company_name} ({job?.city})</span>
+                    </div>
+                    <span className="px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase bg-paper-200 text-roast-800 border border-paper-300">
+                      STATUS: {app.status.toUpperCase()}
+                    </span>
+                  </div>
+                  <p className="font-sans text-xs text-roast-700 italic bg-paper-100 p-3 border-l-2 border-paper-400">
+                    &ldquo;{app.cover_letter}&rdquo;
+                  </p>
+                  <span className="font-mono text-[10px] text-roast-400 block">
+                    DIKIRIM: {new Date(app.applied_at).toLocaleString('id-ID')}
+                  </span>
+                </div>
+              );
+            })
+          ) : (
+            <div className="text-center py-12 bg-paper-50 border border-paper-300 p-6 font-mono text-xs text-roast-500">
+              Belum ada berkas lamaran bar yang dikirimkan.
+            </div>
+          )}
+        </div>
+      )}
+
+
 
       {/* Notebook Drawer modal */}
       <NotebookDrawer

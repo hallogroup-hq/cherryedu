@@ -4,26 +4,28 @@ import React, { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
 import { NotebookDrawer } from '@/components/NotebookDrawer';
+import { DirectChatDrawer } from '@/components/DirectChatDrawer';
 import {
-  MessageCircle,
-  BookOpen,
+  MessageSquare,
   X,
-  Sparkles,
   ChevronRight,
   Coffee,
   PenTool,
 } from 'lucide-react';
 
-const ADMIN_WA_NUMBER = '6281234567890';
-
 export const FloatingActionButton: React.FC = () => {
   const pathname = usePathname();
-  const { currentUser, lessons, getUserNotes } = useCherryEdu();
+  const { currentUser, getUserNotes, getConversationMessages } = useCherryEdu();
   const [isOpen, setIsOpen] = useState(false);
   const [isNotebookOpen, setIsNotebookOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const userNotes = getUserNotes(currentUser.id);
+  const chatMessages = getConversationMessages(currentUser.id);
+  const unreadAdminReplies = chatMessages.filter(
+    (m) => m.sender_role === 'admin' && !m.is_read
+  ).length;
 
   // Close on outside click
   useEffect(() => {
@@ -56,32 +58,14 @@ export const FloatingActionButton: React.FC = () => {
     return null;
   }
 
-  // Generate contextual WhatsApp message
-  const getWhatsAppUrl = () => {
-    const userName = currentUser.name || 'Rekan Barista';
-    let contextDetail = '';
-
-    if (pathname?.includes('/lessons/')) {
-      const lessonMatch = pathname.match(/\/paths\/[^\/]+\/lessons\/([^\/]+)/);
-      if (lessonMatch) {
-        const activeLesson = lessons.find((l) => l.id === lessonMatch[1]);
-        if (activeLesson) {
-          contextDetail = ` seputar materi "${activeLesson.title}"`;
-        }
-      }
-    } else if (pathname?.startsWith('/tools')) {
-      contextDetail = ' seputar instrumen laboratorium seduh digital';
-    } else if (pathname?.startsWith('/pricing')) {
-      contextDetail = ' mengenai paket langganan CherryEdu Pro';
-    }
-
-    const message = `Halo Admin CherryEdu, saya ${userName}. Saya ingin bertanya${contextDetail}.\n\n(Tautan halaman: https://edu.cherrycoffeeroastery.com${pathname || ''})`;
-    return `https://wa.me/${ADMIN_WA_NUMBER}?text=${encodeURIComponent(message)}`;
-  };
-
   const handleOpenNotebook = () => {
     setIsOpen(false);
     setIsNotebookOpen(true);
+  };
+
+  const handleOpenChat = () => {
+    setIsOpen(false);
+    setIsChatOpen(true);
   };
 
   return (
@@ -95,12 +79,12 @@ export const FloatingActionButton: React.FC = () => {
         {isOpen && (
           <div className="mb-3 w-72 sm:w-80 bg-paper-50 border-2 border-roast-900 rounded-2xl shadow-2xl p-2.5 space-y-1.5 animate-fadeIn">
             {/* Menu Header */}
-            <div className="px-3 py-2 border-b border-paper-300 flex items-center justify-between">
-              <span className="font-mono text-[10px] text-roast-500 uppercase tracking-wider font-bold">
-                Menu Cepat CherryEdu
+            <div className="px-3 py-2 border-b border-paper-300 flex items-center justify-between font-mono text-[10px] uppercase">
+              <span className="text-roast-500 font-bold tracking-wider">
+                Menu Akses Cepat
               </span>
-              <span className="font-mono text-[10px] text-cherry-700 font-semibold">
-                Bantuan & Catatan
+              <span className="text-cherry-800 font-bold">
+                CherryEdu
               </span>
             </div>
 
@@ -110,7 +94,7 @@ export const FloatingActionButton: React.FC = () => {
               className="w-full group flex items-center justify-between p-3 rounded-xl bg-white hover:bg-paper-100 border border-paper-200 hover:border-roast-800 transition-all duration-150 text-left shadow-xs hover:shadow-sm"
             >
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-cherry-900 text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+                <div className="w-10 h-10 rounded-xl bg-roast-950 text-paper-50 flex items-center justify-center shrink-0 shadow-xs group-hover:bg-cherry-950 transition-colors">
                   <PenTool className="w-4 h-4" />
                 </div>
                 <div>
@@ -119,45 +103,46 @@ export const FloatingActionButton: React.FC = () => {
                       Catatan Belajar
                     </span>
                     {userNotes.length > 0 && (
-                      <span className="px-1.5 py-0.2 rounded-full bg-cherry-100 text-cherry-900 font-mono text-[10px] font-bold">
+                      <span className="px-1.5 py-0.2 rounded-full bg-paper-200 text-roast-800 font-mono text-[10px] font-bold">
                         {userNotes.length}
                       </span>
                     )}
                   </div>
                   <p className="font-sans text-[11px] text-roast-600 line-clamp-1">
-                    Buka notebook, resep & ringkasan materi
+                    Buku catatan resep & rangkuman materi
                   </p>
                 </div>
               </div>
               <ChevronRight className="w-4 h-4 text-roast-400 group-hover:text-roast-800 group-hover:translate-x-0.5 transition-all shrink-0 ml-1" />
             </button>
 
-            {/* Option 2: Chat Admin WhatsApp */}
-            <a
-              href={getWhatsAppUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsOpen(false)}
-              className="w-full group flex items-center justify-between p-3 rounded-xl bg-white hover:bg-emerald-50/50 border border-paper-200 hover:border-emerald-600/70 transition-all duration-150 text-left shadow-xs hover:shadow-sm"
+            {/* Option 2: Direct Chat Admin di Website */}
+            <button
+              onClick={handleOpenChat}
+              className="w-full group flex items-center justify-between p-3 rounded-xl bg-white hover:bg-paper-100 border border-paper-200 hover:border-roast-800 transition-all duration-150 text-left shadow-xs hover:shadow-sm"
             >
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
-                  <MessageCircle className="w-4 h-4 fill-current" />
+                <div className="w-10 h-10 rounded-xl bg-cherry-900 text-white flex items-center justify-center shrink-0 shadow-xs group-hover:bg-cherry-950 transition-colors">
+                  <MessageSquare className="w-4 h-4" />
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5">
-                    <span className="font-serif font-bold text-sm text-roast-950 group-hover:text-emerald-900 transition-colors">
-                      Chat Admin
+                    <span className="font-serif font-bold text-sm text-roast-950 group-hover:text-cherry-900 transition-colors">
+                      Chat Tim Admin
                     </span>
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    {unreadAdminReplies > 0 && (
+                      <span className="px-1.5 py-0.2 rounded-full bg-cherry-600 text-white font-mono text-[10px] font-bold">
+                        {unreadAdminReplies} baru
+                      </span>
+                    )}
                   </div>
                   <p className="font-sans text-[11px] text-roast-600 line-clamp-1">
-                    Konsultasi & bantuan via WhatsApp
+                    Layanan bantuan & konsultasi langsung
                   </p>
                 </div>
               </div>
-              <ChevronRight className="w-4 h-4 text-roast-400 group-hover:text-emerald-700 group-hover:translate-x-0.5 transition-all shrink-0 ml-1" />
-            </a>
+              <ChevronRight className="w-4 h-4 text-roast-400 group-hover:text-roast-800 group-hover:translate-x-0.5 transition-all shrink-0 ml-1" />
+            </button>
           </div>
         )}
 
@@ -165,31 +150,29 @@ export const FloatingActionButton: React.FC = () => {
         <button
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? 'Tutup menu aksi' : 'Buka menu catatan dan chat admin'}
-          className={`relative group flex items-center justify-center w-14 h-14 rounded-full shadow-2xl transition-all duration-200 active:scale-90 border-2 ${
+          className={`relative group flex items-center justify-center w-14 h-14 rounded-full shadow-2xl transition-all duration-200 active:scale-95 border-2 ${
             isOpen
-              ? 'bg-roast-950 border-paper-50 text-paper-50 rotate-90'
-              : 'bg-gradient-to-br from-cherry-900 via-roast-950 to-roast-900 border-crema-300/40 text-crema-100 hover:scale-105 shadow-cherry-950/40'
+              ? 'bg-roast-950 border-paper-50 text-paper-50'
+              : 'bg-roast-950 border-roast-800 hover:bg-cherry-950 text-paper-50 hover:scale-105'
           }`}
         >
           {isOpen ? (
             <X className="w-6 h-6 transition-transform" />
           ) : (
-            <>
-              <div className="relative">
-                <Coffee className="w-6 h-6 transition-transform group-hover:rotate-12" />
-                {userNotes.length > 0 && (
-                  <span className="absolute -top-1 -right-1.5 w-3.5 h-3.5 bg-cherry-500 text-white font-mono text-[9px] font-black rounded-full flex items-center justify-center border border-roast-950 shadow-xs">
-                    {userNotes.length > 9 ? '9+' : userNotes.length}
-                  </span>
-                )}
-              </div>
-            </>
+            <div className="relative">
+              <Coffee className="w-6 h-6 transition-transform" />
+              {(userNotes.length > 0 || unreadAdminReplies > 0) && (
+                <span className="absolute -top-1 -right-1.5 w-3.5 h-3.5 bg-cherry-600 text-white font-mono text-[9px] font-bold rounded-full flex items-center justify-center border border-roast-950 shadow-xs">
+                  {unreadAdminReplies > 0 ? '!' : (userNotes.length > 9 ? '9+' : userNotes.length)}
+                </span>
+              )}
+            </div>
           )}
 
-          {/* Tooltip on hover (desktop only) when closed */}
+          {/* Clean Tooltip on hover (desktop only) when closed */}
           {!isOpen && (
             <span className="pointer-events-none absolute right-16 top-1/2 -translate-y-1/2 px-2.5 py-1 rounded-lg bg-roast-950 text-paper-100 text-[11px] font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg border border-roast-800 hidden sm:block">
-              Catatan & Bantuan
+              Akses Cepat
             </span>
           )}
         </button>
@@ -199,6 +182,12 @@ export const FloatingActionButton: React.FC = () => {
       <NotebookDrawer
         isOpen={isNotebookOpen}
         onClose={() => setIsNotebookOpen(false)}
+      />
+
+      {/* Slide-over Direct Chat Drawer */}
+      <DirectChatDrawer
+        isOpen={isChatOpen}
+        onClose={() => setIsChatOpen(false)}
       />
     </>
   );

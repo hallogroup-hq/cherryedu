@@ -448,4 +448,16 @@ export interface UserNote {
   updated_at: string;
 }
 
+export interface ChatMessage {
+  id: string;
+  conversation_id: string; // user id
+  sender_id: string;
+  sender_name: string;
+  sender_role: 'user' | 'admin';
+  message: string;
+  created_at: string;
+  is_read: boolean;
+  page_context?: string;
+}
+
 

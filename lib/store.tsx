@@ -22,6 +22,7 @@ import {
   JobApplication,
   Bookmark,
   UserNote,
+  ChatMessage,
   ForumCategory,
   LandingPageConfig,
   SitePageConfig,
@@ -102,6 +103,7 @@ interface CherryEduContextType {
   jobApplications: JobApplication[];
   bookmarks: Bookmark[];
   notes: UserNote[];
+  chatMessages: ChatMessage[];
   transactions: PaymentTransaction[];
   vouchers: Voucher[];
   isPro: boolean;
@@ -152,6 +154,17 @@ interface CherryEduContextType {
   updateNote: (id: string, updates: Partial<UserNote>) => void;
   deleteNote: (id: string) => void;
   getUserNotes: (userId?: string) => UserNote[];
+  sendUserChatMessage: (message: string, pageContext?: string) => ChatMessage;
+  sendAdminChatMessage: (conversationId: string, message: string, adminName?: string) => ChatMessage;
+  getConversationMessages: (conversationId?: string) => ChatMessage[];
+  getAllConversations: () => {
+    conversationId: string;
+    userName: string;
+    userEmail?: string;
+    lastMessage: ChatMessage;
+    unreadCount: number;
+  }[];
+  markConversationRead: (conversationId: string, asAdmin?: boolean) => void;
   createPost: (title: string, content: string, category: ForumCategory) => Post;
   createComment: (postId: string, content: string, parentCommentId?: string | null) => Comment;
   toggleLike: (targetId: string, targetType: 'post' | 'comment') => void;
@@ -209,6 +222,20 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const [jobApplications, setJobApplications] = useState<JobApplication[]>(SEED_JOB_APPLICATIONS);
   const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
   const [notes, setNotes] = useState<UserNote[]>([]);
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
+    {
+      id: 'msg-seed-1',
+      conversation_id: 'user-testuser-cherry',
+      sender_id: 'user-testuser-cherry',
+      sender_name: 'Test User (All Access)',
+      sender_role: 'user',
+      message:
+        'Halo tim kurikulum, untuk modul kalibrasi espresso dial-in rasio 1:2.2, apakah profiling flow rate lebih disarankan di angka 2.5 ml/detik?',
+      page_context: 'Materi: Dial-in Espresso & Ekstraksi Lanjutan',
+      created_at: new Date(Date.now() - 1000 * 60 * 45).toISOString(),
+      is_read: false,
+    },
+  ]);
   const [transactions, setTransactions] = useState<PaymentTransaction[]>([]);
   const [vouchers, setVouchers] = useState<Voucher[]>(INITIAL_VOUCHERS);
   const [landingPageConfig, setLandingPageConfig] = useState<LandingPageConfig>(DEFAULT_LANDING_CONFIG);
@@ -323,6 +350,9 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         if (parsed.notes) {
           setNotes(parsed.notes);
         }
+        if (parsed.chatMessages && parsed.chatMessages.length > 0) {
+          setChatMessages(parsed.chatMessages);
+        }
         if (parsed.transactions) {
           const now = new Date();
           const autoExpired = parsed.transactions.map((t: PaymentTransaction) => {
@@ -435,6 +465,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         jobApplications,
         bookmarks,
         notes,
+        chatMessages,
         transactions,
         vouchers,
         lessons,
@@ -464,6 +495,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     jobApplications,
     bookmarks,
     notes,
+    chatMessages,
     transactions,
     vouchers,
     lessons,
@@ -1166,6 +1198,96 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     return notes.filter((n) => n.user_id === targetId);
   };
 
+  const sendUserChatMessage = (message: string, pageContext?: string): ChatMessage => {
+    const newMsg: ChatMessage = {
+      id: `msg-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+      conversation_id: currentUser.id,
+      sender_id: currentUser.id,
+      sender_name: currentUser.name || 'Rekan Barista',
+      sender_role: 'user',
+      message: message.trim(),
+      created_at: new Date().toISOString(),
+      is_read: false,
+      page_context: pageContext,
+    };
+    setChatMessages((prev) => [...prev, newMsg]);
+    return newMsg;
+  };
+
+  const sendAdminChatMessage = (
+    conversationId: string,
+    message: string,
+    adminName?: string
+  ): ChatMessage => {
+    const newMsg: ChatMessage = {
+      id: `msg-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+      conversation_id: conversationId,
+      sender_id: currentUser?.id || 'admin',
+      sender_name: adminName || currentUser?.name || 'Admin CherryEdu',
+      sender_role: 'admin',
+      message: message.trim(),
+      created_at: new Date().toISOString(),
+      is_read: false,
+    };
+    setChatMessages((prev) => [...prev, newMsg]);
+    return newMsg;
+  };
+
+  const getConversationMessages = (conversationId?: string): ChatMessage[] => {
+    const targetId = conversationId || currentUser.id;
+    return chatMessages.filter((m) => m.conversation_id === targetId);
+  };
+
+  const getAllConversations = () => {
+    const convMap = new Map<string, { lastMessage: ChatMessage; unreadCount: number }>();
+    const sorted = [...chatMessages].sort(
+      (a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+    );
+
+    for (const msg of sorted) {
+      const existing = convMap.get(msg.conversation_id);
+      const isUnreadForAdmin = msg.sender_role === 'user' && !msg.is_read;
+      convMap.set(msg.conversation_id, {
+        lastMessage: msg,
+        unreadCount: (existing?.unreadCount || 0) + (isUnreadForAdmin ? 1 : 0),
+      });
+    }
+
+    const result: {
+      conversationId: string;
+      userName: string;
+      userEmail?: string;
+      lastMessage: ChatMessage;
+      unreadCount: number;
+    }[] = [];
+
+    convMap.forEach((val, convId) => {
+      const u = users.find((usr) => usr.id === convId);
+      result.push({
+        conversationId: convId,
+        userName: u?.name || val.lastMessage.sender_name || 'Pengguna CherryEdu',
+        userEmail: u?.email,
+        lastMessage: val.lastMessage,
+        unreadCount: val.unreadCount,
+      });
+    });
+
+    return result.sort(
+      (a, b) => new Date(b.lastMessage.created_at).getTime() - new Date(a.lastMessage.created_at).getTime()
+    );
+  };
+
+  const markConversationRead = (conversationId: string, asAdmin: boolean = false) => {
+    setChatMessages((prev) =>
+      prev.map((m) => {
+        if (m.conversation_id !== conversationId) return m;
+        if (asAdmin && m.sender_role === 'user') return { ...m, is_read: true };
+        if (!asAdmin && m.sender_role === 'admin') return { ...m, is_read: true };
+        return m;
+      })
+    );
+  };
+
   const createPost = (title: string, content: string, category: ForumCategory): Post => {
     const newPost: Post = {
       id: `post-${Date.now()}`,
@@ -1467,6 +1589,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         jobApplications,
         bookmarks,
         notes,
+        chatMessages,
         transactions,
         vouchers,
         isPro,
@@ -1515,6 +1638,11 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         updateNote,
         deleteNote,
         getUserNotes,
+        sendUserChatMessage,
+        sendAdminChatMessage,
+        getConversationMessages,
+        getAllConversations,
+        markConversationRead,
         createPost,
         createComment,
         toggleLike,

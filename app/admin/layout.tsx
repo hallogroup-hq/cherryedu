@@ -25,6 +25,7 @@ import {
   AlertTriangle,
   CreditCard,
   Tag,
+  Inbox,
 } from "lucide-react";
 
 interface NavItem {
@@ -35,35 +36,45 @@ interface NavItem {
   children?: { href: string; label: string }[];
 }
 
-const navItems: NavItem[] = [
-  { href: '/admin', label: 'Overview', icon: LayoutDashboard },
-  { href: '/admin/transactions', label: 'Keuangan & Pro', icon: CreditCard },
-  { href: '/admin/vouchers', label: 'Voucher Diskon', icon: Tag },
-  { href: '/admin/analytics', label: 'Analytics', icon: BarChart3 },
-  {
-    href: '/admin/curriculum',
-    label: 'Kurikulum',
-    icon: BookOpen,
-    children: [
-      { href: '/admin/curriculum', label: 'Learning Paths' },
-      { href: '/admin/curriculum/lessons', label: 'Lesson Editor' },
-      { href: '/admin/curriculum/quizzes', label: 'Quiz Builder' },
-    ],
-  },
-  { href: '/admin/collaborators', label: 'Kolaborator', icon: Users2 },
-  { href: '/admin/pages', label: 'Page Builder', icon: Palette },
-  { href: '/admin/users', label: 'Users', icon: Users },
-  { href: '/admin/certificates', label: 'Sertifikat', icon: Award },
-  { href: '/admin/jobs', label: 'Jobs', icon: Briefcase },
-  { href: '/admin/forum', label: 'Forum', icon: MessageSquare },
-  { href: '/admin/settings', label: 'Settings', icon: Settings },
-];
-
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const { user, loading: authLoading, signOut } = useAuth();
-  const { currentUser, isAuthenticated } = useCherryEdu();
+  const { currentUser, isAuthenticated, chatMessages } = useCherryEdu();
+
+  const unreadChatCount = (chatMessages || []).filter(
+    (m) => m.sender_role === 'user' && !m.is_read
+  ).length;
+
+  const navItems: NavItem[] = [
+    { href: '/admin', label: 'Overview', icon: LayoutDashboard },
+    {
+      href: '/admin/messages',
+      label: 'Pesan & Chat',
+      icon: Inbox,
+      badge: unreadChatCount > 0 ? unreadChatCount : undefined,
+    },
+    { href: '/admin/transactions', label: 'Keuangan & Pro', icon: CreditCard },
+    { href: '/admin/vouchers', label: 'Voucher Diskon', icon: Tag },
+    { href: '/admin/analytics', label: 'Analytics', icon: BarChart3 },
+    {
+      href: '/admin/curriculum',
+      label: 'Kurikulum',
+      icon: BookOpen,
+      children: [
+        { href: '/admin/curriculum', label: 'Learning Paths' },
+        { href: '/admin/curriculum/lessons', label: 'Lesson Editor' },
+        { href: '/admin/curriculum/quizzes', label: 'Quiz Builder' },
+      ],
+    },
+    { href: '/admin/collaborators', label: 'Kolaborator', icon: Users2 },
+    { href: '/admin/pages', label: 'Page Builder', icon: Palette },
+    { href: '/admin/users', label: 'Users', icon: Users },
+    { href: '/admin/certificates', label: 'Sertifikat', icon: Award },
+    { href: '/admin/jobs', label: 'Jobs', icon: Briefcase },
+    { href: '/admin/forum', label: 'Forum', icon: MessageSquare },
+    { href: '/admin/settings', label: 'Settings', icon: Settings },
+  ];
 
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [expandedItems, setExpandedItems] = useState<string[]>(['/admin/curriculum']);
