@@ -7,6 +7,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { WhatsNewModal } from '@/components/WhatsNewModal';
 import { Toaster } from 'sonner';
+import Analytics from '@/components/analytics/Analytics';
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -216,6 +217,7 @@ export default function RootLayout({
             <Footer />
             <WhatsNewModal />
             <Toaster position="bottom-right" richColors closeButton />
+            <Analytics />
           </CherryEduProvider>
         </AuthProvider>
       </body>
