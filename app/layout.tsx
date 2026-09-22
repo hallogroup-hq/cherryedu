@@ -208,6 +208,22 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-Y1SZLNDB13"
+        />
+        <script
+          id="google-analytics"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Y1SZLNDB13');
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased bg-paper-50 text-roast-950 selection:bg-cherry-100 selection:text-cherry-900">
         <AuthProvider>
