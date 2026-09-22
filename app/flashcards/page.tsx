@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect, useCallback } from "react";
 import Link from 'next/link';
 import { FLASHCARDS_DATA, Flashcard } from '@/lib/data/flashcardsData';
 import { useCherryEdu } from '@/lib/store';
+import { GuestAuthPromptModal } from '@/components/GuestAuthPromptModal';
 import {
   Sparkles,
   RotateCw,
@@ -29,13 +30,14 @@ const CATEGORIES = [
 ] as const;
 
 export default function FlashcardsPage() {
-  const { awardXP } = useCherryEdu();
+  const { awardXP, isAuthenticated } = useCherryEdu();
 
   const [selectedCategory, setSelectedCategory] = useState<string>('Semua Dek');
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
   const [showHint, setShowHint] = useState<boolean>(false);
   const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
+  const [isGuestAuthPromptOpen, setIsGuestAuthPromptOpen] = useState<boolean>(false);
 
   // Status arrays
   const [masteredIds, setMasteredIds] = useState<string[]>([]);
@@ -59,6 +61,10 @@ export default function FlashcardsPage() {
   }, [selectedCategory]);
 
   const handleNext = useCallback(() => {
+    if (!isAuthenticated && currentIndex >= 2) {
+      setIsGuestAuthPromptOpen(true);
+      return;
+    }
     if (currentIndex < deck.length - 1) {
       setCurrentIndex((prev) => prev + 1);
       setIsFlipped(false);
@@ -67,7 +73,7 @@ export default function FlashcardsPage() {
       setDeckCompleted(true);
       awardXP(50);
     }
-  }, [currentIndex, deck.length, awardXP]);
+  }, [currentIndex, deck.length, awardXP, isAuthenticated]);
 
   const handlePrev = useCallback(() => {
     if (currentIndex > 0) {
@@ -188,6 +194,24 @@ export default function FlashcardsPage() {
           </p>
         </div>
 
+        {/* Guest Mode Teaser Banner */}
+        {!isAuthenticated && (
+          <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-100/60 border border-emerald-300 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs shadow-2xs">
+            <div className="flex items-center gap-2.5">
+              <Sparkles className="w-4 h-4 text-emerald-700 shrink-0" />
+              <span className="text-emerald-950 font-medium leading-relaxed">
+                <strong>Mode Tamu:</strong> Anda sedang mencoba pratinjau kartu. Masuk atau daftar akun gratis untuk membuka seluruh 6 dek materi dan mencatat poin XP hafalan Anda.
+              </span>
+            </div>
+            <button
+              onClick={() => setIsGuestAuthPromptOpen(true)}
+              className="px-4 py-2 bg-roast-950 hover:bg-cherry-800 text-white rounded-lg font-bold text-xs shrink-0 transition shadow-xs"
+            >
+              Buka Semua Dek →
+            </button>
+          </div>
+        )}
+
         {/* Deck Category Selector Tabs */}
         <div className="flex items-center gap-1.5 overflow-x-auto pb-2 mb-6 scrollbar-none">
           {CATEGORIES.map((cat) => {
@@ -195,7 +219,13 @@ export default function FlashcardsPage() {
             return (
               <button
                 key={cat}
-                onClick={() => setSelectedCategory(cat)}
+                onClick={() => {
+                  if (!isAuthenticated && cat !== 'Semua Dek') {
+                    setIsGuestAuthPromptOpen(true);
+                    return;
+                  }
+                  setSelectedCategory(cat);
+                }}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-mono whitespace-nowrap transition-all ${
                   active
                     ? 'bg-roast-950 text-crema-300 font-bold shadow-xs'
@@ -484,6 +514,16 @@ export default function FlashcardsPage() {
           </div>
         ) : null}
       </div>
+
+      {/* Guest Freemium Teaser Prompt Modal */}
+      <GuestAuthPromptModal
+        isOpen={isGuestAuthPromptOpen}
+        onClose={() => setIsGuestAuthPromptOpen(false)}
+        redirectUrl="/flashcards"
+        featureName="Flashcards Kopi"
+        title="Buka Seluruh 50+ Flashcards Kopi"
+        description="Masuk atau daftar akun gratis sekarang untuk membuka seluruh 6 dek spesialisasi flashcards, melacak kartu yang dihafal, dan mengumpulkan XP belajar harian!"
+      />
     </div>
   );
 }

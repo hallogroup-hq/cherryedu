@@ -43,6 +43,7 @@ import {
 import { useCherryEdu } from '@/lib/store';
 import { PaymentModal } from '@/components/PaymentModal';
 import { ToolPaywallBanner } from '@/components/ToolPaywallBanner';
+import { GuestAuthPromptModal } from '@/components/GuestAuthPromptModal';
 
 type ToolDomainId = 'bar-brew' | 'sensory-cupping' | 'terroir-botany';
 type ToolId =
@@ -471,6 +472,7 @@ function ToolsPageContent() {
   const searchParams = useSearchParams();
   const {
     isPro,
+    isAuthenticated,
     remainingToolQuota,
     isToolAllowed,
     recordToolUsage,
@@ -479,19 +481,12 @@ function ToolsPageContent() {
   const [activeTool, setActiveTool] = useState<ToolId>('calculator');
   const [isSwitcherOpen, setIsSwitcherOpen] = useState<boolean>(false);
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState<boolean>(false);
+  const [isGuestAuthPromptOpen, setIsGuestAuthPromptOpen] = useState<boolean>(false);
   const [selectedIsland, setSelectedIsland] = useState<string>('Semua');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const visitedToolsInSession = React.useRef<Set<string>>(new Set());
-
-  // Record 1 session per distinct tool opened if not Pro and tool is allowed
-  useEffect(() => {
-    if (isPro) return;
-    if (!visitedToolsInSession.current.has(activeTool)) {
-      visitedToolsInSession.current.add(activeTool);
-      recordToolUsage(activeTool);
-    }
-  }, [activeTool, isPro, recordToolUsage]);
+  const guestInitialToolRef = React.useRef<string | null>(null);
 
   // Sync with ?tab= or ?tool= URL parameter
   useEffect(() => {
@@ -501,9 +496,23 @@ function ToolsPageContent() {
       const tabParam = rawParam === 'cupping' || isCva ? 'cupping-sheet' : rawParam;
       if (TOOLS_CATALOG.some((t) => t.id === tabParam)) {
         setActiveTool(tabParam as ToolId);
+        if (!guestInitialToolRef.current) {
+          guestInitialToolRef.current = tabParam;
+        }
       }
+    } else if (!guestInitialToolRef.current) {
+      guestInitialToolRef.current = 'calculator';
     }
   }, [searchParams]);
+
+  // Record 1 session per distinct tool opened if not Pro and tool is allowed
+  useEffect(() => {
+    if (isPro) return;
+    if (!visitedToolsInSession.current.has(activeTool)) {
+      visitedToolsInSession.current.add(activeTool);
+      recordToolUsage(activeTool);
+    }
+  }, [activeTool, isPro, recordToolUsage]);
 
   const activeToolDef = useMemo(() => {
     return TOOLS_CATALOG.find((t) => t.id === activeTool) || TOOLS_CATALOG[0];
@@ -518,7 +527,14 @@ function ToolsPageContent() {
   }, [activeDomain]);
 
   const handleSelectTool = (toolId: ToolId) => {
+    if (!isAuthenticated && guestInitialToolRef.current && guestInitialToolRef.current !== toolId) {
+      setIsGuestAuthPromptOpen(true);
+      return;
+    }
     setActiveTool(toolId);
+    if (!guestInitialToolRef.current) {
+      guestInitialToolRef.current = toolId;
+    }
     setIsSwitcherOpen(false);
     if (typeof window !== 'undefined') {
       const url = new URL(window.location.href);
@@ -606,7 +622,21 @@ function ToolsPageContent() {
           {/* Quick Catalogue & Quota Action Buttons */}
           <div className="flex flex-wrap items-center gap-2.5 shrink-0">
             {/* Quota Indicator Pill */}
-            {isPro ? (
+            {!isAuthenticated ? (
+              <button
+                type="button"
+                onClick={() => setIsGuestAuthPromptOpen(true)}
+                className="inline-flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-emerald-50 to-teal-50 hover:from-emerald-100 hover:to-teal-100 border border-emerald-300 text-emerald-950 rounded-xl text-xs font-mono font-bold shadow-2xs transition group"
+                title="Masuk akun gratis untuk membuka seluruh 15 alat"
+              >
+                <span className="flex h-2 w-2 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>Mode Tamu: <strong>1x Coba</strong></span>
+                <span className="text-cherry-700 underline text-[11px] group-hover:text-cherry-900 font-semibold">Buka 15 Alat Gratis →</span>
+              </button>
+            ) : isPro ? (
               <div className="inline-flex items-center gap-1.5 px-3 py-2 bg-amber-50 border border-amber-300 text-amber-900 rounded-xl text-xs font-mono font-bold shadow-2xs">
                 <Crown className="w-3.5 h-3.5 text-amber-600" />
                 <span>Akses Pro Unlimited</span>
@@ -1069,6 +1099,16 @@ function ToolsPageContent() {
         onClose={() => setIsPaymentModalOpen(false)}
         defaultCycle="monthly"
         sourceContext="tools_quota"
+      />
+
+      {/* Guest Freemium Teaser Prompt Modal */}
+      <GuestAuthPromptModal
+        isOpen={isGuestAuthPromptOpen}
+        onClose={() => setIsGuestAuthPromptOpen(false)}
+        redirectUrl={`/tools?tool=${activeTool}`}
+        featureName="Laboratorium Kopi"
+        title="Buka Seluruh 15 Alat Lab Kopi"
+        description="Anda sedang mencoba 1 alat dalam mode pratinjau tamu. Masuk atau daftar akun gratis untuk membuka seluruh 15 instrumen seduh, mencatat resep, dan mengakses silabus Foundation!"
       />
     </div>
   );

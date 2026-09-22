@@ -12,7 +12,10 @@ import {
   User,
   Building2,
   Check,
+  Sparkles,
 } from "lucide-react";
+import { useCherryEdu } from '@/lib/store';
+import { GuestAuthPromptModal } from '@/components/GuestAuthPromptModal';
 
 interface Question {
   id: number;
@@ -258,10 +261,12 @@ const ASSESSMENT_QUESTIONS: Question[] = [
 ];
 
 export default function BaristaAssessmentPage() {
-  const [candidateName, setCandidateName] = useState('');
+  const { isAuthenticated, currentUser } = useCherryEdu();
+  const [candidateName, setCandidateName] = useState(currentUser?.name || '');
   const [targetRole, setTargetRole] = useState('Senior Barista / Bar Lead');
   const [answers, setAnswers] = useState<{ [questionId: number]: number }>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isGuestAuthPromptOpen, setIsGuestAuthPromptOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
   // Handle select answer
@@ -272,6 +277,10 @@ export default function BaristaAssessmentPage() {
 
   // Submit test
   const handleSubmit = () => {
+    if (!isAuthenticated) {
+      setIsGuestAuthPromptOpen(true);
+      return;
+    }
     if (Object.keys(answers).length < ASSESSMENT_QUESTIONS.length) {
       if (!confirm('Masih ada soal yang belum dijawab. Apakah Anda yakin ingin menyelesaikan ujian sekarang?')) {
         return;
@@ -357,6 +366,24 @@ export default function BaristaAssessmentPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 font-sans animate-in fade-in duration-200">
+      {/* Guest Mode Teaser Banner */}
+      {!isAuthenticated && (
+        <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-100/60 border border-emerald-300 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs shadow-2xs">
+          <div className="flex items-center gap-2.5">
+            <Sparkles className="w-4 h-4 text-emerald-700 shrink-0" />
+            <span className="text-emerald-950 font-medium leading-relaxed">
+              <strong>Mode Tamu:</strong> Anda dapat mencoba simulasi skenario ini. Masuk akun gratis agar skor dan radar analisis kompetensi tersimpan di profil Anda.
+            </span>
+          </div>
+          <button
+            onClick={() => setIsGuestAuthPromptOpen(true)}
+            className="px-4 py-2 bg-roast-950 hover:bg-cherry-800 text-white rounded-lg font-bold text-xs shrink-0 transition shadow-xs"
+          >
+            Masuk Akun Gratis →
+          </button>
+        </div>
+      )}
+
       {/* Header Section */}
       <div className="bg-paper-100/80 border border-paper-300 rounded-2xl p-5 sm:p-7 shadow-xs relative overflow-hidden mb-8">
         <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-cherry-700/5 blur-3xl pointer-events-none" />
@@ -626,6 +653,16 @@ export default function BaristaAssessmentPage() {
           </button>
         </div>
       )}
+
+      {/* Guest Freemium Teaser Prompt Modal */}
+      <GuestAuthPromptModal
+        isOpen={isGuestAuthPromptOpen}
+        onClose={() => setIsGuestAuthPromptOpen(false)}
+        redirectUrl="/assessment/barista"
+        featureName="Simulasi Uji Barista"
+        title="Simpan Hasil & Evaluasi Barista Anda"
+        description="Masuk atau daftar akun gratis agar penilaian kompetensi, evaluasi 5 pilar teknis bar, dan sertifikat simulasi Anda tersimpan secara resmi di profil CherryEdu!"
+      />
     </div>
   );
 }
