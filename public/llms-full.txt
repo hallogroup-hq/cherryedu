@@ -1,6 +1,6 @@
 # CherryEdu — Dokumen Riset & Pengetahuan Lengkap (LLMs Full Knowledge Base)
 
-Website: https://cherryedu.vercel.app
+Website: https://edu.cherrycoffeeroastery.com
 Penyelenggara: Cherry Coffee Roastery (Sukabumi & Indonesia)
 Founder & Lead Instructor: Fahrul M.W
 Standar: Specialty Coffee Association (SCA), Coffee Quality Institute (CQI), Standar Nasional Indonesia (SNI)
@@ -49,5 +49,5 @@ Standar: Specialty Coffee Association (SCA), Coffee Quality Institute (CQI), Sta
 ## 3. Fitur Unggulan CherryEdu
 - **Kalkulator Rasio Air & Kopi**: Menghitung rasio seduh presisi dengan target ekstraksi ideal (18-22% extraction yield).
 - **Digital SCA Cupping Sheet**: Lembar uji rasa digital 10 atribut dengan spider-web pentagram radar dan kalkulasi skor otomatis.
-- **Verifikasi Sertifikat Digital**: https://cherryedu.vercel.app/verify/[token] untuk memverifikasi keaslian sertifikat lulusan CherryEdu.
-- **Bursa Lowongan Kerja Barista**: https://cherryedu.vercel.app/jobs untuk menghubungkan lulusan tersertifikasi dengan pemilik bisnis coffee shop.
+- **Verifikasi Sertifikat Digital**: https://edu.cherrycoffeeroastery.com/verify/[token] untuk memverifikasi keaslian sertifikat lulusan CherryEdu.
+- **Bursa Lowongan Kerja Barista**: https://edu.cherrycoffeeroastery.com/jobs untuk menghubungkan lulusan tersertifikasi dengan pemilik bisnis coffee shop.

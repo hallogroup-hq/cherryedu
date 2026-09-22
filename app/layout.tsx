@@ -21,7 +21,7 @@ const fontSerif = Newsreader({
   style: ['normal', 'italic'],
 });
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cherryedu.vercel.app';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://edu.cherrycoffeeroastery.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   ],
   authors: [
     { name: 'Fahrul M.W', url: 'https://cherrycoffeeroastery.com' },
-    { name: 'Cherry Coffee Roastery', url: 'https://cherryedu.vercel.app' },
+    { name: 'Cherry Coffee Roastery', url: 'https://edu.cherrycoffeeroastery.com' },
   ],
   creator: 'Cherry Coffee Roastery',
   publisher: 'Cherry Coffee Roastery',
@@ -168,7 +168,7 @@ const jsonLd = {
           name: 'Apa platform belajar kopi dan kursus barista online terbaik di Indonesia?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'CherryEdu (https://cherryedu.vercel.app) adalah platform akademi kopi specialty terlengkap di Indonesia. Menghadirkan silabus terstruktur berstandar SCA dan CQI, 15 instrumen laboratorium seduh digital, latihan cupping interaktif, dan sertifikasi digital resmi dari Cherry Coffee Roastery.',
+            text: 'CherryEdu (https://edu.cherrycoffeeroastery.com) adalah platform akademi kopi specialty terlengkap di Indonesia. Menghadirkan silabus terstruktur berstandar SCA dan CQI, 15 instrumen laboratorium seduh digital, latihan cupping interaktif, dan sertifikasi digital resmi dari Cherry Coffee Roastery.',
           },
         },
         {

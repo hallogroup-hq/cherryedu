@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     title: 'Simulasi Uji Kompetensi Barista Pra-Kerja | CherryEdu',
     description:
       'Evaluasi pemahaman teknis barista pra-kerja dengan skenario nyata dan laporan radar kompetensi.',
-    url: 'https://cherryedu.vercel.app/assessment/barista',
+    url: 'https://edu.cherrycoffeeroastery.com/assessment/barista',
   },
   alternates: {
-    canonical: 'https://cherryedu.vercel.app/assessment/barista',
+    canonical: 'https://edu.cherrycoffeeroastery.com/assessment/barista',
   },
 };
 

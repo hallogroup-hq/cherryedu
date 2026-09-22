@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 /**
  * Playwright Configuration for CherryEdu Regression Testing
- * Default target is the production live URL: https://cherryedu.vercel.app
+ * Default target is the production live URL: https://edu.cherrycoffeeroastery.com
  */
 export default defineConfig({
   testDir: './tests/e2e',
@@ -19,7 +19,7 @@ export default defineConfig({
     ['html', { open: 'never', outputFolder: 'playwright-report' }],
   ],
   use: {
-    baseURL: process.env.TEST_URL || 'https://cherryedu.vercel.app',
+    baseURL: process.env.TEST_URL || 'https://edu.cherrycoffeeroastery.com',
     trace: 'off',
     screenshot: 'only-on-failure',
     video: 'off',

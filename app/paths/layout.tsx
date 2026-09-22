@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     title: 'Katalog Kurikulum & Kursus Kopi Terstruktur | CherryEdu',
     description:
       'Tingkatkan karir kopi Anda dengan silabus terstruktur berstandar SCA dan sertifikat kelulusan digital resmi.',
-    url: 'https://cherryedu.vercel.app/paths',
+    url: 'https://edu.cherrycoffeeroastery.com/paths',
   },
   alternates: {
-    canonical: 'https://cherryedu.vercel.app/paths',
+    canonical: 'https://edu.cherrycoffeeroastery.com/paths',
   },
 };
 

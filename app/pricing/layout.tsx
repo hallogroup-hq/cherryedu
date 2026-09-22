@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     title: 'Paket Langganan & Biaya Kursus Kopi Pro | CherryEdu',
     description:
       'Investasi terbaik untuk akselerasi karir dan bisnis kopi specialty Anda di Indonesia.',
-    url: 'https://cherryedu.vercel.app/pricing',
+    url: 'https://edu.cherrycoffeeroastery.com/pricing',
   },
   alternates: {
-    canonical: 'https://cherryedu.vercel.app/pricing',
+    canonical: 'https://edu.cherrycoffeeroastery.com/pricing',
   },
 };
 

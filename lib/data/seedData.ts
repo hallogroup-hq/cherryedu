@@ -3857,7 +3857,7 @@ export const SEED_CERTIFICATES: Certificate[] = [
     user_id: 'user-sari',
     learning_path_id: 'path-foundation',
     certificate_number: 'CHE-2026-FOUND-000188',
-    certificate_url: 'https://cherryedu.vercel.app/verify/che-sari-fnd-8823',
+    certificate_url: 'https://edu.cherrycoffeeroastery.com/verify/che-sari-fnd-8823',
     share_token: 'che-sari-fnd-8823',
     issued_at: '2026-08-15T00:00:00Z',
     user_name: 'Sari Wulandari',

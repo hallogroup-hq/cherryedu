@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     title: 'Pustaka Riset & Kompendium Kopi Nusantara | CherryEdu',
     description:
       'Repositori riset ilmiah dan referensi resmi industri kopi specialty terlengkap di Indonesia.',
-    url: 'https://cherryedu.vercel.app/pustaka',
+    url: 'https://edu.cherrycoffeeroastery.com/pustaka',
   },
   alternates: {
-    canonical: 'https://cherryedu.vercel.app/pustaka',
+    canonical: 'https://edu.cherrycoffeeroastery.com/pustaka',
   },
 };
 

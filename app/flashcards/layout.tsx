@@ -16,10 +16,10 @@ export const metadata: Metadata = {
     title: 'Kartu Hafalan & Uji Cepat Kopi (Flashcards) | CherryEdu',
     description:
       'Latih refleks ingatan untuk ujian sertifikasi kopi dengan metode Spaced Repetition ilmiah.',
-    url: 'https://cherryedu.vercel.app/flashcards',
+    url: 'https://edu.cherrycoffeeroastery.com/flashcards',
   },
   alternates: {
-    canonical: 'https://cherryedu.vercel.app/flashcards',
+    canonical: 'https://edu.cherrycoffeeroastery.com/flashcards',
   },
 };
 

@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     title: '15 Instrumen Laboratorium Seduh & Uji Rasa Kopi | CherryEdu',
     description:
       'Kalibrasi seduhan bar & meja uji rasa dengan kalkulator rasio presisi, lembar cupping SCA digital, dan formulasi mineral air seduh.',
-    url: 'https://cherryedu.vercel.app/tools',
+    url: 'https://edu.cherrycoffeeroastery.com/tools',
   },
   alternates: {
-    canonical: 'https://cherryedu.vercel.app/tools',
+    canonical: 'https://edu.cherrycoffeeroastery.com/tools',
   },
 };
 

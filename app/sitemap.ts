@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { SEED_PATHS } from '@/lib/data/seedData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cherryedu.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://edu.cherrycoffeeroastery.com';
   const lastModified = new Date();
 
   // Core High-Priority Pages

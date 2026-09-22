@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     title: 'Kamus Istilah Kopi Specialty Indonesia (Coffee Lexicon) | CherryEdu',
     description:
       'Ensiklopedia dan glosarium istilah kopi terlengkap dari hulu ke hilir dalam bahasa Indonesia.',
-    url: 'https://cherryedu.vercel.app/lexicon',
+    url: 'https://edu.cherrycoffeeroastery.com/lexicon',
   },
   alternates: {
-    canonical: 'https://cherryedu.vercel.app/lexicon',
+    canonical: 'https://edu.cherrycoffeeroastery.com/lexicon',
   },
 };
 
