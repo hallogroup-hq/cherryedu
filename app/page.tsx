@@ -38,12 +38,6 @@ export default function HomePage() {
                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
                       <div className="lg:col-span-7 space-y-4 sm:space-y-6">
-                        {/* Instant Trust Badge */}
-                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cherry-50 border border-cherry-200 text-cherry-900 font-mono text-[10px] font-bold tracking-wider">
-                          <Sparkles className="w-3 h-3 text-cherry-700 shrink-0" />
-                          <span>100% GRATIS • BERSERTIFIKAT • STANDAR SCA 80+</span>
-                        </div>
-
                         <h1 className="text-2xl sm:text-5xl lg:text-6xl font-serif font-black text-roast-950 tracking-tight leading-[1.18] sm:leading-[1.12]">
                           {hData.headline}
                         </h1>
