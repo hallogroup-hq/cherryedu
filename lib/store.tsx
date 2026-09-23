@@ -679,7 +679,16 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const grantProAccess = (userId: string, durationMonths = 1, cycle: SubscriptionCycle = 'monthly') => {
-    const expiryDate = new Date();
+    const targetUser = users.find((u) => u.id === userId);
+    const hasActiveSub =
+      targetUser?.subscription_expires_at &&
+      new Date(targetUser.subscription_expires_at) > new Date();
+
+    const baseDate = hasActiveSub
+      ? new Date(targetUser!.subscription_expires_at!)
+      : new Date();
+
+    const expiryDate = new Date(baseDate);
     expiryDate.setMonth(expiryDate.getMonth() + durationMonths);
 
     setUsers((prev) =>

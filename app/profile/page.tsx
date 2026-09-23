@@ -24,8 +24,10 @@ import {
   ExternalLink,
   FileText,
   Clock,
+  Crown,
 } from "lucide-react";
 import { NotebookDrawer } from '@/components/NotebookDrawer';
+import { PaymentModal } from '@/components/PaymentModal';
 import { toast } from 'sonner';
 
 function ProfileContent() {
@@ -37,6 +39,7 @@ function ProfileContent() {
   const {
     currentUser,
     isAuthenticated,
+    isPro,
     learningPaths,
     enrollments,
     certificates,
@@ -61,6 +64,7 @@ function ProfileContent() {
   const [isNotebookOpen, setIsNotebookOpen] = useState<boolean>(false);
   const [activeNoteId, setActiveNoteId] = useState<string | null>(null);
   const [copiedNoteId, setCopiedNoteId] = useState<string | null>(null);
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
     setNameInput(currentUser.name);
@@ -244,6 +248,81 @@ function ProfileContent() {
             </button>
           </form>
         )}
+
+        {/* Membership & Subscription Status */}
+        <div className={`mt-5 p-4 border rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
+          isPro
+            ? 'bg-amber-50/60 border-amber-300'
+            : (!isPro && Boolean(currentUser.subscription_expires_at) && new Date(currentUser.subscription_expires_at!) <= new Date())
+            ? 'bg-rose-50/60 border-rose-300'
+            : 'bg-paper-100 border-paper-300'
+        }`}>
+          <div className="flex items-start sm:items-center gap-3.5">
+            <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold shrink-0 ${
+              isPro
+                ? 'bg-amber-100 text-amber-800 border border-amber-300'
+                : (!isPro && Boolean(currentUser.subscription_expires_at) && new Date(currentUser.subscription_expires_at!) <= new Date())
+                ? 'bg-rose-100 text-rose-800 border border-rose-300'
+                : 'bg-paper-200 text-roast-600 border border-paper-400'
+            }`}>
+              <Crown className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-roast-950">
+                  {isPro
+                    ? 'Keanggotaan CherryEdu Pro'
+                    : (!isPro && Boolean(currentUser.subscription_expires_at) && new Date(currentUser.subscription_expires_at!) <= new Date())
+                    ? 'Langganan Pro Kedaluwarsa'
+                    : 'Paket Dasar (Free Member)'}
+                </span>
+                <span className={`px-2 py-0.5 rounded-full font-mono text-[9px] font-black uppercase ${
+                  isPro
+                    ? 'bg-amber-400/30 text-amber-900 border border-amber-400'
+                    : (!isPro && Boolean(currentUser.subscription_expires_at) && new Date(currentUser.subscription_expires_at!) <= new Date())
+                    ? 'bg-rose-100 text-rose-800 border border-rose-300'
+                    : 'bg-paper-200 text-roast-600 border border-paper-400'
+                }`}>
+                  {isPro ? 'Aktif' : (!isPro && Boolean(currentUser.subscription_expires_at) && new Date(currentUser.subscription_expires_at!) <= new Date()) ? 'Habis' : 'Gratis'}
+                </span>
+              </div>
+              <p className="text-xs text-roast-700 font-sans mt-0.5 leading-relaxed">
+                {isPro ? (
+                  currentUser.subscription_expires_at ? (
+                    <>Masa aktif berlaku hingga <strong className="text-roast-950 font-mono">{new Date(currentUser.subscription_expires_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</strong> ({currentUser.subscription_cycle === 'annual' ? 'Paket Tahunan' : 'Paket Bulanan'}). Seluruh materi spesialisasi terbuka.</>
+                  ) : (
+                    <>Akses tak terbatas permanen ke seluruh spesialisasi, diagram teknis, dan sertifikasi resmi.</>
+                  )
+                ) : (!isPro && Boolean(currentUser.subscription_expires_at) && new Date(currentUser.subscription_expires_at!) <= new Date()) ? (
+                  <>Masa aktif berakhir pada <strong className="text-roast-950 font-mono">{new Date(currentUser.subscription_expires_at!).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</strong>. Silakan perpanjang member untuk membuka kembali silabus spesialisasi.</>
+                ) : (
+                  <>Akses gratis mencakup kurikulum fondasi dan pengantar. Buka 6 silabus spesialisasi dengan mengaktifkan langganan Pro.</>
+                )}
+              </p>
+            </div>
+          </div>
+
+          <div className="shrink-0 flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setIsPaymentModalOpen(true)}
+              className={`px-4 py-2 text-xs font-mono font-bold rounded-lg transition shadow-xs flex items-center gap-1.5 ${
+                isPro
+                  ? 'bg-roast-950 hover:bg-roast-850 text-paper-50'
+                  : 'bg-cherry-700 hover:bg-cherry-800 text-white'
+              }`}
+            >
+              <Zap className="w-3.5 h-3.5" />
+              <span>{isPro ? 'Perpanjang Masa Aktif' : (!isPro && Boolean(currentUser.subscription_expires_at) && new Date(currentUser.subscription_expires_at!) <= new Date()) ? 'Perpanjang Sekarang' : 'Upgrade ke Pro'}</span>
+            </button>
+            <Link
+              href="/pricing"
+              className="px-3 py-2 text-xs font-mono border border-paper-400 hover:bg-paper-200 text-roast-700 rounded-lg transition text-center"
+            >
+              Paket
+            </Link>
+          </div>
+        </div>
 
         {/* Telemetry Strip */}
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 pt-5 font-mono">
@@ -741,6 +820,12 @@ function ProfileContent() {
           <span>Reset Semua Data Demo</span>
         </button>
       </div>
+
+      <PaymentModal
+        isOpen={isPaymentModalOpen}
+        onClose={() => setIsPaymentModalOpen(false)}
+        sourceContext="Profil Pengguna"
+      />
     </div>
   );
 }
