@@ -1,6 +1,7 @@
 'use client';
 
 import { useCherryEdu } from '@/lib/store';
+import { UserAvatar } from '@/components/UserAvatar';
 import { Flame } from "lucide-react";
 
 export default function LeaderboardPage() {
@@ -38,11 +39,14 @@ export default function LeaderboardPage() {
             <span className="font-mono text-[10px] uppercase tracking-widest text-roast-600 block mb-2 font-bold">
               Peringkat II • Perak
             </span>
-            <img
-              src={topThree[1].avatar_url}
-              alt={topThree[1].name}
-              className="w-16 h-16 mx-auto object-cover border border-paper-400 filter contrast-110 my-3"
-            />
+            <div className="flex justify-center my-3">
+              <UserAvatar
+                src={topThree[1].avatar_url}
+                name={topThree[1].name}
+                email={topThree[1].email}
+                size="w-16 h-16"
+              />
+            </div>
             <h3 className="font-serif text-base font-bold text-roast-950 truncate">
               {topThree[1].name}
             </h3>
@@ -61,11 +65,14 @@ export default function LeaderboardPage() {
             <span className="font-mono text-xs uppercase tracking-widest text-crema-700 block mb-2 font-bold">
               ★ Peringkat I • Emas ★
             </span>
-            <img
-              src={topThree[0].avatar_url}
-              alt={topThree[0].name}
-              className="w-20 h-20 mx-auto object-cover border-2 border-crema-500 filter contrast-115 my-3"
-            />
+            <div className="flex justify-center my-3">
+              <UserAvatar
+                src={topThree[0].avatar_url}
+                name={topThree[0].name}
+                email={topThree[0].email}
+                size="w-20 h-20"
+              />
+            </div>
             <h3 className="font-serif text-lg font-bold text-roast-950 truncate">
               {topThree[0].name}
             </h3>
@@ -84,11 +91,14 @@ export default function LeaderboardPage() {
             <span className="font-mono text-[10px] uppercase tracking-widest text-amber-800 block mb-2 font-bold">
               Peringkat III • Perunggu
             </span>
-            <img
-              src={topThree[2].avatar_url}
-              alt={topThree[2].name}
-              className="w-16 h-16 mx-auto object-cover border border-paper-400 filter contrast-110 my-3"
-            />
+            <div className="flex justify-center my-3">
+              <UserAvatar
+                src={topThree[2].avatar_url}
+                name={topThree[2].name}
+                email={topThree[2].email}
+                size="w-16 h-16"
+              />
+            </div>
             <h3 className="font-serif text-base font-bold text-roast-950 truncate">
               {topThree[2].name}
             </h3>
@@ -128,10 +138,11 @@ export default function LeaderboardPage() {
                     {String(rank).padStart(2, '0')}
                   </span>
 
-                  <img
+                  <UserAvatar
                     src={user.avatar_url}
-                    alt={user.name}
-                    className="w-10 h-10 object-cover border border-paper-400 filter grayscale contrast-115 shrink-0"
+                    name={user.name}
+                    email={user.email}
+                    size="w-10 h-10"
                   />
 
                   <div className="truncate">

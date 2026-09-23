@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useCherryEdu } from '@/lib/store';
+import { UserAvatar } from '@/components/UserAvatar';
 import { Check, ChevronDown } from "lucide-react";
 
 export const UserSwitcher: React.FC = () => {
@@ -24,10 +25,11 @@ export const UserSwitcher: React.FC = () => {
         className="flex items-center gap-2 px-2.5 py-1.5 rounded-md border border-paper-300 bg-white hover:border-roast-400 transition-all duration-150 ease-out active:scale-[0.97]"
         title="Ganti Persona Akun Pengujian"
       >
-        <img
+        <UserAvatar
           src={currentUser.avatar_url}
-          alt={currentUser.name}
-          className="w-6 h-6 rounded-full object-cover grayscale-25"
+          name={currentUser.name}
+          email={currentUser.email}
+          size="w-6 h-6"
         />
         <div className="text-left hidden lg:block">
           <div className="text-xs font-bold text-roast-950 leading-tight truncate max-w-[110px]">
@@ -77,10 +79,12 @@ export const UserSwitcher: React.FC = () => {
                         : 'bg-paper-100/50 border-paper-200 hover:bg-white hover:border-paper-300'
                     }`}
                   >
-                    <img
+                    <UserAvatar
                       src={user.avatar_url}
-                      alt={user.name}
-                      className="w-8 h-8 rounded-full object-cover shrink-0 mt-0.5"
+                      name={user.name}
+                      email={user.email}
+                      size="w-8 h-8"
+                      className="mt-0.5"
                     />
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between gap-1 mb-1">

@@ -63,6 +63,7 @@ import {
   fetchTransactionsFromSupabase,
   updateTransactionStatusInSupabase,
 } from './dbSync';
+import { supabase, isSupabaseConfigured } from './supabase';
 
 export const GUEST_USER: User = {
   id: 'guest',
@@ -190,6 +191,8 @@ interface CherryEduContextType {
   updateQuizQuestions: (quizId: string, newQuestions: Question[]) => void;
   saveQuizWithQuestions: (quizId: string, quizData: Partial<Quiz>, newQuestions: Question[]) => void;
   resetAllData: () => void;
+  refreshUsers: () => Promise<User[]>;
+  refreshTransactions: () => Promise<PaymentTransaction[]>;
 }
 
 const CherryEduContext = createContext<CherryEduContextType | undefined>(undefined);
@@ -243,6 +246,51 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
   const TOOL_FREE_LIMIT = 10;
   const [toolUsageCount, setToolUsageCount] = useState<number>(0);
+
+  const refreshUsers = useCallback(async (): Promise<User[]> => {
+    try {
+      const remoteUsers = await fetchProfilesFromSupabase();
+      if (remoteUsers && remoteUsers.length > 0) {
+        setUsers((prev) => {
+          const userMap = new Map<string, User>();
+          // 1. First add remote users from Supabase (source of truth for registered members)
+          remoteUsers.forEach((ru) => userMap.set(ru.id, ru));
+          // 2. Add local users that aren't in Supabase (e.g. system seed users like admin/testuser)
+          prev.forEach((pu) => {
+            if (!userMap.has(pu.id)) {
+              userMap.set(pu.id, pu);
+            } else {
+              const existing = userMap.get(pu.id)!;
+              userMap.set(pu.id, { ...existing, ...pu });
+            }
+          });
+          return Array.from(userMap.values());
+        });
+        return remoteUsers;
+      }
+    } catch (e) {
+      console.warn('Failed to refresh users from Supabase:', e);
+    }
+    return [];
+  }, []);
+
+  const refreshTransactions = useCallback(async (): Promise<PaymentTransaction[]> => {
+    try {
+      const remoteTx = await fetchTransactionsFromSupabase();
+      if (remoteTx && remoteTx.length > 0) {
+        setTransactions((prev) => {
+          const txMap = new Map<string, PaymentTransaction>();
+          prev.forEach((t) => txMap.set(t.id, t));
+          remoteTx.forEach((rt) => txMap.set(rt.id, rt));
+          return Array.from(txMap.values());
+        });
+        return remoteTx;
+      }
+    } catch (e) {
+      console.warn('Failed to refresh transactions from Supabase:', e);
+    }
+    return [];
+  }, []);
 
   // Load from localStorage on client mount
   useEffect(() => {
@@ -418,34 +466,39 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       }
 
       // Asynchronously fetch latest registered profiles and transactions from Supabase
-      fetchProfilesFromSupabase().then((remoteUsers) => {
-        if (remoteUsers && remoteUsers.length > 0) {
-          setUsers((prev) => {
-            const userMap = new Map<string, User>();
-            prev.forEach((u) => userMap.set(u.id, u));
-            remoteUsers.forEach((ru) => {
-              const local = userMap.get(ru.id);
-              userMap.set(ru.id, local ? { ...local, ...ru } : ru);
-            });
-            return Array.from(userMap.values());
-          });
-        }
-      });
-
-      fetchTransactionsFromSupabase().then((remoteTx) => {
-        if (remoteTx && remoteTx.length > 0) {
-          setTransactions((prev) => {
-            const txMap = new Map<string, PaymentTransaction>();
-            prev.forEach((t) => txMap.set(t.id, t));
-            remoteTx.forEach((rt) => txMap.set(rt.id, rt));
-            return Array.from(txMap.values());
-          });
-        }
-      });
+      refreshUsers();
+      refreshTransactions();
     } catch (e) {
       console.warn('Failed to load CherryEdu state from localStorage:', e);
     }
-  }, []);
+  }, [refreshUsers, refreshTransactions]);
+
+  // Real-time synchronization with Supabase for profiles & transactions
+  useEffect(() => {
+    if (!isSupabaseConfigured()) return;
+
+    const channel = supabase
+      .channel('cherryedu-realtime-sync')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'profiles' },
+        () => {
+          refreshUsers();
+        }
+      )
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'transactions' },
+        () => {
+          refreshTransactions();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [refreshUsers, refreshTransactions]);
 
   // Save to localStorage whenever state changes
   useEffect(() => {
@@ -1681,6 +1734,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         getUserCertificates,
         getUserBadges,
         resetAllData,
+        refreshUsers,
+        refreshTransactions,
       }}
     >
       {children}

@@ -10,6 +10,7 @@ import {
   Check,
 } from 'lucide-react';
 import { toast } from 'sonner';
+import { UserAvatar } from '@/components/UserAvatar';
 
 export default function AdminMessagesPage() {
   const {
@@ -241,9 +242,12 @@ export default function AdminMessagesPage() {
 
                     {/* Avatar */}
                     <div className="relative shrink-0 mt-0.5">
-                      <div className="w-9 h-9 rounded-full bg-roast-900 text-paper-50 flex items-center justify-center font-bold text-xs">
-                        {conv.userName.charAt(0).toUpperCase()}
-                      </div>
+                      <UserAvatar
+                        src={userObj?.avatar_url}
+                        name={conv.userName}
+                        email={conv.userEmail}
+                        size="w-9 h-9"
+                      />
                       {isUserPro && (
                         <div
                           className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-amber-500 rounded-full flex items-center justify-center text-white"
@@ -312,9 +316,12 @@ export default function AdminMessagesPage() {
               {/* Chat Thread Header */}
               <div className="p-3.5 border-b border-paper-200 flex items-center justify-between gap-3 bg-paper-50/50">
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-10 h-10 rounded-full bg-roast-900 text-paper-50 flex items-center justify-center font-bold text-sm shrink-0">
-                    {activeConversation.userName.charAt(0).toUpperCase()}
-                  </div>
+                  <UserAvatar
+                    src={activeUser?.avatar_url}
+                    name={activeConversation.userName}
+                    email={activeConversation.userEmail}
+                    size="w-10 h-10"
+                  />
                   <div className="min-w-0">
                     <div className="flex items-center gap-1.5">
                       <h2 className="font-serif font-bold text-sm text-roast-950 truncate">

@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useCherryEdu } from '@/lib/store';
+import { UserAvatar } from '@/components/UserAvatar';
 import { PaymentTransaction, SubscriptionCycle } from '@/lib/types';
 import {
   CreditCard,
@@ -18,6 +19,7 @@ import {
   Tag,
   AlertCircle,
   Plus,
+  RotateCw,
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -29,11 +31,32 @@ export default function AdminTransactionsPage() {
     grantProAccess,
     revokeProAccess,
     simulatePaymentSuccess,
+    refreshTransactions,
+    refreshUsers,
   } = useCherryEdu();
 
   const [search, setSearch] = useState<string>('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [cycleFilter, setCycleFilter] = useState<string>('all');
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
+  useEffect(() => {
+    refreshTransactions();
+    refreshUsers();
+  }, [refreshTransactions, refreshUsers]);
+
+  const handleRefresh = async () => {
+    setIsRefreshing(true);
+    try {
+      const txs = await refreshTransactions();
+      await refreshUsers();
+      toast.success(`Data transaksi dan member diperbarui (${txs.length || transactions.length} transaksi)`);
+    } catch {
+      toast.error('Gagal memperbarui data transaksi.');
+    } finally {
+      setIsRefreshing(false);
+    }
+  };
 
   // Manual Grant Modal State
   const [isGrantModalOpen, setIsGrantModalOpen] = useState(false);
@@ -98,14 +121,26 @@ export default function AdminTransactionsPage() {
             Pantau arus kas langganan GoPay QRIS, omset MRR, dan kelola masa aktif member.
           </p>
         </div>
-        <button
-          type="button"
-          onClick={() => setIsGrantModalOpen(true)}
-          className="px-4 py-2.5 bg-roast-950 hover:bg-cherry-900 text-white text-xs font-bold font-mono rounded-lg transition flex items-center gap-1.5 shadow-xs shrink-0"
-        >
-          <Plus className="w-3.5 h-3.5" />
-          <span>Beri Akses Pro Manual</span>
-        </button>
+        <div className="flex items-center gap-2 self-start sm:self-auto">
+          <button
+            type="button"
+            onClick={handleRefresh}
+            disabled={isRefreshing}
+            className="px-3.5 py-2.5 bg-white hover:bg-paper-100 text-roast-900 border border-paper-300 text-xs font-bold font-mono rounded-lg transition flex items-center gap-1.5 shadow-2xs shrink-0 cursor-pointer disabled:opacity-50"
+            title="Sinkronkan data transaksi dari database"
+          >
+            <RotateCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin text-cherry-700' : 'text-roast-600'}`} />
+            <span>{isRefreshing ? 'Menyinkronkan...' : 'Segarkan'}</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setIsGrantModalOpen(true)}
+            className="px-4 py-2.5 bg-roast-950 hover:bg-cherry-900 text-white text-xs font-bold font-mono rounded-lg transition flex items-center gap-1.5 shadow-xs shrink-0 cursor-pointer"
+          >
+            <Plus className="w-3.5 h-3.5" />
+            <span>Beri Akses Pro Manual</span>
+          </button>
+        </div>
       </div>
 
       {/* Metric Cards */}
@@ -346,9 +381,12 @@ export default function AdminTransactionsPage() {
             activeProMembers.map((member) => (
               <div key={member.id} className="py-3 flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-paper-200 overflow-hidden shrink-0 border border-paper-300">
-                    <img src={member.avatar_url} alt={member.name} className="w-full h-full object-cover" />
-                  </div>
+                  <UserAvatar
+                    src={member.avatar_url}
+                    name={member.name}
+                    email={member.email}
+                    size="w-9 h-9"
+                  />
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="font-bold text-xs text-roast-950">{member.name}</span>

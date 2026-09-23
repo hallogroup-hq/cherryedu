@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useCherryEdu } from '@/lib/store';
+import { UserAvatar } from '@/components/UserAvatar';
 import { X, Check, Copy, Coffee, Award } from "lucide-react";
 import { toast } from 'sonner';
 
@@ -80,11 +81,15 @@ export const ShareModal: React.FC<ShareModalProps> = ({
           </div>
 
           <div className="my-6 text-center relative z-10">
-            <img
-              src={currentUser.avatar_url}
-              alt={currentUser.name}
-              className="w-16 h-16 mx-auto object-cover border-2 border-crema-500 filter contrast-110 mb-3"
-            />
+            <div className="flex justify-center mb-3">
+              <UserAvatar
+                src={currentUser.avatar_url}
+                name={currentUser.name}
+                email={currentUser.email}
+                size="w-16 h-16"
+                className="border-2 border-crema-500 filter contrast-110"
+              />
+            </div>
             <h4 className="font-serif text-lg font-bold text-paper-50">{currentUser.name}</h4>
             <span className="font-mono text-[10px] text-crema-300 uppercase tracking-wider block mt-0.5">
               {currentUser.coffee_role === 'barista' ? 'Calon Barista Siap Kerja' : 'Certified Home Brewer'}

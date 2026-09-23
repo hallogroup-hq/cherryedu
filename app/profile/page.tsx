@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import { NotebookDrawer } from '@/components/NotebookDrawer';
 import { PaymentModal } from '@/components/PaymentModal';
+import { UserAvatar } from '@/components/UserAvatar';
 import { toast } from 'sonner';
 
 function ProfileContent() {
@@ -159,10 +160,13 @@ function ProfileContent() {
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-6 border-b border-paper-300">
           <div className="flex items-center gap-4 sm:gap-6">
-            <img
+            <UserAvatar
               src={currentUser.avatar_url}
-              alt={currentUser.name}
-              className="w-20 h-20 sm:w-24 sm:h-24 object-cover border-2 border-roast-900 filter contrast-110 shrink-0"
+              name={currentUser.name}
+              email={currentUser.email}
+              size="w-20 h-20 sm:w-24 sm:h-24"
+              rounded="rounded-none"
+              className="border-2 border-roast-900 filter contrast-110 shrink-0"
             />
             <div>
               <div className="flex flex-wrap items-center gap-2 mb-1">

@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useCherryEdu } from '@/lib/store';
+import { UserAvatar } from '@/components/UserAvatar';
 import {
   Search,
   Filter,
@@ -14,15 +15,34 @@ import {
   Eye,
   Crown,
   CheckCircle2,
+  RotateCw,
 } from "lucide-react";
 import { toast } from 'sonner';
 
 export default function UsersAdminPage() {
-  const { users, certificates, grantProAccess, revokeProAccess } = useCherryEdu();
+  const { users, certificates, grantProAccess, revokeProAccess, refreshUsers } = useCherryEdu();
   const [search, setSearch] = useState('');
   const [roleFilter, setRoleFilter] = useState('all');
   const [proFilter, setProFilter] = useState('all');
   const [selectedUser, setSelectedUser] = useState<typeof users[0] | null>(null);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
+  // Auto-refresh users on page load to ensure latest Supabase registrations are pulled
+  useEffect(() => {
+    refreshUsers();
+  }, [refreshUsers]);
+
+  const handleRefresh = async () => {
+    setIsRefreshing(true);
+    try {
+      const result = await refreshUsers();
+      toast.success(`Data user berhasil diperbarui (${result.length || users.length} user terdeteksi)`);
+    } catch {
+      toast.error('Gagal memperbarui data user dari database.');
+    } finally {
+      setIsRefreshing(false);
+    }
+  };
 
   const isUserProActive = (u: typeof users[0]) => {
     if (u.role === 'admin') return true;
@@ -69,13 +89,23 @@ export default function UsersAdminPage() {
 
   return (
     <div className="max-w-7xl mx-auto space-y-6">
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="font-serif font-black text-2xl text-roast-950">User Management</h1>
           <p className="text-sm text-roast-500 mt-0.5">
             {users.length} user terdaftar · {users.filter((u) => isUserProActive(u)).length} member Pro aktif
           </p>
         </div>
+        <button
+          type="button"
+          onClick={handleRefresh}
+          disabled={isRefreshing}
+          className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-mono font-bold bg-white hover:bg-paper-100 text-roast-900 border border-paper-300 rounded-lg shadow-2xs transition active:scale-95 disabled:opacity-50 self-start sm:self-auto cursor-pointer"
+          title="Sinkronkan data user langsung dari database Supabase"
+        >
+          <RotateCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin text-cherry-700' : 'text-roast-600'}`} />
+          <span>{isRefreshing ? 'Menyinkronkan...' : 'Segarkan Data'}</span>
+        </button>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -138,9 +168,12 @@ export default function UsersAdminPage() {
                     >
                       <td className="p-3">
                         <div className="flex items-center gap-2.5">
-                          <div className="w-8 h-8 rounded-full bg-paper-200 overflow-hidden shrink-0 border border-paper-300">
-                            <img src={user.avatar_url} alt={user.name} className="w-full h-full object-cover" />
-                          </div>
+                          <UserAvatar
+                            src={user.avatar_url}
+                            name={user.name}
+                            email={user.email}
+                            size="w-8 h-8"
+                          />
                           <div>
                             <p className="font-semibold text-roast-900 flex items-center gap-1">
                               <span>{user.name}</span>
@@ -238,10 +271,12 @@ export default function UsersAdminPage() {
 
             {/* Profile */}
             <div className="flex items-start gap-3">
-              <img
+              <UserAvatar
                 src={activeSelectedUser.avatar_url}
-                alt={activeSelectedUser.name}
-                className="w-12 h-12 rounded-xl object-cover border border-paper-200"
+                name={activeSelectedUser.name}
+                email={activeSelectedUser.email}
+                size="w-12 h-12"
+                rounded="rounded-xl"
               />
               <div>
                 <h4 className="font-bold text-roast-950 flex items-center gap-1.5">
