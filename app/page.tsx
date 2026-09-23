@@ -22,7 +22,7 @@ export default function HomePage() {
     cfg.sections && cfg.sections.length > 0 ? cfg.sections : DEFAULT_LANDING_SECTIONS;
 
   return (
-    <div className="space-y-24 sm:space-y-32 pb-24">
+    <div className="space-y-12 sm:space-y-28 pb-28 sm:pb-24">
       {sections
         .filter((sec) => sec.enabled !== false)
         .map((sec) => {
@@ -33,23 +33,29 @@ export default function HomePage() {
               return (
                 <section
                   key={sec.id}
-                  className="relative border-b border-paper-300 pt-12 sm:pt-16 pb-16 sm:pb-24 overflow-hidden"
+                  className="relative border-b border-paper-300 pt-6 sm:pt-16 pb-10 sm:pb-24 overflow-hidden"
                 >
                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-                      <div className="lg:col-span-7 space-y-6">
-                        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-black text-roast-950 tracking-tight leading-[1.12]">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+                      <div className="lg:col-span-7 space-y-4 sm:space-y-6">
+                        {/* Instant Trust Badge */}
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cherry-50 border border-cherry-200 text-cherry-900 font-mono text-[10px] font-bold tracking-wider">
+                          <Sparkles className="w-3 h-3 text-cherry-700 shrink-0" />
+                          <span>100% GRATIS • BERSERTIFIKAT • STANDAR SCA 80+</span>
+                        </div>
+
+                        <h1 className="text-2xl sm:text-5xl lg:text-6xl font-serif font-black text-roast-950 tracking-tight leading-[1.18] sm:leading-[1.12]">
                           {hData.headline}
                         </h1>
 
-                        <p className="text-base sm:text-lg text-roast-700 leading-relaxed font-normal max-w-2xl">
+                        <p className="text-xs sm:text-base text-roast-700 leading-relaxed font-normal max-w-2xl line-clamp-3 sm:line-clamp-none">
                           {hData.description}
                         </p>
 
-                        <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                        <div className="pt-1 sm:pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5">
                           <Link
                             href={hData.primaryCtaLink || '/paths/kopi-dari-hulu-ke-hilir'}
-                            className="px-6 py-3.5 bg-roast-950 hover:bg-cherry-800 text-paper-50 rounded-md font-sans text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2.5 transition-all shadow-subtle group"
+                            className="px-5 py-3 sm:px-6 sm:py-3.5 bg-roast-950 hover:bg-cherry-800 text-paper-50 rounded-lg sm:rounded-md font-sans text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 transition-all shadow-subtle group"
                           >
                             <span>{hData.primaryCtaText}</span>
                             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -57,7 +63,7 @@ export default function HomePage() {
 
                           <Link
                             href={hData.secondaryCtaLink || '/onboarding'}
-                            className="px-5 py-3.5 bg-white hover:bg-paper-100 text-roast-800 border border-paper-300 rounded-md font-sans text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 transition-colors"
+                            className="px-4 py-2.5 sm:px-5 sm:py-3.5 bg-white hover:bg-paper-100 text-roast-800 border border-paper-300 rounded-lg sm:rounded-md font-sans text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 transition-colors"
                           >
                             <Compass className="w-3.5 h-3.5 text-cherry-700" />
                             <span>{hData.secondaryCtaText}</span>
@@ -66,13 +72,13 @@ export default function HomePage() {
 
                         {/* Specs */}
                         {hData.specs && hData.specs.length > 0 && (
-                          <div className="pt-8 border-t border-paper-300 grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
+                          <div className="pt-4 sm:pt-8 border-t border-paper-300 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 font-mono text-xs">
                             {hData.specs.map((spec: any, sIdx: number) => (
                               <div key={sIdx}>
-                                <span className="block text-[10px] uppercase text-roast-400 font-bold">
+                                <span className="block text-[9px] sm:text-[10px] uppercase text-roast-400 font-bold">
                                   {spec.label}
                                 </span>
-                                <span className="font-bold text-roast-900">{spec.value}</span>
+                                <span className="font-bold text-xs text-roast-900">{spec.value}</span>
                               </div>
                             ))}
                           </div>
@@ -81,47 +87,47 @@ export default function HomePage() {
 
                       {/* Right Card */}
                       <div className="lg:col-span-5">
-                        <div className="bg-white rounded-xl border border-paper-300 p-6 sm:p-7 shadow-card relative">
-                          <div className="flex justify-between items-start pb-4 mb-5 border-b border-paper-200">
+                        <div className="bg-white rounded-xl border border-paper-300 p-4 sm:p-7 shadow-card relative">
+                          <div className="flex justify-between items-start pb-3 sm:pb-4 mb-3 sm:mb-5 border-b border-paper-200">
                             <div>
-                              <span className="font-mono text-[10px] uppercase tracking-widest text-roast-500 block font-bold">
+                              <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-roast-500 block font-bold">
                                 {hData.cardTagline}
                               </span>
-                              <h3 className="font-serif font-bold text-xl text-roast-950 mt-0.5">
+                              <h3 className="font-serif font-bold text-base sm:text-xl text-roast-950 mt-0.5">
                                 {hData.cardTitle}
                               </h3>
                             </div>
-                            <span className="font-mono text-[10px] bg-paper-100 px-2 py-1 rounded text-roast-700 border border-paper-300 uppercase font-bold">
+                            <span className="font-mono text-[9px] sm:text-[10px] bg-paper-100 px-2 py-0.5 sm:py-1 rounded text-roast-700 border border-paper-300 uppercase font-bold shrink-0">
                               {hData.cardVol}
                             </span>
                           </div>
 
-                          <div className="relative h-48 rounded-lg overflow-hidden mb-5 border border-paper-200">
+                          <div className="relative h-36 sm:h-48 rounded-lg overflow-hidden mb-3 sm:mb-5 border border-paper-200">
                             <img
                               src={hData.cardImage}
                               alt={hData.cardTitle}
                               className="w-full h-full object-cover grayscale-15"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-roast-950/70 via-transparent to-transparent" />
-                            <div className="absolute bottom-3 left-3 text-paper-50 font-mono text-[11px]">
+                            <div className="absolute bottom-2.5 left-2.5 text-paper-50 font-mono text-[10px] sm:text-[11px]">
                               {hData.cardAltitude}
                             </div>
                           </div>
 
-                          <div className="space-y-2 mb-6 font-sans text-xs">
+                          <div className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6 font-sans text-xs">
                             {hData.cardModules?.map((item: any, mIdx: number) => (
                               <div key={mIdx} className="flex items-center gap-2 text-roast-800">
-                                <span className="font-mono text-[10px] font-bold text-cherry-700 shrink-0">
+                                <span className="font-mono text-[9px] sm:text-[10px] font-bold text-cherry-700 shrink-0">
                                   {item.code}
                                 </span>
-                                <span className="truncate">{item.title}</span>
+                                <span className="truncate text-xs">{item.title}</span>
                               </div>
                             ))}
                           </div>
 
                           <Link
                             href={hData.cardCtaLink || '/paths/kopi-dari-hulu-ke-hilir'}
-                            className="w-full py-2.5 bg-paper-100 hover:bg-paper-200 text-roast-900 border border-paper-300 rounded text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
+                            className="w-full py-2 sm:py-2.5 bg-paper-100 hover:bg-paper-200 text-roast-900 border border-paper-300 rounded text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
                           >
                             <span>{hData.cardCtaText}</span>
                             <ArrowUpRight className="w-3.5 h-3.5 text-roast-600" />
@@ -196,25 +202,25 @@ export default function HomePage() {
               const cData = sec.data || cfg.catalog;
               return (
                 <section key={sec.id} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 pb-4 border-b border-paper-300">
+                  <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 sm:gap-4 mb-6 sm:mb-10 pb-3 sm:pb-4 border-b border-paper-300">
                     <div>
-                      <span className="font-mono text-xs uppercase tracking-widest text-roast-500 font-bold block mb-1">
+                      <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-roast-500 font-bold block mb-0.5 sm:mb-1">
                         {cData.eyebrow}
                       </span>
-                      <h2 className="text-2xl sm:text-3xl font-serif font-black text-roast-950">
+                      <h2 className="text-xl sm:text-3xl font-serif font-black text-roast-950">
                         {cData.heading}
                       </h2>
                     </div>
                     <Link
                       href={cData.allCatalogLink || '/paths'}
-                      className="text-xs font-mono uppercase font-bold tracking-wider text-cherry-800 hover:text-cherry-950 flex items-center gap-1"
+                      className="text-[11px] sm:text-xs font-mono uppercase font-bold tracking-wider text-cherry-800 hover:text-cherry-950 flex items-center gap-1"
                     >
                       <span>{cData.allCatalogText}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
                     {learningPaths.map((path, idx) => {
                       const isFoundation = path.layer_type === 'foundation';
                       return (
@@ -227,48 +233,48 @@ export default function HomePage() {
                           }`}
                         >
                           <div>
-                            <div className="relative h-44 bg-roast-900">
+                            <div className="relative h-28 sm:h-44 bg-roast-900">
                               <img
                                 src={path.thumbnail_url}
                                 alt={path.title}
                                 className="w-full h-full object-cover grayscale-15"
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-roast-950/80 via-transparent to-transparent" />
-                              <div className="absolute top-3 left-3">
-                                <span className="font-mono text-[9px] uppercase tracking-widest px-2 py-0.5 rounded bg-roast-950/80 text-paper-200 border border-white/20">
+                              <div className="absolute top-2 left-2 sm:top-3 sm:left-3">
+                                <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-widest px-1.5 py-0.5 rounded bg-roast-950/80 text-paper-200 border border-white/20">
                                   VOL. 0{idx + 1}
                                 </span>
                               </div>
-                              <div className="absolute bottom-3 left-3 right-3 flex justify-between text-xs text-paper-200 font-mono">
-                                <span>{path.estimated_hours} Jam</span>
+                              <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 flex justify-between text-[9px] sm:text-xs text-paper-200 font-mono">
+                                <span>{path.estimated_hours}j</span>
                                 <span>{path.total_modules} Modul</span>
                               </div>
                             </div>
 
-                            <div className="p-5 space-y-2">
-                              <span className="font-mono text-[10px] uppercase tracking-widest text-cherry-800 font-bold block">
-                                {isFoundation ? 'Foundation Pass' : 'Specialization Track'}
+                            <div className="p-3 sm:p-5 space-y-1 sm:space-y-2">
+                              <span className="font-mono text-[8px] sm:text-[10px] uppercase tracking-widest text-cherry-800 font-bold block">
+                                {isFoundation ? 'Foundation' : 'Specialization'}
                               </span>
-                              <h3 className="font-serif font-bold text-lg text-roast-950 leading-snug">
+                              <h3 className="font-serif font-bold text-xs sm:text-lg text-roast-950 leading-snug line-clamp-2">
                                 {path.title}
                               </h3>
-                              <p className="text-xs text-roast-600 line-clamp-3 leading-relaxed">
+                              <p className="text-[11px] sm:text-xs text-roast-600 line-clamp-2 sm:line-clamp-3 leading-relaxed hidden sm:block">
                                 {path.description}
                               </p>
                             </div>
                           </div>
 
-                          <div className="p-5 pt-0">
+                          <div className="p-3 sm:p-5 pt-0">
                             <Link
                               href={isAuthenticated ? `/paths/${path.slug}` : `/login?redirect=/paths/${path.slug}`}
-                              className={`w-full py-2.5 rounded font-sans text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-1.5 transition-colors ${
+                              className={`w-full py-2 sm:py-2.5 rounded font-sans text-[10px] sm:text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-1 transition-colors ${
                                 isFoundation
                                   ? 'bg-roast-950 hover:bg-cherry-800 text-paper-50'
                                   : 'bg-paper-100 hover:bg-paper-200 text-roast-900 border border-paper-300'
                               }`}
                             >
-                              <span>{isAuthenticated ? 'Eksplorasi Silabus' : 'Masuk untuk Eksplorasi'}</span>
-                              <ArrowRight className="w-3.5 h-3.5" />
+                              <span>{isAuthenticated ? 'Silabus' : 'Eksplor'}</span>
+                              <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                             </Link>
                           </div>
                         </div>

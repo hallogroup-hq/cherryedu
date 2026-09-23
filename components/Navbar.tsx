@@ -11,8 +11,6 @@ import {
   Zap,
   Bookmark,
   Award,
-  Menu,
-  X,
   Compass,
   ShieldCheck,
   LogIn,
@@ -39,7 +37,6 @@ export const Navbar: React.FC = () => {
   
   const userBookmarks = bookmarks.filter((b) => b.user_id === currentUser.id);
 
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
   const [communityDropdownOpen, setCommunityDropdownOpen] = useState(false);
 
@@ -48,7 +45,6 @@ export const Navbar: React.FC = () => {
 
   // Close dropdowns on route change or click outside
   useEffect(() => {
-    setIsMobileMenuOpen(false);
     setToolsDropdownOpen(false);
     setCommunityDropdownOpen(false);
   }, [pathname]);
@@ -441,277 +437,10 @@ export const Navbar: React.FC = () => {
               </div>
             )}
 
-            {/* Mobile Burger */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-1.5 text-roast-800 hover:bg-paper-200 rounded-md"
-              aria-label="Menu"
-            >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Drawer Navigation */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-paper-300 bg-paper-50 px-5 py-5 space-y-4 max-h-[80vh] overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-200 ease-out-strong">
-          {isAuthenticated ? (
-            /* User Info & Stats Strip on Mobile */
-            <div className="p-3 bg-paper-100 rounded-xl border border-paper-300 space-y-2.5">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <UserCircle2 className="w-5 h-5 text-roast-700" />
-                  <div>
-                    <div className="text-xs font-bold text-roast-950 leading-tight">
-                      {currentUser.name}
-                    </div>
-                    <div className="text-[10px] font-mono text-roast-500 uppercase">
-                      {currentUser.role === 'admin' ? 'Administrator' : currentUser.coffee_role || 'Pembelajar'}
-                    </div>
-                  </div>
-                </div>
-                <button
-                  onClick={async () => {
-                    await signOut();
-                    setIsMobileMenuOpen(false);
-                    router.push('/login');
-                  }}
-                  className="flex items-center gap-1 text-[11px] font-mono text-roast-700 hover:text-roast-950 px-2.5 py-1 bg-paper-100 hover:bg-paper-200 border border-paper-300 rounded font-semibold"
-                >
-                  <LogOut className="w-3 h-3" />
-                  <span>Keluar</span>
-                </button>
-              </div>
-              <div className="flex items-center gap-2 pt-2 border-t border-paper-200">
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-paper-300 text-roast-800 text-xs font-mono">
-                  <Flame className="w-3.5 h-3.5 text-crema-600 fill-crema-500" />
-                  <span className="font-bold">{currentUser.streak_count}d streak</span>
-                </div>
-                <div className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-white border border-paper-300 text-roast-900 text-xs font-mono">
-                  <Zap className="w-3 h-3 text-cherry-700 fill-cherry-700" />
-                  <span className="font-bold">{currentUser.xp_points}</span>
-                  <span className="text-[10px] text-roast-500">XP</span>
-                </div>
-                {isPro && (
-                  <div className="ml-auto flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-[10px] font-mono font-black uppercase shadow-2xs">
-                    <Sparkles className="w-3 h-3 text-amber-600 fill-amber-500" />
-                    <span>PRO</span>
-                  </div>
-                )}
-              </div>
-              {!isPro && (
-                <Link
-                  href="/pricing"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-full py-2 px-3 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 text-roast-950 font-bold text-xs flex items-center justify-between shadow-2xs"
-                >
-                  <span className="flex items-center gap-1.5 font-sans">
-                    <Sparkles className="w-4 h-4" />
-                    Upgrade ke CherryEdu Pro
-                  </span>
-                  <span className="font-mono text-[10px] font-black">Mulai Rp 49rb &rarr;</span>
-                </Link>
-              )}
-            </div>
-          ) : (
-            /* Guest Welcome Banner on Mobile */
-            <div className="p-4 bg-paper-100 rounded-xl border border-paper-300 space-y-2.5">
-              <p className="text-xs text-roast-700 leading-relaxed">
-                Bergabunglah dengan akademi kopi CherryEdu untuk menyimpan progres kurikulum, koleksi sertifikat, dan kalibrasi seduh.
-              </p>
-              <div className="flex items-center gap-2 pt-1">
-                <Link
-                  href="/login"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex-1 py-2 text-center text-xs font-bold rounded-lg border border-paper-300 bg-white text-roast-950 hover:bg-paper-200"
-                >
-                  Masuk
-                </Link>
-                <Link
-                  href="/register"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex-1 py-2 text-center text-xs font-bold rounded-lg bg-roast-950 text-white hover:bg-roast-850"
-                >
-                  Daftar Akun
-                </Link>
-              </div>
-            </div>
-          )}
-
-          {/* Group 1: Kurikulum & Pembelajaran */}
-          <div className="space-y-1">
-            <span className="font-mono text-[9px] uppercase tracking-widest text-roast-400 block font-bold px-1">
-              PROGRAM & MATERI
-            </span>
-            <Link
-              href="/paths"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-900 hover:bg-paper-100 text-sm font-bold"
-            >
-              <BookOpen className="w-4 h-4 text-cherry-700" />
-              <span>Katalog Kurikulum & Silabus</span>
-            </Link>
-            <Link
-              href="/onboarding"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
-            >
-              <Compass className="w-4 h-4 text-roast-500" />
-              <span>Panduan Penentuan Jalur Belajar</span>
-            </Link>
-          </div>
-
-          {/* Group 2: Alat & Riset */}
-          <div className="space-y-1 pt-2 border-t border-paper-200">
-            <span className="font-mono text-[9px] uppercase tracking-widest text-roast-400 block font-bold px-1">
-              ALAT & RISET KOPI
-            </span>
-            <Link
-              href="/tools"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-900 hover:bg-paper-100 text-sm font-bold"
-            >
-              <Coffee className="w-4 h-4 text-cherry-700" />
-              <span>Laboratorium Alat Seduh (15 Instrumen)</span>
-            </Link>
-            <Link
-              href="/tools?tab=cupping-sheet"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
-            >
-              <ClipboardCheck className="w-4 h-4 text-cherry-700" />
-              <span>SCA Cupping Sheet (Klasik & CVA)</span>
-            </Link>
-            <Link
-              href="/open-data"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
-            >
-              <Layers className="w-4 h-4 text-blue-700" />
-              <span>Dashboard Data Terbuka Nasional</span>
-            </Link>
-            <Link
-              href="/pustaka"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
-            >
-              <Library className="w-4 h-4 text-cherry-700" />
-              <span>Daftar Pustaka & Literatur Resmi</span>
-            </Link>
-            <Link
-              href="/lexicon"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
-            >
-              <BookOpen className="w-4 h-4 text-roast-500" />
-              <span>Kamus Kopi SCA-ID (Audio Lexicon)</span>
-            </Link>
-            <Link
-              href="/flashcards"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
-            >
-              <Sparkles className="w-4 h-4 text-roast-500" />
-              <span>Flashcards Spaced Repetition</span>
-            </Link>
-          </div>
-
-          {/* Group 3: Komunitas */}
-          <div className="space-y-1 pt-2 border-t border-paper-200">
-            <span className="font-mono text-[9px] uppercase tracking-widest text-roast-400 block font-bold px-1">
-              KOMUNITAS & KARIER
-            </span>
-            <Link
-              href="/forum"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-900 hover:bg-paper-100 text-sm font-bold"
-            >
-              <MessageSquare className="w-4 h-4 text-roast-700" />
-              <span>Forum Diskusi Barista</span>
-            </Link>
-            <Link
-              href="/jobs"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
-            >
-              <Briefcase className="w-4 h-4 text-roast-500" />
-              <span>Bursa Kerja Kopi</span>
-            </Link>
-            <Link
-              href="/leaderboard"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 p-2 rounded-lg text-roast-800 hover:bg-paper-100 text-xs font-medium"
-            >
-              <Trophy className="w-4 h-4 text-roast-500" />
-              <span>Papan Peringkat</span>
-            </Link>
-          </div>
-
-          {/* Group 4: Profil & Lembaga */}
-          <div className="pt-2 border-t border-paper-200 flex flex-col gap-1.5 text-xs">
-            <Link
-              href="/pricing"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center justify-between p-2 rounded-lg bg-amber-50 border border-amber-200 text-amber-950 font-bold"
-            >
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-amber-600" />
-                <span>Paket Langganan Pro</span>
-              </div>
-              <span className="text-[9px] font-mono px-2 py-0.5 bg-amber-200 rounded text-amber-900 uppercase font-black">
-                Mulai Rp 49k
-              </span>
-            </Link>
-            <Link
-              href="/about"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2 p-2 rounded text-roast-800 hover:bg-paper-100 font-semibold"
-            >
-              <Info className="w-4 h-4 text-roast-500" />
-              <span>Tentang Kami (Cherry Roastery)</span>
-            </Link>
-            {isAuthenticated && (
-              <>
-                <Link
-                  href="/profile"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center gap-2 p-2 rounded text-roast-800 hover:bg-paper-100 font-semibold"
-                >
-                  <UserCircle2 className="w-4 h-4 text-cherry-700" />
-                  <span>Profil & Portofolio Saya</span>
-                </Link>
-                <Link
-                  href="/profile?tab=bookmarks"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center gap-2 p-2 rounded text-roast-700 hover:bg-paper-100"
-                >
-                  <Bookmark className="w-4 h-4" />
-                  <span>Materi Disimpan {userBookmarks.length > 0 ? `(${userBookmarks.length})` : ''}</span>
-                </Link>
-                <Link
-                  href="/certificates"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center gap-2 p-2 rounded text-roast-700 hover:bg-paper-100"
-                >
-                  <Award className="w-4 h-4" />
-                  <span>Koleksi Sertifikat</span>
-                </Link>
-                {currentUser.role === 'admin' && (
-                  <Link
-                    href="/admin"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center gap-2 p-2 rounded text-roast-900 bg-paper-200 font-mono font-bold border border-paper-300 mt-1"
-                  >
-                    <ShieldCheck className="w-4 h-4 text-cherry-700" />
-                    <span>Konsol Pengelola Admin</span>
-                  </Link>
-                )}
-              </>
-            )}
-          </div>
-        </div>
-      )}
     </header>
   );
 };

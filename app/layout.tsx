@@ -9,6 +9,7 @@ import { WhatsNewModal } from '@/components/WhatsNewModal';
 import { Toaster } from 'sonner';
 import { PWAInstallPrompt } from '@/components/PWAInstallPrompt';
 import { FloatingActionButton } from '@/components/FloatingActionButton';
+import { MobileBottomNav } from '@/components/MobileBottomNav';
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -262,12 +263,13 @@ export default function RootLayout({
         <AuthProvider>
           <CherryEduProvider>
             <Navbar />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 pb-16 md:pb-0">{children}</main>
             <Footer />
             <WhatsNewModal />
             <Toaster position="bottom-right" richColors closeButton />
             <PWAInstallPrompt />
             <FloatingActionButton />
+            <MobileBottomNav />
           </CherryEduProvider>
         </AuthProvider>
       </body>

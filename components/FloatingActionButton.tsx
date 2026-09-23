@@ -53,8 +53,9 @@ export const FloatingActionButton: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
 
-  // Hide FAB in admin dashboard
-  if (pathname?.startsWith('/admin')) {
+  // FAB only appears when the user is studying inside a lesson/module page
+  const isLessonPage = Boolean(pathname?.includes('/lessons/'));
+  if (!isLessonPage || pathname?.startsWith('/admin')) {
     return null;
   }
 
@@ -73,7 +74,7 @@ export const FloatingActionButton: React.FC = () => {
       {/* Floating Action Button Container */}
       <div
         ref={menuRef}
-        className="fixed bottom-6 right-6 z-40 flex flex-col items-end print:hidden select-none"
+        className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end print:hidden select-none"
       >
         {/* Expanded Options Menu */}
         {isOpen && (
