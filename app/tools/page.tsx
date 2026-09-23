@@ -39,6 +39,7 @@ import {
   ShieldAlert,
   Calendar,
   Crown,
+  ChevronDown,
 } from "lucide-react";
 import { useCherryEdu } from '@/lib/store';
 import { PaymentModal } from '@/components/PaymentModal';
@@ -572,27 +573,27 @@ function ToolsPageContent() {
   const ActiveIcon = activeToolDef.icon;
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-10">
       {/* Header Section */}
-      <div className="border-b border-paper-300 pb-6 mb-6 sm:mb-8">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="border-b border-paper-300 pb-4 sm:pb-6 mb-4 sm:mb-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
           <div>
-            <div className="flex items-center gap-3 mb-2">
-              <span className="font-mono text-xs uppercase tracking-widest font-bold text-cherry-800">
+            <div className="flex items-center gap-2 mb-1 sm:mb-2">
+              <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest font-bold text-cherry-800">
                 15 Instrumen Resmi
               </span>
               <span className="text-roast-400 font-mono text-xs">•</span>
-              <span className="font-mono text-xs text-roast-600">Standar SCA & CQI</span>
+              <span className="font-mono text-[10px] sm:text-xs text-roast-600">Standar SCA & CQI</span>
             </div>
             <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold text-roast-950 tracking-tight">
               Laboratorium Seduh & Riset Kopi
             </h1>
-            <p className="mt-2 text-xs sm:text-sm text-roast-700 max-w-2xl leading-relaxed">
+            <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-roast-700 max-w-2xl leading-relaxed hidden sm:block">
               Instrumen presisi untuk kalibrasi seduhan di bar atau meja uji, leksikon roda rasa SCA, kompendium botani varietas kopi, formulasi air mineral, dan lembar cupping digital.
             </p>
 
-            {/* Quick Flagship Bar for 1-Click Access */}
-            <div className="flex flex-wrap items-center gap-1.5 pt-3">
+            {/* Quick Flagship Bar for 1-Click Access (Desktop only, mobile has horizontal chip selector) */}
+            <div className="hidden sm:flex flex-wrap items-center gap-1.5 pt-3">
               <span className="font-mono text-[10px] uppercase tracking-wider text-roast-500 mr-1">
                 Akses Cepat:
               </span>
@@ -620,13 +621,13 @@ function ToolsPageContent() {
           </div>
 
           {/* Quick Catalogue & Quota Action Buttons */}
-          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 shrink-0">
             {/* Quota Indicator Pill */}
             {!isAuthenticated ? (
               <button
                 type="button"
                 onClick={() => setIsGuestAuthPromptOpen(true)}
-                className="inline-flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-emerald-50 to-teal-50 hover:from-emerald-100 hover:to-teal-100 border border-emerald-300 text-emerald-950 rounded-xl text-xs font-mono font-bold shadow-2xs transition group"
+                className="inline-flex items-center gap-2 px-3 py-1.5 sm:py-2 bg-gradient-to-r from-emerald-50 to-teal-50 hover:from-emerald-100 hover:to-teal-100 border border-emerald-300 text-emerald-950 rounded-xl text-xs font-mono font-bold shadow-2xs transition group"
                 title="Masuk akun gratis untuk membuka seluruh 15 alat"
               >
                 <span className="flex h-2 w-2 relative">
@@ -637,7 +638,7 @@ function ToolsPageContent() {
                 <span className="text-cherry-700 underline text-[11px] group-hover:text-cherry-900 font-semibold">Buka 15 Alat Gratis →</span>
               </button>
             ) : isPro ? (
-              <div className="inline-flex items-center gap-1.5 px-3 py-2 bg-amber-50 border border-amber-300 text-amber-900 rounded-xl text-xs font-mono font-bold shadow-2xs">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:py-2 bg-amber-50 border border-amber-300 text-amber-900 rounded-xl text-xs font-mono font-bold shadow-2xs">
                 <Crown className="w-3.5 h-3.5 text-amber-600" />
                 <span>Akses Pro Unlimited</span>
               </div>
@@ -645,7 +646,7 @@ function ToolsPageContent() {
               <button
                 type="button"
                 onClick={() => setIsPaymentModalOpen(true)}
-                className="inline-flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-amber-50 to-orange-50 hover:from-amber-100 hover:to-orange-100 border border-amber-300 text-amber-950 rounded-xl text-xs font-mono font-bold shadow-2xs transition group"
+                className="inline-flex items-center gap-2 px-3 py-1.5 sm:py-2 bg-gradient-to-r from-amber-50 to-orange-50 hover:from-amber-100 hover:to-orange-100 border border-amber-300 text-amber-950 rounded-xl text-xs font-mono font-bold shadow-2xs transition group"
                 title="Buka akses tanpa batas dengan langganan Pro"
               >
                 <span className="flex h-2 w-2 relative">
@@ -659,7 +660,7 @@ function ToolsPageContent() {
 
             <button
               onClick={() => setIsSwitcherOpen(true)}
-              className="flex items-center gap-2 px-3.5 py-2.5 bg-paper-100 hover:bg-paper-200 border border-paper-300 rounded-xl text-roast-900 font-mono text-xs font-semibold shadow-2xs transition-all w-full sm:w-auto justify-center"
+              className="hidden sm:flex items-center gap-2 px-3.5 py-2 bg-paper-100 hover:bg-paper-200 border border-paper-300 rounded-xl text-roast-900 font-mono text-xs font-semibold shadow-2xs transition-all justify-center"
             >
               <SlidersHorizontal className="w-3.5 h-3.5 text-cherry-700" />
               <span>Semua Instrumen ({TOOLS_CATALOG.length})</span>
@@ -668,8 +669,63 @@ function ToolsPageContent() {
         </div>
       </div>
 
-      {/* Navigation Domain Architecture */}
-      <div className="space-y-3 mb-6 sm:mb-8">
+      {/* Mobile Streamlined Tool Selector & Horizontal Chip Bar */}
+      <div className="md:hidden space-y-2.5 mb-5">
+        {/* Active Tool Selector Card with Trigger */}
+        <button
+          type="button"
+          onClick={() => setIsSwitcherOpen(true)}
+          className="w-full bg-white border border-paper-300 rounded-xl p-3 flex items-center justify-between shadow-2xs hover:border-roast-900 transition-all text-left active:scale-[0.99]"
+        >
+          <div className="flex items-center gap-2.5 min-w-0">
+            <div className="w-9 h-9 rounded-lg bg-roast-950 text-paper-50 flex items-center justify-center shrink-0">
+              <ActiveIcon className="w-4.5 h-4.5 text-crema-300" />
+            </div>
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5 mb-0.5">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-cherry-800 font-bold">
+                  {activeDomain.name}
+                </span>
+                <span className="text-[9px] font-mono text-roast-600 bg-paper-100 border border-paper-300 px-1.5 py-0.2 rounded font-semibold">
+                  {activeToolDef.badge}
+                </span>
+              </div>
+              <div className="text-sm font-serif font-bold text-roast-950 truncate">
+                {activeToolDef.label}
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center gap-1 shrink-0 px-2.5 py-1 bg-paper-100 hover:bg-paper-200 border border-paper-300 rounded-lg text-xs font-mono font-bold text-roast-800 ml-2">
+            <span>Ganti Alat</span>
+            <ChevronDown className="w-3.5 h-3.5 text-roast-600" />
+          </div>
+        </button>
+
+        {/* 1-Row Horizontal Scrollable Chips for Quick Switching in Current Domain */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar -mx-4 px-4">
+          {domainTools.map((tool) => {
+            const isToolActive = activeTool === tool.id;
+            const ToolIcon = tool.icon;
+            return (
+              <button
+                key={tool.id}
+                onClick={() => handleSelectTool(tool.id)}
+                className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-colors border ${
+                  isToolActive
+                    ? 'bg-roast-950 text-paper-50 border-roast-950 font-bold shadow-2xs'
+                    : 'bg-white text-roast-700 border-paper-300 hover:bg-paper-100'
+                }`}
+              >
+                <ToolIcon className={`w-3.5 h-3.5 ${isToolActive ? 'text-crema-300' : 'text-roast-500'}`} />
+                <span>{tool.shortLabel}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Navigation Domain Architecture (Desktop Only) */}
+      <div className="hidden md:block space-y-3 mb-6 sm:mb-8">
         {/* Tier 1: 3 Major Functional Domains */}
         <div className="grid grid-cols-3 gap-2 sm:gap-3">
           {TOOL_DOMAINS.map((domain) => {
@@ -753,8 +809,8 @@ function ToolsPageContent() {
         </div>
       </div>
 
-      {/* Active Instrument Context Banner */}
-      <div className="mb-6 bg-paper-100/80 border border-paper-300 rounded-xl p-3.5 sm:p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+      {/* Active Instrument Context Banner (Desktop Only) */}
+      <div className="hidden md:flex mb-6 bg-paper-100/80 border border-paper-300 rounded-xl p-3.5 sm:p-4 flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-roast-950 text-paper-50 flex items-center justify-center shrink-0">
             <ActiveIcon className="w-5 h-5 text-crema-300" />
@@ -791,13 +847,21 @@ function ToolsPageContent() {
 
       {/* Switcher Modal / Bottom Sheet */}
       {isSwitcherOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-roast-950/60 backdrop-blur-xs animate-in fade-in duration-150">
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-6 bg-roast-950/60 backdrop-blur-xs animate-in fade-in duration-150"
+          onClick={() => setIsSwitcherOpen(false)}
+        >
           <div
-            className="bg-paper-50 w-full max-w-2xl rounded-2xl border border-paper-300 shadow-2xl overflow-hidden flex flex-col max-h-[90vh] animate-in zoom-in-95 duration-150"
+            className="bg-paper-50 w-full sm:max-w-2xl rounded-t-2xl sm:rounded-2xl border-t sm:border border-paper-300 shadow-2xl overflow-hidden flex flex-col max-h-[85vh] sm:max-h-[90vh] animate-in slide-in-from-bottom sm:zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Drag Handle on Mobile */}
+            <div className="sm:hidden pt-3 pb-1 flex justify-center bg-paper-100">
+              <div className="w-10 h-1 bg-paper-400 rounded-full" />
+            </div>
+
             {/* Modal Header */}
-            <div className="px-5 py-4 border-b border-paper-300 flex items-center justify-between bg-paper-100">
+            <div className="px-5 py-3 sm:py-4 border-b border-paper-300 flex items-center justify-between bg-paper-100">
               <div className="flex items-center gap-2.5">
                 <SlidersHorizontal className="w-4 h-4 text-cherry-700" />
                 <div>
