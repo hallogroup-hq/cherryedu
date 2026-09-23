@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
 import { useAuth } from '@/lib/auth';
+import { UserAvatar } from '@/components/UserAvatar';
 import {
   Flame,
   Zap,
@@ -359,23 +360,6 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-2 sm:gap-3">
             {isAuthenticated ? (
               <>
-                {/* Unified Sleek Stats Pill (Streak + XP in One Compact Badge) */}
-                <div
-                  className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-paper-100/90 border border-paper-300 text-roast-900 text-xs font-mono shadow-2xs"
-                  title={`${currentUser.streak_count} hari berturut-turut | ${currentUser.xp_points} XP`}
-                >
-                  <div className="flex items-center gap-1">
-                    <Flame className="w-3.5 h-3.5 text-crema-600 fill-crema-500" />
-                    <span className="font-bold">{currentUser.streak_count}d</span>
-                  </div>
-                  <span className="text-paper-400 select-none">•</span>
-                  <div className="flex items-center gap-1">
-                    <Zap className="w-3 h-3 text-cherry-700 fill-cherry-700" />
-                    <span className="font-bold">{currentUser.xp_points}</span>
-                    <span className="text-[10px] text-roast-500 font-sans">XP</span>
-                  </div>
-                </div>
-
                 {/* Pro Status or Upgrade CTA */}
                 {isPro ? (
                   <div
@@ -395,27 +379,6 @@ export const Navbar: React.FC = () => {
                     <span>Upgrade Pro</span>
                   </Link>
                 )}
-
-                {/* Bookmark Link */}
-                <Link
-                  href="/profile?tab=bookmarks"
-                  className="relative hidden sm:block p-1.5 text-roast-600 hover:text-roast-950 hover:bg-paper-200/50 rounded-md transition-colors"
-                  title="Materi Disimpan"
-                >
-                  <Bookmark className="w-4 h-4" />
-                  {userBookmarks.length > 0 && (
-                    <span className="absolute top-1 right-1 w-1.5 h-1.5 bg-cherry-700 rounded-full" />
-                  )}
-                </Link>
-
-                {/* Certificate Link */}
-                <Link
-                  href="/certificates"
-                  className="p-1.5 text-roast-600 hover:text-roast-950 hover:bg-paper-200/50 rounded-md transition-colors hidden sm:block"
-                  title="Koleksi Sertifikat"
-                >
-                  <Award className="w-4 h-4" />
-                </Link>
 
                 {/* Admin Console Quick Button */}
                 {currentUser.role === 'admin' && (
@@ -437,8 +400,13 @@ export const Navbar: React.FC = () => {
                     className="flex items-center gap-2 px-2.5 py-1.5 rounded-md border border-paper-300 bg-white hover:border-roast-400 transition-colors"
                     title="Profil Saya"
                   >
-                    <UserCircle2 className="w-4 h-4 text-roast-600" />
-                    <span className="text-xs font-bold text-roast-950 hidden lg:block max-w-[95px] truncate">
+                    <UserAvatar
+                      src={currentUser.avatar_url}
+                      name={currentUser.name}
+                      email={currentUser.email}
+                      size="w-5 h-5"
+                    />
+                    <span className="text-xs font-bold text-roast-950 hidden lg:block max-w-[110px] truncate">
                       {currentUser.name.split(' ')[0]}
                     </span>
                   </Link>
