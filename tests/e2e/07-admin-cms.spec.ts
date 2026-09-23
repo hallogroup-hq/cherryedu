@@ -29,4 +29,34 @@ test.describe('Suite TS-09: CMS & Admin Panel Access', () => {
     // Admin overview should display dashboard or curriculum nav
     await expect(page.locator('body')).toContainText(/Overview|Analytics|Kurikulum|Dashboard/i);
   });
+
+  test('TC-09-03: Sidebar navigation remains responsive on /admin/messages without infinite re-render freeze', async ({ page }) => {
+    // Login as admin
+    await page.goto('/login');
+    await page.locator('input[type="email"]').fill('admin@cherryedu.id');
+    await page.locator('input[type="password"]').fill('cherryadmin2026');
+    await page.getByRole('button', { name: /Masuk Sekarang/i }).click();
+
+    await page.waitForURL(url => !url.pathname.includes('/login'), { timeout: 10000 });
+
+    // Navigate to admin
+    await page.goto('/admin');
+    await expect(page.locator('body')).toContainText(/Overview|Analytics|Kurikulum|Dashboard/i);
+
+    // Click on "Pesan & Chat" in sidebar
+    const pesanChatLink = page.getByRole('link', { name: /Pesan & Chat/i });
+    await pesanChatLink.click();
+
+    // Verify /admin/messages is loaded
+    await page.waitForURL(url => url.pathname.includes('/admin/messages'));
+    await page.waitForTimeout(1000);
+
+    // Verify clicking "Overview" in sidebar responds immediately
+    const overviewLink = page.getByRole('link', { name: 'Overview' });
+    await overviewLink.click({ timeout: 5000 });
+
+    await page.waitForURL(url => url.pathname === '/admin');
+    expect(page.url()).toContain('/admin');
+    expect(page.url()).not.toContain('/admin/messages');
+  });
 });

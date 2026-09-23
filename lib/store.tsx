@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
 import { useAuth } from './auth';
 import {
   User,
@@ -1198,47 +1198,56 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     return notes.filter((n) => n.user_id === targetId);
   };
 
-  const sendUserChatMessage = (message: string, pageContext?: string): ChatMessage => {
-    const newMsg: ChatMessage = {
-      id: `msg-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
-      conversation_id: currentUser.id,
-      sender_id: currentUser.id,
-      sender_name: currentUser.name || 'Rekan Barista',
-      sender_role: 'user',
-      message: message.trim(),
-      created_at: new Date().toISOString(),
-      is_read: false,
-      page_context: pageContext,
-    };
-    setChatMessages((prev) => [...prev, newMsg]);
-    return newMsg;
-  };
+  const sendUserChatMessage = useCallback(
+    (message: string, pageContext?: string): ChatMessage => {
+      const newMsg: ChatMessage = {
+        id: `msg-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+        conversation_id: currentUser.id,
+        sender_id: currentUser.id,
+        sender_name: currentUser.name || 'Rekan Barista',
+        sender_role: 'user',
+        message: message.trim(),
+        created_at: new Date().toISOString(),
+        is_read: false,
+        page_context: pageContext,
+      };
+      setChatMessages((prev) => [...prev, newMsg]);
+      return newMsg;
+    },
+    [currentUser.id, currentUser.name]
+  );
 
-  const sendAdminChatMessage = (
-    conversationId: string,
-    message: string,
-    adminName?: string
-  ): ChatMessage => {
-    const newMsg: ChatMessage = {
-      id: `msg-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
-      conversation_id: conversationId,
-      sender_id: currentUser?.id || 'admin',
-      sender_name: adminName || currentUser?.name || 'Admin CherryEdu',
-      sender_role: 'admin',
-      message: message.trim(),
-      created_at: new Date().toISOString(),
-      is_read: false,
-    };
-    setChatMessages((prev) => [...prev, newMsg]);
-    return newMsg;
-  };
+  const sendAdminChatMessage = useCallback(
+    (
+      conversationId: string,
+      message: string,
+      adminName?: string
+    ): ChatMessage => {
+      const newMsg: ChatMessage = {
+        id: `msg-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+        conversation_id: conversationId,
+        sender_id: currentUser?.id || 'admin',
+        sender_name: adminName || currentUser?.name || 'Admin CherryEdu',
+        sender_role: 'admin',
+        message: message.trim(),
+        created_at: new Date().toISOString(),
+        is_read: false,
+      };
+      setChatMessages((prev) => [...prev, newMsg]);
+      return newMsg;
+    },
+    [currentUser?.id, currentUser?.name]
+  );
 
-  const getConversationMessages = (conversationId?: string): ChatMessage[] => {
-    const targetId = conversationId || currentUser.id;
-    return chatMessages.filter((m) => m.conversation_id === targetId);
-  };
+  const getConversationMessages = useCallback(
+    (conversationId?: string): ChatMessage[] => {
+      const targetId = conversationId || currentUser.id;
+      return chatMessages.filter((m) => m.conversation_id === targetId);
+    },
+    [chatMessages, currentUser.id]
+  );
 
-  const getAllConversations = () => {
+  const getAllConversations = useCallback(() => {
     const convMap = new Map<string, { lastMessage: ChatMessage; unreadCount: number }>();
     const sorted = [...chatMessages].sort(
       (a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
@@ -1275,18 +1284,26 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     return result.sort(
       (a, b) => new Date(b.lastMessage.created_at).getTime() - new Date(a.lastMessage.created_at).getTime()
     );
-  };
+  }, [chatMessages, users]);
 
-  const markConversationRead = (conversationId: string, asAdmin: boolean = false) => {
-    setChatMessages((prev) =>
-      prev.map((m) => {
+  const markConversationRead = useCallback((conversationId: string, asAdmin: boolean = false) => {
+    setChatMessages((prev) => {
+      let hasChanges = false;
+      const updated = prev.map((m) => {
         if (m.conversation_id !== conversationId) return m;
-        if (asAdmin && m.sender_role === 'user') return { ...m, is_read: true };
-        if (!asAdmin && m.sender_role === 'admin') return { ...m, is_read: true };
+        if (asAdmin && m.sender_role === 'user' && !m.is_read) {
+          hasChanges = true;
+          return { ...m, is_read: true };
+        }
+        if (!asAdmin && m.sender_role === 'admin' && !m.is_read) {
+          hasChanges = true;
+          return { ...m, is_read: true };
+        }
         return m;
-      })
-    );
-  };
+      });
+      return hasChanges ? updated : prev;
+    });
+  }, []);
 
   const createPost = (title: string, content: string, category: ForumCategory): Post => {
     const newPost: Post = {

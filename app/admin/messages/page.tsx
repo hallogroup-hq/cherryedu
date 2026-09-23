@@ -31,7 +31,7 @@ export default function AdminMessagesPage() {
   // Conversations list
   const allConversations = useMemo(() => {
     return getAllConversations();
-  }, [getAllConversations, chatMessages]);
+  }, [getAllConversations]);
 
   // Set default selected conversation
   useEffect(() => {
@@ -76,12 +76,12 @@ export default function AdminMessagesPage() {
   const activeMessages = useMemo(() => {
     if (!selectedConvId) return [];
     return getConversationMessages(selectedConvId);
-  }, [getConversationMessages, selectedConvId, chatMessages]);
+  }, [getConversationMessages, selectedConvId]);
 
   // Auto-scroll on new message
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [activeMessages]);
+  }, [activeMessages.length, selectedConvId]);
 
   // Mark as read when opening conversation
   useEffect(() => {

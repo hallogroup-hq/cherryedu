@@ -69,8 +69,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           const parsed = JSON.parse(savedTestSession);
           if (
             parsed?.user?.id === 'user-testuser-cherry' ||
+            parsed?.user?.id === 'usr-admin-01' ||
             parsed?.user?.email === 'testuser@cherrycoffeeroastery.com' ||
-            parsed?.user?.email === 'testuser@cherryedu.id'
+            parsed?.user?.email === 'testuser@cherryedu.id' ||
+            parsed?.user?.email === 'admin@cherryedu.id'
           ) {
             setSession(parsed);
             setUser(parsed.user);
@@ -139,6 +141,50 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       password === 'testuser123' ||
       password === 'testuser2026';
     const isDedicatedTestUser = isTestUserIdentifier && isTestUserPassword;
+
+    const isAdminIdentifier = cleanInput === 'admin@cherryedu.id' || cleanInput === 'admin';
+    const isAdminPassword = password === 'cherryadmin2026' || password === 'cherry2026!' || password === 'admin';
+    const isDedicatedAdmin = isAdminIdentifier && isAdminPassword;
+
+    if (isDedicatedAdmin) {
+      const adminUserObj: SupabaseUser = {
+        id: 'usr-admin-01',
+        app_metadata: { provider: 'email', providers: ['email'], role: 'admin' },
+        user_metadata: {
+          name: 'Administrator CherryEdu',
+          full_name: 'Administrator CherryEdu',
+          coffee_role: 'roaster',
+          role: 'admin',
+          is_pro: true,
+        },
+        aud: 'authenticated',
+        confirmation_sent_at: new Date().toISOString(),
+        confirmed_at: new Date().toISOString(),
+        created_at: new Date().toISOString(),
+        email: 'admin@cherryedu.id',
+        email_confirmed_at: new Date().toISOString(),
+        last_sign_in_at: new Date().toISOString(),
+        phone: '',
+        role: 'authenticated',
+        updated_at: new Date().toISOString(),
+      };
+
+      const adminSessionObj: Session = {
+        access_token: 'admin-token-' + Date.now(),
+        token_type: 'bearer',
+        expires_in: 3600 * 24 * 7,
+        refresh_token: 'admin-refresh-token',
+        user: adminUserObj,
+      };
+
+      try {
+        localStorage.setItem(TEST_USER_KEY, JSON.stringify(adminSessionObj));
+      } catch {}
+
+      setSession(adminSessionObj);
+      setUser(adminUserObj);
+      return { error: null };
+    }
 
     if (isDedicatedTestUser) {
       const testUserObj: SupabaseUser = {

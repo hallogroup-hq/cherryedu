@@ -188,7 +188,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <aside
         className={`${
           sidebarOpen ? 'w-60' : 'w-16'
-        } flex-shrink-0 bg-roast-950 text-paper-100 flex flex-col transition-all duration-200 sticky top-0 h-screen overflow-hidden`}
+        } flex-shrink-0 bg-roast-950 text-paper-100 flex flex-col transition-all duration-200 sticky top-0 h-screen overflow-hidden z-30`}
       >
         {/* Brand */}
         <div className="h-14 flex items-center px-4 border-b border-roast-800 gap-3 shrink-0">
