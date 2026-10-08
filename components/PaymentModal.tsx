@@ -54,7 +54,8 @@ export function PaymentModal({
     message: string;
   } | null>(null);
 
-  const [step, setStep] = useState<'plan' | 'qr' | 'success'>('plan');
+  const [step, setStep] = useState<'plan' | 'qr' | 'confirm' | 'success'>('plan');
+  const [isDeclaredPaid, setIsDeclaredPaid] = useState<boolean>(true);
   const [isGeneratingQR, setIsGeneratingQR] = useState<boolean>(false);
   const [activeTx, setActiveTx] = useState<PaymentTransaction | null>(null);
 
@@ -531,32 +532,15 @@ export function PaymentModal({
                 </div>
               ) : (
                 <>
-                  <div className="w-full max-w-sm p-3 bg-emerald-50/90 border border-emerald-200/80 rounded-xl text-xs text-emerald-900 text-left flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
-                    <p className="leading-relaxed">
-                      Sudah scan & transfer via GoPay / m-Banking? Klik tombol di bawah untuk <strong>langsung membuka akses Pro seketika</strong> tanpa harus menunggu verifikasi admin.
-                    </p>
-                  </div>
-
                   {/* Action Buttons */}
                   <div className="w-full max-w-sm space-y-2 pt-1">
                     <button
                       type="button"
-                      onClick={handleConfirmPayment}
-                      disabled={isChecking}
-                      className="w-full py-3.5 bg-emerald-700 hover:bg-emerald-800 disabled:bg-paper-400 text-white text-xs font-bold font-mono rounded-xl transition flex items-center justify-center gap-2 shadow-md shadow-emerald-900/20 cursor-pointer"
+                      onClick={() => setStep('confirm')}
+                      className="w-full py-3.5 bg-roast-950 hover:bg-cherry-900 text-white font-bold font-mono text-xs rounded-xl transition flex items-center justify-center gap-2 shadow-sm cursor-pointer"
                     >
-                      {isChecking ? (
-                        <>
-                          <RefreshCw className="w-4 h-4 animate-spin" />
-                          <span>Mengaktifkan Akun Pro Anda...</span>
-                        </>
-                      ) : (
-                        <>
-                          <CheckCircle2 className="w-4 h-4" />
-                          <span>Saya Sudah Transfer (Buka Akses Pro Sekarang)</span>
-                        </>
-                      )}
+                      <span>Konfirmasi Pembayaran</span>
+                      <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
                 </>
@@ -565,7 +549,7 @@ export function PaymentModal({
                 {/* Support Confirmation Note */}
                 <div className="pt-2 text-center border-t border-paper-200 mt-2">
                   <p className="text-[11px] text-roast-500 leading-relaxed">
-                    Sudah transfer tapi status belum terverifikasi?{' '}
+                    Sudah transfer tapi butuh bantuan?{' '}
                     <a
                       href={`https://wa.me/${process.env.NEXT_PUBLIC_SUPPORT_WHATSAPP || '6281234567890'}?text=Halo%20Admin%20CherryEdu,%20saya%20sudah%20membayar%20QRIS%20Pro%20dengan%20ID%20Transaksi:%20${encodeURIComponent(activeTx.trx_id || activeTx.id)}`}
                       target="_blank"
@@ -579,7 +563,87 @@ export function PaymentModal({
               </div>
           )}
 
-          {/* STEP 3: SUCCESS CELEBRATION */}
+          {/* STEP 3: CONFIRMATION DECLARATION */}
+          {step === 'confirm' && activeTx && (
+            <div className="flex flex-col items-center text-center space-y-4 max-w-md mx-auto py-2">
+              <div className="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center border border-amber-300 shadow-xs">
+                <ShieldCheck className="w-7 h-7" />
+              </div>
+
+              <div>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-roast-950">
+                  Konfirmasi Pembayaran
+                </h3>
+                <p className="text-xs text-roast-600 mt-1 max-w-sm">
+                  Pastikan Anda telah menyelesaikan transfer melalui aplikasi GoPay atau mobile banking Anda.
+                </p>
+              </div>
+
+              {/* Transaction Summary Card */}
+              <div className="w-full p-4 bg-paper-100 border border-paper-300 rounded-xl text-xs space-y-2.5 text-left">
+                <div className="flex justify-between">
+                  <span className="text-roast-500 font-mono text-[11px]">ID Transaksi:</span>
+                  <span className="font-mono font-bold text-roast-950">{activeTx.trx_id || activeTx.id}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-roast-500 font-mono text-[11px]">Penerima QRIS:</span>
+                  <span className="font-bold text-roast-900">CV Kreativitas Anak Bangsa</span>
+                </div>
+                <div className="flex justify-between border-t border-paper-300 pt-2 items-baseline">
+                  <span className="text-roast-600 font-semibold">Total Tagihan:</span>
+                  <span className="font-mono text-base font-black text-cherry-900">
+                    Rp {activeTx.final_amount.toLocaleString('id-ID')}
+                  </span>
+                </div>
+              </div>
+
+              {/* Declaration Statement Checkbox */}
+              <label className="w-full flex items-start gap-3 p-3.5 bg-white border border-paper-300 rounded-xl text-left cursor-pointer hover:border-paper-400 transition">
+                <input
+                  type="checkbox"
+                  checked={isDeclaredPaid}
+                  onChange={(e) => setIsDeclaredPaid(e.target.checked)}
+                  className="mt-0.5 w-4 h-4 rounded text-emerald-700 focus:ring-emerald-700 border-paper-400 cursor-pointer"
+                />
+                <span className="text-xs text-roast-900 leading-relaxed font-sans select-none">
+                  Saya menyatakan telah mentransfer sejumlah <strong className="text-emerald-800 font-mono">Rp {activeTx.final_amount.toLocaleString('id-ID')}</strong> ke QRIS CV Kreativitas Anak Bangsa.
+                </span>
+              </label>
+
+              {/* Action Buttons */}
+              <div className="w-full space-y-2 pt-1">
+                <button
+                  type="button"
+                  onClick={handleConfirmPayment}
+                  disabled={!isDeclaredPaid || isChecking}
+                  className="w-full py-3.5 bg-emerald-700 hover:bg-emerald-800 disabled:bg-paper-300 disabled:text-roast-400 text-white font-bold font-mono text-xs rounded-xl transition flex items-center justify-center gap-2 shadow-md shadow-emerald-900/20 cursor-pointer disabled:cursor-not-allowed"
+                >
+                  {isChecking ? (
+                    <>
+                      <RefreshCw className="w-4 h-4 animate-spin" />
+                      <span>Mengaktifkan Akun Pro...</span>
+                    </>
+                  ) : (
+                    <>
+                      <CheckCircle2 className="w-4 h-4" />
+                      <span>Konfirmasi & Buka Pro</span>
+                    </>
+                  )}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setStep('qr')}
+                  disabled={isChecking}
+                  className="w-full py-2.5 bg-white hover:bg-paper-100 border border-paper-300 text-roast-700 font-mono text-xs font-semibold rounded-xl transition cursor-pointer"
+                >
+                  ← Kembali Lihat Kode QRIS
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* STEP 4: SUCCESS CELEBRATION */}
           {step === 'success' && activeTx && (
             <div className="py-6 flex flex-col items-center text-center space-y-4">
               <div className="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center border border-emerald-300 shadow-sm animate-bounce">
@@ -588,7 +652,7 @@ export function PaymentModal({
 
               <div>
                 <h3 className="font-serif text-2xl font-bold text-roast-950">
-                  Selamat Datang di CherryEdu Pro!
+                  Transaksi Berhasil! Selamat Datang di CherryEdu Pro.
                 </h3>
                 <p className="text-xs text-roast-600 mt-1 max-w-sm">
                   Pembayaran QRIS GoPay Anda telah terverifikasi lunas. Seluruh 6 Jalur Spesialisasi kini terbuka penuh untuk Anda pelajari.
