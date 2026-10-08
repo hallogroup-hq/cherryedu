@@ -104,6 +104,27 @@ export default function AdminTransactionsPage() {
       return;
     }
     grantProAccess(selectedUserId, grantDuration, grantCycle);
+    
+    const targetUser = users.find((u) => u.id === selectedUserId);
+    if (targetUser?.email) {
+      const expiresDate = new Date();
+      expiresDate.setMonth(expiresDate.getMonth() + grantDuration);
+      fetch('/api/email/subscription', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          toEmail: targetUser.email,
+          userName: targetUser.name || 'Rekan Barista',
+          planName: 'CherryEdu Pro',
+          cycle: grantCycle,
+          amount: 0,
+          transactionId: 'MANUAL-GRANT-' + Math.random().toString(36).substring(2, 8).toUpperCase(),
+          expiresAt: expiresDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
+          isRenewal: false,
+        }),
+      }).catch((e) => console.debug('Email dispatch skipped:', e));
+    }
+
     toast.success('Status Pro berhasil diberikan kepada pengguna!');
     setIsGrantModalOpen(false);
     setSelectedUserId('');

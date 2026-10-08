@@ -62,6 +62,7 @@ import {
   syncTransactionToSupabase,
   fetchTransactionsFromSupabase,
   updateTransactionStatusInSupabase,
+  fetchTransactionByIdFromSupabase,
 } from './dbSync';
 import { supabase, isSupabaseConfigured } from './supabase';
 
@@ -116,7 +117,7 @@ interface CherryEduContextType {
   recordToolUsage: (toolId?: string) => { allowed: boolean; remaining: number; isPro: boolean };
   applyVoucher: (code: string, amount: number) => { valid: boolean; discountAmount: number; finalAmount: number; message: string; voucher?: Voucher };
   createPaymentTransaction: (cycle: SubscriptionCycle, voucherCode?: string) => Promise<{ success: boolean; transaction?: PaymentTransaction; error?: string }>;
-  checkPaymentStatus: (transactionId: string) => Promise<{ paid: boolean; transaction?: PaymentTransaction }>;
+  checkPaymentStatus: (transactionId: string) => Promise<{ paid: boolean; status?: string; transaction?: PaymentTransaction }>;
   simulatePaymentSuccess: (transactionId: string) => void;
   grantProAccess: (userId: string, durationMonths?: number, cycle?: SubscriptionCycle) => void;
   revokeProAccess: (userId: string) => void;
@@ -253,15 +254,29 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       if (remoteUsers && remoteUsers.length > 0) {
         setUsers((prev) => {
           const userMap = new Map<string, User>();
-          // 1. First add remote users from Supabase (source of truth for registered members)
+          // 1. First add remote users from Supabase (authoritative source of truth)
           remoteUsers.forEach((ru) => userMap.set(ru.id, ru));
-          // 2. Add local users that aren't in Supabase (e.g. system seed users like admin/testuser)
+          // 2. Add local users that aren't in Supabase, and merge local data without clobbering remote truth
           prev.forEach((pu) => {
             if (!userMap.has(pu.id)) {
               userMap.set(pu.id, pu);
             } else {
-              const existing = userMap.get(pu.id)!;
-              userMap.set(pu.id, { ...existing, ...pu });
+              const remote = userMap.get(pu.id)!;
+              // Remote Supabase profile is authoritative for server-managed subscription and role
+              const isProActive = Boolean(remote.is_pro || pu.is_pro);
+              userMap.set(pu.id, {
+                ...pu,
+                ...remote,
+                is_pro: isProActive,
+                subscription_tier: isProActive
+                  ? (remote.subscription_tier && remote.subscription_tier !== 'free'
+                      ? remote.subscription_tier
+                      : (pu.subscription_tier && pu.subscription_tier !== 'free' ? pu.subscription_tier : 'pro'))
+                  : 'free',
+                subscription_cycle: remote.subscription_cycle || pu.subscription_cycle,
+                subscription_expires_at: remote.subscription_expires_at || pu.subscription_expires_at,
+                role: remote.role || pu.role,
+              });
             }
           });
           return Array.from(userMap.values());
@@ -656,6 +671,42 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       setUsers((prev) => [newUser, ...prev]);
       setCurrentUserId(newUser.id);
       syncProfileToSupabase(newUser);
+
+      // If this is a real user, query Supabase profile immediately to recover any existing subscription status
+      if (isSupabaseConfigured() && !isTestUser) {
+        (async () => {
+          try {
+            const { data } = await supabase
+              .from('profiles')
+              .select('*')
+              .eq('id', authUser.id)
+              .maybeSingle();
+
+            if (data) {
+              setUsers((prev) =>
+                prev.map((u) => {
+                  if (u.id === authUser.id) {
+                    const isProActive = Boolean(data.is_pro);
+                    return {
+                      ...u,
+                      name: data.name || u.name,
+                      avatar_url: data.avatar_url || u.avatar_url,
+                      role: data.role || u.role,
+                      is_pro: isProActive,
+                      subscription_tier: isProActive ? (data.subscription_tier || 'pro') : 'free',
+                      subscription_cycle: data.subscription_cycle || undefined,
+                      subscription_expires_at: data.subscription_expires_at || undefined,
+                    };
+                  }
+                  return u;
+                })
+              );
+            }
+          } catch (err) {
+            console.debug('Initial user profile lookup error:', err);
+          }
+        })();
+      }
     }
   }, [authUser, users]);
 
@@ -872,11 +923,28 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const checkPaymentStatus = async (transactionId: string) => {
-    const tx = transactions.find((t) => t.id === transactionId);
+    // 1. Fetch latest server truth from Supabase
+    const remoteTx = await fetchTransactionByIdFromSupabase(transactionId);
+    let tx = remoteTx || transactions.find((t) => t.id === transactionId);
     if (!tx) return { paid: false };
-    if (tx.status === 'paid') return { paid: true, transaction: tx };
 
-    // Auto-expire transactions when time limit has elapsed
+    // 2. If marked as paid in Supabase or locally, immediately grant Pro access
+    if (tx.status === 'paid') {
+      const durationMonths = tx.cycle === 'annual' ? 12 : 1;
+      grantProAccess(tx.user_id, durationMonths, tx.cycle);
+
+      setTransactions((prev) => {
+        const exists = prev.some((t) => t.id === transactionId);
+        if (exists) {
+          return prev.map((t) => (t.id === transactionId ? tx! : t));
+        }
+        return [tx!, ...prev];
+      });
+
+      return { paid: true, transaction: tx };
+    }
+
+    // 3. Auto-expire transactions when time limit has elapsed ONLY IF still pending remotely and locally
     if (tx.status === 'pending' && tx.expires_at && new Date(tx.expires_at) < new Date()) {
       const expiredTx: PaymentTransaction = {
         ...tx,
@@ -887,6 +955,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       return { paid: false, status: 'expired', transaction: expiredTx };
     }
 
+    // 4. Poll external GoPay gateway if configured
     const qrisCheck = await verifyQRISStatus(tx.qris_id || '', tx.trx_id, tx.final_amount);
     if (qrisCheck.paid) {
       const durationMonths = tx.cycle === 'annual' ? 12 : 1;
@@ -899,6 +968,27 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       };
       setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
       updateTransactionStatusInSupabase(tx.id, 'paid', updatedTx.paid_at);
+
+      // Asynchronously trigger confirmation email
+      if (updatedTx.user_email) {
+        const expiresDate = new Date();
+        expiresDate.setDate(expiresDate.getDate() + (updatedTx.cycle === 'annual' ? 365 : 30));
+        fetch('/api/email/subscription', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            toEmail: updatedTx.user_email,
+            userName: updatedTx.user_name,
+            planName: 'CherryEdu Pro',
+            cycle: updatedTx.cycle,
+            amount: updatedTx.final_amount,
+            transactionId: updatedTx.trx_id || updatedTx.id,
+            expiresAt: expiresDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
+            isRenewal: false,
+          }),
+        }).catch((e) => console.debug('Email dispatch skipped:', e));
+      }
+
       return { paid: true, transaction: updatedTx };
     }
     return { paid: false, transaction: tx };
@@ -918,6 +1008,26 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     };
     setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
     updateTransactionStatusInSupabase(tx.id, 'paid', updatedTx.paid_at);
+
+    // Asynchronously dispatch confirmation & receipt email
+    if (tx.user_email) {
+      const expiresDate = new Date();
+      expiresDate.setDate(expiresDate.getDate() + (tx.cycle === 'annual' ? 365 : 30));
+      fetch('/api/email/subscription', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          toEmail: tx.user_email,
+          userName: tx.user_name,
+          planName: 'CherryEdu Pro',
+          cycle: tx.cycle,
+          amount: tx.final_amount,
+          transactionId: tx.trx_id || tx.id,
+          expiresAt: expiresDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
+          isRenewal: false,
+        }),
+      }).catch((e) => console.debug('Failed to send subscription confirmation email:', e));
+    }
   };
 
   const addVoucher = (v: Voucher) => setVouchers((prev) => [v, ...prev]);

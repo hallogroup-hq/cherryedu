@@ -9,21 +9,37 @@ export async function syncProfileToSupabase(user: User): Promise<void> {
   if (!isSupabaseConfigured() || user.id === 'guest') return;
 
   try {
+    // Check existing profile in Supabase first to guard against downgrading active Pro or Admin status
+    const { data: existing } = await supabase
+      .from('profiles')
+      .select('is_pro, subscription_tier, subscription_cycle, subscription_expires_at, role, xp_points, streak_count')
+      .eq('id', user.id)
+      .maybeSingle();
+
+    const isExistingProValid = Boolean(
+      existing?.is_pro &&
+      (!existing.subscription_expires_at || new Date(existing.subscription_expires_at) > new Date())
+    );
+
+    const willBePro = Boolean(user.is_pro || isExistingProValid);
+
     const payload = {
       id: user.id,
       name: user.name,
       email: user.email,
       avatar_url: user.avatar_url,
       bio: user.bio,
-      role: user.role,
+      role: existing?.role === 'admin' ? 'admin' : user.role,
       coffee_role: user.coffee_role,
       city: user.city,
-      xp_points: user.xp_points || 0,
-      streak_count: user.streak_count || 0,
-      is_pro: Boolean(user.is_pro),
-      subscription_tier: user.subscription_tier || (user.is_pro ? 'pro' : 'free'),
-      subscription_cycle: user.subscription_cycle || null,
-      subscription_expires_at: user.subscription_expires_at || null,
+      xp_points: Math.max(user.xp_points || 0, existing?.xp_points || 0),
+      streak_count: Math.max(user.streak_count || 0, existing?.streak_count || 0),
+      is_pro: willBePro,
+      subscription_tier: willBePro
+        ? (user.subscription_tier && user.subscription_tier !== 'free' ? user.subscription_tier : (existing?.subscription_tier || 'pro'))
+        : 'free',
+      subscription_cycle: user.subscription_cycle || existing?.subscription_cycle || null,
+      subscription_expires_at: user.subscription_expires_at || existing?.subscription_expires_at || null,
       last_active_date: user.last_active_date || new Date().toISOString().slice(0, 10),
       updated_at: new Date().toISOString(),
     };
@@ -198,3 +214,48 @@ export async function updateTransactionStatusInSupabase(
     console.debug('Failed to update transaction status in Supabase:', err);
   }
 }
+
+/**
+ * Fetch a single transaction by ID directly from Supabase.
+ */
+export async function fetchTransactionByIdFromSupabase(
+  txId: string
+): Promise<PaymentTransaction | null> {
+  if (!isSupabaseConfigured() || !txId) return null;
+
+  try {
+    const { data, error } = await supabase
+      .from('transactions')
+      .select('*')
+      .eq('id', txId)
+      .maybeSingle();
+
+    if (error || !data) return null;
+
+    return {
+      id: data.id,
+      user_id: data.user_id,
+      user_name: data.user_name || 'Pengguna CherryEdu',
+      user_email: data.user_email || '',
+      plan_tier: data.plan_tier || 'pro',
+      cycle: data.cycle || 'monthly',
+      original_amount: data.original_amount,
+      discount_amount: data.discount_amount || 0,
+      final_amount: data.final_amount,
+      voucher_code: data.voucher_code || undefined,
+      status: data.status as PaymentTransaction['status'],
+      payment_method: data.payment_method || 'gopay_qris',
+      qris_id: data.qris_id || undefined,
+      trx_id: data.trx_id || undefined,
+      qris_code: data.qris_code || undefined,
+      qris_url: data.qris_url || undefined,
+      expires_at: data.expires_at || undefined,
+      paid_at: data.paid_at || undefined,
+      created_at: data.created_at || new Date().toISOString(),
+    };
+  } catch (err) {
+    console.debug('Failed to fetch transaction by ID from Supabase:', err);
+    return null;
+  }
+}
+

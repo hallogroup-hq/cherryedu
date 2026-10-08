@@ -162,11 +162,15 @@ export function PaymentModal({
       const res = await checkPaymentStatus(activeTx.id);
       if (res.paid) {
         triggerSuccess(res.transaction || activeTx);
+      } else if (res.status === 'expired') {
+        if (res.transaction) setActiveTx(res.transaction);
+        setTimeLeft(0);
+        toast.error('Waktu pembayaran QRIS telah habis. Silakan buat kode QRIS baru.');
       } else {
-        toast.info('Pembayaran belum terdeteksi. Pastikan scan QRIS telah berhasil dilakukan di aplikasi GoPay / e-Wallet Anda.');
+        toast.info('Pembayaran belum terdeteksi di mutasi. Jika baru saja transfer, tunggu 5-10 detik lalu cek kembali.');
       }
     } catch (err) {
-      toast.error('Gagal memeriksa status mutasi.');
+      toast.error('Gagal memeriksa status transaksi.');
     } finally {
       setIsChecking(false);
     }
@@ -556,7 +560,7 @@ export function PaymentModal({
                   <p className="text-[11px] text-roast-500 leading-relaxed">
                     Sudah transfer tapi status belum terverifikasi?{' '}
                     <a
-                      href={`https://wa.me/6281234567890?text=Halo%20Admin%20CherryEdu,%20saya%20sudah%20membayar%20QRIS%20Pro%20dengan%20ID%20Transaksi:%20${encodeURIComponent(activeTx.trx_id || activeTx.id)}`}
+                      href={`https://wa.me/${process.env.NEXT_PUBLIC_SUPPORT_WHATSAPP || '6281234567890'}?text=Halo%20Admin%20CherryEdu,%20saya%20sudah%20membayar%20QRIS%20Pro%20dengan%20ID%20Transaksi:%20${encodeURIComponent(activeTx.trx_id || activeTx.id)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-cherry-700 font-semibold hover:underline inline-block mt-0.5"
