@@ -118,6 +118,8 @@ interface CherryEduContextType {
   applyVoucher: (code: string, amount: number) => { valid: boolean; discountAmount: number; finalAmount: number; message: string; voucher?: Voucher };
   createPaymentTransaction: (cycle: SubscriptionCycle, voucherCode?: string) => Promise<{ success: boolean; transaction?: PaymentTransaction; error?: string }>;
   checkPaymentStatus: (transactionId: string) => Promise<{ paid: boolean; status?: string; transaction?: PaymentTransaction }>;
+  confirmBuyerPayment: (transactionId: string) => Promise<{ success: boolean; transaction?: PaymentTransaction }>;
+  cancelTransactionAndRevokePro: (transactionId: string) => void;
   simulatePaymentSuccess: (transactionId: string) => void;
   grantProAccess: (userId: string, durationMonths?: number, cycle?: SubscriptionCycle) => void;
   revokeProAccess: (userId: string) => void;
@@ -1030,6 +1032,81 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     }
   };
 
+  /**
+   * Optimistic instant activation: When the buyer confirms they have transferred via QRIS,
+   * immediately activate Pro access so the learner doesn't have to wait.
+   * Admin retains full authority to revoke Pro later if funds didn't clear.
+   */
+  const confirmBuyerPayment = async (
+    transactionId: string
+  ): Promise<{ success: boolean; transaction?: PaymentTransaction }> => {
+    let tx = transactions.find((t) => t.id === transactionId);
+    if (!tx) {
+      const remoteTx = await fetchTransactionByIdFromSupabase(transactionId);
+      if (remoteTx) tx = remoteTx;
+    }
+    if (!tx) return { success: false };
+
+    const durationMonths = tx.cycle === 'annual' ? 12 : 1;
+    grantProAccess(tx.user_id, durationMonths, tx.cycle);
+
+    const updatedTx: PaymentTransaction = {
+      ...tx,
+      status: 'paid',
+      paid_at: new Date().toISOString(),
+    };
+
+    setTransactions((prev) => {
+      const exists = prev.some((t) => t.id === transactionId);
+      if (exists) {
+        return prev.map((t) => (t.id === transactionId ? updatedTx : t));
+      }
+      return [updatedTx, ...prev];
+    });
+
+    updateTransactionStatusInSupabase(tx.id, 'paid', updatedTx.paid_at);
+
+    // Asynchronously dispatch confirmation email
+    if (updatedTx.user_email) {
+      const expiresDate = new Date();
+      expiresDate.setDate(expiresDate.getDate() + (updatedTx.cycle === 'annual' ? 365 : 30));
+      fetch('/api/email/subscription', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          toEmail: updatedTx.user_email,
+          userName: updatedTx.user_name,
+          planName: 'CherryEdu Pro',
+          cycle: updatedTx.cycle,
+          amount: updatedTx.final_amount,
+          transactionId: updatedTx.trx_id || updatedTx.id,
+          expiresAt: expiresDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
+          isRenewal: false,
+        }),
+      }).catch((e) => console.debug('Failed to send subscription confirmation email:', e));
+    }
+
+    return { success: true, transaction: updatedTx };
+  };
+
+  /**
+   * Admin action: If admin checks mutasi and finds the buyer didn't actually transfer,
+   * admin can revoke Pro access and mark transaction as expired/cancelled with 1 click.
+   */
+  const cancelTransactionAndRevokePro = (transactionId: string) => {
+    const tx = transactions.find((t) => t.id === transactionId);
+    if (!tx) return;
+
+    revokeProAccess(tx.user_id);
+
+    const updatedTx: PaymentTransaction = {
+      ...tx,
+      status: 'expired',
+    };
+    setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
+    updateTransactionStatusInSupabase(tx.id, 'expired');
+  };
+
   const addVoucher = (v: Voucher) => setVouchers((prev) => [v, ...prev]);
   const updateVoucher = (id: string, data: Partial<Voucher>) =>
     setVouchers((prev) => prev.map((v) => (v.id === id ? { ...v, ...data } : v)));
@@ -1789,6 +1866,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         applyVoucher,
         createPaymentTransaction,
         checkPaymentStatus,
+        confirmBuyerPayment,
+        cancelTransactionAndRevokePro,
         simulatePaymentSuccess,
         grantProAccess,
         revokeProAccess,

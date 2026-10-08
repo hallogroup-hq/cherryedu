@@ -31,6 +31,7 @@ export default function AdminTransactionsPage() {
     grantProAccess,
     revokeProAccess,
     simulatePaymentSuccess,
+    cancelTransactionAndRevokePro,
     refreshTransactions,
     refreshUsers,
   } = useCherryEdu();
@@ -338,9 +339,28 @@ export default function AdminTransactionsPage() {
                     </td>
                     <td className="p-3.5 text-right">
                       {tx.status === 'paid' ? (
-                        <span className="text-emerald-700 font-mono text-[11px] font-bold">
-                          ✓ Terverifikasi
-                        </span>
+                        <div className="flex items-center justify-end gap-2">
+                          <span className="text-emerald-700 font-mono text-[10px] font-bold hidden sm:inline">
+                            ✓ Lunas
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (
+                                confirm(
+                                  `Dana tidak masuk di mutasi? Yakin ingin membatalkan transaksi ${tx.trx_id || tx.id} dan mencabut status Pro untuk ${tx.user_name}?`
+                                )
+                              ) {
+                                cancelTransactionAndRevokePro(tx.id);
+                                toast.info(`Transaksi ${tx.trx_id || tx.id} dibatalkan & status Pro ${tx.user_name} dicabut.`);
+                              }
+                            }}
+                            className="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-300 font-mono text-[10px] font-bold rounded transition cursor-pointer"
+                            title="Cabut status Pro jika ternyata dana tidak masuk ke mutasi"
+                          >
+                            Cabut Pro
+                          </button>
+                        </div>
                       ) : (tx.status === 'pending' && (!tx.expires_at || new Date(tx.expires_at) >= new Date())) ? (
                         <button
                           type="button"

@@ -42,6 +42,7 @@ export function PaymentModal({
     applyVoucher,
     createPaymentTransaction,
     checkPaymentStatus,
+    confirmBuyerPayment,
   } = useCherryEdu();
 
   const [cycle, setCycle] = useState<SubscriptionCycle>(defaultCycle);
@@ -155,22 +156,19 @@ export function PaymentModal({
     }
   };
 
-  const handleCheckStatusManual = async () => {
+  const handleConfirmPayment = async () => {
     if (!activeTx || isChecking) return;
     setIsChecking(true);
     try {
-      const res = await checkPaymentStatus(activeTx.id);
-      if (res.paid) {
-        triggerSuccess(res.transaction || activeTx);
-      } else if (res.status === 'expired') {
-        if (res.transaction) setActiveTx(res.transaction);
-        setTimeLeft(0);
-        toast.error('Waktu pembayaran QRIS telah habis. Silakan buat kode QRIS baru.');
+      // Optimistic instant activation: grant Pro immediately so buyer never has to wait
+      const res = await confirmBuyerPayment(activeTx.id);
+      if (res.success && res.transaction) {
+        triggerSuccess(res.transaction);
       } else {
-        toast.info('Pembayaran belum terdeteksi di mutasi. Jika baru saja transfer, tunggu 5-10 detik lalu cek kembali.');
+        toast.error('Gagal mengaktifkan Pro secara otomatis. Silakan hubungi admin via WhatsApp.');
       }
     } catch (err) {
-      toast.error('Gagal memeriksa status transaksi.');
+      toast.error('Gagal memproses konfirmasi pembayaran.');
     } finally {
       setIsChecking(false);
     }
@@ -533,10 +531,10 @@ export function PaymentModal({
                 </div>
               ) : (
                 <>
-                  <div className="w-full max-w-sm p-3 bg-amber-50/80 border border-amber-200/80 rounded-xl text-xs text-amber-900 text-left flex items-start gap-2.5">
-                    <div className="w-2 h-2 rounded-full bg-amber-500 mt-1.5 animate-ping shrink-0" />
+                  <div className="w-full max-w-sm p-3 bg-emerald-50/90 border border-emerald-200/80 rounded-xl text-xs text-emerald-900 text-left flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
                     <p className="leading-relaxed">
-                      Sistem otomatis mengecek mutasi GoPay setiap 6 detik. Begitu Anda selesai membayar, halaman akan otomatis membuka akun Pro.
+                      Sudah scan & transfer via GoPay / m-Banking? Klik tombol di bawah untuk <strong>langsung membuka akses Pro seketika</strong> tanpa harus menunggu verifikasi admin.
                     </p>
                   </div>
 
@@ -544,12 +542,21 @@ export function PaymentModal({
                   <div className="w-full max-w-sm space-y-2 pt-1">
                     <button
                       type="button"
-                      onClick={handleCheckStatusManual}
+                      onClick={handleConfirmPayment}
                       disabled={isChecking}
-                      className="w-full py-3 bg-roast-950 hover:bg-cherry-800 disabled:bg-paper-400 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-sm"
+                      className="w-full py-3.5 bg-emerald-700 hover:bg-emerald-800 disabled:bg-paper-400 text-white text-xs font-bold font-mono rounded-xl transition flex items-center justify-center gap-2 shadow-md shadow-emerald-900/20 cursor-pointer"
                     >
-                      <RefreshCw className={`w-4 h-4 ${isChecking ? 'animate-spin' : ''}`} />
-                      {isChecking ? 'Memeriksa Mutasi GoPay...' : 'Saya Sudah Bayar (Cek Sekarang)'}
+                      {isChecking ? (
+                        <>
+                          <RefreshCw className="w-4 h-4 animate-spin" />
+                          <span>Mengaktifkan Akun Pro Anda...</span>
+                        </>
+                      ) : (
+                        <>
+                          <CheckCircle2 className="w-4 h-4" />
+                          <span>Saya Sudah Transfer (Buka Akses Pro Sekarang)</span>
+                        </>
+                      )}
                     </button>
                   </div>
                 </>
