@@ -539,8 +539,7 @@ export function PaymentModal({
                       onClick={() => setStep('confirm')}
                       className="w-full py-3.5 bg-roast-950 hover:bg-cherry-900 text-white font-bold font-mono text-xs rounded-xl transition flex items-center justify-center gap-2 shadow-sm cursor-pointer"
                     >
-                      <span>Konfirmasi Pembayaran</span>
-                      <ArrowRight className="w-4 h-4" />
+                      Konfirmasi Pembayaran
                     </button>
                   </div>
                 </>
@@ -587,7 +586,7 @@ export function PaymentModal({
                 </div>
                 <div className="flex justify-between">
                   <span className="text-roast-500 font-mono text-[11px]">Penerima QRIS:</span>
-                  <span className="font-bold text-roast-900">CV Kreativitas Anak Bangsa</span>
+                  <span className="font-bold text-roast-900">Cherry Edu</span>
                 </div>
                 <div className="flex justify-between border-t border-paper-300 pt-2 items-baseline">
                   <span className="text-roast-600 font-semibold">Total Tagihan:</span>
@@ -606,7 +605,7 @@ export function PaymentModal({
                   className="mt-0.5 w-4 h-4 rounded text-emerald-700 focus:ring-emerald-700 border-paper-400 cursor-pointer"
                 />
                 <span className="text-xs text-roast-900 leading-relaxed font-sans select-none">
-                  Saya menyatakan telah mentransfer sejumlah <strong className="text-emerald-800 font-mono">Rp {activeTx.final_amount.toLocaleString('id-ID')}</strong> ke QRIS CV Kreativitas Anak Bangsa.
+                  Saya telah mentransfer sejumlah <strong className="text-emerald-800 font-mono">Rp {activeTx.final_amount.toLocaleString('id-ID')}</strong> ke QRIS Cherry Edu
                 </span>
               </label>
 
@@ -654,6 +653,10 @@ export function PaymentModal({
                 <h3 className="font-serif text-2xl font-bold text-roast-950">
                   Transaksi Berhasil! Selamat Datang di CherryEdu Pro.
                 </h3>
+                <p className="text-sm font-medium text-cherry-800 mt-2 flex items-center justify-center gap-1.5">
+                  <span>Enjoy Learning & Happy Brewing!</span>
+                  <span>☕✨</span>
+                </p>
                 <p className="text-xs text-roast-600 mt-1 max-w-sm">
                   Pembayaran QRIS GoPay Anda telah terverifikasi lunas. Seluruh 6 Jalur Spesialisasi kini terbuka penuh untuk Anda pelajari.
                 </p>
