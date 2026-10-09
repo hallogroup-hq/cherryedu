@@ -47,7 +47,9 @@ export async function GET(
     const amountNum = rawAmount ? Number(rawAmount) : undefined;
     const amount = amountNum && !isNaN(amountNum) && amountNum > 0 ? amountNum : undefined;
 
-    const result = await verifyQRISStatus(qrisId, trxId, amount);
+    const startTimeParam = req.nextUrl.searchParams.get('start_time') || undefined;
+
+    const result = await verifyQRISStatus(qrisId, trxId, amount, startTimeParam);
 
     return NextResponse.json(result, {
       headers: {

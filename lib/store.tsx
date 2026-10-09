@@ -957,9 +957,27 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       return { paid: false, status: 'expired', transaction: expiredTx };
     }
 
-    // 4. Poll external GoPay gateway if configured
-    const qrisCheck = await verifyQRISStatus(tx.qris_id || '', tx.trx_id, tx.final_amount);
-    if (qrisCheck.paid) {
+    // 4. Poll external GoPay gateway via server API route (so API key remains secure on server)
+    let isPaid = false;
+    try {
+      const qrisId = tx.qris_id || tx.id;
+      const queryParams = new URLSearchParams({
+        trx_id: tx.trx_id || '',
+        amount: String(tx.final_amount),
+        start_time: tx.created_at || '',
+      });
+      const res = await fetch(`/api/payment/status/${encodeURIComponent(qrisId)}?${queryParams.toString()}`);
+      if (res.ok) {
+        const json = await res.json();
+        if (json.paid) {
+          isPaid = true;
+        }
+      }
+    } catch (e) {
+      console.warn('Failed to poll payment status API route:', e);
+    }
+
+    if (isPaid) {
       const durationMonths = tx.cycle === 'annual' ? 12 : 1;
       grantProAccess(tx.user_id, durationMonths, tx.cycle);
 

@@ -166,22 +166,26 @@ export interface CreateQRISResult {
 
 /**
  * Creates a Dynamic QRIS for GoPay Merchant.
- * If GOPAY_GATEWAY_URL is configured and online, calls the external Node.js gateway.
- * Otherwise, generates a valid local EMVCo QRIS with simulator mode.
+ * Calls external GoPay Gateway wrapper (/v1/qris) or upstream (/create-qris).
+ * Otherwise, generates a valid local EMVCo QRIS.
  */
 export async function requestDynamicQRIS(amount: number): Promise<CreateQRISResult> {
   const gatewayUrl = process.env.GOPAY_GATEWAY_URL || process.env.NEXT_PUBLIC_GOPAY_GATEWAY_URL;
   const apiKey = process.env.GOPAY_GATEWAY_API_KEY;
 
   if (gatewayUrl && apiKey) {
+    const cleanUrl = gatewayUrl.replace(/\/$/, '');
+
+    // 1. Try Singgah Gateway Wrapper (/v1/qris)
     try {
-      const res = await fetch(`${gatewayUrl.replace(/\/$/, '')}/create-qris`, {
+      const res = await fetch(`${cleanUrl}/v1/qris`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'x-api-key': apiKey,
         },
         body: JSON.stringify({ amount }),
+        signal: AbortSignal.timeout(8000),
       });
 
       if (res.ok) {
@@ -201,7 +205,39 @@ export async function requestDynamicQRIS(amount: number): Promise<CreateQRISResu
         }
       }
     } catch (err) {
-      console.warn('GoPay external gateway unreachable, falling back to built-in dynamic QRIS engine:', err);
+      console.warn('GoPay /v1/qris attempt failed, trying fallback:', err);
+    }
+
+    // 2. Try upstream /create-qris
+    try {
+      const res = await fetch(`${cleanUrl}/create-qris`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': apiKey,
+        },
+        body: JSON.stringify({ amount }),
+        signal: AbortSignal.timeout(8000),
+      });
+
+      if (res.ok) {
+        const json = await res.json();
+        if (json.success && json.data) {
+          const qCode = json.data.qris_code;
+          return {
+            success: true,
+            qris_id: json.data.qris_id,
+            trx_id: json.data.trx_id,
+            qris_code: qCode,
+            qris_image_url: `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(qCode)}`,
+            amount: json.data.amount,
+            expires_at: json.data.expires_at,
+            is_simulator: false,
+          };
+        }
+      }
+    } catch (err) {
+      console.warn('GoPay /create-qris attempt failed:', err);
     }
   }
 
@@ -224,29 +260,109 @@ export async function requestDynamicQRIS(amount: number): Promise<CreateQRISResu
 }
 
 /**
- * Checks payment status from the GoPay Gateway or simulator.
+ * Checks payment status from the GoPay Gateway (/v1/payments/check or upstream /check-payment).
  */
 export async function verifyQRISStatus(
   qrisId: string,
   trxId?: string,
-  amount?: number
+  amount?: number,
+  startTime?: string
 ): Promise<{ success: boolean; paid: boolean; status: string; transaction?: any }> {
   const gatewayUrl = process.env.GOPAY_GATEWAY_URL || process.env.NEXT_PUBLIC_GOPAY_GATEWAY_URL;
+  const apiKey = process.env.GOPAY_GATEWAY_API_KEY;
 
-  if (gatewayUrl && !qrisId.startsWith('qris_')) {
-    try {
-      const res = await fetch(`${gatewayUrl.replace(/\/$/, '')}/api/qr-status/${qrisId}`);
-      if (res.ok) {
-        const json = await res.json();
-        return {
-          success: json.success,
-          paid: !!json.paid,
-          status: json.status || (json.paid ? 'PAID' : 'PENDING'),
-          transaction: json.transaction,
-        };
+  if (gatewayUrl && apiKey) {
+    const cleanUrl = gatewayUrl.replace(/\/$/, '');
+    const queryStartTime = startTime
+      ? new Date(startTime).toISOString()
+      : new Date(Date.now() - 10 * 60 * 1000).toISOString();
+
+    // 1. Try Singgah Gateway Wrapper (/v1/payments/check)
+    if (amount && trxId) {
+      try {
+        const res = await fetch(`${cleanUrl}/v1/payments/check`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': apiKey,
+          },
+          body: JSON.stringify({
+            amount,
+            startTime: queryStartTime,
+            trxId,
+            reference: qrisId,
+          }),
+          signal: AbortSignal.timeout(8000),
+        });
+
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success) {
+            return {
+              success: true,
+              paid: Boolean(json.paid),
+              status: json.paid ? 'PAID' : 'PENDING',
+              transaction: json.transaction,
+            };
+          }
+        }
+      } catch (err) {
+        console.warn('Failed to poll /v1/payments/check:', err);
       }
-    } catch (err) {
-      console.error('Failed to poll GoPay gateway status:', err);
+    }
+
+    // 2. Try upstream /check-payment
+    if (amount && trxId) {
+      try {
+        const res = await fetch(`${cleanUrl}/check-payment`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': apiKey,
+          },
+          body: JSON.stringify({
+            amount,
+            startTime: queryStartTime,
+            trx_id: trxId,
+          }),
+          signal: AbortSignal.timeout(8000),
+        });
+
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success) {
+            return {
+              success: true,
+              paid: Boolean(json.paid),
+              status: json.paid ? 'PAID' : 'PENDING',
+              transaction: json.transaction,
+            };
+          }
+        }
+      } catch (err) {
+        console.warn('Failed to poll /check-payment:', err);
+      }
+    }
+
+    // 3. Try /api/qr-status/:id
+    if (!qrisId.startsWith('qris_')) {
+      try {
+        const res = await fetch(`${cleanUrl}/api/qr-status/${qrisId}`, {
+          headers: { 'x-api-key': apiKey },
+          signal: AbortSignal.timeout(8000),
+        });
+        if (res.ok) {
+          const json = await res.json();
+          return {
+            success: json.success,
+            paid: Boolean(json.paid),
+            status: json.status || (json.paid ? 'PAID' : 'PENDING'),
+            transaction: json.transaction,
+          };
+        }
+      } catch (err) {
+        console.warn('Failed to poll /api/qr-status/:id:', err);
+      }
     }
   }
 

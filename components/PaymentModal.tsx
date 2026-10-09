@@ -42,7 +42,6 @@ export function PaymentModal({
     applyVoucher,
     createPaymentTransaction,
     checkPaymentStatus,
-    confirmBuyerPayment,
   } = useCherryEdu();
 
   const [cycle, setCycle] = useState<SubscriptionCycle>(defaultCycle);
@@ -54,8 +53,7 @@ export function PaymentModal({
     message: string;
   } | null>(null);
 
-  const [step, setStep] = useState<'plan' | 'qr' | 'confirm' | 'success'>('plan');
-  const [isDeclaredPaid, setIsDeclaredPaid] = useState<boolean>(true);
+  const [step, setStep] = useState<'plan' | 'qr' | 'success'>('plan');
   const [isGeneratingQR, setIsGeneratingQR] = useState<boolean>(false);
   const [activeTx, setActiveTx] = useState<PaymentTransaction | null>(null);
 
@@ -157,19 +155,20 @@ export function PaymentModal({
     }
   };
 
-  const handleConfirmPayment = async () => {
+  const handleCheckManualPayment = async () => {
     if (!activeTx || isChecking) return;
     setIsChecking(true);
     try {
-      // Optimistic instant activation: grant Pro immediately so buyer never has to wait
-      const res = await confirmBuyerPayment(activeTx.id);
-      if (res.success && res.transaction) {
-        triggerSuccess(res.transaction);
+      const res = await checkPaymentStatus(activeTx.id);
+      if (res.paid) {
+        triggerSuccess(res.transaction || activeTx);
       } else {
-        toast.error('Gagal mengaktifkan Pro secara otomatis. Silakan hubungi admin via WhatsApp.');
+        toast('Pembayaran belum terdeteksi di mutasi GoPay. Jika baru saja transfer, mohon tunggu beberapa detik.', {
+          icon: '⏳',
+        });
       }
     } catch (err) {
-      toast.error('Gagal memproses konfirmasi pembayaran.');
+      toast.error('Gagal memeriksa status pembayaran. Silakan coba lagi.');
     } finally {
       setIsChecking(false);
     }
@@ -532,14 +531,33 @@ export function PaymentModal({
                 </div>
               ) : (
                 <>
-                  {/* Action Buttons */}
+                  {/* Automated Detection Status & Manual Refresh */}
                   <div className="w-full max-w-sm space-y-2 pt-1">
+                    <div className="flex items-center justify-center gap-2 py-2 px-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl text-xs font-mono shadow-xs">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
+                      </span>
+                      <span>Mendeteksi Pembayaran Otomatis...</span>
+                    </div>
+
                     <button
                       type="button"
-                      onClick={() => setStep('confirm')}
-                      className="w-full py-3.5 bg-roast-950 hover:bg-cherry-900 text-white font-bold font-mono text-xs rounded-xl transition flex items-center justify-center gap-2 shadow-sm cursor-pointer"
+                      onClick={handleCheckManualPayment}
+                      disabled={isChecking}
+                      className="w-full py-3 bg-roast-950 hover:bg-cherry-900 disabled:bg-roast-850 text-white font-bold font-mono text-xs rounded-xl transition flex items-center justify-center gap-2 shadow-sm cursor-pointer disabled:cursor-not-allowed"
                     >
-                      Konfirmasi Pembayaran
+                      {isChecking ? (
+                        <>
+                          <RefreshCw className="w-4 h-4 animate-spin" />
+                          <span>Mengecek Mutasi GoPay...</span>
+                        </>
+                      ) : (
+                        <>
+                          <RefreshCw className="w-4 h-4" />
+                          <span>Cek Status Pembayaran Sekarang</span>
+                        </>
+                      )}
                     </button>
                   </div>
                 </>
@@ -560,86 +578,6 @@ export function PaymentModal({
                   </p>
                 </div>
               </div>
-          )}
-
-          {/* STEP 3: CONFIRMATION DECLARATION */}
-          {step === 'confirm' && activeTx && (
-            <div className="flex flex-col items-center text-center space-y-4 max-w-md mx-auto py-2">
-              <div className="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center border border-amber-300 shadow-xs">
-                <ShieldCheck className="w-7 h-7" />
-              </div>
-
-              <div>
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-roast-950">
-                  Konfirmasi Pembayaran
-                </h3>
-                <p className="text-xs text-roast-600 mt-1 max-w-sm">
-                  Pastikan Anda telah menyelesaikan transfer melalui aplikasi GoPay atau mobile banking Anda.
-                </p>
-              </div>
-
-              {/* Transaction Summary Card */}
-              <div className="w-full p-4 bg-paper-100 border border-paper-300 rounded-xl text-xs space-y-2.5 text-left">
-                <div className="flex justify-between">
-                  <span className="text-roast-500 font-mono text-[11px]">ID Transaksi:</span>
-                  <span className="font-mono font-bold text-roast-950">{activeTx.trx_id || activeTx.id}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-roast-500 font-mono text-[11px]">Penerima QRIS:</span>
-                  <span className="font-bold text-roast-900">Cherry Edu</span>
-                </div>
-                <div className="flex justify-between border-t border-paper-300 pt-2 items-baseline">
-                  <span className="text-roast-600 font-semibold">Total Tagihan:</span>
-                  <span className="font-mono text-base font-black text-cherry-900">
-                    Rp {activeTx.final_amount.toLocaleString('id-ID')}
-                  </span>
-                </div>
-              </div>
-
-              {/* Declaration Statement Checkbox */}
-              <label className="w-full flex items-start gap-3 p-3.5 bg-white border border-paper-300 rounded-xl text-left cursor-pointer hover:border-paper-400 transition">
-                <input
-                  type="checkbox"
-                  checked={isDeclaredPaid}
-                  onChange={(e) => setIsDeclaredPaid(e.target.checked)}
-                  className="mt-0.5 w-4 h-4 rounded text-emerald-700 focus:ring-emerald-700 border-paper-400 cursor-pointer"
-                />
-                <span className="text-xs text-roast-900 leading-relaxed font-sans select-none">
-                  Saya telah mentransfer sejumlah <strong className="text-emerald-800 font-mono">Rp {activeTx.final_amount.toLocaleString('id-ID')}</strong> ke QRIS Cherry Edu
-                </span>
-              </label>
-
-              {/* Action Buttons */}
-              <div className="w-full space-y-2 pt-1">
-                <button
-                  type="button"
-                  onClick={handleConfirmPayment}
-                  disabled={!isDeclaredPaid || isChecking}
-                  className="w-full py-3.5 bg-emerald-700 hover:bg-emerald-800 disabled:bg-paper-300 disabled:text-roast-400 text-white font-bold font-mono text-xs rounded-xl transition flex items-center justify-center gap-2 shadow-md shadow-emerald-900/20 cursor-pointer disabled:cursor-not-allowed"
-                >
-                  {isChecking ? (
-                    <>
-                      <RefreshCw className="w-4 h-4 animate-spin" />
-                      <span>Mengaktifkan Akun Pro...</span>
-                    </>
-                  ) : (
-                    <>
-                      <CheckCircle2 className="w-4 h-4" />
-                      <span>Konfirmasi & Buka Pro</span>
-                    </>
-                  )}
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setStep('qr')}
-                  disabled={isChecking}
-                  className="w-full py-2.5 bg-white hover:bg-paper-100 border border-paper-300 text-roast-700 font-mono text-xs font-semibold rounded-xl transition cursor-pointer"
-                >
-                  ← Kembali Lihat Kode QRIS
-                </button>
-              </div>
-            </div>
           )}
 
           {/* STEP 4: SUCCESS CELEBRATION */}
