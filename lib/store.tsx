@@ -62,6 +62,7 @@ import {
   syncTransactionToSupabase,
   fetchTransactionsFromSupabase,
   updateTransactionStatusInSupabase,
+  deleteTransactionFromSupabase,
   fetchTransactionByIdFromSupabase,
 } from './dbSync';
 import { supabase, isSupabaseConfigured } from './supabase';
@@ -120,6 +121,8 @@ interface CherryEduContextType {
   checkPaymentStatus: (transactionId: string) => Promise<{ paid: boolean; status?: string; transaction?: PaymentTransaction }>;
   confirmBuyerPayment: (transactionId: string) => Promise<{ success: boolean; transaction?: PaymentTransaction }>;
   cancelTransactionAndRevokePro: (transactionId: string) => void;
+  voidTransactionAndRevokePro: (transactionId: string) => void;
+  deleteTransaction: (transactionId: string) => void;
   simulatePaymentSuccess: (transactionId: string) => void;
   grantProAccess: (userId: string, durationMonths?: number, cycle?: SubscriptionCycle) => void;
   revokeProAccess: (userId: string) => void;
@@ -1111,7 +1114,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
    * Admin action: If admin checks mutasi and finds the buyer didn't actually transfer,
    * admin can revoke Pro access and mark transaction as expired/cancelled with 1 click.
    */
-  const cancelTransactionAndRevokePro = (transactionId: string) => {
+  const voidTransactionAndRevokePro = (transactionId: string) => {
     const tx = transactions.find((t) => t.id === transactionId);
     if (!tx) return;
 
@@ -1119,10 +1122,24 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
     const updatedTx: PaymentTransaction = {
       ...tx,
-      status: 'expired',
+      status: 'void',
+      paid_at: undefined,
     };
     setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
-    updateTransactionStatusInSupabase(tx.id, 'expired');
+    updateTransactionStatusInSupabase(tx.id, 'void');
+  };
+
+  const cancelTransactionAndRevokePro = (transactionId: string) => {
+    voidTransactionAndRevokePro(transactionId);
+  };
+
+  const deleteTransaction = (transactionId: string) => {
+    const tx = transactions.find((t) => t.id === transactionId);
+    if (tx && tx.status === 'paid') {
+      revokeProAccess(tx.user_id);
+    }
+    setTransactions((prev) => prev.filter((t) => t.id !== transactionId));
+    deleteTransactionFromSupabase(transactionId);
   };
 
   const addVoucher = (v: Voucher) => setVouchers((prev) => [v, ...prev]);
@@ -1886,6 +1903,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         checkPaymentStatus,
         confirmBuyerPayment,
         cancelTransactionAndRevokePro,
+        voidTransactionAndRevokePro,
+        deleteTransaction,
         simulatePaymentSuccess,
         grantProAccess,
         revokeProAccess,

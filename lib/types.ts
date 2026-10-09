@@ -6,7 +6,7 @@ export type CoffeeRole = 'barista' | 'home_brewer' | 'roaster' | 'q_grader' | 'f
 
 export type SubscriptionTier = 'free' | 'pro' | 'enterprise';
 export type SubscriptionCycle = 'monthly' | 'annual';
-export type PaymentStatus = 'pending' | 'paid' | 'expired' | 'failed';
+export type PaymentStatus = 'pending' | 'paid' | 'expired' | 'failed' | 'void';
 
 export interface User {
   id: string;

@@ -216,6 +216,19 @@ export async function updateTransactionStatusInSupabase(
 }
 
 /**
+ * Delete a transaction permanently from Supabase.
+ */
+export async function deleteTransactionFromSupabase(txId: string): Promise<void> {
+  if (!isSupabaseConfigured() || !txId) return;
+
+  try {
+    await supabase.from('transactions').delete().eq('id', txId);
+  } catch (err) {
+    console.debug('Failed to delete transaction in Supabase:', err);
+  }
+}
+
+/**
  * Fetch a single transaction by ID directly from Supabase.
  */
 export async function fetchTransactionByIdFromSupabase(

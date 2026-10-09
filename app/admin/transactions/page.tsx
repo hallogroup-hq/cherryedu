@@ -20,6 +20,8 @@ import {
   AlertCircle,
   Plus,
   RotateCw,
+  Ban,
+  Trash2,
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -32,6 +34,8 @@ export default function AdminTransactionsPage() {
     revokeProAccess,
     simulatePaymentSuccess,
     cancelTransactionAndRevokePro,
+    voidTransactionAndRevokePro,
+    deleteTransaction,
     refreshTransactions,
     refreshUsers,
   } = useCherryEdu();
@@ -82,6 +86,7 @@ export default function AdminTransactionsPage() {
 
   // Calculate Key Financial Metrics
   const paidTransactions = transactions.filter((t) => t.status === 'paid');
+  const voidTransactions = transactions.filter((t) => t.status === 'void');
   const totalRevenue = paidTransactions.reduce((acc, t) => acc + (t.final_amount || 0), 0);
   const totalDiscounts = paidTransactions.reduce((acc, t) => acc + (t.discount_amount || 0), 0);
 
@@ -179,6 +184,9 @@ export default function AdminTransactionsPage() {
           </p>
           <p className="text-[11px] text-roast-500 mt-0.5">
             Dari {paidTransactions.length} transaksi sukses
+            {voidTransactions.length > 0 && (
+              <span className="text-zinc-500 font-mono ml-1">({voidTransactions.length} void)</span>
+            )}
           </p>
         </div>
 
@@ -245,6 +253,7 @@ export default function AdminTransactionsPage() {
             <option value="paid">Lunas (Paid)</option>
             <option value="pending">Menunggu (Pending)</option>
             <option value="expired">Kedaluwarsa (Expired)</option>
+            <option value="void">Dibatalkan (Void)</option>
           </select>
 
           <select
@@ -325,6 +334,11 @@ export default function AdminTransactionsPage() {
                           <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                           Lunas
                         </span>
+                      ) : tx.status === 'void' ? (
+                        <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-zinc-100 border border-zinc-300 text-zinc-700 rounded-full font-mono text-[10px] font-bold">
+                          <Ban className="w-3 h-3 text-zinc-500" />
+                          Dibatalkan (Void)
+                        </span>
                       ) : (tx.status === 'pending' && (!tx.expires_at || new Date(tx.expires_at) >= new Date())) ? (
                         <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-amber-50 border border-amber-200 text-amber-800 rounded-full font-mono text-[10px] font-bold animate-pulse">
                           <Clock className="w-3 h-3 text-amber-600" />
@@ -339,52 +353,134 @@ export default function AdminTransactionsPage() {
                     </td>
                     <td className="p-3.5 text-right">
                       {tx.status === 'paid' ? (
-                        <div className="flex items-center justify-end gap-2">
-                          <span className="text-emerald-700 font-mono text-[10px] font-bold hidden sm:inline">
-                            ✓ Lunas
-                          </span>
+                        <div className="flex items-center justify-end gap-1.5">
                           <button
                             type="button"
                             onClick={() => {
                               if (
                                 confirm(
-                                  `Dana tidak masuk di mutasi? Yakin ingin membatalkan transaksi ${tx.trx_id || tx.id} dan mencabut status Pro untuk ${tx.user_name}?`
+                                  `Void / Batalkan transaksi ${tx.trx_id || tx.id}?\n\nStatus akan diubah menjadi Void, pendapatan Rp ${tx.final_amount.toLocaleString('id-ID')} akan otomatis dikurangkan dari Total Revenue & MRR, serta akses Pro untuk ${tx.user_name} akan dicabut.`
                                 )
                               ) {
-                                cancelTransactionAndRevokePro(tx.id);
-                                toast.info(`Transaksi ${tx.trx_id || tx.id} dibatalkan & status Pro ${tx.user_name} dicabut.`);
+                                voidTransactionAndRevokePro(tx.id);
+                                toast.info(`Transaksi ${tx.trx_id || tx.id} dibatalkan (void) & status Pro dicabut.`);
                               }
                             }}
-                            className="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-300 font-mono text-[10px] font-bold rounded transition cursor-pointer"
-                            title="Cabut status Pro jika ternyata dana tidak masuk ke mutasi"
+                            className="px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-300 font-mono text-[10px] font-bold rounded transition cursor-pointer flex items-center gap-1"
+                            title="Void transaksi: kurangkan dari revenue dan cabut status Pro"
                           >
-                            Cabut Pro
+                            <Ban className="w-3 h-3 text-rose-600" />
+                            Void Transaksi
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (
+                                confirm(
+                                  `Hapus transaksi ${tx.trx_id || tx.id} secara permanen?\n\nData transaksi akan dihapus dari Supabase dan status Pro akan dicabut.`
+                                )
+                              ) {
+                                deleteTransaction(tx.id);
+                                toast.info(`Transaksi ${tx.trx_id || tx.id} telah dihapus.`);
+                              }
+                            }}
+                            className="p-1 hover:bg-paper-200 text-roast-400 hover:text-rose-600 rounded transition cursor-pointer"
+                            title="Hapus transaksi permanen"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      ) : tx.status === 'void' ? (
+                        <div className="flex items-center justify-end gap-1.5">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (
+                                confirm(
+                                  `Pulihkan transaksi ${tx.trx_id || tx.id} menjadi Lunas?\n\nPendapatan Rp ${tx.final_amount.toLocaleString('id-ID')} akan dihitung kembali dan akses Pro akan diaktifkan untuk ${tx.user_name}.`
+                                )
+                              ) {
+                                simulatePaymentSuccess(tx.id);
+                                toast.success(`Transaksi ${tx.trx_id || tx.id} dipulihkan dan status Pro aktif!`);
+                              }
+                            }}
+                            className="px-2 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-300 font-mono text-[10px] font-bold rounded transition cursor-pointer"
+                            title="Pulihkan transaksi void menjadi lunas"
+                          >
+                            Pulihkan Lunas
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (
+                                confirm(
+                                  `Hapus transaksi void ${tx.trx_id || tx.id} secara permanen dari database?`
+                                )
+                              ) {
+                                deleteTransaction(tx.id);
+                                toast.info(`Transaksi ${tx.trx_id || tx.id} telah dihapus.`);
+                              }
+                            }}
+                            className="p-1 hover:bg-paper-200 text-roast-400 hover:text-rose-600 rounded transition cursor-pointer"
+                            title="Hapus transaksi permanen"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
                           </button>
                         </div>
                       ) : (tx.status === 'pending' && (!tx.expires_at || new Date(tx.expires_at) >= new Date())) ? (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            simulatePaymentSuccess(tx.id);
-                            toast.success(`Transaksi ${tx.trx_id || tx.id} berhasil dilunaskan!`);
-                          }}
-                          className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white font-mono text-[10px] font-bold rounded transition"
-                          title="Tandai pembayaran ini telah lunas"
-                        >
-                          Tandai Lunas
-                        </button>
+                        <div className="flex items-center justify-end gap-1.5">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              simulatePaymentSuccess(tx.id);
+                              toast.success(`Transaksi ${tx.trx_id || tx.id} berhasil dilunaskan!`);
+                            }}
+                            className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white font-mono text-[10px] font-bold rounded transition cursor-pointer"
+                            title="Tandai pembayaran ini telah lunas"
+                          >
+                            Tandai Lunas
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (confirm(`Hapus transaksi pending ${tx.trx_id || tx.id}?`)) {
+                                deleteTransaction(tx.id);
+                                toast.info(`Transaksi ${tx.trx_id || tx.id} telah dihapus.`);
+                              }
+                            }}
+                            className="p-1 hover:bg-paper-200 text-roast-400 hover:text-rose-600 rounded transition cursor-pointer"
+                            title="Hapus transaksi"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
                       ) : (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            simulatePaymentSuccess(tx.id);
-                            toast.success(`Transaksi kadaluarsa ${tx.trx_id || tx.id} berhasil dipulihkan & dilunaskan!`);
-                          }}
-                          className="px-2.5 py-1 bg-amber-600 hover:bg-amber-700 text-white font-mono text-[10px] font-bold rounded transition"
-                          title="Pengguna membayar telat? Pulihkan dan aktifkan akun Pro"
-                        >
-                          Pulihkan & Lunas
-                        </button>
+                        <div className="flex items-center justify-end gap-1.5">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              simulatePaymentSuccess(tx.id);
+                              toast.success(`Transaksi kadaluarsa ${tx.trx_id || tx.id} berhasil dipulihkan & dilunaskan!`);
+                            }}
+                            className="px-2.5 py-1 bg-amber-600 hover:bg-amber-700 text-white font-mono text-[10px] font-bold rounded transition cursor-pointer"
+                            title="Pengguna membayar telat? Pulihkan dan aktifkan akun Pro"
+                          >
+                            Pulihkan & Lunas
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (confirm(`Hapus transaksi kedaluwarsa ${tx.trx_id || tx.id}?`)) {
+                                deleteTransaction(tx.id);
+                                toast.info(`Transaksi ${tx.trx_id || tx.id} telah dihapus.`);
+                              }
+                            }}
+                            className="p-1 hover:bg-paper-200 text-roast-400 hover:text-rose-600 rounded transition cursor-pointer"
+                            title="Hapus transaksi"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
                       )}
                     </td>
                   </tr>
