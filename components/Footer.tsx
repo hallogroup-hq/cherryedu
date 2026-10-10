@@ -106,6 +106,11 @@ export const Footer: React.FC = () => {
                   Bursa Kerja Barista
                 </Link>
               </li>
+              <li>
+                <Link href="/contact" className="hover:text-white transition-colors text-crema-300 font-semibold">
+                  Kontak & Direct Message
+                </Link>
+              </li>
             </ul>
           </div>
 

@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { PageSectionItem } from '@/lib/types';
+import { useCherryEdu } from '@/lib/store';
 import {
   ArrowRight,
   Quote,
@@ -14,6 +15,7 @@ interface SitePageRendererProps {
 }
 
 export const SitePageRenderer: React.FC<SitePageRendererProps> = ({ sections, fallbackTitle }) => {
+  const { openDirectChat } = useCherryEdu();
   const activeSections = sections.filter((s) => s.enabled !== false);
 
   if (activeSections.length === 0) {
@@ -50,13 +52,24 @@ export const SitePageRenderer: React.FC<SitePageRendererProps> = ({ sections, fa
 
                       <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
                         {d.primaryCtaText && (
-                          <Link
-                            href={d.primaryCtaLink || '/paths'}
-                            className="px-6 py-3.5 bg-roast-950 hover:bg-cherry-800 text-paper-50 rounded-md font-sans text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2.5 transition-all shadow-subtle group"
-                          >
-                            <span>{d.primaryCtaText}</span>
-                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                          </Link>
+                          d.primaryCtaLink?.includes('chat=open') || d.primaryCtaLink === '#chat' ? (
+                            <button
+                              type="button"
+                              onClick={() => openDirectChat()}
+                              className="px-6 py-3.5 bg-roast-950 hover:bg-cherry-800 text-paper-50 rounded-md font-sans text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2.5 transition-all shadow-subtle group cursor-pointer"
+                            >
+                              <span>{d.primaryCtaText}</span>
+                              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                            </button>
+                          ) : (
+                            <Link
+                              href={d.primaryCtaLink || '/paths'}
+                              className="px-6 py-3.5 bg-roast-950 hover:bg-cherry-800 text-paper-50 rounded-md font-sans text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2.5 transition-all shadow-subtle group"
+                            >
+                              <span>{d.primaryCtaText}</span>
+                              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                            </Link>
+                          )
                         )}
                         {d.secondaryCtaText && (
                           <Link
@@ -123,12 +136,22 @@ export const SitePageRenderer: React.FC<SitePageRendererProps> = ({ sections, fa
                         )}
 
                         {d.cardCtaText && (
-                          <Link
-                            href={d.cardCtaLink || '/paths'}
-                            className="w-full py-2.5 bg-roast-950 hover:bg-roast-900 text-white rounded font-mono text-xs font-bold block text-center transition-colors"
-                          >
-                            {d.cardCtaText}
-                          </Link>
+                          d.cardCtaLink?.includes('chat=open') || d.cardCtaLink === '#chat' ? (
+                            <button
+                              type="button"
+                              onClick={() => openDirectChat()}
+                              className="w-full py-2.5 bg-roast-950 hover:bg-roast-900 text-white rounded font-mono text-xs font-bold block text-center transition-colors cursor-pointer"
+                            >
+                              {d.cardCtaText}
+                            </button>
+                          ) : (
+                            <Link
+                              href={d.cardCtaLink || '/paths'}
+                              className="w-full py-2.5 bg-roast-950 hover:bg-roast-900 text-white rounded font-mono text-xs font-bold block text-center transition-colors"
+                            >
+                              {d.cardCtaText}
+                            </Link>
+                          )
                         )}
                       </div>
                     </div>

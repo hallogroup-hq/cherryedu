@@ -10,6 +10,7 @@ import { Toaster } from 'sonner';
 import { PWAInstallPrompt } from '@/components/PWAInstallPrompt';
 import { FloatingActionButton } from '@/components/FloatingActionButton';
 import { MobileBottomNav } from '@/components/MobileBottomNav';
+import { GlobalDirectChat } from '@/components/GlobalDirectChat';
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -270,6 +271,7 @@ export default function RootLayout({
             <PWAInstallPrompt />
             <FloatingActionButton />
             <MobileBottomNav />
+            <GlobalDirectChat />
           </CherryEduProvider>
         </AuthProvider>
       </body>

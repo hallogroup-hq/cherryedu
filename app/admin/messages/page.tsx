@@ -107,7 +107,8 @@ export default function AdminMessagesPage() {
 
   // Pre-set canned answers
   const quickReplies = [
-    'Halo! Ada yang bisa kami bantu terkait materi pelajaran ini?',
+    'Halo! Pembayaran QRIS Anda telah kami verifikasi lunas, dan akses CherryEdu Pro sudah aktif. Selamat belajar!',
+    'Halo! Ada yang bisa kami bantu terkait verifikasi transaksi atau materi pelajaran?',
     'Terima kasih atas masukannya. Poin ini sudah kami teruskan ke tim kurikulum.',
     'Untuk rasio ekstraksi espresso, kami menyarankan rasio 1:2 hingga 1:2.2 dengan flow rate 2.5 ml/detik.',
     'Sertifikat kelulusan resmi Anda dapat diunduh langsung melalui menu Profil setelah seluruh modul selesai.',

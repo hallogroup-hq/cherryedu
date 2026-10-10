@@ -20,6 +20,7 @@ import {
   Check,
   Award,
   AlertCircle,
+  MessageSquare,
 } from 'lucide-react';
 
 interface PaymentModalProps {
@@ -42,6 +43,7 @@ export function PaymentModal({
     applyVoucher,
     createPaymentTransaction,
     checkPaymentStatus,
+    openDirectChat,
   } = useCherryEdu();
 
   const [cycle, setCycle] = useState<SubscriptionCycle>(defaultCycle);
@@ -563,18 +565,24 @@ export function PaymentModal({
                 </>
               )}
 
-                {/* Support Confirmation Note */}
+                {/* Support Direct Message Note */}
                 <div className="pt-2 text-center border-t border-paper-200 mt-2">
                   <p className="text-[11px] text-roast-500 leading-relaxed">
-                    Sudah transfer tapi butuh bantuan?{' '}
-                    <a
-                      href={`https://wa.me/${process.env.NEXT_PUBLIC_SUPPORT_WHATSAPP || '6281234567890'}?text=Halo%20Admin%20CherryEdu,%20saya%20sudah%20membayar%20QRIS%20Pro%20dengan%20ID%20Transaksi:%20${encodeURIComponent(activeTx.trx_id || activeTx.id)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-cherry-700 font-semibold hover:underline inline-block mt-0.5"
+                    Sudah transfer tapi butuh bantuan konfirmasi?{' '}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onClose();
+                        openDirectChat(
+                          `Halo Admin CherryEdu, saya butuh bantuan konfirmasi untuk transaksi QRIS Pro #${activeTx.trx_id || activeTx.id} (${activeTx.cycle === 'annual' ? 'Paket Tahunan' : 'Paket Bulanan'} Rp ${activeTx.final_amount.toLocaleString('id-ID')}). Mohon bantuannya.`,
+                          `Verifikasi Transaksi #${activeTx.trx_id || activeTx.id}`
+                        );
+                      }}
+                      className="text-cherry-700 font-semibold hover:underline inline-flex items-center gap-1 mt-0.5 cursor-pointer"
                     >
-                      Konfirmasi ke WhatsApp Support →
-                    </a>
+                      <MessageSquare className="w-3 h-3" />
+                      <span>Kirim Direct Message ke Admin →</span>
+                    </button>
                   </p>
                 </div>
               </div>

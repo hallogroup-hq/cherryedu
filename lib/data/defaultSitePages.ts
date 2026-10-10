@@ -239,8 +239,8 @@ export const DEFAULT_SITE_PAGES: Record<string, SitePageConfig> = {
           headline: 'Hubungi Tim Kurator & Pengajar CherryEdu.',
           description:
             'Ada pertanyaan seputar kurikulum, sertifikasi, konsultasi dial-in kedai kopi, atau kemitraan edukasi? Kami dengan senang hati berdiskusi.',
-          primaryCtaText: 'Kirim Pesan WhatsApp',
-          primaryCtaLink: 'https://wa.me/6281234567890',
+          primaryCtaText: 'Kirim Direct Message ke Tim',
+          primaryCtaLink: '/contact?chat=open',
           secondaryCtaText: 'Buka Forum Komunitas',
           secondaryCtaLink: '/forum',
           specs: [
@@ -259,8 +259,8 @@ export const DEFAULT_SITE_PAGES: Record<string, SitePageConfig> = {
             { code: '02', title: 'Kemitraan Pasokan Green Bean & Roasting' },
             { code: '03', title: 'Verifikasi Token & Kredensial Sertifikat' },
           ],
-          cardCtaText: 'Hubungi via WhatsApp',
-          cardCtaLink: 'https://wa.me/6281234567890',
+          cardCtaText: 'Kirim Direct Message',
+          cardCtaLink: '/contact?chat=open',
         },
       },
       {
@@ -282,7 +282,7 @@ export const DEFAULT_SITE_PAGES: Record<string, SitePageConfig> = {
             },
             {
               title: 'Sesi Cupping Mingguan',
-              description: 'Setiap Sabtu pukul 10:00 WIB terbuka untuk umum dengan reservasi terlebih dahulu via WhatsApp.',
+              description: 'Setiap Sabtu pukul 10:00 WIB terbuka untuk umum dengan reservasi terlebih dahulu via Direct Message di website.',
             },
           ],
         },

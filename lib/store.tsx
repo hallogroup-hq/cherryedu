@@ -172,6 +172,9 @@ interface CherryEduContextType {
     unreadCount: number;
   }[];
   markConversationRead: (conversationId: string, asAdmin?: boolean) => void;
+  isDirectChatOpen: boolean;
+  setIsDirectChatOpen: (open: boolean) => void;
+  openDirectChat: (initialMessage?: string, pageContext?: string) => void;
   createPost: (title: string, content: string, category: ForumCategory) => Post;
   createComment: (postId: string, content: string, parentCommentId?: string | null) => Comment;
   toggleLike: (targetId: string, targetType: 'post' | 'comment') => void;
@@ -249,6 +252,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const [vouchers, setVouchers] = useState<Voucher[]>(INITIAL_VOUCHERS);
   const [landingPageConfig, setLandingPageConfig] = useState<LandingPageConfig>(DEFAULT_LANDING_CONFIG);
   const [sitePages, setSitePages] = useState<Record<string, SitePageConfig>>(DEFAULT_SITE_PAGES);
+  const [isDirectChatOpen, setIsDirectChatOpen] = useState(false);
 
   const TOOL_FREE_LIMIT = 10;
   const [toolUsageCount, setToolUsageCount] = useState<number>(0);
@@ -482,7 +486,16 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         }
 
         if (parsed.landingPageConfig) setLandingPageConfig(parsed.landingPageConfig);
-        if (parsed.sitePages) setSitePages(parsed.sitePages);
+        if (parsed.sitePages) {
+          const sp = parsed.sitePages;
+          if (sp.contact) {
+            const jsonStr = JSON.stringify(sp.contact);
+            if (jsonStr.includes('wa.me') || jsonStr.includes('WhatsApp')) {
+              sp.contact = DEFAULT_SITE_PAGES.contact;
+            }
+          }
+          setSitePages(sp);
+        }
       }
 
       // Asynchronously fetch latest registered profiles and transactions from Supabase
@@ -1501,6 +1514,16 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     [currentUser.id, currentUser.name]
   );
 
+  const openDirectChat = useCallback(
+    (initialMessage?: string, pageContext?: string) => {
+      setIsDirectChatOpen(true);
+      if (initialMessage && initialMessage.trim()) {
+        sendUserChatMessage(initialMessage, pageContext);
+      }
+    },
+    [sendUserChatMessage]
+  );
+
   const sendAdminChatMessage = useCallback(
     (
       conversationId: string,
@@ -1948,6 +1971,9 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         getConversationMessages,
         getAllConversations,
         markConversationRead,
+        isDirectChatOpen,
+        setIsDirectChatOpen,
+        openDirectChat,
         createPost,
         createComment,
         toggleLike,

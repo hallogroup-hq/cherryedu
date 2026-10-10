@@ -313,6 +313,22 @@ export const Navbar: React.FC = () => {
                         </div>
                       </div>
                     </Link>
+
+                    <Link
+                      href="/contact"
+                      onClick={() => setCommunityDropdownOpen(false)}
+                      className={`flex items-start gap-2.5 p-2.5 rounded-lg text-left transition-colors ${
+                        pathname.startsWith('/contact') ? 'bg-paper-200/80 text-roast-950' : 'hover:bg-paper-100 text-roast-800'
+                      }`}
+                    >
+                      <MessageSquare className="w-4 h-4 text-cherry-700 mt-0.5 shrink-0" />
+                      <div>
+                        <div className="font-serif font-bold text-xs">Kontak & Direct Message</div>
+                        <div className="font-sans text-[11px] text-roast-500 leading-tight mt-0.5">
+                          Hubungi kurator & pengajar CherryEdu
+                        </div>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               )}

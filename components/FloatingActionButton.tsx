@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { useCherryEdu } from '@/lib/store';
 import { NotebookDrawer } from '@/components/NotebookDrawer';
-import { DirectChatDrawer } from '@/components/DirectChatDrawer';
 import {
   MessageSquare,
   X,
@@ -15,10 +14,9 @@ import {
 
 export const FloatingActionButton: React.FC = () => {
   const pathname = usePathname();
-  const { currentUser, getUserNotes, getConversationMessages } = useCherryEdu();
+  const { currentUser, getUserNotes, getConversationMessages, setIsDirectChatOpen } = useCherryEdu();
   const [isOpen, setIsOpen] = useState(false);
   const [isNotebookOpen, setIsNotebookOpen] = useState(false);
-  const [isChatOpen, setIsChatOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const userNotes = getUserNotes(currentUser.id);
@@ -66,7 +64,7 @@ export const FloatingActionButton: React.FC = () => {
 
   const handleOpenChat = () => {
     setIsOpen(false);
-    setIsChatOpen(true);
+    setIsDirectChatOpen(true);
   };
 
   return (
@@ -183,12 +181,6 @@ export const FloatingActionButton: React.FC = () => {
       <NotebookDrawer
         isOpen={isNotebookOpen}
         onClose={() => setIsNotebookOpen(false)}
-      />
-
-      {/* Slide-over Direct Chat Drawer */}
-      <DirectChatDrawer
-        isOpen={isChatOpen}
-        onClose={() => setIsChatOpen(false)}
       />
     </>
   );
