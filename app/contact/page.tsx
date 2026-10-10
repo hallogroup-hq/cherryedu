@@ -201,19 +201,19 @@ function ContactContent() {
                     className="w-full px-3.5 py-2.5 bg-white border border-paper-300 rounded-lg text-xs font-mono text-roast-900 focus:outline-hidden focus:border-cherry-700"
                   >
                     <option value="Verifikasi Pembayaran QRIS Pro">
-                      💳 Konfirmasi / Verifikasi Pembayaran QRIS Pro
+                      Konfirmasi / Verifikasi Pembayaran QRIS Pro
                     </option>
                     <option value="Pertanyaan Silabus & Materi">
-                      ☕ Pertanyaan Silabus & Kurikulum Pelajaran
+                      Pertanyaan Silabus & Kurikulum Pelajaran
                     </option>
                     <option value="Ujian Akhir & Sertifikat">
-                      🎓 Kendala Ujian Akhir & Sertifikat Kompetensi
+                      Kendala Ujian Akhir & Sertifikat Kompetensi
                     </option>
                     <option value="Kemitraan Kedai & Roastery">
-                      🤝 Kemitraan Kedai Kopi & Pelatihan Barista
+                      Kemitraan Kedai Kopi & Pelatihan Barista
                     </option>
                     <option value="Bantuan Teknis Platform">
-                      ⚙️ Bantuan Teknis & Masukan Fitur Website
+                      Bantuan Teknis & Masukan Fitur Website
                     </option>
                   </select>
                 </div>

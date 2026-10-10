@@ -36,9 +36,6 @@ export const Footer: React.FC = () => {
             <p className="text-xs text-roast-400 leading-relaxed max-w-sm">
               Platform kurikulum kopi independen di Indonesia yang mencakup rantai proses dari kebun hingga seduhan cangkir. Inisiatif dari Cherry Coffee Roastery.
             </p>
-            <div className="font-mono text-[10px] text-roast-500 uppercase tracking-widest">
-              JAKARTA • BANDUNG • GAYO • BALI
-            </div>
           </div>
 
           {/* Col 2: Kurikulum */}

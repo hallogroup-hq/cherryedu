@@ -219,23 +219,18 @@ export function PaymentModal({
       <div className="relative w-full max-w-xl bg-paper-50 rounded-2xl border-2 border-roast-900 shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
         {/* Header */}
         <div className="bg-gradient-to-r from-roast-950 via-cherry-950 to-roast-900 px-6 py-5 text-white flex items-center justify-between border-b border-roast-800">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-roast-950 font-black shadow-md">
-              <Sparkles className="w-5 h-5" />
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="font-serif text-lg font-bold text-amber-200 tracking-wide">
+                CherryEdu Pro
+              </span>
+              <span className="px-2 py-0.5 text-[10px] font-mono font-bold uppercase bg-amber-400/20 border border-amber-300/40 text-amber-300 rounded-full">
+                All-Access
+              </span>
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-serif text-lg font-bold text-amber-200 tracking-wide">
-                  CherryEdu Pro
-                </span>
-                <span className="px-2 py-0.5 text-[10px] font-mono font-bold uppercase bg-amber-400/20 border border-amber-300/40 text-amber-300 rounded-full">
-                  All-Access
-                </span>
-              </div>
-              <p className="text-xs text-paper-300">
-                {sourceContext ? `Akses: ${sourceContext}` : 'Buka 6 Jalur Spesialisasi & Sertifikat Resmi'}
-              </p>
-            </div>
+            <p className="text-xs text-paper-300 mt-0.5">
+              {sourceContext ? `Akses: ${sourceContext}` : 'Buka 6 Jalur Spesialisasi & Sertifikat Resmi'}
+            </p>
           </div>
           <button
             onClick={onClose}
@@ -599,9 +594,8 @@ export function PaymentModal({
                 <h3 className="font-serif text-2xl font-bold text-roast-950">
                   Transaksi Berhasil! Selamat Datang di CherryEdu Pro.
                 </h3>
-                <p className="text-sm font-medium text-cherry-800 mt-2 flex items-center justify-center gap-1.5">
-                  <span>Enjoy Learning & Happy Brewing!</span>
-                  <span>☕✨</span>
+                <p className="text-sm font-medium text-cherry-800 mt-2">
+                  Enjoy Learning & Happy Brewing!
                 </p>
                 <p className="text-xs text-roast-600 mt-1 max-w-sm">
                   Pembayaran QRIS GoPay Anda telah terverifikasi lunas. Seluruh 6 Jalur Spesialisasi kini terbuka penuh untuk Anda pelajari.

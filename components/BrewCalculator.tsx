@@ -306,6 +306,65 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
   const secondPour = Math.round(activeTotalWater * 0.6);
   const finalPour = activeTotalWater;
 
+  // Japanese Iced hot water pour stages
+  const japaneseHotWater = presetCalculation.water;
+  const japaneseBloom = Math.round(activeDose * 2.5);
+  const japaneseSecond = Math.round(japaneseHotWater * 0.65);
+  const japaneseFinal = japaneseHotWater;
+
+  // Dynamic target brew time scaling with coffee dose (contact time increases with bed depth)
+  const dynamicTargetTime = (() => {
+    if (selectedMethod.id === 'v60') {
+      if (dose <= 13) return '1:45 – 2:15';
+      if (dose <= 17) return '2:15 – 2:45';
+      if (dose <= 22) return '2:45 – 3:15';
+      if (dose <= 28) return '3:15 – 3:45';
+      return '3:45 – 4:15';
+    }
+    if (selectedMethod.id === 'japanese-iced') {
+      if (dose <= 16) return '1:45 – 2:10';
+      if (dose <= 20) return '2:10 – 2:35';
+      if (dose <= 26) return '2:35 – 3:00';
+      return '3:00 – 3:30';
+    }
+    if (selectedMethod.id === 'aeropress') {
+      return dose <= 15 ? '1:30 – 1:45' : '1:45 – 2:00';
+    }
+    if (selectedMethod.id === 'french-press') {
+      return '4:00 (Rendam)';
+    }
+    if (selectedMethod.id === 'espresso') {
+      return '26 – 30 detik';
+    }
+    if (selectedMethod.id === 'cold-brew') {
+      return '12 – 16 jam';
+    }
+    return selectedMethod.targetTime;
+  })();
+
+  // Dynamic tip adapting to actual dose and water
+  const dynamicTip = (() => {
+    if (selectedMethod.id === 'v60') {
+      return `Tuang 3 tahap: 0:00 Blooming ${bloomWater}g (45 detik), 0:45 tuang memutar hingga ${secondPour}g, 1:20 tuang hingga ${finalPour}g.`;
+    }
+    if (selectedMethod.id === 'japanese-iced') {
+      return `Formula ${presetCalculation.ice}g es batu di server + ${japaneseHotWater}g air panas. Tuang air panas 3 tahap: 0:00 Bloom ${japaneseBloom}g, 0:45 tuang ke-2 hingga ${japaneseSecond}g, 1:15 tuang akhir hingga ${japaneseFinal}g.`;
+    }
+    if (selectedMethod.id === 'aeropress') {
+      return 'Metode terbalik (inverted). Tuang air, aduk 5 putaran perlahan, balik di menit 1:15 dan tekan pelan selama 30 detik.';
+    }
+    if (selectedMethod.id === 'french-press') {
+      return 'Rendam penuh 4 menit. Pecahkan kerak (crust) atas dengan sendok, bersihkan busa putih mengambang, lalu tekan plunger perlahan.';
+    }
+    if (selectedMethod.id === 'espresso') {
+      return `Rasio 1:${ratio}. Dosis ${dose}g menghasilkan ~${Math.round(presetCalculation.water)}g liquid espresso dalam 26-30 detik dengan yield ekstraksi optimal.`;
+    }
+    if (selectedMethod.id === 'cold-brew') {
+      return `Rasio 1:${ratio}. Rendam ${dose}g bubuk kopi giling kasar dalam ${presetCalculation.water}ml air suhu ruang, simpan tertutup rapat di kulkas selama 12–16 jam.`;
+    }
+    return selectedMethod.tips;
+  })();
+
   // Estimated beverage yield (coffee grounds absorb ~2x their dry weight in water)
   const estimatedLiquidYield = Math.max(0, Math.round(activeTotalWater - (activeDose * 2)));
 
@@ -496,7 +555,7 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
                   </div>
                   <div className="bg-paper-50 p-2.5 border border-paper-200">
                     <span className="text-roast-400 block text-[9px] uppercase">Waktu Target</span>
-                    <span className="font-bold text-roast-900">{selectedMethod.targetTime}</span>
+                    <span className="font-bold text-roast-900">{dynamicTargetTime}</span>
                   </div>
                 </div>
                 <div className="bg-paper-50 p-2.5 border border-paper-200 font-mono text-[11px]">
@@ -504,7 +563,7 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
                   <span className="font-bold text-roast-900">{selectedMethod.grindSize}</span>
                 </div>
                 <p className="text-[11px] text-roast-700 italic pt-1">
-                  💡 {selectedMethod.tips}
+                  💡 {dynamicTip}
                 </p>
               </div>
             </div>
@@ -553,25 +612,61 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
                 </div>
               </div>
 
-              {/* Pour-over 3-Stage Schedule */}
+              {/* Pour-over 3-Stage Schedule for V60 */}
               {selectedMethod.id === 'v60' && (
                 <div className="bg-paper-100 p-4 border border-paper-300 font-mono text-xs space-y-2">
-                  <span className="text-[10px] uppercase tracking-wider text-cherry-800 font-bold block">
-                    JADWAL TUANGAN 3 TAHAP (V60 STANDARD)
-                  </span>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] uppercase tracking-wider text-cherry-800 font-bold block">
+                      JADWAL TUANGAN 3 TAHAP (V60 STANDARD)
+                    </span>
+                    <span className="text-[10px] text-roast-500 font-mono">
+                      Target: {dynamicTargetTime}
+                    </span>
+                  </div>
                   <div className="space-y-1.5 text-[11px]">
                     <div className="flex justify-between p-1.5 bg-paper-50 border border-paper-200">
                       <span>0:00 – Bloom (x3 Dosis)</span>
                       <span className="font-bold text-cherry-700">{bloomWater} g</span>
                     </div>
                     <div className="flex justify-between p-1.5 bg-paper-50 border border-paper-200">
-                      <span>0:45 – Tuangan Kedua (s/d 60%)</span>
+                      <span>{dose > 22 ? '0:50' : '0:45'} – Tuangan Kedua (s/d 60%)</span>
                       <span className="font-bold text-roast-900">{secondPour} g</span>
                     </div>
                     <div className="flex justify-between p-1.5 bg-paper-50 border border-paper-200">
-                      <span>1:20 – Tuangan Akhir (s/d 100%)</span>
+                      <span>{dose > 22 ? '1:35' : '1:20'} – Tuangan Akhir (s/d 100%)</span>
                       <span className="font-bold text-roast-900">{finalPour} g</span>
                     </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Pour-over 3-Stage Schedule for Japanese Iced */}
+              {selectedMethod.id === 'japanese-iced' && (
+                <div className="bg-paper-100 p-4 border border-paper-300 font-mono text-xs space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] uppercase tracking-wider text-sky-800 font-bold block">
+                      JADWAL TUANGAN 3 TAHAP (JAPANESE ICED)
+                    </span>
+                    <span className="text-[10px] text-roast-500 font-mono">
+                      Target: {dynamicTargetTime}
+                    </span>
+                  </div>
+                  <div className="space-y-1.5 text-[11px]">
+                    <div className="flex justify-between p-1.5 bg-paper-50 border border-paper-200">
+                      <span>0:00 – Bloom (Air Panas)</span>
+                      <span className="font-bold text-cherry-700">{japaneseBloom} g</span>
+                    </div>
+                    <div className="flex justify-between p-1.5 bg-paper-50 border border-paper-200">
+                      <span>0:45 – Tuangan Kedua (s/d 65% Air Panas)</span>
+                      <span className="font-bold text-roast-900">{japaneseSecond} g</span>
+                    </div>
+                    <div className="flex justify-between p-1.5 bg-paper-50 border border-paper-200">
+                      <span>1:15 – Tuangan Akhir (100% Air Panas)</span>
+                      <span className="font-bold text-roast-900">{japaneseFinal} g</span>
+                    </div>
+                  </div>
+                  <div className="p-2 bg-sky-50 border border-sky-200 rounded text-[10px] text-sky-900">
+                    <span className="font-bold">🧊 Es Batu di Server:</span> Masukkan {presetCalculation.ice} g es batu ke dalam server sebelum mulai menuang air panas. Kopi panas akan langsung mendingin seketika (thermal shock).
                   </div>
                 </div>
               )}
