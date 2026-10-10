@@ -51,60 +51,6 @@ export default function PathDetailPage() {
 
   const path = learningPaths.find((p) => p.slug === slug);
 
-  useEffect(() => {
-    if (!authLoading && !isAuthenticated) {
-      router.replace(`/login?redirect=/paths/${slug}`);
-    }
-  }, [authLoading, isAuthenticated, slug, router]);
-
-  if (authLoading) {
-    return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 text-center">
-        <Loader2 className="w-8 h-8 animate-spin text-cherry-700 mb-3" />
-        <p className="font-mono text-xs uppercase tracking-widest text-roast-600">
-          Memverifikasi Akses Silabus...
-        </p>
-      </div>
-    );
-  }
-
-  if (!isAuthenticated) {
-    return (
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
-        <div className="bg-paper-50 border-2 border-roast-900 p-8 sm:p-12 shadow-elevated rounded-xl">
-          <div className="w-16 h-16 bg-cherry-50 border border-cherry-200 text-cherry-700 flex items-center justify-center rounded-2xl mx-auto mb-5 shadow-xs">
-            <Lock className="w-8 h-8" />
-          </div>
-
-          <span className="font-mono text-xs uppercase tracking-widest text-roast-500 font-bold block mb-2">
-            Akses Silabus Terkunci
-          </span>
-          <h1 className="font-serif text-2xl sm:text-3xl font-bold text-roast-950 mb-3 tracking-tight">
-            Masuk untuk Membuka Silabus & Modul
-          </h1>
-          <p className="font-sans text-xs sm:text-sm text-roast-700 max-w-lg mx-auto leading-relaxed mb-8">
-            Silabus dan seluruh modul kurikulum <strong>{path?.title || 'pembelajaran'}</strong> hanya dapat diakses setelah masuk ke akun CherryEdu Anda.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link
-              href={`/login?redirect=/paths/${slug}`}
-              className="w-full sm:w-auto px-6 py-3 bg-roast-950 hover:bg-cherry-800 text-white font-bold text-xs sm:text-sm rounded-lg transition text-center shadow-xs"
-            >
-              Masuk / Login Sekarang
-            </Link>
-            <Link
-              href={`/register?redirect=/paths/${slug}`}
-              className="w-full sm:w-auto px-6 py-3 bg-white hover:bg-paper-100 border border-paper-400 text-roast-950 font-bold text-xs sm:text-sm rounded-lg transition text-center"
-            >
-              Daftar Akun Baru
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   if (!path) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center">
@@ -117,12 +63,16 @@ export default function PathDetailPage() {
   }
 
   const pathModules = modules.filter((m) => m.learning_path_id === path.id);
-  const enrollment = enrollments.find(
-    (e) => e.user_id === currentUser.id && e.learning_path_id === path.id
-  );
+  const enrollment = isAuthenticated && currentUser
+    ? enrollments.find(
+        (e) => e.user_id === currentUser.id && e.learning_path_id === path.id
+      )
+    : undefined;
   const isEnrolled = Boolean(enrollment);
-  const progress = getPathProgress(path.id);
-  const prereqCheck = canEnrollInPath(path.id);
+  const progress = isAuthenticated ? getPathProgress(path.id) : 0;
+  const prereqCheck = isAuthenticated
+    ? canEnrollInPath(path.id)
+    : { allowed: true, reason: '' };
   const finalExam = quizzes.find(
     (q) => q.learning_path_id === path.id && q.quiz_scope === 'final_exam'
   );
@@ -228,6 +178,26 @@ export default function PathDetailPage() {
                       </Link>
                     ) : null;
                   })()}
+                </div>
+              ) : !isAuthenticated ? (
+                <div className="space-y-3">
+                  <div className="p-3.5 bg-paper-100 border border-paper-300 font-mono text-[11px] text-roast-700 leading-relaxed">
+                    <strong className="text-roast-950 block mb-1 font-bold">Silabus Terbuka Publik</strong>
+                    Materi dan silabus dapat dipelajari secara terbuka. Masuk atau buat akun gratis untuk mencatat progres belajar dan mengklaim sertifikat kelulusan resmi.
+                  </div>
+                  <Link
+                    href={`/login?redirect=/paths/${path.slug}`}
+                    className="w-full py-2.5 bg-roast-950 hover:bg-cherry-800 text-paper-50 font-mono text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 border border-roast-900 shadow-xs transition-colors"
+                  >
+                    <span>Masuk untuk Mulai Belajar</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                  <Link
+                    href={`/register?redirect=/paths/${path.slug}`}
+                    className="w-full py-2 bg-paper-100 hover:bg-paper-200 text-roast-800 border border-paper-300 font-mono text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
+                  >
+                    <span>Daftar Akun Baru (Gratis)</span>
+                  </Link>
                 </div>
               ) : (
                 <div className="space-y-3">
@@ -401,11 +371,15 @@ export default function PathDetailPage() {
                             </div>
 
                             <Link
-                              href={`/paths/${path.slug}/lessons/${lesson.id}`}
+                              href={
+                                isAuthenticated
+                                  ? `/paths/${path.slug}/lessons/${lesson.id}`
+                                  : `/login?redirect=/paths/${path.slug}/lessons/${lesson.id}`
+                              }
                               className={`shrink-0 ml-3 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-wider font-bold transition-all shadow-xs flex items-center gap-1.5 ${
-                                isAccessible
-                                  ? 'bg-paper-50 border border-paper-300 text-roast-900 hover:text-cherry-800 hover:border-roast-800'
-                                  : 'bg-amber-50 border border-amber-300 text-amber-900 hover:bg-amber-100'
+                                !isAccessible
+                                  ? 'bg-amber-50 border border-amber-300 text-amber-900 hover:bg-amber-100'
+                                  : 'bg-paper-50 border border-paper-300 text-roast-900 hover:text-cherry-800 hover:border-roast-800'
                               }`}
                             >
                               {!isAccessible ? (
@@ -413,6 +387,8 @@ export default function PathDetailPage() {
                                   <Lock className="w-3 h-3 text-amber-700" />
                                   <span>Buka (Pro)</span>
                                 </>
+                              ) : !isAuthenticated ? (
+                                <span>Buka Materi →</span>
                               ) : completed ? (
                                 'Ulas Materi'
                               ) : (
