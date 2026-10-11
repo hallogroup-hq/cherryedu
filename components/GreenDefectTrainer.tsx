@@ -298,19 +298,19 @@ export function GreenDefectTrainer() {
     const totalFullDefects = Number((totalPrimaryFullDefects + totalSecondaryFullDefects).toFixed(1));
 
     let grade = 'Below Grade / Commercial (Off-Grade)';
-    let gradeBadgeColor = 'bg-rose-100 text-rose-800 border-rose-300';
+    let gradeBadgeColor = 'bg-paper-200 text-roast-800 border-paper-400';
     let isSpecialty = false;
 
     if (totalPrimaryBeans === 0 && totalFullDefects <= 5.0) {
       grade = 'Grade 1: Specialty Grade Coffee (Standar SCA & SNI)';
-      gradeBadgeColor = 'bg-emerald-100 text-emerald-900 border-emerald-300';
+      gradeBadgeColor = 'bg-roast-950 text-paper-50 border-roast-900';
       isSpecialty = true;
     } else if (totalPrimaryFullDefects <= 1.0 && totalFullDefects <= 8.0) {
       grade = 'Grade 2: Premium Grade Coffee';
-      gradeBadgeColor = 'bg-amber-100 text-amber-900 border-amber-300';
+      gradeBadgeColor = 'bg-paper-200 text-roast-900 border-paper-400';
     } else if (totalFullDefects <= 23.0) {
       grade = 'Grade 3: Exchange Grade Coffee';
-      gradeBadgeColor = 'bg-blue-100 text-blue-900 border-blue-300';
+      gradeBadgeColor = 'bg-paper-100 text-roast-800 border-paper-300';
     }
 
     return {
@@ -526,10 +526,10 @@ export function GreenDefectTrainer() {
                 </div>
 
                 <div className="space-y-1">
-                  <span className="font-mono text-[10px] uppercase text-emerald-700 block font-semibold">
+                  <span className="font-mono text-[10px] uppercase text-roast-500 block font-semibold">
                     Solusi & Mitigasi di Tingkat Petani / Processor:
                   </span>
-                  <p className="text-roast-800 leading-relaxed bg-emerald-50/60 p-2.5 rounded-lg border border-emerald-200">
+                  <p className="text-roast-800 leading-relaxed bg-paper-100 p-2.5 rounded-lg border border-paper-200">
                     {selectedDefect.farmMitigation}
                   </p>
                 </div>
@@ -662,7 +662,7 @@ export function GreenDefectTrainer() {
                   <span>Cacat Primer (Kategori 1):</span>
                   <span
                     className={`font-bold ${
-                      gradingResult.totalPrimaryBeans === 0 ? 'text-emerald-400' : 'text-rose-400'
+                      gradingResult.totalPrimaryBeans === 0 ? 'text-paper-100' : 'text-paper-400'
                     }`}
                   >
                     {gradingResult.totalPrimaryBeans} biji ({gradingResult.totalPrimaryFullDefects} FD)
@@ -676,7 +676,7 @@ export function GreenDefectTrainer() {
                 </div>
                 <div className="flex justify-between text-roast-300">
                   <span>Syarat Specialty SCA:</span>
-                  <span className={gradingResult.isSpecialty ? 'text-emerald-400 font-bold' : 'text-rose-400'}>
+                  <span className={gradingResult.isSpecialty ? 'text-paper-100 font-bold' : 'text-paper-400'}>
                     {gradingResult.isSpecialty ? 'Lolos Specialty Grade' : 'Gugur dari Specialty'}
                   </span>
                 </div>

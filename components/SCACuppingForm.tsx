@@ -857,7 +857,7 @@ Catatan Cupper: ${sample.generalNotes}
                 className="px-3.5 py-2 bg-roast-950 text-paper-50 hover:bg-roast-900 border border-roast-900 rounded-lg font-mono text-xs uppercase tracking-wider transition-colors flex items-center gap-1.5 shadow-xs"
                 title="Salin Rangkuman Teks"
               >
-                {copiedClassic ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5 text-crema-300" />}
+                {copiedClassic ? <Check className="w-3.5 h-3.5 text-paper-200" /> : <Copy className="w-3.5 h-3.5 text-crema-300" />}
                 <span>{copiedClassic ? "Tersalin" : "Salin Laporan"}</span>
               </button>
 
@@ -1767,7 +1767,7 @@ Catatan Cupper: ${sample.generalNotes}
                   onClick={handleCopyCvaReport}
                   className="px-3.5 py-2 rounded-xl bg-roast-950 text-paper-50 hover:bg-roast-900 active:scale-[0.98] font-mono text-xs font-semibold flex items-center gap-2 shadow-xs transition-all"
                 >
-                  {copiedCva ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5 text-crema-300" />}
+                  {copiedCva ? <Check className="w-3.5 h-3.5 text-paper-200" /> : <Copy className="w-3.5 h-3.5 text-crema-300" />}
                   <span>{copiedCva ? "Tersalin ke Clipboard!" : "Salin Laporan CVA"}</span>
                 </button>
               </div>

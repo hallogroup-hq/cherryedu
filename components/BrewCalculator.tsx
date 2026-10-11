@@ -418,14 +418,14 @@ export const BrewCalculator: React.FC<BrewCalculatorProps> = ({ initialRecipe })
 
       {/* Applied Formula Banner */}
       {appliedNotification && (
-        <div className="mt-4 p-3 bg-emerald-900 text-emerald-100 border border-emerald-700 rounded-lg flex items-center justify-between text-xs font-mono animate-in fade-in duration-200">
+        <div className="mt-4 p-3 bg-roast-950 text-paper-50 border border-roast-800 rounded-lg flex items-center justify-between text-xs font-mono animate-in fade-in duration-200">
           <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+            <Check className="w-4 h-4 text-paper-200 shrink-0" />
             <span>{appliedNotification}</span>
           </div>
           <button
             onClick={() => setAppliedNotification(null)}
-            className="text-emerald-300 hover:text-white text-xs px-2 py-0.5"
+            className="text-paper-400 hover:text-white text-xs px-2 py-0.5"
           >
             ✕
           </button>

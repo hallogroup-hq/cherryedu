@@ -129,8 +129,8 @@ export const DirectChatDrawer: React.FC<DirectChatDrawerProps> = ({
                   <h3 className="font-serif font-bold text-base text-white tracking-tight">
                     Chat Tim Admin CherryEdu
                   </h3>
-                  <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800 font-mono text-[10px] font-bold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-roast-900 text-paper-200 border border-roast-700 font-mono text-[10px] font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-paper-400" />
                     Online
                   </span>
                 </div>

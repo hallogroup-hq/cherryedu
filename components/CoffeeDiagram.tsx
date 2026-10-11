@@ -561,7 +561,7 @@ export const CoffeeDiagram: React.FC<CoffeeDiagramProps> = ({ type, caption }) =
 
             <div className="p-4 bg-paper-50 rounded-lg border border-paper-200 overflow-x-auto">
               <div className="min-w-[500px] space-y-4 font-mono text-xs">
-                <div className="text-center p-2.5 bg-emerald-800 text-white rounded font-bold max-w-xs mx-auto">
+                <div className="text-center p-2.5 bg-roast-900 text-white rounded font-bold max-w-xs mx-auto border border-roast-950">
                   COFFEA ARABICA INDUK (ETHOPIA NATIVE)
                 </div>
                 <div className="w-0.5 h-6 bg-paper-400 mx-auto"></div>

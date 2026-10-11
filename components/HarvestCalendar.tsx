@@ -427,7 +427,7 @@ export function HarvestCalendar() {
 
           {/* Current Month Active Indicator */}
           <div className="p-3.5 rounded-xl bg-paper-50 border border-paper-300 shadow-2xs self-start lg:self-auto flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-emerald-700 text-paper-50 flex items-center justify-center font-mono font-bold text-sm shrink-0">
+            <div className="w-10 h-10 rounded-lg bg-cherry-900 text-paper-50 flex items-center justify-center font-mono font-bold text-sm shrink-0">
               {MONTH_NAMES[selectedMonth]}
             </div>
             <div>
@@ -437,7 +437,7 @@ export function HarvestCalendar() {
               <span className="font-serif font-bold text-xs text-roast-950 block">
                 {FULL_MONTH_NAMES[selectedMonth]}
               </span>
-              <span className="text-[10px] text-emerald-700 font-medium">
+              <span className="text-[10px] text-cherry-800 font-medium">
                 {activeInSelectedMonth.length} Wilayah Sedang Panen
               </span>
             </div>
@@ -448,7 +448,7 @@ export function HarvestCalendar() {
         <div className="mt-6 pt-5 border-t border-paper-200 flex flex-wrap items-center gap-4 text-xs font-mono">
           <span className="text-roast-500 text-[10px] uppercase font-bold">Keterangan Fase:</span>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-sm bg-emerald-700" />
+            <span className="w-3 h-3 rounded-sm bg-cherry-900" />
             <span className="text-roast-800 font-medium">Panen Raya (Main Crop)</span>
           </div>
           <div className="flex items-center gap-1.5">
@@ -485,7 +485,7 @@ export function HarvestCalendar() {
                 <span className="font-mono text-xs block leading-none">{MONTH_NAMES[idx]}</span>
                 <span
                   className={`text-[9px] font-sans mt-0.5 block ${
-                    isSelected ? 'text-crema-300' : isActualCurrent ? 'text-emerald-700 font-bold' : 'text-roast-400'
+                    isSelected ? 'text-crema-300' : isActualCurrent ? 'text-cherry-800 font-bold' : 'text-roast-400'
                   }`}
                 >
                   {isActualCurrent ? 'Bulan Ini' : m.slice(0, 4)}
@@ -564,7 +564,7 @@ export function HarvestCalendar() {
                       {region.schedule.map((phase, mIdx) => {
                         const isFocusMonth = mIdx === selectedMonth;
                         let bgClass = 'bg-paper-200';
-                        if (phase === 'main') bgClass = 'bg-emerald-700';
+                        if (phase === 'main') bgClass = 'bg-cherry-900';
                         if (phase === 'fly') bgClass = 'bg-amber-500';
                         if (phase === 'flower') bgClass = 'bg-purple-400';
 
@@ -616,14 +616,14 @@ export function HarvestCalendar() {
             {/* Peak Harvest Schedule Details */}
             <div className="space-y-2 text-xs">
               <span className="font-mono text-xs uppercase tracking-wider text-roast-900 font-bold flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-emerald-700" /> Jadwal Panen Raya & Puncak
+                <Clock className="w-4 h-4 text-cherry-800" /> Jadwal Panen Raya & Puncak
               </span>
 
-              <div className="p-3 bg-emerald-50/70 rounded-xl border border-emerald-200 space-y-1">
-                <span className="font-mono text-[10px] uppercase text-emerald-800 block font-semibold">
+              <div className="p-3 bg-paper-100 rounded-xl border border-paper-300 space-y-1">
+                <span className="font-mono text-[10px] uppercase text-roast-500 block font-semibold">
                   Musim Panen Optimal (Fresh Crop):
                 </span>
-                <p className="font-serif font-bold text-xs text-emerald-950">
+                <p className="font-serif font-bold text-xs text-roast-950">
                   {activeRegion.peakMonths}
                 </p>
               </div>

@@ -602,7 +602,7 @@ export function BlendDesigner() {
               onClick={handleCopyRecipe}
               className="px-3.5 py-2 rounded-xl bg-roast-950 text-paper-50 hover:bg-roast-900 active:scale-[0.98] font-mono text-xs font-semibold flex items-center gap-2 shadow-xs transition-all"
             >
-              {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5 text-crema-300" />}
+              {copied ? <Check className="w-3.5 h-3.5 text-paper-200" /> : <Copy className="w-3.5 h-3.5 text-crema-300" />}
               <span>{copied ? 'Tersalin ke Clipboard!' : 'Salin Formula Resep'}</span>
             </button>
           </div>
@@ -655,7 +655,7 @@ export function BlendDesigner() {
                 <div
                   className={`px-3 py-1.5 rounded-lg border font-mono text-xs font-bold flex items-center gap-1.5 ${
                     totalPercentage === 100
-                      ? 'bg-emerald-50 text-emerald-800 border-emerald-300'
+                      ? 'bg-paper-200 text-roast-900 border-paper-400'
                       : 'bg-amber-50 text-amber-800 border-amber-300 animate-pulse'
                   }`}
                 >
@@ -1044,7 +1044,7 @@ export function BlendDesigner() {
                 <div
                   className={`font-mono text-xs font-bold px-2 py-1 rounded-md ${
                     compatibility.esKopiSusu >= 80
-                      ? 'bg-emerald-100 text-emerald-800'
+                      ? 'bg-roast-900 text-paper-50'
                       : 'bg-paper-200 text-roast-700'
                   }`}
                 >
@@ -1067,7 +1067,7 @@ export function BlendDesigner() {
                 <div
                   className={`font-mono text-xs font-bold px-2 py-1 rounded-md ${
                     compatibility.latteMatch >= 80
-                      ? 'bg-emerald-100 text-emerald-800'
+                      ? 'bg-roast-900 text-paper-50'
                       : 'bg-paper-200 text-roast-700'
                   }`}
                 >
@@ -1090,7 +1090,7 @@ export function BlendDesigner() {
                 <div
                   className={`font-mono text-xs font-bold px-2 py-1 rounded-md ${
                     compatibility.straightEspresso >= 75
-                      ? 'bg-emerald-100 text-emerald-800'
+                      ? 'bg-roast-900 text-paper-50'
                       : 'bg-paper-200 text-roast-700'
                   }`}
                 >
@@ -1121,7 +1121,7 @@ export function BlendDesigner() {
 
               <div className="space-y-0.5">
                 <span className="font-mono text-[10px] text-roast-400 uppercase">HPP Kopi / Cangkir:</span>
-                <p className="font-mono text-lg font-bold text-emerald-400">
+                <p className="font-mono text-lg font-bold text-paper-100">
                   Rp {economics.costPerShot.toLocaleString('id-ID')}
                 </p>
               </div>

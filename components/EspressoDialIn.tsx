@@ -343,25 +343,9 @@ export const EspressoDialIn: React.FC = () => {
         {/* Right Column: Prescription & Mechanical Actions (7 Cols) */}
         <div className="lg:col-span-7 space-y-6">
           {/* Status Badge & Headline Card */}
-          <div
-            className={`border-2 p-6 sm:p-8 bg-paper-50 transition-all ${
-              diagnosis.statusColor === 'emerald'
-                ? 'border-emerald-700 bg-emerald-50/20'
-                : diagnosis.statusColor === 'amber'
-                ? 'border-amber-700 bg-amber-50/20'
-                : 'border-cherry-700 bg-cherry-50/20'
-            }`}
-          >
+          <div className="border border-paper-300 p-6 sm:p-8 bg-paper-50">
             <div className="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-paper-300">
-              <span
-                className={`font-mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 border ${
-                  diagnosis.statusColor === 'emerald'
-                    ? 'bg-emerald-900 text-emerald-100 border-emerald-800'
-                    : diagnosis.statusColor === 'amber'
-                    ? 'bg-amber-900 text-amber-100 border-amber-800'
-                    : 'bg-cherry-950 text-cherry-100 border-cherry-900'
-                }`}
-              >
+              <span className="font-mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 bg-roast-950 text-paper-50 border border-roast-900">
                 {diagnosis.status}
               </span>
               <span className="font-mono text-[11px] text-roast-500">

@@ -214,7 +214,7 @@ export const InteractiveBrewGuide: React.FC<InteractiveBrewGuideProps> = ({ reci
         </div>
         <div className="w-full h-2 bg-paper-200 rounded-full overflow-hidden">
           <div
-            className="h-full bg-emerald-700 transition-all duration-300 rounded-full"
+            className="h-full bg-roast-900 transition-all duration-300 rounded-full"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
@@ -235,7 +235,7 @@ export const InteractiveBrewGuide: React.FC<InteractiveBrewGuideProps> = ({ reci
               onClick={() => handleToggleStep(idx)}
               className={`p-3.5 sm:p-4 rounded-xl border transition-all cursor-pointer flex items-start gap-3.5 ${
                 isDone
-                  ? 'bg-emerald-50/70 border-emerald-300 text-roast-700'
+                  ? 'bg-paper-100 border-paper-300 text-roast-600'
                   : isCurrent
                   ? 'bg-white border-2 border-roast-950 shadow-subtle'
                   : 'bg-white border-paper-300 text-roast-800 hover:border-paper-400'
@@ -246,7 +246,7 @@ export const InteractiveBrewGuide: React.FC<InteractiveBrewGuideProps> = ({ reci
                 type="button"
                 className={`w-6 h-6 rounded-full shrink-0 flex items-center justify-center font-mono text-xs transition-colors mt-0.5 ${
                   isDone
-                    ? 'bg-emerald-700 text-white'
+                    ? 'bg-roast-900 text-paper-50'
                     : isCurrent
                     ? 'border-2 border-roast-950 text-roast-950 font-bold bg-crema-100'
                     : 'border border-paper-400 text-roast-500 bg-paper-100'
@@ -278,19 +278,19 @@ export const InteractiveBrewGuide: React.FC<InteractiveBrewGuideProps> = ({ reci
 
       {/* Completion Notice */}
       {completedSteps.length === recipe.steps.length && recipe.steps.length > 0 && (
-        <div className="mt-5 p-4 rounded-xl bg-emerald-100/70 border border-emerald-300 text-emerald-950 font-sans text-xs flex items-center justify-between gap-3 animate-in fade-in duration-300">
+        <div className="mt-5 p-4 rounded-xl bg-roast-950 text-paper-50 border border-roast-900 font-sans text-xs flex items-center justify-between gap-3 animate-in fade-in duration-300">
           <div className="flex items-center gap-2.5">
-            <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0" />
+            <CheckCircle2 className="w-5 h-5 text-paper-200 shrink-0" />
             <div>
-              <strong>Seduhan Selesai Sempurna!</strong>
-              <div className="text-[11px] text-emerald-900">
+              <strong className="text-white font-bold">Seduhan Selesai Sempurna!</strong>
+              <div className="text-[11px] text-paper-300">
                 Aduk kopi di dalam server secara melingkar (swirl) sebelum dituangkan ke cangkir agar suhu dan TDS homogen.
               </div>
             </div>
           </div>
           <button
             onClick={handleReset}
-            className="px-3 py-1.5 bg-white text-emerald-900 font-mono text-[11px] rounded border border-emerald-300 hover:bg-emerald-50 shrink-0"
+            className="px-3 py-1.5 bg-paper-100 text-roast-950 font-mono text-[11px] rounded border border-paper-300 hover:bg-paper-200 shrink-0"
           >
             Seduh Ulang
           </button>

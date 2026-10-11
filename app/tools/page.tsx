@@ -627,13 +627,10 @@ function ToolsPageContent() {
               <button
                 type="button"
                 onClick={() => setIsGuestAuthPromptOpen(true)}
-                className="inline-flex items-center gap-2 px-3 py-1.5 sm:py-2 bg-gradient-to-r from-emerald-50 to-teal-50 hover:from-emerald-100 hover:to-teal-100 border border-emerald-300 text-emerald-950 rounded-xl text-xs font-mono font-bold shadow-2xs transition group"
+                className="inline-flex items-center gap-2 px-3 py-1.5 sm:py-2 bg-paper-100 hover:bg-paper-200 border border-paper-300 text-roast-900 rounded-xl text-xs font-mono font-bold transition group"
                 title="Masuk akun gratis untuk membuka seluruh 15 alat"
               >
-                <span className="flex h-2 w-2 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
+                <span className="w-2 h-2 rounded-full bg-roast-600"></span>
                 <span>Mode Tamu: <strong>1x Coba</strong></span>
                 <span className="text-cherry-700 underline text-[11px] group-hover:text-cherry-900 font-semibold">Buka 15 Alat Gratis →</span>
               </button>

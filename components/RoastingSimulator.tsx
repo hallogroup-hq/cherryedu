@@ -519,7 +519,7 @@ export function RoastingSimulator() {
             {!isRunning && !isFinished && (
               <button
                 onClick={handleStart}
-                className="px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-paper-50 font-mono text-xs font-bold flex items-center gap-2 shadow-xs transition-all active:scale-[0.98]"
+                className="px-4 py-2.5 rounded-xl bg-roast-950 hover:bg-roast-900 text-paper-50 font-mono text-xs font-bold flex items-center gap-2 shadow-xs transition-all active:scale-[0.98]"
               >
                 <Play className="w-4 h-4" />
                 <span>Mulai Sangrai (Charge)</span>
@@ -650,16 +650,16 @@ export function RoastingSimulator() {
 
       {/* Live In-Target Alert Banner */}
       {isInDropTargetZone && (
-        <div className="p-3.5 bg-emerald-700 text-paper-50 border border-emerald-600 rounded-xl flex items-center justify-between font-mono text-xs shadow-md animate-pulse">
+        <div className="p-3.5 bg-roast-950 text-paper-50 border border-roast-800 rounded-xl flex items-center justify-between font-mono text-xs shadow-sm">
           <div className="flex items-center gap-2">
-            <Flame className="w-4 h-4 text-amber-300 animate-bounce" />
+            <Flame className="w-4 h-4 text-amber-300" />
             <span className="font-bold">
               🔥 ZONA TARGET PROFILE TERCAPAI! (BT: {beanTemp}°C | DTR: {dtr}%) — Siap dikeluarkan!
             </span>
           </div>
           <button
             onClick={handleDrop}
-            className="px-3 py-1 bg-paper-50 text-emerald-900 font-bold rounded hover:bg-emerald-50 transition-colors"
+            className="px-3 py-1 bg-paper-100 text-roast-950 font-bold rounded hover:bg-paper-200 transition-colors"
           >
             Drop Sekarang!
           </button>
@@ -1008,12 +1008,12 @@ export function RoastingSimulator() {
           </div>
 
           {/* Pillar 2: Fine Robusta */}
-          <div className="p-5 rounded-2xl border border-emerald-200 bg-emerald-50/40 space-y-3">
+          <div className="p-5 rounded-2xl border border-paper-300 bg-paper-100/60 space-y-3">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-300 uppercase">
+              <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-paper-200 text-roast-900 border border-paper-400 uppercase">
                 Fine Robusta (Petik Merah)
               </span>
-              <span className="font-mono text-xs font-bold text-emerald-900">216°C – 222°C</span>
+              <span className="font-mono text-xs font-bold text-roast-900">216°C – 222°C</span>
             </div>
             <h4 className="font-serif font-bold text-base text-roast-950">
               Kafein Tinggi & Pemecahan Klorogenat

@@ -374,7 +374,7 @@ export const CoffeeCompass: React.FC = () => {
           </div>
 
           <div className="p-3 bg-crema-50 border border-crema-200 rounded-xl flex items-center gap-2.5 text-[11px] font-sans text-roast-800">
-            <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" />
+            <CheckCircle2 className="w-4 h-4 text-roast-700 shrink-0" />
             <span>
               <strong>Aturan Emas Barista:</strong> Ubah <strong>hanya 1 variabel per seduhan</strong> agar Anda tahu persis mana faktor yang berhasil memperbaiki rasa.
             </span>

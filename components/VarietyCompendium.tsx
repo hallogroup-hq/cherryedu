@@ -756,7 +756,7 @@ export const VarietyCompendium: React.FC = () => {
                         <div className="flex items-center justify-between gap-1 mb-1">
                           <span className={`font-mono text-[9px] uppercase px-1.5 py-0.5 rounded font-bold border ${
                             v.category === 'nusantara'
-                              ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                              ? 'bg-paper-200 text-roast-900 border-paper-400'
                               : v.category === 'exotic_competition'
                               ? 'bg-purple-50 text-purple-800 border-purple-200'
                               : v.category === 'world_heritage'
@@ -839,13 +839,7 @@ export const VarietyCompendium: React.FC = () => {
                     </div>
                     <div className="bg-paper-100 p-2.5 rounded border border-paper-200">
                       <span className="text-[9px] text-roast-500 uppercase block">Karat Daun</span>
-                      <span className={`font-bold ${
-                        selectedVariety.leafRustResistance.includes('Tahan')
-                          ? 'text-emerald-700'
-                          : selectedVariety.leafRustResistance.includes('Moderat')
-                          ? 'text-amber-700'
-                          : 'text-rose-700'
-                      }`}>
+                      <span className="font-bold text-roast-950">
                         {selectedVariety.leafRustResistance}
                       </span>
                     </div>
@@ -973,13 +967,7 @@ export const VarietyCompendium: React.FC = () => {
                   </div>
                   <div className="bg-paper-100 p-2.5 rounded border border-paper-200">
                     <span className="text-[9px] text-roast-500 uppercase block">Karat Daun</span>
-                    <span className={`font-bold ${
-                      selectedVariety.leafRustResistance.includes('Tahan')
-                        ? 'text-emerald-700'
-                        : selectedVariety.leafRustResistance.includes('Moderat')
-                        ? 'text-amber-700'
-                        : 'text-rose-700'
-                    }`}>
+                    <span className="font-bold text-roast-950">
                       {selectedVariety.leafRustResistance}
                     </span>
                   </div>
@@ -1173,7 +1161,7 @@ export const VarietyCompendium: React.FC = () => {
             {/* Branch 3: HIBRIDO DE TIMOR & NUSANTARA HYBRIDS */}
             <div className="bg-paper-100 p-5 rounded-lg border border-paper-300 space-y-4">
               <div className="pb-2 border-b border-paper-300">
-                <span className="text-[10px] text-emerald-700 font-bold block uppercase">
+                <span className="text-[10px] text-roast-500 font-bold block uppercase">
                   CABANG 3: PERSILANGAN TIMOR
                 </span>
                 <h5 className="font-serif text-lg font-bold text-roast-950">
@@ -1186,13 +1174,13 @@ export const VarietyCompendium: React.FC = () => {
 
               <div className="space-y-2 font-mono text-xs">
                 <div className="p-2.5 bg-paper-50 rounded border border-paper-300">
-                  <div className="font-bold text-emerald-800">Hibrido de Timor / HDT (1917)</div>
+                  <div className="font-bold text-roast-950">Hibrido de Timor / HDT (1917)</div>
                   <div className="text-[10px] text-roast-500">Persilangan alami Arabika x Robusta di Pulau Timor</div>
                 </div>
 
-                <div className="pl-4 border-l-2 border-emerald-600 space-y-2">
+                <div className="pl-4 border-l-2 border-paper-400 space-y-2">
                   <div className="p-2 bg-paper-50 rounded border border-paper-200">
-                    <strong className="text-emerald-900">Tim-Tim</strong> (Takengon, Aceh)
+                    <strong className="text-roast-950">Tim-Tim</strong> (Takengon, Aceh)
                     <span className="block text-[10px] text-roast-500">HDT murni introduksi Timor Timur 1978</span>
                   </div>
 

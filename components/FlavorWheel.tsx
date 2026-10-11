@@ -545,11 +545,11 @@ export const FlavorWheel: React.FC = () => {
 
                 {/* 4. Asal Daerah Kopi di Nusantara (Origin Match) */}
                 <div>
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-400 block mb-1 font-bold">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-roast-400 block mb-1 font-bold">
                     📍 Padanan Daerah Asal di Indonesia:
                   </span>
-                  <div className="text-xs text-emerald-100 font-sans font-bold bg-emerald-950/40 p-2.5 rounded border border-emerald-800/60 flex items-start gap-2">
-                    <span className="text-emerald-400 font-mono text-sm leading-none mt-0.5">●</span>
+                  <div className="text-xs text-paper-100 font-sans font-bold bg-roast-900/80 p-2.5 rounded border border-roast-800 flex items-start gap-2">
+                    <span className="text-paper-400 font-mono text-sm leading-none mt-0.5">●</span>
                     <span>{selectedDescriptor.originMatch}</span>
                   </div>
                 </div>
@@ -669,10 +669,10 @@ export const FlavorWheel: React.FC = () => {
                 </div>
 
                 <div>
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-400 block mb-1 font-bold">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-roast-400 block mb-1 font-bold">
                     Spesimen Asal Kopi:
                   </span>
-                  <p className="text-xs text-white font-sans font-bold bg-emerald-950/40 p-2.5 rounded border border-emerald-800/60">
+                  <p className="text-xs text-paper-100 font-sans font-semibold bg-roast-900/80 p-2.5 rounded border border-roast-800">
                     {selectedAcid.originExamples}
                   </p>
                 </div>
@@ -821,10 +821,10 @@ export const FlavorWheel: React.FC = () => {
                   </div>
 
                   <div>
-                    <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-400 block mb-1 font-bold">
+                    <span className="font-mono text-[9px] uppercase tracking-wider text-roast-400 block mb-1 font-bold">
                       📍 Padanan Origin di Indonesia:
                     </span>
-                    <p className="text-xs text-emerald-100 font-sans font-bold bg-emerald-950/50 p-2.5 rounded border border-emerald-800/60">
+                    <p className="text-xs text-paper-100 font-sans font-bold bg-roast-900/80 p-2.5 rounded border border-roast-800">
                       {selectedDescriptor.originMatch}
                     </p>
                   </div>
@@ -859,10 +859,10 @@ export const FlavorWheel: React.FC = () => {
                     </p>
                   </div>
                   <div>
-                    <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-400 block mb-1 font-bold">
+                    <span className="font-mono text-[9px] uppercase tracking-wider text-roast-400 block mb-1 font-bold">
                       Spesimen Origin Kopi:
                     </span>
-                    <p className="text-xs text-white font-sans font-bold bg-emerald-950/50 p-2.5 rounded border border-emerald-800/60">
+                    <p className="text-xs text-paper-100 font-sans font-semibold bg-roast-900/80 p-2.5 rounded border border-roast-800">
                       {selectedAcid.originExamples}
                     </p>
                   </div>
