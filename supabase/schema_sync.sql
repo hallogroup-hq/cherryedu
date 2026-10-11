@@ -43,10 +43,13 @@ CREATE TABLE IF NOT EXISTS public.transactions (
     trx_id TEXT,
     qris_code TEXT,
     qris_url TEXT,
+    proof_url TEXT,
     expires_at TIMESTAMP WITH TIME ZONE,
     paid_at TIMESTAMP WITH TIME ZONE,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
+
+ALTER TABLE public.transactions ADD COLUMN IF NOT EXISTS proof_url TEXT;
 
 -- 3. Enable RLS and add public access policies
 ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;

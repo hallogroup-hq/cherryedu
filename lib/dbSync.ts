@@ -123,7 +123,7 @@ export async function syncTransactionToSupabase(tx: PaymentTransaction): Promise
   if (!isSupabaseConfigured()) return;
 
   try {
-    const payload = {
+    const payload: Record<string, any> = {
       id: tx.id,
       user_id: tx.user_id,
       user_name: tx.user_name,
@@ -144,8 +144,15 @@ export async function syncTransactionToSupabase(tx: PaymentTransaction): Promise
       paid_at: tx.paid_at || null,
       created_at: tx.created_at,
     };
+    if (tx.proof_url) {
+      payload.proof_url = tx.proof_url;
+    }
 
-    await supabase.from('transactions').upsert(payload, { onConflict: 'id' });
+    const { error } = await supabase.from('transactions').upsert(payload, { onConflict: 'id' });
+    if (error && error.message?.includes('proof_url')) {
+      delete payload.proof_url;
+      await supabase.from('transactions').upsert(payload, { onConflict: 'id' });
+    }
   } catch (err) {
     console.debug('Supabase transaction sync skipped:', err);
   }
@@ -182,6 +189,7 @@ export async function fetchTransactionsFromSupabase(): Promise<PaymentTransactio
       trx_id: row.trx_id || undefined,
       qris_code: row.qris_code || undefined,
       qris_url: row.qris_url || undefined,
+      proof_url: row.proof_url || undefined,
       expires_at: row.expires_at || undefined,
       paid_at: row.paid_at || undefined,
       created_at: row.created_at || new Date().toISOString(),
@@ -198,18 +206,29 @@ export async function fetchTransactionsFromSupabase(): Promise<PaymentTransactio
 export async function updateTransactionStatusInSupabase(
   txId: string,
   status: PaymentTransaction['status'],
-  paidAt?: string
+  paidAt?: string,
+  proofUrl?: string
 ): Promise<void> {
   if (!isSupabaseConfigured()) return;
 
   try {
-    await supabase
+    const updatePayload: Record<string, any> = {
+      status,
+      paid_at: paidAt || null,
+    };
+    if (proofUrl) {
+      updatePayload.proof_url = proofUrl;
+    }
+
+    const { error } = await supabase
       .from('transactions')
-      .update({
-        status,
-        paid_at: paidAt || null,
-      })
+      .update(updatePayload)
       .eq('id', txId);
+
+    if (error && error.message?.includes('proof_url')) {
+      delete updatePayload.proof_url;
+      await supabase.from('transactions').update(updatePayload).eq('id', txId);
+    }
   } catch (err) {
     console.debug('Failed to update transaction status in Supabase:', err);
   }
@@ -262,6 +281,7 @@ export async function fetchTransactionByIdFromSupabase(
       trx_id: data.trx_id || undefined,
       qris_code: data.qris_code || undefined,
       qris_url: data.qris_url || undefined,
+      proof_url: data.proof_url || undefined,
       expires_at: data.expires_at || undefined,
       paid_at: data.paid_at || undefined,
       created_at: data.created_at || new Date().toISOString(),

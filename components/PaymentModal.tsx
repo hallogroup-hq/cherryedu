@@ -21,6 +21,8 @@ import {
   Award,
   AlertCircle,
   MessageSquare,
+  Upload,
+  Image as ImageIcon,
 } from 'lucide-react';
 
 interface PaymentModalProps {
@@ -43,6 +45,7 @@ export function PaymentModal({
     applyVoucher,
     createPaymentTransaction,
     checkPaymentStatus,
+    confirmBuyerPayment,
     openDirectChat,
   } = useCherryEdu();
 
@@ -63,6 +66,14 @@ export function PaymentModal({
   const [timeLeft, setTimeLeft] = useState<number>(300); // 5 minutes
   const [isChecking, setIsChecking] = useState<boolean>(false);
   const pollTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Manual Proof Upload State
+  const [showProofUpload, setShowProofUpload] = useState<boolean>(false);
+  const [proofImage, setProofImage] = useState<string | null>(null);
+  const [proofFileName, setProofFileName] = useState<string>('');
+  const [isCompressing, setIsCompressing] = useState<boolean>(false);
+  const [isSubmittingProof, setIsSubmittingProof] = useState<boolean>(false);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const plan = PRICING_PLANS.pro;
   const basePrice = cycle === 'annual' ? plan.annual.amount : plan.monthly.amount;
@@ -173,6 +184,86 @@ export function PaymentModal({
       toast.error('Gagal memeriksa status pembayaran. Silakan coba lagi.');
     } finally {
       setIsChecking(false);
+    }
+  };
+
+  const handleImageFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      toast.error('File harus berupa foto screenshot (JPG, PNG, atau WEBP).');
+      return;
+    }
+
+    setIsCompressing(true);
+    setProofFileName(file.name);
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const img = new Image();
+      img.onload = () => {
+        // Downscale to max 1280px for performance & local storage efficiency
+        const maxDim = 1280;
+        let width = img.width;
+        let height = img.height;
+
+        if (width > maxDim || height > maxDim) {
+          if (width > height) {
+            height = Math.round((height * maxDim) / width);
+            width = maxDim;
+          } else {
+            width = Math.round((width * maxDim) / height);
+            height = maxDim;
+          }
+        }
+
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.drawImage(img, 0, 0, width, height);
+          const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.82);
+          setProofImage(compressedDataUrl);
+        } else {
+          setProofImage(event.target?.result as string);
+        }
+        setIsCompressing(false);
+        toast.success('Screenshot bukti transfer berhasil dimuat.');
+      };
+      img.onerror = () => {
+        toast.error('Gagal membaca gambar screenshot.');
+        setIsCompressing(false);
+      };
+      img.src = event.target?.result as string;
+    };
+    reader.onerror = () => {
+      toast.error('Gagal membaca file gambar.');
+      setIsCompressing(false);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleConfirmWithProof = async () => {
+    if (!activeTx || isSubmittingProof) return;
+    if (!proofImage) {
+      toast.error('Silakan unggah screenshot bukti transfer terlebih dahulu.');
+      return;
+    }
+
+    setIsSubmittingProof(true);
+    try {
+      const res = await confirmBuyerPayment(activeTx.id, proofImage);
+      if (res.success && res.transaction) {
+        triggerSuccess(res.transaction);
+      } else {
+        toast.error('Gagal memproses konfirmasi pembayaran. Silakan coba lagi.');
+      }
+    } catch (err: any) {
+      toast.error(err.message || 'Terjadi kesalahan sistem.');
+    } finally {
+      setIsSubmittingProof(false);
     }
   };
 
@@ -528,9 +619,9 @@ export function PaymentModal({
                 </div>
               ) : (
                 <>
-                  {/* Automated Detection Status & Manual Refresh */}
-                  <div className="w-full max-w-sm space-y-2 pt-1">
-                    <div className="flex items-center justify-center gap-2 py-2 px-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl text-xs font-mono shadow-xs">
+                  {/* Automated Detection Status & Manual Confirmation */}
+                  <div className="w-full max-w-sm space-y-2.5 pt-1">
+                    <div className="flex items-center justify-center gap-2 py-2 px-3 bg-paper-100 border border-paper-300 text-roast-700 rounded-xl text-xs font-mono shadow-xs">
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
@@ -542,7 +633,7 @@ export function PaymentModal({
                       type="button"
                       onClick={handleCheckManualPayment}
                       disabled={isChecking}
-                      className="w-full py-3 bg-roast-950 hover:bg-cherry-900 disabled:bg-roast-850 text-white font-bold font-mono text-xs rounded-xl transition flex items-center justify-center gap-2 shadow-sm cursor-pointer disabled:cursor-not-allowed"
+                      className="w-full py-2.5 bg-paper-100 hover:bg-paper-200 border border-paper-300 text-roast-900 font-bold font-mono text-xs rounded-xl transition flex items-center justify-center gap-2 shadow-xs cursor-pointer disabled:cursor-not-allowed"
                     >
                       {isChecking ? (
                         <>
@@ -551,11 +642,126 @@ export function PaymentModal({
                         </>
                       ) : (
                         <>
-                          <RefreshCw className="w-4 h-4" />
-                          <span>Cek Status Pembayaran Sekarang</span>
+                          <RefreshCw className="w-4 h-4 text-roast-600" />
+                          <span>Cek Mutasi Otomatis</span>
                         </>
                       )}
                     </button>
+
+                    {/* Manual Confirmation with Screenshot Upload */}
+                    {!showProofUpload ? (
+                      <button
+                        type="button"
+                        onClick={() => setShowProofUpload(true)}
+                        className="w-full py-3 bg-roast-950 hover:bg-cherry-900 text-white font-bold font-mono text-xs rounded-xl transition flex items-center justify-center gap-2 shadow-sm cursor-pointer"
+                      >
+                        <Upload className="w-4 h-4" />
+                        <span>Konfirmasi Pembayaran (Upload Bukti)</span>
+                      </button>
+                    ) : (
+                      <div className="p-4 bg-paper-100 border border-paper-300 rounded-xl text-left space-y-3 animate-fadeIn">
+                        <div className="flex items-center justify-between">
+                          <span className="font-mono text-xs uppercase tracking-wider font-bold text-roast-950 flex items-center gap-1.5">
+                            <Upload className="w-3.5 h-3.5 text-cherry-700" />
+                            Unggah Bukti Pembayaran
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setShowProofUpload(false);
+                              setProofImage(null);
+                              setProofFileName('');
+                            }}
+                            className="text-roast-500 hover:text-roast-900 text-[11px] font-mono cursor-pointer"
+                          >
+                            Batal
+                          </button>
+                        </div>
+
+                        <input
+                          ref={fileInputRef}
+                          type="file"
+                          accept="image/*"
+                          onChange={handleImageFileChange}
+                          className="hidden"
+                        />
+
+                        {!proofImage ? (
+                          <div
+                            onClick={() => fileInputRef.current?.click()}
+                            className="border-2 border-dashed border-paper-400 hover:border-roast-700 bg-white p-4 rounded-xl text-center cursor-pointer transition space-y-1.5"
+                          >
+                            <div className="w-9 h-9 mx-auto rounded-lg bg-paper-100 flex items-center justify-center text-roast-600">
+                              {isCompressing ? (
+                                <RefreshCw className="w-4 h-4 animate-spin text-cherry-700" />
+                              ) : (
+                                <Upload className="w-4 h-4 text-roast-700" />
+                              )}
+                            </div>
+                            <p className="text-xs font-bold text-roast-950">
+                              {isCompressing ? 'Memproses Screenshot...' : 'Pilih Screenshot Bukti Transfer'}
+                            </p>
+                            <p className="text-[10px] text-roast-500 font-mono">
+                              Format JPG, PNG, atau WEBP
+                            </p>
+                          </div>
+                        ) : (
+                          <div className="space-y-2">
+                            <div className="relative rounded-lg overflow-hidden border border-paper-300 bg-white">
+                              <img
+                                src={proofImage}
+                                alt="Screenshot Bukti Transfer"
+                                className="w-full max-h-44 object-contain bg-paper-50 p-1"
+                              />
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setProofImage(null);
+                                  setProofFileName('');
+                                }}
+                                className="absolute top-2 right-2 p-1.5 bg-roast-950/80 hover:bg-roast-950 text-white rounded-lg transition cursor-pointer"
+                                title="Hapus Bukti"
+                              >
+                                <X className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
+                            <div className="flex items-center justify-between text-[10px] font-mono text-roast-600 px-1">
+                              <span className="truncate max-w-[190px]">{proofFileName}</span>
+                              <button
+                                type="button"
+                                onClick={() => fileInputRef.current?.click()}
+                                className="text-cherry-800 underline hover:text-cherry-950 font-bold cursor-pointer"
+                              >
+                                Ganti Foto
+                              </button>
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="text-[11px] text-roast-700 font-sans leading-relaxed bg-white p-2.5 border border-paper-300 rounded-lg">
+                          Saya telah mentransfer sejumlah <strong>Rp {activeTx.final_amount.toLocaleString('id-ID')}</strong> ke QRIS Cherry Edu.
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={handleConfirmWithProof}
+                          disabled={!proofImage || isSubmittingProof}
+                          className="w-full py-2.5 bg-cherry-800 hover:bg-cherry-900 disabled:bg-paper-300 disabled:text-roast-400 text-white font-mono text-xs font-bold rounded-lg transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer disabled:cursor-not-allowed"
+                        >
+                          {isSubmittingProof ? (
+                            <>
+                              <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                              <span>Mengirim Bukti & Membuka Pro...</span>
+                            </>
+                          ) : (
+                            <>
+                              <Check className="w-3.5 h-3.5" />
+                              <span>Konfirmasi & Buka Pro</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </>
               )}

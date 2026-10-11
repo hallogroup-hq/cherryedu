@@ -119,7 +119,7 @@ interface CherryEduContextType {
   applyVoucher: (code: string, amount: number) => { valid: boolean; discountAmount: number; finalAmount: number; message: string; voucher?: Voucher };
   createPaymentTransaction: (cycle: SubscriptionCycle, voucherCode?: string) => Promise<{ success: boolean; transaction?: PaymentTransaction; error?: string }>;
   checkPaymentStatus: (transactionId: string) => Promise<{ paid: boolean; status?: string; transaction?: PaymentTransaction }>;
-  confirmBuyerPayment: (transactionId: string) => Promise<{ success: boolean; transaction?: PaymentTransaction }>;
+  confirmBuyerPayment: (transactionId: string, proofUrl?: string, notes?: string) => Promise<{ success: boolean; transaction?: PaymentTransaction }>;
   cancelTransactionAndRevokePro: (transactionId: string) => void;
   voidTransactionAndRevokePro: (transactionId: string) => void;
   deleteTransaction: (transactionId: string) => void;
@@ -1072,7 +1072,9 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
    * Admin retains full authority to revoke Pro later if funds didn't clear.
    */
   const confirmBuyerPayment = async (
-    transactionId: string
+    transactionId: string,
+    proofUrl?: string,
+    notes?: string
   ): Promise<{ success: boolean; transaction?: PaymentTransaction }> => {
     let tx = transactions.find((t) => t.id === transactionId);
     if (!tx) {
@@ -1087,6 +1089,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     const updatedTx: PaymentTransaction = {
       ...tx,
       status: 'paid',
+      proof_url: proofUrl || tx.proof_url,
+      proof_notes: notes || tx.proof_notes,
       paid_at: new Date().toISOString(),
     };
 
@@ -1098,7 +1102,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       return [updatedTx, ...prev];
     });
 
-    updateTransactionStatusInSupabase(tx.id, 'paid', updatedTx.paid_at);
+    updateTransactionStatusInSupabase(tx.id, 'paid', updatedTx.paid_at, updatedTx.proof_url);
 
     // Asynchronously dispatch confirmation email
     if (updatedTx.user_email) {

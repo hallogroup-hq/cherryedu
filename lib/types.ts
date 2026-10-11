@@ -429,6 +429,8 @@ export interface PaymentTransaction {
   trx_id?: string;
   qris_code?: string;
   qris_url?: string;
+  proof_url?: string;
+  proof_notes?: string;
   expires_at?: string;
   created_at: string;
   paid_at?: string;

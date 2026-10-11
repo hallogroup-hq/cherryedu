@@ -22,6 +22,9 @@ import {
   RotateCw,
   Ban,
   Trash2,
+  Image as ImageIcon,
+  ExternalLink,
+  X,
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -44,6 +47,7 @@ export default function AdminTransactionsPage() {
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [cycleFilter, setCycleFilter] = useState<string>('all');
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [previewProofTx, setPreviewProofTx] = useState<PaymentTransaction | null>(null);
 
   useEffect(() => {
     refreshTransactions();
@@ -290,7 +294,20 @@ export default function AdminTransactionsPage() {
                   <tr key={tx.id} className="hover:bg-paper-50/80 transition-colors">
                     <td className="p-3.5 font-mono">
                       <span className="font-bold text-roast-950 block">{tx.trx_id || tx.id}</span>
-                      <span className="text-[10px] text-roast-400">QRIS GoPay</span>
+                      <div className="flex items-center gap-1.5 mt-0.5">
+                        <span className="text-[10px] text-roast-400">QRIS GoPay</span>
+                        {tx.proof_url && (
+                          <button
+                            type="button"
+                            onClick={() => setPreviewProofTx(tx)}
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-paper-100 hover:bg-paper-200 border border-paper-300 text-roast-800 transition cursor-pointer"
+                            title="Klik untuk melihat screenshot bukti transfer"
+                          >
+                            <ImageIcon className="w-2.5 h-2.5 text-roast-600" />
+                            <span>Bukti</span>
+                          </button>
+                        )}
+                      </div>
                     </td>
                     <td className="p-3.5">
                       <span className="font-bold text-roast-950 block">{tx.user_name}</span>
@@ -354,6 +371,17 @@ export default function AdminTransactionsPage() {
                     <td className="p-3.5 text-right">
                       {tx.status === 'paid' ? (
                         <div className="flex items-center justify-end gap-1.5">
+                          {tx.proof_url && (
+                            <button
+                              type="button"
+                              onClick={() => setPreviewProofTx(tx)}
+                              className="px-2 py-1 bg-paper-100 hover:bg-paper-200 text-roast-800 border border-paper-300 font-mono text-[10px] font-bold rounded transition cursor-pointer flex items-center gap-1"
+                              title="Lihat screenshot bukti transfer"
+                            >
+                              <ImageIcon className="w-3 h-3 text-roast-600" />
+                              <span>Bukti</span>
+                            </button>
+                          )}
                           <button
                             type="button"
                             onClick={() => {
@@ -429,6 +457,17 @@ export default function AdminTransactionsPage() {
                         </div>
                       ) : (tx.status === 'pending' && (!tx.expires_at || new Date(tx.expires_at) >= new Date())) ? (
                         <div className="flex items-center justify-end gap-1.5">
+                          {tx.proof_url && (
+                            <button
+                              type="button"
+                              onClick={() => setPreviewProofTx(tx)}
+                              className="px-2 py-1 bg-paper-100 hover:bg-paper-200 text-roast-800 border border-paper-300 font-mono text-[10px] font-bold rounded transition cursor-pointer flex items-center gap-1"
+                              title="Lihat screenshot bukti transfer"
+                            >
+                              <ImageIcon className="w-3 h-3 text-roast-600" />
+                              <span>Bukti</span>
+                            </button>
+                          )}
                           <button
                             type="button"
                             onClick={() => {
@@ -649,6 +688,116 @@ export default function AdminTransactionsPage() {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* Proof Preview Modal */}
+      {previewProofTx && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-roast-950/70 backdrop-blur-sm animate-fadeIn">
+          <div className="relative w-full max-w-lg bg-paper-50 rounded-2xl border-2 border-roast-900 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            <div className="bg-roast-950 px-5 py-4 text-white flex items-center justify-between border-b border-roast-800">
+              <div className="flex items-center gap-2">
+                <ImageIcon className="w-4 h-4 text-paper-300" />
+                <h3 className="font-serif font-bold text-base text-paper-50">
+                  Bukti Pembayaran Transaksi
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setPreviewProofTx(null)}
+                className="p-1.5 text-paper-300 hover:text-white hover:bg-white/10 rounded-lg transition cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="p-5 overflow-y-auto space-y-4">
+              <div className="p-3 bg-white border border-paper-300 rounded-xl grid grid-cols-2 gap-2 text-xs">
+                <div>
+                  <span className="text-[10px] text-roast-500 font-mono block">Pengguna</span>
+                  <strong className="text-roast-950 block truncate">{previewProofTx.user_name}</strong>
+                  <span className="text-[10px] text-roast-500 font-mono truncate block">{previewProofTx.user_email}</span>
+                </div>
+                <div className="text-right">
+                  <span className="text-[10px] text-roast-500 font-mono block">Nominal Tagihan</span>
+                  <strong className="text-sm font-mono font-black text-roast-950 block">
+                    Rp {previewProofTx.final_amount.toLocaleString('id-ID')}
+                  </strong>
+                  <span className="text-[10px] text-roast-500 font-mono">
+                    ID: {previewProofTx.trx_id || previewProofTx.id}
+                  </span>
+                </div>
+              </div>
+
+              {/* Image Container */}
+              <div className="bg-white border-2 border-paper-300 rounded-xl p-2 flex items-center justify-center max-h-[50vh] overflow-hidden">
+                {previewProofTx.proof_url ? (
+                  <img
+                    src={previewProofTx.proof_url}
+                    alt="Bukti Transfer"
+                    className="max-h-[48vh] w-auto object-contain rounded-lg shadow-2xs"
+                  />
+                ) : (
+                  <p className="text-xs text-roast-400 font-mono py-12">Tidak ada bukti gambar terlampir.</p>
+                )}
+              </div>
+            </div>
+
+            <div className="px-5 py-3.5 bg-paper-100 border-t border-paper-300 flex items-center justify-between gap-2">
+              {previewProofTx.proof_url && (
+                <a
+                  href={previewProofTx.proof_url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-mono text-xs text-roast-700 hover:text-roast-950 underline flex items-center gap-1"
+                >
+                  <ExternalLink className="w-3 h-3" />
+                  <span>Buka Gambar Penuh</span>
+                </a>
+              )}
+              <div className="flex items-center gap-2 ml-auto">
+                {previewProofTx.status === 'paid' && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (
+                        confirm(
+                          `Void / Batalkan transaksi ${previewProofTx.trx_id || previewProofTx.id}?\n\nAkses Pro untuk ${previewProofTx.user_name} akan langsung dicabut.`
+                        )
+                      ) {
+                        voidTransactionAndRevokePro(previewProofTx.id);
+                        setPreviewProofTx(null);
+                        toast.info(`Transaksi ${previewProofTx.trx_id || previewProofTx.id} telah divoid & Pro dicabut.`);
+                      }
+                    }}
+                    className="px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-300 font-mono text-xs font-bold rounded-lg transition cursor-pointer"
+                  >
+                    Void Transaksi & Cabut Pro
+                  </button>
+                )}
+                {previewProofTx.status === 'pending' && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      simulatePaymentSuccess(previewProofTx.id);
+                      setPreviewProofTx(null);
+                      toast.success(`Transaksi ${previewProofTx.trx_id || previewProofTx.id} disetujui & Pro aktif!`);
+                    }}
+                    className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-mono text-xs font-bold rounded-lg transition cursor-pointer"
+                  >
+                    Setujui & Buka Pro
+                  </button>
+                )}
+                <button
+                  type="button"
+                  onClick={() => setPreviewProofTx(null)}
+                  className="px-4 py-1.5 bg-roast-950 hover:bg-cherry-900 text-white font-mono text-xs font-bold rounded-lg transition cursor-pointer"
+                >
+                  Tutup
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}
