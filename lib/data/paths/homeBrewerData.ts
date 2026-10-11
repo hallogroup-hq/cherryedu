@@ -1,7 +1,329 @@
 import { Lesson, Quiz, Question } from '../../types';
 
 export const HOME_BREWER_EXPANDED_LESSONS: Lesson[] = [
+{
+    id: 'les-h3-2',
+    module_id: 'mod-h3',
+    title: 'Kanalisasi (Channeling), Laju Alir (Flow Rate), & Ekstraksi Seragam V60',
+    content: `
+# Mengatasi Kanalisasi & Mengontrol Laju Alir V60
+
+Banyak home brewer pemula mengalami masalah seduhan yang tidak konsisten: kadang terasa manis, namun seduhan berikutnya dengan biji yang sama terasa pahit kelat kering (*astringent*). Biang keladinya hampir selalu adalah **Kanalisasi (Channeling)**.
+
+---
+
+### Apa itu Kanalisasi (Channeling)?
+Kanalisasi terjadi ketika air seduh mencari jalur dengan hambatan terkecil (*path of least resistance*) di dalam bed bubuk kopi.
+1. Aliran air terkonsentrasi pada celah atau retakan mikro sempit.
+2. Bubuk kopi di sepanjang celah tersebut mengalami **over-extraction parah**, melepaskan senyawa tanin dan asam fenolik berbobot molekul tinggi yang pahit dan sepat.
+3. Sementara itu, bubuk kopi di area padat lainnya tidak tersentuh air secara optimal (**under-extraction**), melepaskan asam tajam mentah.
+4. **Hasil akhir cangkir**: kombinasi aneh antara asam tajam di awal dan pahit kesat menempel di tenggorokan.
+
+---
+
+### Tiga Pilar Mencegah Kanalisasi di Rumah:
+* **Leveling Bed Kopi**: Goyang perlahan dripper sebelum menuang agar permukaan bubuk kopi benar-benar rata horizontal.
+* **Penuangan Tenang Tanpa Sentakan**: Gunakan kettle leher angsa dengan laju alir stabil 4–6 gram air per detik. Hindari menuang terlalu deras dari ketinggian karena akan mengocok bed ampas secara liar.
+* **Jangan Menuang di Dinding Kertas**: Hindari menuang air langsung menyentuh kertas filter di lingkar luar karena air akan langsung meluncur ke server tanpa mengekstrak kopi (*bypass air berlebih*).
+    `,
+    content_type: 'text',
+    duration_minutes: 15,
+    order_index: 2,
+    is_free: false,
+    is_published: true,
+    created_at: '2026-08-05T00:00:00Z',
+    summary: 'Mekanisme kanalisasi pada V60, bahaya over-under extraction simultan, dan teknik penuangan presisi mencegah channeling.',
+    key_takeaways: [
+      'Channeling memicu ekstraksi tidak merata: rasa asam mentah dan pahit kelat muncul bersamaan dalam satu cangkir.',
+      'Jaga laju tuang stabil 4–6 g/detik dan hindari menuang langsung ke tepi dinding kertas filter.',
+      'Ratakan permukaan bed kopi sebelum seduh untuk menciptakan tahanan hidrolik yang homogen.',
+    ],
+  },
+{
+    id: 'les-h6-3',
+    module_id: 'mod-h6',
+    title: 'DIY Water Chemistry: Formulasi Buffer Bikarbonat vs Mineral Ekstraktor',
+    content: `
+# Meracik Air Seduh Sendiri (DIY Water Mineralization)
+
+Jika air galon di rumah tidak menghasilkan rasa kopi yang konsisten, home brewer dapat meracik air seduh sendiri menggunakan konsentrat mineral sederhana dari garam dapur murni (**Baking Soda**) dan **Garam Epsom (Magnesium Sulfat)**.
+
+---
+
+### Dua Komponen Utama Air Kopi:
+1. **Mineral Ekstraktor (General Hardness / GH)**:
+   * **Magnesium (Mg²⁺)** & **Kalsium (Ca²⁺)**.
+   * Bertindak seperti 'kait' magnetik yang mengikat senyawa rasa manis, asam buah, dan lipid kopi keluar dari selulosa bubuk.
+2. **Buffer Alkalinitas (Carbonate Hardness / KH)**:
+   * **Bikarbonat (HCO₃⁻)**.
+   * Bertindak sebagai 'peredam kejut' keasaman. Jika buffer terlalu rendah (<20 ppm), kopi terasa asam menusuk seperti cuka. Jika buffer terlalu tinggi (>80 ppm), keasaman buah alami lenyap dan kopi terasa hambar/flat.
+
+---
+
+### Resep Konsentrat DIY Water di Rumah:
+* **Botol Buffer (Alkalinitas)**: Larutkan 1.68 gram Baking Soda (Natrium Bikarbonat) ke dalam 1 liter air demineralisasi (Amidis/Cleo).
+* **Botol Hardness (Ekstraktor)**: Larutkan 2.46 gram Garam Epsom murni (Magnesium Sulfat USP) ke dalam 1 liter air demineralisasi.
+* **Pencampuran Final**: Tambahkan 25 gram larutan Buffer dan 50 gram larutan Hardness ke dalam 1 liter air demineralisasi untuk menghasilkan target SCA 120 ppm TDS dengan rasio rasa sempurna!
+    `,
+    content_type: 'text',
+    duration_minutes: 15,
+    order_index: 3,
+    is_free: false,
+    is_published: true,
+    created_at: '2026-08-05T00:00:00Z',
+    summary: 'Panduan formulasi konsentrat mineral DIY water menggunakan Baking Soda dan Garam Epsom untuk target ekstraksi ideal.',
+    key_takeaways: [
+      'Magnesium dan Kalsium bertindak sebagai ekstraktor senyawa rasa buah dan manis kopi.',
+      'Buffer Bikarbonat mengontrol ketajaman asam kopi agar seimbang dan tidak hambar.',
+      'Meracik mineral sendiri memberikan replikasi rasa seduhan tingkat kompetisi dunia secara konsisten.',
+    ],
+  },
+{
+    id: 'les-h7-2',
+    module_id: 'mod-h7',
+    title: 'Uji Triangulasi Rasa Mandiri di Dapur: Menemukan Satu Cup Berbeda dari Tiga Mangkuk',
+    content: `
+# Melatih Diskriminasi Sensorik dengan Uji Triangulasi
+
+Uji Triangulasi adalah latihan standar dunia CQI untuk menguji ketajaman indra seorang pencicip kopi. Menariknya, metode ini sangat mudah direplikasi di dapur rumah Anda!
+
+---
+
+### Format Setup Triangulasi:
+1. Siapkan **3 mangkuk atau gelas kaca identik**.
+2. Pilih 2 biji kopi berbeda (misalnya: Origin A adalah Kopi Gayo Washed, Origin B adalah Kopi Flores Bajawa Natural).
+3. Seduh **2 mangkuk dengan Kopi A** dan **1 mangkuk dengan Kopi B** menggunakan rasio dan grind size yang identik (8.25 g / 150 ml).
+4. Minta anggota keluarga atau teman menandai bagian bawah mangkuk dengan stiker tersembunyi dan mengacak posisinya di atas meja.
+
+---
+
+### Cara Mencicipi:
+* Dekati ketiga mangkuk secara berurutan dalam suhu hangat (sekitar 60°C).
+* Seruput dengan sendok kuah secara bergantian: Mangkuk 1 -> Mangkuk 2 -> Mangkuk 3.
+* Fokuskan perhatian Anda bukan pada menebak nama origin, melainkan pada **satu cangkir yang memiliki sensasi berbeda** (apakah keasamannya lebih tinggi? apakah bodinya lebih tebal? apakah ada aroma buah yang berbeda?).
+* Tunjuk mangkuk ganjil (*odd cup*) tersebut dan periksa stiker di bawahnya!
+    `,
+    content_type: 'text',
+    duration_minutes: 15,
+    order_index: 2,
+    is_free: false,
+    is_published: true,
+    created_at: '2026-08-05T00:00:00Z',
+    summary: 'Protokol uji triangulasi dapur rumah untuk melatih diskriminasi sensorik tanpa bias informasi kemasan.',
+    key_takeaways: [
+      'Triangulasi melatih otak mengidentifikasi perbedaan rasa murni tanpa bias visual atau label.',
+      'Fokuskan indra pada kontras keasaman, ketebalan bodi, dan finish setelah seruputan.',
+      'Latihan rutin 2 minggu sekali melipatgandakan kepekaan lidah home brewer dalam mendeteksi cacat seduhan.',
+    ],
+  },
   {
+    id: 'les-h7-3',
+    module_id: 'mod-h7',
+    title: 'Jurnal Sensorik Rumahan: Memetakan Spektrum Asam Organik & Body',
+    content: `
+# Memetakan Spektrum Asam Organik & Body di Rumah
+
+Banyak orang mengira 'asam' pada kopi itu sama saja. Namun di meja cupping specialty, para profesional membedakan setidaknya 4 jenis asam organik yang memberikan dimensi karakter unik pada cangkir:
+
+---
+
+### Mengenal 4 Asam Organik Kunci Kopi:
+1. **Asam Malat (Malic Acid)**:
+   * Karakter: Keasaman renyah, segar, dan garing seperti menggigit apel hijau atau anggur hijau segar.
+   * Sering ditemukan pada kopi elevasi tinggi Kenya, Ethiopia, dan varietas Typica dataran tinggi.
+2. **Asam Sitrat (Citric Acid)**:
+   * Karakter: Keasaman cerah, tajam menyegarkan seperti buah jeruk mandarin, lemon, atau grapefruit.
+   * Dominan pada kopi proses Washed (Full Washed).
+3. **Asam Tartarat (Tartaric Acid)**:
+   * Karakter: Rasa asam manis seperti buah anggur matang dengan sensasi sedikit kesat kering di ujung lidah.
+4. **Asam Asetat (Acetic Acid)**:
+   * Karakter: Seperti cuka buah atau fermentasi kombucha. Dalam kadar sangat rendah memberikan kompleksitas eksotis (proses Anaerobic / Winey), namun jika berlebih menjadi cacat rasa busuk.
+
+---
+
+### Cara Menulis Jurnal Seduh Harian:
+Catat 5 parameter sederhana setiap menyeduh:
+1. Tanggal sangrai & Origin.
+2. Rasio air & Suhu.
+3. Intensitas rasa manis (*Sweetness* skala 1–5).
+4. Karakter asam yang dominan (Malat apel vs Sitrat jeruk).
+5. Kualitas aftertaste (bersih atau kesat).
+    `,
+    content_type: 'text',
+    duration_minutes: 15,
+    order_index: 3,
+    is_free: false,
+    is_published: true,
+    created_at: '2026-08-05T00:00:00Z',
+    summary: 'Panduan membedakan asam malat, sitrat, tartarat, dan asetat serta menyusun jurnal sensorik rumahan yang rapi.',
+    key_takeaways: [
+      'Asam malat terasa renyah seperti apel hijau, sedangkan asam sitrat terasa cerah seperti jeruk manis.',
+      'Asam asetat berlebih menandakan cacat over-fermentation.',
+      'Mendokumentasikan log rasa di jurnal adalah kunci mempercepat lompatan keahlian home brewer.',
+    ],
+  },
+{
+    id: 'les-h3-2',
+    module_id: 'mod-h6',
+    title: 'Kanalisasi (Channeling), Laju Alir (Flow Rate), & Ekstraksi Seragam V60',
+    content: `
+# Mengatasi Kanalisasi & Mengontrol Laju Alir V60
+
+Banyak home brewer pemula mengalami masalah seduhan yang tidak konsisten: kadang terasa manis, namun seduhan berikutnya dengan biji yang sama terasa pahit kelat kering (*astringent*). Biang keladinya hampir selalu adalah **Kanalisasi (Channeling)**.
+
+---
+
+### Apa itu Kanalisasi (Channeling)?
+Kanalisasi terjadi ketika air seduh mencari jalur dengan hambatan terkecil (*path of least resistance*) di dalam bed bubuk kopi.
+1. Aliran air terkonsentrasi pada celah atau retakan mikro sempit.
+2. Bubuk kopi di sepanjang celah tersebut mengalami **over-extraction parah**, melepaskan senyawa tanin dan asam fenolik berbobot molekul tinggi yang pahit dan sepat.
+3. Sementara itu, bubuk kopi di area padat lainnya tidak tersentuh air secara optimal (**under-extraction**), melepaskan asam tajam mentah.
+4. **Hasil akhir cangkir**: kombinasi aneh antara asam tajam di awal dan pahit kesat menempel di tenggorokan.
+
+---
+
+### Tiga Pilar Mencegah Kanalisasi di Rumah:
+* **Leveling Bed Kopi**: Goyang perlahan dripper sebelum menuang agar permukaan bubuk kopi benar-benar rata horizontal.
+* **Penuangan Tenang Tanpa Sentakan**: Gunakan kettle leher angsa dengan laju alir stabil 4–6 gram air per detik. Hindari menuang terlalu deras dari ketinggian karena akan mengocok bed ampas secara liar.
+* **Jangan Menuang di Dinding Kertas**: Hindari menuang air langsung menyentuh kertas filter di lingkar luar karena air akan langsung meluncur ke server tanpa mengekstrak kopi (*bypass air berlebih*).
+    `,
+    content_type: 'text',
+    duration_minutes: 15,
+    order_index: 2,
+    is_free: false,
+    is_published: true,
+    created_at: '2026-08-05T00:00:00Z',
+    summary: 'Mekanisme kanalisasi pada V60, bahaya over-under extraction simultan, dan teknik penuangan presisi mencegah channeling.',
+    key_takeaways: [
+      'Channeling memicu ekstraksi tidak merata: rasa asam mentah dan pahit kelat muncul bersamaan dalam satu cangkir.',
+      'Jaga laju tuang stabil 4–6 g/detik dan hindari menuang langsung ke tepi dinding kertas filter.',
+      'Ratakan permukaan bed kopi sebelum seduh untuk menciptakan tahanan hidrolik yang homogen.',
+    ],
+  },
+{
+    id: 'les-h6-3',
+    module_id: 'mod-h5',
+    title: 'DIY Water Chemistry: Formulasi Buffer Bikarbonat vs Mineral Ekstraktor',
+    content: `
+# Meracik Air Seduh Sendiri (DIY Water Mineralization)
+
+Jika air galon di rumah tidak menghasilkan rasa kopi yang konsisten, home brewer dapat meracik air seduh sendiri menggunakan konsentrat mineral sederhana dari garam dapur murni (**Baking Soda**) dan **Garam Epsom (Magnesium Sulfat)**.
+
+---
+
+### Dua Komponen Utama Air Kopi:
+1. **Mineral Ekstraktor (General Hardness / GH)**:
+   * **Magnesium (Mg²⁺)** & **Kalsium (Ca²⁺)**.
+   * Bertindak seperti 'kait' magnetik yang mengikat senyawa rasa manis, asam buah, dan lipid kopi keluar dari selulosa bubuk.
+2. **Buffer Alkalinitas (Carbonate Hardness / KH)**:
+   * **Bikarbonat (HCO₃⁻)**.
+   * Bertindak sebagai 'peredam kejut' keasaman. Jika buffer terlalu rendah (<20 ppm), kopi terasa asam menusuk seperti cuka. Jika buffer terlalu tinggi (>80 ppm), keasaman buah alami lenyap dan kopi terasa hambar/flat.
+
+---
+
+### Resep Konsentrat DIY Water di Rumah:
+* **Botol Buffer (Alkalinitas)**: Larutkan 1.68 gram Baking Soda (Natrium Bikarbonat) ke dalam 1 liter air demineralisasi (Amidis/Cleo).
+* **Botol Hardness (Ekstraktor)**: Larutkan 2.46 gram Garam Epsom murni (Magnesium Sulfat USP) ke dalam 1 liter air demineralisasi.
+* **Pencampuran Final**: Tambahkan 25 gram larutan Buffer dan 50 gram larutan Hardness ke dalam 1 liter air demineralisasi untuk menghasilkan target SCA 120 ppm TDS dengan rasio rasa sempurna!
+    `,
+    content_type: 'text',
+    duration_minutes: 15,
+    order_index: 4,
+    is_free: false,
+    is_published: true,
+    created_at: '2026-08-05T00:00:00Z',
+    summary: 'Panduan formulasi konsentrat mineral DIY water menggunakan Baking Soda dan Garam Epsom untuk target ekstraksi ideal.',
+    key_takeaways: [
+      'Magnesium dan Kalsium bertindak sebagai ekstraktor senyawa rasa buah dan manis kopi.',
+      'Buffer Bikarbonat mengontrol ketajaman asam kopi agar seimbang dan tidak hambar.',
+      'Meracik mineral sendiri memberikan replikasi rasa seduhan tingkat kompetisi dunia secara konsisten.',
+    ],
+  },
+{
+    id: 'les-h7-2',
+    module_id: 'mod-h9',
+    title: 'Uji Triangulasi Rasa Mandiri di Dapur: Menemukan Satu Cup Berbeda dari Tiga Mangkuk',
+    content: `
+# Melatih Diskriminasi Sensorik dengan Uji Triangulasi
+
+Uji Triangulasi adalah latihan standar dunia CQI untuk menguji ketajaman indra seorang pencicip kopi. Menariknya, metode ini sangat mudah direplikasi di dapur rumah Anda!
+
+---
+
+### Format Setup Triangulasi:
+1. Siapkan **3 mangkuk atau gelas kaca identik**.
+2. Pilih 2 biji kopi berbeda (misalnya: Origin A adalah Kopi Gayo Washed, Origin B adalah Kopi Flores Bajawa Natural).
+3. Seduh **2 mangkuk dengan Kopi A** dan **1 mangkuk dengan Kopi B** menggunakan rasio dan grind size yang identik (8.25 g / 150 ml).
+4. Minta anggota keluarga atau teman menandai bagian bawah mangkuk dengan stiker tersembunyi dan mengacak posisinya di atas meja.
+
+---
+
+### Cara Mencicipi:
+* Dekati ketiga mangkuk secara berurutan dalam suhu hangat (sekitar 60°C).
+* Seruput dengan sendok kuah secara bergantian: Mangkuk 1 -> Mangkuk 2 -> Mangkuk 3.
+* Fokuskan perhatian Anda bukan pada menebak nama origin, melainkan pada **satu cangkir yang memiliki sensasi berbeda** (apakah keasamannya lebih tinggi? apakah bodinya lebih tebal? apakah ada aroma buah yang berbeda?).
+* Tunjuk mangkuk ganjil (*odd cup*) tersebut dan periksa stiker di bawahnya!
+    `,
+    content_type: 'text',
+    duration_minutes: 15,
+    order_index: 2,
+    is_free: false,
+    is_published: true,
+    created_at: '2026-08-05T00:00:00Z',
+    summary: 'Protokol uji triangulasi dapur rumah untuk melatih diskriminasi sensorik tanpa bias informasi kemasan.',
+    key_takeaways: [
+      'Triangulasi melatih otak mengidentifikasi perbedaan rasa murni tanpa bias visual atau label.',
+      'Fokuskan indra pada kontras keasaman, ketebalan bodi, dan finish setelah seruputan.',
+      'Latihan rutin 2 minggu sekali melipatgandakan kepekaan lidah home brewer dalam mendeteksi cacat seduhan.',
+    ],
+  },
+{
+    id: 'les-h7-3',
+    module_id: 'mod-h9',
+    title: 'Jurnal Sensorik Rumahan: Memetakan Spektrum Asam Organik & Body',
+    content: `
+# Memetakan Spektrum Asam Organik & Body di Rumah
+
+Banyak orang mengira 'asam' pada kopi itu sama saja. Namun di meja cupping specialty, para profesional membedakan setidaknya 4 jenis asam organik yang memberikan dimensi karakter unik pada cangkir:
+
+---
+
+### Mengenal 4 Asam Organik Kunci Kopi:
+1. **Asam Malat (Malic Acid)**:
+   * Karakter: Keasaman renyah, segar, dan garing seperti menggigit apel hijau atau anggur hijau segar.
+   * Sering ditemukan pada kopi elevasi tinggi Kenya, Ethiopia, dan varietas Typica dataran tinggi.
+2. **Asam Sitrat (Citric Acid)**:
+   * Karakter: Keasaman cerah, tajam menyegarkan seperti buah jeruk mandarin, lemon, atau grapefruit.
+   * Dominan pada kopi proses Washed (Full Washed).
+3. **Asam Tartarat (Tartaric Acid)**:
+   * Karakter: Rasa asam manis seperti buah anggur matang dengan sensasi sedikit kesat kering di ujung lidah.
+4. **Asam Asetat (Acetic Acid)**:
+   * Karakter: Seperti cuka buah atau fermentasi kombucha. Dalam kadar sangat rendah memberikan kompleksitas eksotis (proses Anaerobic / Winey), namun jika berlebih menjadi cacat rasa busuk.
+
+---
+
+### Cara Menulis Jurnal Seduh Harian:
+Catat 5 parameter sederhana setiap menyeduh:
+1. Tanggal sangrai & Origin.
+2. Rasio air & Suhu.
+3. Intensitas rasa manis (*Sweetness* skala 1–5).
+4. Karakter asam yang dominan (Malat apel vs Sitrat jeruk).
+5. Kualitas aftertaste (bersih atau kesat).
+    `,
+    content_type: 'text',
+    duration_minutes: 15,
+    order_index: 3,
+    is_free: false,
+    is_published: true,
+    created_at: '2026-08-05T00:00:00Z',
+    summary: 'Panduan membedakan asam malat, sitrat, tartarat, dan asetat serta menyusun jurnal sensorik rumahan yang rapi.',
+    key_takeaways: [
+      'Asam malat terasa renyah seperti apel hijau, sedangkan asam sitrat terasa cerah seperti jeruk manis.',
+      'Asam asetat berlebih menandakan cacat over-fermentation.',
+      'Mendokumentasikan log rasa di jurnal adalah kunci mempercepat lompatan keahlian home brewer.',
+    ],
+  },
+{
     id: 'les-h1-2',
     module_id: 'mod-h1',
     title: 'Single Origin vs House Blend: Memilih Profil Rasa yang Tepat Sesuai Selera',
@@ -45,8 +367,7 @@ Biji kopi yang baru keluar dari mesin sangrai (*fresh roast*) mengandung gas kar
       'Resting period 7–14 hari wajib dilakukan agar gas CO2 terlepas sempurna demi ekstraksi yang manis dan seimbang.',
     ],
   },
-
-  {
+{
     id: 'les-h2-2',
     module_id: 'mod-h2',
     title: 'Distribusi Partikel Kopi: Mengapa Fines & Boulders Merusak Seduhan Rumahan',
@@ -90,10 +411,9 @@ Bagi pengguna grinder manual berkualitas tinggi:
       'Burr baja berkualitas menghasilkan kurva distribusi partikel yang rapat dan ekstraksi yang manis jernih.',
     ],
   },
-
-  {
+{
     id: 'les-h3-2',
-    module_id: 'mod-h3',
+    module_id: 'mod-h6',
     title: 'Uji Laboratorium Air Galon Indonesia: Mana yang Terbaik untuk Menyeduh Kopi?',
     content: `
 # Uji Laboratorium Air Galon Indonesia untuk Seduh Kopi
@@ -143,8 +463,7 @@ Secangkir kopi seduh manual terdiri dari **98.5% air** dan hanya 1.5% senyawa pa
       'Hindari air alkali (pH > 8.0) karena akan mematikan keasaman buah alami kopi spesialti.',
     ],
   },
-
-  {
+{
     id: 'les-h4-2',
     module_id: 'mod-h4',
     title: 'Metode 4:6 Tetsu Kasuya vs James Hoffmann 1-Pour: Eksperimen Kontrol Rasa',
@@ -212,8 +531,7 @@ Filosofi: Menghasilkan ekstraksi setinggi dan seseragam mungkin tanpa terjadi ch
       'Gunakan metode 4:6 untuk kopi proses natural/honey lokal nusantara agar rasa manis buahnya meledak.',
     ],
   },
-
-  {
+{
     id: 'les-h5-2',
     module_id: 'mod-h5',
     title: 'French Press Bebas Ampas: Teknik James Hoffmann yang Mengubah Segalanya',
@@ -273,10 +591,9 @@ Cara konvensional mengajarkan: seduh kopi 4 menit, lalu tekan plunger logam samp
       'Suhu tinggi (98°C–100°C) aman digunakan pada immersion karena suhu air turun alami secara bertahap.',
     ],
   },
-
-  {
+{
     id: 'les-h7-2',
-    module_id: 'mod-h7',
+    module_id: 'mod-h9',
     title: 'Cold Brew Concentrate vs Japanese Iced Pour Over: Sains Ekstraksi Dingin',
     content: `
 # Cold Brew Concentrate vs Japanese Iced Pour Over: Dua Dunia Kopi Dingin
@@ -343,8 +660,7 @@ Saat membuat Japanese Iced Pour Over, total air seduhan dibagi menjadi:
       'Gunakan rasio 60% air panas dan 40% es batu di server untuk mencegah rasa kopi menjadi encer.',
     ],
   },
-
-  {
+{
     id: 'les-h8-4',
     module_id: 'mod-h8',
     title: 'Manual Lever Espresso: Rahasia Pre-Infusion & Tekanan 9 Bar dengan Flair / Picopresso',
@@ -375,7 +691,7 @@ Mesin espresso manual bertekanan tuas (*lever machine*) seperti **Flair Espresso
     `,
     content_type: 'text',
     duration_minutes: 16,
-    order_index: 4,
+    order_index: 3,
     is_free: false,
     is_published: true,
     created_at: '2026-08-05T00:00:00Z',
@@ -406,8 +722,7 @@ Mesin espresso manual bertekanan tuas (*lever machine*) seperti **Flair Espresso
       'Turunkan tekanan di akhir seduhan (declining pressure) untuk menjaga rasa espresso tetap manis dan bulat.',
     ],
   },
-
-  {
+{
     id: 'les-h9-2',
     module_id: 'mod-h9',
     title: 'Formula Sirup Gula Aren Kental Murni & Rahasia Microfoam Susu Tanpa Mesin Steam',
@@ -443,7 +758,7 @@ Bagi home brewer tanpa wand steam mesin komersial:
     `,
     content_type: 'text',
     duration_minutes: 14,
-    order_index: 2,
+    order_index: 4,
     is_free: false,
     is_published: true,
     created_at: '2026-08-05T00:00:00Z',
@@ -454,8 +769,7 @@ Bagi home brewer tanpa wand steam mesin komersial:
       'French press dapat digunakan untuk memompa microfoam susu halus sekelas mesin espresso komersial.',
     ],
   },
-
-  {
+{
     id: 'les-h10-2',
     module_id: 'mod-h10',
     title: 'Sanitasi Grinder, Perawatan Ketel Leher Angsa, & Penyimpanan Biji Hermetik',
@@ -495,10 +809,9 @@ Tiga musuh utama biji kopi sangrai adalah: **Oksigen (O_2), Kelembaban, dan Sina
       'Membekukan biji kopi sangrai dalam kemasan hermetik terbukti menjaga kesegaran rasa hingga berbulan-bulan.',
     ],
   },
-
-  {
+{
     id: 'les-h6-2',
-    module_id: 'mod-h6',
+    module_id: 'mod-h5',
     title: 'Flat Bottom Dripper Lanjutan: Mengontrol Bypass dan Laju Ekstraksi pada Origami & April Brewer',
     content: `# Flat Bottom Dripper Lanjutan: Origami, April Brewer, dan Kalita Wave
 
@@ -515,7 +828,7 @@ Berbeda dari dripper kerucut V60 yang memiliki dasar runcing tunggal, dripper fl
 * **Sangat Ramah Biji Fermentasi Buah (Anaerobic / Natural)**: Flat bottom mempertahankan kontak air yang stabil tanpa mengikis keasaman yang berlebihan, menonjolkan rasa manis gula dan bodi cangkir yang bersih.`,
     content_type: 'text',
     duration_minutes: 14,
-    order_index: 2,
+    order_index: 3,
     is_free: true,
     is_published: true,
     created_at: '2026-08-05T00:00:00Z',
@@ -526,9 +839,9 @@ Berbeda dari dripper kerucut V60 yang memiliki dasar runcing tunggal, dripper fl
       'Eksplorasi teknik seduh manual kreatif mulai dari espresso portabel hingga nitro cold brew.'
     ],
   },
-  {
+{
     id: 'les-h6-3',
-    module_id: 'mod-h6',
+    module_id: 'mod-h5',
     title: 'Perbandingan Filter Paper: Bleached vs Unbleached, Porositas Kertas Kalita vs Fast Flow',
     content: `# Perbandingan Kertas Saring: Bleached vs Unbleached dan Pengaruh Rasa Kertas
 
@@ -542,7 +855,7 @@ Kertas saring (*filter paper*) adalah penghalang utama antara bubuk kopi dan ser
 * **Kertas Putih (*Oxygen Bleached*)**: Dikelantang menggunakan senyawa oksigen murni (bukan klorin beracun). Memiliki residu aroma kertas paling rendah (hampir netral total) dan aman bagi kesehatan serta lingkungan.`,
     content_type: 'text',
     duration_minutes: 14,
-    order_index: 2,
+    order_index: 4,
     is_free: true,
     is_published: true,
     created_at: '2026-08-05T00:00:00Z',
@@ -553,7 +866,7 @@ Kertas saring (*filter paper*) adalah penghalang utama antara bubuk kopi dan ser
       'Eksplorasi teknik seduh manual kreatif mulai dari espresso portabel hingga nitro cold brew.'
     ],
   },
-  {
+{
     id: 'les-h8-2',
     module_id: 'mod-h8',
     title: 'Picopresso & Espresso Portabel: Dial-In Biji Sangrai Medium, Pre-Infusi Manual, dan Crema 9 Bar',
@@ -582,7 +895,7 @@ Pompa piston manual memberikan kendali tak terbatas atas kurva tekanan ekstraksi
       'Eksplorasi teknik seduh manual kreatif mulai dari espresso portabel hingga nitro cold brew.'
     ],
   },
-  {
+{
     id: 'les-h8-3',
     module_id: 'mod-h8',
     title: 'Susu Panas Manual Rumahan: Menggunakan French Press & Nanofoamer untuk Tekstur Silky Latte Art',
@@ -601,7 +914,7 @@ Anda tidak memerlukan mesin espresso jutaan rupiah hanya untuk membuat latte art
 5. Tuang ke dalam pitcher dan putar lembut (*swirling*) sebelum menuang latte art!`,
     content_type: 'text',
     duration_minutes: 14,
-    order_index: 2,
+    order_index: 4,
     is_free: true,
     is_published: true,
     created_at: '2026-08-05T00:00:00Z',
@@ -612,7 +925,7 @@ Anda tidak memerlukan mesin espresso jutaan rupiah hanya untuk membuat latte art
       'Eksplorasi teknik seduh manual kreatif mulai dari espresso portabel hingga nitro cold brew.'
     ],
   },
-  {
+{
     id: 'les-h4-3',
     module_id: 'mod-h4',
     title: 'Eksperimen Agitasi Seduh: Spiral Pour vs Center Pour vs Swirling Dripper terhadap Fines Migration',
@@ -627,7 +940,7 @@ Agitasi adalah energi kinetik yang ditransfer oleh aliran air seduh ke dalam bub
 Menggoyangkan dripper secara memutar terlalu kencang memicu gaya sentrifugal yang mendorong partikel debu kopi halus (*fines*) bermigrasi ke dasar pori-pori kertas saring. Akibatnya, air macet total (*drawdown stalling*), waktu seduh molor hingga 4 menit, dan kopi menjadi pahit sepet gosong!`,
     content_type: 'text',
     duration_minutes: 14,
-    order_index: 2,
+    order_index: 3,
     is_free: true,
     is_published: true,
     created_at: '2026-08-05T00:00:00Z',
@@ -638,9 +951,9 @@ Menggoyangkan dripper secara memutar terlalu kencang memicu gaya sentrifugal yan
       'Eksplorasi teknik seduh manual kreatif mulai dari espresso portabel hingga nitro cold brew.'
     ],
   },
-  {
+{
     id: 'les-h7-3',
-    module_id: 'mod-h7',
+    module_id: 'mod-h9',
     title: 'Sains Nitro Cold Brew Rumahan: Infusi Gas Nitrogen (N2) Menggunakan Whipper Dispenser',
     content: `# Sains Nitro Cold Brew Rumahan: Sensasi Kopi Creamy Berkarbon Lembut
 
@@ -657,7 +970,7 @@ Nitro Cold Brew menghadirkan sensasi meminum bir hitam Irlandia (*Guinness Stout
 5. Semprotkan secara miring 45 derajat ke dalam gelas kaca bening dan nikmati efek kaskade gelembung putih yang dramatis!`,
     content_type: 'text',
     duration_minutes: 14,
-    order_index: 2,
+    order_index: 3,
     is_free: true,
     is_published: true,
     created_at: '2026-08-05T00:00:00Z',
@@ -667,17 +980,127 @@ Nitro Cold Brew menghadirkan sensasi meminum bir hitam Irlandia (*Guinness Stout
       'Kendalikan variabel air seduh, agitasi tuangan, dan kualitas kertas saring.',
       'Eksplorasi teknik seduh manual kreatif mulai dari espresso portabel hingga nitro cold brew.'
     ],
-  },
+  }
 ];
 
 export const HOME_BREWER_QUIZZES: Quiz[] = [
+  {
+    id: 'quiz-h1',
+    module_id: 'mod-h1',
+    learning_path_id: 'path-home-brewer',
+    quiz_scope: 'module',
+    title: 'Kuis Evaluasi Modul H-1: Dekonstruksi Informasi Label & Profil Biji Kopi',
+    passing_score: 80,
+    time_limit_minutes: 10,
+    max_attempts: 3,
+    created_at: '2026-08-01T00:00:00Z',
+  },
+  {
+    id: 'quiz-h2',
+    module_id: 'mod-h2',
+    learning_path_id: 'path-home-brewer',
+    quiz_scope: 'module',
+    title: 'Kuis Evaluasi Modul H-2: Setup Alat & Distribusi Partikel Grinder',
+    passing_score: 80,
+    time_limit_minutes: 10,
+    max_attempts: 3,
+    created_at: '2026-08-01T00:00:00Z',
+  },
+  {
+    id: 'quiz-h3',
+    module_id: 'mod-h3',
+    learning_path_id: 'path-home-brewer',
+    quiz_scope: 'module',
+    title: 'Kuis Evaluasi Modul H-3: Seduhan Emas V60 & Ekstraksi Seimbang',
+    passing_score: 80,
+    time_limit_minutes: 10,
+    max_attempts: 3,
+    created_at: '2026-08-01T00:00:00Z',
+  },
+  {
+    id: 'quiz-h4',
+    module_id: 'mod-h4',
+    learning_path_id: 'path-home-brewer',
+    quiz_scope: 'module',
+    title: 'Kuis Evaluasi Modul H-4: Kontrol Rasa & Variasi Metode Tuang',
+    passing_score: 80,
+    time_limit_minutes: 10,
+    max_attempts: 3,
+    created_at: '2026-08-01T00:00:00Z',
+  },
+  {
+    id: 'quiz-h5',
+    module_id: 'mod-h5',
+    learning_path_id: 'path-home-brewer',
+    quiz_scope: 'module',
+    title: 'Kuis Evaluasi Modul H-5: Eksplorasi Flat Bottom, Aeropress & French Press',
+    passing_score: 80,
+    time_limit_minutes: 10,
+    max_attempts: 3,
+    created_at: '2026-08-01T00:00:00Z',
+  },
+  {
+    id: 'quiz-h6',
+    module_id: 'mod-h6',
+    learning_path_id: 'path-home-brewer',
+    quiz_scope: 'module',
+    title: 'Kuis Evaluasi Modul H-6: Kualitas Air Seduh Rumahan & DIY Water',
+    passing_score: 80,
+    time_limit_minutes: 10,
+    max_attempts: 3,
+    created_at: '2026-08-01T00:00:00Z',
+  },
+  {
+    id: 'quiz-h7',
+    module_id: 'mod-h7',
+    learning_path_id: 'path-home-brewer',
+    quiz_scope: 'module',
+    title: 'Kuis Evaluasi Modul H-7: Cupping Mandiri di Rumah & Kalibrasi Rasa',
+    passing_score: 80,
+    time_limit_minutes: 10,
+    max_attempts: 3,
+    created_at: '2026-08-01T00:00:00Z',
+  },
+  {
+    id: 'quiz-h8',
+    module_id: 'mod-h8',
+    learning_path_id: 'path-home-brewer',
+    quiz_scope: 'module',
+    title: 'Kuis Evaluasi Modul H-8: Eksperimen Variabel Seduh & Manual Espresso',
+    passing_score: 80,
+    time_limit_minutes: 10,
+    max_attempts: 3,
+    created_at: '2026-08-01T00:00:00Z',
+  },
+  {
+    id: 'quiz-h9',
+    module_id: 'mod-h9',
+    learning_path_id: 'path-home-brewer',
+    quiz_scope: 'module',
+    title: 'Kuis Evaluasi Modul H-9: Kreasi Es Kopi Susu, Cold Brew & Sirup',
+    passing_score: 80,
+    time_limit_minutes: 10,
+    max_attempts: 3,
+    created_at: '2026-08-01T00:00:00Z',
+  },
+  {
+    id: 'quiz-h10',
+    module_id: 'mod-h10',
+    learning_path_id: 'path-home-brewer',
+    quiz_scope: 'module',
+    title: 'Kuis Evaluasi Modul H-10: Coffee Corner, Perawatan Alat & Komunitas',
+    passing_score: 80,
+    time_limit_minutes: 10,
+    max_attempts: 3,
+    created_at: '2026-08-01T00:00:00Z',
+  },
   {
     id: 'quiz-h-final',
     module_id: 'mod-h10',
     learning_path_id: 'path-home-brewer',
     quiz_scope: 'final_exam',
     title: 'Ujian Akhir Sertifikasi Home Brewer Specialist',
-    description: 'Ujian komprehensif 15 soal mencakup sains gilingan, rekayasa air mineral, V60, Aeropress, French press, dan manual espresso.',
+    description: 'Ujian komprehensif mencakup sains gilingan, rekayasa air mineral, V60, Aeropress, French press, dan manual espresso.',
     passing_score: 80,
     time_limit_minutes: 25,
     max_attempts: 3,
@@ -687,33 +1110,453 @@ export const HOME_BREWER_QUIZZES: Quiz[] = [
 
 export const HOME_BREWER_QUESTIONS: Question[] = [
   {
+    id: 'q-h1-1',
+    quiz_id: 'quiz-h1',
+    question_text: 'Informasi ketinggian kebun \'1.800 mdpl\' pada kemasan kopi specialty Arabika mengindikasikan karakteristik fisik biji seperti apa?',
+    question_type: 'multiple_choice',
+    order_index: 1,
+    explanation: 'Elevasi tinggi dengan suhu malam dingin memperlambat metabolisme pohon kopi, menghasilkan buah padat kaya gula dan asam organik kompleks.',
+    answers: [
+      { id: 'ans-q-h1-1-a', question_id: 'q-h1-1', answer_text: 'Biji sangat rapuh dan berpori longgar sehingga harus digiling paling kasar', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h1-1-b', question_id: 'q-h1-1', answer_text: 'Biji memiliki kandungan kafein dua kali lipat lebih tinggi dari Robusta', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h1-1-c', question_id: 'q-h1-1', answer_text: 'Biji memiliki densitas selulosa tinggi (SHB), pematangan buah lambat, dan keasaman organik yang cerah kompleks', is_correct: true, order_index: 3 },
+      { id: 'ans-q-h1-1-d', question_id: 'q-h1-1', answer_text: 'Biji kopi dapat langsung diseduh tanpa proses sangrai', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h1-2',
+    quiz_id: 'quiz-h1',
+    question_text: 'Mengapa pencantuman \'Roast Date\' (tanggal sangrai) jauh lebih penting bagi home brewer dibanding tanggal kedaluwarsa umum?',
+    question_type: 'multiple_choice',
+    order_index: 2,
+    explanation: 'Biji kopi melepaskan gas CO2 secara intensif dalam 3-7 hari pertama pasca sangrai. Menyeduh di rentang waktu optimal menjamin rasa manis dan aroma terekstraksi maksimal.',
+    answers: [
+      { id: 'ans-q-h1-2-a', question_id: 'q-h1-2', answer_text: 'Menjadi acuan masa resting optimal (pelepasan CO2) agar seduhan tidak berbusa liar dan ekstraksi rasa seimbang', is_correct: true, order_index: 1 },
+      { id: 'ans-q-h1-2-b', question_id: 'q-h1-2', answer_text: 'Untuk mengetahui tanggal biji kopi tersebut dipanen dari pohon', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h1-2-c', question_id: 'q-h1-2', answer_text: 'Karena kopi specialty akan basi membusuk tepat setelah 7 hari', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h1-2-d', question_id: 'q-h1-2', answer_text: 'Agar biji kopi dapat disimpan di dalam freezer tanpa kemasan', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h1-3',
+    quiz_id: 'quiz-h1',
+    question_text: 'Apa perbedaan esensial antara kopi berlabel \'Single Origin\' dan \'House Blend\' bagi penyeduh rumahan?',
+    question_type: 'multiple_choice',
+    order_index: 3,
+    explanation: 'Single Origin mengekspos profil rasa autentik mikro-iklim kebun asalnya, sementara Blend mencampurkan beberapa origin untuk menghasilkan harmoni rasa stabil sepanjang tahun.',
+    answers: [
+      { id: 'ans-q-h1-3-a', question_id: 'q-h1-3', answer_text: 'Single Origin hanya bisa diseduh dingin, sedangkan Blend khusus kopi panas', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h1-3-b', question_id: 'q-h1-3', answer_text: 'Single Origin selalu memiliki grade komersial rendah', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h1-3-c', question_id: 'q-h1-3', answer_text: 'Blend tidak menggunakan biji kopi Arabika', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h1-3-d', question_id: 'q-h1-3', answer_text: 'Single Origin menonjolkan keunikan terroir dan varietas spesifik satu daerah, sedangkan Blend diracik untuk keseimbangan rasa yang konsisten', is_correct: true, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h2-1',
+    quiz_id: 'quiz-h2',
+    question_text: 'Mengapa grinder burr baja konikal/flat menghasilkan seduhan pour over yang jauh lebih bersih dibanding chopper pisau putar (blade grinder)?',
+    question_type: 'multiple_choice',
+    order_index: 1,
+    explanation: 'Blade grinder menghantam biji secara acak menghasilkan debu (fines) berlebih dan pecahan bongkahan (boulders), yang memicu over-extraction dan under-extraction sekaligus.',
+    answers: [
+      { id: 'ans-q-h2-1-a', question_id: 'q-h2-1', answer_text: 'Blade grinder menggunakan suhu tinggi yang membakar bubuk kopi', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h2-1-b', question_id: 'q-h2-1', answer_text: 'Burr memotong dan meremukkan biji menjadi partikel berukuran seragam dengan proporsi fines dan boulder minimal', is_correct: true, order_index: 2 },
+      { id: 'ans-q-h2-1-c', question_id: 'q-h2-1', answer_text: 'Burr grinder menambahkan mineral mikro ke dalam bubuk kopi', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h2-1-d', question_id: 'q-h2-1', answer_text: 'Blade grinder hanya cocok digunakan untuk menyeduh teh', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h2-2',
+    quiz_id: 'quiz-h2',
+    question_text: 'Apa fenomena yang terjadi pada seduhan V60 jika bubuk kopi mengandung terlalu banyak partikel mikro \'fines\'?',
+    question_type: 'multiple_choice',
+    order_index: 2,
+    explanation: 'Partikel debu mikro (fines) bermigrasi ke dasar keranjang kertas, menyumbat aliran air, dan mengekstraksi senyawa fenolik pahit secara berlebih.',
+    answers: [
+      { id: 'ans-q-h2-2-a', question_id: 'q-h2-2', answer_text: 'Fines menyumbat pori kertas saring (clogging), memperlambat laju alir, dan memicu rasa pahit kelat kering (astringency)', is_correct: true, order_index: 1 },
+      { id: 'ans-q-h2-2-b', question_id: 'q-h2-2', answer_text: 'Air seduh mengalir terlalu cepat tanpa terjadi kontak ekstraksi', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h2-2-c', question_id: 'q-h2-2', answer_text: 'Rasa seduhan menjadi hambar seperti air putih', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h2-2-d', question_id: 'q-h2-2', answer_text: 'Warna air kopi berubah menjadi kuning pucat', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h2-3',
+    quiz_id: 'quiz-h2',
+    question_text: 'Teknik RDT (Ross Droplet Technique) — membasahi biji kopi dengan 1 tetes air mikro sebelum digiling — bertujuan untuk?',
+    question_type: 'multiple_choice',
+    order_index: 3,
+    explanation: 'Tetesan air mikro meningkatkan konduktivitas permukaan biji, menetralkan muatan listrik statis triboelektrik selama proses penggilingan.',
+    answers: [
+      { id: 'ans-q-h2-3-a', question_id: 'q-h2-3', answer_text: 'Memulai proses ekstraksi kopi sebelum terkena air panas', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h2-3-b', question_id: 'q-h2-3', answer_text: 'Mendinginkan suhu mata pisau burr saat berputar', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h2-3-c', question_id: 'q-h2-3', answer_text: 'Meniadakan listrik statis sehingga bubuk kopi tidak menempel berhamburan di dinding dan wadah grinder', is_correct: true, order_index: 3 },
+      { id: 'ans-q-h2-3-d', question_id: 'q-h2-3', answer_text: 'Menghilangkan kadar kafein dari biji kopi', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h3-1',
+    quiz_id: 'quiz-h3',
+    question_text: 'Berapa rasio seduh (brew ratio) dasar yang paling disarankan untuk memulai kalibrasi V60 rumahan dengan ekstraksi seimbang?',
+    question_type: 'multiple_choice',
+    order_index: 1,
+    explanation: 'Rasio 1:15 hingga 1:16 adalah rasio standar emas yang memberikan konsentrasi TDS 1.2% - 1.4% dan Extraction Yield ideal 18% - 20% pada filter specialty.',
+    answers: [
+      { id: 'ans-q-h3-1-a', question_id: 'q-h3-1', answer_text: 'Rasio 1:5 (15 gram kopi untuk 75 gram air)', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h3-1-b', question_id: 'q-h3-1', answer_text: 'Rasio 1:15 hingga 1:16 (misalnya 15 gram kopi untuk 225-240 gram air)', is_correct: true, order_index: 2 },
+      { id: 'ans-q-h3-1-c', question_id: 'q-h3-1', answer_text: 'Rasio 1:30 (15 gram kopi untuk 450 gram air)', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h3-1-d', question_id: 'q-h3-1', answer_text: 'Rasio 1:50 (15 gram kopi untuk 750 gram air)', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h3-2',
+    quiz_id: 'quiz-h3',
+    question_text: 'Apa yang dimaksud dengan kanalisasi (channeling) pada seduhan manual pour over?',
+    question_type: 'multiple_choice',
+    order_index: 2,
+    explanation: 'Channeling menyebabkan ekstraksi tidak merata: area yang dilewati jalur air terekstrak berlebih (bitter/dry), sedangkan bubuk kopi di sekitarnya kurang terekstrak (sour).',
+    answers: [
+      { id: 'ans-q-h3-2-a', question_id: 'q-h3-2', answer_text: 'Air mengalir keluar dari cerat kettle terlalu lambat', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h3-2-b', question_id: 'q-h3-2', answer_text: 'Kertas filter robek di bagian sambungan bawah', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h3-2-c', question_id: 'q-h3-2', answer_text: 'Ampas kopi mengapung keluar dari bibir dripper', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h3-2-d', question_id: 'q-h3-2', answer_text: 'Air menembus jalur celah longgar dengan resistensi terendah pada bed kopi sehingga mengekstrak area tersebut secara berlebih sementara area lain tertinggal', is_correct: true, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h3-3',
+    quiz_id: 'quiz-h3',
+    question_text: 'Jika cangkir kopi V60 terasa sangat asin, asam tajam menusuk, dan cepat hilang di mulut (short finish), diagnosis ekstraksi apa yang tepat?',
+    question_type: 'multiple_choice',
+    order_index: 3,
+    explanation: 'Asam organik dan garam mineral adalah senyawa pertama yang larut saat penyeduhan. Jika ekstraksi terhenti terlalu dini, cangkir terasa sour dan salty tanpa kemanisan penyeimbang.',
+    answers: [
+      { id: 'ans-q-h3-3-a', question_id: 'q-h3-3', answer_text: 'Over-extraction parah akibat gilingan terlalu halus', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h3-3-b', question_id: 'q-h3-3', answer_text: 'Kopi terkontaminasi oleh sabun pembersih cangkir', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h3-3-c', question_id: 'q-h3-3', answer_text: 'Under-extraction (senyawa gula dan asam manis kompleks belum sempat terlarut optimal)', is_correct: true, order_index: 3 },
+      { id: 'ans-q-h3-3-d', question_id: 'q-h3-3', answer_text: 'Suhu air seduh melebihi titik didih 100°C', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h4-1',
+    quiz_id: 'quiz-h4',
+    question_text: 'Dalam metode V60 4:6 karya Tetsu Kasuya, bagaimana cara mengatur agar seduhan menonjolkan rasa kemanisan (sweetness) yang lebih tinggi?',
+    question_type: 'multiple_choice',
+    order_index: 1,
+    explanation: 'Pada metode 4:6, tuangan pertama yang lebih kecil menghasilkan blooming terkonsentrasi yang saat disusul tuangan kedua lebih besar mengekstrak kemanisan lebih dominan.',
+    answers: [
+      { id: 'ans-q-h4-1-a', question_id: 'q-h4-1', answer_text: 'Membagi 40% air pertama menjadi tuangan pertama lebih kecil dan tuangan kedua lebih besar', is_correct: true, order_index: 1 },
+      { id: 'ans-q-h4-1-b', question_id: 'q-h4-1', answer_text: 'Mencampurkan 20 gram gula pasir ke dalam bubuk kopi', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h4-1-c', question_id: 'q-h4-1', answer_text: 'Menuangkan seluruh 40% air dalam 1 detik dengan agitasi keras', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h4-1-d', question_id: 'q-h4-1', answer_text: 'Mengabaikan 60% air sisanya dan menghentikan seduhan', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h4-2',
+    quiz_id: 'quiz-h4',
+    question_text: 'Apa manfaat melakukan swirling (memutar lembut dripper) sesaat setelah tuangan blooming selesai?',
+    question_type: 'multiple_choice',
+    order_index: 2,
+    explanation: 'Swirling lembut pada fase blooming meratakan saturasi air ke seluruh partikel bubuk kopi, mencegah terbentuknya dry pockets yang memicu channeling.',
+    answers: [
+      { id: 'ans-q-h4-2-a', question_id: 'q-h4-2', answer_text: 'Mendinginkan suhu air seduh agar turun menjadi 60°C', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h4-2-b', question_id: 'q-h4-2', answer_text: 'Memastikan seluruh partikel bubuk kopi terbasahi merata tanpa meninggalkan kantong kering (dry pockets) di dasar', is_correct: true, order_index: 2 },
+      { id: 'ans-q-h4-2-c', question_id: 'q-h4-2', answer_text: 'Memaksa seluruh ampas kopi menempel permanen di dinding atas kertas', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h4-2-d', question_id: 'q-h4-2', answer_text: 'Mempercepat waktu seduh menjadi kurang dari 1 menit', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h4-3',
+    quiz_id: 'quiz-h4',
+    question_text: 'Bagaimana pengaruh ketinggian cerat kettle leher angsa terhadap dinamika ekstraksi bubuk kopi di dripper?',
+    question_type: 'multiple_choice',
+    order_index: 3,
+    explanation: 'Energi kinetik jatuhnya air mengaduk partikel kopi secara fisik (agitasi), meningkatkan percampuran molekuler namun berisiko memicu migrasi fines berlebih jika terlalu agresif.',
+    answers: [
+      { id: 'ans-q-h4-3-a', question_id: 'q-h4-3', answer_text: 'Ketinggian tuangan sama sekali tidak mempengaruhi laju ekstraksi', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h4-3-b', question_id: 'q-h4-3', answer_text: 'Menuang dari tinggi membuat suhu air meningkat tajam', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h4-3-c', question_id: 'q-h4-3', answer_text: 'Menuang dari tinggi selalu menyebabkan air tidak menyentuh kopi', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h4-3-d', question_id: 'q-h4-3', answer_text: 'Semakin tinggi cerat penuangan, energi kinetik air semakin besar yang memicu agitasi mekanis kuat dan menaikkan laju ekstraksi', is_correct: true, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h5-1',
+    quiz_id: 'quiz-h5',
+    question_text: 'Mengapa dripper berdasar datar (flat bottom seperti Kalita Wave) cenderung menghasilkan profil rasa dengan bodi lebih tebal dan manis dibanding conical V60?',
+    question_type: 'multiple_choice',
+    order_index: 1,
+    explanation: 'Bed ampas kopi pada flat bottom memiliki ketebalan yang merata dari tengah ke tepi, meminimalkan aliran air yang lolos tanpa menyentuh ampas (bypass).',
+    answers: [
+      { id: 'ans-q-h5-1-a', question_id: 'q-h5-1', answer_text: 'Geometri dasar datar menjaga kedalaman bed kopi lebih seragam dan membatasi bypass air di tepi dinding', is_correct: true, order_index: 1 },
+      { id: 'ans-q-h5-1-b', question_id: 'q-h5-1', answer_text: 'Karena flat bottom dripper tidak membutuhkan air panas untuk menyeduh', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h5-1-c', question_id: 'q-h5-1', answer_text: 'Karena kertas Kalita menyerap 90% asam kopi', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h5-1-d', question_id: 'q-h5-1', answer_text: 'Karena ampas kopi mengendap di luar cangkir', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h5-2',
+    quiz_id: 'quiz-h5',
+    question_text: 'Dalam teknik French Press metode James Hoffmann, mengapa kopi didiamkan selama 5-8 menit setelah diaduk tanpa langsung ditekan plungernya?',
+    question_type: 'multiple_choice',
+    order_index: 2,
+    explanation: 'Metode Hoffmann memanfaatkan waktu perendaman panjang dan pembongkaran kerak ampas agar partikel kopi tenggelam alami, menghasilkan cangkir bersih tanpa ampas lumpur.',
+    answers: [
+      { id: 'ans-q-h5-2-a', question_id: 'q-h5-2', answer_text: 'Agar suhu kopi turun hingga mencapai suhu es kulkas', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h5-2-b', question_id: 'q-h5-2', answer_text: 'Untuk membiarkan air menguap separuhnya agar kopi mengental', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h5-2-c', question_id: 'q-h5-2', answer_text: 'Memberi waktu gravitasi mengendapkan ampas mikro dan fines ke dasar bejana sehingga seduhan menjadi sangat jernih', is_correct: true, order_index: 3 },
+      { id: 'ans-q-h5-2-d', question_id: 'q-h5-2', answer_text: 'Agar plunger logam tidak mengalami karat', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h5-3',
+    quiz_id: 'quiz-h5',
+    question_text: 'Apa keunggulan posisi terbalik (Inverted Method) pada Aeropress untuk eksperimen seduh rumahan?',
+    question_type: 'multiple_choice',
+    order_index: 3,
+    explanation: 'Metode inverted memungkinkan kontrol total atas waktu kontak perendaman air dan kopi sebelum penyaringan dilakukan melalui dorongan plunger.',
+    answers: [
+      { id: 'ans-q-h5-3-a', question_id: 'q-h5-3', answer_text: 'Membuat tekanan pompa Aeropress naik otomatis menjadi 15 bar', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h5-3-b', question_id: 'q-h5-3', answer_text: 'Menghilangkan kebutuhan mencuci tabung Aeropress setelah pakai', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h5-3-c', question_id: 'q-h5-3', answer_text: 'Mendinginkan air secara instan', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h5-3-d', question_id: 'q-h5-3', answer_text: 'Mencegah cairan menetes bocor prematur sebelum waktu perendaman (steep time) yang direncanakan tercapai', is_correct: true, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h6-1',
+    quiz_id: 'quiz-h6',
+    question_text: 'Dua ion kation divalen utama manakah dalam air seduh yang bertindak aktif mengikat dan mengekstraksi senyawa aromatik kopi?',
+    question_type: 'multiple_choice',
+    order_index: 1,
+    explanation: 'Ion Mg2+ dan Ca2+ memiliki densitas muatan tinggi yang mengikat senyawa polar rasa kopi (seperti asam klorogenat dan eugenol) dan menariknya ke dalam seduhan.',
+    answers: [
+      { id: 'ans-q-h6-1-a', question_id: 'q-h6-1', answer_text: 'Natrium (Na+) dan Kalium (K+)', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h6-1-b', question_id: 'q-h6-1', answer_text: 'Magnesium (Mg2+) dan Kalsium (Ca2+)', is_correct: true, order_index: 2 },
+      { id: 'ans-q-h6-1-c', question_id: 'q-h6-1', answer_text: 'Besi (Fe2+) dan Timbal (Pb2+)', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h6-1-d', question_id: 'q-h6-1', answer_text: 'Klorida (Cl-) dan Fluorida (F-)', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h6-2',
+    quiz_id: 'quiz-h6',
+    question_text: 'Berapakah target alkalinitas (kemampuan buffer bikarbonat CaCO3) ideal menurut SCA agar keasaman kopi seimbang dan tidak hambar?',
+    question_type: 'multiple_choice',
+    order_index: 2,
+    explanation: 'Jika alkalinitas terlalu tinggi (>80 mg/L), asam buah kopi ternetralkan menjadi flat/hambar. Jika terlalu rendah (<20 mg/L), kopi terasa asam tajam menusuk (sour).',
+    answers: [
+      { id: 'ans-q-h6-2-a', question_id: 'q-h6-2', answer_text: '0 mg/L CaCO3 murni tanpa buffer', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h6-2-b', question_id: 'q-h6-2', answer_text: '150 hingga 200 mg/L CaCO3', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h6-2-c', question_id: 'q-h6-2', answer_text: 'Sekitar 40 mg/L CaCO3 (rentang aman toleransi 30 - 50 mg/L)', is_correct: true, order_index: 3 },
+      { id: 'ans-q-h6-2-d', question_id: 'q-h6-2', answer_text: '300 hingga 500 mg/L CaCO3', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h6-3',
+    quiz_id: 'quiz-h6',
+    question_text: 'Jika home brewer menyeduh kopi specialty menggunakan air demineralisasi murni (0 ppm TDS / RO murni), apa hasil rasa cangkirnya?',
+    question_type: 'multiple_choice',
+    order_index: 3,
+    explanation: 'Tanpa ion mineral kalsium dan magnesium, ekstraksi senyawa rasa berbobot molekul menengah dan tinggi terhambat, sementara ion H+ mendominasi memicu keasaman mentah menusuk.',
+    answers: [
+      { id: 'ans-q-h6-3-a', question_id: 'q-h6-3', answer_text: 'Rasa kopi menjadi sangat asam tajam menusuk, hampa rasa manis, dan bodi seduhan terasa kosong/kering', is_correct: true, order_index: 1 },
+      { id: 'ans-q-h6-3-b', question_id: 'q-h6-3', answer_text: 'Kopi terasa sangat manis seperti sirup karamel', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h6-3-c', question_id: 'q-h6-3', answer_text: 'Seduhan kopi berubah menjadi sangat pahit pekat seperti arang', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h6-3-d', question_id: 'q-h6-3', answer_text: 'Rasa kopi persis sama dengan standar juara dunia WBC', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h7-1',
+    quiz_id: 'quiz-h7',
+    question_text: 'Berapakah suhu air seduh yang tepat saat dituangkan ke dalam mangkuk cupping menurut standar resmi SCA?',
+    question_type: 'multiple_choice',
+    order_index: 1,
+    explanation: 'Suhu 93°C memberikan energi termal ideal untuk mengekstrak seluruh prekursor aroma kopi di mangkuk cupping tanpa membakar senyawa volatil.',
+    answers: [
+      { id: 'ans-q-h7-1-a', question_id: 'q-h7-1', answer_text: '70°C hingga 75°C', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h7-1-b', question_id: 'q-h7-1', answer_text: '100°C mendidih bergolak di atas kompor', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h7-1-c', question_id: 'q-h7-1', answer_text: '50°C hangat kuku', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h7-1-d', question_id: 'q-h7-1', answer_text: '93°C ± 1°C (tepat setelah air mendidih diturunkan suhunya sejenak)', is_correct: true, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h7-2',
+    quiz_id: 'quiz-h7',
+    question_text: 'Dalam protokol cupping resmi, pada menit ke berapa tindakan memecah kerak ampas (breaking the crust) wajib dilakukan?',
+    question_type: 'multiple_choice',
+    order_index: 2,
+    explanation: 'Pada menit ke-4, kerak ampas kopi telah menjebak gas aroma volatil secara maksimal; memecahnya dengan 3 dorongan sendok melepaskan aroma puncak (crust aroma).',
+    answers: [
+      { id: 'ans-q-h7-2-a', question_id: 'q-h7-2', answer_text: 'Segera pada detik ke-10 setelah penuangan', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h7-2-b', question_id: 'q-h7-2', answer_text: 'Tepat pada menit ke-4 setelah air pertama kali dituangkan ke mangkuk', is_correct: true, order_index: 2 },
+      { id: 'ans-q-h7-2-c', question_id: 'q-h7-2', answer_text: 'Pada menit ke-15 saat kopi sudah dingin', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h7-2-d', question_id: 'q-h7-2', answer_text: 'Pada menit ke-30', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h7-3',
+    quiz_id: 'quiz-h7',
+    question_text: 'Apa tujuan utama latihan Triangulasi Rasa (Triangulation Tasting) bagi penyeduh rumahan?',
+    question_type: 'multiple_choice',
+    order_index: 3,
+    explanation: 'Triangulasi melatih daya diskriminasi sensorik murni tanpa bias informasi label, memaksa otak fokus pada perbedaan subtle bodi, asam, dan aroma.',
+    answers: [
+      { id: 'ans-q-h7-3-a', question_id: 'q-h7-3', answer_text: 'Menghitung kadar kafein kopi di dalam darah secara visual', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h7-3-b', question_id: 'q-h7-3', answer_text: 'Menebak harga jual biji kopi di pasar komersial', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h7-3-c', question_id: 'q-h7-3', answer_text: 'Mengasah ketajaman indra membedakan satu cangkir unik dari tiga cangkir yang disajikan secara blind (buta)', is_correct: true, order_index: 3 },
+      { id: 'ans-q-h7-3-d', question_id: 'q-h7-3', answer_text: 'Menghafal nama petani kopi di kebun', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h8-1',
+    quiz_id: 'quiz-h8',
+    question_text: 'Ketika menyeduh kopi berprofil sangrai gelap (dark roast), penyesuaian suhu air seduh apa yang tepat agar rasa tidak gosong pahit kelat?',
+    question_type: 'multiple_choice',
+    order_index: 1,
+    explanation: 'Dark roast memiliki struktur selulosa yang sangat rapuh dan senyawa terkaramelisasi tinggi. Suhu air lebih rendah mencegah ekstraksi senyawa pahit berlebih.',
+    answers: [
+      { id: 'ans-q-h8-1-a', question_id: 'q-h8-1', answer_text: 'Menurunkan suhu air ke kisaran 85°C hingga 88°C', is_correct: true, order_index: 1 },
+      { id: 'ans-q-h8-1-b', question_id: 'q-h8-1', answer_text: 'Menaikkan suhu air hingga 98°C mendidih agresif', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h8-1-c', question_id: 'q-h8-1', answer_text: 'Menggunakan air es bersuhu 0°C untuk seduhan manual pour over', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h8-1-d', question_id: 'q-h8-1', answer_text: 'Menyeduh dengan air mendidih dua kali lipat', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h8-2',
+    quiz_id: 'quiz-h8',
+    question_text: 'Pada alat manual lever espresso (seperti Flair Espresso), apa fungsi krusial fase pre-infusion pada tekanan 1-2 bar selama 5-10 detik?',
+    question_type: 'multiple_choice',
+    order_index: 2,
+    explanation: 'Pre-infusi tekanan rendah menjenuhkan bubuk kopi secara homogen, meniadakan celah mikro sehingga saat tuas ditekan 9 bar air tidak memicu kanalisasi.',
+    answers: [
+      { id: 'ans-q-h8-2-a', question_id: 'q-h8-2', answer_text: 'Mendinginkan chamber seduh agar tidak terlalu panas', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h8-2-b', question_id: 'q-h8-2', answer_text: 'Membasahi seluruh puck kopi secara merata agar mengembang padat sebelum tekanan penuh 9 bar diaplikasikan', is_correct: true, order_index: 2 },
+      { id: 'ans-q-h8-2-c', question_id: 'q-h8-2', answer_text: 'Mengeluarkan seluruh ampas kopi dari portafilter', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h8-2-d', question_id: 'q-h8-2', answer_text: 'Menciptakan crema tebal tanpa kopi', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h8-3',
+    quiz_id: 'quiz-h8',
+    question_text: 'Bagaimana teknik menghasilkan microfoam susu silky di rumah menggunakan French Press secara optimal?',
+    question_type: 'multiple_choice',
+    order_index: 3,
+    explanation: 'Susu hangat bersuhu 60°C memiliki protein elastis. Pompa cepat di awal memasukkan udara, diikuti pompa pendek di dasar yang memecah gelembung menjadi microfoam sutra.',
+    answers: [
+      { id: 'ans-q-h8-3-a', question_id: 'q-h8-3', answer_text: 'Memasukkan susu dingin langsung dari kulkas lalu memompa 100 kali', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h8-3-b', question_id: 'q-h8-3', answer_text: 'Memanaskan susu hingga mendidih 100°C di dalam French Press', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h8-3-c', question_id: 'q-h8-3', answer_text: 'Mencampurkan es batu ke dalam susu hangat', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h8-3-d', question_id: 'q-h8-3', answer_text: 'Memanaskan susu ke 60°C, memompa plunger cepat di bawah permukaan lalu mengocok mikro di dasar untuk memecah gelembung', is_correct: true, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h9-1',
+    quiz_id: 'quiz-h9',
+    question_text: 'Berapakah rentang waktu perendaman dingin (cold brew immersion) yang ideal di dalam lemari pendingin (suhu 4°C) untuk konsentrat siap minum?',
+    question_type: 'multiple_choice',
+    order_index: 1,
+    explanation: 'Karena energi termal rendah, laju difusi dingin membutuhkan waktu 16-20 jam untuk melarutkan senyawa rasa manis tanpa menarik senyawa tanin pahit.',
+    answers: [
+      { id: 'ans-q-h9-1-a', question_id: 'q-h9-1', answer_text: '1 hingga 2 jam saja', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h9-1-b', question_id: 'q-h9-1', answer_text: '5 hingga 7 hari di dalam kulkas', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h9-1-c', question_id: 'q-h9-1', answer_text: '16 hingga 20 jam perendaman tertutup rapat', is_correct: true, order_index: 3 },
+      { id: 'ans-q-h9-1-d', question_id: 'q-h9-1', answer_text: '30 menit di atas meja dapur', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h9-2',
+    quiz_id: 'quiz-h9',
+    question_text: 'Pada metode Japanese Iced Pour Over, berapa proporsi air seduh yang digantikan oleh es batu di server penampung?',
+    question_type: 'multiple_choice',
+    order_index: 2,
+    explanation: 'Mengganti ~40% air dengan es batu mengunci aroma volatil seketika (flash cooling) sambil mempertahankan konsentrasi ekstraksi normal saat es mencair sempurna.',
+    answers: [
+      { id: 'ans-q-h9-2-a', question_id: 'q-h9-2', answer_text: 'Sekitar 35% hingga 40% dari total berat air seduh digantikan oleh es batu', is_correct: true, order_index: 1 },
+      { id: 'ans-q-h9-2-b', question_id: 'q-h9-2', answer_text: '5% saja dari total berat air', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h9-2-c', question_id: 'q-h9-2', answer_text: '80% hingga 90% air digantikan es batu', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h9-2-d', question_id: 'q-h9-2', answer_text: '100% tanpa menggunakan air panas sama sekali', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h9-3',
+    quiz_id: 'quiz-h9',
+    question_text: 'Mengapa pembuatan sirup gula aren kental rumahan disarankan ditambahkan sedikit garam laut murni?',
+    question_type: 'multiple_choice',
+    order_index: 3,
+    explanation: 'Sejumput garam laut memberikan kontras mineral gurih yang menonjolkan aroma karamel gula nira aren dan menyatu padu dengan emulsi lemak susu segar.',
+    answers: [
+      { id: 'ans-q-h9-3-a', question_id: 'q-h9-3', answer_text: 'Agar sirup gula aren berubah warna menjadi putih transparan', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h9-3-b', question_id: 'q-h9-3', answer_text: 'Untuk membekukan sirup gula aren menjadi batu', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h9-3-c', question_id: 'q-h9-3', answer_text: 'Agar sirup terasa sangat asin seperti kecap asin', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h9-3-d', question_id: 'q-h9-3', answer_text: 'Ion natrium mengikat rasa manis dan menguatkan aroma karamel alami agar menyatu harmonis dengan gurihnya susu', is_correct: true, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h10-1',
+    quiz_id: 'quiz-h10',
+    question_text: 'Mengapa mata pisau burr baja grinder manual dilarang keras dicuci dengan air mengalir atau sabun cuci piring?',
+    question_type: 'multiple_choice',
+    order_index: 1,
+    explanation: 'Baja karbon tinggi pada burr sangat rentan terhadap korosi air. Pembersihan burr yang benar hanya menggunakan kuas kaku, blower udara, atau pembersih berbasis butiran gandum.',
+    answers: [
+      { id: 'ans-q-h10-1-a', question_id: 'q-h10-1', answer_text: 'Mata pisau grinder akan membesar ukurannya sehingga macet', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h10-1-b', question_id: 'q-h10-1', answer_text: 'Air memicu oksidasi mikro dan karat pada presisi mata pisau baja yang merusak ketajaman gilingan secara permanen', is_correct: true, order_index: 2 },
+      { id: 'ans-q-h10-1-c', question_id: 'q-h10-1', answer_text: 'Sabun akan membuat biji kopi menjadi tidak berkafein', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h10-1-d', question_id: 'q-h10-1', answer_text: 'Warna bodi grinder akan luntur ke ampas kopi', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h10-2',
+    quiz_id: 'quiz-h10',
+    question_text: 'Wadah penyimpanan biji kopi rumahan manakah yang paling efektif mencegah oksidasi dan menjaga keutuhan aroma volatil?',
+    question_type: 'multiple_choice',
+    order_index: 2,
+    explanation: 'Oksigen, panas, kelembapan, dan radiasi sinar UV adalah 4 musuh utama kesegaran kopi. Wadah vakum kedap cahaya memperlambat oksidasi asam lemak kopi secara signifikan.',
+    answers: [
+      { id: 'ans-q-h10-2-a', question_id: 'q-h10-2', answer_text: 'Toples kaca bening transparan yang dijemur di bawah sinar matahari', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h10-2-b', question_id: 'q-h10-2', answer_text: 'Mangkuk terbuka di atas meja makan', is_correct: false, order_index: 2 },
+      { id: 'ans-q-h10-2-c', question_id: 'q-h10-2', answer_text: 'Wadah kedap udara dengan katup satu arah (one-way degas valve) atau tabung vakum yang diletakkan di tempat sejuk kedap cahaya', is_correct: true, order_index: 3 },
+      { id: 'ans-q-h10-2-d', question_id: 'q-h10-2', answer_text: 'Kantong plastik kresek tipis yang diikat longgar', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
+    id: 'q-h10-3',
+    quiz_id: 'quiz-h10',
+    question_text: 'Langkah berkelanjutan apa yang paling efektif bagi home brewer untuk mengembangkan keterampilan seduh ke tingkat mahir?',
+    question_type: 'multiple_choice',
+    order_index: 3,
+    explanation: 'Dokumentasi log seduh yang disiplin dan kalibrasi sensorik bersama komunitas memperluas palet rasa dan membangun pemahaman objektif atas sains ekstraksi.',
+    answers: [
+      { id: 'ans-q-h10-3-a', question_id: 'q-h10-3', answer_text: 'Membeli alat seduh baru setiap minggu tanpa mencatat variabel rasa', is_correct: false, order_index: 1 },
+      { id: 'ans-q-h10-3-b', question_id: 'q-h10-3', answer_text: 'Mendokumentasikan variabel seduh di jurnal rasa, berkalibrasi dengan sesama penyeduh di sesi cupping komunitas, dan mengikuti uji coba blind', is_correct: true, order_index: 2 },
+      { id: 'ans-q-h10-3-c', question_id: 'q-h10-3', answer_text: 'Menolak mencoba origin kopi lain di luar selera pribadi', is_correct: false, order_index: 3 },
+      { id: 'ans-q-h10-3-d', question_id: 'q-h10-3', answer_text: 'Menyeduh kopi tanpa menimbang dosis bubuk', is_correct: false, order_index: 4 },
+    ],
+  },
+  {
     id: 'q-hb-1',
     quiz_id: 'quiz-h-final',
     question_text: 'Mengapa biji kopi light roast yang baru disangrai kurang dari 3 hari sebaiknya tidak langsung diseduh?',
     question_type: 'multiple_choice',
     points: 10,
     order_index: 1,
-    explanation: 'Gas CO2 yang berlebih memicu turbulensi gas agresif saat terkena air, menghalangi ekstraksi senyawa manis dan menghasilkan rasa asam tajam hambar.',
+    explanation: 'Gas CO2 yang berlebih memicu pelepasan gas agresif saat terkena air, menghalangi ekstraksi senyawa manis dan menghasilkan rasa asam tajam hambar.',
     answers: [
-      { id: 'a-hb-1-1', answer_text: 'Kandungan gas CO2 masih terlalu tinggi sehingga menghalangi ekstraksi merata', is_correct: true },
-      { id: 'a-hb-1-2', answer_text: 'Biji kopi belum memiliki kadar kafein yang cukup', is_correct: false },
-      { id: 'a-hb-1-3', answer_text: 'Kadar air di dalam biji kopi masih di atas 20%', is_correct: false },
-      { id: 'a-hb-1-4', answer_text: 'Minyak kopi belum keluar ke permukaan biji', is_correct: false },
+      { id: 'ans-q-hb-1-a', question_id: 'q-hb-1', answer_text: 'Biji kopi belum memiliki kadar kafein yang cukup', is_correct: false, order_index: 1 },
+      { id: 'ans-q-hb-1-b', question_id: 'q-hb-1', answer_text: 'Kadar air di dalam biji kopi masih di atas 20%', is_correct: false, order_index: 2 },
+      { id: 'ans-q-hb-1-c', question_id: 'q-hb-1', answer_text: 'Minyak kopi belum keluar ke permukaan biji', is_correct: false, order_index: 3 },
+      { id: 'ans-q-hb-1-d', question_id: 'q-hb-1', answer_text: 'Kandungan gas CO2 masih sangat tinggi sehingga memicu turbulensi gas liar yang menghalangi ekstraksi merata', is_correct: true, order_index: 4 },
     ],
   },
   {
     id: 'q-hb-2',
     quiz_id: 'quiz-h-final',
-    question_text: 'Dalam distribusi partikel gilingan kopi, apakah dampak utama dari keberadaan "fines" (partikel debu mikro) yang berlebihan?',
+    question_text: 'Dalam distribusi partikel gilingan kopi, apakah dampak utama dari keberadaan \'fines\' (partikel debu mikro) yang berlebihan?',
     question_type: 'multiple_choice',
     points: 10,
     order_index: 2,
     explanation: 'Fines memiliki rasio luas permukaan sangat besar sehingga terekstraksi terlalu cepat, menghasilkan rasa pahit kelat (astringent) dan menyumbat pori kertas saring.',
     answers: [
-      { id: 'a-hb-2-1', answer_text: 'Memicu over-extraction, rasa pahit sepat kering, dan memperlambat laju alir air', is_correct: true },
-      { id: 'a-hb-2-2', answer_text: 'Menyebabkan rasa kopi menjadi terlalu asam seperti cuka', is_correct: false },
-      { id: 'a-hb-2-3', answer_text: 'Membuat seduhan mengalir terlalu cepat tanpa ekstraksi', is_correct: false },
-      { id: 'a-hb-2-4', answer_text: 'Menurunkan total dissolved solids (TDS) seduhan', is_correct: false },
+      { id: 'ans-q-hb-2-a', question_id: 'q-hb-2', answer_text: 'Menyebabkan rasa kopi menjadi terlalu asam seperti cuka', is_correct: false, order_index: 1 },
+      { id: 'ans-q-hb-2-b', question_id: 'q-hb-2', answer_text: 'Memicu over-extraction lokal, rasa pahit sepat kering (astringent), dan memperlambat laju alir air', is_correct: true, order_index: 2 },
+      { id: 'ans-q-hb-2-c', question_id: 'q-hb-2', answer_text: 'Membuat seduhan mengalir terlalu cepat tanpa ekstraksi', is_correct: false, order_index: 3 },
+      { id: 'ans-q-hb-2-d', question_id: 'q-hb-2', answer_text: 'Menurunkan total dissolved solids (TDS) seduhan', is_correct: false, order_index: 4 },
     ],
   },
   {
@@ -723,12 +1566,12 @@ export const HOME_BREWER_QUESTIONS: Question[] = [
     question_type: 'multiple_choice',
     points: 10,
     order_index: 3,
-    explanation: 'SCA merekomendasikan target TDS 75 - 150 ppm (dengan titik optimal sekitar 120-150 ppm) untuk ekstraksi seimbang.',
+    explanation: 'SCA merekomendasikan target TDS 75 - 150 ppm untuk ekstraksi seimbang tanpa menetralkan keasaman atau mengendapkan mineral berlebih.',
     answers: [
-      { id: 'a-hb-3-1', answer_text: '75 hingga 150 ppm', is_correct: true },
-      { id: 'a-hb-3-2', answer_text: '0 hingga 20 ppm', is_correct: false },
-      { id: 'a-hb-3-3', answer_text: '300 hingga 500 ppm', is_correct: false },
-      { id: 'a-hb-3-4', answer_text: '600 hingga 1000 ppm', is_correct: false },
+      { id: 'ans-q-hb-3-a', question_id: 'q-hb-3', answer_text: '0 hingga 20 ppm murni', is_correct: false, order_index: 1 },
+      { id: 'ans-q-hb-3-b', question_id: 'q-hb-3', answer_text: '300 hingga 500 ppm air sadah', is_correct: false, order_index: 2 },
+      { id: 'ans-q-hb-3-c', question_id: 'q-hb-3', answer_text: '75 hingga 150 ppm (target optimal ~120-150 ppm)', is_correct: true, order_index: 3 },
+      { id: 'ans-q-hb-3-d', question_id: 'q-hb-3', answer_text: '600 hingga 1000 ppm', is_correct: false, order_index: 4 },
     ],
   },
   {
@@ -740,25 +1583,26 @@ export const HOME_BREWER_QUESTIONS: Question[] = [
     order_index: 4,
     explanation: '40% air pertama mengatur rasio keasaman vs kemanisan (Sweetness vs Acidity), sedangkan 60% sisanya mengatur kekuatan bodi seduhan.',
     answers: [
-      { id: 'a-hb-4-1', answer_text: 'Keseimbangan rasa keasaman dan kemanisan (Sweetness vs Acidity)', is_correct: true },
-      { id: 'a-hb-4-2', answer_text: 'Ketebalan bodi dan intensitas kekuatan kopi', is_correct: false },
-      { id: 'a-hb-4-3', answer_text: 'Suhu pendinginan server kopi', is_correct: false },
-      { id: 'a-hb-4-4', answer_text: 'Laju pembersihan ampas di dinding dripper', is_correct: false },
+      { id: 'ans-q-hb-4-a', question_id: 'q-hb-4', answer_text: 'Keseimbangan rasa keasaman dan kemanisan (Sweetness vs Acidity)', is_correct: true, order_index: 1 },
+      { id: 'ans-q-hb-4-b', question_id: 'q-hb-4', answer_text: 'Ketebalan bodi dan intensitas kekuatan kopi', is_correct: false, order_index: 2 },
+      { id: 'ans-q-hb-4-c', question_id: 'q-hb-4', answer_text: 'Suhu pendinginan server kopi di bawah dripper', is_correct: false, order_index: 3 },
+      { id: 'ans-q-hb-4-d', question_id: 'q-hb-4', answer_text: 'Laju pembersihan ampas di dinding kertas dripper', is_correct: false, order_index: 4 },
     ],
   },
   {
     id: 'q-hb-5',
     quiz_id: 'quiz-h-final',
-    question_text: 'Pada teknik French Press bersih James Hoffmann, mengapa plunger tidak ditekan sampai ke dasar wadah kaca?',
+    question_text: 'Mengapa teknik Inverted pada Aeropress sangat populer di kalangan home brewer kompetisi?',
     question_type: 'multiple_choice',
     points: 10,
     order_index: 5,
-    explanation: 'Menekan plunger ke dasar wadah akan mengaduk kembali ampas fines yang sudah mengendap di dasar dan memeras senyawa pahit ke cairan seduhan.',
+    explanation: 'Metode inverted membalik tabung sehingga kopi terendam sempurna tanpa tetesan gravitasi awal hingga plunger ditekan manual.',
     answers: [
-      { id: 'a-hb-5-1', answer_text: 'Agar tidak menggilas ampas fines yang sudah mengendap secara gravitasi di dasar bejana', is_correct: true },
-      { id: 'a-hb-5-2', answer_text: 'Karena kaca French Press akan langsung pecah akibat tekanan', is_correct: false },
-      { id: 'a-hb-5-3', answer_text: 'Agar suhu air tidak turun drastis', is_correct: false },
-      { id: 'a-hb-5-4', answer_text: 'Untuk mempertahankan minyak krema di atas kopi', is_correct: false },
+      { id: 'ans-q-hb-5-a', question_id: 'q-hb-5', answer_text: 'Menghilangkan kebutuhan mencuci tabung Aeropress', is_correct: false, order_index: 1 },
+      { id: 'ans-q-hb-5-b', question_id: 'q-hb-5', answer_text: 'Mencegah air seduh menetes keluar secara prematur sehingga waktu kontak perendaman dapat dikontrol dengan presisi', is_correct: true, order_index: 2 },
+      { id: 'ans-q-hb-5-c', question_id: 'q-hb-5', answer_text: 'Menaikkan tekanan plunger secara otomatis menjadi 15 bar', is_correct: false, order_index: 3 },
+      { id: 'ans-q-hb-5-d', question_id: 'q-hb-5', answer_text: 'Menghasilkan crema espresso tebal setara mesin komersial', is_correct: false, order_index: 4 },
     ],
   },
 ];
+

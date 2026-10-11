@@ -1446,8 +1446,8 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 1,
     explanation: 'Standar kematangan optimal untuk pengolahan kopi spesialti adalah minimal 20.0° hingga 24.0° Brix.',
     answers: [
-      { id: 'a-qp1-1-1', answer_text: '20.0° – 24.0° Brix', is_correct: true },
       { id: 'a-qp1-1-2', answer_text: '12.0° – 15.0° Brix', is_correct: false },
+      { id: 'a-qp1-1-1', answer_text: '20.0° – 24.0° Brix', is_correct: true },
       { id: 'a-qp1-1-3', answer_text: '8.0° – 10.0° Brix', is_correct: false },
       { id: 'a-qp1-1-4', answer_text: '30.0° – 35.0° Brix', is_correct: false },
     ],
@@ -1461,9 +1461,9 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 2,
     explanation: 'Ceri mengapung karena berat jenisnya rendah akibat biji hampa, terserang hama PBKo, atau busuk kering di pohon yang akan merusak keseragaman seduhan.',
     answers: [
-      { id: 'a-qp1-2-1', answer_text: 'Karena memiliki densitas rendah akibat biji hampa atau rusak hama yang merusak cup quality', is_correct: true },
       { id: 'a-qp1-2-2', answer_text: 'Karena ceri tersebut terlalu manis sehingga mempercepat fermentasi', is_correct: false },
       { id: 'a-qp1-2-3', answer_text: 'Karena kulitnya terlalu tebal dan tidak bisa dikupas oleh mesin pulper', is_correct: false },
+      { id: 'a-qp1-2-1', answer_text: 'Karena memiliki densitas rendah akibat biji hampa atau rusak hama yang merusak cup quality', is_correct: true },
       { id: 'a-qp1-2-4', answer_text: 'Karena mengandung kadar kafein dua kali lipat lebih tinggi', is_correct: false },
     ],
   },
@@ -1491,10 +1491,10 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 4,
     explanation: 'Mesokarp (daging buah dan lendir/mucilage) adalah jaringan parenkim kaya air, gula bebas (glukosa, fruktosa), dan pektin.',
     answers: [
-      { id: 'a-qp1-4-1', answer_text: 'Mesokarp (Lendir / Mucilage)', is_correct: true },
       { id: 'a-qp1-4-2', answer_text: 'Endokarp (Kulit Tanduk / Parchment)', is_correct: false },
       { id: 'a-qp1-4-3', answer_text: 'Spermoderm (Kulit Ari / Silverskin)', is_correct: false },
       { id: 'a-qp1-4-4', answer_text: 'Eksokarp (Epidermis Lilin)', is_correct: false },
+      { id: 'a-qp1-4-1', answer_text: 'Mesokarp (Lendir / Mucilage)', is_correct: true },
     ],
   },
 
@@ -1507,9 +1507,9 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 1,
     explanation: 'Batas akhir ideal fermentasi washed adalah pH 3.8–4.2. Jika pH dibiarkan anjlok di bawah 3.6, aktivitas bakteri asam asetat akan merusak profil rasa menjadi asam cuka menyengat.',
     answers: [
-      { id: 'a-qp2-1-1', answer_text: 'Saat pH menyentuh 3.8 – 4.2 (tidak boleh di bawah 3.6)', is_correct: true },
       { id: 'a-qp2-1-2', answer_text: 'Saat pH menyentuh 2.0 – 2.5', is_correct: false },
       { id: 'a-qp2-1-3', answer_text: 'Saat pH masih di angka netral 7.0', is_correct: false },
+      { id: 'a-qp2-1-1', answer_text: 'Saat pH menyentuh 3.8 – 4.2 (tidak boleh di bawah 3.6)', is_correct: true },
       { id: 'a-qp2-1-4', answer_text: 'Saat pH naik kembali ke 6.5', is_correct: false },
     ],
   },
@@ -1537,10 +1537,10 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 3,
     explanation: 'Poligalakturonase (Polygalacturonase) adalah enzim hidrolitik utama pemotong rantai utama polimer asam poligalakturonat pektin.',
     answers: [
-      { id: 'a-qp2-3-1', answer_text: 'Poligalakturonase (Polygalacturonase)', is_correct: true },
       { id: 'a-qp2-3-2', answer_text: 'Lipase Asam Lemak', is_correct: false },
       { id: 'a-qp2-3-3', answer_text: 'Amilase Pemecah Karbohidrat', is_correct: false },
       { id: 'a-qp2-3-4', answer_text: 'Polifenol Oksidase', is_correct: false },
+      { id: 'a-qp2-3-1', answer_text: 'Poligalakturonase (Polygalacturonase)', is_correct: true },
     ],
   },
 
@@ -1553,8 +1553,8 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 1,
     explanation: 'Eco-pulper hanya mengonsumsi 0.5–1.5 Liter air/kg gabah, menghemat hingga 80–90% konsumsi air dibanding metode tradisional (5–15 L/kg).',
     answers: [
-      { id: 'a-qp3-1-1', answer_text: 'Penghematan mencapai 80% – 90% konsumsi air bersih', is_correct: true },
       { id: 'a-qp3-1-2', answer_text: 'Hanya menghemat 10%', is_correct: false },
+      { id: 'a-qp3-1-1', answer_text: 'Penghematan mencapai 80% – 90% konsumsi air bersih', is_correct: true },
       { id: 'a-qp3-1-3', answer_text: 'Sama sekali tidak menghemat air', is_correct: false },
       { id: 'a-qp3-1-4', answer_text: 'Eco-pulper justru memakai air 3 kali lebih boros', is_correct: false },
     ],
@@ -1584,9 +1584,9 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 1,
     explanation: 'Giling Basah mengupas kulit tanduk pada saat gabah masih basah berkadar air 30% – 35% (kondisi gabah masih kenyal lembek).',
     answers: [
-      { id: 'a-qp4-1-1', answer_text: '30% – 35% Kadar Air', is_correct: true },
       { id: 'a-qp4-1-2', answer_text: '10% – 12% Kadar Air', is_correct: false },
       { id: 'a-qp4-1-3', answer_text: '50% – 55% Kadar Air', is_correct: false },
+      { id: 'a-qp4-1-1', answer_text: '30% – 35% Kadar Air', is_correct: true },
       { id: 'a-qp4-1-4', answer_text: '5% – 7% Kadar Air', is_correct: false },
     ],
   },
@@ -1599,8 +1599,8 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 2,
     explanation: 'Geosmin adalah senyawa volatil berbau tanah basah busuk yang diserap biji kopi jika dijemur bersentuhan langsung dengan tanah kotor.',
     answers: [
-      { id: 'a-qp4-2-1', answer_text: 'Geosmin dan 2-metilisoborneol', is_correct: true },
       { id: 'a-qp4-2-2', answer_text: 'Kafein monohidrat', is_correct: false },
+      { id: 'a-qp4-2-1', answer_text: 'Geosmin dan 2-metilisoborneol', is_correct: true },
       { id: 'a-qp4-2-3', answer_text: 'Asam klorogenat bebas', is_correct: false },
       { id: 'a-qp4-2-4', answer_text: 'Sukrosa karamel', is_correct: false },
     ],
@@ -1615,10 +1615,10 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 1,
     explanation: 'Katup satu arah membuang akumulasi gas CO2 berlebih agar tangki tidak meledak, sekaligus memblokir oksigen luar agar tidak masuk mencemari fermentasi.',
     answers: [
-      { id: 'a-qp5-1-1', answer_text: 'Melepaskan akumulasi gas CO2 keluar sambil memblokir oksigen atmosfer masuk kembali', is_correct: true },
       { id: 'a-qp5-1-2', answer_text: 'Menyedot udara segar masuk ke dalam tangki', is_correct: false },
       { id: 'a-qp5-1-3', answer_text: 'Menyaring air sisa lendir keluar dari tangki secara otomatis', is_correct: false },
       { id: 'a-qp5-1-4', answer_text: 'Mengukur kadar brix gula di dalam cairan ceri', is_correct: false },
+      { id: 'a-qp5-1-1', answer_text: 'Melepaskan akumulasi gas CO2 keluar sambil memblokir oksigen atmosfer masuk kembali', is_correct: true },
     ],
   },
   {
@@ -1630,10 +1630,10 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 2,
     explanation: 'SCA dan World Coffee Events mewajibkan deklarasi transparansi 100% pada kemasan produk; menyembunyikan bahan tambahan dianggap sebagai penipuan mutu.',
     answers: [
-      { id: 'a-qp5-2-1', answer_text: 'Wajib mencantumkan deklarasi transparansi 100% pada label kemasan produk', is_correct: true },
       { id: 'a-qp5-2-2', answer_text: 'Dilarang keras diproduksi di seluruh dunia', is_correct: false },
       { id: 'a-qp5-2-3', answer_text: 'Boleh dijual sebagai 100% natural murni tanpa memberitahu pembeli', is_correct: false },
       { id: 'a-qp5-2-4', answer_text: 'Hanya boleh disajikan dalam bentuk minuman dingin kalengan', is_correct: false },
+      { id: 'a-qp5-2-1', answer_text: 'Wajib mencantumkan deklarasi transparansi 100% pada label kemasan produk', is_correct: true },
     ],
   },
 
@@ -1646,8 +1646,8 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 1,
     explanation: 'Standar aman CQI adalah aw ≤ 0.60. Jika aw melampaui 0.65, jamur Aspergillus ochraceus dapat memproduksi racun mikotoksin Ochratoxin A.',
     answers: [
-      { id: 'a-qp6-1-1', answer_text: 'aw ≤ 0.60 (Ideal 0.53 – 0.58)', is_correct: true },
       { id: 'a-qp6-1-2', answer_text: 'aw ≤ 0.85', is_correct: false },
+      { id: 'a-qp6-1-1', answer_text: 'aw ≤ 0.60 (Ideal 0.53 – 0.58)', is_correct: true },
       { id: 'a-qp6-1-3', answer_text: 'aw ≤ 0.20', is_correct: false },
       { id: 'a-qp6-1-4', answer_text: 'aw = 1.00', is_correct: false },
     ],
@@ -1661,9 +1661,9 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 2,
     explanation: 'Suhu biji kopi di dalam drum mekanis tidak boleh melampaui 40°C guna mencegah kematian embrio hidup dan kerusakan membran sel.',
     answers: [
-      { id: 'a-qp6-2-1', answer_text: 'Maksimal 40°C', is_correct: true },
       { id: 'a-qp6-2-2', answer_text: 'Maksimal 65°C', is_correct: false },
       { id: 'a-qp6-2-3', answer_text: 'Maksimal 20°C', is_correct: false },
+      { id: 'a-qp6-2-1', answer_text: 'Maksimal 40°C', is_correct: true },
       { id: 'a-qp6-2-4', answer_text: 'Maksimal 80°C', is_correct: false },
     ],
   },
@@ -1692,8 +1692,8 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 2,
     explanation: 'Meja gravitasi (Gravity Table Separator) memisahkan fraksi berat jenis biji kopi secara akurat.',
     answers: [
-      { id: 'a-qp7-2-1', answer_text: 'Meja Gravitasi (Gravity Table Separator)', is_correct: true },
       { id: 'a-qp7-2-2', answer_text: 'Ayakan Sieve Shaker', is_correct: false },
+      { id: 'a-qp7-2-1', answer_text: 'Meja Gravitasi (Gravity Table Separator)', is_correct: true },
       { id: 'a-qp7-2-3', answer_text: 'Mesin Polisher Silverskin', is_correct: false },
       { id: 'a-qp7-2-4', answer_text: 'Drum Roaster Sampel', is_correct: false },
     ],
@@ -1708,9 +1708,9 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 1,
     explanation: 'Over-fermented / Stinker bean terjadi akibat harvest delay atau tumpukan buah ceri yang mengalami fermentasi liar mandiri.',
     answers: [
-      { id: 'a-qp8-1-1', answer_text: 'Over-fermented / Stinker Bean', is_correct: true },
       { id: 'a-qp8-1-2', answer_text: 'Quaker Bean (biji mentah)', is_correct: false },
       { id: 'a-qp8-1-3', answer_text: 'Chalky Astringency', is_correct: false },
+      { id: 'a-qp8-1-1', answer_text: 'Over-fermented / Stinker Bean', is_correct: true },
       { id: 'a-qp8-1-4', answer_text: 'Grassy Green', is_correct: false },
     ],
   },
@@ -1739,10 +1739,10 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 1,
     explanation: 'PME bertugas mende-esterifikasi gugus metil ester dari rantai protopektin, mempersiapkan rantai tersebut untuk dipotong oleh enzim poligalakturonase.',
     answers: [
-      { id: 'a-qpf-1-1', answer_text: 'Menghidrolisis gugus metil ester dari rantai protopektin menjadi asam pektat', is_correct: true },
       { id: 'a-qpf-1-2', answer_text: 'Mengubah glukosa langsung menjadi gas karbon dioksida', is_correct: false },
       { id: 'a-qpf-1-3', answer_text: 'Membunuh seluruh bakteri asam asetat di dalam tangki', is_correct: false },
       { id: 'a-qpf-1-4', answer_text: 'Mengoksidasi klorofil biji menjadi warna kebiruan', is_correct: false },
+      { id: 'a-qpf-1-1', answer_text: 'Menghidrolisis gugus metil ester dari rantai protopektin menjadi asam pektat', is_correct: true },
     ],
   },
   {
@@ -1754,9 +1754,9 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 2,
     explanation: 'Standar SCA/CQI Grade 1 Specialty mengizinkan tepat 0 cacat primer (Zero Primary Defects) dalam sampel 350 gram green coffee.',
     answers: [
-      { id: 'a-qpf-2-1', answer_text: '0 Cacat Primer (Nol / Zero Primary Defects)', is_correct: true },
       { id: 'a-qpf-2-2', answer_text: 'Maksimal 3 Cacat Primer', is_correct: false },
       { id: 'a-qpf-2-3', answer_text: 'Maksimal 5 Cacat Primer', is_correct: false },
+      { id: 'a-qpf-2-1', answer_text: '0 Cacat Primer (Nol / Zero Primary Defects)', is_correct: true },
       { id: 'a-qpf-2-4', answer_text: 'Toleransi hingga 10 Cacat Primer', is_correct: false },
     ],
   },
@@ -1784,10 +1784,10 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 4,
     explanation: 'Black Honey mempertahankan seluruh lendir mesokarp dan dikeringkan paling lambat di bawah naungan dingin, memicu pencokelatan enzimatik gelap.',
     answers: [
-      { id: 'a-qpf-4-1', answer_text: 'Black Honey', is_correct: true },
       { id: 'a-qpf-4-2', answer_text: 'White Honey', is_correct: false },
       { id: 'a-qpf-4-3', answer_text: 'Yellow Honey', is_correct: false },
       { id: 'a-qpf-4-4', answer_text: 'Pulped Washed', is_correct: false },
+      { id: 'a-qpf-4-1', answer_text: 'Black Honey', is_correct: true },
     ],
   },
   {
@@ -1799,8 +1799,8 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 5,
     explanation: 'Ochratoxin A (OTA) adalah mikotoksin karsinogenik tahan panas sangrai yang diatur ketat dengan batas maksimal 5 ppb oleh Uni Eropa.',
     answers: [
-      { id: 'a-qpf-5-1', answer_text: 'Ochratoxin A (OTA)', is_correct: true },
       { id: 'a-qpf-5-2', answer_text: 'Aflatoksin B1', is_correct: false },
+      { id: 'a-qpf-5-1', answer_text: 'Ochratoxin A (OTA)', is_correct: true },
       { id: 'a-qpf-5-3', answer_text: 'Patulin', is_correct: false },
       { id: 'a-qpf-5-4', answer_text: 'Asam Sianida', is_correct: false },
     ],
@@ -1829,9 +1829,9 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 7,
     explanation: 'Uji gesekan fisik (gravel squeak test): saat diremas di telapak tangan, terdengar suara derit gesekan kerikil kesat dan tidak lagi licin meluncur.',
     answers: [
-      { id: 'a-qpf-7-1', answer_text: 'Terdengar bunyi gesekan kesat seperti batu kerikil (gravel friction squeak) dan tidak licin', is_correct: true },
       { id: 'a-qpf-7-2', answer_text: 'Gabah mengeluarkan busa sabun tebal berwarna putih', is_correct: false },
       { id: 'a-qpf-7-3', answer_text: 'Kulit tanduk parchment terlepas dengan sendirinya', is_correct: false },
+      { id: 'a-qpf-7-1', answer_text: 'Terdengar bunyi gesekan kesat seperti batu kerikil (gravel friction squeak) dan tidak licin', is_correct: true },
       { id: 'a-qpf-7-4', answer_text: 'Air tangki berubah warna menjadi hitam pekat', is_correct: false },
     ],
   },
@@ -1844,8 +1844,8 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 8,
     explanation: 'Suhu biji kopi hijau yang keluar dari mesin huller mutlak tidak boleh melampaui 35°C guna menghindari oksidasi senyawa aromatik.',
     answers: [
-      { id: 'a-qpf-8-1', answer_text: 'Maksimal 35°C', is_correct: true },
       { id: 'a-qpf-8-2', answer_text: 'Maksimal 55°C', is_correct: false },
+      { id: 'a-qpf-8-1', answer_text: 'Maksimal 35°C', is_correct: true },
       { id: 'a-qpf-8-3', answer_text: 'Maksimal 75°C', is_correct: false },
       { id: 'a-qpf-8-4', answer_text: 'Bebas, tidak ada batasan suhu', is_correct: false },
     ],
@@ -1859,10 +1859,10 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 9,
     explanation: 'Kapur pertanian (Kalsium Karbonat / CaCO3 atau Kalsium Hidroksida) digunakan secara luas untuk menetralkan keasaman air limbah kopi.',
     answers: [
-      { id: 'a-qpf-9-1', answer_text: 'Kapur Pertanian (Kalsium Karbonat / CaCO3)', is_correct: true },
       { id: 'a-qpf-9-2', answer_text: 'Garam Dapur (NaCl pekat)', is_correct: false },
       { id: 'a-qpf-9-3', answer_text: 'Asam Klorida (HCl pekat)', is_correct: false },
       { id: 'a-qpf-9-4', answer_text: 'Urea murni', is_correct: false },
+      { id: 'a-qpf-9-1', answer_text: 'Kapur Pertanian (Kalsium Karbonat / CaCO3)', is_correct: true },
     ],
   },
   {
@@ -1874,10 +1874,10 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 10,
     explanation: 'Gas Karbon Dioksida (CO2) murni kelas pangan diinjeksikan untuk menciptakan atmosfer anaerobik penuh.',
     answers: [
-      { id: 'a-qpf-10-1', answer_text: 'Karbon Dioksida (CO2)', is_correct: true },
       { id: 'a-qpf-10-2', answer_text: 'Nitrogen Oksida (N2O)', is_correct: false },
       { id: 'a-qpf-10-3', answer_text: 'Oksigen Murni (O2)', is_correct: false },
       { id: 'a-qpf-10-4', answer_text: 'Gas Metana (CH4)', is_correct: false },
+      { id: 'a-qpf-10-1', answer_text: 'Karbon Dioksida (CO2)', is_correct: true },
     ],
   },
   {
@@ -1889,8 +1889,8 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 11,
     explanation: 'Menggunakan ceri merah brix tinggi, mencuci bersih mesin huller, dan menjemur biji hijau di atas raised beds gantung berventilasi (bukan terpal tanah).',
     answers: [
-      { id: 'a-qpf-11-1', answer_text: 'Menjemur biji hijau pasca-hulling di atas raised beds gantung berventilasi (bukan di tanah) dan menjaga sanitasi huller', is_correct: true },
       { id: 'a-qpf-11-2', answer_text: 'Menjemur biji langsung di atas tanah berlumpur agar aroma khas tanah terserap', is_correct: false },
+      { id: 'a-qpf-11-1', answer_text: 'Menjemur biji hijau pasca-hulling di atas raised beds gantung berventilasi (bukan di tanah) dan menjaga sanitasi huller', is_correct: true },
       { id: 'a-qpf-11-3', answer_text: 'Membiarkan gabah menginap di dalam karung basah selama dua minggu', is_correct: false },
       { id: 'a-qpf-11-4', answer_text: 'Mengupas gabah saat kadar air sudah kering tuntas 8%', is_correct: false },
     ],
@@ -1904,9 +1904,9 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 12,
     explanation: 'Screen 17 – 18 (berdiameter lubang 17/64 hingga 18/64 inci) adalah ukuran standar biji besar premium arabika.',
     answers: [
-      { id: 'a-qpf-12-1', answer_text: 'Screen 17 – 18', is_correct: true },
       { id: 'a-qpf-12-2', answer_text: 'Screen 10 – 12', is_correct: false },
       { id: 'a-qpf-12-3', answer_text: 'Screen 24 – 26', is_correct: false },
+      { id: 'a-qpf-12-1', answer_text: 'Screen 17 – 18', is_correct: true },
       { id: 'a-qpf-12-4', answer_text: 'Screen 8 – 9', is_correct: false },
     ],
   },
@@ -1934,8 +1934,8 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 14,
     explanation: 'Kemasan hermetik memiliki lapisan penghalang gas (gas barrier) yang menstabilkan kelembaban internal dan mematikan serangga hama melalui penipisan oksigen.',
     answers: [
-      { id: 'a-qpf-14-1', answer_text: 'Memiliki lapisan penghalang gas (gas barrier) yang mencegah fluktuasi kelembaban udara dan mematikan hama serangga', is_correct: true },
       { id: 'a-qpf-14-2', answer_text: 'Membuat biji kopi tetap mengalami fermentasi aktif di dalam karung', is_correct: false },
+      { id: 'a-qpf-14-1', answer_text: 'Memiliki lapisan penghalang gas (gas barrier) yang mencegah fluktuasi kelembaban udara dan mematikan hama serangga', is_correct: true },
       { id: 'a-qpf-14-3', answer_text: 'Karena harganya sepuluh kali lipat lebih murah daripada goni', is_correct: false },
       { id: 'a-qpf-14-4', answer_text: 'Dapat memanaskan biji kopi sehingga menghemat waktu resting', is_correct: false },
     ],
@@ -1949,9 +1949,9 @@ export const Q_PROCESSOR_QUESTIONS: Question[] = [
     order_index: 15,
     explanation: 'Menjamin keterlacakan (traceability) penuh, konsistensi mutu antar batch, dan memberikan bukti ilmiah parameter proses kepada pembeli green coffee internasional.',
     answers: [
-      { id: 'a-qp-15-1', answer_text: 'Menjamin keterlacakan (traceability) penuh, konsistensi mutu antar batch, dan bukti ilmiah bagi pembeli specialty', is_correct: true },
       { id: 'a-qp-15-2', answer_text: 'Hanya sebagai formalitas administrasi tanpa kegunaan teknis nyata', is_correct: false },
       { id: 'a-qp-15-3', answer_text: 'Untuk memenuhi kewajiban pajak ekspor pemerintah daerah', is_correct: false },
+      { id: 'a-qp-15-1', answer_text: 'Menjamin keterlacakan (traceability) penuh, konsistensi mutu antar batch, dan bukti ilmiah bagi pembeli specialty', is_correct: true },
       { id: 'a-qp-15-4', answer_text: 'Untuk menghitung perkiraan berat karung saat di pelabuhan', is_correct: false },
     ],
   },

@@ -469,11 +469,10 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
           setQuizzes(SEED_QUIZZES);
         }
 
-        // Smart merge questions: for quizzes that have saved questions, use them without reviving deleted seed questions
+        // Smart merge questions: ensure official seed questions always update with latest answer keys and technical syllabus
         if (parsed.questions) {
-          const savedQuizIds = new Set(parsed.questions.map((q: Question) => q.quiz_id));
-          const newSeedQuestions = SEED_QUESTIONS.filter((sq) => !savedQuizIds.has(sq.quiz_id));
-          setQuestions([...parsed.questions, ...newSeedQuestions]);
+          const customQuestions = parsed.questions.filter((q: Question) => !SEED_QUESTIONS.some((sq) => sq.id === q.id));
+          setQuestions([...SEED_QUESTIONS, ...customQuestions]);
         } else {
           setQuestions(SEED_QUESTIONS);
         }
