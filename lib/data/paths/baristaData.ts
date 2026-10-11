@@ -720,21 +720,12 @@ Bypass adalah teknik menambahkan air panas bersih langsung ke cairan kopi hasil 
 * Kemudian, ditambahkan 20–25% air bypass untuk menurunkan konsentrasi TDS ke tingkat yang nyaman diminum (1.30%).
 * Hasilnya: Cangkir terasa sangat bersih (*clean cup*), manis, dan bebas dari serat pahit yang biasanya keluar di akhir seduhan panjang.
 
----
-### Teknik Penuangan Latte Art: Dari Heart ke Rosetta
-Latte art adalah indikator visual langsung dari keberhasilan barista dalam mengekstraksi espresso kaya crema dan mengolah microfoam bertekstur elastis sempurna.
+### 2. Batch Brew Komersial: Manajemen Termal Dispenser & Hold Time
 
-#### 3 Faktor Fisika Penuangan:
-1. **Tinggi Penuangan (Pouring Height)**:
-   - Menuang dari ketinggian 5–7 cm dengan aliran tipis akan menembus lapisan crema dan mencampur susu ke dasar cangkir tanpa meninggalkan tanda putih di permukaan (*canvas setting*).
-   - Menurunkan moncong pitcher hingga menempel bibir cangkir (jarak 0.5 cm) akan mengurangi momentum vertikal dan membuat microfoam mengapung di atas crema membentuk pola putih.
-2. **Laju Aliran (Flow Rate)**: Aliran terlalu lambat membuat pola tidak melebar; aliran terlalu deras membuat crema pecah berantakan.
-3. **Gerakan Pergelangan Tangan (Wiggle)**: Gerakan goyangan simetris pergelangan tangan dari sisi ke sisi menciptakan riak daun rosetta yang beraturan.
-
-#### Panduan Pola Dasar Bertahap:
-* **The Heart (Hati)**: Fondasi dasar kontrol kanvas. Mulai tuang tinggi hingga cangkir terisi 50%, turunkan pitcher ke tengah cangkir, dorong sedikit busa putih mengembang, lalu angkat pitcher dan potong garis lurus ke depan.
-* **The Tulip (Bunga Bertingkat)**: Penguasaan teknik *stop-and-drop*. Tumpuk 3 hingga 5 bulatan busa secara bertahap sebelum dipotong lurus.
-* **The Rosetta (Daun Simetris)**: Mengombinasikan gerakan goyangan pergelangan tangan konstan sambil memundurkan pitcher secara stabil, diakhiri dengan garis potong ramping ke depan.`,
+Batch brew menggunakan mesin otomatis (seperti Moccamaster, Fetco, atau Marco Bru) adalah pilar kecepatan bar di jam sibuk:
+* **Brew Basket & Rasio**: Gunakan dosis 60 gram bubuk per 1 Liter air (rasio 1:16.6) dengan gilingan medium-coarse seragam.
+* **Thermal Server Berinsulasi**: Simpan seduhan dalam urn stainless steel vakum tanpa pemanas pelat dasar (*hot plate*), karena pelat pemanas langsung membakar sisa gula kopi dan merusak rasa dalam 15 menit.
+* **Batas Waktu Simpan (*Hold Time*)**: Sajikan seduhan dalam jendela waktu maksimal 90–120 menit pada suhu stabil 80°C–85°C sebelum oksidasi dan hidrolisis asam klorogenat menimbulkan rasa asam basi (*stale sourness*).`,
     content_type: 'text',
     duration_minutes: 14,
     order_index: 3,
@@ -768,25 +759,14 @@ Memahami jeroan mesin espresso komersial adalah syarat mutlak bagi seorang Head 
 3. **Saturated Group Head**:
    - Ruang group head terendam langsung ke dalam boiler seduh (*open neck design* seperti La Marzocco), menjamin suhu di ujung shower screen sama persis dengan suhu di dalam boiler.
 
----
-### Protokol Multi-Dripper di Bar Komersial
-Menyeduh manual brew saat bar sedang sibuk (*peak hours*) menuntut efisiensi gerakan dan konsistensi flow rate tanpa mengorbankan kualitas rasa cangkir.
+### 2. Pengendali Suhu PID & Pompa Tekanan Rotary Komersial
 
-#### Perbandingan Karakteristik Dripper Komersial:
-* **Hario V60 (Conical 60°)**:
-  - Pola alur spiral besar dengan lubang tunggal di dasar. Laju aliran sepenuhnya dikendalikan oleh teknik penuangan barista.
-  - Karakter rasa: Keasaman cerah (*bright acidity*), pemisahan rasa buah jelas (*high clarity*), body ramping.
-  - Target Grind: Medium-fine (serupa garam meja kasar). Waktu ekstraksi: 2:30 – 3:00 menit.
-* **Kalita Wave (Flat-Bottomed)**:
-  - Tiga lubang kecil di dasar dengan kertas bergelombang (*wave filters*) yang meminimalkan kontak langsung dengan dinding dripper.
-  - Karakter rasa: Ekstraksi lebih merata, body lebih tebal, sweetness karamel dominan, toleransi kesalahan teknik lebih tinggi.
-  - Target Grind: Sedikit lebih kasar dibanding V60. Waktu ekstraksi: 3:00 – 3:30 menit.
-
-#### SOP Kerja Multi-Station Barista:
-1. Basahi filter (*rinse*) dengan air panas 50ml untuk menghilangkan rasa kertas dan menghangatkan server kaca. Buang air bilasan.
-2. Timbang 15.0g bubuk kopi per dripper, ratakan bed kopi secara horizontal.
-3. Lakukan blooming serentak (45g air tuang dalam 10 detik, biarkan degas 30-45 detik).
-4. Gunakan pola penuangan terpusat (*center pour*) melingkar kecil untuk menjaga suhu termal bed kopi tetap stabil di 88°C–92°C.`,
+* **PID Controller (Proportional-Integral-Derivative)**:
+  Sirkuit elektronik mikroprosesor yang menghitung laju kehilangan panas secara terus-menerus dan memanaskan boiler dengan presisi fluktuasi ±0.2°C, mengeliminasi variasi suhu ekstraksi antar shot.
+* **Pompa Rotary Komersial vs Pompa Vibrasi Rumahan**:
+  Mesin komersial menggunakan pompa rotary bermesin besar berpendingin udara yang mampu menjaga tekanan stabil 9.0 bar secara konsisten meskipun 3 group head mengekstrak bersamaan.
+* **Pre-Infusion Chamber & Gicleur Flow Restrictor**:
+  Nozzle gicleur (ukuran lubang 0.6mm–0.8mm) membatasi laju aliran awal air untuk membasahi coffee puck secara lembut pada 2–3 bar sebelum pompa mencapai tekanan penuh 9 bar.`,
     content_type: 'text',
     duration_minutes: 15,
     order_index: 1,
@@ -819,20 +799,15 @@ Minyak kopi yang terpapar panas konstan di group head akan mengalami oksidasi da
    - Lepas portafilter, buang busa kimia, lalu bilas backflush dengan air murni sebanyak 5 kali hingga air buangan benar-benar bening.
 3. **Rendam Portafilter & Basket**: Rendam ujung portafilter stainless steel dan keranjang basket ke dalam air hangat berlarutan detergen. **PENTING**: Jangan pernah merendam gagang plastik portafilter!
 
----
-### Eksplorasi Aeropress & Metode Imersi di Bar
-Aeropress adalah instrumen seduh paling fleksibel yang memadukan ekstraksi imersi penuh dengan tekanan mekanis pendorong (*piston plunger*).
+### 2. Sanitasi Steam Wand & Pembersihan Kerak Protein Susu
 
-#### Dua Aliran Teknik Aeropress:
-1. **Metode Inverted (Terbalik)**:
-   - Posisikan plunger di bagian bawah dan tabung berdiri terbalik. Bubuk kopi dan air terendam total tanpa setetes pun cairan bocor sebelum waktu yang ditentukan.
-   - Keuntungan: Kontrol waktu kontak air-kopi 100% presisi. Sangat ideal untuk profil biji berkepadatan seluler tinggi (Natural proses, Geisha, kopi Afrika).
-   - Resep Barista: 16g kopi, 200g air suhu 90°C. Aduk 3 kali bolak-balik. Pasang cap berfilter kertas bilas pada menit 1:30, balikkan ke server, lalu tekan pelan selama 30 detik.
-2. **Metode Standard (Lurus)**:
-   - Cap dipasang di bawah, diletakkan di atas cangkir. Memungkinkan sebagian kecil cairan menetes sebelum tekanan piston diberikan.
-   - Menghasilkan rasa seduhan yang lebih bersih (*clean*) dan berkeasaman cerah.
-
-> 💡 **Troubleshooting Tekanan**: Jika piston terasa sangat berat ditekan hingga membutuhkan beban tubuh penuh, ukuran gilingan Anda terlalu halus (*too fine*) atau menghasilkan terlalu banyak debu halus (*fines*). Jangan dipaksakan karena berisiko meretakkan server kaca penampung.`,
+Pipa uap (*steam wand*) yang tidak disanitasi adalah sarang bakteri pembusuk dari residu susu hangat:
+1. **Purging & Wiping Pasca Steaming**:
+   - Wajib melakukan purge uap 1–2 detik dan mengelap pipa dengan microfiber basah khusus susu segera setelah selesai memanaskan pitcher. Jangan pernah gunakan lap susu untuk mengelap meja atau portafilter!
+2. **Pembersihan Rendam Kimia Enzimatik Mingguan**:
+   - Rendam steam wand dalam cairan pembersih enzimatik khusus susu (misal Rinza) selama 15–20 menit untuk melarutkan kerak lemak susu di lubang nozzle (*steam tip holes*).
+3. **Pemeriksaan Shower Screen & Baut Diffuser**:
+   - Buka baut shower screen seminggu sekali, bersihkan minyak kopi yang mengeras di balik plat dispersi, dan ganti gasket karet yang sudah mengeras atau getas.`,
     content_type: 'text',
     duration_minutes: 14,
     order_index: 2,
@@ -866,19 +841,15 @@ Seorang barista tangguh tidak panik ketika mesin mengalami kendala teknis kecil 
 * **Jarum Tekanan Manometer Bergetar atau Turun di Bawah 8 Bar**:
   - *Penyebab*: Pasokan air dari sistem pompa galon eksternal (*Flojet*) kehabisan debit, filter air tersumbat, atau baut bypass pompa rotary aus.
 
----
-### Teknik Cold Brew Konsentrat & Iced Filter
-Minuman kopi dingin specialty membutuhkan penanganan ekstraksi yang berbeda secara fundamental karena ketiadaan energi termal panas untuk melarutkan komponen kimiawi biji.
+### 2. Pencegahan Kerak Air & Pengawasan Filtrasi (Water Hardness Control)
 
-#### Parameter Cold Drip vs Cold Immersion:
-* **Cold Immersion (Perendaman Dingin)**:
-  - Bubuk kopi kasar direndam dalam air dingin bersuhu 4°C–10°C di dalam tangki kedap udara selama 16–20 jam.
-  - Rasio konsentrat: 1:8 (100g bubuk per 800ml air). Diencerkan dengan air/es saat disajikan menjadi rasio 1:16.
-  - Profil rasa: Sangat manis, tingkat keasaman rendah (karena asam klorogenat tidak terhidrolisis tanpa panas), body cokelat tebal.
-* **Japanese Iced Pour-Over (Flash Brew)**:
-  - Menyeduh kopi panas menggunakan dripper V60 langsung ke atas bongkahan es batu di dalam server.
-  - Pembagian Rasio: 60% air panas seduh (misal 150g) + 40% es batu di server (misal 100g) untuk 16g bubuk kopi.
-  - Reaksi *Thermal Shock*: Es batu yang langsung mendinginkan cairan espresso/filter mengunci senyawa volatil aroma buah dan bunga agar tidak menguap ke udara, menghasilkan es kopi yang luar biasa aromatik dan berkeasaman segar.`,
+Kerak kalsium dan magnesium adalah faktor perusak nomor satu mesin espresso komersial:
+1. **Inspeksi Cartridge Filter Air**:
+   - Periksa pembacaan TDS dan hardness air setiap awal bulan. Air dengan total hardness di atas 85 ppm akan mengendapkan kerak kalsium karbonat pada elemen pemanas dalam 3–6 bulan.
+2. **Gejala Kerak di Solenoid Valve**:
+   - Jika air terus menetes dari group head saat pompa mati, atau jika pressure gauge uap tidak naik stabil, kristal kerak kapur telah mengganjal plunger solenoid 3 arah (*three-way valve*).
+3. **Bahaya Descaling Mandiri Tanpa Teknisi**:
+   - Jangan pernah menuangkan asam sitrat descaling pekat langsung ke tangki boiler komersial tanpa pengawasan teknisi berlisensi, karena rontokan kerak masif dapat menyumbat lubang gicleur mikro (0.6mm) dan merusak probe sensor level air boiler.`,
     content_type: 'text',
     duration_minutes: 14,
     order_index: 3,
@@ -931,11 +902,11 @@ Dalam industri kafe modern, minuman signature (*signature beverage*) adalah pemb
     is_free: false,
     is_published: true,
     created_at: '2026-08-05T00:00:00Z',
-    summary: 'Materi mendalam Teori Formulasi Minuman: Keseimbangan 5 Rasa Dasar pada Kopi Dingin dengan studi kasus bar, parameter presisi, dan panduan teknis berstandar SCA.',
+    summary: 'Teori formulasi minuman kopi signature, prinsip sinergi rasa (flavor synergy), kompensasi suhu dingin terhadap persepsi rasa, dan struktur anatomi mocktail seimbang.',
     key_takeaways: [
-      'Pahami prinsip ilmiah dan fisika fluida yang mendasari parameter operasional bar.',
-      'Terapkan parameter angka presisi (gram, detik, suhu °C, dan bar) secara konsisten di setiap cangkir.',
-      'Jaga kebersihan alat dan utamakan keselamatan kerja ergonomis dalam rutinitas harian.'
+      'Kopi harus tetap menjadi bintang utama; bahan tambahan berfungsi memperkuat atribut rasa alami kopi, bukan menutupinya.',
+      'Suhu dingin menumpulkan sensitivitas rasa manis papila lidah 20–30%, sehingga minuman kopi dingin membutuhkan penyesuaian brix kemanisan terukur.',
+      'Kombinasikan 4 pilar anatomi signature drink: Base Kopi, Sweetener, Acidifier, dan Texturizer secara proporsional.'
     ],
   },  {
     id: 'les-b6-2',
@@ -1122,30 +1093,24 @@ Keahlian teknis menyeduh kopi bernilai nol jika barista bersikap arogan (*coffee
 2. *"Untuk kopi hitamnya, lebih menyukai karakter yang segar cerah buah-buahan atau yang beraroma cokelat rempah tebal?"*
 3. *"Mau disajikan panas untuk menikmati aromanya atau dingin segar untuk diminum santai?"*
 
----
-### Manajemen Pemeliharaan & Higienitas Bar Komersial
-Peralatan kopi bernilai ratusan juta rupiah akan rusak dan menghasilkan kopi berkualitas buruk jika tidak dirawat dengan standar operasional prosedur harian yang ketat.
+### 3. Membangun Analogi Rasa Sehari-Hari & Koneksi Emosional
 
-#### Checklist Pemeliharaan Harian Barista (Daily Closing SOP):
-1. **Backflush Mesin Espresso**:
-   - Gunakan blind basket (keranjang buta tanpa lubang).
-   - Masukkan 3–5 gram detergen pembersih mesin kopi khusus (misal Cafiza/Puly Caff).
-   - Nyalakan pompa 10 detik, matikan 10 detik. Ulangi 5 kali untuk melarutkan sisa kerak minyak kopi di selenoid valve.
-   - Bilas bersih dengan air mengalir hingga tidak ada sisa busa detergen kimia.
-2. **Pembersihan Shower Screen & Gasket**: Buka baut shower screen seminggu sekali, rendam dalam air panas detergen, dan sikat gasket karet dari sisa bubuk kopi yang memadat.
-3. **Pembersihan Burr Grinder**: Bersihkan ruang chamber mata pisau grinder dari retensi bubuk lama menggunakan kuas halus dan vacuum khusus. Jangan pernah mencuci mata pisau baja dengan air karena memicu karat instan!
-4. **Water Filter Maintenance**: Periksa tekanan indikator cartridge filter air sedimentasi dan carbon block, pastikan pembacaan TDS air masuk tidak melebihi 250 ppm.`,
+Pelanggan awam tidak mengenali istilah seperti "titratable acidity", "bergamot", atau "stone fruit". Gunakan jembatan analogi rasa yang akrab di lidah masyarakat Indonesia:
+* **Asam Malat (*Malic Acid*)**: Terangkan sebagai *"sensasi asam segar garing layaknya menggigit apel fuji hijau atau buah pir manis"*.
+* **Asam Sitrat (*Citric Acid*)**: Terangkan sebagai *"kesegaran asam berair manis seperti buah jeruk keprok segar"*.
+* **Catatan Floral & Jasmine**: Jelaskan sebagai *"aroma wangi lembut menenangkan mirip seduhan teh melati hangat Nusantara"*.
+* **Sweetness & Molasses**: Jelaskan sebagai *"rasa manis gurih legit yang tertinggal di lidah mirip gula kelapa atau karamel mentega"*.`,
     content_type: 'text',
     duration_minutes: 14,
     order_index: 1,
     is_free: false,
     is_published: true,
     created_at: '2026-08-05T00:00:00Z',
-    summary: 'Materi mendalam Seni Menceritakan Profil Rasa Kopi Tanpa Istilah Teknis yang Mengintimidasi dengan studi kasus bar, parameter presisi, dan panduan teknis berstandar SCA.',
+    summary: 'Seni mengomunikasikan profil rasa specialty coffee kepada pelanggan tanpa bahasa teknis intimidatif, analogi rasa lokal, dan 3 pertanyaan panduan di meja kasir.',
     key_takeaways: [
-      'Pahami prinsip ilmiah dan fisika fluida yang mendasari parameter operasional bar.',
-      'Terapkan parameter angka presisi (gram, detik, suhu °C, dan bar) secara konsisten di setiap cangkir.',
-      'Jaga kebersihan alat dan utamakan keselamatan kerja ergonomis dalam rutinitas harian.'
+      'Gantikan jargon kimiawi rumit dengan analogi buah dan makanan yang akrab di lidah konsumen sehari-hari.',
+      'Gunakan 3 pertanyaan panduan untuk mengidentifikasi preferensi rasa tamu dalam waktu kurang dari 30 detik.',
+      'Utamakan keramahan dan keterhubungan emosional daripada pembuktian superioritas teknis di meja bar.'
     ],
   },  {
     id: 'les-b8-2',

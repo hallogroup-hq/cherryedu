@@ -437,25 +437,18 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         }
         if (parsed.vouchers) setVouchers(parsed.vouchers);
 
-        // Smart merge learning paths
+        // Smart merge learning paths: ensure official paths stay synced with latest curriculum structure
         if (parsed.learningPaths) {
-          const existingPathIds = new Set(parsed.learningPaths.map((p: LearningPath) => p.id));
-          const mergedPaths = [
-            ...parsed.learningPaths.map((p: LearningPath) => {
-              const seedMatch = SEED_PATHS.find((sp) => sp.id === p.id);
-              return seedMatch && (!p.total_modules || p.total_modules < seedMatch.total_modules) ? seedMatch : p;
-            }),
-            ...SEED_PATHS.filter((sp) => !existingPathIds.has(sp.id)),
-          ];
-          setLearningPaths(mergedPaths);
+          const customPaths = parsed.learningPaths.filter((p: LearningPath) => !SEED_PATHS.some((sp) => sp.id === p.id));
+          setLearningPaths([...SEED_PATHS, ...customPaths]);
         } else {
           setLearningPaths(SEED_PATHS);
         }
 
-        // Smart merge modules
+        // Smart merge modules: ensure official syllabus modules stay synced with latest titles & curriculum
         if (parsed.modules) {
-          const existingModIds = new Set(parsed.modules.map((m: Module) => m.id));
-          setModules([...parsed.modules, ...SEED_MODULES.filter((sm) => !existingModIds.has(sm.id))]);
+          const customModules = parsed.modules.filter((m: Module) => !SEED_MODULES.some((sm) => sm.id === m.id));
+          setModules([...SEED_MODULES, ...customModules]);
         } else {
           setModules(SEED_MODULES);
         }
@@ -468,10 +461,10 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
           setLessons(SEED_LESSONS);
         }
 
-        // Smart merge quizzes
+        // Smart merge quizzes: ensure official quizzes stay synced with latest questions & scopes
         if (parsed.quizzes) {
-          const existingQuizIds = new Set(parsed.quizzes.map((q: Quiz) => q.id));
-          setQuizzes([...parsed.quizzes, ...SEED_QUIZZES.filter((sq) => !existingQuizIds.has(sq.id))]);
+          const customQuizzes = parsed.quizzes.filter((q: Quiz) => !SEED_QUIZZES.some((sq) => sq.id === q.id));
+          setQuizzes([...SEED_QUIZZES, ...customQuizzes]);
         } else {
           setQuizzes(SEED_QUIZZES);
         }

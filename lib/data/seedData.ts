@@ -47,6 +47,8 @@ import {
   COFFEE_BUSINESS_QUESTIONS,
 } from './paths/coffeeBusinessData';
 import {
+  BARISTA_PATH,
+  BARISTA_MODULES,
   BARISTA_LESSONS,
   BARISTA_QUIZZES,
   BARISTA_QUESTIONS,
@@ -206,24 +208,7 @@ export const SEED_PATHS: LearningPath[] = [
     total_modules: 7,
     created_at: '2026-08-01T00:00:00Z',
   },
-  {
-    id: 'path-barista',
-    title: 'Barista Specialization Path',
-    slug: 'barista-specialization',
-    description:
-      'Jalur komprehensif menjadi barista profesional siap kerja. Dari espresso dial-in presisi, sains susu & latte art, manual brew tingkat lanjut, hingga manajemen bar & SOP coffee shop.',
-    thumbnail_url:
-      'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&auto=format&fit=crop&q=80',
-    layer_type: 'specialization',
-    prerequisite_path_id: 'path-foundation',
-    target_role: 'barista',
-    level: 'full',
-    is_free: false,
-    is_published: true,
-    estimated_hours: 24,
-    total_modules: 10,
-    created_at: '2026-08-05T00:00:00Z',
-  },
+  BARISTA_PATH,
   {
     id: 'path-home-brewer',
     title: 'Home Brewer Specialization Path',
@@ -329,106 +314,7 @@ export const SEED_MODULES: Module[] = [
     created_at: '2026-08-01T00:00:00Z',
   },
 
-  {
-    id: 'mod-b1',
-    learning_path_id: 'path-barista',
-    title: 'Modul B-1: Pengenalan Dunia Bar & Etika Barista',
-    description: 'Peran sentral barista di industri, customer hospitality, dan pengenalan workflow bar.',
-    order_index: 1,
-    is_locked: false,
-    is_published: true,
-    created_at: '2026-08-05T00:00:00Z',
-  },
-  {
-    id: 'mod-b2',
-    learning_path_id: 'path-barista',
-    title: 'Modul B-2: Espresso Fundamentals',
-    description: 'Anatomi portafilter, basket size, teknik tamping tegak lurus, dan membaca crema.',
-    order_index: 2,
-    is_locked: false,
-    is_published: true,
-    created_at: '2026-08-05T00:00:00Z',
-  },
-  {
-    id: 'mod-b3',
-    learning_path_id: 'path-barista',
-    title: 'Modul B-3: Manual Brew Dasar di Bar',
-    description: 'Penyeduhan pour-over dasar, French press, dan menjaga rasio konsisten di jam sibuk.',
-    order_index: 3,
-    is_locked: false,
-    is_published: true,
-    created_at: '2026-08-05T00:00:00Z',
-  },
-  {
-    id: 'mod-b4',
-    learning_path_id: 'path-barista',
-    title: 'Modul B-4: Espresso Mastery & Dial-In Segitiga',
-    description: 'Menyeimbangkan Dosis, Yield, dan Waktu (D-Y-T triangle). Menghilangkan rasa asam tajam atau pahit gosong.',
-    order_index: 4,
-    is_locked: false,
-    is_published: true,
-    created_at: '2026-08-05T00:00:00Z',
-  },
-  {
-    id: 'mod-b5',
-    learning_path_id: 'path-barista',
-    title: 'Modul B-5: Milk Science & Latte Art Mastery',
-    description: 'Struktur protein dan lemak susu, aeration vs whirlpool, latte art pola Heart, Rosetta, dan Tulip.',
-    order_index: 5,
-    is_locked: false,
-    is_published: true,
-    created_at: '2026-08-05T00:00:00Z',
-  },
-  {
-    id: 'mod-b6',
-    learning_path_id: 'path-barista',
-    title: 'Modul B-6: Manual Brew Tingkat Lanjut',
-    description: 'Metode Tetsu Kasuya 4:6, Aeropress bypass, Syphon, dan Japanese Iced Pour Over.',
-    order_index: 6,
-    is_locked: false,
-    is_published: true,
-    created_at: '2026-08-05T00:00:00Z',
-  },
-  {
-    id: 'mod-b7',
-    learning_path_id: 'path-barista',
-    title: 'Modul B-7: Kreasi Menu Signature & Mocktail',
-    description: 'Menciptakan signature drink unik berbasis espresso atau cold brew dengan rempah dan buah lokal.',
-    order_index: 7,
-    is_locked: false,
-    is_published: true,
-    created_at: '2026-08-05T00:00:00Z',
-  },
-  {
-    id: 'mod-b8',
-    learning_path_id: 'path-barista',
-    title: 'Modul B-8: Sensory Lanjutan & Kalibrasi Roaster',
-    description: 'Memberikan umpan balik deskriptif ke tim roastery dan menjaga profil ekstraksi harian.',
-    order_index: 8,
-    is_locked: false,
-    is_published: true,
-    created_at: '2026-08-05T00:00:00Z',
-  },
-  {
-    id: 'mod-b9',
-    learning_path_id: 'path-barista',
-    title: 'Modul B-9: Bar Management & Cost Control',
-    description: 'Manajemen inventaris biji kopi, HPP (Cost of Goods), FIFO, serta SOP kebersihan dan perawatan mesin.',
-    order_index: 9,
-    is_locked: false,
-    is_published: true,
-    created_at: '2026-08-05T00:00:00Z',
-  },
-  {
-    id: 'mod-b10',
-    learning_path_id: 'path-barista',
-    title: 'Modul B-10: Karier Barista & Persiapan Kompetisi',
-    description: 'Menyusun portofolio barista, persiapan kompetisi (Barista Championship, Brewers Cup), dan sertifikasi internasional.',
-    order_index: 10,
-    is_locked: false,
-    is_published: true,
-    created_at: '2026-08-05T00:00:00Z',
-  },
+  ...BARISTA_MODULES,
 
   {
     id: 'mod-h1',
@@ -2479,64 +2365,6 @@ Jika juri menemukan cacat rasa di salah satu mangkok:
 ],
   },
   {
-    id: "les-h3-1",
-    module_id: "mod-h3",
-    title: "Resep Standar V60: Rasio Emas 1:15 & Panduan Tiga Kali Tuang",
-    content: `
-# Resep Standar V60 Pemula: Rasio Emas 1:15
-
-[DIAGRAM:brewing-control-chart]
-
-Menyeduh dengan Hario V60 di rumah adalah salah satu pengalaman paling menenangkan sekaligus menghasilkan secangkir kopi yang sangat aromatik.
-
-### Formula Resep Standar CherryEdu:
-- **Kopi**: 15 gram (Gilingan Medium-Fine, sedikit lebih halus dari garam meja)
-- **Air**: 225 gram (Rasio 1:15)
-- **Suhu Air**: 90°C – 92°C
-- **Target Waktu Seduh**: 2 menit 15 detik – 2 menit 30 detik
-
-### Langkah-langkah Seduh:
-1. **Bilas Kertas Filter**: Bilas kertas filter dengan air panas untuk menghilangkan bau kertas dan menghangatkan server. Buang air bilasan.
-2. **Tuangan 1 (Bloom - 0:00 s/d 0:45)**:
-   - Tuang 45 gram air secara melingkar perlahan dari tengah ke luar.
-   - Biarkan kopi mekar (*blooming*) selama 45 detik untuk melepas gas CO2.
-3. **Tuangan 2 (Body - 0:45 s/d 1:20)**:
-   - Tuang air hingga mencapai 140 gram. Jaga ketinggian air tetap stabil.
-4. **Tuangan 3 (Finish - 1:20 s/d 2:15)**:
-   - Tuang sisa air perlahan hingga timbangan menunjukkan tepat 225 gram.
-   - Biarkan air menetes habis. Aduk server melingkar sebelum disajikan ke cangkir.
-    `,
-    content_type: 'text',
-    duration_minutes: 10,
-    order_index: 1,
-    is_free: true,
-    is_published: true,
-    created_at: "2026-08-05T00:00:00Z",
-    summary: "Resep V60 15g ke 225g air dengan teknik 3 kali tuangan dan fase blooming 45 detik.",
-    key_takeaways: [
-      "Rasio 1:15 (15g kopi : 225g air) menghasilkan cup profile yang padat dan kaya rasa.",
-      "Blooming 45 detik melepaskan gas CO2 sehingga air dapat mengekstrak gula kopi optimal.",
-      "Selalu bilas kertas filter sebelum mulai menyeduh."
-    ],
-    brew_recipe: {
-      "method": "Hario V60 01/02",
-      "dose": "15 g",
-      "water": "225 g",
-      "ratio": "1:15",
-      "temperature": "91°C",
-      "grind_size": "Medium-Fine",
-      "brew_time": "2m 15s",
-      "steps": [
-        "Bilas filter paper dengan air panas lalu buang airnya.",
-        "Masukkan 15g bubuk kopi, ratakan bed kopi.",
-        "0:00 - Tuang 45g air untuk blooming, tunggu 45 detik.",
-        "0:45 - Tuang perlahan melingkar hingga timbangan 140g.",
-        "1:20 - Tuang sisa air hingga tepat 225g.",
-        "Tunggu hingga air tiris sempurna pada 2:15 - 2:30. Aduk dan nikmati!"
-      ]
-    },
-  },
-  {
     id: "les-h1-1",
     module_id: "mod-h1",
     title: "Memulai Home Brewing: Dekonstruksi Informasi Label Kemasan Kopi Specialty",
@@ -2768,6 +2596,23 @@ Gunakan indra pengecap Anda untuk mengevaluasi hasil seduhan pagi ini:
       "Rasa masam tajam dan hambar menandakan under-ekstraksi (butuh gilingan lebih halus).",
       "Rasa pahit kering menempel di tenggorokan menandakan over-ekstraksi (butuh gilingan lebih kasar)."
     ],
+    brew_recipe: {
+      "method": "Hario V60 01/02",
+      "dose": "15 g",
+      "water": "225 g",
+      "ratio": "1:15",
+      "temperature": "91°C",
+      "grind_size": "Medium-Fine",
+      "brew_time": "2m 15s",
+      "steps": [
+        "Bilas filter paper dengan air panas lalu buang airnya.",
+        "Masukkan 15g bubuk kopi, ratakan bed kopi.",
+        "0:00 - Tuang 45g air untuk blooming, tunggu 45 detik.",
+        "0:45 - Tuang perlahan melingkar hingga timbangan 135g.",
+        "1:20 - Tuang sisa air hingga tepat 225g.",
+        "Tunggu hingga air tiris sempurna pada 2:15 - 2:30. Aduk dan nikmati!"
+      ]
+    },
   },
   {
     id: "les-h4-1",

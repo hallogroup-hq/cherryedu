@@ -345,7 +345,7 @@ Saat membuat Japanese Iced Pour Over, total air seduhan dibagi menjadi:
   },
 
   {
-    id: 'les-h8-1',
+    id: 'les-h8-4',
     module_id: 'mod-h8',
     title: 'Manual Lever Espresso: Rahasia Pre-Infusion & Tekanan 9 Bar dengan Flair / Picopresso',
     content: `
@@ -375,7 +375,7 @@ Mesin espresso manual bertekanan tuas (*lever machine*) seperti **Flair Espresso
     `,
     content_type: 'text',
     duration_minutes: 16,
-    order_index: 1,
+    order_index: 4,
     is_free: false,
     is_published: true,
     created_at: '2026-08-05T00:00:00Z',
