@@ -8,6 +8,7 @@
 'use strict';
 const fs = require('node:fs');
 const path = require('node:path');
+const { toLearnerMarkdown } = require('./foundation-v2-presentation.cjs');
 
 const root = path.resolve(__dirname, '../docs/curriculum/foundation-v2');
 const output = path.resolve(__dirname, '../lib/data/foundationV2Preview.generated.ts');
@@ -49,9 +50,7 @@ const lessons = slots.map((slot) => {
   const filename = fileById.get(id);
   if (!filename) throw new Error('Missing manuscript: ' + id);
   const markdown = fs.readFileSync(path.join(root, '03-lessons', filename), 'utf8');
-  const content = markdown.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '').trim();
-  if (content === markdown.trim()) throw new Error('Missing valid frontmatter: ' + id);
-  if (content.length < 500) throw new Error('Suspiciously short content: ' + id);
+  const content = toLearnerMarkdown(id, markdown);
   const title = slot[2].trim();
   provenance.push({
     blueprint_id: id,
