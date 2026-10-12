@@ -127,11 +127,15 @@ Buat laporan pendek. Kamu bisa memilih jalur nyata atau menggunakan data simulas
 6. Satu langkah uji berikutnya yang aman.
 7. Penjelasan apakah data berasal dari eksperimen nyata atau studi kasus fiktif.
 
-### Contoh laporan memadai (berdasarkan simulasi)
+### Contoh setelah kamu mencoba
 
+Kerjakan lembar Brew Investigation Note lebih dahulu. Contoh berikut memperlihatkan cara menulis batas kesimpulan, bukan resep yang harus ditiru.
+
+```solution
 “Pada satu kopi dan metode seduh yang sama, perubahan grind G6 menjadi G4 menjadi intervensi utama. Dosis, air masuk, dan alat tercatat sama. Data simulasi menunjukkan waktu alir lebih lama dan minuman yang dikumpulkan sedikit lebih sedikit; TDS tercatat lebih tinggi. Ini mungkin berkaitan dengan perubahan resistansi bed dan transfer zat selama brewing, tetapi kita belum tahu apakah hasil konsisten pada pengulangan. Saya akan membandingkan ulang dengan urutan sampel diacak serta catatan temperatur minum. Karena ini data fiktif, saya belum mengklaim telah mencicipi atau mengukur kopi secara langsung.”
 
 **Kenapa bagus?** Ia memakai data yang ada, tidak mengarang pengalaman, dan merancang uji lanjut.
+```
 
 ## 7. Evaluasi singkat
 
