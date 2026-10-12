@@ -8,6 +8,10 @@ export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } }
 ) {
+  if (process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW === 'review-only') {
+    return NextResponse.json({ success: false, message: 'Status pembayaran tidak tersedia pada preview.' }, { status: 503 });
+  }
+
   // 1. Sliding Window Rate Limiting (40 polls/min per client IP)
   const clientIp = getClientIp(req);
   const rateLimit = checkRateLimit(`qris_status:${clientIp}`, 40, 60000);
