@@ -12,20 +12,21 @@ test('68 lesson links are available under 12 clear, learner-facing modules',asyn
  expect(visible).not.toMatch(/DRAFT REVIEW|Beta Publik|review build|sertifikasi profesional kompetensi bar|QA internal/i);
 });
 
-test('all 68 lessons render genuine explanatory text without internal release labels or credentials',async ({page})=>{
- for(let m=1;m<=12;m++){
-  for(let i=1;i<=counts[m-1];i++){
-    const id='bv2-m'+String(m).padStart(2,'0')+'-l'+String(i).padStart(2,'0');
-    await page.goto('/barista-v2/'+id);
-    await expect(page.getByRole('heading',{level:1})).toBeVisible();
-    await expect(page.locator('main')).toContainText(/eksperimen|percobaan/i);
-    const visible=await page.locator('main').innerText();
-    expect(visible).not.toMatch(/DRAFT REVIEW|Beta Publik|review build|editorial appendix|Sertifikasi Profesional Kompetensi Bar/i);
-    expect(visible).not.toMatch(/\[ACTIVITY:|\[VISUAL:|\[DIAGRAM:/i);
-    await expect(page.locator('button').filter({hasText:/Tandai Selesai|Terbitkan Sertifikat/i})).toHaveCount(0);
-  }
- }
-});
+for(let m=1;m<=12;m++){
+ test('module '+String(m).padStart(2,'0')+' lessons render with no internal copy or credential claims',async ({page})=>{
+   for(let i=1;i<=counts[m-1];i++){
+     const id='bv2-m'+String(m).padStart(2,'0')+'-l'+String(i).padStart(2,'0');
+     const response=await page.goto('/barista-v2/'+id,{waitUntil:'domcontentloaded'});
+     expect(response?.status(),id).toBe(200);
+     await expect(page.getByRole('heading',{level:1})).toBeVisible();
+     const visible=await page.locator('main').innerText();
+     expect(visible,id).toMatch(/eksperimen|percobaan/i);
+     expect(visible,id).not.toMatch(/DRAFT REVIEW|Beta Publik|review build|editorial appendix|Sertifikasi Profesional Kompetensi Bar/i);
+     expect(visible,id).not.toMatch(/\\[ACTIVITY:|\\[VISUAL:|\\[DIAGRAM:/i);
+     await expect(page.locator('button').filter({hasText:/Tandai Selesai|Terbitkan Sertifikat/i})).toHaveCount(0);
+   }
+ });
+}
 
 test('scenario feedback is hidden before an attempt and distinguishes safety decisions',async ({page})=>{
  await page.goto('/barista-v2/bv2-m01-l01');
