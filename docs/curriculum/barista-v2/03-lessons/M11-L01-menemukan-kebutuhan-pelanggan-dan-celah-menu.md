@@ -18,6 +18,26 @@ Latihan: pilih satu menu gap, tulis tiga bukti yang sudah ada, tiga asumsi, dan 
 
 Tuliskan pertanyaan yang kamu pilih, prediksi, variabel yang dikendalikan, risiko, pengamatan yang akan dibutuhkan dan satu hasil yang akan membuatmu merevisi keputusan. Bekerja dengan bahan/alat nyata memerlukan kondisi aman, penanganan higienis, SOP dan pengawasan yang sesuai.
 
+## Mendapat ide dari masalah yang benar-benar ada
+
+Menu signature tidak harus berawal dari bahan viral. Kamu bisa menemukannya dengan memperhatikan gap pengalaman di kedai. Misalnya, banyak pelanggan meminta kopi dingin yang tetap terasa kopi tetapi tidak semanis milk coffee biasa. Itu **petunjuk untuk riset**, bukan bukti final permintaan pasar.
+
+Buat *problem brief* satu halaman:
+
+| Pertanyaan | Contoh jawaban sementara |
+|---|---|
+| Siapa pelanggan yang mungkin membutuhkan? | Pengunjung siang yang menghindari minuman terlalu manis |
+| Kapan minuman digunakan? | Takeaway di cuaca panas |
+| Peran kopi yang diinginkan? | Coffee-forward, aroma masih terbaca |
+| Batas operasional? | Alat yang ada, prep-time, stock aman |
+| Data yang belum ada? | Seberapa sering permintaan muncul, harga wajar, preferensi nyata |
+
+Dari brief ini, buat **minimal tiga arah konsep yang benar-benar berbeda**: misalnya kopi berbasis filter dengan aroma pendamping; minuman espresso yang menonjolkan tekstur lebih ringan; atau opsi sparkling coffee yang secara komposisi dan keamanan perlu pengujian berbeda. Tiga ide itu belum dianggap resep final. Jangan menetapkan nama dan garnish lebih dulu lalu memaksa bahan lain mengikuti visualnya.
+
+**Latihan eksperimen riset:** susun pertanyaan netral seperti “minuman kopi dingin mana yang paling sering kamu pilih dan apa alasannya?” Hindari pertanyaan menggiring, misalnya “kamu setuju kan kalau ini minuman terbaik?” Catat jawaban nyata hanya dengan persetujuan; jika belum melakukan wawancara, gunakan contoh fiktif sebagai latihan desain.
+
+**Informasi baru:** ternyata banyak pelanggan yang meminta tidak manis justru juga ingin ukuran kecil. Apa yang berubah pada konsep minuman, estimasi biaya dan strategi uji? Tuliskan revisi brief sebelum memilih bahan.
+
 ## Tantangan pada kondisi berbeda
 
 Kafe keluarga dan kedai specialty minimalist meminta signature 'unik'. Bagaimana perbedaan posisi brand, operasional dan pelanggan mengubah creative brief?
