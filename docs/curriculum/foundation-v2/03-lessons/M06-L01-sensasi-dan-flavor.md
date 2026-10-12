@@ -21,6 +21,13 @@ Keduanya mungkin sedang memperhatikan bagian pengalaman yang berbeda. Satu orang
 
 Modul 01 sudah memperkenalkan perbedaan antara pengamatan dan kesukaan. Sekarang kita memperdalam: **apa yang benar-benar ditangkap sistem indra saat minum kopi**, dan bagaimana membuat laporan yang lebih jelas tanpa mengklaim mengetahui kimia kopi hanya dari lidah?
 
+
+**Kamu sudah mengenal taste, aroma dan mouthfeel pada Modul 01. Sekarang kita naik tingkat:** bukan menghafal ulang definisinya, melainkan **memutuskan kategori pengalaman dari catatan baru** dan mengakui kata yang ambigu. Jadi, coba klasifikasi sebelum melihat penjelasan terperinci.
+
+[ACTIVITY:sensory-ten-cards]
+
+[VISUAL:sensory-dimensions]
+
 ## 1. Kita tidak memiliki satu “sensor rasa kopi”
 
 Ketika kopi diminum, tubuh menggabungkan beberapa informasi. Secara sederhana:
