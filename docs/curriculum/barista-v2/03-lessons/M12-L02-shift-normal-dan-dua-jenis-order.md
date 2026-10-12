@@ -18,6 +18,23 @@ Buat role-play end-to-end, isi shot/filter log memakai dataset contoh berlabel f
 
 Tuliskan pertanyaan yang kamu pilih, prediksi, variabel yang dikendalikan, risiko, pengamatan yang akan dibutuhkan dan satu hasil yang akan membuatmu merevisi keputusan. Bekerja dengan bahan/alat nyata memerlukan kondisi aman, penanganan higienis, SOP dan pengawasan yang sesuai.
 
+## Dua pelanggan, dua kriteria keberhasilan
+
+Tiket A: americano hangat tanpa gula dengan rasa kopi yang masih jelas. Tiket B: iced latte menggunakan susu alternatif karena preferensi, tetapi alasannya belum dikonfirmasi. Kamu tidak bisa memakai satu perbandingan ratio untuk menentukan seluruh aspek kedua minuman.
+
+| Aspek | Tiket A | Tiket B |
+|---|---|---|
+| Target | Kopi hitam + air | Kopi + susu + es |
+| Informasi ambigu | Makna “kopi jelas” | Jenis susu, alasan permintaan |
+| Ukuran yang dicatat | Dose/yield, massa air, suhu sajian | Espresso, susu, es, volume |
+| Keamanan | Bahan/alat layak | Label, penanganan susu, kemungkinan alergen |
+
+**Simulasi:** rancang proses persiapan, urutan dan label dua tiket dengan satu grinder dan satu staf yang membantu. Tentukan titik cek sebelum penyerahan. Lalu informasi berubah: tiket B ternyata mengandung permintaan alergi protein susu sapi. Apa yang harus diulang atau ditahan hingga alat dan proses terverifikasi?
+
+**Eksperimen layanan:** bandingkan dua gaya handoff—verbal “dua kopi siap” versus label yang menunjukkan identitas, suhu, susu, dan status khusus. Apa kemungkinan salah serah atau kehilangan informasi pada tiap cara? Uji lewat skenario kartu, bukan bahan nyata.
+
+**Refleksi:** apakah kualitas pelayanan cukup dibuktikan dari angka shot? Jelaskan peran ketepatan pesanan, komunikasi dan keselamatan pelanggan.
+
 ## Tantangan pada kondisi berbeda
 
 Rekan shift baru salah mendengar ukuran pesanan. Bagaimana mencegah remake berulang tanpa menyalahkan orang?
