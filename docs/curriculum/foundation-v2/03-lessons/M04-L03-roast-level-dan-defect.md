@@ -16,6 +16,9 @@ Kedua pilihan bisa dibuat dengan sengaja. Tetapi **tingkat sangrai bukan peringk
 
 Agar bisa membicarakan roast level dengan lebih akurat, kita harus memisahkan **warna hasil sangrai**, **riwayat roast**, **evaluasi sensorik**, dan **kesukaan pembeli**.
 
+
+[VISUAL:roast-levels]
+
 ## 1. Light, medium, dark sebenarnya menyatakan apa?
 
 Dalam percakapan, istilah itu merujuk tingkat perkembangan warna/penampilan roasting secara umum. Tetapi tidak semua produsen memakai batas yang identik.
@@ -59,6 +62,9 @@ Istilah defect seperti *scorched*, *baked* dan *underdeveloped* dipakai praktisi
 **Baked** sering dipakai untuk profil yang dinilai datar atau kurang berkembang secara sensori setelah penanganan panas tertentu. Tetapi **kurva datar atau RoR crash sendiri tidak membuktikan baked defect** tanpa pemeriksaan lain.
 
 Studi 2016–2018 menunjukkan beberapa penanda kimia/sensorik dalam pengaturan eksperimentalnya; kita mempelajarinya sebagai bukti bahwa defect dapat diteliti, bukan sebagai daftar shortcut: “RoR titik X = pasti baked”. [S03,S04]
+
+
+[ACTIVITY:roast-style-check]
 
 ## 5. Studi kasus—kopi yang sama, tiga pendekatan
 
