@@ -12,133 +12,127 @@ passing_rule: "PROVISIONAL, minimum 7/8 correctly answered; product mastery thre
 
 ## Intent and scoring integrity
 
-Eight items measure observable skill from M01 rather than knowledge of geography, brands, altitude, fixed tasting notes or coffee chemistry. Item sequence: **2 retrieval, 3 application, 2 evidence-interpretation, 1 claim critique**. Distractors are designed to reveal predictable novice misconceptions.
+Eight items measure observable skill from M01 rather than knowledge of geography, brands, altitude, fixed tasting notes or coffee chemistry. Item sequence: **2 retrieval, 3 application, 2 evidence-interpretation, 1 claim critique**. Distractors are designed to expose plausible beginner misconceptions; option-length cue review added 2026-10-12.
 
 **Product proposal:** 7/8 correct corresponds to ≥80% of 8 questions (6/8 = 75%; 7/8 = 87.5%). This is a provisional mastery threshold awaiting novice pilot; it is **not a SCA threshold**. Retakes should rotate equivalent variants and give substantive feedback; simply memorizing the repeated sequence must not be the route to mastery.
 
 **Important validity boundary:** MCQ success shows comprehension of basic concepts and reasoning. It does **not** demonstrate trained sensory acuity, calibration, competence using CVA forms, actual cupping, professional qualification, or food handling safety.
 
-## Eight module-exit items
+## Eight module-exit items — revised for answer-cue resistance
+
+**Revision 2026-10-12:** The original eight items had the correct option as the longest in **8/8** questions. Correct options are now more concise; distractors represent plausible novice misinterpretations rather than deliberately ridiculous claims. **Rationales carry the nuance**, not a uniquely long correct answer. This is an internal editorial revision and still requires a genuine learner pilot.
 
 ### M01-Q01 — Retrieval | Taste versus aroma
-**Scenario:** Seorang siswa menulis, “Bunga melati adalah salah satu rasa dasar yang dideteksi langsung oleh lidah.”
 
-Apa koreksi paling tepat?
+**Kasus:** Seorang siswa menulis, “Aku merasakan melati, berarti melati adalah salah satu rasa dasar pada lidah.”
 
-A. Melati termasuk mouthfeel karena terasa dalam mulut.  
-B. Kesan melati terutama merupakan asosiasi aroma; rasa dasar dan aroma perlu dibedakan.  
-C. Melati selalu berarti ada bunga yang dicampurkan ke dalam kopi.  
-D. Lidah hanya bisa menangkap rasa pahit, sedangkan asam selalu berasal dari aroma.
+Manakah koreksi yang paling tepat?
 
-**Kunci: B.** Aroma bunga umumnya merupakan deskripsi penciuman dalam keseluruhan flavor.  
-**Mengapa opsi lain salah:** A mencampur aroma dengan sensasi fisik; C menganggap deskriptor sebagai daftar bahan; D keliru tentang taste.  
-**Remediation:** M01.L01 bagian 1–2.  
-**CLO:** 1; **risk tag:** sensory-category-confusion.
+A. Melati adalah rasa dasar; penciuman hanya memperkuatnya.  
+B. Melati terutama asosiasi aroma, bukan rasa dasar lidah.  
+C. Melati adalah bentuk rasa manis hasil ekstraksi gula.  
+D. Melati adalah sensasi mulut, tanpa peran penciuman.
+
+**Kunci: B.** Deskriptor floral biasanya mengacu pada aroma melalui sistem penciuman (orthonasal atau retronasal), sementara rasa dasar adalah kelompok pengecapan yang berbeda. **Mengapa opsi lain salah:** A menyamakan pengalaman aroma dengan taste; C menyimpulkan rasa dan kimia tanpa bukti; D mencampur aroma dengan mouthfeel.  
+**Remediation:** M01.L01 §1–2. **CLO:** 1. **Risk tag:** sensory-category-confusion.
 
 ### M01-Q02 — Retrieval | Descriptive vs affective
-**Scenario:** Penilai 1 dan 2 sama-sama menyebut kopi A beraroma panggang, namun hanya penilai 1 yang menyukainya.
 
-Pernyataan yang paling tepat adalah ...
+**Kasus:** Dua orang sepakat kopi A beraroma panggang. Orang pertama suka, orang kedua tidak suka.
 
-A. Penilai 2 pasti kurang terlatih.  
-B. Deskripsi kedua panelis pasti tidak valid karena kesukaan berbeda.  
-C. Kopi itu mempunyai kualitas buruk secara objektif.  
-D. Deskripsi sensori bisa sejalan, sementara preferensi keduanya berbeda.
+Pernyataan mana yang sesuai dengan data?
 
-**Kunci: D.** Descriptive statements and preferences are separable, though individual intensity judgments may still vary.  
-**Mengapa opsi lain salah:** A dan C tidak berdasarkan bukti, B menyamakan kesukaan dan deskripsi.  
-**Remediation:** M01.L01 bagian 4.  
-**CLO:** 1; **risk tag:** preference-as-fact.
+A. Kesamaan aroma berarti kedua pencicip harus menyukainya.  
+B. Perbedaan kesukaan membuktikan penilaian aroma salah.  
+C. Satu penilaian suka cukup untuk menetapkan mutu semua kopi.  
+D. Atribut yang dicatat sama; preferensinya tetap bisa berbeda.
+
+**Kunci: D.** Deskripsi atribut dan kesukaan adalah dua macam informasi yang tidak identik. Intensitas yang dinilai tiap orang mungkin tetap berbeda meskipun kategori deskriptornya sama. **Mengapa lainnya salah:** A/B menyamakan deskripsi dan kesukaan; C menggeneralisasi satu penilai.  
+**Remediation:** M01.L01 §4. **CLO:** 1. **Risk tag:** preference-as-fact.
 
 ### M01-Q03 — Application | Descriptor is not ingredient
-**Scenario:** Kemasan kopi hitam tanpa bahan tambahan memuat tasting notes “orange, chocolate”. Seorang pembeli bertanya apakah berarti ada cokelat dan jeruk yang dicampurkan.
 
-Apa respons edukatif terbaik?
+**Kasus:** Kopi hitam berlabel tasting notes “orange, chocolate” tetapi daftar bahannya hanya kopi. Pembeli bertanya apakah jeruk dan cokelat benar-benar ditambahkan.
 
-A. “Belum tentu. Itu biasanya deskripsi kemiripan sensori, bukan daftar bahan. Periksa komposisi bila ingin memastikan bahan.”  
-B. “Ya, semua tasting notes berarti bahan tersebut ada.”  
-C. “Tasting notes pasti salah dan tidak pernah berguna.”  
-D. “Jika ada rasa cokelat berarti biji ini dipanggang pada suhu tepat 210°C.”
+Jawaban yang paling tepat adalah ...
 
-**Kunci: A.** Deskriptor memberi bahasa kesan sensorik; ingredient composition is a separate factual question.  
-**Mengapa opsi lain salah:** B salah generalisasi; C menolak fungsi sensori; D menarik suhu roasting dari flavor.  
-**Remediation:** M01.L01 bagian 3–5.  
-**CLO:** 1,7; **risk tag:** descriptor-to-composition.
+A. Itu asosiasi sensori; bila ragu, cek daftar bahannya.  
+B. Tasting notes biasanya menunjukkan bahan campuran tersembunyi.  
+C. Tanpa uji laboratorium, semua deskriptor harus dianggap palsu.  
+D. Istilah orange dan chocolate sebenarnya kategori varietas biji.
+
+**Kunci: A.** Deskriptor adalah kemiripan pengalaman rasa/aroma. Komposisi bahan harus diperiksa melalui informasi produk dan, bila ada alasan, bukti tambahan. **Mengapa lainnya salah:** B mencampur dua macam klaim, C menolak catatan inderawi secara mutlak, D salah kategori.  
+**Remediation:** M01.L01 §3–5. **CLO:** 1,7. **Risk tag:** descriptor-to-composition.
 
 ### M01-Q04 — Application | Temperature confound
-**Scenario:** Kopi dari **satu teko yang sama** dituangkan ke dua cangkir. Cangkir A langsung dicicipi ketika hangat, B dicicipi setelah cukup lama mendingin. Rasa keduanya dinilai berbeda.
 
-Langkah paling tepat untuk pemeriksaan pertama adalah ...
+**Kasus:** Dua cangkir diisi dari satu teko yang sama. A dicicipi hangat, B setelah lama mendingin. Catatan sensori berbeda.
 
-A. Menyimpulkan bahwa kopi B diproses natural.  
-B. Mengubah sekaligus jenis biji, grinder, dan gelas sebelum mengulang.  
-C. Membandingkan ulang dalam kondisi suhu minum yang sebanding, dengan tetap mencatat perbedaan waktu atau penyajian.  
-D. Menyimpulkan bahwa kopi A berasal dari elevasi lebih tinggi.
+Perbandingan ulang apa yang paling berguna?
 
-**Kunci: C.** Temperatur minum bisa mengubah persepsi; better compare under matched conditions.  
-**Mengapa opsi lain salah:** A/D mustahil disimpulkan dari teko sama; B menambah confounding factors.  
-**Remediation:** M01.L02 bagian 3.  
-**CLO:** 1,8; **risk tag:** confound-temperature.
+A. Catat suhu saja; dua catatan tadi sudah membuktikan asal berbeda.  
+B. Pakai grinder lain agar perubahan rasa lebih mudah dikenali.  
+C. Samakan suhu minum dan catat kondisi saat mengulang.  
+D. Naikkan suhu sampel A, biarkan B tetap dingin, lalu bandingkan.
+
+**Kunci: C.** Bila pertanyaan adalah apakah dua cangkir dari sumber sama benar-benar memiliki profil berbeda, mulailah dengan penyajian lebih sebanding. **Mengapa lainnya salah:** A menyimpulkan origin dari sampel satu teko; B/D menambah perbedaan yang mengganggu pembandingan.  
+**Remediation:** M01.L02 §3. **CLO:** 1,8. **Risk tag:** confound-temperature.
 
 ### M01-Q05 — Application | No-equipment route
-**Scenario:** Peserta belum mempunyai biji dan alat seduh. Ia menyelesaikan analisis catatan dua pencicip **fiktif**.
 
-Apa bukti kemampuan yang boleh diklaim?
+**Kasus:** Peserta tidak memiliki kopi ataupun alat seduh. Ia hanya membaca dan menganalisis dua catatan panelis fiktif.
 
-A. Ia telah menjalani ujian cupping profesional.  
-B. Ia mampu memilah informasi dalam catatan dan menguji kualitas kesimpulan dari data tertulis.  
-C. Ia mampu mengidentifikasi aroma kopi asli melalui layar.  
-D. Ia sudah memenuhi standar sertifikasi Q Grader.
+Kemampuan apa yang ditunjukkan tugas ini?
 
-**Kunci: B.** A written case assesses reasoning from descriptions, not sensory acuity.  
-**Mengapa opsi lain salah:** A/C/D misrepresent assessed competence.  
-**Remediation:** M01.L03 bagian 1 dan 5.  
-**CLO:** 1,8; **risk tag:** simulation-certification-boundary.
+A. Pengenalan aroma nyata tanpa mencium minuman secara langsung.  
+B. Analisis bukti dan kesimpulan dari catatan yang tersedia.  
+C. Kalibrasi indera dengan acuan sensorik yang telah diuji panel.  
+D. Cupping terstandar yang memenuhi kompetensi operator profesional.
+
+**Kunci: B.** Analisis naskah dapat menguji interpretasi tertulis; tidak mengukur sensori fisik. **Mengapa lainnya salah:** A/C membutuhkan pengujian indra dan referensi yang tidak diberikan; D salah menyatakan ruang lingkup asesmen.  
+**Remediation:** M01.L03 §1,5. **CLO:** 1,8. **Risk tag:** simulation-certification-boundary.
 
 ### M01-Q06 — Evidence interpretation | Controlled comparison
-**Scenario — DATA SIMULASI:** Dua seduhan berasal dari lot dan roast batch yang sama, menggunakan air dan dosis sama. Gilingan sengaja diubah dari setelan lebih kasar ke lebih halus pada grinder yang sama. Waktu seduh ikut berubah. Panelis mendeskripsikan seduhan kedua lebih pahit.
 
-Pernyataan mana paling dapat dipertanggungjawabkan?
+**DATA SIMULASI:** Kopi, dosis, air dan metode sama. Pengaturan grind sengaja dibuat lebih halus; waktu alir ikut berubah dan seduhan kedua dinilai lebih pahit. Hanya ada satu pengulangan untuk tiap setelan.
 
-A. Perbedaan gilingan dapat berkaitan dengan perubahan hasil melalui aliran/ekstraksi, tetapi data tunggal ini perlu diulang dan tidak membuktikan aturan untuk semua kopi.  
-B. Seluruh perbedaan sudah pasti hanya berasal dari rasa air.  
-C. Kedua kopi pasti ditanam pada ketinggian berbeda.  
-D. Angka setelan grinder berlaku identik pada semua merk grinder.
+Kesimpulan mana yang bisa diuji lebih lanjut?
 
-**Kunci: A.** It describes a defensible hypothesis with limitations and replication needs.  
-**Mengapa opsi lain salah:** B/C tidak relevan dengan data; D disregards equipment variation.  
-**Remediation:** M01.L02 bagian 5–6.  
-**CLO:** 4,8 (beginner preview); **risk tag:** causal-overreach.
+A. Grind mungkin memengaruhi hasil lewat aliran; ulangi uji.  
+B. Perubahan waktu alir pasti merupakan intervensi kedua terpisah.  
+C. Grind terbukti satu-satunya penyebab rasa, tanpa perlu uji ulang.  
+D. Catatan rasa pahit langsung membuktikan ekstraksi terlalu tinggi.
+
+**Kunci: A.** Mengubah grind dapat berpengaruh pada aliran dan hasil, tetapi satu data dengan perubahan parameter yang saling terkait belum menetapkan sebab tunggal atau hukum universal. **Mengapa lainnya salah:** B keliru membedakan intervensi dengan konsekuensi; C overclaim; D menegakkan diagnosis dari satu deskriptor.  
+**Remediation:** M01.L02 §5–6. **CLO:** 4,8. **Risk tag:** causal-overreach.
 
 ### M01-Q07 — Evidence interpretation | Do not invent specificity
-**Scenario — DATA SIMULASI:** Panelis A menyebut aroma cangkir X “jeruk”; panelis B hanya menulis “buah segar, belum yakin jenisnya”.
 
-Apa rangkuman yang paling sesuai dengan kedua catatan?
+**DATA SIMULASI:** N menulis “jeruk” untuk aroma kopi X; R menulis “buah segar, belum yakin jenisnya”.
 
-A. Dua panelis memastikan aroma jeruk.  
-B. Keduanya pasti mencium senyawa aroma yang sama.  
-C. Keduanya mencatat kesan keluarga aroma buah, tetapi tingkat spesifisitasnya berbeda.  
-D. Panelis B salah karena tidak memakai kata jeruk.
+Pernyataan yang merangkum keduanya adalah ...
 
-**Kunci: C.** Shared broad sensory family does not entail identical specificity.  
-**Mengapa opsi lain salah:** A menambahkan kepastian; B menebak komposisi/identitas tanpa data; D menghukum ketidakpastian yang jujur.  
-**Remediation:** M01.L03 bagian 5.  
-**CLO:** 1,8; **risk tag:** unsupported-specificity.
+A. Aroma jeruk telah dikonfirmasi independen oleh dua pencicip.  
+B. R tidak mampu menilai kopi karena menghindari nama buah tertentu.  
+C. Sama-sama mencatat kesan buah; spesifisitasnya berbeda.  
+D. N pasti lebih tepat sebab deskripsinya lebih spesifik daripada R.
+
+**Kunci: C.** N menyebut deskriptor spesifik, R hanya keluarga buah. Keduanya sejalan pada keluarga atribut tanpa membuktikan identitas yang lebih sempit. **Mengapa lainnya salah:** A/D menambah kepastian, B menghukum ketidakpastian yang wajar.  
+**Remediation:** M01.L03 §5. **CLO:** 1,8. **Risk tag:** unsupported-specificity.
 
 ### M01-Q08 — Claim critique | Altitude stereotype
-**Scenario:** Sebuah poster promosi mengatakan, “Kopi ini terasa asam; berarti pasti ditanam minimal 1.500 mdpl, dan itulah satu-satunya penyebab rasa.”
 
-Apa kritik paling kuat?
+**Kasus:** Poster menulis “kopi ini berasa asam, jadi **pasti** ditanam minimal 1.500 mdpl dan elevasi satu-satunya penyebab rasanya.”
 
-A. Semua kopi dengan keasaman tinggi pasti bermasalah.  
-B. Ketinggian sama sekali tidak relevan dengan pertumbuhan kopi.  
-C. Poster hanya salah karena angkanya harus lebih tinggi lagi.  
-D. Dari pengalaman rasa saja kita tidak dapat memastikan ketinggian atau penyebab tunggal; perlu data kebun, processing, roasting, dan penyeduhan.
+Revisi mana paling dapat dipertanggungjawabkan?
 
-**Kunci: D.** It identifies inferential overreach without treating agronomy as irrelevant.  
-**Mengapa opsi lain salah:** A is a value claim; B denies an actual relevant factor; C makes the same false-certain move.  
-**Remediation:** M01.L02 bagian 2–3.  
-**CLO:** 3,7,8 (preview); **risk tag:** altitude-determinism.
+A. Ganti 1.500 mdpl menjadi 1.800 mdpl agar klaim lebih kuat.  
+B. Hapus elevasi, karena kondisi lahan tidak mungkin memengaruhi kopi.  
+C. Gunakan aroma buah sebagai pengganti catatan ketinggian kebun.  
+D. Verifikasi elevasi; jangan tentukan penyebab rasa dari satu kesan.
+
+**Kunci: D.** Informasi lokasi harus didokumentasi dan pembentukan sensori bersifat multivariat (genetik, lingkungan, agronomi, processing, roast, brewing). **Mengapa lainnya salah:** A mengulang presisi palsu; B menyangkal faktor relevan; C mencampur sensory dengan data lokasi.  
+**Remediation:** M01.L02 §2–3. **CLO:** 3,7,8. **Risk tag:** altitude-determinism.
 
 ## Key and distribution check
 
