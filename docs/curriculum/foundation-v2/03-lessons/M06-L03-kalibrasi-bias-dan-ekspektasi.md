@@ -17,6 +17,11 @@ Sebelum meminumnya, ia sudah membayangkan aroma tropis. Ketika mencicipi, ia mer
 
 Apa itu berarti deskripsinya salah? **Belum tentu.** Tetapi informasi yang ia baca bisa ikut membentuk ekspektasi. Jika kita ingin mengevaluasi kopi secara lebih sistematis, kita perlu mengetahui pengaruh konteks seperti label, harga, urutan sampel dan pengalaman sebelumnya.
 
+
+Sebelum melihat hasil penelitian, selesaikan skenario sederhana. **Tidak ada satu pun rasa kopi yang berubah secara fisik pada cerita ini; yang berbeda hanya informasi yang dibaca pencicip.**
+
+[ACTIVITY:sensory-label-bias]
+
 ## 1. Apa yang ditemukan penelitian 2026?
 
 Pada studi **Carvalho dan kolega yang diterbitkan 9 April 2026**, **180 konsumen amatir yang telah membeli dan meminum specialty coffee setidaknya setahun**, direkrut melalui profil media sosial kedai di **São Paulo, Brasil**, mengikuti uji dengan kopi yang sama dan tiga kondisi label: tanpa keterangan processing, “fermentation”, dan “carbonic maceration”. Kopinya berasal dari **satu mikrolot Arabika MG Paraíso 2 dari Brasil** yang telah menjalani fermentasi anaerob dengan kultur ragi. Dalam desain *within-subject* ini, peserta mengevaluasi ekspektasi dan respons setelah mencicipi. [BIAS-01]
