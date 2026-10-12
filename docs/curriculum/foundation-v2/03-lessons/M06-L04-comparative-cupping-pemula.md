@@ -68,23 +68,9 @@ Ini **panduan perbandingan rumah tangga**, bukan reproduksi angka rasio, durasi 
 **Mengapa tidak memberi angka “8,25 g per 150 ml wajib”?** Karena mengutip angka protokol lama tanpa memverifikasi versi terbaru dan metode yang sedang digunakan dapat menghasilkan klaim kepatuhan yang salah. Foundation memprioritaskan prinsip dan batas kemampuan.
 
 
-[ACTIVITY:cupping-comparison-note]
+## 4. Siapkan catatan perbandingan
 
-## 4. Form sederhana yang tidak meniru formulir resmi
-
-Format berikut **ditulis orisinal untuk CherryEdu**, bukan formulir SCA/CVA.
-
-| Pertanyaan | Sampel A | Sampel B |
-|---|---|---|
-| Aroma sebelum minum | ... | ... |
-| Taste/flavor dominan | ... | ... |
-| Mouthfeel/tekstur | ... | ... |
-| Aftertaste | ... | ... |
-| Hal yang kusukai/tidak kusukai | ... | ... |
-| Satu hal yang belum kuyakini | ... | ... |
-| Faktor yang belum setara/terkontrol | ... | ... |
-
-Tidak perlu menebak varietas, proses dan harga. Jika kamu baru mampu berkata “lebih pahit, aroma lebih panggang dan aku lebih suka B”, itu sudah menjadi catatan berguna.
+Untuk membandingkan dua kopi, perhatikan aroma, taste, tekstur dan preferensi secara terpisah. Tidak perlu memberi skor presisi atau meniru lembar resmi SCA. Kamu dapat menggunakan **dua kopi nyata dengan penyajian yang cukup sebanding**, atau membaca data simulasi di bawah. Catatan tentang variabel yang belum setara juga penting.
 
 ### Jejak P-17 — kesepakatan atribut tidak sama dengan kesepakatan selera
 
@@ -104,8 +90,15 @@ Pada dossier P-17, dua panelis simulasi mencatat kesan aroma buah, tetapi satu l
 | B — tekstur | Sedikit lebih tebal | Agak tebal |
 | Preferensi | Memilih A | Memilih B |
 
-### Apa hasil yang boleh disimpulkan?
+### Sekarang giliranmu membandingkan
 
+Gunakan pengalaman nyata atau **catatan simulasi di atas**. Tulis dulu apa yang benar-benar didukung data, dan bedakan kesukaan dari deskripsi. Pembahasan baru terbuka setelah mengisi lembar kerja.
+
+[ACTIVITY:cupping-comparison-note]
+
+### Bandingkan alasanmu dengan contoh pembahasan
+
+```solution
 **Kesepakatan luas:** Keduanya menandai A sebagai kopi yang berkesan buah dan lebih asam, sementara B cenderung panggang/pahit dan terasa agak lebih berat.
 
 **Perbedaan preferensi:** N memilih A dan R memilih B. Dua preferensi bisa berbeda meskipun penilaian atributnya sejalan secara umum.
@@ -115,6 +108,7 @@ Pada dossier P-17, dua panelis simulasi mencatat kesan aroma buah, tetapi satu l
 ### Apa perbaikan berikutnya?
 
 Periksa pencatatan suhu, penyiapan, pemberian kode, urutan, konsistensi evaluasi antarpercobaan, dan konteks tujuan pembelian. Jika ada kesan “tidak biasa”, jangan otomatis menyatakan *defect*: penilaian perlu kriteria dan konfirmasi yang sesuai.
+```
 
 ## 6. Bagaimana kalau panelis tidak sepakat?
 
