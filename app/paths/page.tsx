@@ -78,7 +78,7 @@ export default function PathsPage() {
       {/* Grid of Paths */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
         {filteredPaths.map((path, idx) => {
-          const isPublicReading = path.slug === 'foundation-v2-preview';
+          const isPublicReading = path.slug === 'memahami-kopi-dari-hulu-ke-hilir';
           const isFoundation = path.layer_type === 'foundation' && !isPublicReading;
           const enrollment = enrollments.find(
             (e) => e.user_id === currentUser.id && e.learning_path_id === path.id
