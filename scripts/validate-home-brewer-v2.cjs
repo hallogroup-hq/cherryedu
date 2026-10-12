@@ -24,6 +24,7 @@ function extractTS(pathname,regex){const s=fs.readFileSync(path.join(root,pathna
 const cases=extractTS('lib/data/homeBrewerV2Cases.ts',/export const HOME_BREWER_V2_CASES:HomeBrewerCase\[\]=(\[[\s\S]*?\]);/);
 const questions=extractTS('lib/data/homeBrewerV2Diagnostics.ts',/export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic\[\]=(\[[\s\S]*?\]);/);
 if(cases.length!==30)fail.push('Expected 30 changing-evidence cases, got '+cases.length);
+if(new Set(cases.map(c=>c.initialPrompt)).size!==cases.length)fail.push('Case initial prompts must be independently authored, not generic repeats');
 if(questions.length!==20)fail.push('Expected 20 diagnostics, got '+questions.length);
 const ids=new Set(),qid=new Set(),position=[0,0,0,0];
 let correctLongest=0;
