@@ -76,6 +76,9 @@
 24. [06 — Module 07 research/economic/claims QA](./06-qa/M07-content-qa.md): official sources, numerical audit, safeguards and blocked external validation.
 25. [06 — FULL Foundation cross-module preliminary QA](./06-qa/FULL-COURSE-CROSS-MODULE-AUDIT.md): seven-module continuity, eight legacy P0 claim checks, ID consistency fix, release blockers, source and progress migration gates.
 
+26. **Targeted scientific fact-check / red-team, Batch 01:** [Scientific Fact-Check Batch 01](./06-qa/SCIENTIFIC-FACT-CHECK-BATCH-01.md) — ten source checks across six modules; four substantive manuscript revisions (M03 OTA/Codex, M05 water, M06 label bias, M07 EUDR).
+27. **Assessment validity red-team, Batch 01:** [Assessment Red-Team Batch 01](./06-qa/ASSESSMENT-RED-TEAM-BATCH-01.md) — **critical leak:** 72/76 correct options originally longest; M01 and M02 16 items rewritten; **M03–M07 remain release-blocked** pending item redesign and learner pilot.
+
 ## Workflow and safeguards
 
 - These are **internal drafting files**, not live course material and not validated credentials.
@@ -94,8 +97,8 @@
 | 01 — Source audit | Complete as desk audit | External scientific validation not claimed |
 | 02 — Curriculum architecture | **36 specified lesson slots**, seven modules, history protected | Expert/learner review still open |
 | 03 — Lesson authoring | **COMPLETE DRAFT: M01 3/3 + M02 5/5 + M03 7/7 + M04 5/5 + M05 6/6 + M06 5/5 + M07 5/5** | Scientific review and learner pilots still required |
-| 04 — Assessment writing | **DRAFT COMPLETE: 76 explained items** (8+8+10+10+12+12+16) + seven module transfer rubrics and integrative capstone | Item calibration, unseen variants and platform integration |
-| 05 — Scientific/learning QA | **Seven module desk QA files + preliminary whole-course audit**; high-risk claims mapped and editorial defects repaired | **BLOCKED: external SMEs, learner testing, rights and release review** |
+| 04 — Assessment writing | **76 items authored, NOT validated**. M01/M02 16 questions revised after answer-cue defect; **M03–M07 fail editorial anti-guessing gate** | Rewrite remaining 60 questions; holdout variants, item/SME pilot and platform integration |
+| 05 — Scientific/learning QA | Seven module QA files + cross-module audit + targeted scientific/source and assessment red-team reports. Four source-scope manuscript corrections documented | **BLOCKED: 60/76 current longest-answer cue rate; expert and learner testing, IP, rights and release review** |
 | 06 — Implementation | Not started | Legacy ID/progress migration plan + CI/preview approvals |
 
 ## Current work snapshot
@@ -103,7 +106,7 @@
 - Foundation architecture is **7 modules / 36 slots**; coffee history is a protected mandatory core lesson.
 - **36 full lesson drafts** currently authored: M01 (3), M02 (5), M03 (7), M04 (5), M05 (6), M06 (5), M07 (5).
 - **76 module-exit MCQs** authored (M01 8, M02 8, M03 10, M04 10, M05 12, M06 12, M07 16), plus applied reasoning rubrics.
-- **7 module-level internal QA files + 1 cross-module preliminary audit** present; none substitutes for botanical/agronomic/sensory/historical/food-safety/economic review.
+- **7 module-level internal QA files + 1 cross-module preliminary audit + 2 targeted red-team reports** present; none substitutes for botanical/agronomic/sensory/historical/food-safety/economic review. **The bank of 76 draft MCQs is NOT release-ready: 60/76 correct choices are still the longest after M01–M02 revisions.**
 - All production, migrations, certificates and actual learning assessment integrations are untouched.
 
 ## Module 01 snapshot
