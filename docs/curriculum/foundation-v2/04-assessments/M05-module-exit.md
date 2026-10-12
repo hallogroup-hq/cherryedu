@@ -56,7 +56,7 @@ Meter EC/TDS air menunjukkan “130 ppm”. Refraktometer minuman menunjukkan �
 
 A. Angkanya setara karena konversi ppm dan persen selalu sama.
 B. Kedua angka membandingkan kekerasan air setelah diseduh.
-C. Sampel dan alatnya berbeda; 130 ppm air bukan 1,30% kopi jadi.
+C. Meter mengukur air; refraktometer mengukur kopi jadi.
 D. Keduanya mengukur mineral saja, bukan senyawa hasil kopi.
 
 **Kunci C.** Air dan minuman berbeda, demikian pula cara ukur/konversinya. **Remediasi:** L01/L03/L05. **Tag:** coffee-tds-vs-water-tds.
@@ -64,7 +64,7 @@ D. Keduanya mengukur mineral saja, bukan senyawa hasil kopi.
 ### M05-Q05 — Membaca laporan air
 **Data fiktif:** Air A pH 7,1 dan alkalinity 35 mg/L as CaCO₃; Air B pH 7,2 dan alkalinity 100 mg/L as CaCO₃. Apa kesimpulan yang paling sah?
 
-A. pH yang mirip tidak membuktikan alkalinitas kedua air juga sama.
+A. pH mirip belum menunjukkan kesamaan daya buffer air.
 B. Nilai pH mirip berarti total hardness juga harus mirip.
 C. Air dengan pH lebih tinggi pasti selalu lebih aman bagi mesin.
 D. Alkalinitas bisa diketahui langsung dari angka pH saja.
@@ -122,7 +122,7 @@ Brosur menulis, “18–22% EY adalah satu-satunya zona rasa enak untuk semua pe
 
 Mana kritik terkuat?
 
-A. Chart lama membantu orientasi, tetapi bukan patokan kesukaan universal.
+A. Chart lama berguna, tetapi batasnya bukan preferensi rasa universal.
 B. Rentang historis 18–22% berlaku wajib untuk semua metode seduh.
 C. Chart baru membuktikan preferensi seluruh konsumen selalu identik.
 D. Zona ideal ditentukan hanya oleh dosis air, bukan persepsi rasa.
