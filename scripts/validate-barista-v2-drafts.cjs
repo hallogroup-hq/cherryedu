@@ -54,6 +54,39 @@ if(!generator.includes('files.length !== 68'))fail('Generator must enforce 68-le
 const route=fs.readFileSync(path.resolve(__dirname, '../app/barista-v2/[lessonId]/page.tsx'),'utf8');
 if(!route.includes("CHERRYEDU_BARISTA_V2_REVIEW !== 'enabled'"))fail('Barista preview must remain gated server-side');
 if(/setUserProgress|completeLesson|issueCertificate|syncTransaction/.test(route))fail('Isolated Barista reader must not grant legacy credit, payments or credentials');
+const caseFile=fs.readFileSync(path.resolve(__dirname, '../lib/data/baristaV2CaseBank.ts'),'utf8');
+const caseArray=caseFile.match(/export const BARISTA_V2_TRANSFER_CASES:BaristaTransferCase\[\]=(\[[\s\S]*?\]);/);
+if(!caseArray)fail('Case bank could not be parsed for static audit');
+else {
+  const practiceCases=JSON.parse(caseArray[1]);
+  if(practiceCases.length!==36)fail('Expected 36 novel transfer cases, got '+practiceCases.length);
+  const ids=new Set();
+  for(const q of practiceCases){
+    if(ids.has(q.id))fail('Duplicate case id: '+q.id);
+    ids.add(q.id);
+    for(const field of ['title','brief','initialPrompt','newEvidence','revisionPrompt','exampleReasoning']){
+      if(!q[field]||q[field].length<15)fail('Empty/too short '+field+' in case '+q.id);
+    }
+    if(/DRAFT REVIEW|Beta Publik|Sertifikasi Profesional Kompetensi Bar/i.test(JSON.stringify(q)))
+      fail('Student-facing release jargon in case '+q.id);
+  }
+  for(const moduleId of Object.keys(expectedModuleCounts)){
+    const n=practiceCases.filter(c=>c.module===moduleId).length;
+    if(n!==3)fail(moduleId+' needs 3 unique novel cases; found '+n);
+  }
+}
+const practiceRoute=fs.readFileSync(path.resolve(__dirname,'../app/barista-v2/practice/[moduleId]/page.tsx'),'utf8');
+if(!practiceRoute.includes("CHERRYEDU_BARISTA_V2_REVIEW!=='enabled'"))
+  fail('Transfer case route must be gated when no review env');
+const practiceUI=fs.readFileSync(path.resolve(__dirname,'../components/barista-v2/BaristaTransferCases.tsx'),'utf8');
+for(const required of ['note.initial.trim().length','note.revision.trim().length','newEvidence','exampleReasoning','tidak disimpan otomatis']){
+  if(!practiceUI.includes(required))fail('Transfer case UI missing '+required);
+}
+const visual=fs.readFileSync(path.resolve(__dirname, '../components/barista-v2/LearningMechanismVisual.tsx'),'utf8');
+const diagrams=[...visual.matchAll(/'bv2-m\d\d-l\d\d':'[^']+'/g)];
+if(diagrams.length<7)fail('Expected at least seven original concept teaching diagrams');
+if(!visual.includes('aria-label={alt}')||!visual.includes('<figcaption'))fail('Teaching diagrams need accessible labels and explanation');
+
 const notebook=fs.readFileSync(path.resolve(__dirname,'../components/barista-v2/ExperimentNotebook.tsx'),'utf8');
 for(const required of ['hypothesis','prediction','independent','controls','observations','interpretation','next','setRevealed','simulasi','tidak tersimpan otomatis']){
   if(!notebook.includes(required))fail('ExperimentNotebook missing '+required);
@@ -70,7 +103,7 @@ const summary={
     'Shorter draft lessons still need instructor-led depth expansion and novice test',
     'Interactive lab route needs full browser/mobile/accessibility QA and 68-lesson pedagogical review',
     'Expert review, novice test and practical supervision not complete',
-    'Theory question bank and assessment not produced for V2',
+    '36 open-response formative transfer cases exist, but valid scored theory exam and practical assessments still require psychometric/SME review',
     'No production credential approval or data migration'
   ],warnings,issues
 };
