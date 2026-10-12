@@ -117,3 +117,15 @@ Unlike M03–M06, no added lesson is currently justified: sustainability and cla
 - [ ] Professional source/standards recheck at actual publication.
 
 **Handoff:** Module 07 closeout allows Stage 03 manuscript completeness. Proceed to full cross-module (Stage 04/05) audit, science issue log, learner pilot and production migration plan only after documented review gates.
+
+## VIII. Dated legal-scope correction — 12 October 2026
+
+The original EUDR summary distinguished large/medium and micro/small actors but **omitted a separate 2027 timeline for newly listed products**. The official Commission Green Forum, July 2026 Commission announcement, and **Commission Delegated Regulation (EU) 2026/2102** (published 17 September 2026) distinguish:
+
+- Large/medium operators for pre-existing in-scope coffee product codes: **30 December 2026**.
+- Most micro/small operators for pre-existing in-scope products: **30 June 2027**, subject to EUTR exception.
+- Newly added CN **2101 11 00** coffee extracts, essences and concentrates (e.g., soluble coffee within the code): **30 December 2027**.
+
+[M07.L04](../03-lessons/M07-L04-traceability-sustainability-klaim.md) now teaches **product-code × operator-size × legal-role × date**, not a universal coffee export deadline. Official references: [Commission overview](https://environment.ec.europa.eu/topics/forests/deforestation/regulation-deforestation-free-products_en), [Green Forum role guidance](https://green-forum.ec.europa.eu/nature-and-biodiversity/deforestation-regulation-implementation/roles-and-responsibilities_en), [EU 2026/2102](https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX%3A32026R2102).
+
+**Release caveat:** no legal applicability determination or compliance sign-off; regulatory text and customs classification must be rechecked at actual publication/transaction. See [Scientific Fact-Check Batch 01](./SCIENTIFIC-FACT-CHECK-BATCH-01.md).
