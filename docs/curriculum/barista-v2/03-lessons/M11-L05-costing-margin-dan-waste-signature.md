@@ -18,6 +18,25 @@ Buat unit-safe ingredient costing sheet untuk V0–V2. Eksperimen sensitivitas s
 
 Tuliskan pertanyaan yang kamu pilih, prediksi, variabel yang dikendalikan, risiko, pengamatan yang akan dibutuhkan dan satu hasil yang akan membuatmu merevisi keputusan. Bekerja dengan bahan/alat nyata memerlukan kondisi aman, penanganan higienis, SOP dan pengawasan yang sesuai.
 
+## Costing versi yang benar-benar layak dijual
+
+Barista bisa membuat minuman yang enak tetapi tidak memahami apakah margin cukup. Untuk mengujinya, hitung dulu *komponen yang diketahui*, bukan langsung mengumumkan laba.
+
+| Komponen fiktif | Takaran | Harga input | Biaya per gelas |
+|---|---:|---:|---:|
+| Espresso (kopi kering) | 18 g | Rp240.000/kg | Rp4.320 |
+| Susu | 120 mL | Rp24.000/L | Rp2.880 |
+| Sirup | 12 g | Rp75.000/kg | Rp900 |
+| Garnish | 1 porsi | Rp1.000 | Rp1.000 |
+| Cup | 1 buah | Rp1.200 | Rp1.200 |
+| **Subtotal** | | | **Rp10.300** |
+
+Jika dijual Rp32.000, selisih Rp21.700 adalah **harga dikurangi komponen yang dicatat**, belum laba bersih. Biaya tenaga kerja, energi, penyusutan, sewa, waste, pajak serta fee pembayaran belum dihitung. Sebagian bahan juga mungkin memiliki *usable yield* di bawah 100%; biaya sebenarnya perlu menyesuaikan hasil yang bisa digunakan.
+
+**Eksperimen sensitivitas:** dua pemasok sirup berbeda harga, tetapi yang lebih murah membuat separasi dan lebih banyak remake pada uji internal. Biaya pembelian per gram bukan satu-satunya penentu keputusan. Catat kerusakan/waste nyata, kelayakan penyimpanan, pengaruh rasa yang benar-benar diuji, serta konsistensi di bar.
+
+**Tantangan baru:** garnish musiman naik harga dua kali lipat. Buat tiga opsi: tetap sebagai seasonal, mengganti bahan setelah review, atau merancang resep tanpa garnish. Untuk setiap opsi, jelaskan pengaruh terhadap janji menu, rasa, risiko alergen, biaya dan komunikasi ke pelanggan.
+
 ## Tantangan pada kondisi berbeda
 
 Supplier buah berhenti beroperasi saat signature menu ramai. Kapan strategi seasonal lebih masuk akal daripada penggantian bahan yang belum diuji?
