@@ -18,6 +18,26 @@ Buat risk sheet setiap bahan: sumber, alergi, storage, proses, alat bersih, subs
 
 Tuliskan pertanyaan yang kamu pilih, prediksi, variabel yang dikendalikan, risiko, pengamatan yang akan dibutuhkan dan satu hasil yang akan membuatmu merevisi keputusan. Bekerja dengan bahan/alat nyata memerlukan kondisi aman, penanganan higienis, SOP dan pengawasan yang sesuai.
 
+## Flavor kreatif tidak membenarkan shelf-life yang ditebak
+
+Membuat sirup buah sendiri mungkin menarik, tetapi lama simpan **tidak dapat dipastikan dari rasa manis, warna, atau aroma yang masih enak**. Keamanan pangan bergantung pada kondisi bahan, proses pembuatan, mikroorganisme yang mungkin ada, suhu, sanitasi, kemasan, dan validasi yang sesuai. Sesi R&D tidak berwenang menetapkan batas aman baru hanya berdasarkan pengalaman satu batch.
+
+Buat lembar keputusan tiap komponen:
+
+| Data | Pertanyaan sebelum dipakai |
+|---|---|
+| Identitas & pemasok | Apa komposisi dan lot-nya? |
+| Alergen | Apa yang tercantum dan bagaimana risiko kontak silang? |
+| Kondisi penyimpanan | Apakah ada aturan suhu/waktu yang terdokumentasi? |
+| Proses | Apakah metode produksi dan sanitasi sudah divalidasi? |
+| Substitusi | Apa yang berubah pada rasa, tekstur, harga, dan keamanan? |
+
+Bayangkan mangga musiman tidak tersedia dan pemasok menawarkan puree baru. Pilihan terbaik bukan otomatis mengganti 1:1, karena kadar gula, acidity, viskositas, label alergen dan syarat simpan mungkin berbeda. Lakukan review bahan dan sesi uji yang benar-benar disetujui; jangan menjadikan pesanan pelanggan sebagai eksperimen tidak terinformasi.
+
+**Eksperimen meja:** pilih satu bahan musiman. Rancang dua opsi sourcing yang aman dengan label dan spesifikasi tersedia. Catat pertanyaan yang perlu dikonfirmasi sebelum tahap tasting. Jika jawaban mengenai penyimpanan atau keamanan tidak ada, tandai *hold*, bukan menebak jumlah hari.
+
+**Situasi baru:** café ingin memproduksi tiga liter batch untuk event besok, tetapi hanya resep satu gelas yang pernah diuji. Apa masalah scale-up selain pengalian takaran? Diskusikan mixing, keamanan proses, kapasitas alat, penyimpanan, konsistensi serta persetujuan penanggung jawab.
+
 ## Tantangan pada kondisi berbeda
 
 Sebuah bahan signature habis dan alternatif berlabel berbeda tersedia. Bagaimana kamu menentukan apakah substitusi boleh dicoba di sesi R&D dan apakah boleh langsung disajikan?
