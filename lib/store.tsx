@@ -41,9 +41,9 @@ import {
 import {
   SEED_USERS,
   SEED_BADGES,
-  SEED_PATHS,
-  SEED_MODULES,
-  SEED_LESSONS,
+  SEED_PATHS as BASE_SEED_PATHS,
+  SEED_MODULES as BASE_SEED_MODULES,
+  SEED_LESSONS as BASE_SEED_LESSONS,
   SEED_QUIZZES,
   SEED_QUESTIONS,
   SEED_ENROLLMENTS,
@@ -53,6 +53,7 @@ import {
   SEED_JOBS,
   SEED_JOB_APPLICATIONS,
 } from './data/seedData';
+import { FOUNDATION_V2_PREVIEW_PATH, FOUNDATION_V2_PREVIEW_MODULES, FOUNDATION_V2_PREVIEW_LESSONS } from './data/foundationV2Preview.generated';
 import { DEFAULT_LANDING_CONFIG } from './data/defaultLandingConfig';
 import { DEFAULT_SITE_PAGES } from './data/defaultSitePages';
 import {
@@ -66,6 +67,18 @@ import {
   fetchTransactionByIdFromSupabase,
 } from './dbSync';
 import { supabase, isSupabaseConfigured } from './supabase';
+
+// Review-only blocks external side effects on previews; public-readonly enables
+// the same uncredited V2 curriculum in production without disabling V1 services.
+const FOUNDATION_V2_PUBLIC_READER_ENABLED = ['review-only', 'public-readonly'].includes(
+  process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW || ''
+);
+const SEED_PATHS: LearningPath[] = FOUNDATION_V2_PUBLIC_READER_ENABLED
+  ? [...BASE_SEED_PATHS, FOUNDATION_V2_PREVIEW_PATH] : BASE_SEED_PATHS;
+const SEED_MODULES: Module[] = FOUNDATION_V2_PUBLIC_READER_ENABLED
+  ? [...BASE_SEED_MODULES, ...FOUNDATION_V2_PREVIEW_MODULES] : BASE_SEED_MODULES;
+const SEED_LESSONS: Lesson[] = FOUNDATION_V2_PUBLIC_READER_ENABLED
+  ? [...BASE_SEED_LESSONS, ...FOUNDATION_V2_PREVIEW_LESSONS] : BASE_SEED_LESSONS;
 
 export const GUEST_USER: User = {
   id: 'guest',
@@ -546,9 +559,12 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         chatMessages,
         transactions,
         vouchers,
-        lessons,
-        learningPaths,
-        modules,
+        // V2 public reader is read-only and generated from canonical Markdown.
+        // Never copy 36 large drafts into an existing learner's localStorage:
+        // that could exceed quota and stop legacy progress from saving.
+        lessons: lessons.filter(l => !l.id.startsWith('lesson-fv2-')),
+        learningPaths: learningPaths.filter(p => p.id !== 'path-foundation-v2-preview'),
+        modules: modules.filter(m => !m.id.startsWith('mod-fv2-')),
         quizzes,
         questions,
         landingPageConfig,

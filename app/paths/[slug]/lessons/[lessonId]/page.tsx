@@ -30,7 +30,7 @@ export default function LessonPlayerPage() {
   const lessonId = params.lessonId as string;
   const isDraftPreview = slug === 'foundation-v2-preview' &&
     lessonId.startsWith('lesson-fv2-') &&
-    process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW === 'review-only';
+    ['review-only', 'public-readonly'].includes(process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW || '');
 
   const {
     learningPaths,
@@ -271,7 +271,7 @@ export default function LessonPlayerPage() {
       {isDraftPreview && (
         <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 mt-5">
           <p role="status" className="rounded-md border border-paper-300 bg-paper-100 px-4 py-3 text-xs text-roast-800">
-            <strong>Foundation V2 — Draft untuk review.</strong> Materi belum disahkan.
+            <strong>Foundation V2 — Bacaan Publik (Beta).</strong> Materi dapat diperbarui setelah review pembelajaran.
             Tidak ada progres, XP, bookmark, ujian, atau sertifikat yang dicatat.
           </p>
         </div>

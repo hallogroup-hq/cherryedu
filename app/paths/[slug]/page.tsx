@@ -24,7 +24,7 @@ export default function PathDetailPage() {
   const params = useParams();
   const router = useRouter();
   const slug = params.slug as string;
-  const isDraftPreview = slug === 'foundation-v2-preview' && process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW === 'review-only';
+  const isDraftPreview = slug === 'foundation-v2-preview' && ['review-only', 'public-readonly'].includes(process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW || '');
 
   const {
     learningPaths,
@@ -137,7 +137,7 @@ export default function PathDetailPage() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Award className="w-3.5 h-3.5 text-cherry-700" />
-                  {isDraftPreview ? 'Draft — Tanpa Sertifikat' : 'Diploma Digital Resmi'}
+                  {isDraftPreview ? 'Edisi Baru — Tanpa Sertifikat' : 'Diploma Digital Resmi'}
                 </span>
               </div>
             </div>
@@ -155,7 +155,7 @@ export default function PathDetailPage() {
               {isDraftPreview ? (
                 <div className="space-y-3">
                   <p className="text-xs font-sans leading-relaxed text-roast-700" role="status">
-                    <strong className="block text-roast-950 mb-1">Pratinjau kurikulum — belum diterbitkan</strong>
+                    <strong className="block text-roast-950 mb-1">Edisi V2 — Akses Baca Publik (Beta)</strong>
                     Baca seluruh 36 materi tanpa login. Mode ini tidak mencatat progres,
                     memberi XP, mengaktifkan kuis, ataupun menerbitkan sertifikat.
                   </p>

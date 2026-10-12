@@ -362,6 +362,8 @@ function LessonEditorContent() {
   );
 
   const selectedLesson = lessons.find((l) => l.id === selectedLessonId);
+  const isGeneratedFoundationV2 = selectedLesson?.id.startsWith('lesson-fv2-') ?? false;
+
 
   // Editor states
   const [editorMode, setEditorMode] = useState<'visual' | 'raw'>('visual');
@@ -424,6 +426,10 @@ function LessonEditorContent() {
 
   const handleSave = () => {
     if (!selectedLesson) return;
+    if (isGeneratedFoundationV2) {
+      alert('Foundation V2 memakai Markdown dari GitHub sebagai sumber publikasi. Perubahan di editor browser tidak dipublikasikan. Edit file sumber di repository lalu deploy ulang.');
+      return;
+    }
     setIsSaving(true);
 
     const compiledContent =
@@ -466,6 +472,7 @@ function LessonEditorContent() {
   };
 
   const selectedPath = learningPaths.find((p) => p.id === selectedPathId);
+  const v2SourceUrl = isGeneratedFoundationV2 ? 'https://github.com/hallogroup-hq/cherryedu/tree/main/docs/curriculum/foundation-v2/03-lessons' : null;
 
   return (
     <div className="max-w-7xl mx-auto space-y-4">

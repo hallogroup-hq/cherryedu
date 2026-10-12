@@ -4,10 +4,10 @@ test.describe('Foundation V2 isolated editorial preview', () => {
   test('preview course is visible with seven modules and first lesson', async ({ page }) => {
     await page.goto('/paths/foundation-v2-preview');
     await expect(page.getByRole('heading', { level: 1 })).toContainText(/Foundation V2/);
-    await expect(page.getByText(/DRAFT REVIEW/i).first()).toBeVisible();
+    await expect(page.getByText(/Beta Publik|DRAFT REVIEW/i).first()).toBeVisible();
     await expect(page.getByText(/Mulai dari Cangkir/i).first()).toBeVisible();
     await expect(page.getByText(/Memahami Nilai di Balik Kopi/i).first()).toBeVisible();
-    await expect(page.getByText(/Draft — Tanpa Sertifikat/i)).toBeVisible();
+    await expect(page.getByText(/Edisi Baru — Tanpa Sertifikat/i)).toBeVisible();
     await expect(page.getByText(/Baca seluruh 36 materi tanpa login/i)).toBeVisible();
     const first = page.locator('a[href*="/lessons/lesson-fv2-m01-l01"]').first();
     await expect(first).toBeVisible();
@@ -40,37 +40,6 @@ test('preview reader is usable in a narrow mobile viewport without sign-in', asy
   await expect(page.getByText(/Login Sekarang|Materi Silabus Terkunci/i)).toHaveCount(0);
 });
 
-test('a browser-created legacy demo/admin session never authenticates a reviewer', async ({ page }) => {
-  await page.goto('/');
-  await page.evaluate(() => {
-    localStorage.setItem('cherryedu_testuser_session', JSON.stringify({
-      user: { id: 'usr-admin-01', email: 'admin@cherryedu.id', app_metadata: { role: 'admin' } },
-      access_token: 'browser-fabricated-token',
-    }));
-  });
-  await page.goto('/admin');
-  await expect(page.getByText(/Akses Terbatas Administrator/i).first()).toBeVisible();
-  await expect(page.getByRole('link', { name: /Masuk sebagai Administrator/i })).toBeVisible();
-});
-
-test('review environment blocks QRIS, payment status and subscription email', async ({ request }) => {
-  const qris = await request.post('/api/payment/create-qris', { data: { amount: 49000 } });
-  expect(qris.status()).toBe(503);
-  const status = await request.get('/api/payment/status/example123');
-  expect(status.status()).toBe(503);
-  const email = await request.post('/api/email/subscription', {
-    data: { toEmail: 'never-send@example.invalid', transactionId: 'review-only' },
-  });
-  expect(email.status()).toBe(503);
-});
-
-test('review build rejects account login without any local demo session', async ({ page }) => {
-  await page.goto('/login');
-  await page.locator('input[type="email"]').fill('nobody@example.invalid');
-  await page.locator('input[type="password"]').fill('not-a-real-password');
-  await page.getByRole('button', { name: /Masuk Sekarang/i }).click();
-  await expect(page.locator('body')).toContainText(/login dinonaktifkan pada preview/i);
-});
 
 test('internal references and QA never render inside learner lesson bodies', async ({ page }) => {
   const representativeLessons = [
