@@ -55,6 +55,20 @@ const nextConfig = {
   images: {
     domains: ["images.unsplash.com", "avatars.githubusercontent.com"],
   },
+  async redirects() {
+    return [
+      {
+        source: '/paths/foundation-v2-preview',
+        destination: '/paths/memahami-kopi-dari-hulu-ke-hilir',
+        permanent: true,
+      },
+      {
+        source: '/paths/foundation-v2-preview/lessons/:lessonId',
+        destination: '/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/:lessonId',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

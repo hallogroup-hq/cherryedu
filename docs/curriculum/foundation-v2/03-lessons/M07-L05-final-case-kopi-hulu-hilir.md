@@ -165,9 +165,7 @@ Baca contoh pendek dari lembar dossier dan gunakan rubrik berikut untuk memeriks
 | Ekonomi dan manusia | Menyamakan harga dengan income | Data salah | Gross/cost dihitung sebagian | Dua skenario benar | Dua skenario benar + cakupan biaya/pekerja/risk/kelayakan rumah tangga jelas |
 | Bukti dan keputusan | Mengklaim aman/90+/carbon net tanpa data | Banyak klaim tidak didukung | Beberapa red flags diidentifikasi | Hold/review + 3 koreksi klaim | Prioritas risiko, bukti, sublot dan copy jujur, tidak menuduh tanpa dasar |
 
-**Proposal mastery internal belum dikalibrasi:** total **≥13/16**, masing-masing dimensi **≥3**, serta seluruh item kritis benar: tidak menerbitkan safety clearance dari satu angka moisture; tidak mengarang sertifikasi/grade; tidak menyamakan harga premium dengan pendapatan bersih; mengakui status simulasi.
-
-Ambang tersebut adalah **hipotesis desain pendidikan**, bukan standar SCA, ISO, atau bukti kompetensi profesional. Uji manusia diperlukan sebelum digunakan di produk.
+**Gunakan rubrik untuk meninjau pekerjaanmu:** Periksa apakah kesimpulanmu didukung bukti, perhitungan memakai satuan yang benar, dan keputusanmu tidak melampaui data. Tinjau khusus empat kesalahan penting: menyatakan keamanan dari satu pengukuran, mengarang sertifikasi atau skor, menyamakan harga premium dengan pendapatan bersih, dan memperlakukan data simulasi sebagai kejadian nyata.
 
 ## Bagian 5 — Tiga jebakan yang sengaja ada dalam dossier
 

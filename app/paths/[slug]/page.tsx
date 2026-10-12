@@ -24,7 +24,7 @@ export default function PathDetailPage() {
   const params = useParams();
   const router = useRouter();
   const slug = params.slug as string;
-  const isDraftPreview = slug === 'foundation-v2-preview' && ['review-only', 'public-readonly'].includes(process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW || '');
+  const isDraftPreview = slug === 'memahami-kopi-dari-hulu-ke-hilir' && ['review-only', 'public-readonly'].includes(process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW || '');
 
   const {
     learningPaths,
@@ -110,11 +110,11 @@ export default function PathDetailPage() {
             <div className="md:col-span-8 space-y-4">
               <div className="flex items-center gap-3 mb-1">
                 <span className="font-mono text-xs uppercase tracking-widest font-bold text-cherry-800">
-                  {path.layer_type === 'foundation' ? 'Foundation Layer • Wajib' : 'Specialization Track'}
+                  {isDraftPreview ? 'Materi Kopi • Akses Bebas' : path.layer_type === 'foundation' ? 'Foundation Layer • Wajib' : 'Specialization Track'}
                 </span>
                 <span className="text-roast-400 font-mono text-xs">•</span>
                 <span className="font-mono text-xs text-roast-600">
-                  Tingkat: <strong className="text-roast-900 font-bold">{path.level}</strong>
+                  Tingkat: <strong className="text-roast-900 font-bold">{path.level === 'beginner' ? 'Pemula' : path.level}</strong>
                 </span>
               </div>
 
@@ -137,7 +137,7 @@ export default function PathDetailPage() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Award className="w-3.5 h-3.5 text-cherry-700" />
-                  {isDraftPreview ? 'Edisi Baru — Tanpa Sertifikat' : 'Diploma Digital Resmi'}
+                  {isDraftPreview ? '36 Pelajaran' : 'Diploma Digital Resmi'}
                 </span>
               </div>
             </div>
@@ -155,12 +155,11 @@ export default function PathDetailPage() {
               {isDraftPreview ? (
                 <div className="space-y-3">
                   <p className="text-xs font-sans leading-relaxed text-roast-700" role="status">
-                    <strong className="block text-roast-950 mb-1">Edisi V2 — Akses Baca Publik (Beta)</strong>
-                    Baca seluruh 36 materi tanpa login. Mode ini tidak mencatat progres,
-                    memberi XP, mengaktifkan kuis, ataupun menerbitkan sertifikat.
+                    <strong className="block text-roast-950 mb-1">Belajar langsung, tanpa login</strong>
+                    Ikuti materi, amati ilustrasi, dan coba latihan mandiri sesuai urutan. Catatan latihan dan progres pada edisi ini belum tersimpan ke akun.
                   </p>
                   <Link
-                    href="/paths/foundation-v2-preview/lessons/lesson-fv2-m01-l01"
+                    href="/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m01-l01"
                     className="w-full py-2.5 bg-roast-950 text-white font-bold text-xs rounded-lg flex items-center justify-center"
                   >
                     Baca Materi Pertama <ArrowRight className="w-3.5 h-3.5 ml-2" />
@@ -293,7 +292,7 @@ export default function PathDetailPage() {
               DAFTAR SILABUS LENGKAP
             </span>
             <h2 className="text-xl sm:text-2xl font-serif font-black text-roast-950">
-              Struktur Modul & Rangkaian Pelajaran
+              Daftar Modul dan Pelajaran
             </h2>
           </div>
           <span className="font-mono text-xs text-roast-500 font-bold">
@@ -347,7 +346,7 @@ export default function PathDetailPage() {
 
                   <div className="flex items-center gap-3 shrink-0 ml-2">
                     <span className="font-mono text-xs text-roast-500 hidden sm:inline">
-                      {modLessons.length > 0 ? `${completedLessonsInMod}/${modLessons.length} Pelajaran` : 'Tahap Kurasi'}
+                      {modLessons.length > 0 ? (isDraftPreview ? `${modLessons.length} Pelajaran` : `${completedLessonsInMod}/${modLessons.length} Pelajaran`) : 'Tahap Kurasi'}
                     </span>
                     {isExpanded ? (
                       <ChevronUp className="w-4 h-4 text-roast-500" />

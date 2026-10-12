@@ -28,7 +28,7 @@ export default function LessonPlayerPage() {
   const router = useRouter();
   const slug = params.slug as string;
   const lessonId = params.lessonId as string;
-  const isDraftPreview = slug === 'foundation-v2-preview' &&
+  const isDraftPreview = slug === 'memahami-kopi-dari-hulu-ke-hilir' &&
     lessonId.startsWith('lesson-fv2-') &&
     ['review-only', 'public-readonly'].includes(process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW || '');
 
@@ -270,9 +270,8 @@ export default function LessonPlayerPage() {
 
       {isDraftPreview && (
         <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 mt-5">
-          <p role="status" className="rounded-md border border-paper-300 bg-paper-100 px-4 py-3 text-xs text-roast-800">
-            <strong>Foundation V2 — Bacaan Publik (Beta).</strong> Materi dapat diperbarui setelah review pembelajaran.
-            Tidak ada progres, XP, bookmark, ujian, atau sertifikat yang dicatat.
+          <p className="rounded-md border border-paper-300 bg-paper-100 px-4 py-3 text-xs text-roast-700">
+            Belajar mandiri. Progres membaca pada materi ini tidak disimpan ke akun.
           </p>
         </div>
       )}
@@ -343,7 +342,7 @@ export default function LessonPlayerPage() {
               {currentLesson.duration_minutes} Menit Baca
             </span>
             <span>•</span>
-            <span className="uppercase bg-paper-100 px-2 py-0.5 rounded border border-paper-300">{currentLesson.content_type}</span>
+            <span className="uppercase bg-paper-100 px-2 py-0.5 rounded border border-paper-300">{isDraftPreview ? 'Materi Belajar' : currentLesson.content_type}</span>
             <span>•</span>
             <span className="text-roast-600 truncate max-w-[200px]">{path.title}</span>
           </div>
@@ -440,7 +439,7 @@ export default function LessonPlayerPage() {
                 className="w-full sm:w-auto px-5 py-2.5 bg-roast-950 hover:bg-roast-900 text-paper-50 rounded font-mono text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 transition-colors"
               >
                 <Award className="w-4 h-4 text-crema-400" />
-                <span>{isDraftPreview ? 'Kembali ke Silabus Review →' : 'Ujian Kelulusan →'}</span>
+                <span>{isDraftPreview ? 'Kembali ke Daftar Pelajaran →' : 'Ujian Kelulusan →'}</span>
               </Link>
             )}
           </div>

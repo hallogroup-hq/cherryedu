@@ -15,7 +15,7 @@
 3. Change the **learner-facing explanation** before the final editorial appendix, preserving the source file frontmatter. Keep the exact `[ACTIVITY:name]` and `[VISUAL:name]` references if a lesson relies on them.
 4. Preserve the terminal **internal sources/QA appendix**; do not paste the scientific citations/QA markers into the learner-facing text.
 5. Save via a pull request or commit to a review branch. Run the **Foundation V2 Release Gates** checks and preview the actual page.
-6. Merge to `main` only after checks pass. Vercel automatically rebuilds; verify `/paths/foundation-v2-preview/lessons/lesson-fv2-mxx-lyy` on the custom domain.
+6. Merge to `main` only after checks pass. Vercel automatically rebuilds; verify `/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-mxx-lyy` on the custom domain.
 7. If a correction fails validation, revert the specific commit. Do **not** reset the production database, remove localStorage, or reinitialize user accounts.
 
 **Important:** The generated `lib/data/foundationV2Preview.generated.ts` is built automatically from the Markdown files. Do not edit it directly. The current dashboard at `/admin/curriculum/lessons` uses browser-side store state and is **not a global CMS for V2**. Its V2 view now includes a warning. Editing a compiled read-only V2 lesson there does not publish updates.

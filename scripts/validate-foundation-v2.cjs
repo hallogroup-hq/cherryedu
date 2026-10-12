@@ -47,6 +47,11 @@ for (const name of lessons) {
   try {
     const learnerText = toLearnerMarkdown(id, body);
     if (!learnerText.includes('# ')) fail('No learner-facing title after cleanup: ' + id);
+    // Raw editorial provenance is kept in sources, but must never render
+    // reviewer/release labels or uncalibrated internal rubric thresholds to students.
+    if (/beta publik|materi dapat diperbarui|draft review|review build|silabus review|proposal mastery internal|ambang internal awal|hipotesis desain pendidikan|belum dikalibrasi/i.test(learnerText)) {
+      fail('Reviewer-only/release copy leaked into student lesson: ' + id);
+    }
     if (!/latihan|tugas|pertanyaan|eksperimen|coba jawab|urutkan|pemeriksaan pemahaman/i.test(learnerText)) fail('Learner activity missing: ' + id);
     if (/^#{2,3}\s+(?:Referensi|Rujukan|Editorial|Sumber dan QA|Catatan pengajar)/im.test(learnerText))
       fail('Internal appendix retained: ' + id);
@@ -122,7 +127,7 @@ if(interactiveLessons < 25) fail('Fewer than 25 lessons contain purposeful inter
 if(visualLessons < 17) fail('Insufficient physical/spatial visuals: '+visualLessons);
 if(hiddenSolutions < 20) fail('Auto-collapsed learner answers unexpectedly missing: '+hiddenSolutions);
 if(!revealCode.includes('aria-expanded={open}')) fail('Model-answer reveal needs explicit accessible expansion control');
-if(!practiceCode.includes('jawaban tidak disimpan')) fail('Review workspaces need explicit non-persistence notice');
+if(!practiceCode.includes('tidak tersimpan otomatis')) fail('Learner workspaces must explicitly warn that practice answers are not automatically saved');
 if(!renderer.includes('FoundationConceptVisual') || !renderer.includes('FoundationRevealAnswer'))
   fail('Visual and answer-reveal components must actually mount in lesson player');
 
@@ -182,6 +187,35 @@ if (!qa.includes('BLOCKED')) fail('Missing blocker record');
 // Legacy production authorization and payment code are deliberately unchanged
 // by the isolated public-reader release. Full platform security is not certified
 // by this content validation gate.
+// Public course metadata is customer-facing content. Do not reintroduce
+// engineering notes, certification promises or compulsory labels for optional V2.
+const generator = read(path.resolve(__dirname, 'generate-foundation-v2-preview.cjs'));
+const catalog = read(path.resolve(__dirname, '../app/paths/page.tsx'));
+const course = read(path.resolve(__dirname, '../app/paths/[slug]/page.tsx'));
+const reader = read(path.resolve(__dirname, '../app/paths/[slug]/lessons/[lessonId]/page.tsx'));
+const workspace = read(path.resolve(__dirname, '../components/FoundationPracticeWorkspace.tsx'));
+const registryText = read(path.resolve(__dirname, '../lib/data/foundationV2Interactions.ts'));
+const audioReader = read(path.resolve(__dirname, '../components/AudioNarrationPlayer.tsx'));
+if (!audioReader.includes('(?:DIAGRAM|ACTIVITY|VISUAL)')) {
+  fail('Audio narration may speak raw visual or interactive activity tokens to students');
+}
+for (const unwanted of [
+  'Foundation V2 — Beta Publik (Materi Dapat Diperbarui)',
+  'edisi beta publik. Materi dapat diperbarui',
+  'Edisi beta publik; latihan belum dinilai',
+]) {
+  if (generator.includes(unwanted)) fail('Internal release copy reintroduced in public metadata: ' + unwanted);
+}
+if (!generator.includes("title: 'Memahami Kopi dari Hulu ke Hilir'")) fail('Foundation V2 public course title has changed without editorial review');
+if (!catalog.includes("isPublicReading || isAuthenticated")) fail('Optional V2 catalogue must allow anonymous entry without login');
+if (!catalog.includes("isPublicReading ? 'KELAS TERBUKA'")) fail('V2 catalog is incorrectly labeled mandatory');
+if (!course.includes("isDraftPreview ? 'Materi Kopi • Akses Bebas'")) fail('V2 course incorrectly inherits mandatory certification label');
+for (const [file, body] of [['course', course], ['reader', reader], ['workspace', workspace], ['interactions', registryText]]) {
+  for (const phrase of ['Bacaan Publik (Beta)', 'Edisi Baru — Tanpa Sertifikat', 'Silabus Review', 'Mode review:', 'review build']) {
+    if (body.includes(phrase)) fail(file + ': reviewer release phrase displayed to real learners: ' + phrase);
+  }
+}
+
 const results = { lessons: lessons.length, lessonSlots: codes.length, questions: allQuestions, correctLongest: longestTotal, correctShortest: shortestTotal, modules: moduleStats, errors };
 console.log(JSON.stringify(results, null, 2));
 if (errors.length) process.exitCode = 1;

@@ -2,26 +2,26 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Foundation V2 isolated editorial preview', () => {
   test('preview course is visible with seven modules and first lesson', async ({ page }) => {
-    await page.goto('/paths/foundation-v2-preview');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Foundation V2/);
-    await expect(page.getByText(/Beta Publik|DRAFT REVIEW/i).first()).toBeVisible();
+    await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Memahami Kopi dari Hulu ke Hilir');
+    await expect(page.getByText(/Materi Kopi • Akses Bebas/i)).toBeVisible();
     await expect(page.getByText(/Mulai dari Cangkir/i).first()).toBeVisible();
     await expect(page.getByText(/Memahami Nilai di Balik Kopi/i).first()).toBeVisible();
-    await expect(page.getByText(/Edisi Baru — Tanpa Sertifikat/i)).toBeVisible();
-    await expect(page.getByText(/Baca seluruh 36 materi tanpa login/i)).toBeVisible();
+    await expect(page.getByText('36 Pelajaran').first()).toBeVisible();
+    await expect(page.getByText(/Belajar langsung, tanpa login/i)).toBeVisible();
     const first = page.locator('a[href*="/lessons/lesson-fv2-m01-l01"]').first();
     await expect(first).toBeVisible();
   });
 
   test('draft lesson uses existing player, not a new certification flow', async ({ page }) => {
-    await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m01-l01');
+    await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m01-l01');
     await expect(page.locator('article')).toBeVisible();
     await expect(page.locator('article')).toContainText('Apa yang sebenarnya kita rasakan saat minum kopi?');
     await expect(page.locator('article')).toContainText('Kenapa kita bisa mencium aroma');
-    await expect(page.getByRole('status')).toContainText(/Bacaan Publik \(Beta\)/);
+    await expect(page.getByText(/Belajar mandiri. Progres membaca/i)).toBeVisible();
     await expect(page.getByRole('button', { name: /Tandai Selesai|Selesai ✓/i })).toHaveCount(0);
     await expect(page.getByRole('button', { name: /^Simpan$|^Tersimpan$/i })).toHaveCount(0);
-    await expect(page).toHaveURL(/foundation-v2-preview\/lessons\/lesson-fv2-m01-l01/);
+    await expect(page).toHaveURL(/memahami-kopi-dari-hulu-ke-hilir\/lessons\/lesson-fv2-m01-l01/);
   });
 
   test('legacy Foundation is retained as separate course and route', async ({ page }) => {
@@ -32,9 +32,38 @@ test.describe('Foundation V2 isolated editorial preview', () => {
   });
 });
 
+test('public course metadata is learner-facing and contains no editorial release labels', async ({ page }) => {
+  await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir');
+  const visible = await page.locator('body').innerText();
+  expect(visible).not.toMatch(/Beta Publik|Materi Dapat Diperbarui|DRAFT REVIEW|Silabus Review|Foundation Layer • Wajib|Edisi Baru — Tanpa Sertifikat|[0-9]+\/[0-9]+ Pelajaran/i);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Memahami Kopi dari Hulu ke Hilir');
+  await expect(page.getByText(/Pelajari perjalanan kopi dari buah dan kebun/i)).toBeVisible();
+  await expect(page.getByText(/Mulai dari Cangkir/i).first()).toBeVisible();
+});
+
+test('public learning edition is accessible from catalog without login or compulsory labeling', async ({ page }) => {
+  await page.goto('/paths');
+  const direct = page.locator('a[href="/paths/memahami-kopi-dari-hulu-ke-hilir"]');
+  await expect(direct).toBeVisible();
+  await expect(direct).toContainText('Mulai Belajar');
+  await expect(page.getByText('KELAS TERBUKA')).toBeVisible();
+  await direct.click();
+  await expect(page).toHaveURL(/\/paths\/memahami-kopi-dari-hulu-ke-hilir$/);
+  await expect(page.getByRole('heading', {level:1})).toHaveText('Memahami Kopi dari Hulu ke Hilir');
+});
+
+test('older shared review URLs redirect to the clean public course', async ({ page }) => {
+  await page.goto('/paths/foundation-v2-preview');
+  await expect(page).toHaveURL(/\/paths\/memahami-kopi-dari-hulu-ke-hilir$/);
+  await expect(page.getByRole('heading',{level:1})).toHaveText('Memahami Kopi dari Hulu ke Hilir');
+  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m02-l02');
+  await expect(page).toHaveURL(/\/paths\/memahami-kopi-dari-hulu-ke-hilir\/lessons\/lesson-fv2-m02-l02$/);
+  await expect(page.locator('article')).toBeVisible();
+});
+
 test('preview reader is usable in a narrow mobile viewport without sign-in', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m01-l01');
+  await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m01-l01');
   await expect(page.locator('article')).toContainText('Apa yang sebenarnya kita rasakan');
   await expect(page.getByRole('button', { name: /Tandai Selesai/i })).toHaveCount(0);
   await expect(page.getByText(/Login Sekarang|Materi Silabus Terkunci/i)).toHaveCount(0);
@@ -48,7 +77,7 @@ test('internal references and QA never render inside learner lesson bodies', asy
     'lesson-fv2-m07-l05',
   ];
   for (const id of representativeLessons) {
-    await page.goto('/paths/foundation-v2-preview/lessons/' + id);
+    await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/' + id);
     const article = page.locator('article');
     await expect(article).toBeVisible();
     await expect(article).not.toContainText(/Catatan editorial dan referensi|SME review pending|Human learner test pending|Editorial source register|Referensi dan QA|Sumber dan status/i);
@@ -58,7 +87,7 @@ test('internal references and QA never render inside learner lesson bodies', asy
 });
 
 test('taxonomy exercise is five interactive cards, not a table showing answers', async ({ page }) => {
-  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m02-l02');
+  await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m02-l02');
   const activity = page.getByRole('region', { name: /Lima nama, lima tingkat informasi/i });
   await expect(activity).toBeVisible();
   await expect(activity.getByText('Coffea', { exact: true })).toBeVisible();
@@ -73,7 +102,7 @@ test('taxonomy exercise is five interactive cards, not a table showing answers',
 
 test('coffee fruit anatomy is visible and its layer descriptions respond to clicks', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m02-l01');
+  await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m02-l01');
   const activity = page.getByRole('region', { name: 'Jelajahi isi buah kopi' });
   await expect(activity).toBeVisible();
   await expect(activity.getByRole('img', { name: /Skema penampang melintang buah kopi/i })).toBeVisible();
@@ -82,20 +111,20 @@ test('coffee fruit anatomy is visible and its layer descriptions respond to clic
 });
 
 test('different modules use different appropriate interaction types', async ({ page }) => {
-  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m04-l01');
+  await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m04-l01');
   const roast = page.getByRole('region', { name: /Susun perjalanan satu batch/i });
   await expect(roast.getByRole('button', { name: 'Periksa urutan' })).toBeVisible();
   await roast.getByRole('button', { name: 'Periksa urutan' }).click();
   await expect(roast).toContainText('Belum tepat');
   await expect(roast.getByRole('button', { name: /Naikkan/i }).first()).toBeVisible();
 
-  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m05-l05');
+  await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m05-l05');
   const brew = page.getByRole('region', { name: /Hitung estimasi extraction yield/i });
   await expect(brew.getByLabel('Dosis kopi kering (g)')).toHaveValue('20');
   await brew.getByRole('button', { name: 'Hitung estimasi EY' }).click();
   await expect(brew).toContainText('20,25%');
 
-  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m07-l02');
+  await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m07-l02');
   const chain = page.getByRole('region', { name: 'Periksa klaim pembelian langsung' });
   await expect(chain).toBeVisible();
   await expect(chain).not.toContainText('Tepat.');
@@ -104,7 +133,7 @@ test('different modules use different appropriate interaction types', async ({ p
 });
 
 test('Liberica now gets concrete biological explanation before Excelsa taxonomy', async ({ page }) => {
-  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m02-l02');
+  await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m02-l02');
   const article=page.locator('article');
   await expect(article).toContainText('Liberika: kenali dulu sebelum membahas Excelsa');
   await expect(article).toContainText(/relatif besar dibanding Arabika/i);
@@ -114,7 +143,7 @@ test('Liberica now gets concrete biological explanation before Excelsa taxonomy'
 });
 
 test('label-check case hides exemplar until learner writes independent evidence reasoning', async ({ page }) => {
-  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m02-l02');
+  await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m02-l02');
   const workspace = page.getByRole('region', { name: /Periksa label sebelum mempercayai klaim/i });
   await expect(workspace).toBeVisible();
   await expect(workspace.locator('textarea')).toHaveCount(2);
@@ -138,14 +167,14 @@ test('genuine course visuals render across processing, roast, brew and history',
     ['lesson-fv2-m07-l01','Satu sejarah, beberapa jalur kekuasaan'],
   ];
   for(const [id,heading] of cases){
-    await page.goto('/paths/foundation-v2-preview/lessons/'+id);
+    await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/'+id);
     await expect(page.locator('article')).toContainText(heading);
     await expect(page.locator('article')).not.toContainText('[VISUAL:');
   }
 });
 
 test('in-lesson answers do not start expanded', async ({ page }) => {
-  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m05-l02');
+  await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m05-l02');
   const article=page.locator('article');
   const reveal=article.getByRole('button',{name:/Sudah mencoba\? Lihat pembahasan/i}).first();
   await expect(reveal).toBeVisible();
@@ -156,9 +185,9 @@ test('in-lesson answers do not start expanded', async ({ page }) => {
 });
 
 test('workspace requires attempt before showing model; no account or XP', async ({ page }) => {
-  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m01-l03');
+  await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m01-l03');
   const section=page.getByRole('region',{name:/Catat dua cangkir/});
-  await expect(section.getByText(/jawaban tidak disimpan/i)).toBeVisible();
+  await expect(section.getByText(/tidak tersimpan otomatis/i)).toBeVisible();
   const compare=section.getByRole('button',{name:/Bandingkan dengan contoh pembahasan/i});
   await expect(compare).toBeDisabled();
   const fields=section.locator('textarea');
@@ -171,7 +200,7 @@ test('workspace requires attempt before showing model; no account or XP', async 
 });
 
 test('brew EY calculator rejects physically impossible mass balance', async ({ page }) => {
-  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m05-l05');
+  await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m05-l05');
   const activity=page.getByRole('region',{name:/Hitung estimasi extraction yield/i});
   await activity.getByLabel('Dosis kopi kering (g)').fill('1');
   await expect(activity.getByRole('button',{name:'Hitung estimasi EY'})).toBeDisabled();
@@ -182,7 +211,7 @@ test('brew EY calculator rejects physically impossible mass balance', async ({ p
 });
 
 test('farmer income sandbox teaches cost difference rather than label premium', async ({ page }) => {
-  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m07-l03');
+  await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m07-l03');
   const section=page.getByRole('region',{name:/Berapa sisa setelah biaya/});
   await expect(section).toBeVisible();
   await section.getByRole('button',{name:/Hitung sisa setelah biaya/i}).click();
@@ -208,7 +237,7 @@ for (const { module: moduleId, lessons } of completeFoundationV2Inventory) {
     test.setTimeout(180_000);
     for (let index = 1; index <= lessons; index++) {
       const id = 'lesson-fv2-m' + moduleId + '-l' + String(index).padStart(2, '0');
-      const response = await page.goto('/paths/foundation-v2-preview/lessons/' + id, { waitUntil: 'domcontentloaded' });
+      const response = await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/' + id, { waitUntil: 'domcontentloaded' });
       expect(response?.status(), id + ' HTTP status').toBe(200);
       const article = page.locator('article');
       await expect(article, id + ' content area').toBeVisible();
@@ -223,8 +252,17 @@ for (const { module: moduleId, lessons } of completeFoundationV2Inventory) {
 }
 
 
+test('reviewer-only metadata does not leak in critical QC and capstone lessons', async ({page}) => {
+  for(const lesson of ['lesson-fv2-m03-l07','lesson-fv2-m07-l05']){
+    await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/'+lesson);
+    const body=page.locator('article');
+    await expect(body).toBeVisible();
+    await expect(body).not.toContainText(/Proposal mastery internal|Ambang latihan yang diusulkan|hipotesis desain pendidikan|review build|belum dikalibrasi/i);
+  }
+});
+
 test('first sensory lab uses one worksheet after the case data, not two fake forms', async ({ page }) => {
-  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m01-l03');
+  await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m01-l03');
   const article = page.locator('article');
   await expect(article.getByRole('heading', { name: '3. Bagaimana mencatat dua sampel' })).toBeVisible();
   await expect(article.getByText('Lembar pengamatan yang bisa langsung dipakai')).toHaveCount(0);
@@ -235,7 +273,7 @@ test('first sensory lab uses one worksheet after the case data, not two fake for
 });
 
 test('beginner cupping has one real form and hides analysis until requested', async ({ page }) => {
-  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m06-l04');
+  await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m06-l04');
   const article = page.locator('article');
   await expect(article.getByRole('region', { name: /Catat perbandingan sampel A dan B/ })).toBeVisible();
   await expect(article.getByText(/Format berikut ditulis orisinal untuk CherryEdu/)).toHaveCount(0);
@@ -244,7 +282,7 @@ test('beginner cupping has one real form and hides analysis until requested', as
 });
 
 test('brewing worked solution is not revealed before asking for it', async ({ page }) => {
-  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m05-l06');
+  await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m05-l06');
   const article = page.locator('article');
   await expect(article.getByRole('region', { name:/Rancang eksperimen seduh satu variabel/ })).toBeVisible();
   await expect(article.getByRole('heading', {name:'Contoh setelah kamu mencoba'})).toBeVisible();
