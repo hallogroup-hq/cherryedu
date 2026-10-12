@@ -18,6 +18,23 @@ Jalankan latihan kartu keputusan: tulis pertanyaan klarifikasi, pilihan aman, ri
 
 Tuliskan **pertanyaan eksperimenmu, hipotesis, prediksi, apa yang dikontrol, apa yang diamati, dan hasil seperti apa yang akan membuatmu mengubah keputusan**. Jika data hanya simulasi, tandai sumbernya. Kebersihan, keselamatan, alergen dan otorisasi lebih penting daripada ingin mencoba hal baru.
 
+## Empat permintaan, tidak satu jenis risiko
+
+Perhatikan perbedaan permintaan “kurang pahit”, “tanpa laktosa”, “alergi protein susu sapi” dan “lebih kuat”. Dua pertama masih perlu klarifikasi; permintaan alergi membutuhkan evaluasi keamanan bahan dan proses yang spesifik.
+
+| Permintaan | Kesalahan umum | Respons defensibel |
+|---|---|---|
+| Kurang pahit | Langsung menambah gula | Tanyakan kesan rasa dan pilihan menu |
+| Less acidic | Menyebut semua kopi fruity salah | Bedakan aroma buah dan sensasi acidity |
+| Bebas laktosa | Menganggap identik alergi susu | Periksa kebutuhan sebenarnya dan label |
+| Alergi susu sapi | Menganggap oat milk cukup | Verifikasi bahan, alat, cross-contact dan SOP |
+
+Tidak ada kewajiban menebak kandungan kafein dari tingkat pahit. Jika bar meminta barista menyatakan double shot memberi kadar kafein tertentu, pernyataan spesifik memerlukan data relevan.
+
+**Eksperimen layanan:** tulis dua percakapan dengan tujuan customer yang berbeda tetapi kata awal yang sama, misalnya “strong”. Tunjukkan bagaimana satu pertanyaan klarifikasi mengubah opsi yang masuk akal. Nilai apakah jawaban menyesuaikan informasi, bukan apakah terdengar paling meyakinkan.
+
+**Kondisi baru:** saat minuman sudah dibuat, tamu baru menyebut alergi. Mengapa sekadar mengganti gelas atau menambah susu alternatif tidak cukup? Jelaskan proses hold/remake/eskalasi yang sesuai kewenangan.
+
 ## Transfer: kondisi berbeda
 
 Bagaimana jika pelanggan berubah pikiran setelah minuman dibuat dan menyebut alergi? Apa yang tidak boleh diatasi dengan sekadar memindahkan minuman ke gelas baru?
