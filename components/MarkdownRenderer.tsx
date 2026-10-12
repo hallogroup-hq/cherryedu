@@ -4,6 +4,9 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { CoffeeDiagram } from '@/components/CoffeeDiagram';
+import { FoundationLearningActivity } from '@/components/FoundationLearningActivity';
+import { FoundationConceptVisual } from '@/components/FoundationConceptVisual';
+import { FoundationRevealAnswer } from '@/components/FoundationRevealAnswer';
 
 interface MarkdownRendererProps {
   content: string;
@@ -11,8 +14,10 @@ interface MarkdownRendererProps {
 
 function sanitizeMarkdownContent(raw: string): string {
   if (!raw) return '';
-  // Support [DIAGRAM:type] shorthand
+  // Typed educational blocks. Markdown alone cannot render interactive activities.
   let processed = raw.replace(/\[DIAGRAM:([a-z0-9-]+)\]/g, '```diagram:$1\n```');
+  processed = processed.replace(/\[ACTIVITY:([a-z0-9-]+)\]/g, '```activity:$1\n```');
+  processed = processed.replace(/\[VISUAL:([a-z0-9-]+)\]/g, '```visual:$1\n```');
 
   // Convert chemical formulas & symbols
   processed = processed
@@ -105,8 +110,8 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             </h3>
           ),
           h4: ({ children }) => (
-            <h4 className="font-mono text-xs uppercase tracking-wider text-cherry-700 font-bold mt-5 mb-2">
-              [ {children} ]
+            <h4 className="font-sans text-sm text-roast-950 font-bold mt-5 mb-2">
+              {children}
             </h4>
           ),
           p: ({ children }) => (
@@ -115,7 +120,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             </p>
           ),
           strong: ({ children }) => (
-            <strong className="font-bold text-roast-950 bg-paper-100 px-1 py-0.5 rounded-xs border border-paper-300/60">
+            <strong className="font-semibold text-roast-950">
               {children}
             </strong>
           ),
@@ -181,6 +186,11 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
               const diagramType = match[1];
               return <CoffeeDiagram type={diagramType} />;
             }
+            const activity = /language-activity:([a-z0-9-]+)/.exec(className || '');
+            if (activity) return <FoundationLearningActivity id={activity[1]} />;
+            const visual = /language-visual:([a-z0-9-]+)/.exec(className || '');
+            if (visual) return <FoundationConceptVisual id={visual[1]} />;
+            if (className === 'language-solution') return <FoundationRevealAnswer text={String(children).trim()} />;
             return (
               <code className="font-mono text-xs bg-paper-200 text-roast-950 px-1.5 py-0.5 rounded border border-paper-300 font-semibold" {...props}>
                 {children}
@@ -190,7 +200,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
           pre: ({ children }: { children?: React.ReactNode }) => {
             if (React.isValidElement<{ className?: string }>(children)) {
               const childProps = children.props;
-              if (childProps?.className && String(childProps.className).startsWith('language-diagram:')) {
+              if (childProps?.className && (String(childProps.className).startsWith('language-diagram:') || String(childProps.className).startsWith('language-activity:') || String(childProps.className).startsWith('language-visual:') || String(childProps.className) === 'language-solution')) {
                 return <div className="not-prose my-6">{children}</div>;
               }
             }
@@ -225,22 +235,15 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             );
           },
           img: ({ src, alt }) => (
-            <span className="block my-8 rounded-xl overflow-hidden border border-paper-300 bg-paper-100/90 shadow-subtle not-prose">
-              <span className="flex items-center justify-between px-3.5 py-2 bg-paper-200/90 border-b border-paper-300 text-roast-900 font-mono text-[10px] uppercase font-bold tracking-wider">
-                <span className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-cherry-700 inline-block"></span>
-                  <span>MEDIA PEMBELAJARAN VISUAL / ALAT BANTU AJAR</span>
-                </span>
-                <span className="text-roast-500 font-normal">SCA & CQI Curated</span>
-              </span>
+            <span className="block my-7 overflow-hidden rounded-xl border border-paper-300 bg-paper-50 not-prose">
               <img
                 src={src}
-                alt={alt || 'Visualisasi Pembelajaran'}
-                className="w-full h-auto max-h-[500px] object-cover block"
+                alt={alt || 'Ilustrasi pendukung materi kopi'}
+                className="block w-full h-auto max-h-[560px] object-contain"
                 loading="lazy"
               />
               {alt && (
-                <span className="block p-3.5 text-center text-xs font-serif italic text-roast-800 bg-paper-100 border-t border-paper-200">
+                <span className="block px-4 py-3 text-xs leading-relaxed text-roast-700 bg-white border-t border-paper-200">
                   {alt}
                 </span>
               )}

@@ -41,9 +41,9 @@ import {
 import {
   SEED_USERS,
   SEED_BADGES,
-  SEED_PATHS,
-  SEED_MODULES,
-  SEED_LESSONS,
+  SEED_PATHS as BASE_SEED_PATHS,
+  SEED_MODULES as BASE_SEED_MODULES,
+  SEED_LESSONS as BASE_SEED_LESSONS,
   SEED_QUIZZES,
   SEED_QUESTIONS,
   SEED_ENROLLMENTS,
@@ -53,6 +53,11 @@ import {
   SEED_JOBS,
   SEED_JOB_APPLICATIONS,
 } from './data/seedData';
+import {
+  FOUNDATION_V2_PREVIEW_PATH,
+  FOUNDATION_V2_PREVIEW_MODULES,
+  FOUNDATION_V2_PREVIEW_LESSONS,
+} from './data/foundationV2Preview.generated';
 import { DEFAULT_LANDING_CONFIG } from './data/defaultLandingConfig';
 import { DEFAULT_SITE_PAGES } from './data/defaultSitePages';
 import {
@@ -66,6 +71,22 @@ import {
   fetchTransactionByIdFromSupabase,
 } from './dbSync';
 import { supabase, isSupabaseConfigured } from './supabase';
+
+// Explicit opt-in for isolated reviewer builds only; disabled by default.
+const FOUNDATION_V2_PREVIEW_ENABLED =
+  process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW === 'review-only';
+
+// Do not replace legacy path/module/lesson IDs. Older progress and certificates
+// refer to those IDs and must remain meaningful until an approved migration.
+const SEED_PATHS: LearningPath[] = FOUNDATION_V2_PREVIEW_ENABLED
+  ? [...BASE_SEED_PATHS, FOUNDATION_V2_PREVIEW_PATH]
+  : BASE_SEED_PATHS;
+const SEED_MODULES: Module[] = FOUNDATION_V2_PREVIEW_ENABLED
+  ? [...BASE_SEED_MODULES, ...FOUNDATION_V2_PREVIEW_MODULES]
+  : BASE_SEED_MODULES;
+const SEED_LESSONS: Lesson[] = FOUNDATION_V2_PREVIEW_ENABLED
+  ? [...BASE_SEED_LESSONS, ...FOUNDATION_V2_PREVIEW_LESSONS]
+  : BASE_SEED_LESSONS;
 
 export const GUEST_USER: User = {
   id: 'guest',
@@ -439,7 +460,9 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
         // Smart merge learning paths: ensure official paths stay synced with latest curriculum structure
         if (parsed.learningPaths) {
-          const customPaths = parsed.learningPaths.filter((p: LearningPath) => !SEED_PATHS.some((sp) => sp.id === p.id));
+          const customPaths = parsed.learningPaths.filter((p: LearningPath) =>
+            p.id !== FOUNDATION_V2_PREVIEW_PATH.id && !SEED_PATHS.some((sp) => sp.id === p.id)
+          );
           setLearningPaths([...SEED_PATHS, ...customPaths]);
         } else {
           setLearningPaths(SEED_PATHS);
@@ -447,7 +470,9 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
         // Smart merge modules: ensure official syllabus modules stay synced with latest titles & curriculum
         if (parsed.modules) {
-          const customModules = parsed.modules.filter((m: Module) => !SEED_MODULES.some((sm) => sm.id === m.id));
+          const customModules = parsed.modules.filter((m: Module) =>
+            !m.id.startsWith('mod-fv2-') && !SEED_MODULES.some((sm) => sm.id === m.id)
+          );
           setModules([...SEED_MODULES, ...customModules]);
         } else {
           setModules(SEED_MODULES);
@@ -455,7 +480,9 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
         // Smart merge lessons: ensure official syllabus lessons stay synced with latest rich content & images
         if (parsed.lessons) {
-          const customLessons = parsed.lessons.filter((l: Lesson) => !SEED_LESSONS.some((sl) => sl.id === l.id));
+          const customLessons = parsed.lessons.filter((l: Lesson) =>
+            !l.id.startsWith('lesson-fv2-') && !SEED_LESSONS.some((sl) => sl.id === l.id)
+          );
           setLessons([...SEED_LESSONS, ...customLessons]);
         } else {
           setLessons(SEED_LESSONS);
@@ -599,9 +626,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         (authUser.email && u.email.toLowerCase() === authUser.email.toLowerCase())
     );
 
-    const isTestUser =
-      authUser.id === 'user-testuser-cherry' ||
-      authUser.email?.toLowerCase().includes('testuser');
+    // Privileged access must not depend on email patterns or fake demo user IDs.
 
     if (existing) {
       const incomingName =
@@ -615,7 +640,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       const shouldUpdateName = incomingName && incomingName !== existing.name;
       const shouldUpdateAvatar = incomingAvatar && incomingAvatar !== existing.avatar_url;
 
-      if (shouldUpdateId || shouldUpdateName || shouldUpdateAvatar || (isTestUser && !existing.is_pro)) {
+      if (shouldUpdateId || shouldUpdateName || shouldUpdateAvatar) {
         setUsers((prev) =>
           prev.map((u) =>
             u.id === existing.id
@@ -624,14 +649,6 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
                   id: authUser.id,
                   name: incomingName || u.name,
                   avatar_url: incomingAvatar || u.avatar_url,
-                  ...(isTestUser
-                    ? {
-                        is_pro: true,
-                        subscription_tier: 'pro',
-                        subscription_cycle: 'annual',
-                        subscription_expires_at: '2099-12-31T23:59:59Z',
-                      }
-                    : {}),
                 }
               : u
           )
@@ -654,26 +671,23 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         )}`;
       const coffeeRole = (authUser.user_metadata?.coffee_role as User['coffee_role']) || 'barista';
       const isAdmin =
-        authUser.email === 'admin@cherryedu.id' ||
-        (authUser as any).app_metadata?.role === 'admin';
+        authUser.app_metadata?.role === 'admin';
 
       const newUser: User = {
         id: authUser.id,
-        name: isTestUser ? 'Test User (All Access)' : name,
+        name,
         email: authUser.email || '',
         avatar_url,
-        bio: isTestUser
-          ? 'Akun pengujian pembelajar resmi Cherry Coffee Roastery (All Access Pro Member).'
-          : 'Pembelajar aktif di akademi kopi CherryEdu.',
+        bio: 'Pembelajar aktif di akademi kopi CherryEdu.',
         role: isAdmin ? 'admin' : 'learner',
         coffee_role: coffeeRole,
         city: authUser.user_metadata?.city || 'Indonesia',
-        xp_points: isTestUser ? 750 : 50,
-        streak_count: isTestUser ? 14 : 1,
-        is_pro: isTestUser || false,
-        subscription_tier: isTestUser ? 'pro' : 'free',
-        subscription_cycle: isTestUser ? 'annual' : undefined,
-        subscription_expires_at: isTestUser ? '2099-12-31T23:59:59Z' : undefined,
+        xp_points: 50,
+        streak_count: 1,
+        is_pro: false,
+        subscription_tier: 'free',
+        subscription_cycle: undefined,
+        subscription_expires_at: undefined,
         last_active_date: new Date().toISOString().slice(0, 10),
         created_at: new Date().toISOString(),
       };
@@ -683,7 +697,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       syncProfileToSupabase(newUser);
 
       // If this is a real user, query Supabase profile immediately to recover any existing subscription status
-      if (isSupabaseConfigured() && !isTestUser) {
+      if (isSupabaseConfigured()) {
         (async () => {
           try {
             const { data } = await supabase
@@ -701,7 +715,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
                       ...u,
                       name: data.name || u.name,
                       avatar_url: data.avatar_url || u.avatar_url,
-                      role: data.role || u.role,
+                      role: authUser.app_metadata?.role === 'admin' ? 'admin' : (data.role === 'admin' ? 'learner' : (data.role || u.role)),
                       is_pro: isProActive,
                       subscription_tier: isProActive ? (data.subscription_tier || 'pro') : 'free',
                       subscription_cycle: data.subscription_cycle || undefined,
@@ -729,17 +743,18 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         u.id === currentUserId ||
         (authUser?.email && u.email.toLowerCase() === authUser.email.toLowerCase())
     );
-    return matched || (isAuthenticated ? users[0] : GUEST_USER);
+    const profile = matched || (isAuthenticated ? users[0] : GUEST_USER);
+    // Browser cache + editable profile rows are NEVER authorization sources.
+    // Supabase Auth app_metadata comes from getUser() verified server-side.
+    const trustedAdmin = Boolean(isAuthenticated && authUser?.app_metadata?.role === 'admin');
+    return {
+      ...profile,
+      role: trustedAdmin ? 'admin' : (profile.role === 'admin' ? 'learner' : profile.role),
+    };
   }, [isAuthenticated, users, currentUserId, authUser]);
 
   const isPro = useMemo(() => {
     if (currentUser.role === 'admin') return true;
-    if (
-      currentUser.id === 'user-testuser-cherry' ||
-      currentUser.email?.toLowerCase().includes('testuser')
-    ) {
-      return true;
-    }
     if (currentUser.is_pro) {
       if (!currentUser.subscription_expires_at) return true;
       return new Date(currentUser.subscription_expires_at) > new Date();
@@ -1199,8 +1214,6 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const canEnrollInPath = (pathId: string): { allowed: boolean; reason?: string } => {
     if (
       currentUser.role === 'admin' ||
-      currentUser.id === 'user-testuser-cherry' ||
-      currentUser.email?.toLowerCase().includes('testuser') ||
       isPro
     ) {
       return { allowed: true };
@@ -1231,6 +1244,9 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const enrollInPath = (pathId: string, bypassPrerequisite: boolean = false) => {
+    if (pathId === FOUNDATION_V2_PREVIEW_PATH.id) {
+      return { success: false, message: 'Foundation V2 masih dalam review. Tidak ada enrollment atau kredit belajar.' };
+    }
     const check = canEnrollInPath(pathId);
     if (!check.allowed && !bypassPrerequisite) {
       return { success: false, message: check.reason || 'Tidak memenuhi prasyarat.' };
@@ -1258,12 +1274,14 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const isLessonCompleted = (lessonId: string): boolean => {
+    if (lessonId.startsWith('lesson-fv2-')) return false;
     return userProgress.some(
       (p) => p.user_id === currentUser.id && p.lesson_id === lessonId && p.status === 'completed'
     );
   };
 
   const getPathProgress = (pathId: string): number => {
+    if (pathId === FOUNDATION_V2_PREVIEW_PATH.id) return 0;
     const pathModules = modules.filter((m) => m.learning_path_id === pathId);
     const moduleIds = pathModules.map((m) => m.id);
     const pathLessons = lessons.filter((l) => moduleIds.includes(l.module_id));
@@ -1275,6 +1293,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const isPathCompleted = (pathId: string): boolean => {
+    if (pathId === FOUNDATION_V2_PREVIEW_PATH.id) return false;
     const enrollment = enrollments.find(
       (e) => e.user_id === currentUser.id && e.learning_path_id === pathId
     );
@@ -1282,6 +1301,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const markLessonComplete = (lessonId: string, timeSpentSeconds: number = 300) => {
+    // The versioned preview is intentionally read-only; no user credit or XP.
+    if (lessonId.startsWith('lesson-fv2-')) return;
     const now = new Date().toISOString();
     const existing = userProgress.find((p) => p.user_id === currentUser.id && p.lesson_id === lessonId);
 
@@ -1423,6 +1444,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const toggleBookmark = (lessonId: string) => {
+    if (lessonId.startsWith('lesson-fv2-')) return;
     setBookmarks((prev) => {
       const exists = prev.some((b) => b.user_id === currentUser.id && b.lesson_id === lessonId);
       if (exists) {
@@ -1442,6 +1464,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const isBookmarked = (lessonId: string): boolean => {
+    if (lessonId.startsWith('lesson-fv2-')) return false;
     return bookmarks.some((b) => b.user_id === currentUser.id && b.lesson_id === lessonId);
   };
 

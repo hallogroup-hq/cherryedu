@@ -34,3 +34,6 @@ next-env.d.ts
 # Playwright Test Outputs
 test-results/
 playwright-report/
+
+# Deterministically generated local curriculum preview; not source-of-truth
+lib/data/foundationV2Preview.generated.ts

@@ -3,6 +3,9 @@ import { sendSubscriptionEmail } from '@/lib/emailService';
 import { checkRateLimit, getClientIp, isAllowedOrigin } from '@/lib/rateLimit';
 
 export async function POST(req: NextRequest) {
+  if (process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW === 'review-only') {
+    return NextResponse.json({ success: false, message: 'Email transaksi dinonaktifkan pada preview.' }, { status: 503 });
+  }
   // 1. Anti-CSRF Origin Verification
   if (!isAllowedOrigin(req)) {
     return NextResponse.json(

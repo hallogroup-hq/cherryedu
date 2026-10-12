@@ -28,6 +28,9 @@ export default function LessonPlayerPage() {
   const router = useRouter();
   const slug = params.slug as string;
   const lessonId = params.lessonId as string;
+  const isDraftPreview = slug === 'foundation-v2-preview' &&
+    lessonId.startsWith('lesson-fv2-') &&
+    process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW === 'review-only';
 
   const {
     learningPaths,
@@ -47,10 +50,10 @@ export default function LessonPlayerPage() {
   const [isTocOpen, setIsTocOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    if (!authLoading && !isAuthenticated) {
+    if (!isDraftPreview && !authLoading && !isAuthenticated) {
       router.replace(`/login?redirect=/paths/${slug}/lessons/${lessonId}`);
     }
-  }, [authLoading, isAuthenticated, slug, lessonId, router]);
+  }, [authLoading, isAuthenticated, slug, lessonId, router, isDraftPreview]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -59,7 +62,7 @@ export default function LessonPlayerPage() {
     return () => clearInterval(timer);
   }, []);
 
-  if (authLoading) {
+  if (authLoading && !isDraftPreview) {
     return (
       <div className="min-h-screen bg-paper-50 flex flex-col items-center justify-center p-6 text-center">
         <Loader2 className="w-8 h-8 animate-spin text-cherry-700 mb-3" />
@@ -70,7 +73,7 @@ export default function LessonPlayerPage() {
     );
   }
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated && !isDraftPreview) {
     return (
       <div className="min-h-screen bg-paper-50 flex items-center justify-center p-4">
         <div className="max-w-md w-full bg-paper-50 border-2 border-roast-900 p-8 text-center shadow-elevated rounded-xl">
@@ -119,7 +122,14 @@ export default function LessonPlayerPage() {
   const nextItem =
     currentIndex < allPathLessons.length - 1 ? allPathLessons[currentIndex + 1] : null;
 
-  if (!path || !currentLesson) {
+  // Security invariant: a route may render only lessons belonging to the
+  // modules of THAT path. Otherwise a free Foundation slug could be combined
+  // with a paid specialization lesson ID to bypass module access checks.
+  if (
+    !path ||
+    !currentLesson ||
+    !pathModules.some((module) => module.id === currentLesson.module_id)
+  ) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center">
         <h2 className="text-xl font-serif font-bold text-roast-950">Materi Tidak Ditemukan</h2>
@@ -162,10 +172,16 @@ export default function LessonPlayerPage() {
     );
   }
 
-  const completed = isLessonCompleted(currentLesson.id);
-  const bookmarked = isBookmarked(currentLesson.id);
+  const completed = !isDraftPreview && isLessonCompleted(currentLesson.id);
+  const bookmarked = !isDraftPreview && isBookmarked(currentLesson.id);
 
   const handleCompleteAndNext = () => {
+    if (isDraftPreview) {
+      if (nextItem?.lesson) {
+        router.push(`/paths/${path.slug}/lessons/${nextItem.lesson.id}`);
+      }
+      return;
+    }
     markLessonComplete(currentLesson.id, timeSpent);
     setCompletedNotification(true);
     toast.success('Materi berhasil diselesaikan! +25 XP ditambahkan ke profil Anda.');
@@ -209,7 +225,8 @@ export default function LessonPlayerPage() {
               <List className="w-4 h-4" />
             </button>
 
-            {/* Bookmark button */}
+            {/* Bookmark button — unavailable for unpublished review material */}
+            {!isDraftPreview && (
             <button
               onClick={() => toggleBookmark(currentLesson.id)}
               className={`px-3 py-1.5 rounded border transition-colors flex items-center gap-1.5 font-mono text-xs ${
@@ -222,7 +239,9 @@ export default function LessonPlayerPage() {
               <span className="hidden sm:inline">{bookmarked ? 'Tersimpan' : 'Simpan'}</span>
             </button>
 
+            )}
             {/* Complete button */}
+            {!isDraftPreview && (
             <button
               onClick={handleCompleteAndNext}
               disabled={completedNotification}
@@ -244,10 +263,19 @@ export default function LessonPlayerPage() {
                 </>
               )}
             </button>
+            )}
           </div>
         </div>
       </div>
 
+      {isDraftPreview && (
+        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 mt-5">
+          <p role="status" className="rounded-md border border-paper-300 bg-paper-100 px-4 py-3 text-xs text-roast-800">
+            <strong>Foundation V2 — Draft untuk review.</strong> Materi belum disahkan.
+            Tidak ada progres, XP, bookmark, ujian, atau sertifikat yang dicatat.
+          </p>
+        </div>
+      )}
       {/* Reader Layout (TOC Sidebar + Editorial Reader) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-10">
         {/* Left Table of Contents */}
@@ -268,7 +296,7 @@ export default function LessonPlayerPage() {
                     <div className="space-y-0.5 pl-2">
                       {modLessons.map((l) => {
                         const isCurrent = l.id === currentLesson.id;
-                        const isDone = isLessonCompleted(l.id);
+                        const isDone = !isDraftPreview && isLessonCompleted(l.id);
                         return (
                           <Link
                             key={l.id}
@@ -300,7 +328,7 @@ export default function LessonPlayerPage() {
         </aside>
 
         {/* Center / Main Editorial Reader */}
-        <main className="lg:col-span-8 bg-white rounded-xl border border-paper-300 p-5 sm:p-8 lg:p-14 shadow-card">
+        <article className="lg:col-span-8 bg-white rounded-xl border border-paper-300 p-5 sm:p-8 lg:p-14 shadow-card">
           {completedNotification && (
             <div className="mb-6 p-4 rounded bg-emerald-50 border border-emerald-300 font-mono text-xs text-emerald-900 flex items-center gap-2 animate-in fade-in slide-in-from-top-2 duration-200">
               <Check className="w-4 h-4 text-emerald-700 shrink-0" />
@@ -412,11 +440,11 @@ export default function LessonPlayerPage() {
                 className="w-full sm:w-auto px-5 py-2.5 bg-roast-950 hover:bg-roast-900 text-paper-50 rounded font-mono text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 transition-colors"
               >
                 <Award className="w-4 h-4 text-crema-400" />
-                <span>Ujian Kelulusan →</span>
+                <span>{isDraftPreview ? 'Kembali ke Silabus Review →' : 'Ujian Kelulusan →'}</span>
               </Link>
             )}
           </div>
-        </main>
+        </article>
       </div>
     </div>
   );

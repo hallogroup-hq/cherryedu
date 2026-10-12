@@ -48,7 +48,7 @@ function translateAuthError(message: string): string {
   return message;
 }
 
-const TEST_USER_KEY = 'cherryedu_testuser_session';
+const IS_CURRICULUM_REVIEW = process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW === 'review-only';
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<SupabaseUser | null>(null);
@@ -56,42 +56,37 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // The V2 editorial preview must never authenticate against live Supabase.
+    if (IS_CURRICULUM_REVIEW) {
+      setSession(null);
+      setUser(null);
+      setLoading(false);
+      return;
+    }
     // Proactively purge any leftover demo auth user
     try {
       localStorage.removeItem('cherryedu_local_auth_user');
     } catch {}
 
     const loadInitialSession = async () => {
-      // Check for dedicated test user session first
-      try {
-        const savedTestSession = localStorage.getItem(TEST_USER_KEY);
-        if (savedTestSession) {
-          const parsed = JSON.parse(savedTestSession);
-          if (
-            parsed?.user?.id === 'user-testuser-cherry' ||
-            parsed?.user?.id === 'usr-admin-01' ||
-            parsed?.user?.email === 'testuser@cherrycoffeeroastery.com' ||
-            parsed?.user?.email === 'testuser@cherryedu.id' ||
-            parsed?.user?.email === 'admin@cherryedu.id'
-          ) {
-            setSession(parsed);
-            setUser(parsed.user);
-            setLoading(false);
-            return;
-          }
-        }
-      } catch {}
-
       if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
         setLoading(false);
         return;
       }
 
       try {
-        const { data: { session } } = await supabase.auth.getSession();
-        if (session?.user) {
-          setSession(session);
-          setUser(session.user);
+        // Verify the JWT with Supabase Auth before accepting identity/roles.
+        // A user object reconstructed from browser storage is not trustworthy.
+        const { data: verified, error: verificationError } = await supabase.auth.getUser();
+        if (!verificationError && verified.user) {
+          const { data: { session } } = await supabase.auth.getSession();
+          if (session) {
+            setSession(session);
+            setUser(verified.user);
+          } else {
+            setSession(null);
+            setUser(null);
+          }
         } else {
           setSession(null);
           setUser(null);
@@ -106,22 +101,28 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     loadInitialSession();
 
     if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-      const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-        if (session?.user) {
-          setSession(session);
-          setUser(session.user);
-        } else {
-          try {
-            const savedTestSession = localStorage.getItem(TEST_USER_KEY);
-            if (!savedTestSession) {
+      const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, incomingSession) => {
+        if (!incomingSession) {
+          setSession(null);
+          setUser(null);
+          return;
+        }
+        // Schedule outside the synchronous auth callback (avoid Supabase
+        // re-entrancy); never trust unsigned browser-local profile metadata.
+        setTimeout(() => {
+          void supabase.auth.getUser().then(({ data, error }) => {
+            if (error || !data.user) {
               setSession(null);
               setUser(null);
+              return;
             }
-          } catch {
+            setSession(incomingSession);
+            setUser(data.user);
+          }).catch(() => {
             setSession(null);
             setUser(null);
-          }
-        }
+          });
+        }, 0);
       });
 
       return () => subscription.unsubscribe();
@@ -129,106 +130,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const signIn = async (email: string, password: string): Promise<{ error: string | null }> => {
-    const cleanInput = email.trim().toLowerCase();
-    const isTestUserIdentifier =
-      cleanInput === 'testuser' ||
-      cleanInput === 'testuser@cherryedu.id' ||
-      cleanInput === 'testuser@cherrycoffeeroastery.com';
-    const isTestUserPassword =
-      password === 'cherrycoffeeroastery' ||
-      password === 'cherry2026!' ||
-      password === 'testuser' ||
-      password === 'testuser123' ||
-      password === 'testuser2026';
-    const isDedicatedTestUser = isTestUserIdentifier && isTestUserPassword;
-
-    const isAdminIdentifier = cleanInput === 'admin@cherryedu.id' || cleanInput === 'admin';
-    const isAdminPassword = password === 'cherryadmin2026' || password === 'cherry2026!' || password === 'admin';
-    const isDedicatedAdmin = isAdminIdentifier && isAdminPassword;
-
-    if (isDedicatedAdmin) {
-      const adminUserObj: SupabaseUser = {
-        id: 'usr-admin-01',
-        app_metadata: { provider: 'email', providers: ['email'], role: 'admin' },
-        user_metadata: {
-          name: 'Administrator CherryEdu',
-          full_name: 'Administrator CherryEdu',
-          coffee_role: 'roaster',
-          role: 'admin',
-          is_pro: true,
-        },
-        aud: 'authenticated',
-        confirmation_sent_at: new Date().toISOString(),
-        confirmed_at: new Date().toISOString(),
-        created_at: new Date().toISOString(),
-        email: 'admin@cherryedu.id',
-        email_confirmed_at: new Date().toISOString(),
-        last_sign_in_at: new Date().toISOString(),
-        phone: '',
-        role: 'authenticated',
-        updated_at: new Date().toISOString(),
-      };
-
-      const adminSessionObj: Session = {
-        access_token: 'admin-token-' + Date.now(),
-        token_type: 'bearer',
-        expires_in: 3600 * 24 * 7,
-        refresh_token: 'admin-refresh-token',
-        user: adminUserObj,
-      };
-
-      try {
-        localStorage.setItem(TEST_USER_KEY, JSON.stringify(adminSessionObj));
-      } catch {}
-
-      setSession(adminSessionObj);
-      setUser(adminUserObj);
-      return { error: null };
-    }
-
-    if (isDedicatedTestUser) {
-      const testUserObj: SupabaseUser = {
-        id: 'user-testuser-cherry',
-        app_metadata: { provider: 'email', providers: ['email'] },
-        user_metadata: {
-          name: 'Test User (All Access)',
-          full_name: 'Test User (All Access)',
-          coffee_role: 'barista',
-          role: 'learner',
-          is_pro: true,
-          subscription_tier: 'pro',
-          subscription_cycle: 'annual',
-          subscription_expires_at: '2099-12-31T23:59:59Z',
-        },
-        aud: 'authenticated',
-        confirmation_sent_at: new Date().toISOString(),
-        confirmed_at: new Date().toISOString(),
-        created_at: new Date().toISOString(),
-        email: 'testuser@cherrycoffeeroastery.com',
-        email_confirmed_at: new Date().toISOString(),
-        last_sign_in_at: new Date().toISOString(),
-        phone: '',
-        role: 'authenticated',
-        updated_at: new Date().toISOString(),
-      };
-
-      const testSessionObj: Session = {
-        access_token: 'testuser-token-' + Date.now(),
-        token_type: 'bearer',
-        expires_in: 3600 * 24 * 7,
-        refresh_token: 'testuser-refresh-token',
-        user: testUserObj,
-      };
-
-      try {
-        localStorage.setItem(TEST_USER_KEY, JSON.stringify(testSessionObj));
-      } catch {}
-
-      setSession(testSessionObj);
-      setUser(testUserObj);
-      return { error: null };
-    }
-
+    if (IS_CURRICULUM_REVIEW) return { error: 'Login dinonaktifkan pada preview kurikulum.' };
     // Authenticate with Supabase
     try {
       const { data, error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
@@ -249,6 +151,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const signInWithGoogle = async (customRedirect?: string): Promise<{ error: string | null }> => {
+    if (IS_CURRICULUM_REVIEW) return { error: 'Login Google dinonaktifkan pada preview kurikulum.' };
     try {
       const origin = typeof window !== 'undefined' ? window.location.origin : (process.env.NEXT_PUBLIC_SITE_URL || '');
       const callbackUrl = `${origin}/auth/callback${customRedirect ? `?next=${encodeURIComponent(customRedirect)}` : ''}`;
@@ -305,6 +208,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     name: string,
     coffeeRole: string = 'barista'
   ): Promise<{ error: string | null; needsConfirmation?: boolean }> => {
+    if (IS_CURRICULUM_REVIEW) return { error: 'Pendaftaran akun dinonaktifkan pada preview kurikulum.' };
     try {
       const { data, error } = await supabase.auth.signUp({
         email,
@@ -334,25 +238,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
-  const signInAsDemo = async (role: 'admin' | 'barista' | 'home_brewer' | 'q_grader') => {
-    const configuredDemoSecret = process.env.NEXT_PUBLIC_DEMO_ADMIN_PASSWORD;
-    if (role === 'admin' && configuredDemoSecret) {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: 'admin@cherryedu.id',
-        password: configuredDemoSecret,
-      });
-      if (!error && data.session) {
-        setSession(data.session);
-        setUser(data.user);
-        return;
-      }
-    }
-    throw new Error('Fitur login demo instan dinonaktifkan demi keamanan. Silakan login menggunakan email & kata sandi resmi Anda.');
+  const signInAsDemo = async (_role: 'admin' | 'barista' | 'home_brewer' | 'q_grader') => {
+    throw new Error('Login demo tidak tersedia. Masuk dengan akun resmi yang terverifikasi.');
   };
 
   const signOut = async () => {
+    // Clear deprecated browser-created demo sessions from previous builds.
     try {
-      localStorage.removeItem(TEST_USER_KEY);
+      localStorage.removeItem('cherryedu_testuser_session');
+      localStorage.removeItem('cherryedu_local_auth_user');
     } catch {}
     try {
       await supabase.auth.signOut();

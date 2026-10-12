@@ -6,6 +6,9 @@ const MIN_PAYMENT_AMOUNT = 10000;      // Rp 10.000
 const MAX_PAYMENT_AMOUNT = 5000000;    // Rp 5.000.000
 
 export async function POST(req: NextRequest) {
+  if (process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW === 'review-only') {
+    return NextResponse.json({ success: false, message: 'Pembayaran dinonaktifkan pada preview kurikulum.' }, { status: 503 });
+  }
   // 1. Origin Verification (Anti-CSRF)
   if (!isAllowedOrigin(req)) {
     return NextResponse.json(
