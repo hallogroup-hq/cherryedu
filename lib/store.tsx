@@ -626,9 +626,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         (authUser.email && u.email.toLowerCase() === authUser.email.toLowerCase())
     );
 
-    const isTestUser =
-      authUser.id === 'user-testuser-cherry' ||
-      authUser.email?.toLowerCase().includes('testuser');
+    // Privileged access must not depend on email patterns or fake demo user IDs.
 
     if (existing) {
       const incomingName =
@@ -642,7 +640,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       const shouldUpdateName = incomingName && incomingName !== existing.name;
       const shouldUpdateAvatar = incomingAvatar && incomingAvatar !== existing.avatar_url;
 
-      if (shouldUpdateId || shouldUpdateName || shouldUpdateAvatar || (isTestUser && !existing.is_pro)) {
+      if (shouldUpdateId || shouldUpdateName || shouldUpdateAvatar) {
         setUsers((prev) =>
           prev.map((u) =>
             u.id === existing.id
@@ -651,14 +649,6 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
                   id: authUser.id,
                   name: incomingName || u.name,
                   avatar_url: incomingAvatar || u.avatar_url,
-                  ...(isTestUser
-                    ? {
-                        is_pro: true,
-                        subscription_tier: 'pro',
-                        subscription_cycle: 'annual',
-                        subscription_expires_at: '2099-12-31T23:59:59Z',
-                      }
-                    : {}),
                 }
               : u
           )
@@ -681,26 +671,23 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         )}`;
       const coffeeRole = (authUser.user_metadata?.coffee_role as User['coffee_role']) || 'barista';
       const isAdmin =
-        authUser.email === 'admin@cherryedu.id' ||
-        (authUser as any).app_metadata?.role === 'admin';
+        authUser.app_metadata?.role === 'admin';
 
       const newUser: User = {
         id: authUser.id,
-        name: isTestUser ? 'Test User (All Access)' : name,
+        name,
         email: authUser.email || '',
         avatar_url,
-        bio: isTestUser
-          ? 'Akun pengujian pembelajar resmi Cherry Coffee Roastery (All Access Pro Member).'
-          : 'Pembelajar aktif di akademi kopi CherryEdu.',
+        bio: 'Pembelajar aktif di akademi kopi CherryEdu.',
         role: isAdmin ? 'admin' : 'learner',
         coffee_role: coffeeRole,
         city: authUser.user_metadata?.city || 'Indonesia',
-        xp_points: isTestUser ? 750 : 50,
-        streak_count: isTestUser ? 14 : 1,
-        is_pro: isTestUser || false,
-        subscription_tier: isTestUser ? 'pro' : 'free',
-        subscription_cycle: isTestUser ? 'annual' : undefined,
-        subscription_expires_at: isTestUser ? '2099-12-31T23:59:59Z' : undefined,
+        xp_points: 50,
+        streak_count: 1,
+        is_pro: false,
+        subscription_tier: 'free',
+        subscription_cycle: undefined,
+        subscription_expires_at: undefined,
         last_active_date: new Date().toISOString().slice(0, 10),
         created_at: new Date().toISOString(),
       };
@@ -710,7 +697,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       syncProfileToSupabase(newUser);
 
       // If this is a real user, query Supabase profile immediately to recover any existing subscription status
-      if (isSupabaseConfigured() && !isTestUser) {
+      if (isSupabaseConfigured()) {
         (async () => {
           try {
             const { data } = await supabase
@@ -728,7 +715,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
                       ...u,
                       name: data.name || u.name,
                       avatar_url: data.avatar_url || u.avatar_url,
-                      role: data.role || u.role,
+                      role: authUser.app_metadata?.role === 'admin' ? 'admin' : (data.role === 'admin' ? 'learner' : (data.role || u.role)),
                       is_pro: isProActive,
                       subscription_tier: isProActive ? (data.subscription_tier || 'pro') : 'free',
                       subscription_cycle: data.subscription_cycle || undefined,
@@ -756,17 +743,18 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         u.id === currentUserId ||
         (authUser?.email && u.email.toLowerCase() === authUser.email.toLowerCase())
     );
-    return matched || (isAuthenticated ? users[0] : GUEST_USER);
+    const profile = matched || (isAuthenticated ? users[0] : GUEST_USER);
+    // Browser cache + editable profile rows are NEVER authorization sources.
+    // Supabase Auth app_metadata comes from getUser() verified server-side.
+    const trustedAdmin = Boolean(isAuthenticated && authUser?.app_metadata?.role === 'admin');
+    return {
+      ...profile,
+      role: trustedAdmin ? 'admin' : (profile.role === 'admin' ? 'learner' : profile.role),
+    };
   }, [isAuthenticated, users, currentUserId, authUser]);
 
   const isPro = useMemo(() => {
     if (currentUser.role === 'admin') return true;
-    if (
-      currentUser.id === 'user-testuser-cherry' ||
-      currentUser.email?.toLowerCase().includes('testuser')
-    ) {
-      return true;
-    }
     if (currentUser.is_pro) {
       if (!currentUser.subscription_expires_at) return true;
       return new Date(currentUser.subscription_expires_at) > new Date();
@@ -1226,8 +1214,6 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const canEnrollInPath = (pathId: string): { allowed: boolean; reason?: string } => {
     if (
       currentUser.role === 'admin' ||
-      currentUser.id === 'user-testuser-cherry' ||
-      currentUser.email?.toLowerCase().includes('testuser') ||
       isPro
     ) {
       return { allowed: true };
