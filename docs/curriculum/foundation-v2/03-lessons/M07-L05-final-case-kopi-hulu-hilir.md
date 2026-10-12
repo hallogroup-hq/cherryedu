@@ -110,13 +110,15 @@ Kartu transaksi fiktif pada satu periode:
 
 | Komponen | Versi standar | Versi sortasi premium |
 |---|---:|---:|
-| Ceri yang berhasil dijual | 100 kg | 100 kg |
-| Harga per kg ceri | Rp12.000 | Rp13.500 |
-| Penerimaan | Rp1.200.000 | Rp1.350.000 |
-| Biaya yang tercatat | Rp900.000 | Rp1.080.000 |
-| Sisa setelah biaya tercatat | Rp300.000 | Rp270.000 |
+| Ceri dipanen (basis perbandingan) | 100 kg | 100 kg |
+| Ceri yang terjual dalam skenario | 100 kg | 90 kg lolos sortasi |
+| Ceri yang belum terjual (dalam data) | 0 kg | 10 kg; nasib/biayanya belum diketahui |
+| Harga per kg ceri yang terjual | Rp12.000 | Rp15.000 |
+| Penerimaan dari penjualan yang tercatat | Rp1.200.000 | Rp1.350.000 |
+| Biaya yang tercatat dalam skenario | Rp900.000 | Rp1.130.000 |
+| Sisa setelah biaya tercatat | Rp300.000 | Rp220.000 |
 
-**Ini merupakan perbandingan alternatif ilustratif**, bukan dua pembayaran sungguhan sekaligus kepada orang yang sama.
+**Ini merupakan dua skenario alternatif ilustratif**, bukan dua pembayaran sungguhan kepada orang yang sama. Dalam skenario premium hanya 90 dari 100 kg ceri terjual; 10 kg tidak boleh diam-diam diasumsikan menjadi pendapatan nol selamanya maupun punya pembeli lain. Pendapatan/biaya lain untuk 10 kg itu **belum tercakup**, sehingga kesimpulan hanya untuk catatan penjualan yang terlihat.
 
 Manajer brand mengusulkan copy:
 1. “Single farmer, 100% traceable.”
@@ -143,7 +145,7 @@ Alasannya: ada insiden gudang yang belum ditelusuri, informasi sublot yang tidak
 
 ### Keputusan 3: Apakah selisih harga premium menaikkan hasil setelah biaya?
 
-**Hitung ulang:** Penerimaan naik Rp150.000, biaya naik Rp180.000, sisa turun **Rp30.000** pada data contoh. Jadi klaim kenaikan pendapatan 50% **bertentangan dengan perhitungan terbatas ini**, dan tidak ada data living income rumah tangga.
+**Hitung ulang:** Versi standar: 100 × Rp12.000 − Rp900.000 = **Rp300.000**. Versi premium: 90 × Rp15.000 − Rp1.130.000 = **Rp220.000**. Penerimaan tercatat naik Rp150.000 tetapi biaya yang dicatat naik Rp230.000, sehingga sisa turun **Rp80.000**. Sepuluh kilogram belum terjual belum punya catatan outcome, jadi jangan mengarang kerugian finalnya. Klaim kenaikan pendapatan 50% **tidak didukung oleh data terbatas ini**, dan tidak ada data living income rumah tangga.
 
 Tetapi jangan langsung menyimpulkan premium selalu merugikan: volume, tingkat penolakan, keuntungan jangka panjang atau biaya yang tidak tercatat belum diketahui.
 
@@ -159,7 +161,7 @@ Tuliskan empat bagian **dengan total 350–500 kata** atau empat formulir ringka
 
 **B. Science and sensory reasoning:** hitung estimated EY, jelaskan satu keterbatasannya, pilih dua klaim sensori atau roasting yang tidak dibenarkan serta bagaimana cara mengujinya.
 
-**C. Economic and ethical analysis:** hitung perbedaan penerimaan, biaya serta sisa; bedakan “harga premium” dengan living income dan jelaskan setidaknya satu pertanyaan mengenai pekerja atau keterbukaan transaksi.
+**C. Economic and ethical analysis:** hitung volume terjual di kedua skenario, perbedaan penerimaan, biaya serta sisa; jelaskan 10 kg yang belum terjual dan bedakan “harga premium” dengan living income. Sertakan setidaknya satu pertanyaan mengenai pekerja atau keterbukaan transaksi.
 
 **D. Decision and responsible copy:** buat verdict status QC dan pemasaran, pilih tiga klaim untuk ditahan/diperbaiki dengan bukti yang diminta, lalu tulis **copy produk 35–55 kata** yang tidak mengarang asal, keamanan, rasa, sertifikasi, atau dampak.
 
