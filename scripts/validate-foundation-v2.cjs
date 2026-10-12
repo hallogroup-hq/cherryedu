@@ -56,6 +56,38 @@ for (const name of lessons) {
 }
 if (Object.keys(APPENDIX_HEADINGS).length !== 36)
   fail('Expected exactly 36 explicit editorial appendix mappings');
+// Validate semantic interactive blocks are deliberate, uniquely authored,
+// and point to a known typed interaction. Do not auto-convert every table to cards.
+const registry = read(path.resolve(__dirname, '../lib/data/foundationV2Interactions.ts'));
+const renderer = read(path.resolve(__dirname, '../components/MarkdownRenderer.tsx'));
+const components = read(path.resolve(__dirname, '../components/FoundationLearningActivity.tsx'));
+const expectedInteractiveLessons = {
+  'M01.L01': 'sensory-evidence',
+  'M02.L01': 'coffee-fruit-layers',
+  'M02.L02': 'taxonomy-sort',
+  'M03.L02': 'processing-decision',
+  'M04.L01': 'roast-order',
+  'M05.L05': 'brew-ey',
+  'M06.L02': 'lexicon-confidence',
+  'M07.L02': 'value-chain-claim',
+};
+for (const [id, widget] of Object.entries(expectedInteractiveLessons)) {
+  const name = lessons.find(n => n.slice(0, 7).replace('-', '.') === id);
+  if (!name) { fail('Interactive lesson missing: ' + id); continue; }
+  const source = read(path.join(lessonFolder, name));
+  const count = source.split('[ACTIVITY:' + widget + ']').length - 1;
+  if (count !== 1) fail(id + ': expected exactly one valid activity directive, got ' + count);
+  if (!registry.includes("'" + widget + "': {")) fail('Missing typed interaction: ' + widget);
+  const rendered = toLearnerMarkdown(id, source);
+  if (!rendered.includes('[ACTIVITY:' + widget + ']')) fail('Activity lost during learner-copy compilation: ' + id);
+}
+if (!renderer.includes("activity:$1") || !renderer.includes('FoundationLearningActivity'))
+  fail('Lesson renderer does not mount real interactive activity components');
+if (!components.includes('aria-live="polite"')) fail('Activities need live-region answer feedback');
+const taxonomyLesson = read(path.join(lessonFolder, lessons.find(n => n.startsWith('M02-L02-')) || 'missing'));
+if (taxonomyLesson.includes('| Coffea | Genus |'))
+  fail('False card exercise leaked its answer key into a static learner table');
+
 const questions = new Set();
 let allQuestions = 0;
 let longestTotal = 0;
