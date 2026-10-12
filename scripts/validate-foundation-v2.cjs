@@ -7,6 +7,7 @@
 'use strict';
 const fs = require('node:fs');
 const path = require('node:path');
+const { toLearnerMarkdown, APPENDIX_HEADINGS } = require('./foundation-v2-presentation.cjs');
 const root = path.resolve(__dirname, '../docs/curriculum/foundation-v2');
 const moduleCounts = { M01: 3, M02: 5, M03: 7, M04: 5, M05: 6, M06: 5, M07: 5 };
 const quizCounts = { M01: 8, M02: 8, M03: 10, M04: 10, M05: 12, M06: 12, M07: 16 };
@@ -38,7 +39,23 @@ for (const name of lessons) {
   if (!/^---\s*\n/.test(body) || !/(?:learning_outcome|competency|outcome)\s*:/.test(body)) fail('Outcome or frontmatter missing: ' + name);
   if (!/https?:\/\/\S+/.test(body)) fail('Reference URL absent: ' + name);
   if (!/jawab|kunci|pembahasan|contoh jawaban/i.test(body)) fail('Practice feedback missing: ' + name);
+
+  // Render the actual learner version for every one of the 36 manuscripts.
+  // This gate must catch regressions in appendices, reviewer-only notes, URLs,
+  // or opaque claim citations before they reach the web application.
+  const id = name.slice(0, 7).replace('-', '.');
+  try {
+    const learnerText = toLearnerMarkdown(id, body);
+    if (!learnerText.includes('# ')) fail('No learner-facing title after cleanup: ' + id);
+    if (!/latihan|tugas|pertanyaan|eksperimen/i.test(learnerText)) fail('Learner activity missing: ' + id);
+    if (/^#{2,3}\s+(?:Referensi|Rujukan|Editorial|Sumber dan QA|Catatan pengajar)/im.test(learnerText))
+      fail('Internal appendix retained: ' + id);
+  } catch (err) {
+    fail('Learner copy isolation failed for ' + id + ': ' + (err && err.message ? err.message : String(err)));
+  }
 }
+if (Object.keys(APPENDIX_HEADINGS).length !== 36)
+  fail('Expected exactly 36 explicit editorial appendix mappings');
 const questions = new Set();
 let allQuestions = 0;
 let longestTotal = 0;
