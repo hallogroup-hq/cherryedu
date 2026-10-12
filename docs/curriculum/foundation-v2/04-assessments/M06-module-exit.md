@@ -9,6 +9,8 @@ threshold: "PROVISIONAL: 10/12 + at least 9/12 transfer rubric, none <2; not ext
 
 # Modul 06 — Assessment Pack: Belajar Mengenali dan Menilai Rasa
 
+> **Editorial anti-cue revision (2026-10-12):** Answer options revised for plausible concepts and more varied length; stable IDs/keys maintained. Independent expert and learner validation pending.
+
 ## Maksud evaluasi
 
 Asesmen ini menilai **pemahaman sensory, pemakaian deskriptor, disiplin bukti, pengendalian bias, perbandingan sampel, dan empat lensa CVA**. Tes tulisan/simulasi **tidak menilai ketajaman penciuman atau kemampuan menjalankan CVA profesional**.
@@ -23,10 +25,10 @@ Seorang pencicip menulis: “Sebelum diminum aku mencium aroma bunga; saat dimin
 
 Urutan klasifikasi paling tepat adalah ...
 
-A. Penciuman (aroma) → taste (asam) → mouthfeel (tekstur).  
-B. Semua berasal dari satu taste receptor bunga.  
-C. Bunga = mouthfeel; asam = proses asal; ringan = brand premium.  
-D. Semuanya adalah bukti zat kimia tertentu yang telah diukur.
+A. Aroma bunga → taste asam → tekstur ringan di mulut.
+B. Aroma bunga → mouthfeel asam → taste ringan di lidah.
+C. Taste bunga → aroma asam → intensitas manis minuman.
+D. Aroma bunga → acidity dari label → kualitas roasting.
 
 **Kunci A.** Tiga bagian kalimat memberi jalur pengalaman berbeda. B salah menyebut reseptor rasa bunga; C mencampur parameter dan klaim; D mengklaim pengujian yang tidak dilakukan.  
 **Remediasi:** M06.L01 §§1–3. **Miskonsepsi:** multisensory-category.
@@ -35,10 +37,10 @@ D. Semuanya adalah bukti zat kimia tertentu yang telah diukur.
 
 World Coffee Research Sensory Lexicon mempunyai 110 atribut dan acuan intensitas. Tujuan utamanya adalah ...
 
-A. Menjamin setiap kopi berkualitas memiliki seluruh 110 atribut.  
-B. Menggantikan kebutuhan latihan panel dengan hafalan 110 kata.  
-C. Membantu penilaian deskriptif lebih konsisten melalui definisi dan referensi bersama.  
-D. Mengeluarkan sertifikasi Q Grader otomatis lewat membaca kamus.
+A. Menentukan skor akhir kopi yang sama untuk setiap konsumen.
+B. Menggantikan referensi sensori dengan satu daftar hafalan.
+C. Menyamakan istilah deskriptif lewat definisi dan referensi.
+D. Mencatat persepsi pasar tanpa membutuhkan panel terlatih.
 
 **Kunci C.** Kosa kata dan referensi membantu keterbandingan, bukan menjamin kemampuan tanpa latihan.  
 **Remediasi:** M06.L02 §2. **Miskonsepsi:** lexicon-as-license.
@@ -49,10 +51,10 @@ D. Mengeluarkan sertifikasi Q Grader otomatis lewat membaca kamus.
 
 Catatan siswa: “Ini kopi premium dari 1.800 mdpl karena rasanya seperti jeruk.” Mana revisi terbaik?
 
-A. “Semua kopi dengan keasaman citrus pasti 1.800 mdpl.”  
-B. “Aku menangkap kesan buah sitrus dan keasaman cukup jelas; informasi ketinggian perlu diperiksa dari data kebun.”  
-C. “Deskriptor hanya boleh memakai istilah berbahasa Inggris.”  
-D. “Jika ada jeruk pada tasting note, kandungan buah jeruk harus dicantumkan sebagai ingredient.”
+A. Kesan citrus membuktikan ketinggian kebun di atas 1.800 mdpl.
+B. Kesan sitrus dan asam tercatat; elevasi perlu data kebun.
+C. Bila tidak tahu elevasi, semua deskriptor rasa harus dihapus.
+D. Catatan citrus memastikan suatu kebun menggunakan pupuk tertentu.
 
 **Kunci B.** Memisahkan pengamatan dari klaim asal dan komposisi yang tidak terbukti.  
 **Remediasi:** M06.L02 §§1,5. **Miskonsepsi:** descriptor-to-origin.
@@ -61,10 +63,10 @@ D. “Jika ada jeruk pada tasting note, kandungan buah jeruk harus dicantumkan s
 
 Seorang pencicip berkata “setelah kopi ditelan, mulut terasa kesat dan agak kering.” Pengelompokan paling tepat adalah ...
 
-A. Otomatis pH rendah, jadi kopi berbahaya.  
-B. Rasa dasar keenam yang identik dengan rasa asam.  
-C. Bukti langsung mesin roasted terlalu panas.  
-D. Astringency sebagai sensasi oral; bukan sinonim rasa asam atau diagnosis sebab tunggal.
+A. Kesat menandakan pH rendah yang telah diverifikasi laboratorium.
+B. Astringency sama dengan intensitas rasa asam pada lidah.
+C. Kesat harus berasal dari roasting terlalu lama pada suhu tinggi.
+D. Kesat adalah sensasi oral, bukan ukuran acidity atau penyebab tunggal.
 
 **Kunci D.** Astringency tidak identik dengan sensory acidity.  
 **Remediasi:** M06.L01 §4. **Miskonsepsi:** astringency-vs-acidity.
@@ -73,10 +75,10 @@ D. Astringency sebagai sensasi oral; bukan sinonim rasa asam atau diagnosis seba
 
 Dua kopi dibandingkan dalam kondisi tidak setara: satu masih panas, satu sudah dingin, dan pencicip tahu harga salah satunya jauh lebih mahal. Apa perubahan terbaik?
 
-A. Pakai kode sampel serta kondisi penyajian/suhu yang lebih sebanding, lalu pisahkan catatan atribut dan preferensi.  
-B. Sembunyikan semua catatan, termasuk identitas lot dari penanggung jawab, untuk selamanya.  
-C. Pastikan kopi mahal selalu diberi skor lebih tinggi.  
-D. Abaikan suhu dan informasi karena semua sensori selalu objektif.
+A. Samakan penyajian dan kode sampel; catat kesukaan terpisah.
+B. Buka merek dan harga terlebih dahulu agar semua tahu profilnya.
+C. Abaikan perbedaan suhu agar panel tidak terpengaruh ekspektasi.
+D. Gunakan wadah berbeda supaya panel mudah mengenali identitas.
 
 **Kunci A.** Kontrol ekspektasi dan penyajian memperbaiki keterbandingan tanpa menghapus identitas dari sistem ketertelusuran yang benar.  
 **Remediasi:** M06.L03 §5 dan L04 §3. **Miskonsepsi:** blinding-and-method.
@@ -85,10 +87,10 @@ D. Abaikan suhu dan informasi karena semua sensori selalu objektif.
 
 Pada pemeriksaan resmi 12 Oktober 2026, manakah pasangan nomor standar dan fungsinya yang benar?
 
-A. SCA-102 = standar akhir physical green grading baru; SCA-105 belum ada.  
-B. SCA-103 = sertifikasi kebun organik; SCA-104 = standar air espresso.  
-C. SCA-102 = sample preparation/tasting mechanics; SCA-103 = descriptive; SCA-104 = affective; SCA-105 = extrinsic assessment.  
-D. SCA-105 = ukuran roast level; SCA-102 = manual pestisida kopi.
+A. 102 physical; 103 ekstrinsik; 104 deskriptif; 105 afektif.
+B. 102 cupping; 103 afektif; 104 ekstrinsik; 105 deskriptif.
+C. 102 penyiapan; 103 deskriptif; 104 afektif; 105 ekstrinsik.
+D. 102 roasting; 103 green grading; 104 water; 105 cup score.
 
 **Kunci C.** Keempatnya tercantum sebagai standar terbit di registri SCA. Bukan seluruhnya satu jenis assessment.  
 **Remediasi:** M06.L05 §3. **Miskonsepsi:** cva-standard-version.  
@@ -102,10 +104,10 @@ D. SCA-105 = ukuran roast level; SCA-102 = manual pestisida kopi.
 
 Kesimpulan yang paling tepat?
 
-A. Semua orang selalu salah menyebut flavor apa pun.  
-B. Kemungkinan pengaruh informasi terhadap ekspektasi dan respons sensory perlu diperhitungkan; hasil studi dibatasi oleh populasi dan rancangan.  
-C. Label otomatis mengubah komposisi kimia sampel saat dibaca.  
-D. Setiap orang yang melihat label “fermentation” pasti membenci kopi.
+A. Hasil sama untuk semua peserta karena kopi yang sama digunakan.
+B. Informasi label dapat memengaruhi penilaian pada studi tersebut.
+C. Label mengubah molekul aroma kopi ketika kemasan dibaca.
+D. Efek semua jenis label sama persis pada setiap konsumen.
 
 **Kunci B.** Ada bukti pengaruh konteks pada kelompok yang diuji; tidak membuktikan semua individu selalu bereaksi serupa.  
 **Remediasi:** M06.L03 §§1–2. **Miskonsepsi:** expectation-universal.  
@@ -117,10 +119,10 @@ D. Setiap orang yang melihat label “fermentation” pasti membenci kopi.
 
 Bagaimana meringkasnya secara bertanggung jawab?
 
-A. Dua panelis membuktikan A berasal dari varietas Gesha.  
-B. Panelis R salah karena tidak memakai nama buah spesifik.  
-C. Aroma jeruk harus merupakan zat jeruk yang ditambahkan.  
-D. Keduanya sejalan pada kategori buah dan acidity, tetapi tingkat spesifisitas aromanya berbeda.
+A. Sampel A pasti Gesha karena seorang panelis mencatat jeruk.
+B. Penilai tanpa nama buah spesifik pasti belum kompeten.
+C. Catatan jeruk pasti menunjukkan penambahan aroma buah.
+D. Keduanya menyebut buah; spesifisitas berbeda, acidity sejalan.
 
 **Kunci D.** Tidak menambah kepastian yang tidak tercatat.  
 **Remediasi:** M06.L02 §7, L04 §5. **Miskonsepsi:** fake-sensory-specificity.
@@ -131,10 +133,10 @@ D. Keduanya sejalan pada kategori buah dan acidity, tetapi tingkat spesifisitas 
 
 Kesimpulan terbaik?
 
-A. Data tersebut memberi informasi physical assessment, bukan otomatis descriptive, affective atau extrinsic yang lengkap.  
-B. Data tersebut membuktikan semua pembeli pasti suka kopi itu.  
-C. Kadar air memberi koordinat geografis perkebunan.  
-D. Physical grading otomatis menjamin keamanan terhadap semua toksin tanpa pemeriksaan lanjutan.
+A. Ada bukti fisik, tetapi bukan data preferensi atau asal lengkap.
+B. Seluruh pembeli pasti menyukai lot karena inspeksi fisiknya baik.
+C. Kadar air dapat menetapkan seluruh isi laporan aroma panel.
+D. Physical grading cukup untuk membuktikan bebas semua toksin.
 
 **Kunci A.** Empat jenis penilaian menjawab pertanyaan berbeda.  
 **Remediasi:** M06.L05 §2. **Miskonsepsi:** one-lens-is-all.
@@ -145,10 +147,10 @@ Seorang pencicip memilih kata “vanila” untuk kopi X dalam tiga sesi berbeda,
 
 Apa klaim yang wajar?
 
-A. Pengulangan membuktikan kopi mengandung vanillin dalam konsentrasi pasti.  
-B. Ia otomatis terakreditasi sebagai sensory scientist.  
-C. Ada konsistensi deskriptor dalam pengalaman orang tersebut; akurasi/kesepakatan terhadap referensi belum dibuktikan.  
-D. Semua pencicip lain wajib menulis vanila.
+A. Konsistensi istilah membuktikan kadar vanillin tertentu pada kopi.
+B. Pengulangan sendiri telah memenuhi kriteria kalibrasi panel.
+C. Ada repeatability; kesesuaian dengan referensi belum diuji.
+D. Istilah vanila harus dipakai oleh semua penilai lain pada lot sama.
 
 **Kunci C.** Repeatability ≠ accuracy/calibration.  
 **Remediasi:** M06.L03 §4. **Miskonsepsi:** confidence-is-calibration.
@@ -161,10 +163,10 @@ CherryEdu hendak menampilkan gambar Coffee Taster's Flavor Wheel yang diedit, be
 
 Kritik paling kuat adalah ...
 
-A. Kedua hal itu boleh dilakukan otomatis karena mengajarkan materi kopi.  
-B. Menyalin aset resmi dan mengklaim kredensial profesional memerlukan hak/otorisasi yang benar; kuis Foundation tidak memberikan SCA/Q Grader credential.  
-C. Wheel tidak pernah mempunyai pemegang hak cipta.  
-D. Semua flavor notes dilarang pada materi komersial.
+A. Aset pendidikan apa pun otomatis boleh digandakan secara komersial.
+B. Art resmi perlu hak penggunaan; kuis tak memberi kredensial SCA.
+C. Aset Flavor Wheel berada di domain publik tanpa hak cipta apa pun.
+D. Sertifikat CherryEdu otomatis setara dengan kelulusan Q Grader.
 
 **Kunci B.** Ada batas hak penggunaan karya dan batas sertifikasi profesional.  
 **Remediasi:** M06.L02 §2, L05 §§3,8. **Tag:** rights-and-credential-integrity.
@@ -175,10 +177,10 @@ Brosur menulis “Specialty Coffee Association pada 2026 mendefinisikan specialt
 
 Apa revisi yang paling tepat?
 
-A. “Dalam beberapa sistem historis, 80+ digunakan luas. Definisi dan kerangka SCA kini melihat berbagai atribut khas yang bernilai, termasuk sensori dan informasi extrinsic; skor tunggal tidak menjelaskan semuanya.”  
-B. “SCA kini melarang semua penggunaan angka dalam perdagangan kopi.”  
-C. “Setiap kopi dengan aroma floral secara otomatis memperoleh 95.”  
-D. “Kalau cerita kebunnya menarik, pemeriksaan mutu fisik tidak diperlukan.”
+A. Angka 80+ historis; kini penilaian nilai mencakup lebih banyak atribut.
+B. Angka 80+ kini dilarang disebut dalam diskusi perdagangan kopi.
+C. Kisah kebun menggantikan seluruh evaluasi sensorik dan fisik.
+D. Seluruh nilai specialty ditentukan hanya oleh harga kopi per kg.
 
 **Kunci A.** Mempertahankan konteks historis dan membetulkan representasi pendekatan sekarang.  
 **Remediasi:** M06.L05 §§1–2. **Tag:** legacy-80-only.  
