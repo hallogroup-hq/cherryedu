@@ -19,6 +19,9 @@ export default function BaristaV2Lesson({params}:{params:{lessonId:string}}) {
   const index=BARISTA_V2_LESSONS.findIndex(l=>l.id===lesson.id);
   const prev=BARISTA_V2_LESSONS[index-1],next=BARISTA_V2_LESSONS[index+1];
   const filterNotebookRelevant=['bv2-m02-l04','bv2-m02-l05','bv2-m07-l05'].includes(lesson.id);
+  const conceptualVisualLessons=new Set(['bv2-m01-l01','bv2-m02-l01','bv2-m02-l02','bv2-m03-l03','bv2-m05-l03','bv2-m07-l01','bv2-m11-l04']);
+  const firstSection=lesson.content.indexOf('\n## ');
+  const showConceptVisual=conceptualVisualLessons.has(lesson.id)&&firstSection>=0;
   return <div className="min-h-screen bg-paper-50 pb-32">
     <div className="mx-auto max-w-3xl px-4 pt-12 sm:px-6">
       <nav aria-label="Breadcrumb" className="text-sm text-roast-700">
@@ -29,9 +32,12 @@ export default function BaristaV2Lesson({params}:{params:{lessonId:string}}) {
       <p className="mt-12 text-xs font-semibold uppercase tracking-widest text-cherry-700">{mod.title} · Pelajaran {lesson.order}</p>
       <h1 className="mt-3 font-serif text-3xl font-bold leading-tight text-roast-950 sm:text-5xl">{lesson.title}</h1>
       <div className="mt-8 border-t border-paper-300 pt-7">
-        <MarkdownRenderer content={lesson.content}/>
+        {showConceptVisual ? <>
+          <MarkdownRenderer content={lesson.content.slice(0,firstSection).trim()}/>
+          <LearningMechanismVisual lessonId={lesson.id}/>
+          <MarkdownRenderer content={lesson.content.slice(firstSection+1)}/>
+        </> : <MarkdownRenderer content={lesson.content}/>}
       </div>
-      <LearningMechanismVisual lessonId={lesson.id}/>
       {lesson.order === 1 && <BaristaConceptLab moduleCode={lesson.moduleId}/>}
       {lesson.order === mod.count && <BaristaModuleCheckpoint moduleCode={lesson.moduleId}/>}
       {lesson.order === mod.count && <Link href={'/barista-v2/practice/'+lesson.moduleId.toLowerCase()} className="my-8 inline-block rounded-lg border border-roast-900 px-5 py-3 text-sm font-semibold text-roast-900 underline-offset-4 hover:bg-paper-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cherry-700">Lanjutkan: tiga kasus situasi baru →</Link>}
