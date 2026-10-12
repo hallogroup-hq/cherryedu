@@ -16,7 +16,7 @@ type Draft = {
 };
 
 const initial: Draft = {
-  question: 'Apa yang berubah ketika air seduh dinaikkan dari 225 g ke 240 g untuk 15 g kopi?',
+  question: '',
   hypothesis: '',
   prediction: '',
   independent: '',
