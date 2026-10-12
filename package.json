@@ -16,9 +16,11 @@
     "test:e2e:report": "playwright show-report",
     "test:foundation": "node scripts/validate-foundation-v2.cjs",
     "typecheck": "tsc --noEmit",
-    "predev": "node scripts/generate-foundation-v2-preview.cjs",
-    "prebuild": "node scripts/generate-foundation-v2-preview.cjs",
-    "pretypecheck": "node scripts/generate-foundation-v2-preview.cjs"
+    "predev": "node scripts/generate-foundation-v2-preview.cjs && node scripts/generate-barista-v2.cjs",
+    "prebuild": "node scripts/generate-foundation-v2-preview.cjs && node scripts/generate-barista-v2.cjs",
+    "pretypecheck": "node scripts/generate-foundation-v2-preview.cjs && node scripts/generate-barista-v2.cjs",
+    "test:barista": "node scripts/validate-barista-v2-drafts.cjs",
+    "generate:barista": "node scripts/generate-barista-v2.cjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.6",
