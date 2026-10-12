@@ -18,6 +18,9 @@ Seseorang lalu menjelaskan: “Air pertama TDS-nya tinggi, jadi sudah penuh dan 
 
 Pertanyaan yang lebih berguna: **mineral apa yang ada, apa yang sebenarnya diukur, dan bagaimana kita membedakan pengaruh terhadap rasa dari risiko terhadap mesin?**
 
+
+[VISUAL:water-chemistry]
+
 ## 1. Empat konsep yang wajib dibedakan
 
 | Parameter | Apa maknanya? | Apa yang *tidak* dibuktikan oleh angkanya? |
@@ -114,6 +117,9 @@ Gunakan dua laporan air (boleh contoh fiktif di atas), kemudian:
 - Jika ingin memeriksa perubahan sensorik, rancang perbandingan yang menjaga kopi dan parameter brewing lain serupa, tanpa harus mengeksekusi uji kimia.
 
 **Jawaban model:** “TDS A/B mirip, tetapi alkalinitas tidak. Saya tidak bisa menyimpulkan mineral spesifik yang membuat kopi floral, dan tidak bisa menjamin kedua air sesuai semua mesin.”
+
+
+[ACTIVITY:water-numbers-check]
 
 ## 7. Pemeriksaan pemahaman
 
