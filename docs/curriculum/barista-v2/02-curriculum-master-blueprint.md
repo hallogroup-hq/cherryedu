@@ -1,6 +1,6 @@
 # CherryEdu Barista Specialization V2 — Curriculum & Learning Experience Architecture
 
-**Stage:** 02 — blueprint candidate, amended for signature R&D as core competency; not implemented or student-reviewed  
+**Stage:** 02 — sequence audited and re-ordered (12 modules / 68 lesson slots), signature R&D and experimentation as core; **lessons are still being authored, not deployed or human-validated**  
 **Mission:** Develop **independent barista judgment under changing conditions** (not obedience to one recipe), safe and repeatable coffee service, **and commercially viable, original signature-beverage development**: define a creative brief, prototype coffee-led drinks, validate with real customers, cost, document and hand off an original recipe that another barista can reproduce.  
 **Audience:** Foundation-level learners transitioning to bar work, working baristas needing a repeatable SOP, coffee shop teams; also supports no-machine learners with honest limits.  
 **Do not claim:** That an online-only completion proves professional bar competence or awards SCA/BNSP credentials.
@@ -61,125 +61,127 @@ Implementation and QA details: [Experimentation & Curiosity Standard](./05-exper
 
 S1–S3 can be taught online. S4–S5 cannot be signed off by reading, a chatbot, a photo or MCQ alone.
 
-## 3. Proposed 11-module sequencing (~63 lesson slots, count not a proxy for depth)
+## 3. Accepted dependency-first sequence — 12 modules / 68 lesson slots
 
-The original production identifiers `mod-b1`–`mod-b10` are NOT to be silently repurposed. Codes below are **editorial proposal IDs only** (`BV2.Mxx`), to be versioned separately until migration is approved.
+**Decision (sequence audit, 13 October 2026):** The old 11-module sequence was **not pedagogically optimal**. Hygiene/service should begin before the first machine practice; controlled experimentation should precede advanced machine diagnostics; early service needs recur later in higher-complexity customer cases; equipment care and costing each deserve their own assessed stage. A distinction is made between early safe cleaning (M01 and always) and later preventive machine maintenance (M09). See [sequence-dependency audit](./06-sequence-dependency-audit.md).
 
-### BV2.M01 — Memulai Kerja di Bar (5 lessons)
-1. Meet the workstation: cup, portafilter, basket, grinder, group, knock box, steam wand, scale — identify function using real labeled visuals.
-2. Opening with safety: dry hands, water/steam/electrical zones, PPE where required, safe emergency escalation.
-3. Food safety, safe ingredients and allergen communication; separate clean/dirty areas.
-4. Mise en place and movement: practical start-of-shift order using interactive sequence.
-5. First complete order walk-through, slower and repeatable before timing for speed.
+The following are **V2 editorial IDs**, not the production `mod-b1`... identifiers. No existing payment, learner record, certification or progress is migrated by this plan.
 
-**Mastery:** Set up a fictional workstation in logical safe order; identify stop-work hazards; sequence a complete order without skipping hygiene. **Media:** actual photographed bar station + interactive map. **Practical:** supervised workstation setup.
+### BV2.M01 — Area Bar, Keselamatan & Sikap Melayani (6 lessons)
+1. Peran barista, tujuan pelanggan dan perjalanan satu pesanan dari masuk hingga tersaji.
+2. Peta bar: peralatan, alur bahan, zona aman/basah/panas dan fungsi tiap stasiun.
+3. Kebersihan, bahan layak pakai, tangan/peralatan, alergi dan batas tanggung jawab.
+4. Membuka bar: cek awal alat dan stok sebelum memulai pembuatan minuman.
+5. Mendengarkan pelanggan: pertanyaan klarifikasi saat permintaan 'strong', 'tidak asam' atau 'tanpa susu' ambigu.
+6. Simulasi satu order pertama, handoff, penutupan ringan, dan satu hipotesis peningkatan alur.
 
-### BV2.M02 — Menguasai Grinder & Espresso Pertama (7 lessons)
-1. Bean freshness/recipe as practical inputs, no premature origin deep dive.
-2. Burr grinder, adjustment mechanisms, retention/purging and safe handling.
-3. Dose (g), beverage mass/yield (g), time (s), brew ratio — distinguish all units, and compare different ratio choices for different sensory and service goals.
-4. Distribution and tamping: puck preparation sequences and effect of variation.
-5. Basic machine controls, group and portafilter; examples not “always 9 bar”.
-6. Pull and record first shots; a minimally sufficient observation log, including one learner-originated question and prediction.
-7. Intro dial-in: comparison of two shots, hold everything except one change; then introduce a transfer case where the reference recipe no longer performs as expected.
+**Early gate:** dapat mengenali situasi stop-work dan alergi sebelum interaksi alat; membedakan pesanan pelanggan dari asumsi barista. **Media:** foto nyata stasiun + peta interaktif, demonstrasi cuci alat, order flow. **Aktivitas:** klasifikasi zona/alat, kasus alergi, sequence ticket dan eksperimen tata letak aman.
 
-**Mastery:** Learner chooses a next intervention using a given shot log, records plausible settings and knows what remains unmeasured. **Media:** puck cross-section, grinder settings and extraction clip. **Practical:** supervised safe grinder/espresso operation.
+### BV2.M02 — Fundamental Ekstraksi & Cara Bereksperimen (5 lessons)
+1. Apa yang berpindah dari bubuk ke air: ekstraksi, konsentrasi, rasa dan keterbatasan sensori.
+2. Memahami rasio, satuan, brew water vs beverage, dan alasan 1:15 bukan hukum.
+3. Mengapa grind, suhu, waktu, aliran dan kualitas air mengubah proses; satu variabel bukan jawaban tunggal.
+4. Percobaan pertama: pertanyaan sendiri → hipotesis → perbandingan terkendali → bukti.
+5. Membaca hasil tak terduga dan menerapkan prinsip pada kopi/alat/tujuan pelanggan yang berubah.
 
-### BV2.M03 — Dial-In, Troubleshooting, & Espresso QC (6 lessons)
-1. Distinguish concentration, extraction, beverage mass, time and flavor.
-2. Assess acidity, bitterness, balance and body without “sour = under” certainty.
-3. Channeling and puck defects: what a bottomless shot can/cannot prove.
-4. Adjust recipe one meaningful variable at a time for diagnosis; document a controlled A/B comparison and explain when more complex experiments are necessary.
-5. Diagnose multi-factor inconsistency across 3 simulated shifts; contrast multiple plausible root causes, prioritize the lowest-risk test, and interpret an unexpected result.
-6. Calibration log and service decision: remake, hold, maintenance escalation.
+**Gate:** mampu mendesain eksperimen sederhana dan menjelaskan mekanisme serta ketidakpastian; tidak perlu memiliki mesin espresso. **Media:** ilustrasi perpindahan zat terlarut dan perbandingan skenario dengan log terukur. **Aktivitas:** dose/water ratio lab, prediction notebook, counterexample transfer.
 
-**Mastery:** Analyze three unfamiliar espresso records and propose evidence-based, safe decisions. **Media:** side-by-side visually **real** espresso flow plus plotted logs. **Practical:** produce repeatable shots to trainer-approved recipe/tolerance, with measured variation.
+### BV2.M03 — Grinder, Portafilter & Espresso Pertama (6 lessons)
+1. Grinder, burr, retention, setting dan keselamatan praktis.
+2. Dose, yield, beverage ratio, shot time; mengenali satuan dan konsekuensinya.
+3. Basket, distribusi, tamping, aliran dan keterbatasan interpretasi puck.
+4. Memahami kontrol mesin dan petunjuk produsen; menghindari resep '9 bar wajib'.
+5. Menarik shot awal dan merekam data serta pengamatan dengan aman.
+6. Membandingkan dua resep dan memprediksi dampak sebelum mencoba penyesuaian.
 
-### BV2.M04 — Susu, Tekstur, & Alergen (6 lessons)
-1. Milk and plant-based alternatives: protein/fat differences and label reading.
-2. Safe steam-wand setup; never overfill, never position hand in steam path.
-3. Aeration vs texturing; position, vortex and sound — video with slow-motion controls.
-4. Microfoam diagnosis: big bubbles, separation, overheated/undertextured milk. Make and test a prediction about aeration/texturing variables in a safe demonstrated context.
-5. Temperature, sanitation, reuse decisions and cold-chain hygiene according to policies.
-6. One espresso + one textured milk drink, consistent finish and cleaning.
+**Gate:** membaca shot log dan membuat espresso sesuai batas SOP latihan. **Media:** bagian grinder/portafilter nyata, video proses, diagram aliran. **Aktivitas:** urutkan langkah, unit-safe shot log, prediksi dampak variabel.
 
-**Mastery:** Visually diagnose foam stages; spot allergens and contamination routes. **Media:** filmed pitcher, steam-wand detail and microfoam closeups. **Practical:** trainer-observed steam/texture and cleanup with actual thermometry and safe practices.
+### BV2.M04 — Dial-In, Sensorik Espresso & Troubleshooting (7 lessons)
+1. Bedakan konsentrasi dan extraction yield dengan persepsi rasa.
+2. Sensorik espresso: aroma, acidity, sweetness, bitterness dan body tanpa diagnosis otomatis.
+3. Membangun hipotesis dari shot cepat/lambat: grind, dose, puck dan kondisi mesin.
+4. Mengubah satu parameter dalam uji A/B, mencatat tradeoff dan sumber ketidakpastian.
+5. Espresso berubah antarlot dan antargiliran; memilih pengujian paling informatif.
+6. Quality-control decision: keep, adjust, remake, hold atau escalate.
+7. Blind/controlled comparative lab dan ujian kasus baru dengan beberapa solusi defensibel.
 
-### BV2.M05 — Menu Espresso, Latte Art & Ideation Primer (5 lessons)
-1. Beverage names as service recipes: espresso, Americano, milk drinks; local variations are acknowledged.
-2. Mixing, glassware, order details, temperature and serve-time decisions.
-3. Pouring foundation: high vs low pour and pitcher angle (video).
-4. Heart to tulip progression with iterative checkpoints, not rote “swan or fail”.
-5. Quality criteria beyond aesthetics: drink spec, taste, cleanliness, guest preference; **mini creativity exercise:** ask what one new drink could express about a chosen coffee without hiding it.
+**Gate:** menyelesaikan diagnosis shot yang belum pernah dilihat dan mengusulkan eksperimen aman yang masuk akal. **Media:** shot log, video aliran, anotasi puck; simulasi tidak boleh mengarang prediksi sensorik pasti.
 
-**Mastery:** Assign order to recipe and distinguish taste/temperature/safety errors from surface pattern aesthetics. **Media:** real pour series. **Practical:** latte art judged as a progressive skill, not essential substitute for safe correct beverage.
+### BV2.M05 — Susu, Steaming, Tekstur & Alergen (6 lessons)
+1. Komposisi susu sapi dan alternatif nabati, alergi, preferensi dan pelabelan.
+2. Steam wand dan pitcher: batas aman, teknik dan prosedur higienis.
+3. Aeration vs texturing, posisi wand dan efek pada ukuran gelembung.
+4. Eksperimen aman perbandingan dua kondisi texturing dan interpretasi hasil.
+5. Mendiagnosis tekstur, suhu dan ketidaksesuaian minuman, tanpa kesimpulan tunggal.
+6. Menyelesaikan satu minuman susu dan membersihkan stasiun secara aman.
 
-### BV2.M06 — Filter & Batch Brewing untuk Layanan Bar (5 lessons)
-1. Filter setup & a reproducible recipe; equipment and water context.
-2. Grind, ratio, pour, brew time and sensory feedback, distinguishing controls from observations; **1:15 is a starting example**, with justified deviations for a different bean, brewer, water or guest goal. Learner forms an explicit hypothesis for changing ratio before seeing results.
-3. Choose immersion/percolation/batch service by constraints.
-4. Serving multiple manual brews without losing measurements/labels; balance recipe adjustment with documented café handoffs and customer preference.
-5. Diagnose batch-brew concentration and bypass/holding limitations safely; compare controlled recipe adjustments and their tradeoffs.
+**Gate:** keamanan alergi dan sanitasi adalah kegagalan kritis; pemahaman teori ≠ bukti keterampilan fisik. **Media:** footage nyata wand-pitcher dan microfoam.
 
-**Mastery:** Adapt a service plan to a plausible ticket queue, maintaining order accuracy. **Media:** flow path comparison and queue simulator. **Practical:** measured filter brew repeatability.
+### BV2.M06 — Penyusunan Minuman & Dasar Latte Art (5 lessons)
+1. Membaca resep café, variasi menu espresso dan komunikasi ukuran/rasa.
+2. Merakit espresso, air, susu dan es sesuai tujuan pelanggan.
+3. Menuang secara bertahap; dasar heart dan tulip, fokus tekstur/hasil minuman lebih dulu.
+4. Menganalisis kesalahan: suhu, tekstur, dilution, penyajian vs estetika.
+5. Mini-ideation: merancang variasi minuman dengan alasan sensori dan uji terukur.
 
-### BV2.M07 — Equipment Care & Preventive Maintenance (6 lessons)
-1. User vs technician boundary: what the barista is **not** authorized to open.
-2. Safe shutdown and machine manufacturer manual lookup.
-3. Daily/shift/weekly group and portafilter cleaning—chemical labels, correct dilution and PPE.
-4. Steam wand cleaning, food-contact surfaces and cross-contamination prevention.
-5. Water filters, scale risk, backflush applicability **only if manufacturer allows**, equipment log.
-6. Fault escalation simulation: leaks, electrical odor, pressure anomalies, damaged seals.
+**Gate:** menu/hasil konsisten, tidak memaksakan swan atau latte art sebagai syarat kualitas. **Media:** real pour series dan drink construction map.
 
-**Mastery:** Correctly sort barista-safe actions vs service technician escalation. **Media:** verified equipment model, hazard icon/photo and maintenance checklist. **Practical:** trainer-observed cleaning and lockout procedure.
+### BV2.M07 — Filter, Batch Brewing & Ritme Layanan (5 lessons)
+1. Mempraktikkan kembali ekstraksi M02 dalam V60, immersion atau brewer setara.
+2. Menyesuaikan grind, rasio, pola aliran, air dan waktu berdasarkan pertanyaan pelanggan.
+3. Memilih manual, immersion, batch atau bypass berdasarkan target dan kendala.
+4. Menyajikan banyak pesanan, menjaga identitas tiket, alat dan repetabilitas.
+5. Laboratorium dua alat atau dua kondisi, lalu menganalisis hasil tak terduga.
 
-### BV2.M08 — Hospitality & High-Volume Service (5 lessons)
-1. Interpret ambiguous requests such as 'strong', 'less acidic', 'less sweet', 'more coffee', 'dairy-free'; clarify desired experience before suggesting a change.
-2. Distinguish preference from allergy/intolerance; disclose cross-contact limits and never improvise unsafe substitutions.
-3. Handle a customer complaint without blame; decide when to remake, adapt within venue policy, explain alternatives or escalate.
-4. Ticket/order sequencing, teammate handoff and cross-shift traceability; compare two defensible service solutions with different constraints.
-5. Peak-hour simulation: throughput without skipping temperature, cleaning or identity labels.
+**Gate:** tidak sekadar memakai 1:15; mampu menjelaskan penyesuaian dan batas inferensi. **Media:** flow map dan simulasi antrean.
 
-**Mastery:** Role-play new customer cases and prioritize safety over speed. **Media:** interactive POS order queue and a real service video. **Practical:** observed service role-play.
+### BV2.M08 — Hospitality Adaptif & Permintaan Tidak Biasa (5 lessons)
+1. Menjelaskan karakter kopi tanpa jargon, menggali preferensi dan ketidakpastian.
+2. Mengklarifikasi 'lebih strong', 'less acidic', tanpa susu atau alergi sebelum memberi pilihan.
+3. Mengatasi komplain dan remake tanpa menyalahkan tamu, dalam kewenangan kedai.
+4. Mengelola rush hour, handoff shift dan konflik prioritas keselamatan.
+5. Ujian role-play pelanggan unik: dua alternatif, tradeoff, komunikasi dan pembenaran.
 
-### BV2.M09 — Inventory, Yield, Waste & Cost (5 lessons)
-1. FIFO vs FEFO; why expiration, batch and storage condition matter.
-2. Milk handling, refrigerated logs, labeling and supplier checks.
-3. Weigh and calculate grinder retention, dial-in wastage and service yield.
-4. Cost per drink vs selling price: cost inputs and uncertainty; run a sensitivity experiment with ingredient cost, yield and waste.
-5. Opening/closing audit, cash/POS control boundaries and incident log; calculate constraints for a future signature drink project.
+**Gate:** mampu bertanya, membedakan alergi dari preferensi, menjelaskan pilihan dan eskalasi. **Media:** skenario dialog dengan konsekuensi yang sebenarnya.
 
-**Mastery:** Process fictional invoices, stock rotations and ingredient-loss records; avoid handling real user financial data. **Media:** inventory worksheet and waste calculator. **Practical:** daily stock station check.
+### BV2.M09 — Cleaning, Preventive Care & Fault Escalation (5 lessons)
+1. Dari kebersihan harian M01 menuju jadwal sanitasi per shift/harian/berkala.
+2. Pembersihan grinder, group, steam wand dan alat menurut manual model yang benar.
+3. Label bahan kimia, penyimpanan, APD, dan hal yang tidak boleh dilakukan barista.
+4. Filter air, kerak, gasket/leak, anomali tekanan: pengamatan vs pekerjaan teknisi.
+5. Simulasi insiden: stop work, pelaporan dan restart sesuai izin.
 
-### BV2.M10 — Signature Drink R&D Studio (8 lessons) — CORE COMPETENCY
+**Gate:** keselamatan tidak ditunda sampai modul ini; **barista tidak mengutak-atik boiler/kelistrikan internal**. **Media:** demonstration cleaning yang diverifikasi produsen.
 
-**Industry outcome:** The learner can create a barista-authored original drink **for a real context**, not merely follow recipes, add trendy syrups, or copy a competition routine. Signature menu formats may include "Barista Signature", seasonal staff creation, rotating "Barista's Choice" or café-exclusive offerings. Originality is judged in relation to the brief and previous menu; it cannot be asserted as globally novel.
+### BV2.M10 — Bahan, Inventory, Waste & Cost (5 lessons)
+1. Membaca pemasok, tanggal, lot, label dan stock rotation FEFO/FIFO.
+2. Cold chain dan penanganan bahan sensitif serta alergen.
+3. Mengukur dose waste, milk waste, yield dan menyusun log.
+4. Menghitung HPP per gelas, harga dan margin dengan satuan serta asumsi.
+5. Eksperimen efisiensi: substitusi, stockout, biaya dan konsekuensi rasa/service.
 
-1. **Read customers, brand & menu gaps:** define venue style, target customer occasion, price band, available equipment, taste preference and a reason a new drink should exist. Explore menu examples without copying unlicensed recipes. Output: one-page creative brief and explicit success criteria.
-2. **Build a flavor architecture:** choose the coffee anchor (espresso/filter/cold brew), intended sensory role of coffee, supporting aromas, sweetness, acid, bitterness, texture, mouthfeel, temperature and aftertaste. Learn ingredient pairing and subtraction. Output: flavor map and justified **three different** concept directions.
-3. **Ingredient feasibility & food safety:** research freshness, traceability, local/seasonal substitutes, allergens and dairy–acid incompatibility; define safe handling/storage by ingredient with appropriate expert procedures. No speculative syrup shelf-life, "natural preservative" or unsafe fermentation claims. Output: ingredient risk sheet.
-4. **Prototype, taste & iterate:** build gram/ml recipe V0, compare V1/V2/V3 under controlled changes, test a learner-originated hypothesis, record surprising/negative results if they occur, distinguish measurements from subjective perceptions and revise based on independent tasting. Never invent tasting results or failures. Output: versioned experiment log and sensory evidence.
-5. **Calculate cost, waste & price:** true per-serving quantities, usable yield, packaging, prep waste and relevant overhead assumptions; compare menu price, margin and affordability in an explicit venue scenario. No universal "ideal margin". Output: ingredient bill, cost calculator and suggested price **with assumptions**.
-6. **Engineer service repeatability:** rewrite recipe as a production SOP for a different barista; batch-prep limits, safe holding, substitution handling, stock availability, rush-hour assembly, cleanup and quality tolerance. Test a missing ingredient and ticket-queue case. Output: service recipe card and critical-hold criteria.
-7. **Name, present & sell honestly:** design menu name, description, coffee identity, glassware/garnish with realistic resources, allergen information and 20-second barista explanation. The design should convey a real taste proposition, not generic "luxury/symphony" marketing copy. Output: menu-ready copy and a grounded visual/media brief.
-8. **Customer trial & release decision:** anonymized feedback from intended drinkers; compare preference against original brief, observe repeated prep by a second staff member, record problems, revise/retire/launch decision. For learners without gear: complete a clearly marked **desk simulation**, never claim a real drink was tasted. Output: a defended R&D dossier.
+**Gate:** unit dan asumsi benar; tidak memakai angka ekonomi palsu untuk membenarkan minuman.
 
-**Graduation requirement:** At least one original **coffee-led signature beverage** with complete creative brief, recipe card, safe ingredient plan, real-world sensory/replication evidence where equipment exists, cost/service analysis and iteration rationale. An optional second creation may target a non-coffee café drink or "Barista's Choice" personalized drink; the non-coffee option **does not replace** the required coffee-led skill.
+### BV2.M11 — Signature Drink R&D Studio (8 lessons) — CORE
+1. Temukan kebutuhan pelanggan dan celah menu; susun creative brief terukur.
+2. Pelajari peran espresso/filter, rasa, tekstur, suhu dan ingredient pairing; kembangkan tiga ide berbeda.
+3. Verifikasi bahan, seasonality, alergen, kesesuaian teknik dan keamanan penyimpanan.
+4. Buat hipotesis, V0–V3 terukur, sesi tasting atau simulasi jujur, dan analisis hasil yang berbeda dari prediksi.
+5. Hitung HPP, usable yield, waste, packaging, harga dan sensitivitas biaya.
+6. Tulis resep/SOP yang dapat direplikasi orang lain dengan pengendalian mutu dan batas hold.
+7. Nama, menu description, garnish/visual, service script dan komunikasi rasa yang faktual.
+8. Customer trial, second-barista reproduction, lalu keputusan keep / revise / rotate / retire dengan bukti.
 
-**Visuals/media:** real ingredient comparison and pairings; split-screen texture/color/liquid separation evidence; recipe timeline and pour preparation video with accessible captions; menu card **as a genuine item** not merely two columns; visual flavor wheel marked as a design aid, not objective sensory prediction.
+**Gate:** original coffee-led signature drink dengan eksperimen, keselamatan, alasan rasa, biaya dan uji replikasi. **Desk-only learners:** concept portfolio, bukan klaim telah mencicipi atau meluncurkan produk.
 
-**Technology:** Signature Flavor Canvas, Unit-Safe Recipe Builder, versioned R&D Log, Cost and Margin Calculator, Customer Feedback Comparison and Rush-Hour Handoff Simulator. A "recipe generated by AI" without learner-controlled experiments is **not mastery**.
+### BV2.M12 — Bar Service, Adaptation & Innovation Capstone (5 lessons)
+1. Venue brief: satu shift baru, alat, pelanggan, menu, aturan keselamatan dan data stok.
+2. Opening sampai order masuk: mengenali konteks, mengajukan pertanyaan, melayani.
+3. Perubahan mendadak: kopi/grinder, permintaan unik, alergen dan stockout sekaligus.
+4. Mencari penyebab, memilih uji berikutnya, memperbaiki resep atau menahan penyajian, mencatat HPP dan waste.
+5. Portofolio keputusan mandiri, signature drink, eksperimen, handoff dan rencana pembelajaran lanjutan.
 
-**Assessment:** process-based portfolio and real tasting/operability checks, scored for safety (critical gate), clarity of coffee role, sensory coherence, originality *relative to venue*, iteration/evidence, cost viability, repeatability and truthful communication. **Actual palate outcomes cannot be validated from text alone.**
-
-### BV2.M11 — Bar Service & Signature Drink Capstone (5 lessons)
-1. Case intake: venue layout, staff roles, target customers, menu, signature proposal and equipment constraints.
-2. Service scenario A: opening, normal shift and serving the barista-designed signature alongside core beverages.
-3. Service scenario B: espresso drifts, grinder changes, a customer requests an unusual strength/acidity profile, an ingredient is unavailable, milk allergen uncertainty arises and several orders queue.
-4. Diagnose/recover: revise recipe or hold it; quality log, stop-work calls, technician escalation and cost/waste record.
-5. Deliver a final portfolio: repeatable SOP and costing for a signature beverage, product story, iteration evidence, service decisions, reflective dossier and career action plan.
-
-**Mastery:** Demonstrate coherent bar decisions and defend an original signature drink across concept, safety, flavor, cost, repeatability and actual service. **Digital capstone:** independently document decisions and counterfactuals using a fictional case; **real development** requires sensory trial and repeated production. **Official workplace competence:** **NOT established** without verified practical assessment.
+**Gate:** mampu berpikir tanpa instruksi resep tunggal; bukti keterampilan praktik diverifikasi terpisah dari tes online.
 
 ### Optional future electives (not gates to basic job readiness)
 
@@ -256,7 +258,7 @@ Barista students must be able to repeat the R&D cycle **after the course**. Fast
 | Gate | Pass evidence | Current |
 |---|---|---|
 | B0 Baseline forensic audit | 30-lesson inventory, quiz-length leak, credential issue | **DOCUMENTED** |
-| B1 Syllabus / objective mapping | BNSP/SCA interpretation + novice progression + safety + signature R&D + **adaptive decisions under novel equipment, coffee and customer constraints** | **BLUEPRINT CANDIDATE; reviewer pending** |
+| B1 Syllabus / objective mapping | Dependency-first **12-module sequence**, preliminary Kemenperin/SCA outcome coverage, cross-module experiment, customer adaptation, hygiene and signature R&D | **INTERNAL AUDIT PASS; SME and learner review pending** |
 | B2 Content authoring | Complete lesson bodies, claim sources, novice mental-model checks | NOT STARTED |
 | B3 Instructional media | Actual rights-cleared teaching visuals / real motion demos where needed | NOT STARTED |
 | B4 Genuine interaction | Functional differentiated components, keyboard/mobile, feedback after attempt, authentic learner experiment log | NOT STARTED |
