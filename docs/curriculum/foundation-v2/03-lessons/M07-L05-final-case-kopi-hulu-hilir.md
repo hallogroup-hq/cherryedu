@@ -131,6 +131,11 @@ Manajer brand mengusulkan copy:
 
 Kamu harus **memutuskan mana yang boleh dipakai, mana perlu dihapus sementara, dan bukti apa yang dibutuhkan**. Tidak ada satu pun dari tujuh klaim mutlak tersebut yang boleh lolos sebagaimana tertulis berdasar bukti simulasi.
 
+
+**Ini kasus latihan fiktif lintas modul, bukan rekomendasi dagang nyata.** Coba susun penilaian sendiri dari bukti A–F terlebih dahulu. Jawaban tidak dikirim ke sistem atau dipakai untuk sertifikat pada preview.
+
+[ACTIVITY:foundation-dossier]
+
 ## Bagian 2 — Empat keputusan yang harus dibuat
 
 ### Keputusan 1: Apakah green coffee P-17 boleh dinyatakan lolos QC?
