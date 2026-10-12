@@ -25,6 +25,8 @@ Di dalam buah umumnya terdapat dua biji yang menempel pada sisi datarnya. Seseka
 
 **Urutan penyederhanaan:** kulit luar → daging buah → lapisan berlendir (*mucilage*) → kulit tanduk (*parchment*) → kulit ari tipis (*silverskin*) → biji.
 
+[ACTIVITY:coffee-fruit-layers]
+
 Bagian-bagian itu memiliki nama botani yang cukup berguna saat membaca laporan pascapanen, tetapi **tidak perlu menghafal bahasa Latinnya sebelum mengerti fungsinya**.
 
 | Bagian | Nama teknis yang umum | Fungsi dan kaitan dengan pengolahan |
