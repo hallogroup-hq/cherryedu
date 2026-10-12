@@ -3,12 +3,12 @@
 **Work branch:** `curriculum/foundation-v2`  
 **Baseline:** `main` @ `e21db3d6fdb863d5fedc73741042bdbdb447b95b`  
 **Updated:** 2026-10-12  
-**Status:** Modules 01 authored for internal review; all production learning content is unchanged.
+**Status:** Modules 01–03 authored (3+5+7 lessons), mandatory M07 history lesson drafted; all production learning content unchanged.
 
 ## Documents
 
 1. [01 — Stage 01 Research & 32-Lesson Audit](./01-research-audit.md) — 32/32 editorial issue matrix, eight P0 issues, 21 quiz issues, reference registry. The longer Stage 01 report was also delivered as a Markdown attachment in the associated conversation.
-2. [02 — Stage 02 Curriculum Master Blueprint](./02-curriculum-master-blueprint.md) — 7 module contracts, 32 specified lesson slots (history kept as mandatory M07.L01), outcomes, misconceptions, activity/assessment contracts, pilot capstone and scientific release gates.
+2. [02 — Stage 02 Curriculum Master Blueprint](./02-curriculum-master-blueprint.md) — 7 module contracts, 33 specified lesson slots (history kept as mandatory M07.L01; Module 03 expanded to seven with green coffee physical assessment), outcomes, misconceptions, activity/assessment contracts, pilot capstone and scientific release gates.
 3. **Stage 03 — Mandatory history lesson (preserved, not removed)**
    - [M07.L01 — Dari Ethiopia dan Yaman ke Jawa](./03-lessons/M07-L01-sejarah-kopi-dunia-indonesia.md): full historical draft covering legend vs evidence, colonial coffee trade, forced labor systems in Priangan and connections to present-day coffee value.
 4. **Stage 03 — Module 01: full instructional draft**
@@ -27,6 +27,17 @@
 8. [04 — Module 02 assessment pack](./04-assessments/M02-module-exit.md): 8 explained MCQs and scored farm-decision memo rubric.
 9. [06 — Module 02 QA and claim ledger](./06-qa/M02-content-qa.md): source/evidence map and blocked subject-matter/learner-testing gates.
 
+10. **Stage 03 — Module 03: all 7 lessons, from cherry to green coffee**
+   - [M03.L01 — Dari buah panen menjadi green coffee](./03-lessons/M03-L01-perjalanan-ceri-ke-green-bean.md)
+   - [M03.L02 — Washed, natural dan honey](./03-lessons/M03-L02-washed-natural-honey.md)
+   - [M03.L03 — Giling basah dan konteks Indonesia](./03-lessons/M03-L03-giling-basah-indonesia.md)
+   - [M03.L04 — Fermentasi dan mikroorganisme](./03-lessons/M03-L04-mikroorganisme-fermentasi.md)
+   - [M03.L05 — Pengeringan dan penyimpanan](./03-lessons/M03-L05-pengeringan-penyimpanan-risiko.md)
+   - [M03.L06 — Dry mill dan penilaian fisik green coffee](./03-lessons/M03-L06-dry-mill-penilaian-fisik-green.md) — **new competency for seven-lesson module**
+   - [M03.L07 — Keputusan lot wet-mill ke dry-mill](./03-lessons/M03-L07-keputusan-lot-studi-kasus.md)
+11. [04 — Module 03 assessment pack](./04-assessments/M03-module-exit.md) — 10 explained items, one safety-critical misconception and integrated memo with rubric.
+12. [06 — Module 03 QA and claim ledger](./06-qa/M03-content-qa.md) — source/evidence, ISO 4149:2025 and SCA-110 development status, Indonesian USK field data, and blocked release gates.
+
 ## Workflow and safeguards
 
 - These are **internal drafting files**, not live course material and not validated credentials.
@@ -44,17 +55,17 @@
 |---|---|---|
 | 01 — Source audit | Complete as desk audit | External scientific validation not claimed |
 | 02 — Curriculum architecture | Authored 31-spec blueprint; internally checked | Expert/learner review still open |
-| 03 — Lesson authoring | **M01 3/3 + M02 5/5 drafted; M07.L01 history draft**; remaining lesson slots unstarted | Scientific review and learner pilots still required |
-| 04 — Assessment writing | **M01 8/8 + M02 8/8 module exit items drafted** | Item calibration, variants and platform integration |
-| 05 — Scientific/learning QA | **M01 + M02 desk QA complete** | **BLOCKED: experts + learners not tested** |
+| 03 — Lesson authoring | **M01 3/3 + M02 5/5 + M03 7/7 + M07.L01 history**; remaining M04–M07 slots not drafted | Scientific review and learner pilots still required |
+| 04 — Assessment writing | **M01 8/8 + M02 8/8 + M03 10/10 module exit items drafted** | Item calibration, variants and platform integration |
+| 05 — Scientific/learning QA | **M01 + M02 + M03 desk QA documented** | **BLOCKED: experts + learners not tested** |
 | 06 — Implementation | Not started | Legacy ID/progress migration plan + CI/preview approvals |
 
 ## Current work snapshot
 
-- Foundation architecture is **7 modules / 32 slots**; coffee history is a protected mandatory core lesson.
-- **9 full lesson drafts** currently authored: M01 (3), M02 (5), M07.L01 history (1).
-- **16 module-exit MCQs** authored (8 for M01, 8 for M02), plus applied reasoning rubrics.
-- **2 internal desk QA files** present; neither substitutes for botanical/agronomic/sensory/historical SME review.
+- Foundation architecture is **7 modules / 33 slots**; coffee history is a protected mandatory core lesson.
+- **16 full lesson drafts** currently authored: M01 (3), M02 (5), M03 (7), M07.L01 history (1).
+- **26 module-exit MCQs** authored (8 for M01, 8 for M02, 10 for M03), plus applied reasoning rubrics.
+- **3 internal desk QA files** present; neither substitutes for botanical/agronomic/sensory/historical SME review.
 - All production, migrations, certificates and actual learning assessment integrations are untouched.
 
 ## Module 01 snapshot
