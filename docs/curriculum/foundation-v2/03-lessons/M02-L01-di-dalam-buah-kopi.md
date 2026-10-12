@@ -88,6 +88,12 @@ Namun jangan langsung menyimpulkan bahwa seluruh limbah kopi layak dikonsumsi. *
 
 Bagian ini penting juga bagi rantai nilai: satu proses tidak hanya menentukan apa yang tersisa sebagai biji, tetapi juga menghasilkan air limbah dan material samping yang perlu dikelola.
 
+## 5. Lihat bagian buah yang dipertahankan
+
+Lihat tiga skema pengolahan berikut. Fokus pada **lapisan buah yang berada di sekitar biji** saat pengeringan, bukan menduga rasa minuman dari nama metode.
+
+[VISUAL:processing-paths]
+
 ## 5. Eksperimen tanpa alat: bayangkan tiga diagram
 
 Kamu mendapat tiga kartu:
