@@ -105,25 +105,13 @@ Kata “seperti jeruk” bukan jawaban yang lebih pintar daripada “aroma buah 
 
 World Coffee Research mengembangkan *Sensory Lexicon* untuk membantu peneliti dan panel terlatih memakai kosakata yang konsisten dan dapat dikalibrasi. Daftarnya memiliki 110 atribut; kita **tidak** perlu menghafal 110 istilah itu dalam pelajaran pertama. [S05]
 
-## 6. Latihan — Mana pengamatan, mana preferensi?
+## 6. Latihan — Bedakan pengamatan dan kesukaan
 
-**Kasus:** Dua orang meminum kopi hitam dari cangkir A. Mereka sama-sama mencatat “aroma panggang cukup dominan”. Orang pertama menyukainya; orang kedua tidak.
+Baca satu pernyataan pada setiap kartu. Pilih kategori **sebelum** melihat pembahasannya.
 
-**Pertanyaan 1:** Apakah salah satu dari mereka pasti salah?
+[ACTIVITY:sensory-evidence]
 
-**Jawaban dan alasan:** Tidak. Mereka dapat sepakat tentang atribut sensorik sambil memiliki preferensi berbeda. Kita juga belum tahu apakah kedua orang mengalami semua intensitas sensorik secara identik.
-
-**Pertanyaan 2:** Kalimat mana paling bisa diperiksa ulang?
-
-A. “Ini kopi paling premium di Indonesia.”  
-B. “Aku mencium aroma yang mengingatkan pada kacang panggang; aku suka aftertaste-nya.”  
-C. “Kopi ini ditanam 1.800 mdpl karena keasamannya kuat.”
-
-**Jawaban:** **B.** Pernyataan itu memisahkan deskripsi dan kesukaan. A merupakan evaluasi absolut tanpa pembanding; C menebak kondisi budidaya dari sensasi rasa.
-
-**Pertanyaan 3:** Seseorang berkata, “Kopi ini punya aroma bunga, jadi pasti ada bunga yang ditambahkan.” Apa kesalahan utamanya?
-
-**Jawaban:** Menganggap **deskriptor sensorik** sebagai **daftar bahan**. Aroma bisa mengingatkan pada bunga meskipun tidak ada bunga yang dicampurkan.
+Setelah selesai, coba buat satu kalimat deskriptif dan satu kalimat kesukaan dari pengalamanmu sendiri. Tidak perlu kopi atau alat khusus.
 
 ## 7. Latihan pendek — Kamu bisa mulai tanpa alat kopi
 
