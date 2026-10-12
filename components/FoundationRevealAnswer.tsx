@@ -1,5 +1,7 @@
 'use client';
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 /** Practice feedback is deliberately closed until a reader chooses to see it. */
@@ -12,7 +14,14 @@ export function FoundationRevealAnswer({ text }:{ text:string }){
       {open?<ChevronUp size={17} aria-hidden="true"/>:<ChevronDown size={17} aria-hidden="true"/>}
     </button>
     {open&&<div className="px-4 py-4 border-t border-paper-300 bg-paper-50 text-sm text-roast-800 leading-6" role="status">
-      {text.split('\n').filter(Boolean).map((line,i)=><p key={i} className="mb-2 last:mb-0">{line.replace(/\*\*/g,'').replace(/^>\s*/,'')}</p>)}
+      <ReactMarkdown remarkPlugins={[remarkGfm]} components={{
+        p:({children})=><p className="my-2 leading-6">{children}</p>,
+        strong:({children})=><strong className="font-semibold text-roast-950">{children}</strong>,
+        h3:({children})=><h3 className="font-bold text-roast-950 mt-4 mb-2">{children}</h3>,
+        ul:({children})=><ul className="list-disc pl-5 my-2 space-y-1">{children}</ul>,
+        ol:({children})=><ol className="list-decimal pl-5 my-2 space-y-1">{children}</ol>,
+        li:({children})=><li className="leading-6">{children}</li>,
+      }}>{text}</ReactMarkdown>
     </div>}
   </section>;
 }
