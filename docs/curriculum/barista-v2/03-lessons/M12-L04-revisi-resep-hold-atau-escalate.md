@@ -18,6 +18,23 @@ Buat pohon keputusan untuk tiga tiket dengan risiko berbeda. Hitung perubahan bi
 
 Tuliskan pertanyaan yang kamu pilih, prediksi, variabel yang dikendalikan, risiko, pengamatan yang akan dibutuhkan dan satu hasil yang akan membuatmu merevisi keputusan. Bekerja dengan bahan/alat nyata memerlukan kondisi aman, penanganan higienis, SOP dan pengawasan yang sesuai.
 
+## Tiga kata yang menyelamatkan proses: data belum cukup
+
+Ketika pelanggan memberi umpan balik, barista tidak wajib selalu punya solusi resep langsung. Terkadang keputusan terbaik adalah memilih menu berbeda, membuat ulang produk, menunda layanan, atau memanggil supervisor.
+
+| Kondisi | Kemungkinan keputusan | Hal yang belum boleh diasumsikan |
+|---|---|---|
+| Shot berbeda dari waktu referensi | Uji/cek ulang jika aman | Waktu berbeda pasti buruk |
+| Produk salah bahan | Remake sesuai SOP | Aroma/tampilan dapat menebus kesalahan |
+| Minuman alergi tanpa proses silang terverifikasi | Hold dan eskalasi | Bahan alternatif otomatis aman |
+| Signature dengan storage belum tervalidasi | Jangan rilis batch | Tasting enak membuktikan keamanan |
+
+**Eksperimen keputusan:** ambil tiga kartu kasus dan tulis “fakta–risiko–opsi–verifikasi berikutnya”. Sekarang ubah satu informasi per kartu. Pada kartu signature, misalnya, hasil tasting membaik tetapi prosedur storage tetap tidak ada. Apakah status hold berubah? Tidak; isu keamanan berdiri sendiri.
+
+**Kondisi baru:** pemilik meminta peluncuran hari itu sementara barista kedua belum bisa mereplikasi resep. Jelaskan risiko quality drift dan apa bukti minimal yang perlu didapat tanpa menjanjikan hasil komersial.
+
+**Tantangan:** pilih satu kasus ketika kamu akan berkata kepada customer, “Saya cek dulu supaya tidak salah,” lalu susun kalimat lanjutannya yang membantu tanpa membuat janji kosong.
+
 ## Tantangan pada kondisi berbeda
 
 Jika pemilik ingin meluncurkan menu segera tetapi second-barista reproduction belum dilakukan, apa konsekuensi terhadap standardisasi dan cara menyampaikan keputusan secara profesional?
