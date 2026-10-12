@@ -50,6 +50,9 @@ Sebuah penelitian 2024 menguji berbagai roast profile termasuk konfigurasi denga
 
 Artinya, kurva tetap membantu mendeteksi kondisi yang perlu ditelusuri—tetapi bukti **hasil rasa** memerlukan evaluasi sensori. Bila sebuah kesimpulan menyangkut kecukupan rasa atau cacat, gunakan data warna, pemeriksaan fisik serta tasting/cupping sesuai tujuan.
 
+
+[VISUAL:roast-curve]
+
 ## 3. Baca dua batch (seluruh data simulasi)
 
 | Data | Batch R-01 | Batch R-02 |
@@ -119,9 +122,12 @@ Untuk Catatan 2: **ESKALASI keselamatan** sesuai kebijakan fasilitas dan jangan 
 
 Dua kasus itu memerlukan proses yang berbeda: satu adalah penilaian mutu produk, yang satu adalah keselamatan pekerja. Banyak organisasi gagal ketika kedua jenis keputusan dicampur.
 
+
+[ACTIVITY:roast-curve-evidence]
+
 ## 6. Tugas akhir Modul 04
 
-Kamu diberi screenshot simulasi satu roast log dengan data ringkas dan pertanyaan dari pelanggan: “Apakah batch ini sudah ideal?”
+Gunakan diagram kurva roasting berlabel simulasi di atas bersama data ringkas kasus dan pertanyaan dari pelanggan: “Apakah batch ini sudah ideal?”
 
 Buat respons singkat:
 
