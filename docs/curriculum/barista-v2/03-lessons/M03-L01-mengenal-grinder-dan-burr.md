@@ -20,6 +20,23 @@ Rancang uji pada satu mesin dan satu lot: 18 g dose, target beverage mass sama, 
 
 **Catatan eksperimenmu:** tuliskan pertanyaan, hipotesis, variabel yang diubah, variabel yang dijaga, hasil yang *akan diukur*, risiko keselamatan, serta temuan yang akan membuatmu mengubah pendapat. Jika tanpa peralatan, gunakan data fiktif dan jangan mengarang pengamatan rasa.
 
+## Kenapa grinder tidak cukup dibaca dari angka?
+
+Sebuah grinder tidak menghasilkan semua partikel identik. Bayangkan partikel hasil giling seperti kelompok batu kecil: ada banyak ukuran, bukan satu ukuran sempurna. Pada espresso, gabungan ukuran partikel memengaruhi kemudahan air melewati coffee bed. Fraksi halus dapat menumpuk dan mempersulit aliran. Itu sebabnya perubahan setelan **bisa** mengubah waktu shot, tetapi arahnya tidak selalu dapat diprediksi hanya dari sebuah klik.
+
+Perhatikan empat informasi yang sering tertukar:
+
+| Informasi | Apa yang sebenarnya diberitahukan? | Apa yang belum terbukti? |
+|---|---|---|
+| Setelan grinder 5 | Posisi penanda pada **alat itu** | Ukuran partikel universal |
+| Dose 18 g | Massa bubuk yang disiapkan | Distribusi partikel seragam |
+| Shot 25 detik | Durasi dengan definisi start tertentu | Rasa yang paling sesuai |
+| Yield 36 g | Massa minuman keluar | Extraction yield dan TDS |
+
+Saat pindah mesin, jangan mulai dengan menyalin angka setelan lalu menilai orang yang berbeda hasilnya sebagai salah. Mulailah dari kopi dan basket, pastikan grinder bersih menurut prosedur operator, lalu ukur dose dan yield. Bila setting diubah dalam sesi training, catat apakah grinder berpotensi memiliki **retensi** dari setelan sebelumnya. Retensi bukan alasan membuang kopi tanpa batas; ikuti izin dan kebutuhan kalibrasi.
+
+**Eksperimen prediksi:** pilih dua kemungkinan mengapa grinder B menghasilkan shot 18 detik: bed lebih mudah dialiri karena partikel atau karena persiapan puck. Untuk masing-masing, tulis satu observasi yang mendukungnya dan satu temuan yang akan melemahkannya. Bandingkan dengan rekan. Dua hipotesis bisa sama-sama masuk akal sebelum data tambahan diperoleh.
+
 ## Tantangan transfer: kondisi berubah
 
 Kafe mengganti grinder sementara karena servis. Apakah angka lama boleh disalin? Tuliskan kalibrasi awal yang aman, data apa yang menjadi pembanding, dan cara menjelaskan penyesuaian kepada rekan shift.
