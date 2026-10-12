@@ -94,17 +94,11 @@ Di bawah ini ada lima kartu yang perlu kamu klasifikasikan. Jawabannya tidak lan
 
 ## 7. Kasus pengecekan label
 
-**Kemasan ilustratif:** “Excelsa / Jawa Barat / Aroma mangga / 1.200 mdpl / Berasal dari spesies Liberika yang tidak pernah berubah klasifikasinya.”
+**Kemasan ilustratif (fiktif):** “Excelsa / Jawa Barat / Aroma mangga / 1.200 mdpl / Berasal dari spesies Liberika yang tidak pernah berubah klasifikasinya.”
 
-Manakah bagian yang layak dipertanyakan?
+Sebelum melihat contoh analisis, **pilih sendiri dua klaim yang paling perlu diperiksa** dan jelaskan bukti apa yang dibutuhkan. Kamu tidak perlu memiliki alat atau sampel untuk mengerjakan latihan membaca label ini.
 
-- **Excelsa:** dapat menjadi nama dagang, tetapi identitas botaninya harus diklarifikasi.
-- **Jawa Barat:** adalah klaim geografis yang memerlukan keterlacakan sumber lot jika ingin diverifikasi.
-- **Aroma mangga:** merupakan deskripsi sensorik, bukan bukti jenis tanaman.
-- **1.200 mdpl:** informasi elevasi berguna, tetapi harus memiliki sumber dan tidak memprediksi rasa otomatis.
-- **“Tidak pernah berubah klasifikasi”:** klaim salah karena ada sejarah perubahan klasifikasi.
-
-**Respons pembelajar yang baik:** “Saya ingin tahu identitas bahan tanam, catatan asal lot dan sumber penamaan botaninya. Klaim aroma bisa saya gunakan sebagai referensi pencicipan, tetapi bukan sebagai identifikasi spesies.”
+[ACTIVITY:excelsa-label-audit]
 
 ## 8. Pemeriksaan pemahaman
 
