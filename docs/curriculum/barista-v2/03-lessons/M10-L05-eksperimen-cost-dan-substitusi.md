@@ -18,6 +18,24 @@ Rancang uji A/B terkontrol yang aman pada sesi pelatihan; input volume, kondisi 
 
 Tuliskan **pertanyaan eksperimenmu, hipotesis, prediksi, apa yang dikontrol, apa yang diamati, dan hasil seperti apa yang akan membuatmu mengubah keputusan**. Jika data hanya simulasi, tandai sumbernya. Kebersihan, keselamatan, alergen dan otorisasi lebih penting daripada ingin mencoba hal baru.
 
+## Harga lebih murah belum tentu biaya per gelas layak lebih rendah
+
+Susu A berharga Rp24.000/L, susu B Rp22.000/L. Satu gelas memakai 150 mL. Selisih biaya pembelian nominal per gelas adalah 0,15 × Rp2.000 = **Rp300**. Itu hanya satu komponen biaya.
+
+| Faktor | A | B |
+|---|---|---|
+| Harga per liter | Rp24.000 | Rp22.000 |
+| Biaya untuk 150 mL | Rp3.600 | Rp3.300 |
+| Tekstur steam | Perlu data nyata | Perlu data nyata |
+| Waste dan remake | Belum diukur | Belum diukur |
+| Alergen dan proses | Perlu label/SOP | Perlu label/SOP |
+
+Misalnya penggantian B justru membuat lebih banyak remake karena formula baru kurang cocok dengan alat—ini **hipotesis**, bukan hasil yang sudah terjadi. Tidak cukup menghitung Rp300 lalu mengumumkan keuntungan.
+
+**Eksperimen:** lakukan sesi aman dan disetujui, samakan volume dan peralatan yang relevan, serta ukur output dan tekstur nyata. Catat waktu kerja, waste, label, harga, dan hasil sensory bila dicicipi. Pilih ukuran sampel yang masuk akal; jangan mengarang confidence statistic.
+
+**Transfer:** supplier mengganti formula susu B tanpa mengubah nama produk. Mengapa uji sebelumnya belum tentu bisa langsung diterapkan? Buat keputusan sementara dan kebutuhan uji ulang sebelum bahan dipakai sebagai komponen signature drink.
+
 ## Transfer: kondisi berbeda
 
 Bisnis ingin mengganti bahan ketika ada event 200 porsi. Bagaimana menentukan kelayakan tanpa mengabaikan pembatasan waktu dan kemampuan tim?
