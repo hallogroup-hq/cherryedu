@@ -529,7 +529,7 @@ export const BARISTA_V2_DIAGNOSTICS:BaristaDiagnosticQuestion[]=[
     "options": [
       {
         "text": "Versi V1 pasti lebih lezat karena lebih sedikit gula.",
-        "feedback": "Preferensi belum diuji."
+        "feedback": "Preferensi rasa tidak dapat disimpulkan hanya dari jumlah sirup tanpa sesi tasting yang benar-benar dilakukan."
       },
       {
         "text": "V1 membuktikan semua pelanggan menyukai sweetness rendah.",
