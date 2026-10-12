@@ -109,7 +109,7 @@ Model penalaran tersedia melalui tombol pembahasan pada lembar kerja. Bandingkan
 | Kontrol risiko | Mengarahkan tindakan berbahaya | Red flag diabaikan | Hold/escalate sesuai informasi | Prioritas informasi dan operator jelas |
 | Komunikasi | Sulit diikuti | Beberapa bagian kabur | Ringkas, jelas, tepat | Dapat dipakai tim untuk menindaklanjuti |
 
-**Ambang latihan yang diusulkan:** 9/12 total, tanpa dimensi di bawah 2, dengan penanganan red flag P-22 yang benar. Ini **ambang internal awal yang belum dikalibrasi**, bukan standar SCA/ISO atau bukti kompetensi operator QC.
+**Cara menggunakan rubrik:** Periksa setiap dimensi dan cari alasan yang masih lemah. Terutama, jangan pernah menyatakan lot aman hanya karena sebagian datanya terlihat baik. Rubrik ini membantu refleksi, bukan bukti kompetensi QC atau kelulusan profesional.
 
 ## Cek cepat
 
