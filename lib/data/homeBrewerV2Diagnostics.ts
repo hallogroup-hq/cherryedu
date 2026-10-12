@@ -8,7 +8,7 @@ export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Label kopi menyebut citrus, kamu tidak merasakannya. Mana kesimpulan terbaik?",
     "options": [
       {
-        "text": "Label pasti salah karena semua orang seharusnya merasakan citrus.",
+        "text": "Label pasti salah, karena setiap orang yang menyeduh kopi dari lot sama semestinya merasakan aroma citrus yang tepat sesuai kemasan.",
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. Deskriptor tidak menjamin pengalaman setiap pencicip; variabel seduh dan kondisi sensori memengaruhi persepsi."
       },
       {
@@ -37,7 +37,7 @@ export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
         "feedback": "Perbedaan rasa tidak boleh diturunkan menjadi satu label proses atau species."
       },
       {
-        "text": "Natural selalu lebih manis karena wajib melalui fermentasi kuat.",
+        "text": "Proses natural pasti selalu lebih manis daripada washed karena fermentasi buah membuat kadar gula seduhan lebih tinggi pada semua roasting.",
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. Perbedaan rasa tidak boleh diturunkan menjadi satu label proses atau species."
       },
       {
@@ -58,7 +58,7 @@ export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "15 g kopi dan 225 g air seduh menghasilkan 184 g minuman. Rasio 1:15 berarti ...",
     "options": [
       {
-        "text": "Minuman keluar harus 225 g.",
+        "text": "Minuman keluar pasti harus 225 g sebab air yang diserap bubuk dan filter tetap dihitung sebagai bagian dari minuman di cangkir.",
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. Rasio 1:15 mendeskripsikan air seduh masuk; output lebih kecil karena retensi dan proses."
       },
       {
@@ -83,7 +83,7 @@ export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "20 g kopi menghasilkan 40 g beverage dengan TDS 10%. Estimasi EY sederhana adalah ...",
     "options": [
       {
-        "text": "10% sebab sama dengan TDS.",
+        "text": "10% karena extraction yield seharusnya identik dengan angka konsentrasi minuman yang dibaca langsung oleh refraktometer.",
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. Massa zat terlarut diperkirakan 4 g, dibagi dose 20 g menghasilkan EY 20%."
       },
       {
@@ -120,7 +120,7 @@ export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
         "feedback": "Skala angka spesifik mesin/grinder dan tidak menjamin distribusi partikel serupa."
       },
       {
-        "text": "Pindahkan setelan saja tanpa kalibrasi.",
+        "text": "Nomor klik grinder cukup dipindahkan tanpa perlu kalibrasi karena produsen umumnya memakai skala internasional yang sama pada semua tipe burr.",
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. Skala angka spesifik mesin/grinder dan tidak menjamin distribusi partikel serupa."
       }
     ],
@@ -137,7 +137,7 @@ export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
         "feedback": "Setpoint kettle tidak menggambarkan seluruh perjalanan termal air dalam bed."
       },
       {
-        "text": "Ya, sensor kettle sama dengan suhu bed selamanya.",
+        "text": "Ya, karena angka sensor pada kettle mewakili suhu aktual setiap bagian coffee bed dari awal hingga akhir selama total brewing.",
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. Setpoint kettle tidak menggambarkan seluruh perjalanan termal air dalam bed."
       },
       {
@@ -158,7 +158,7 @@ export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Bloom terlihat kecil pada kopi yang lebih lama sejak sangrai. Apa boleh disimpulkan?",
     "options": [
       {
-        "text": "Pasti tidak segar dan tidak aman.",
+        "text": "Sedikit gelembung berarti kopi pasti kehilangan seluruh kualitas aromatik dan tidak akan mampu diseduh dengan baik meskipun rasanya disukai.",
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. Aktivitas bubbles dipengaruhi pelepasan gas dan kondisi seduh, bukan penilai kualitas universal."
       },
       {
@@ -187,7 +187,7 @@ export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. Pola, filter, grind dan bed resistance memengaruhi hasil; perlu mempersempit confounder."
       },
       {
-        "text": "Perubahan pasti hanya disebabkan pour pattern.",
+        "text": "Perbedaan waktu seduh pasti berasal dari pour pattern sebab bentuk filter hanya memengaruhi kebersihan cangkir, bukan resistansi aliran air.",
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. Pola, filter, grind dan bed resistance memengaruhi hasil; perlu mempersempit confounder."
       },
       {
@@ -208,7 +208,7 @@ export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "V60 dan French Press memakai ratio input sama. Apakah output dan mouthfeel otomatis sama?",
     "options": [
       {
-        "text": "Ya karena 1:15 universal.",
+        "text": "Ya, karena angka perbandingan kopi-air yang sama memastikan hasil volume, komposisi zat terlarut dan mouthfeel akan sama pada kedua metode.",
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. Metode percolation dan immersion mempunyai jalur kontak/filtrasi berbeda walau angka input sama."
       },
       {
@@ -237,7 +237,7 @@ export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
         "feedback": "Produsen memperingatkan peningkatan risiko tumpahan dan luka bakar pada inverted; pilih metode kompatibel yang aman."
       },
       {
-        "text": "Balik alat segera saat penuh agar hasil kompetisi sama.",
+        "text": "Balik alat saat terisi air panas dan gunakan posisi inverted sesuai tutorial kompetisi karena metode juara dianggap telah memastikan keamanan seluruh model AeroPress.",
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. Produsen memperingatkan peningkatan risiko tumpahan dan luka bakar pada inverted; pilih metode kompatibel yang aman."
       },
       {
@@ -258,7 +258,7 @@ export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Kopi terasa sour. Apa langkah awal yang kuat?",
     "options": [
       {
-        "text": "Grind pasti terlalu kasar.",
+        "text": "Grind pasti terlalu kasar karena semua sensasi sour merupakan bukti under-extraction yang selalu dapat diselesaikan dengan setelan giling lebih halus.",
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. Acidity dapat karakter kopi; sensorik, suhu, strength dan brewing perlu dibedakan."
       },
       {
@@ -283,7 +283,7 @@ export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Kamu mengganti grinder, kopi dan suhu sekaligus; versi baru disukai. Kesimpulan?",
     "options": [
       {
-        "text": "Grinder baru pasti terbaik.",
+        "text": "Grinder baru pasti penyebab hasil terbaik karena perubahan alat lebih besar dampaknya daripada identitas kopi atau penyesuaian suhu air.",
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. Variabel serentak tidak memungkinkan atribusi sebab individual."
       },
       {
@@ -308,7 +308,7 @@ export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Roaster menulis aroma stroberi tetapi kamu merasakan nutty. Catatan apa paling jujur?",
     "options": [
       {
-        "text": "Tulis stroberi karena lebih profesional.",
+        "text": "Catat aroma stroberi sebagai hasil nyata karena descriptor roaster wajib dijadikan acuan meskipun penguji sendiri mencium aroma yang berbeda.",
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. Observasi diri yang jujur lebih informatif daripada menyalin descriptor yang tidak kamu alami."
       },
       {
@@ -337,7 +337,7 @@ export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
         "feedback": "Tebakan acak dapat benar; latihan perlu pengulangan dan tidak memberi kredensial profesional."
       },
       {
-        "text": "Pasti Q Grader karena peluang acak nol.",
+        "text": "Pasti sudah setara Q Grader, sebab berhasil menemukan satu cup berbeda tanpa melihat label merupakan bukti kemampuan sensory profesional yang tervalidasi.",
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. Tebakan acak dapat benar; latihan perlu pengulangan dan tidak memberi kredensial profesional."
       },
       {
@@ -358,7 +358,7 @@ export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Dua air sama-sama menunjukkan 120 ppm pada TDS meter konduktivitas. Apakah alkalinity keduanya pasti sama?",
     "options": [
       {
-        "text": "Ya karena semua ppm adalah bicarbonate.",
+        "text": "Ya, karena meter TDS konduktivitas sebenarnya sudah membaca kadar alkalinity serta seluruh ion mineral secara terpisah dan presisi.",
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. TDS berbasis konduktivitas tidak mengungkap profil mineral lengkap."
       },
       {
@@ -437,7 +437,7 @@ export const HOME_BREWER_V2_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
         "feedback": "Penggantian bahan tidak otomatis menuntaskan kontaminasi silang alat."
       },
       {
-        "text": "Oat drink otomatis menghilangkan sisa protein susu di blender.",
+        "text": "Oat drink otomatis menetralkan jejak protein susu sapi pada blender bersama, sehingga pembersihan dan verifikasi cross-contact tidak diperlukan.",
         "feedback": "Pilihan ini terlalu pasti atau mengabaikan informasi penting. Penggantian bahan tidak otomatis menuntaskan kontaminasi silang alat."
       },
       {
