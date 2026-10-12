@@ -3,7 +3,7 @@
 **Work branch:** `curriculum/foundation-v2`  
 **Baseline:** `main` @ `e21db3d6fdb863d5fedc73741042bdbdb447b95b`  
 **Updated:** 2026-10-12  
-**Status:** Modules 01–06 authored (3+5+7+5+6+5 lessons), mandatory M07 history lesson drafted; all production learning content unchanged.
+**Status:** All 7 modules and 36/36 lesson manuscripts fully authored for **internal expert/learner review** (3+5+7+5+6+5+5). All production learning content unchanged; no professional sign-off claimed.
 
 ## Documents
 
@@ -66,13 +66,23 @@
 20. [04 — Module 06 assessment pack](./04-assessments/M06-module-exit.md): 12 explained items, four-lens transfer memo and rubric.
 21. [06 — Module 06 QA and scientific/licensing register](./06-qa/M06-content-qa.md): sensory and cognitive-bias research, 2026 standards, licensing risks and blocked release gates.
 
+22. **Stage 03 — Module 07: all five history/value/impact/capstone lessons complete**
+   - [M07.L01 — Sejarah kopi Ethiopia, Yaman dan Jawa](./03-lessons/M07-L01-sejarah-kopi-dunia-indonesia.md) — **mandatory; preserved**, detailed colonial Priangan context.
+   - [M07.L02 — Siapa melakukan apa dalam perjalanan kopi?](./03-lessons/M07-L02-rantai-nilai-kopi-dan-aktor.md)
+   - [M07.L03 — Harga, biaya dan kesejahteraan petani](./03-lessons/M07-L03-harga-mutu-pendapatan-petani.md)
+   - [M07.L04 — Membaca label, traceability dan sustainability](./03-lessons/M07-L04-traceability-sustainability-klaim.md)
+   - [M07.L05 — Final case P-17 dari kebun hingga cangkir](./03-lessons/M07-L05-final-case-kopi-hulu-hilir.md) — new transfer case with 6 evidence packets, original numeric problems, 16-point rubric, and historical reflection.
+23. [04 — Module 07 assessment pack](./04-assessments/M07-module-exit.md): 16 questions with explanations, 7-module concept links and final dossier rubric.
+24. [06 — Module 07 research/economic/claims QA](./06-qa/M07-content-qa.md): official sources, numerical audit, safeguards and blocked external validation.
+25. [06 — FULL Foundation cross-module preliminary QA](./06-qa/FULL-COURSE-CROSS-MODULE-AUDIT.md): seven-module continuity, eight legacy P0 claim checks, ID consistency fix, release blockers, source and progress migration gates.
+
 ## Workflow and safeguards
 
 - These are **internal drafting files**, not live course material and not validated credentials.
 - Avoid confusing **source-linked** with scientifically signed-off: every material claim in a released lesson needs appropriate current evidence and a domain expert where required.
 - **Do not edit** `lib/data/seedData.ts`, existing lessons, quiz engine, local storage/progress logic, certificates or deployed production as part of this document-writing stage.
 - **No-equipment path:** Reading case records trains critical interpretation but **does not certify actual taste/smell acuity**.
-- Writing later lessons requires its own research and science QA; do not lazily copy M01 concepts into every module.
+- All lessons now exist as drafts; final editorial/QA must avoid rote repetition and convert relevant activities to accessible, distinct learner interactions.
 - Deployment requires versioned migration plan for lesson IDs, stored progress, quizzes, certificates, rollback, CI and real user approval.
 - Any future PR should remain a draft until review/QA passes and is approved for production.
 - CherryEdu is not an official SCA/CQI/Q Grader certifying program.
@@ -82,18 +92,18 @@
 | Stage | Status | Remaining gate |
 |---|---|---|
 | 01 — Source audit | Complete as desk audit | External scientific validation not claimed |
-| 02 — Curriculum architecture | Authored 31-spec blueprint; internally checked | Expert/learner review still open |
-| 03 — Lesson authoring | **M01 3/3 + M02 5/5 + M03 7/7 + M04 5/5 + M05 6/6 + M06 5/5 + M07.L01 history**; only M07.L02–L05 remain not drafted | Scientific review and learner pilots still required |
-| 04 — Assessment writing | **M01 8/8 + M02 8/8 + M03 10/10 + M04 10/10 + M05 12/12 + M06 12/12 module exit items drafted** | Item calibration, variants and platform integration |
-| 05 — Scientific/learning QA | **M01 + M02 + M03 + M04 + M05 + M06 desk QA documented** | **BLOCKED: experts + learners not tested** |
+| 02 — Curriculum architecture | **36 specified lesson slots**, seven modules, history protected | Expert/learner review still open |
+| 03 — Lesson authoring | **COMPLETE DRAFT: M01 3/3 + M02 5/5 + M03 7/7 + M04 5/5 + M05 6/6 + M06 5/5 + M07 5/5** | Scientific review and learner pilots still required |
+| 04 — Assessment writing | **DRAFT COMPLETE: 76 explained items** (8+8+10+10+12+12+16) + seven module transfer rubrics and integrative capstone | Item calibration, unseen variants and platform integration |
+| 05 — Scientific/learning QA | **Seven module desk QA files + preliminary whole-course audit**; high-risk claims mapped and editorial defects repaired | **BLOCKED: external SMEs, learner testing, rights and release review** |
 | 06 — Implementation | Not started | Legacy ID/progress migration plan + CI/preview approvals |
 
 ## Current work snapshot
 
 - Foundation architecture is **7 modules / 36 slots**; coffee history is a protected mandatory core lesson.
-- **32 full lesson drafts** currently authored: M01 (3), M02 (5), M03 (7), M04 (5), M05 (6), M06 (5), M07.L01 history (1).
-- **60 module-exit MCQs** authored (8 for M01, 8 for M02, 10 for M03, 10 for M04, 12 for M05, 12 for M06), plus applied reasoning rubrics.
-- **6 internal desk QA files** present; neither substitutes for botanical/agronomic/sensory/historical SME review.
+- **36 full lesson drafts** currently authored: M01 (3), M02 (5), M03 (7), M04 (5), M05 (6), M06 (5), M07 (5).
+- **76 module-exit MCQs** authored (M01 8, M02 8, M03 10, M04 10, M05 12, M06 12, M07 16), plus applied reasoning rubrics.
+- **7 module-level internal QA files + 1 cross-module preliminary audit** present; none substitutes for botanical/agronomic/sensory/historical/food-safety/economic review.
 - All production, migrations, certificates and actual learning assessment integrations are untouched.
 
 ## Module 01 snapshot
