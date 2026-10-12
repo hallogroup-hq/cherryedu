@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ArrowDown, ArrowUp, RotateCcw } from 'lucide-react';
 import { foundationV2Interactions, type Activity, type ClassificationActivity, type SequenceActivity, type ChoiceActivity } from '@/lib/data/foundationV2Interactions';
 import { CoffeeFruitAnatomy } from '@/components/CoffeeFruitAnatomy';
+import { FoundationPracticeWorkspace, FoundationFarmIncome } from '@/components/FoundationPracticeWorkspace';
 
 const btn = 'px-4 py-2.5 rounded-lg text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cherry-700';
 const option = 'w-full text-left p-3 rounded-lg border text-sm leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cherry-700';
@@ -149,5 +150,7 @@ export function FoundationLearningActivity({ id }: { id: string }) {
     {activity.kind === 'choice' && <Choice activity={activity}/>}
     {activity.kind === 'calculator' && <BrewEY/>}
     {activity.kind === 'anatomy' && <CoffeeFruitAnatomy/>}
+    {activity.kind === 'workspace' && <FoundationPracticeWorkspace activity={activity}/>}
+    {activity.kind === 'income' && <FoundationFarmIncome activity={activity}/>}
   </Wrap>;
 }
