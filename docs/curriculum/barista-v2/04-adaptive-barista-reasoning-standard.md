@@ -16,6 +16,16 @@ Setiap peserta harus mampu:
 
 Tidak wajib menemukan **satu resep jawaban mutlak**. Dua solusi berbeda boleh mendapat penilaian baik jika alasan, informasi yang dipakai, risiko, dan observasi lanjutan sama-sama kuat.
 
+## Curiosity as an observable behavior, not a personality trait
+
+Barista yang kompeten tidak hanya merespons saat muncul masalah: ia juga ingin memahami *mengapa hasil tertentu muncul* dan berani membuat pertanyaan baru dalam latihan yang aman. Mengajar rasa penasaran berarti melatih kebiasaan mempertanyakan asumsi, membuat prediksi, menguji dengan kontrol, menghargai hasil yang bertentangan dan merevisi pemikiran.
+
+**Not all variation is progress.** Eksperimen tanpa hipotesis, pengukuran, standar kebersihan, izin atau batas anggaran bukan bukti mastery. Barista juga perlu tahu kapan data belum cukup atau lebih tepat berhenti dan eskalasi.
+
+**Required across all modules:** Each lesson includes a student prediction question; each module documents at least one experiment appropriate to its objectives; final capstone evaluates how the learner responds to a deliberately surprising result. A curiosity note alone is insufficient without an informative test.
+
+Follow [Experimentation & Curiosity Standard](./05-experimentation-and-curiosity-standard.md).
+
 ## B. Model berpikir 6 langkah
 
 **TANYAKAN → OBSERVASI → BATAS AMAN → HIPOTESIS → UJI → EVALUASI.**
@@ -60,6 +70,8 @@ Sebelum dianggap layak rilis, masing-masing lesson harus punya:
 - **Counterexample:** kondisi realistis ketika pendekatan awal perlu disesuaikan.
 - **Keputusan peserta:** pertanyaan terbuka atau kontrol interaktif yang meminta prediksi serta alasan **sebelum** jawaban tampil.
 - **Unseen transfer case:** jenis masalah sama, tetapi ada kendala baru yang menuntut prinsip, bukan hafalan.
+- **Curiosity prompt:** peserta membuat atau memperbaiki satu pertanyaan 'what if?', memprediksi hasil dan mendesain uji aman sebelum mendapat pembahasan.
+- **Unexpected-result handling:** bila hasil simulasi atau praktik bertentangan dengan prediksi, peserta bisa menjelaskan apa yang dipelajari dan percobaan berikutnya tanpa dipermalukan atau diganjar jawaban palsu.
 - **Feedback:** mengomentari alasan, kontrol variabel, bukti, keselamatan dan ketidakpastian; menerima beberapa jawaban defensibel.
 - **Representasi yang benar:** diagram, data log, video/demo aman untuk keterampilan fisik—bukan "kartu" yang ternyata hanya dua kolom teks.
 - **Praktik nyata** hanya jika peralatan dan pengawasan tepat tersedia. Simulasi tidak boleh melaporkan rasa/hasil riil yang tidak pernah diukur.
@@ -106,6 +118,8 @@ Setiap dimensi **0–3**, digunakan untuk umpan balik dan belum sebagai ambang s
 8. Catatan siswa tentang rasa hanya diberi label **observasi nyata** bila memang dicicipi; selain itu **hipotesis atau data simulasi**.
 9. Adaptasi yang mengubah menu berlisensi, batas keamanan, atau alergen harus merujuk SOP/otorisasi café, bukan mengajarkan pekerja menabrak instruksi resmi.
 10. Release tidak boleh hanya lolos lint/build; butuh review ilmiah, novice think-aloud, dan uji kemampuan transfer.
+11. Satu eksperimen yang hasilnya tidak sesuai hipotesis tetap dapat dinilai baik bila rancangan, keamanan, pengukuran dan refleksinya kuat.
+12. Pembelajaran tidak memaksa penggunaan banyak bahan atau eksperimen saat rush hour; tersedia latihan data simulasi jujur bagi peserta tanpa alat.
 
 ## Checkpoint
 
