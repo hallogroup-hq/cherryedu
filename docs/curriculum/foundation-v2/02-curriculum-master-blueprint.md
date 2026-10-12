@@ -115,7 +115,7 @@
 - **Remediation:** If a student cannot demonstrate the concept, send them to the relevant explanatory example and a new variant of the case. Do not recycle identical answer order as a pass condition.
 
 
-## 5 — Lesson specifications (34 / 34)
+## 5 — Lesson specifications (35 / 35)
 
 **Format note:** Legacy IDs show content provenance only. Create stable new IDs during implementation after migration mapping is approved. A blank/NEW source means the lesson was absent as a standalone article. Outcome, required ideas, exercise and evidence below are mandatory authoring acceptance criteria, not the finished lesson text.
 
@@ -345,14 +345,23 @@
 - **Legacy source:** F6-1,F3-5
 - **Reference anchor(s):** SCA-CSP
 
-#### M05.L05 — Eksperimen seduh: satu variabel, satu pertanyaan
-- **Observable outcome:** Menyusun percobaan sederhana, menafsirkan hasil dan mengakui keterbatasannya.
-- **Concept boundaries:** Independent/control variables; repeat; blind A/B; tasting log.
-- **Preferred learning treatment:** Practice DIY or guided simulation with dataset.
-- **Check for understanding / evidence:** Recipe table, controlled-variable log, interpretation with uncertainty.
-- **Mandatory misconceptions/guardrails:** No gear purchase requirement; simulated results never passed off as measured.
+#### M05.L05 — Membaca hasil seduh: TDS, extraction yield dan diagnosis
+- **Observable outcome:** Membedakan TDS minuman dengan parameter air, menghitung perkiraan EY dari data yang lengkap, dan menguji batas interpretasi angka.
+- **Concept boundaries:** Output beverage mass vs input water; coffee refractometer; extraction yield mass balance; retained brew during immersion; measurement uncertainty; classic SCA control chart vs UC Davis consumer/sensory chart.
+- **Preferred learning treatment:** Two worked examples with proper units, a fictional troubleshooting report, and clear no-equipment numerical alternatives.
+- **Check for understanding / evidence:** Estimate EY for one brew; identify three missing pieces of evidence; propose defensible next diagnostic step.
+- **Mandatory misconceptions/guardrails:** Water meter ppm differs from brewed coffee TDS%; output weight differs from input water; EY estimate with retained liquid limitations; historical 18–22% chart range is not universally ideal flavor.
+- **Legacy source:** NEW, gap between introductory extraction and actual brew analysis.
+- **Reference anchor(s):** UC-DAVIS-CHART-2023; UC-DAVIS-IMMERSION-2021; SCA-CHART-REVIEW
+
+#### M05.L06 — Eksperimen seduh: satu variabel, satu pertanyaan
+- **Observable outcome:** Merancang, mendokumentasikan dan menafsirkan percobaan seduh satu variabel dengan keterbatasannya.
+- **Concept boundaries:** Variable control, repetitions, simple blind A/B, flavor descriptions, data integrity, equipment cleanliness.
+- **Preferred learning treatment:** Optional real brewing with suitable safe equipment OR a clearly labeled fictional comparative dataset with no-equipment pathway.
+- **Check for understanding / evidence:** Table of controlled factors, comparison notes, at least two alternate explanations and one follow-up test.
+- **Mandatory misconceptions/guardrails:** No required purchases, fabricated observations or universal recipes.
 - **Legacy source:** F6-1,F7-1
-- **Reference anchor(s):** SCA-CSP; LEARNING
+- **Reference anchor(s):** SCA-CSP; LEARNING; UC-DAVIS-CHART-2023
 
 ### M06 — Belajar Mengenali & Menilai Rasa
 
@@ -540,7 +549,7 @@ Every substantive technical assertion in the finished lesson must be auditable b
 | M02 | M01 | F2-2 altitude; F2-4 Brix; F3-1 taxonomy; F2-3 agroforestry | 2,3 |
 | M03 | M02 | F4-2 osmosis; F4-5 fermentation risk; F4-3 honey labeling; drying/storage; NEW green coffee grading | 2,3,5 |
 | M04 | M03 | F5-2 fixed reaction temps; F5-3 drop temps; F5-4 resting; NEW reading roast logs, defects and workplace safety | 4,5 |
-| M05 | M04 | F6-1 'hungry water'; F6-2 full solvent; F6-3 Mg flavor | 4,5 |
+| M05 | M04 | F6-1 'hungry water'; F6-2 full solvent; F6-3 Mg flavor; NEW measurement and brewing diagnosis | 4,5 |
 | M06 | M01,M05 | F7-2 old protocol; F7-4 legacy scoring; F7-3 tongue zone | 1,6 |
 | M07 | All | F1-1 preserved history; F1-4 as optional interpretive wave lens; F1-2 score metaphor; F1-3 specialty; F1-5 fair trade; F3-5 label claims | 2,6,7,8 |
 
@@ -548,7 +557,7 @@ Every substantive technical assertion in the finished lesson must be auditable b
 
 | Gate | Acceptance rule | What blocks progress |
 |---|---|---|
-| G02-A Curriculum integrity | 34 unique new lesson slots; each belongs to one module; full CLO mapping; prerequisites acyclic | Missing slot, duplicate, orphan outcome |
+| G02-A Curriculum integrity | 35 unique new lesson slots; each belongs to one module; full CLO mapping; prerequisites acyclic | Missing slot, duplicate, orphan outcome |
 | G02-B Scientific guardrail | Each P0 Stage01 issue assigned specific lesson + explicit disallowed claim | P0 unmapped or current standards called obsolete incorrectly |
 | G02-C Assessment alignment | Every lesson has evidence + module exit; every CLO has graded evidence and transfer | Pure trivia only; unscorable skill claims |
 | G02-D Accessibility | All required activities have no-equipment alternative and nonvisual text equivalent | Buying equipment required; audio-only evaluation |
@@ -604,7 +613,7 @@ Proposed files for subsequent stages: `03-lessons/M01-L01.md` onward; `04-assess
 ## 14 — Blueprint acceptance checklist
 
 - [x] 7 module contracts defined.
-- [x] 34 lesson IDs specified without duplicate new slot (legacy sources may repeat intentionally).
+- [x] 35 lesson IDs specified without duplicate new slot (legacy sources may repeat intentionally).
 - [x] Every lesson has explicit observable outcome, boundaries, preferred teaching treatment and evidence.
 - [x] P0 issues routed to relevant lessons with disallowed misconceptions.
 - [x] Module exit and capstone scoring frameworks drafted.
