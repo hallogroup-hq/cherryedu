@@ -18,6 +18,24 @@ Tulis tiga konsep berbeda untuk satu menu gap, bukan satu resep tiga nama. Pilih
 
 Catat pertanyaanmu, hipotesis, prediksi, satu kondisi yang diubah, variabel kontrol, apa yang benar-benar diamati, dan informasi yang belum diketahui. Jika berlatih dengan simulasi, jangan menulis hasil seolah-olah kamu sudah mencicipi atau bekerja dengan mesin nyata. Eksperimen aman mengikuti pedoman mesin dan prosedur kedai.
 
+## Satu kebutuhan, tiga arsitektur minuman
+
+Banyak menu “baru” sebenarnya hanya mengganti sirup pada latte standar. Ide itu bisa tetap valid bila sesuai kebutuhan, tetapi belum tentu memenuhi tujuan signature yang punya karakter dan alasan jelas. Mulailah dari masalah pelanggan, bukan garnish.
+
+| Ide | Coffee base | Pertanyaan uji |
+|---|---|---|
+| A | Espresso diluted | Bisakah kopi tetap terasa pada ukuran target? |
+| B | Filter concentrate | Apakah aroma pendamping justru menutupi kopi? |
+| C | Basis kopi dengan tekstur berbeda | Apakah body berbeda membantu preferensi? |
+
+Tidak ada versi yang otomatis paling lezat. Perbedaan extraction, dilution, bahan lain, suhu dan proses dapat memberi konsekuensi tak terduga. Setiap ide harus dihitung biaya, SOP aman dan kemampuan diproduksi ulang.
+
+**Eksperimen:** pilih satu arah konsep, lalu buat dua rancangan dengan satu perbedaan terukur. Tuliskan hipotesis sebelum tasting, variabel yang dijaga, risiko bahan dan apa yang mungkin membuat dugaanmu salah. Jika tidak benar-benar mencoba minuman, jangan memberi deskripsi rasa seolah hasil pengukuran.
+
+**Situasi baru:** bahan aromatik musiman habis. Apakah signature harus berhenti, diganti atau menjadi seasonal? Bandingkan efek pada identitas minuman, supply, labeling dan biaya. Jangan otomatis menukar bahan tanpa uji yang disetujui.
+
+**Jembatan modul berikutnya:** ide berhasil secara sensori baru layak diluncurkan sesudah SOP, costing, keamanan, umpan balik customer dan replikasi operator diperiksa.
+
 ## Tantangan transfer
 
 Jika bahan utama habis saat servis, bolehkah improvisasi satu-to-one? Apa yang perlu dicek dan kapan mengatakan menu sementara tidak tersedia?
