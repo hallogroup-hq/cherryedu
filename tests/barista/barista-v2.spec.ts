@@ -22,7 +22,7 @@ for(let m=1;m<=12;m++){
      const visible=await page.locator('main').innerText();
      expect(visible,id).toMatch(/eksperimen|percobaan/i);
      expect(visible,id).not.toMatch(/DRAFT REVIEW|Beta Publik|review build|editorial appendix|Sertifikasi Profesional Kompetensi Bar/i);
-     expect(visible,id).not.toMatch(/\\[ACTIVITY:|\\[VISUAL:|\\[DIAGRAM:/i);
+     expect(visible,id).not.toMatch(/\[ACTIVITY:|\[VISUAL:|\[DIAGRAM:/i);
      await expect(page.locator('button').filter({hasText:/Tandai Selesai|Terbitkan Sertifikat/i})).toHaveCount(0);
    }
  });
