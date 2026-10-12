@@ -41,9 +41,9 @@ import {
 import {
   SEED_USERS,
   SEED_BADGES,
-  SEED_PATHS,
-  SEED_MODULES,
-  SEED_LESSONS,
+  SEED_PATHS as BASE_SEED_PATHS,
+  SEED_MODULES as BASE_SEED_MODULES,
+  SEED_LESSONS as BASE_SEED_LESSONS,
   SEED_QUIZZES,
   SEED_QUESTIONS,
   SEED_ENROLLMENTS,
@@ -53,6 +53,11 @@ import {
   SEED_JOBS,
   SEED_JOB_APPLICATIONS,
 } from './data/seedData';
+import {
+  FOUNDATION_V2_PREVIEW_PATH,
+  FOUNDATION_V2_PREVIEW_MODULES,
+  FOUNDATION_V2_PREVIEW_LESSONS,
+} from './data/foundationV2Preview.generated';
 import { DEFAULT_LANDING_CONFIG } from './data/defaultLandingConfig';
 import { DEFAULT_SITE_PAGES } from './data/defaultSitePages';
 import {
@@ -66,6 +71,22 @@ import {
   fetchTransactionByIdFromSupabase,
 } from './dbSync';
 import { supabase, isSupabaseConfigured } from './supabase';
+
+// Explicit opt-in for isolated reviewer builds only; disabled by default.
+const FOUNDATION_V2_PREVIEW_ENABLED =
+  process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW === 'review-only';
+
+// Do not replace legacy path/module/lesson IDs. Older progress and certificates
+// refer to those IDs and must remain meaningful until an approved migration.
+const SEED_PATHS: LearningPath[] = FOUNDATION_V2_PREVIEW_ENABLED
+  ? [...BASE_SEED_PATHS, FOUNDATION_V2_PREVIEW_PATH]
+  : BASE_SEED_PATHS;
+const SEED_MODULES: Module[] = FOUNDATION_V2_PREVIEW_ENABLED
+  ? [...BASE_SEED_MODULES, ...FOUNDATION_V2_PREVIEW_MODULES]
+  : BASE_SEED_MODULES;
+const SEED_LESSONS: Lesson[] = FOUNDATION_V2_PREVIEW_ENABLED
+  ? [...BASE_SEED_LESSONS, ...FOUNDATION_V2_PREVIEW_LESSONS]
+  : BASE_SEED_LESSONS;
 
 export const GUEST_USER: User = {
   id: 'guest',
@@ -439,7 +460,9 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
         // Smart merge learning paths: ensure official paths stay synced with latest curriculum structure
         if (parsed.learningPaths) {
-          const customPaths = parsed.learningPaths.filter((p: LearningPath) => !SEED_PATHS.some((sp) => sp.id === p.id));
+          const customPaths = parsed.learningPaths.filter((p: LearningPath) =>
+            p.id !== FOUNDATION_V2_PREVIEW_PATH.id && !SEED_PATHS.some((sp) => sp.id === p.id)
+          );
           setLearningPaths([...SEED_PATHS, ...customPaths]);
         } else {
           setLearningPaths(SEED_PATHS);
@@ -447,7 +470,9 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
         // Smart merge modules: ensure official syllabus modules stay synced with latest titles & curriculum
         if (parsed.modules) {
-          const customModules = parsed.modules.filter((m: Module) => !SEED_MODULES.some((sm) => sm.id === m.id));
+          const customModules = parsed.modules.filter((m: Module) =>
+            !m.id.startsWith('mod-fv2-') && !SEED_MODULES.some((sm) => sm.id === m.id)
+          );
           setModules([...SEED_MODULES, ...customModules]);
         } else {
           setModules(SEED_MODULES);
@@ -455,7 +480,9 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
         // Smart merge lessons: ensure official syllabus lessons stay synced with latest rich content & images
         if (parsed.lessons) {
-          const customLessons = parsed.lessons.filter((l: Lesson) => !SEED_LESSONS.some((sl) => sl.id === l.id));
+          const customLessons = parsed.lessons.filter((l: Lesson) =>
+            !l.id.startsWith('lesson-fv2-') && !SEED_LESSONS.some((sl) => sl.id === l.id)
+          );
           setLessons([...SEED_LESSONS, ...customLessons]);
         } else {
           setLessons(SEED_LESSONS);
