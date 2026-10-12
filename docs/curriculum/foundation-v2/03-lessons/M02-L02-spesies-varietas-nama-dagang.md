@@ -84,21 +84,13 @@ Di Indonesia, istilah seperti **Sigarar Utang**, **Ateng**, **Tim-Tim**, dan **S
 
 Pada Module 02 Lesson 05, kita akan membaca contoh data kebun Indonesia untuk melihat mengapa identitas dan kondisi penanaman harus dipertimbangkan bersama.
 
-## 6. Latihan: menyortir nama
+## 6. Latihan — Satu nama, satu kategori
 
-Kamu menerima lima kartu. Pilih kategori yang sesuai.
+Di bawah ini ada lima kartu yang perlu kamu klasifikasikan. Jawabannya tidak langsung ditampilkan; coba tentukan kategorinya lebih dahulu.
 
-| Kartu | Kategori |
-|---|---|
-| Coffea | Genus |
-| Coffea arabica | Spesies |
-| Bourbon | Varietas/kultivar Arabika |
-| Gayo | Nama wilayah/asal, bukan spesies |
-| Excelsa | Nama umum/perdagangan dengan riwayat taksonomi yang berubah; menurut Kew 2026, terkait *Coffea dewevrei* |
+[ACTIVITY:taxonomy-sort]
 
-**Pertanyaan:** Apa kesalahan bila semua kartu itu ditaruh di satu kolom “jenis kopi” lalu disandingkan seolah tingkatan biologisnya setara?
-
-**Jawaban:** Kita mencampur genus, spesies, varietas, identitas geografis dan nama perdagangan. Tabel seperti itu akan menciptakan perbandingan yang tidak sejenis.
+**Setelah mencoba:** Mengapa menyamakan genus, spesies, varietas, wilayah dan nama dagang dalam satu daftar “jenis kopi” bisa menyesatkan?
 
 ## 7. Kasus pengecekan label
 
