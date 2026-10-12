@@ -18,7 +18,7 @@ export default function HomeBrewerLesson({params}:{params:{lessonId:string}}){
  const deepIds=new Set(['hbv2-m01-l02','hbv2-m02-l01','hbv2-m03-l02','hbv2-m04-l03','hbv2-m05-l03',
  'hbv2-m06-l02','hbv2-m07-l02','hbv2-m08-l03','hbv2-m09-l02','hbv2-m10-l02']);
  const withDeepDiagram=deepIds.has(l.id)&&split>=0&&!withDiagram;
- return <main className="min-h-screen bg-paper-50 pb-28">
+ return <div className="min-h-screen bg-paper-50 pb-28">
   <div className="mx-auto max-w-3xl px-5 pt-12">
    <nav aria-label="Navigasi course" className="text-sm text-roast-700">
     <Link href="/home-brewer-v2" className="underline underline-offset-4">Home Brewer Specialization</Link>
@@ -49,5 +49,5 @@ export default function HomeBrewerLesson({params}:{params:{lessonId:string}}){
     {next?<Link className="max-w-[48%] text-right font-semibold text-roast-900 underline underline-offset-4" href={'/home-brewer-v2/'+next.id}>{next.title} →</Link>:<Link href="/home-brewer-v2" className="font-semibold underline underline-offset-4">Kembali ke daftar →</Link>}
    </nav>
   </div>
- </main>;
+ </div>;
 }
