@@ -30,9 +30,9 @@ const moduleNames = {
 const createdAt = '2026-10-12T00:00:00Z';
 const previewPath = {
   id: 'path-foundation-v2-preview',
-  title: 'Foundation V2 — Beta Publik (Materi Dapat Diperbarui)',
+  title: 'Memahami Kopi dari Hulu ke Hilir',
   slug: 'foundation-v2-preview',
-  description: '36 materi pembelajaran kopi dari hulu ke hilir, edisi beta publik. Materi dapat diperbarui; tidak menerbitkan sertifikat.',
+  description: 'Pelajari perjalanan kopi dari buah dan kebun hingga pengolahan, roasting, penyeduhan, penilaian rasa, serta orang-orang di balik setiap cangkir.',
   thumbnail_url: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&auto=format&fit=crop&q=80',
   layer_type: 'foundation', prerequisite_path_id: null, target_role: 'all',
   level: 'beginner', is_free: true, is_published: true,
@@ -40,8 +40,16 @@ const previewPath = {
 };
 const modules = Object.entries(moduleNames).map(([moduleCode, title], order) => ({
   id: 'mod-fv2-' + moduleCode.toLowerCase(), learning_path_id: previewPath.id,
-  title: String(order + 1).padStart(2, '0') + ' — ' + title,
-  description: 'Edisi beta publik; latihan belum dinilai dan tidak menerbitkan sertifikat.',
+  title: title,
+  description: ({
+    M01: 'Bangun cara mengamati rasa dan aroma melalui latihan sederhana.',
+    M02: 'Kenali buah, tanaman kopi, varietas, dan cara membaca informasi kebun.',
+    M03: 'Pahami bagaimana kopi diolah, dikeringkan, dan diperiksa mutunya.',
+    M04: 'Pelajari perubahan biji kopi saat disangrai dan cara membaca hasilnya.',
+    M05: 'Kenali faktor yang memengaruhi ekstraksi dan buat percobaan seduh.',
+    M06: 'Latih kemampuan mendeskripsikan, membandingkan, dan menilai pengalaman rasa.',
+    M07: 'Lihat sejarah, pelaku, biaya, dan nilai yang terbentuk sepanjang rantai kopi.'
+  })[moduleCode],
   order_index: order + 1, is_locked: false, is_published: true, created_at: createdAt
 }));
 const provenance = [];
