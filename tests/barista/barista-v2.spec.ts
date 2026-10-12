@@ -60,7 +60,10 @@ test('filter bypass is modeled as dilution after coffee bed',async ({page})=>{
  await page.goto('/barista-v2/bv2-m07-l01');
  const lab=page.getByRole('region',{name:'Laboratorium konsep barista'});
  await expect(lab).toContainText('Massa minuman sesudah bypass');
- await lab.getByRole('slider',{name:/Air bypass/i}).fill('50');
+ const slider=lab.getByRole('slider',{name:/Air bypass/i});
+ await slider.focus();
+ await slider.press('Home');
+ for(let i=0;i<10;i++)await slider.press('ArrowRight');
  await expect(lab).toContainText('235 g');
 });
 
@@ -77,6 +80,12 @@ test('signature lab asks for a real concept and does not invent tasting',async (
  await page.goto('/barista-v2/bv2-m11-l01');
  const lab=page.getByRole('region',{name:'Laboratorium konsep barista'});
  await expect(lab.getByRole('button',{name:'Cek kesiapan konsep'})).toBeDisabled();
+ await lab.getByLabel('Nama konsep sementara').fill('Filter Senja Tropis');
+ await lab.getByLabel('Untuk pelanggan/occasion dan kebutuhan apa?').fill('Pelanggan siang hari yang ingin kopi terasa tetapi tidak manis berlebihan');
+ await lab.getByLabel('Apa peran kopi dan bahan lain?').fill('Filter coffee sebagai rasa utama, bahan pendukung hanya aroma dan tekstur');
+ await lab.getByLabel('Apa hipotesis rasa atau tekstur yang ingin diuji?').fill('Saya menduga aroma pendukung memperjelas profil kopi tanpa menambah manis');
+ await lab.getByLabel('Percobaan A/B apa yang akan dilakukan dengan aman?').fill('Dua minuman dengan base sama, satu tanpa bahan aromatik dan satu dengan takaran terukur');
+ await lab.getByRole('button',{name:'Cek kesiapan konsep'}).click();
  await expect(lab).toContainText('belum menjadi produk teruji');
 });
 
