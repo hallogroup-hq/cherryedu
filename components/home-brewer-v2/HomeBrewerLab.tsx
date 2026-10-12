@@ -7,12 +7,10 @@ const fmt=(n:number)=>Number.isFinite(n)?n.toLocaleString('id-ID',{maximumFracti
 const good=(n:number,max=2000)=>Number.isFinite(n)&&n>0&&n<=max;
 
 function ChoiceLab({moduleCode}:{moduleCode:string}){
- const [goal,setGoal]=useState('ringan'),[note,setNote]=useState(''),[show,setShow]=useState(false);
+ const [goal,setGoal]=useState(''),[note,setNote]=useState(''),[show,setShow]=useState(false);
  const choices:Record<string,{title:string;caption:string;options:{value:string;label:string;message:string}[]}>={
   M01:{title:'Tentukan tujuan sebelum resep',caption:'Pilih pengalaman yang kamu cari. Tidak ada selera yang otomatis salah.',
    options:[{value:'ringan',label:'Ringan dan bersih',message:'Pertimbangkan metode/filter, komposisi dan cara evaluasi body. Jangan otomatis memakai rasio tertentu.'},{value:'pekat',label:'Lebih pekat di lidah',message:'Bedakan konsentrasi dari jumlah kafein, lalu pilih satu perubahan terukur.'},{value:'aromatik',label:'Aroma paling terasa',message:'Perhatikan kopi, suhu dan kondisi pencicip sebelum mengubah banyak variabel sekaligus.'}]},
-  M02:{title:'Baca label tanpa mengarang hasil',caption:'Kopi A berlabel berry/natural; kopi B citrus/washed. Tujuanmu adalah mencari acidity lembut.',
-   options:[{value:'ringan',label:'Kopi A pasti paling manis',message:'Flavor notes tidak menjamin sweetness atau preferensi semua pencicip.'},{value:'pekat',label:'Pilih berdasar cerita kemasan saja',message:'Label memberi konteks, tetapi keputusan sensori perlu cicip terukur.'},{value:'aromatik',label:'Rancang tasting A/B yang jujur',message:'Ini paling informatif: samakan proses seduh sedekat mungkin, catat apa yang benar-benar dirasakan.'}]}
  };
  const d=choices[moduleCode];if(!d)return null;
  return <div className="space-y-4">
@@ -22,8 +20,48 @@ function ChoiceLab({moduleCode}:{moduleCode:string}){
     <input type="radio" name={'choice-'+moduleCode} checked={goal===o.value} onChange={()=>{setGoal(o.value);setShow(false);}}/>{o.label}</label>)}
   </fieldset>
   <label className="text-sm font-semibold text-roast-950">Apa yang ingin kamu buktikan?<textarea aria-label="Tujuan eksperimen" value={note} maxLength={600} rows={3} className={field} onChange={e=>{setNote(e.target.value);setShow(false);}}/></label>
-  <button type="button" className={action} disabled={note.trim().length<15} onClick={()=>setShow(true)}>Bandingkan pertimbanganku</button>
+  <button type="button" className={action} disabled={!goal||note.trim().length<15} onClick={()=>setShow(true)}>Bandingkan pertimbanganku</button>
   {show&&<p role="status" className="border-l-2 border-roast-900 bg-paper-100 p-4 text-sm leading-7 text-roast-900">{d.options.find(x=>x.value===goal)?.message} Tuliskan satu hasil yang akan membuatmu mengubah pilihan.</p>}
+ </div>;
+}
+function LabelReadingLab(){
+ type LabelType='fakta'|'deskripsi'|'belum';
+ const entries:{id:string;text:string;correct:LabelType;why:string}[]=[
+  {id:'origin',text:'Asal tercantum: Aceh Gayo',correct:'fakta',why:'Kamu bisa membaca informasi asal pada kemasan. Ini fakta tentang apa yang tertulis, belum verifikasi independen atas klaim produsen.'},
+  {id:'notes',text:'Flavor notes: cokelat dan herbal',correct:'deskripsi',why:'Ini deskripsi kesan sensori penilai, bukan daftar bahan atau janji semua pencicip akan merasakan hal sama.'},
+  {id:'roast',text:'Tanggal sangrai tercantum: 8 Oktober',correct:'fakta',why:'Kamu tahu tanggal yang ditulis pada label, tetapi belum tahu bagaimana kopi disimpan atau berapa baik kondisinya sekarang.'},
+  {id:'taste',text:'Kopi ini pasti lebih manis daripada semua kopi washed',correct:'belum',why:'Rasa dan preferensi belum diamati. Proses atau flavor notes saja tidak cukup untuk memastikan perbandingan tersebut.'}
+ ];
+ const options:{value:LabelType;label:string}[]=[
+  {value:'fakta',label:'Informasi tercantum'},
+  {value:'deskripsi',label:'Deskripsi sensori'},
+  {value:'belum',label:'Belum bisa disimpulkan'}
+ ];
+ const [answers,setAnswers]=useState<Record<string,LabelType>>({});
+ const [checked,setChecked]=useState(false);
+ const filled=entries.every(e=>answers[e.id]);
+ const correct=entries.filter(e=>answers[e.id]===e.correct).length;
+ return <div className="space-y-5">
+  <h3 className="font-serif text-xl font-semibold text-roast-950">Baca kemasan, pisahkan bukti dan dugaan</h3>
+  <p className="text-sm leading-7 text-roast-800">Bayangkan kamu menemukan empat pernyataan ini saat memilih kopi. Untuk tiap pernyataan, pilih apakah itu informasi yang tertulis, deskripsi rasa, atau sesuatu yang belum bisa dipastikan. Cek jawaban setelah semuanya dipilih.</p>
+  <div className="grid gap-3 sm:grid-cols-2">
+   {entries.map((entry,i)=><fieldset key={entry.id} className="rounded-lg border border-paper-300 bg-paper-50 p-4">
+    <legend className="sr-only">Pernyataan {i+1}: {entry.text}</legend>
+    <p className="mb-3 text-sm font-semibold leading-6 text-roast-950">{entry.text}</p>
+    <div className="space-y-2">{options.map(option=><label key={option.value} className="flex cursor-pointer items-start gap-2 text-sm leading-6 text-roast-900">
+     <input type="radio" className="mt-1" name={'label-reading-'+entry.id} checked={answers[entry.id]===option.value} onChange={()=>{setAnswers(previous=>({...previous,[entry.id]:option.value}));setChecked(false);}}/>
+     <span>{option.label}</span>
+    </label>)}</div>
+    {checked&&<p className="mt-4 border-t border-paper-300 pt-3 text-xs leading-6 text-roast-800">
+     <strong>{answers[entry.id]===entry.correct?'Tepat.':'Periksa lagi.'}</strong> {entry.why}
+    </p>}
+   </fieldset>)}
+  </div>
+  <button type="button" className={action} disabled={!filled} onClick={()=>setChecked(true)}>Cek pembacaan label</button>
+  {checked&&<div role="status" className="rounded-lg border border-paper-300 bg-paper-100 p-4 text-sm leading-7 text-roast-900">
+   {correct} dari {entries.length} klasifikasi sesuai. {correct===entries.length?'Sekarang tentukan informasi tambahan apa yang perlu ditanyakan sebelum membeli.':'Baca alasan pada setiap kartu, ubah jawaban yang belum tepat, lalu cek kembali.'}
+  </div>}
+  <p className="text-xs leading-6 text-roast-700">Aktivitas ini melatih pembacaan label. Klasifikasi yang tepat belum membuktikan seperti apa rasa kopi dalam cangkirmu.</p>
  </div>;
 }
 function RatioLab(){
@@ -145,7 +183,7 @@ function RecipeLab(){
 }
 export function HomeBrewerLab({moduleCode}:{moduleCode:string}){
  const body:Record<string,React.ReactNode>={
-  M01:<ChoiceLab moduleCode="M01"/>,M02:<ChoiceLab moduleCode="M02"/>,M03:<RatioLab/>,
+  M01:<ChoiceLab moduleCode="M01"/>,M02:<LabelReadingLab/>,M03:<RatioLab/>,
   M04:<PourLab/>,M05:<MethodLab/>,M06:<WaterLab/>,M07:<SensoryLab/>,
   M08:<ExperimentLab/>,M09:<IcedLab/>,M10:<RecipeLab/>
  };
