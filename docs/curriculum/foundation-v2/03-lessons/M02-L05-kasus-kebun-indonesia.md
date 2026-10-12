@@ -119,6 +119,12 @@ Jika hasil panen berbagai petak, varietas atau hari dicampur tanpa label, sangat
 
 Bila sebagian petak lebih lembap atau rapat naungannya, kebun memerlukan pengamatan sesuai lokasi. Membuat satu keputusan untuk seluruh lahan tanpa pemeriksaan bisa mengorbankan manfaat sistem yang sudah bekerja baik.
 
+## 7. Tentukan prioritas informasi untuk 30 hari
+
+Sebelum membaca contoh rencana dari pengajar, buat dulu catatan tentang tanaman, lokasi, dan beban biaya/pekerja. Latihan ini **bukan izin menyusun SOP pemupukan atau pestisida tanpa pendamping profesional**.
+
+[ACTIVITY:coffee-farm-note]
+
 ## 7. Latihan membuat rencana 30 hari (bukan SOP agronomi)
 
 Kamu diminta menyusun tiga prioritas **informasi dan koordinasi**, bukan instruksi pemupukan atau pestisida.
