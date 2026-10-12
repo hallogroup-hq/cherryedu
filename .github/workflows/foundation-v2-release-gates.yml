@@ -16,6 +16,7 @@ on:
       - 'playwright.foundation.config.ts'
       - 'tests/foundation/**'
       - 'scripts/generate-foundation-v2-preview.cjs'
+      - 'scripts/foundation-v2-presentation.cjs'
 
 permissions:
   contents: read
