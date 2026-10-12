@@ -19,6 +19,9 @@ Untuk mempelajarinya, kita akan memisahkan tiga unsur:
 2. **Pergerakan air selama ekstraksi.**
 3. **Pemisahan minuman dari bubuk.**
 
+
+[VISUAL:immersion-percolation]
+
 ## 1. Immersion: bubuk dan air berada dalam satu wadah
 
 Pada **immersion brewing**, sejumlah bubuk bercampur dengan air selama waktu kontak tertentu. Contohnya French press, sistem cupping sederhana, atau teknik seduh rendam sebelum penyaringan.
@@ -99,6 +102,9 @@ Data ini **fiktif**, dibuat untuk menguji penalaran:
 **Q3:** Apa satu hal yang perlu dikontrol jika ingin menguji hanya filter? **Gunakan metode, kopi dan parameter lain yang cocok untuk dibandingkan, lalu ubah media penyaringan sebagai fokus**, dengan catatan media filter juga mengubah resistansi dan aliran.
 
 **Q4:** Bila kedua minuman memiliki massa hasil berbeda, apakah rasio air masuk langsung sama dengan rasio minuman keluar? **Tidak.** Retensi air dan prosedur pemisahan berbeda.
+
+
+[ACTIVITY:brew-method-sort]
 
 ## 7. Latihan membaca proses
 
