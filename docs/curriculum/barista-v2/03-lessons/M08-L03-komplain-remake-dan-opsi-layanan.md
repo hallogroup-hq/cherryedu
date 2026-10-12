@@ -18,6 +18,23 @@ Susun dua respons berbeda yang mengandung pengakuan dan langkah konkret. Buat ke
 
 Tuliskan **pertanyaan eksperimenmu, hipotesis, prediksi, apa yang dikontrol, apa yang diamati, dan hasil seperti apa yang akan membuatmu mengubah keputusan**. Jika data hanya simulasi, tandai sumbernya. Kebersihan, keselamatan, alergen dan otorisasi lebih penting daripada ingin mencoba hal baru.
 
+## Komplain punya beberapa akar masalah
+
+Kamu tidak harus langsung menerima semua diagnosis pelanggan sebagai penyebab teknis; tetapi kamu harus menanggapi pengalaman mereka dengan serius. Keluhan “terlalu encer” dapat berarti dosis kurang sesuai ekspektasi, volume susu, suhu, es yang mencair, atau bahkan tiket yang salah.
+
+| Bukti | Pertanyaan penting |
+|---|---|
+| Tiket menyebut iced, minuman panas | Apakah produk salah dibuat/serah? |
+| Ratio espresso sesuai SOP | Apakah minuman jadi juga sesuai? |
+| Tamu menunggu lama | Apakah suhu/dilution berubah? |
+| Tamu tidak menyukai acidity | Apa yang ia inginkan dari alternatif menu? |
+
+Jika tiket keliru, jangan menyembunyikan kesalahan di balik uraian ekstraksi. Verifikasi order dan ikuti kebijakan remake/kompensasi. Jika keluhan murni sensori, dengarkan, klarifikasi serta tawarkan alternatif yang diizinkan; jangan menyatakan pelanggan tidak memahami kopi.
+
+**Latihan:** buat respons 20 detik yang berisi pengakuan atas keluhan, langkah cek, opsi konkret dan batas yang tidak bisa dijanjikan. Bandingkan dengan respons defensif “resepnya sudah benar”. Apa dampak terhadap pemahaman tamu?
+
+**Situasi baru:** pelanggan meminta penggantian bahan yang tidak tersedia atau berisiko alergen. Bagaimana menolak secara membantu tanpa mengarang janji atau menyalahkan pelanggan?
+
 ## Transfer: kondisi berbeda
 
 Bagaimana jika pelanggan meminta improvisasi berbahan yang tidak tersedia atau berisiko alergi? Apakah keramahan berarti selalu mengatakan iya?
