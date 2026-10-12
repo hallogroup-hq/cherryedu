@@ -104,22 +104,7 @@ Jika seorang peserta memiliki keterbatasan penciuman, ia tetap bisa mempelajari 
 
 ## 6. Sepuluh kartu pengalaman — coba klasifikasikan
 
-Untuk latihan ini, pilih kategori yang **paling tepat berdasarkan konteks kalimat**. Ada kata-kata yang bisa ambigu; kamu boleh memberi catatan alasan.
-
-| Kartu pernyataan | Kategori utama yang diharapkan |
-|---|---|
-| 1. “Terasa pahit pada lidah.” | Taste |
-| 2. “Sebelum diminum aromanya seperti bunga melati.” | Aroma ortonasal |
-| 3. “Minuman terasa lebih tebal di mulut.” | Mouthfeel |
-| 4. “Kesan aroma kacang muncul ketika ditelan.” | Aroma/flavor retronasal |
-| 5. “Aku lebih suka cangkir A.” | Preferensi / affective |
-| 6. “Mulut terasa kesat beberapa saat.” | Astringency / sensasi oral |
-| 7. “Terdapat kesan asam yang jelas.” | Taste, bila dimaksud pengecapan |
-| 8. “Aromanya seperti vanila, jadi pasti ditambah vanila.” | Aroma diikuti **inferensi komposisi tidak terbukti** |
-| 9. “Ada sensasi hangat-pedas seperti rempah.” | Bisa merujuk trigeminal atau aroma; **perlu klarifikasi** |
-| 10. “Ini kopi terbaik sedunia.” | Penilaian mutlak tanpa kriteria |
-
-**Umpan balik penting:** Kartu 9 sengaja tidak mempunyai satu jawaban mutlak. “Rempah” dapat menjadi asosiasi aroma; “panas/pedas” dapat menunjuk sensasi lain. Murid yang meminta klarifikasi justru menunjukkan literasi sensory, bukan ketidaktahuan.
+Gunakan latihan interaktif di awal lesson untuk mengelompokkan sepuluh deskripsi. Kategorinya tidak ditunjukkan sebelum kamu menjawab. Jika ada pernyataan terasa ambigu, perhatikan konteks dan alasan dalam pembahasan setelah jawaban.
 
 ## 7. Latihan memperbaiki catatan pencicipan
 
