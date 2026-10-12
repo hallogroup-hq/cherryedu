@@ -52,6 +52,15 @@ test('public learning edition is accessible from catalog without login or compul
   await expect(page.getByRole('heading', {level:1})).toHaveText('Memahami Kopi dari Hulu ke Hilir');
 });
 
+test('older shared review URLs redirect to the clean public course', async ({ page }) => {
+  await page.goto('/paths/foundation-v2-preview');
+  await expect(page).toHaveURL(/\/paths\/memahami-kopi-dari-hulu-ke-hilir$/);
+  await expect(page.getByRole('heading',{level:1})).toHaveText('Memahami Kopi dari Hulu ke Hilir');
+  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m02-l02');
+  await expect(page).toHaveURL(/\/paths\/memahami-kopi-dari-hulu-ke-hilir\/lessons\/lesson-fv2-m02-l02$/);
+  await expect(page.locator('article')).toBeVisible();
+});
+
 test('preview reader is usable in a narrow mobile viewport without sign-in', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m01-l01');
