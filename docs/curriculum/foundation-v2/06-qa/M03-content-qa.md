@@ -41,12 +41,12 @@ The former wet-mill scenario is now M03.L07, a combined **wet-mill → dry-mill 
 | SCA CVA physical, sensory, extrinsic lenses | [SCA CVA](https://sca.coffee/value-assessment) | SCA physical includes defects, moisture, size, color; distinct sensory/extrinsic workstreams | **Verified source current at checked date**; formal professional grading not taught |
 | SCA-110 Green Coffee Trading Standard status | [SCA standards list](https://sca.coffee/research/coffee-standards) | Listed **in development** October 2026 | Recheck before publishing; MUST NOT cite as published |
 | ISO 4149:2025 publication | [ISO official abstract](https://www.iso.org/standard/87699.html) | Green coffee visual and olfactory examination and defects methods | **Verified metadata and abstract only; full paid ISO text not read.** No fictional thresholds or reproduced table |
-| Giling basah history, moisture and physical effects | [Industry explanation 2026](https://shop.sippd.coffee/blogs/news/wet-hulled-coffee-giling-basah), [FAO postharvest guidance](https://www.fao.org/4/x6939e/X6939e03.htm) | General industrial practice description and broad risk management | **NEEDS STRONGER evidence**: peer-reviewed Indonesian wet-hulling studies, factory interviews; claims limited accordingly |
+| Giling basah, hulling moisture and physical condition | [USK Aceh Tengah mill field study 2024](https://jurnal.usk.ac.id/THPConf/article/view/42381), [industry contextual description 2026](https://shop.sippd.coffee/blogs/news/wet-hulled-coffee-giling-basah), [FAO guidance](https://www.fao.org/4/x6939e/X6939e03.htm) | Direct Indonesian measurements of parchment/hulling and broken beans are context-relevant, plus broader practice descriptions | **USK FIELD DATA NOW INCLUDED**; still need full methods review, regional expert, historical provenance and reproducibility; observed ~40% in a study is NOT a universal target |
 | Simulation lot P-21/P-22 | Authored educational case | Cognitive transfer task only | **FICTIONAL**: no empirical safety or farm data |
 
 ### Critical research gaps to close before technical release
 
-- **G1** Get Indonesian wet-hulling academic/technical source or regional expert observation rather than industry blogs alone; correct any regional/history overreach.
+- **G1** Indonesian wet-hulling field source added from USK Aceh Tengah (2024); **still obtain full paper/method validation and regional expert review** before extrapolating moisture/defect figures or historical origin. Broader reproducibility evidence remains missing.
 - **G2** Commission processor/food safety SME review for CO₂, pressure, microbial/toxin and water-activity wording. This module must NEVER be presented as operator food safety training.
 - **G3** Green grading professional to review defect examples, sampling and SCA CVA application. SCA-110 remains a monitored future change.
 - **G4** Verify current Codex/Indonesian food safety/export requirements when introducing any binding product spec; avoid inventing compliance from generic texts.
@@ -67,7 +67,7 @@ The former wet-mill scenario is now M03.L07, a combined **wet-mill → dry-mill 
 | Postharvest risk exclusions | **PASS (desk)** | No pressure operation recipe, claims of guaranteed safe pH, toxin diagnosis |
 | Formal food safety review | **BLOCKED** | Independent expert not contacted |
 | SCA/green-grading professional review | **BLOCKED** | Expert not contacted |
-| Indonesian wet hull source strength | **NEEDS WORK** | Stronger primary/regional support needed |
+| Indonesian wet hull source strength | **IMPROVED; STILL NEEDS EXPERT** | USK Aceh Tengah regional field study added, findings limited to its own sample and method |
 | Pilot learner comprehension | **BLOCKED** | No actual learner testing |
 | Measurement and exam calibration | **BLOCKED** | Thresholds, scoring and question difficulty unvalidated |
 | Production code/migrations | **NOT STARTED** | Only docs branch modified |
