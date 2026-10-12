@@ -150,7 +150,13 @@ function RatioLab({espresso=false,filter=false}:{espresso?:boolean;filter?:boole
      <label className="text-xs font-semibold text-roast-900">Kopi kering (g)<input type="number" min="1" max="100" value={dose} onChange={e=>{setDose(Number(e.target.value));setRevealed(false);}} className={'mt-2 '+inputClass}/></label>
      <label className="text-xs font-semibold text-roast-900">{espresso?'Minuman keluar (g)':'Air masuk (g)'}<input type="number" min="1" max="2000" value={water} onChange={e=>{setWater(Number(e.target.value));setRevealed(false);}} className={'mt-2 '+inputClass}/></label>
    </div>
-   {valid?<><p className="font-mono text-3xl font-bold text-roast-950">1 : {format(ratio)}</p><RatioDiagram dose={dose} water={espresso?water*1.5:water} output={espresso?water:Math.max(0,water-dose*2.5)}/></>:<p role="alert" className="text-sm text-rose-800">Masukkan massa positif yang berada dalam rentang alat latihan.</p>}
+   {valid?<><p className="font-mono text-3xl font-bold text-roast-950">1 : {format(ratio)}</p>{espresso?<figure aria-label="Diagram perbandingan dose terhadap massa minuman keluar" className="space-y-3 border-y border-paper-200 py-4">
+    <div className="flex items-center justify-between gap-2 text-xs text-roast-700"><span>Dose bubuk</span><strong>{format(dose)} g</strong></div>
+    <div className="h-3 rounded-sm bg-paper-200"><div className="h-full bg-roast-600" style={{width:Math.min(100,dose/Math.max(water,dose)*100)+'%'}}/></div>
+    <div className="flex items-center justify-between gap-2 text-xs text-roast-700"><span>Beverage yield (yang ditimbang)</span><strong>{format(water)} g</strong></div>
+    <div className="h-3 rounded-sm bg-paper-200"><div className="h-full bg-cherry-600" style={{width:Math.min(100,water/Math.max(water,dose)*100)+'%'}}/></div>
+    <figcaption className="text-xs leading-5 text-roast-700">Tidak ada pengukuran massa air yang dipompa pada visual ini. Bedakan minuman keluar dan air masuk mesin.</figcaption>
+  </figure>:<RatioDiagram dose={dose} water={water} output={Math.max(0,water-dose*2.5)}/>} </>:<p role="alert" className="text-sm text-rose-800">Masukkan massa positif yang berada dalam rentang alat latihan.</p>}
    <label className="block text-sm font-semibold text-roast-900">Prediksi: apa yang belum bisa disimpulkan dari angka ini?
      <textarea className={'mt-2 '+inputClass} rows={3} value={pred} maxLength={900} onChange={e=>{setPred(e.target.value);setRevealed(false);}} />
    </label>
@@ -184,7 +190,7 @@ function CostLab(){
  return <div className="space-y-4">
    <h4 className="font-serif text-xl font-bold text-roast-950">Eksperimen biaya dan harga</h4>
    <p className="text-sm leading-7 text-roast-800">Data fiktif: kopi Rp240.000/kg, susu Rp24.000/L, sirup Rp75.000/kg, cup Rp1.200. Angka bisa berubah; biaya belum memasukkan upah, sewa, wastage lain, pajak atau listrik.</p>
-   <div className="grid grid-cols-2 gap-3">{inp('Bubuk kopi (g)',coffee,setCoffee)}{inp('Susu (mL; asumsi 1 mL≈1 g untuk biaya/L)',milk,setMilk)}{inp('Sirup (g)',syrup,setSyrup)}{inp('Harga jual simulasi (Rp)',price,setPrice)}</div>
+   <div className="grid grid-cols-2 gap-3">{inp('Bubuk kopi (g)',coffee,setCoffee)}{inp('Susu (mL; harga dihitung per liter)',milk,setMilk)}{inp('Sirup (g)',syrup,setSyrup)}{inp('Harga jual simulasi (Rp)',price,setPrice)}</div>
    {valid?<div className="border-y border-paper-300 py-4">
      <p className="font-mono text-xl font-bold text-roast-950">Biaya bahan + cup: Rp{Math.round(total).toLocaleString('id-ID')}</p>
      <p className="text-sm text-roast-700">Selisih harga minus biaya tercatat: Rp{Math.round(price-total).toLocaleString('id-ID')}. <strong>Bukan laba bersih.</strong></p>
