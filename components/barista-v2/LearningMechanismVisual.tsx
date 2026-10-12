@@ -20,7 +20,7 @@ const small={...TXT,fontSize:11,fill:muted} as const;
 function T({x,y,children,size=14,anchor='start',color=dark}:{x:number;y:number;children:React.ReactNode;size?:number;anchor?:'start'|'middle'|'end';color?:string}){return <text x={x} y={y} textAnchor={anchor} style={{...TXT,fontSize:size,fill:color}}>{children}</text>}
 function Arrow({x1,y1,x2,y2}:{x1:number;y1:number;x2:number;y2:number}){return <path d={`M${x1} ${y1} L${x2} ${y2}`} stroke={brick} strokeWidth={2} fill="none" markerEnd="url(#arrowHead)"/>}
 function Frame({alt,children}:{alt:string;children:React.ReactNode}){
- return <svg role="img" aria-label={alt} viewBox="0 0 620 270" className="h-auto w-full" xmlns="http://www.w3.org/2000/svg">
+ return <svg role="img" aria-label={alt} viewBox="0 0 620 270" className="h-auto w-[620px] max-w-none sm:w-full" xmlns="http://www.w3.org/2000/svg">
   <defs><marker id="arrowHead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill={brick}/></marker></defs>
   {children}
  </svg>;
@@ -120,6 +120,7 @@ export function LearningMechanismVisual({lessonId}:{lessonId:string}){
    <T x={310} y={204} size={12} anchor="middle" color={brick}>Revisi resep setelah bukti; cek keamanan + biaya + SOP</T>
   </Frame>}
   </div>
+  <p className="mt-2 text-xs text-roast-700 sm:hidden">Geser diagram ke samping untuk membaca semua label.</p>
   <figcaption className="mt-3 text-xs leading-6 text-roast-700">{meta.caption}</figcaption>
  </figure>;
 }
