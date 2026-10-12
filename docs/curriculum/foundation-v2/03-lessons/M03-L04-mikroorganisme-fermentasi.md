@@ -13,6 +13,9 @@ Ada kemasan kopi bertuliskan “**anaerobic fermentation 120 hours**”. Angkany
 
 Informasi waktunya mungkin benar, tetapi **lama proses saja tidak memberi kita data cukup** untuk menjamin rasa, konsistensi atau keamanan. Kita harus mengenal organisme yang bekerja dan kondisi tempat mereka hidup.
 
+
+[VISUAL:fermentation-factors]
+
 ## 1. Fermentasi bukan tombol pembuat aroma
 
 Secara sederhana, fermentasi melibatkan aktivitas mikroorganisme serta perubahan senyawa dalam substratnya. Pada kopi, substrat dan kondisi dapat berasal dari pulp/mucilage/permukaan buah serta sistem cairan atau wadah pengolahan.
@@ -89,6 +92,9 @@ Tiga lot fiktif diserahkan kepada pembeli.
 **Pertanyaan 3:** Apakah C otomatis tidak boleh disebut kopi? **Jawab:** Tidak dapat disimpulkan dari label saja. Transparansi ingredient/process dan aturan produk/pasar perlu ditinjau, tanpa membuat aturan moral universal.
 
 **Pertanyaan 4:** Apa langkah pembeli? **Jawab:** Perjelas identitas, proses, parameter yang divalidasi, catatan mutu/keamanan sesuai penggunaan dan spesifikasi dagang, lalu lakukan evaluasi sampel.
+
+
+[ACTIVITY:microbial-evidence]
 
 ## 7. Latihan membedakan empat tingkat klaim
 
