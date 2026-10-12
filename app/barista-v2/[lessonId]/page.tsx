@@ -33,6 +33,7 @@ export default function BaristaV2Lesson({params}:{params:{lessonId:string}}) {
       <LearningMechanismVisual lessonId={lesson.id}/>
       {lesson.order === 1 && <BaristaConceptLab moduleCode={lesson.moduleId}/>}
       {lesson.order === mod.count && <BaristaModuleCheckpoint moduleCode={lesson.moduleId}/>}
+      {lesson.order === mod.count && <Link href={'/barista-v2/practice/'+lesson.moduleId.toLowerCase()} className="my-8 inline-block rounded-lg border border-roast-900 px-5 py-3 text-sm font-semibold text-roast-900 underline-offset-4 hover:bg-paper-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cherry-700">Lanjutkan: tiga kasus situasi baru →</Link>}
       <details className="group my-12 border-t border-paper-300 pt-5">
         <summary className="cursor-pointer list-none text-lg font-serif font-bold text-roast-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cherry-700">
           Laboratorium pribadimu <span className="ml-2 text-sm font-sans font-normal text-roast-600">(buka untuk mencoba)</span>

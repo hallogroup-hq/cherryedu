@@ -27,6 +27,7 @@ export default function BaristaV2Overview() {
               <p className="font-mono text-xs text-roast-600">{mod.code.replace('M','MODUL ')}</p>
               <h2 id={'h-'+mod.code} className="font-serif text-2xl font-bold leading-tight text-roast-950">{mod.title}</h2>
               <p className="text-sm leading-6 text-roast-700">{mod.description}</p>
+              <Link href={'/barista-v2/practice/'+mod.code.toLowerCase()} className="inline-block pt-2 text-sm font-semibold text-roast-900 underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cherry-700">Latih keputusan pada 3 kasus →</Link>
             </div>
             <ol className="space-y-2">
               {lessons.map(x=><li key={x.id}>
