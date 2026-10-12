@@ -35,6 +35,10 @@ Perbedaan timing membuat sifat material pada mesin huller berbeda. Risiko pada b
 
 Beberapa penjelasan praktik industri menghubungkan wet hulling dengan musim hujan, keterbatasan ruang pengeringan, kondisi iklim lembap serta cara bahan diperdagangkan secara bertahap. Perubahan bentuk produk dapat memengaruhi pilihan penyimpanan, penjualan dan kebutuhan biaya. [R1]
 
+**Ada bukti lapangan dari Indonesia yang lebih spesifik.** Penelitian yang dipresentasikan dalam prosiding Universitas Syiah Kuala pada 2024 memeriksa kadar air parchment sebelum hulling dan mutu fisik pada beberapa kilang kopi Arabika di Aceh Tengah. Peneliti melaporkan rata-rata kadar air biji setelah pengupasan sekitar **40% ± 0,73% dalam sampel penelitiannya** serta menelaah hubungannya dengan biji pecah dan kondisi kilang. Ini menunjukkan bahwa kadar air saat hulling merupakan parameter nyata yang dapat diukur. Tetapi angka itu **deskripsi observasi pada tempat dan sampel tertentu, bukan target operasi yang aman atau standar universal**. [R4]
+
+Contoh tersebut lebih kuat untuk menjelaskan praktik setempat dibanding sekadar mengandalkan klaim pemasaran, tetapi masih harus dibaca bersama desain sampel, metode ukur, dan review praktisi. Satu prosiding bukan pembuktian lengkap sejarah asal atau seluruh konsekuensi sensorik wet hulling.
+
 Namun hati-hati: kisah “wet hulling ditemukan oleh satu orang tepat pada tahun tertentu” memerlukan bukti sejarah yang kuat. Jangan mengulang tanggal asal tanpa arsip.
 
 Begitu pula tidak tepat mengklaim wet hulling selalu “tiga kali lebih cepat”. Kecepatan pengeringan tergantung desain fasilitas, cuaca, ketebalan, aliran udara dan kondisi awal. Angka tertentu boleh disampaikan hanya jika berasal dari pengukuran pada konteks tertentu.
@@ -96,4 +100,5 @@ Giling basah bukan cerita unik yang hanya dipakai untuk menjual aroma “hutan S
 - [R1] Sippd Coffee, praktik dan variasi wet hulling (2026), sumber industri sekunder, bukan standar atau sejarah definitif: https://shop.sippd.coffee/blogs/news/wet-hulled-coffee-giling-basah .
 - [R2] FAO, postharvest risks: https://www.fao.org/4/x6939e/X6939e03.htm .
 - [R3] SCA CVA physical quality: https://sca.coffee/value-assessment .
+- [R4] Wirayudha, Abubakar & Widayat, *Analisis Kadar Air Gabah Kopi Arabika Sebelum Hulling dan Kualitas Fisiknya pada Beberapa Kilang Kopi di Aceh Tengah*, Prosiding THP USK Vol. 4 (2024): https://jurnal.usk.ac.id/THPConf/article/view/42381 . Hasil ini kontekstual, bukan rekomendasi setpoint.
 - **Evidence flag:** Uraian wet hulling Indonesia perlu diverifikasi lebih lanjut dengan sumber akademik/lapangan setempat dan pakar processing. Persentase kelembapan atau hari pengeringan sengaja tidak dijadikan resep. Ini draft edukasi, bukan instruksi mesin.
