@@ -3,12 +3,12 @@ import { test, expect } from '@playwright/test';
 test.describe('Foundation V2 isolated editorial preview', () => {
   test('preview course is visible with seven modules and first lesson', async ({ page }) => {
     await page.goto('/paths/foundation-v2-preview');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Foundation V2/);
-    await expect(page.getByText(/Beta Publik|DRAFT REVIEW/i).first()).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Memahami Kopi dari Hulu ke Hilir');
+    await expect(page.getByText(/Materi Kopi • Akses Bebas/i)).toBeVisible();
     await expect(page.getByText(/Mulai dari Cangkir/i).first()).toBeVisible();
     await expect(page.getByText(/Memahami Nilai di Balik Kopi/i).first()).toBeVisible();
-    await expect(page.getByText(/Edisi Baru — Tanpa Sertifikat/i)).toBeVisible();
-    await expect(page.getByText(/Baca seluruh 36 materi tanpa login/i)).toBeVisible();
+    await expect(page.getByText('36 Pelajaran').first()).toBeVisible();
+    await expect(page.getByText(/Belajar langsung, tanpa login/i)).toBeVisible();
     const first = page.locator('a[href*="/lessons/lesson-fv2-m01-l01"]').first();
     await expect(first).toBeVisible();
   });
@@ -18,7 +18,7 @@ test.describe('Foundation V2 isolated editorial preview', () => {
     await expect(page.locator('article')).toBeVisible();
     await expect(page.locator('article')).toContainText('Apa yang sebenarnya kita rasakan saat minum kopi?');
     await expect(page.locator('article')).toContainText('Kenapa kita bisa mencium aroma');
-    await expect(page.getByRole('status')).toContainText(/Bacaan Publik \(Beta\)/);
+    await expect(page.getByText(/Belajar mandiri. Progres membaca/i)).toBeVisible();
     await expect(page.getByRole('button', { name: /Tandai Selesai|Selesai ✓/i })).toHaveCount(0);
     await expect(page.getByRole('button', { name: /^Simpan$|^Tersimpan$/i })).toHaveCount(0);
     await expect(page).toHaveURL(/foundation-v2-preview\/lessons\/lesson-fv2-m01-l01/);
@@ -30,6 +30,27 @@ test.describe('Foundation V2 isolated editorial preview', () => {
     await expect(page.getByText(/Modul F-1/i).first()).toBeVisible();
     await expect(page.locator('a[href*="lesson-fv2-"]')).toHaveCount(0);
   });
+});
+
+test('public course metadata is learner-facing and contains no editorial release labels', async ({ page }) => {
+  await page.goto('/paths/foundation-v2-preview');
+  const visible = await page.locator('body').innerText();
+  expect(visible).not.toMatch(/Beta Publik|Materi Dapat Diperbarui|DRAFT REVIEW|Silabus Review|Foundation Layer • Wajib|Edisi Baru — Tanpa Sertifikat|[0-9]+\\/[0-9]+ Pelajaran/i);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Memahami Kopi dari Hulu ke Hilir');
+  await expect(page.getByText(/Pelajari perjalanan kopi dari buah dan kebun/i)).toBeVisible();
+  await expect(page.getByText(/Mulai dari Cangkir/i).first()).toBeVisible();
+});
+
+test('public learning edition is accessible from catalog without login or compulsory labeling', async ({ page }) => {
+  await page.goto('/paths');
+  const direct = page.locator('a[href="/paths/foundation-v2-preview"]');
+  await expect(direct).toBeVisible();
+  await expect(direct).toContainText('Mulai Belajar');
+  const card = page.locator('div').filter({has: direct}).last();
+  await expect(page.getByText('KELAS TERBUKA')).toBeVisible();
+  await direct.click();
+  await expect(page).toHaveURL(/\\/paths\\/foundation-v2-preview$/);
+  await expect(page.getByRole('heading', {level:1})).toHaveText('Memahami Kopi dari Hulu ke Hilir');
 });
 
 test('preview reader is usable in a narrow mobile viewport without sign-in', async ({ page }) => {
@@ -222,6 +243,15 @@ for (const { module: moduleId, lessons } of completeFoundationV2Inventory) {
   });
 }
 
+
+test('reviewer-only metadata does not leak in critical QC and capstone lessons', async ({page}) => {
+  for(const lesson of ['lesson-fv2-m03-l07','lesson-fv2-m07-l05']){
+    await page.goto('/paths/foundation-v2-preview/lessons/'+lesson);
+    const body=page.locator('article');
+    await expect(body).toBeVisible();
+    await expect(body).not.toContainText(/Proposal mastery internal|Ambang latihan yang diusulkan|hipotesis desain pendidikan|review build|belum dikalibrasi/i);
+  }
+});
 
 test('first sensory lab uses one worksheet after the case data, not two fake forms', async ({ page }) => {
   await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m01-l03');
