@@ -83,11 +83,9 @@ Seorang pemula berkata “Labelnya salah karena washed harus citrus dan honey ha
 
 ## 6. Memilih proses dari keterbatasan nyata
 
-Andaikan kondisi kebun musim hujan dengan kapasitas pengeringan terbatas, pemilihan natural tidak boleh semata-mata karena “harga natural mahal”. Bahan, jadwal, ventilasi, kebersihan, kemampuan pemantauan dan pembuangan limbah harus dipertimbangkan.
+[ACTIVITY:processing-decision]
 
-Apakah washed otomatis solusi yang aman? Tidak. Washed juga membutuhkan penanganan air, peralatan, kebersihan dan pengeringan yang memadai.
-
-**Keputusan bertanggung jawab tidak dimulai dari flavor yang diinginkan. Ia dimulai dari fasilitas dan kontrol risiko yang benar-benar bisa dijalankan.**
+Metode processing tidak dapat dipilih hanya dari deskriptor flavor atau kemungkinan harga. **Fasilitas, bahan, kebersihan, kapasitas pengeringan dan pengendalian risiko harus dinilai bersama**. Latihan ini menguji pertimbangan, bukan memberi instruksi operasi pabrik.
 
 ### Pemeriksaan pemahaman
 
