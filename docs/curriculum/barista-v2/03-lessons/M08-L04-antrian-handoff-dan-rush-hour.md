@@ -18,6 +18,23 @@ Rancang dua jadwal pelayanan dengan alat bersama dan dua staf. Tandai dependensi
 
 Tuliskan **pertanyaan eksperimenmu, hipotesis, prediksi, apa yang dikontrol, apa yang diamati, dan hasil seperti apa yang akan membuatmu mengubah keputusan**. Jika data hanya simulasi, tandai sumbernya. Kebersihan, keselamatan, alergen dan otorisasi lebih penting daripada ingin mencoba hal baru.
 
+## Rush hour adalah masalah dependensi dan informasi
+
+Ketika sepuluh tiket masuk, bottleneck bukan hanya kecepatan tangan. Satu grinder, steam wand bersama, dan dua barista membutuhkan koordinasi. Membuat pesanan lebih cepat tapi salah bahan justru memperbesar waste, komplain dan risiko.
+
+| Titik kerja | Informasi yang harus terbawa |
+|---|---|
+| Order diterima | Item, ukuran, bahan, catatan alergi |
+| Persiapan espresso | Identitas kopi, dose/yield acuan |
+| Steaming/assembly | Jenis susu, suhu, gelas |
+| Handoff | Identitas tiket, status hold, perubahan order |
+
+Simulasikan tiga tiket: iced latte, americano dan minuman dengan alergen yang belum diverifikasi. Tulis urutan aman dan alasan mengapa tiket alergen harus **ditahan** meski order lain bisa dilanjutkan. Jangan menganggap semua tiket selalu harus diproses FIFO tanpa memperhitungkan kendala kritis.
+
+**Eksperimen kertas:** bandingkan dua jadwal kerja dengan jumlah personel dan alat sama. Hitung langkah bolak-balik, titik bertabrakan, pengulangan kerja dan peluang lupa catatan. Jangan menuliskan angka kecepatan nyata jika belum diamati.
+
+**Informasi berubah:** barista kedua dipanggil membantu pelanggan lain saat setengah proses. Buat handoff maksimal 30 detik yang menjelaskan apa yang sudah dilakukan, apa yang belum, serta masalah yang tidak boleh ditebak.
+
 ## Transfer: kondisi berbeda
 
 Rekan kerja pergi saat setengah pesanan selesai. Informasi apa yang wajib dipindahkan agar minuman tidak dibuat ulang atau salah bahan?
