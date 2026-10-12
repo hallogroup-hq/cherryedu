@@ -114,3 +114,51 @@ test('narrow viewport retains access to lesson, exercise and course index',async
  await expect(page.getByLabel('Apa pertanyaanmu?')).toBeVisible();
  await expect(page.locator('main')).toBeVisible();
 });
+
+
+for(let m=1;m<=12;m++){
+ test('module '+String(m).padStart(2,'0')+' has three independently authored changing-condition cases',async({page})=>{
+  const code='m'+String(m).padStart(2,'0');
+  const response=await page.goto('/barista-v2/practice/'+code,{waitUntil:'domcontentloaded'});
+  expect(response?.status()).toBe(200);
+  const region=page.getByRole('region',{name:'Latihan kasus '+code.toUpperCase()});
+  await expect(region.getByRole('button',{name:/Kasus [123]/})).toHaveCount(3);
+  await expect(region.getByRole('textbox',{name:'Keputusan dan hipotesismu'})).toBeVisible();
+  await expect(region.getByRole('button',{name:'Lihat informasi baru'})).toBeDisabled();
+ });
+}
+
+test('new transfer evidence is hidden until a reasoned first attempt and revision is preserved',async({page})=>{
+ await page.goto('/barista-v2/practice/m02');
+ const region=page.getByRole('region',{name:'Latihan kasus M02'});
+ await expect(region.getByText('Kamu tahu A menghasilkan 180 g minuman')).toHaveCount(0);
+ await region.getByRole('textbox',{name:'Keputusan dan hipotesismu'}).fill(
+  'Saya perlu membedakan air masuk dan minuman keluar; untuk rasio yang baru saya akan memilih uji terkontrol.');
+ await region.getByRole('button',{name:'Lihat informasi baru'}).click();
+ await expect(region).toContainText('Kamu tahu A menghasilkan 180 g minuman');
+ await expect(region.getByRole('button',{name:'Bandingkan cara berpikir'})).toBeDisabled();
+ await region.getByRole('textbox',{name:'Revisi keputusanmu'}).fill(
+  'Volume output perlu ditimbang dan efek bypass dibedakan dari air yang melewati coffee bed; perlu eksperimen lebih lanjut.');
+ await region.getByRole('button',{name:'Bandingkan cara berpikir'}).click();
+ await expect(region).toContainText('Contoh penalaran yang dapat dipertanggungjawabkan');
+ await expect(region.getByRole('textbox',{name:'Keputusan dan hipotesismu'})).toHaveValue(/Saya perlu membedakan/);
+ await expect(region.getByRole('checkbox')).toHaveCount(4);
+});
+
+test('seven teaching diagrams give mechanism, unit and limitation context, not decorative or invented data',async({page})=>{
+ const lessons=['bv2-m01-l01','bv2-m02-l01','bv2-m02-l02','bv2-m03-l03','bv2-m05-l03','bv2-m07-l01','bv2-m11-l04'];
+ for(const id of lessons){
+  await page.goto('/barista-v2/'+id,{waitUntil:'domcontentloaded'});
+  const fig=page.locator('figure').filter({has:page.locator('svg[role="img"]')});
+  await expect(fig).toHaveCount(1);
+  await expect(fig.locator('figcaption')).toBeVisible();
+  await expect(fig.locator('svg[aria-label]')).toBeVisible();
+ }
+});
+
+test('practice links are discoverable from the module index and the final lesson',async({page})=>{
+ await page.goto('/barista-v2');
+ await expect(page.locator('a[href^="/barista-v2/practice/"]')).toHaveCount(12);
+ await page.goto('/barista-v2/bv2-m11-l08');
+ await expect(page.getByRole('link',{name:/tiga kasus situasi baru/i})).toHaveAttribute('href','/barista-v2/practice/m11');
+});
