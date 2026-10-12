@@ -24,6 +24,7 @@ export default function PathDetailPage() {
   const params = useParams();
   const router = useRouter();
   const slug = params.slug as string;
+  const isDraftPreview = slug === 'foundation-v2-preview' && ['review-only', 'public-readonly'].includes(process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW || '');
 
   const {
     learningPaths,
@@ -45,6 +46,7 @@ export default function PathDetailPage() {
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [expandedModules, setExpandedModules] = useState<Record<string, boolean>>({
     'mod-f1': true,
+    'mod-fv2-m01': true, // Foundation V2 draft preview only; no effect on legacy modules
     'mod-b1': true,
     'mod-h1': true,
   });
@@ -135,7 +137,7 @@ export default function PathDetailPage() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Award className="w-3.5 h-3.5 text-cherry-700" />
-                  Diploma Digital Resmi
+                  {isDraftPreview ? 'Edisi Baru — Tanpa Sertifikat' : 'Diploma Digital Resmi'}
                 </span>
               </div>
             </div>
@@ -150,7 +152,21 @@ export default function PathDetailPage() {
                 />
               </div>
 
-              {isEnrolled ? (
+              {isDraftPreview ? (
+                <div className="space-y-3">
+                  <p className="text-xs font-sans leading-relaxed text-roast-700" role="status">
+                    <strong className="block text-roast-950 mb-1">Edisi V2 — Akses Baca Publik (Beta)</strong>
+                    Baca seluruh 36 materi tanpa login. Mode ini tidak mencatat progres,
+                    memberi XP, mengaktifkan kuis, ataupun menerbitkan sertifikat.
+                  </p>
+                  <Link
+                    href="/paths/foundation-v2-preview/lessons/lesson-fv2-m01-l01"
+                    className="w-full py-2.5 bg-roast-950 text-white font-bold text-xs rounded-lg flex items-center justify-center"
+                  >
+                    Baca Materi Pertama <ArrowRight className="w-3.5 h-3.5 ml-2" />
+                  </Link>
+                </div>
+              ) : isEnrolled ? (
                 <div className="space-y-3">
                   <div className="flex justify-between font-mono text-xs">
                     <span className="text-roast-500 uppercase text-[10px]">PROGRESS BELAJAR</span>
@@ -293,7 +309,7 @@ export default function PathDetailPage() {
             const isExpanded = expandedModules[mod.id] ?? false;
             const isAccessible = isModuleAccessible(path.slug, mod.id);
 
-            const completedLessonsInMod = modLessons.filter((l) => isLessonCompleted(l.id)).length;
+            const completedLessonsInMod = isDraftPreview ? 0 : modLessons.filter((l) => isLessonCompleted(l.id)).length;
 
             return (
               <div
@@ -346,7 +362,7 @@ export default function PathDetailPage() {
                   <div className="p-5 pt-0 border-t border-paper-200 space-y-2.5">
                     {modLessons.length > 0 ? (
                       modLessons.map((lesson) => {
-                        const completed = isLessonCompleted(lesson.id);
+                        const completed = !isDraftPreview && isLessonCompleted(lesson.id);
                         return (
                           <div
                             key={lesson.id}
@@ -372,7 +388,7 @@ export default function PathDetailPage() {
 
                             <Link
                               href={
-                                isAuthenticated
+                                isDraftPreview || isAuthenticated
                                   ? `/paths/${path.slug}/lessons/${lesson.id}`
                                   : `/login?redirect=/paths/${path.slug}/lessons/${lesson.id}`
                               }

@@ -362,6 +362,8 @@ function LessonEditorContent() {
   );
 
   const selectedLesson = lessons.find((l) => l.id === selectedLessonId);
+  const isGeneratedFoundationV2 = selectedLesson?.id.startsWith('lesson-fv2-') ?? false;
+
 
   // Editor states
   const [editorMode, setEditorMode] = useState<'visual' | 'raw'>('visual');
@@ -424,6 +426,10 @@ function LessonEditorContent() {
 
   const handleSave = () => {
     if (!selectedLesson) return;
+    if (isGeneratedFoundationV2) {
+      alert('Foundation V2 memakai Markdown dari GitHub sebagai sumber publikasi. Perubahan di editor browser tidak dipublikasikan. Edit file sumber di repository lalu deploy ulang.');
+      return;
+    }
     setIsSaving(true);
 
     const compiledContent =
@@ -466,6 +472,7 @@ function LessonEditorContent() {
   };
 
   const selectedPath = learningPaths.find((p) => p.id === selectedPathId);
+  const v2SourceUrl = isGeneratedFoundationV2 ? 'https://github.com/hallogroup-hq/cherryedu/tree/main/docs/curriculum/foundation-v2/03-lessons' : null;
 
   return (
     <div className="max-w-7xl mx-auto space-y-4">
@@ -621,6 +628,17 @@ function LessonEditorContent() {
         <div className="lg:col-span-9 space-y-4">
           {selectedLesson ? (
             <>
+              {isGeneratedFoundationV2 && (
+                <div className="rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+                  <strong className="block font-semibold">Foundation V2: edit melalui GitHub</strong>
+                  Konten V2 dipublikasikan dari file Markdown di repository, bukan dari penyimpanan browser dashboard ini.
+                  Mengubah atau menyimpan isi di editor ini tidak akan memperbarui materi untuk semua siswa.
+                  <a href={v2SourceUrl || '#'} target="_blank" rel="noopener noreferrer"
+                     className="mt-2 block underline underline-offset-2 font-semibold">
+                    Buka 36 file materi Foundation V2 di GitHub
+                  </a>
+                </div>
+              )}
               {/* Header Settings Bar */}
               <div className="bg-white rounded-xl border border-paper-200 p-5 space-y-4 shadow-subtle">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
