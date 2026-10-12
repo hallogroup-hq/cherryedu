@@ -49,7 +49,7 @@ function cleanMarkdownForSpeech(md: string): string {
     .replace(/^[*\-+]\s+/gm, '')
     .replace(/^\d+\.\s+/gm, '')
     .replace(/[*_]{1,3}([^*_]+)[*_]{1,3}/g, '$1')
-    .replace(/\[DIAGRAM:[^\]]+\]/g, '')
+    .replace(/\[(?:DIAGRAM|ACTIVITY|VISUAL):[^\]]+\]/g, '')
     .replace(/\|[^\n]+\|/g, '')
     // expand common coffee abbreviations for natural phonetic reading
     .replace(/°C\b/g, ' derajat Celcius')
