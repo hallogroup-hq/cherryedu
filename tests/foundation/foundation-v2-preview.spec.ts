@@ -71,3 +71,19 @@ test('review build rejects account login without any local demo session', async 
   await page.getByRole('button', { name: /Masuk Sekarang/i }).click();
   await expect(page.locator('body')).toContainText(/login dinonaktifkan pada preview/i);
 });
+
+test('internal references and QA never render inside learner lesson bodies', async ({ page }) => {
+  const representativeLessons = [
+    'lesson-fv2-m01-l01',
+    'lesson-fv2-m03-l04',
+    'lesson-fv2-m07-l05',
+  ];
+  for (const id of representativeLessons) {
+    await page.goto('/paths/foundation-v2-preview/lessons/' + id);
+    const article = page.locator('article');
+    await expect(article).toBeVisible();
+    await expect(article).not.toContainText(/Catatan editorial dan referensi|SME review pending|Human learner test pending|Editorial source register|Referensi dan QA|Sumber dan status/i);
+    await expect(article).not.toContainText(/https?:\\/\\/(?:pubmed|sca\\.coffee|doi\\.org|www\\.mdpi)/i);
+    await expect(article).not.toContainText(/\\[(?:S01|R1|CAP-01|CLAIM-04)\\]/);
+  }
+});
