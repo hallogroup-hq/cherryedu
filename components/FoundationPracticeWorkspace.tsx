@@ -61,7 +61,8 @@ export function FoundationFarmIncome({activity}:{activity:IncomeActivity}){
   </label>;
   const a=Number(standard.qty)*Number(standard.price)-Number(standard.cost);
   const b=Number(premium.qty)*Number(premium.price)-Number(premium.cost);
-  const valid=[...Object.values(standard),...Object.values(premium)].every(v=>v.trim()!==''&&Number.isFinite(Number(v))&&Number(v)>=0);
+  const validInputs=[...Object.values(standard),...Object.values(premium)].every(v=>v.trim()!==''&&Number.isFinite(Number(v))&&Number(v)>=0);
+  const valid=validInputs&&Number.isFinite(a)&&Number.isFinite(b)&&Number.isFinite(b-a);
   const fmt=(n:number)=>n.toLocaleString('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0});
   return <div className="space-y-4">
     <p className="text-xs text-roast-700">Satuan contoh: jumlah ceri terjual (kg), harga per kg ceri, total biaya untuk periode dan skenario yang sama. Jangan bandingkan kilogram ceri dengan kilogram roasted.</p>
@@ -73,6 +74,9 @@ export function FoundationFarmIncome({activity}:{activity:IncomeActivity}){
         {input(t,'cost','Biaya tercatat (Rp)')}
       </fieldset>)}
     </div>
+    {validInputs && !valid && <p role="alert" className="text-sm leading-6 text-rose-800">
+      Nilai terlalu besar untuk dihitung secara andal. Gunakan angka yang lebih kecil dan periksa satuannya.
+    </p>}
     <button type="button" disabled={!valid} className={buttonStyle+' bg-roast-950 text-white disabled:opacity-40'} onClick={()=>setShow(true)}>Hitung sisa setelah biaya</button>
     {show&&valid&&<div className="rounded-lg border border-paper-300 bg-paper-100 p-4" role="status" aria-live="polite">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
