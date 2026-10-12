@@ -133,3 +133,64 @@ test('different modules use different appropriate interaction types', async ({ p
   await chain.getByRole('button', { name: /Minta bukti pembayaran/i }).click();
   await expect(chain).toContainText('Tepat.');
 });
+
+test('Liberica now gets concrete biological explanation before Excelsa taxonomy', async ({ page }) => {
+  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m02-l02');
+  const article=page.locator('article');
+  await expect(article).toContainText('Liberika: kenali dulu sebelum membahas Excelsa');
+  await expect(article).toContainText('biji relatif besar dibanding Arabika');
+  await expect(article.getByRole('figure', {name:/Nama tanaman dan nama pasar tidak sejajar/})).toBeVisible();
+  const articleText=await article.innerText();
+  expect(articleText.indexOf('Liberika: kenali dulu')).toBeLessThan(articleText.indexOf('hubungan Excelsa dengan Liberika'));
+});
+
+test('genuine course visuals render across processing, roast, brew and history', async ({ page }) => {
+  const cases = [
+    ['lesson-fv2-m03-l02','Perbedaan fisik washed, natural, dan honey'],
+    ['lesson-fv2-m04-l05','Grafik roasting simulasi yang benar-benar bisa dibaca'],
+    ['lesson-fv2-m05-l04','Dua jalur air dalam kopi'],
+    ['lesson-fv2-m06-l05','Empat pertanyaan berbeda untuk satu kopi'],
+    ['lesson-fv2-m07-l01','Perjalanan berbeda: asal biologis, tradisi, perdagangan, kekuasaan'],
+  ];
+  for(const [id,heading] of cases){
+    await page.goto('/paths/foundation-v2-preview/lessons/'+id);
+    await expect(page.locator('article')).toContainText(heading);
+    await expect(page.locator('article')).not.toContainText('[VISUAL:');
+  }
+});
+
+test('in-lesson answers do not start expanded', async ({ page }) => {
+  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m05-l02');
+  const article=page.locator('article');
+  const reveal=article.getByRole('button',{name:/Sudah mencoba\? Lihat pembahasan/i}).first();
+  await expect(reveal).toBeVisible();
+  await expect(reveal).toHaveAttribute('aria-expanded','false');
+  await reveal.click();
+  await expect(reveal).toHaveAttribute('aria-expanded','true');
+  await expect(article).toContainText('Jawab');
+});
+
+test('workspace requires attempt before showing model; no account or XP', async ({ page }) => {
+  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m01-l03');
+  const section=page.getByRole('region',{name:/Catat dua cangkir/});
+  await expect(section.getByText(/jawaban tidak disimpan/i)).toBeVisible();
+  const compare=section.getByRole('button',{name:/Bandingkan dengan contoh pembahasan/i});
+  await expect(compare).toBeDisabled();
+  const fields=section.locator('textarea');
+  expect(await fields.count()).toBe(4);
+  for(let i=0;i<4;i++) await fields.nth(i).fill('Observasi sementara dibuat untuk latihan, belum kesimpulan pasti.');
+  await expect(compare).toBeEnabled();
+  await compare.click();
+  await expect(section).toContainText('Contoh penalaran');
+  await expect(page.getByRole('button',{name:/Tandai Selesai/i})).toHaveCount(0);
+});
+
+test('farmer income sandbox teaches cost difference rather than label premium', async ({ page }) => {
+  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m07-l03');
+  const section=page.getByRole('region',{name:/Berapa sisa setelah biaya/});
+  await expect(section).toBeVisible();
+  await section.getByRole('button',{name:/Hitung sisa setelah biaya/i}).click();
+  await expect(section).toContainText('Rp300.000');
+  await expect(section).toContainText('Rp220.000');
+  await expect(section).toContainText('−');
+});
