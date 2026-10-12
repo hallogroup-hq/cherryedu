@@ -171,3 +171,28 @@ test('a filter-specific notebook is not inserted into milk, chemical safety or o
  await page.goto('/barista-v2/bv2-m07-l05',{waitUntil:'domcontentloaded'});
  await expect(page.getByText('Laboratorium pribadimu')).toBeVisible();
 });
+
+for(let m=1;m<=12;m++){
+ test('module '+String(m).padStart(2,'0')+' exposes two formative diagnostic questions with hidden reasoning',async({page})=>{
+  const code='m'+String(m).padStart(2,'0');
+  await page.goto('/barista-v2/practice/'+code,{waitUntil:'domcontentloaded'});
+  const quiz=page.getByRole('region',{name:'Uji pemahaman '+code.toUpperCase()});
+  await expect(quiz).toBeVisible();
+  await expect(quiz.getByText('Pertanyaan 1 dari 2')).toBeVisible();
+  await expect(quiz.getByRole('radio')).toHaveCount(4);
+  await expect(quiz.getByRole('button',{name:'Periksa alasan'})).toBeDisabled();
+  await expect(quiz.getByText('Hasil ini hanya umpan balik formatif')).toHaveCount(0);
+ });
+}
+
+test('diagnostic feedback requires a selected response, explains misconception, and moves to the next unseen item',async({page})=>{
+ await page.goto('/barista-v2/practice/m02',{waitUntil:'domcontentloaded'});
+ const quiz=page.getByRole('region',{name:'Uji pemahaman M02'});
+ await quiz.getByRole('radio').nth(0).check();
+ await quiz.getByRole('button',{name:'Periksa alasan'}).click();
+ await expect(quiz).toContainText('Perlu periksa lagi asumsi');
+ await expect(quiz).toContainText('Pertimbangan yang lebih kuat:');
+ await quiz.getByRole('button',{name:'Berikutnya →'}).click();
+ await expect(quiz).toContainText('Pertanyaan 2 dari 2');
+ await expect(quiz.getByRole('button',{name:'Periksa alasan'})).toBeDisabled();
+});
