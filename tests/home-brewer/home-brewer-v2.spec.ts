@@ -102,3 +102,23 @@ test('final case links are present after fourth lesson without pretending to gra
  await expect(page.getByRole('link',{name:/Kerjakan latihan Modul 10/})).toHaveAttribute('href','/home-brewer-v2/practice/m10');
  await expect(page.locator('button').filter({hasText:/Terbitkan Sertifikat|Selesaikan Kursus/i})).toHaveCount(0);
 });
+
+
+test('ten lesson-specific educational diagrams add context without demanding video',async({page})=>{
+ const ids=['hbv2-m01-l02','hbv2-m02-l01','hbv2-m03-l02','hbv2-m04-l03','hbv2-m05-l03',
+   'hbv2-m06-l02','hbv2-m07-l02','hbv2-m08-l03','hbv2-m09-l02','hbv2-m10-l02'];
+ for(const id of ids){
+  await page.goto('/home-brewer-v2/'+id,{waitUntil:'domcontentloaded'});
+  const img=page.locator('figure').filter({has:page.locator('svg[role="img"]')});
+  await expect(img).toHaveCount(1);
+  await expect(img.locator('figcaption')).toBeVisible();
+  await expect(img.locator('svg[aria-label]')).toBeVisible();
+ }
+});
+
+test('AeroPress safety diagram explicitly discourages risky inverted brewing',async({page})=>{
+ await page.goto('/home-brewer-v2/hbv2-m05-l03');
+ const fig=page.locator('figure').filter({has:page.locator('svg[role="img"]')});
+ await expect(fig).toContainText('tidak menganjurkan inverted');
+ await expect(fig).toContainText('manual model');
+});
