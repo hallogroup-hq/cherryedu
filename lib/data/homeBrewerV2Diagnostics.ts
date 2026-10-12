@@ -8,20 +8,20 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Cangkir 1:15 tidak kamu sukai, tetapi teman menyukainya. Apa keputusan paling masuk akal?",
     "options": [
       {
-        "text": "Ubah semua variabel agar sesuai resep populer.",
-        "feedback": "Ini menambah asumsi atau mengabaikan informasi penting; bedakan tujuan dan pengamatan sebelum memilih resep."
+        "text": "Mulai dari mengganti grind dan suhu sekaligus, karena keduanya menentukan rasa.",
+        "feedback": "Mengubah dua variabel sekaligus belum menjawab tujuan rasa atau alasan preferensi berbeda."
       },
       {
         "text": "Tanyakan tujuan rasa, buat satu penyesuaian terukur.",
         "feedback": "Perbedaan preferensi bukan bukti salah seduh. Perubahan terukur dipilih dari tujuan dan informasi cangkir."
       },
       {
-        "text": "Anggap teman salah membaca flavor.",
-        "feedback": "Kesimpulan itu belum terbukti oleh data pada skenario; pilih pengamatan atau uji yang dapat membedakan mekanismenya."
+        "text": "Pilih hasil yang disukai teman agar menjadi standar bagi seluruh peminum.",
+        "feedback": "Preferensi teman bukan satu ukuran universal; kamu perlu mendefinisikan targetmu sendiri."
       },
       {
-        "text": "Beli grinder baru karena ratio 1:15 sudah pasti benar.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Jadikan ratio 1:15 sebagai patokan tetap, lalu fokus pada alat yang lebih presisi.",
+        "feedback": "Tidak ada ratio yang menjamin kesukaan; alat presisi tidak menggantikan pertanyaan sensorik."
       }
     ],
     "correct": 1,
@@ -34,16 +34,16 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Kettle berada di dekat genangan dan kabel listrik. Langkah pertama?",
     "options": [
       {
-        "text": "Selesaikan brew selagi kettle masih panas.",
-        "feedback": "Jawaban ini memperlakukan satu indikator sebagai sebab/standar universal, padahal variabel lain masih perlu diperiksa."
+        "text": "Pindahkan kettle ke tepi meja dan terus seduh agar antrean pekerjaan tidak tertunda.",
+        "feedback": "Memindahkan satu alat tanpa memastikan area basah dan listrik aman masih berisiko."
       },
       {
-        "text": "Ganti biji agar brew lebih singkat.",
-        "feedback": "Kesimpulan itu belum terbukti oleh data pada skenario; pilih pengamatan atau uji yang dapat membedakan mekanismenya."
+        "text": "Kurangi jumlah air per seduhan supaya risiko tumpahan dan panas menjadi lebih kecil.",
+        "feedback": "Mengubah takaran tidak menghilangkan bahaya listrik atau penggunaan wadah yang tidak aman."
       },
       {
-        "text": "Pindahkan gelas sambil tetap memakai alat listrik.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Tutup genangan dengan lap lalu jalankan kembali kettle jika indikator tidak menyala.",
+        "feedback": "Indikator normal bukan bukti kondisi listrik aman; area berisiko harus diamankan terlebih dahulu."
       },
       {
         "text": "Stop pemakaian area terkait, amankan dan susun ulang sesuai SOP.",
@@ -64,16 +64,16 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
         "feedback": "Descriptor berasal dari observasi rasa/aroma, bukan daftar bahan dan bukan janji universal."
       },
       {
-        "text": "Semua pembeli pasti mengecap strawberry.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Flavor notes merupakan daftar senyawa buah yang selalu muncul bila air sesuai suhu resep.",
+        "feedback": "Descriptor adalah pengalaman aroma/rasa, bukan kandungan buah pasti atau jaminan suhu seduh."
       },
       {
-        "text": "Kopi harus diseduh pada suhu yang sama untuk mendapat strawberry.",
-        "feedback": "Ini menambah asumsi atau mengabaikan informasi penting; bedakan tujuan dan pengamatan sebelum memilih resep."
+        "text": "Roastery sudah mencicipi produk, sehingga preferensi semua pelanggan dapat diprediksi dari label.",
+        "feedback": "Penilaian roastery memberi konteks, tetapi respons individu dan metode seduh dapat berbeda."
       },
       {
-        "text": "Aroma strawberry membuktikan kadar gula dalam kopi.",
-        "feedback": "Jawaban ini memperlakukan satu indikator sebagai sebab/standar universal, padahal variabel lain masih perlu diperiksa."
+        "text": "Rasa strawberry harus diperoleh dengan memaksimalkan extraction yield mengikuti grafik brewing.",
+        "feedback": "Grafik ekstraksi tidak membuktikan hadirnya descriptor tertentu atau preferensi universal."
       }
     ],
     "correct": 0,
@@ -86,20 +86,20 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Grinder A dan B sama-sama angka 8 tapi hasil brew berbeda. Penjelasan terkuat?",
     "options": [
       {
-        "text": "Angka 8 berarti ukuran partikel yang identik.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Karena nomor knob sama, pastikan ratio dan suhu identik sebelum menilai hasil grind.",
+        "feedback": "Ratio dan suhu dapat diperiksa, tetapi nomor knob berbeda merek tidak setara otomatis."
       },
       {
-        "text": "Salah satu alat pasti rusak.",
-        "feedback": "Ini menambah asumsi atau mengabaikan informasi penting; bedakan tujuan dan pengamatan sebelum memilih resep."
+        "text": "Grinder B kemungkinan perlu diganti burr karena setting angka sama tidak memberi hasil sama.",
+        "feedback": "Masalah belum boleh langsung dikaitkan pada kerusakan burr tanpa memeriksa kondisi lainnya."
       },
       {
         "text": "Skala grinder tidak universal; cek partikel, alat dan kondisi.",
         "feedback": "Setting relatif pada unit; penyebab lain dan validasi proses perlu diperiksa."
       },
       {
-        "text": "Rasio kopi harus menjadi 1:8 agar cocok.",
-        "feedback": "Kesimpulan itu belum terbukti oleh data pada skenario; pilih pengamatan atau uji yang dapat membedakan mekanismenya."
+        "text": "Samakan shot time terlebih dahulu agar ukuran partikel dua grinder dapat dianggap setara.",
+        "feedback": "Waktu yang sama tidak membuktikan distribusi ukuran partikel atau rasa keduanya identik."
       }
     ],
     "correct": 2,
@@ -112,20 +112,20 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "15 g kopi dan 225 g air menghasilkan 185 g minuman. Nilai brew-water ratio input?",
     "options": [
       {
-        "text": "1:12,3 karena minuman 185 g.",
-        "feedback": "Ini menambah asumsi atau mengabaikan informasi penting; bedakan tujuan dan pengamatan sebelum memilih resep."
+        "text": "1:12,3 karena pembilang harus menggunakan berat minuman yang selesai dikumpulkan.",
+        "feedback": "Untuk filter brew-water ratio, pembilang air adalah 225 g air input, bukan output 185 g."
       },
       {
         "text": "1:15 karena air masuk 225 g.",
         "feedback": "Rasio input 15:225 = 1:15, bukan massa output. EY memerlukan data tambahan."
       },
       {
-        "text": "1:18 karena air terserap kopi.",
-        "feedback": "Kesimpulan itu belum terbukti oleh data pada skenario; pilih pengamatan atau uji yang dapat membedakan mekanismenya."
+        "text": "1:18 karena air yang tertahan kopi ikut dihitung dua kali sebagai input seduhan.",
+        "feedback": "Air tertahan sudah bagian dari air input; menghitungnya lagi akan keliru."
       },
       {
-        "text": "Tidak bisa dihitung jika TDS tidak ada.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Data rasio tidak dapat ditetapkan sampai kadar zat terlarut TDS diukur lebih dulu.",
+        "feedback": "TDS untuk estimasi EY, bukan syarat menghitung 225/15 sebagai rasio input."
       }
     ],
     "correct": 1,
@@ -138,16 +138,16 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "A: 20g dose, 40g beverage, TDS 10%; B: 20g, 50g, TDS 8%. Apa yang sah?",
     "options": [
       {
-        "text": "B pasti lebih manis.",
-        "feedback": "Jawaban ini memperlakukan satu indikator sebagai sebab/standar universal, padahal variabel lain masih perlu diperiksa."
+        "text": "A lebih pekat, sehingga estimasi EY pasti lebih tinggi meski beverage lebih rendah.",
+        "feedback": "Konsentrasi tinggi bukan berarti massa total zat terlarut lebih tinggi; hitung TDS×beverage."
       },
       {
-        "text": "A punya EY lebih rendah karena output sedikit.",
-        "feedback": "Kesimpulan itu belum terbukti oleh data pada skenario; pilih pengamatan atau uji yang dapat membedakan mekanismenya."
+        "text": "A dan B berbeda beverage mass, sehingga estimasi EY pasti harus berbeda pula.",
+        "feedback": "Perbedaan output dapat diimbangi oleh perbedaan konsentrasi; periksa neraca massanya."
       },
       {
-        "text": "B punya EY 8% karena TDS 8%.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "EY B adalah 8 persen sebab nilai TDS dan EY memakai penyebut massa yang sama.",
+        "feedback": "TDS memakai massa minuman; EY membandingkan massa zat terlarut terhadap dose kopi awal."
       },
       {
         "text": "EY perkiraan sama 20%; A konsentrasi lebih tinggi.",
@@ -168,16 +168,16 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
         "feedback": "Filter, pouring, grind dan air dapat memengaruhi flow; waktu bukan diagnosis rasa."
       },
       {
-        "text": "Grind pasti terlalu halus.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Waktu berubah terutama karena grind, sebab filter hanya menyaring partikel dan tak mengubah flow.",
+        "feedback": "Media filter memiliki karakter flow dan retensi; ada variabel tuang yang juga berubah."
       },
       {
-        "text": "B pasti lebih bitter dan overextracted.",
-        "feedback": "Ini menambah asumsi atau mengabaikan informasi penting; bedakan tujuan dan pengamatan sebelum memilih resep."
+        "text": "Selisih drawdown cukup untuk menandai kopi B lebih terekstraksi meski tanpa pengukuran lain.",
+        "feedback": "Waktu bukan bukti kuantitatif EY atau rasa; perlu melihat perubahan faktor dan hasil nyata."
       },
       {
-        "text": "Filter B pasti rusak.",
-        "feedback": "Jawaban ini memperlakukan satu indikator sebagai sebab/standar universal, padahal variabel lain masih perlu diperiksa."
+        "text": "Filter baru paling mungkin mempercepat brew, jadi catatan lebih lambat menunjukkan salah timbang.",
+        "feedback": "Arah efek filter tidak universal, dan salah timbang belum dibuktikan."
       }
     ],
     "correct": 0,
@@ -190,20 +190,20 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Tutorial menuntut 45 detik bloom untuk setiap kopi. Tindakan yang masuk akal?",
     "options": [
       {
-        "text": "Selalu 45 detik agar lolos kompetisi.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Tetapkan 45 detik sebagai kondisi pembanding, lalu pertahankan selalu karena variabel lain sulit dikontrol.",
+        "feedback": "Baseline boleh dipakai untuk uji, tetapi tidak boleh otomatis menjadi satu aturan wajib semua kopi."
       },
       {
-        "text": "Abaikan pembasahan karena tidak memengaruhi hasil.",
-        "feedback": "Ini menambah asumsi atau mengabaikan informasi penting; bedakan tujuan dan pengamatan sebelum memilih resep."
+        "text": "Lewati tahap pembasahan awal bila bed terlihat basah sesaat setelah tuangan pertama.",
+        "feedback": "Pengamatan pembasahan permukaan tidak membuktikan wetting yang merata di seluruh bed."
       },
       {
         "text": "Pahami wetting dan uji kondisi kopi/alat tanpa satu angka universal.",
         "feedback": "Bloom adalah wetting phase; perlakuannya perlu menyesuaikan alat dan bahan."
       },
       {
-        "text": "Bloom dibuat semakin lama tanpa batas saat kopi baru.",
-        "feedback": "Kesimpulan itu belum terbukti oleh data pada skenario; pilih pengamatan atau uji yang dapat membedakan mekanismenya."
+        "text": "Perpanjang bloom setiap kali terlihat gelembung lebih banyak, lalu jaga grind dan air tetap sama.",
+        "feedback": "Jumlah gelembung tidak memberi target durasi yang universal; prediksi harus diuji."
       }
     ],
     "correct": 2,
@@ -216,20 +216,20 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Kamu ingin menahan drip-through. Apa pendekatan yang sejalan dengan keselamatan produsen?",
     "options": [
       {
-        "text": "Inverted wajib untuk kopi kompetisi.",
-        "feedback": "Ini menambah asumsi atau mengabaikan informasi penting; bedakan tujuan dan pengamatan sebelum memilih resep."
+        "text": "Gunakan inverted dengan sleeve khusus agar waktu kontak lebih dapat dipertahankan.",
+        "feedback": "Pabrikan justru menyarankan menghindari inverted karena ketidakstabilan dan risiko tumpahan panas."
       },
       {
         "text": "Gunakan metode standar yang stabil dan aksesori kompatibel jika diperlukan.",
         "feedback": "AeroPress memperingatkan inverted tidak stabil dan berisiko luka bakar. Gunakan metode standar/manual."
       },
       {
-        "text": "Tingkatkan tekanan plunger dengan alat tambahan.",
-        "feedback": "Kesimpulan itu belum terbukti oleh data pada skenario; pilih pengamatan atau uji yang dapat membedakan mekanismenya."
+        "text": "Gunakan tekanan manual tambahan pada plunger untuk mencegah cairan menetes sebelum waktunya.",
+        "feedback": "Tekanan ekstra tidak diperlukan untuk mengatasi drip-through dan dapat menimbulkan bahaya."
       },
       {
-        "text": "Balik tabung berisi air panas tanpa penyangga.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Beri alas silikon agar tabung inverted lebih kuat ketika dipindahkan sebelum ditekan.",
+        "feedback": "Improvisasi alas tidak membatalkan peringatan resmi tentang metode inverted."
       }
     ],
     "correct": 1,
@@ -242,16 +242,16 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "French press meninggalkan partikel halus. Apa pernyataan paling hati-hati?",
     "options": [
       {
-        "text": "Pasti kopi basi.",
-        "feedback": "Jawaban ini memperlakukan satu indikator sebagai sebab/standar universal, padahal variabel lain masih perlu diperiksa."
+        "text": "Endapan membuktikan kopi terlalu lama terkena air walau mesh filter masih berfungsi baik.",
+        "feedback": "Sedimen terutama terkait partikel dan filter; waktu saja tidak dapat membuktikan penyebabnya."
       },
       {
-        "text": "Selalu menandakan terlalu halus dan harus dibuang.",
-        "feedback": "Kesimpulan itu belum terbukti oleh data pada skenario; pilih pengamatan atau uji yang dapat membedakan mekanismenya."
+        "text": "Endapan berarti ukuran grind harus dinaikkan tanpa perlu mengevaluasi filter atau teknik pemisahan.",
+        "feedback": "Grind dapat berperan, tetapi mesh, penanganan plunge dan pilihan mouthfeel juga relevan."
       },
       {
-        "text": "Semua mesh mempunyai pori sama.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Partikel yang terlihat membuktikan French press tidak mampu mengekstraksi kopi secara konsisten.",
+        "feedback": "Keberadaan partikel bukan pengukuran ekstraksi ataupun konsistensi proses keseluruhan."
       },
       {
         "text": "Filter mesh dan partikel dapat menyebabkan sedimen; amati sebelum diagnosis rasa.",
@@ -272,16 +272,16 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
         "feedback": "TDS bukan analisis hardness, alkalinitas, pH atau keamanan mikrobiologis."
       },
       {
-        "text": "Ya, keduanya harus memberi rasa sama.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Ya, karena TDS yang sama biasanya mencerminkan hardness yang sama pada jenis air minum.",
+        "feedback": "TDS meter tidak memisahkan Ca/Mg dari ion lain atau menunjukkan kapasitas buffering."
       },
       {
-        "text": "Ya, keduanya aman tanpa tes lain.",
-        "feedback": "Ini menambah asumsi atau mengabaikan informasi penting; bedakan tujuan dan pengamatan sebelum memilih resep."
+        "text": "Ya, karena air dengan angka TDS sama mempunyai kandungan mineral dan keamanan setara.",
+        "feedback": "Kesamaan TDS tidak membuktikan ion identik maupun keamanan mikrobiologis."
       },
       {
-        "text": "Tidak, karena TDS berarti pH.",
-        "feedback": "Jawaban ini memperlakukan satu indikator sebagai sebab/standar universal, padahal variabel lain masih perlu diperiksa."
+        "text": "Tidak, sebab TDS 100 ppm otomatis menunjukkan kedua air memiliki alkalinitas rendah.",
+        "feedback": "Angka TDS tidak menyediakan alkalinitas spesifik; perlu pengujian parameter terkait."
       }
     ],
     "correct": 0,
@@ -294,20 +294,20 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Ketel membaca 93°C tepat sebelum tuang. Apakah bed pasti 93°C?",
     "options": [
       {
-        "text": "Ya karena angka kettle wajib sama dengan bed.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Ya, karena suhu kopi langsung mengikuti kettle jika ketel menunjukkan angka tepat sebelum tuang.",
+        "feedback": "Alat, udara dan bubuk memengaruhi panas; tidak identik sepanjang proses."
       },
       {
-        "text": "Ya bila bloom dilakukan 45 detik.",
-        "feedback": "Ini menambah asumsi atau mengabaikan informasi penting; bedakan tujuan dan pengamatan sebelum memilih resep."
+        "text": "Ya, kecuali bloom berlangsung lebih lama; selebihnya suhu bed dapat dipakai sama dengan kettle.",
+        "feedback": "Bloom bukan satu-satunya pengaruh pada suhu bed; titik ukur berbeda."
       },
       {
         "text": "Tidak; panas berpindah melalui alat, udara dan kopi.",
         "feedback": "Suhu kettle di titik tertentu tidak identik dengan temperatur coffee bed sepanjang brew."
       },
       {
-        "text": "Tidak; berarti bed selalu 80°C.",
-        "feedback": "Kesimpulan itu belum terbukti oleh data pada skenario; pilih pengamatan atau uji yang dapat membedakan mekanismenya."
+        "text": "Tidak, karena suhu coffee bed selalu turun tepat 13 derajat dibanding kettle di semua metode.",
+        "feedback": "Tidak ada selisih tetap universal; tergantung perangkat, bahan dan proses."
       }
     ],
     "correct": 2,
@@ -320,20 +320,20 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Dua orang sepakat acidity X tinggi tapi berbeda preferensi. Penjelasan terbaik?",
     "options": [
       {
-        "text": "Salah satu tidak memahami kopi.",
-        "feedback": "Ini menambah asumsi atau mengabaikan informasi penting; bedakan tujuan dan pengamatan sebelum memilih resep."
+        "text": "Jika keduanya mencicipi sampel yang sama, salah satu descriptor atau penilai harus diperbaiki.",
+        "feedback": "Sepakat pada intensitas tetap memungkinkan preferensi berbeda; ini bukan kesalahan otomatis."
       },
       {
         "text": "Intensitas sensori dan tingkat kesukaan berbeda.",
         "feedback": "Deskripsi intensitas tidak mengharuskan preferensi identik."
       },
       {
-        "text": "Peserta wajib memakai deskriptor Inggris.",
-        "feedback": "Kesimpulan itu belum terbukti oleh data pada skenario; pilih pengamatan atau uji yang dapat membedakan mekanismenya."
+        "text": "Uji yang tepat adalah memilih pencicip yang paling peka agar preferensi kelompok menjadi sama.",
+        "feedback": "Kepekaan terhadap sensasi dan tingkat kesukaan adalah dua hal berbeda."
       },
       {
-        "text": "EY salah satu pasti lebih rendah.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Rasio ekstraksi harus diubah sampai semua orang memilih sampel yang tingkat acidity-nya sama.",
+        "feedback": "Tidak ada resep yang dapat mewajibkan preferensi semua orang menjadi sama."
       }
     ],
     "correct": 1,
@@ -346,16 +346,16 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Catatan tasting 'jasmine' berarti apa?",
     "options": [
       {
-        "text": "Selalu ditambahkan bunga melati.",
-        "feedback": "Jawaban ini memperlakukan satu indikator sebagai sebab/standar universal, padahal variabel lain masih perlu diperiksa."
+        "text": "Label jasmine menunjukkan seduhan memakai ekstrak bunga sehingga aromanya harus selalu ada.",
+        "feedback": "Descriptor tidak membuktikan kopi diberi bahan bunga atau flavor tambahan."
       },
       {
-        "text": "Bukti high caffeine.",
-        "feedback": "Kesimpulan itu belum terbukti oleh data pada skenario; pilih pengamatan atau uji yang dapat membedakan mekanismenya."
+        "text": "Jika aroma jasmine muncul, kopi semestinya selalu mengandung kadar kafein lebih tinggi.",
+        "feedback": "Hubungan antara aroma tertentu dan kadar kafein tidak dapat disimpulkan dari catatan tasting."
       },
       {
-        "text": "Kopi pasti dari satu negara.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Aroma bunga membuktikan kopi berasal dari daerah dan varietas tertentu secara pasti.",
+        "feedback": "Satu descriptor tidak dapat mengidentifikasi origin/varietas secara deterministik."
       },
       {
         "text": "Aroma mengingatkan bunga; bukan klaim komposisi bahan.",
@@ -376,16 +376,16 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
         "feedback": "Perlu membedakan dua kandidat variabel sebelum mengambil keputusan penyebab."
       },
       {
-        "text": "Filter pasti satu-satunya penyebab.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Filter Q paling mungkin mengubah flow, sehingga perubahan grind dapat diabaikan saat analisis.",
+        "feedback": "Kedua faktor berubah; menyalahkan satu tanpa pembanding merupakan confounding."
       },
       {
-        "text": "Grind pasti satu-satunya penyebab.",
-        "feedback": "Ini menambah asumsi atau mengabaikan informasi penting; bedakan tujuan dan pengamatan sebelum memilih resep."
+        "text": "Grind adalah faktor utama flow, sehingga perubahan jenis kertas tidak perlu diuji.",
+        "feedback": "Filter dapat memengaruhi aliran; perlu mengisolasi variabel sebelum atribusi sebab."
       },
       {
-        "text": "B selalu lebih enak.",
-        "feedback": "Jawaban ini memperlakukan satu indikator sebagai sebab/standar universal, padahal variabel lain masih perlu diperiksa."
+        "text": "Kopi B lebih baik jika lebih lama karena lebih banyak zat rasa yang pasti terlarut.",
+        "feedback": "Durasi bukan ukuran kualitas rasa dan tidak cukup untuk menentukan EY."
       }
     ],
     "correct": 0,
@@ -398,20 +398,20 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Brewer punya timbangan dan timer tetapi tidak TDS meter. Klaim yang boleh dibuat?",
     "options": [
       {
-        "text": "EY numerik 20% bisa ditebak dari waktu.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Perkirakan EY dari durasi dan suhu, asalkan roast level dan air seduh sudah tercatat.",
+        "feedback": "Rumus EY membutuhkan pengukuran zat terlarut, bukan hanya durasi dan suhu."
       },
       {
-        "text": "Tidak ada eksperimen yang sah tanpa meter.",
-        "feedback": "Ini menambah asumsi atau mengabaikan informasi penting; bedakan tujuan dan pengamatan sebelum memilih resep."
+        "text": "Eksperimen tanpa refraktometer hanya berguna untuk rasa, tidak untuk hubungan grind dengan waktu.",
+        "feedback": "Grind/flow dan perubahan input masih bisa diukur; keterbatasan berlaku untuk EY numerik."
       },
       {
         "text": "Rasio dan waktu bisa diukur; EY numerik belum diketahui.",
         "feedback": "Tidak semua pertanyaan membutuhkan TDS; pertahankan batas bukti."
       },
       {
-        "text": "Semua kopi tetap mempunyai EY identik.",
-        "feedback": "Kesimpulan itu belum terbukti oleh data pada skenario; pilih pengamatan atau uji yang dapat membedakan mekanismenya."
+        "text": "Nilai EY dapat disamakan dengan persentase air yang tidak tertahan dalam bubuk.",
+        "feedback": "Retensi air tidak sama dengan massa zat terlarut yang berpindah dari kopi."
       }
     ],
     "correct": 2,
@@ -424,20 +424,20 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Iced filter 15g/150g hot water+75g es vs 15g/175g+50g es. Apa yang berubah?",
     "options": [
       {
-        "text": "Hanya warna kopi, bukan proses.",
-        "feedback": "Ini menambah asumsi atau mengabaikan informasi penting; bedakan tujuan dan pengamatan sebelum memilih resep."
+        "text": "Perubahan hanya pada suhu sajian, karena total air sama dan bentuk es tidak memengaruhi ekstraksi.",
+        "feedback": "Air yang melalui bed berbeda; suhu dan pencairan es juga dapat berubah."
       },
       {
         "text": "Air melalui bed dan massa es awal; total air sama.",
         "feedback": "Keduanya total 225g, tetapi ekstraksi dan dilution berpotensi berbeda."
       },
       {
-        "text": "Total input air berbeda 25g.",
-        "feedback": "Kesimpulan itu belum terbukti oleh data pada skenario; pilih pengamatan atau uji yang dapat membedakan mekanismenya."
+        "text": "Air total berbeda walaupun angka yang tertulis sama karena es tidak dihitung sebagai air resep.",
+        "feedback": "Es berkontribusi air ketika meleleh; total massa awal pada kedua contoh sama."
       },
       {
-        "text": "Tidak ada variabel berubah.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Kedua resep identik dari sisi extraction karena kopi dan total air awal sama.",
+        "feedback": "Jalur air melalui bed berbeda, sehingga proses extraction tidak identik."
       }
     ],
     "correct": 1,
@@ -450,16 +450,16 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Botol cold brew tanpa log penyimpanan terlihat dan berbau normal. Pilihan defensibel?",
     "options": [
       {
-        "text": "Minum sedikit untuk mengetes aman.",
-        "feedback": "Jawaban ini memperlakukan satu indikator sebagai sebab/standar universal, padahal variabel lain masih perlu diperiksa."
+        "text": "Cicipi sedikit di awal sebagai uji cepat sebelum menyajikan seluruh botol pada tamu.",
+        "feedback": "Mengecap sedikit tidak membuktikan keamanan dari patogen atau penanganan yang buruk."
       },
       {
-        "text": "Tambahkan sirup agar tahan seminggu.",
-        "feedback": "Kesimpulan itu belum terbukti oleh data pada skenario; pilih pengamatan atau uji yang dapat membedakan mekanismenya."
+        "text": "Tambahkan gula pekat dan simpan dingin untuk memperpanjang masa simpan tanpa perlu validasi.",
+        "feedback": "Gula dan suhu tidak memberi izin masa simpan arbitrer tanpa prosedur valid."
       },
       {
-        "text": "Pindah wadah baru lalu jamin aman.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Pindahkan ke botol steril baru agar risiko penyimpanan sebelumnya dapat dihapus.",
+        "feedback": "Memindahkan wadah tidak membuktikan bahan yang disimpan sebelumnya masih aman."
       },
       {
         "text": "Tahan/discard sesuai SOP bila kelayakan tidak dapat diverifikasi.",
@@ -480,16 +480,16 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
         "feedback": "Preferensi aktual dapat dicatat; klaim mekanisme butuh desain lebih terkontrol."
       },
       {
-        "text": "Filter baru membuktikan kopi lebih manis.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Jika V1 lebih disukai, perubahan kertas lebih mungkin penyebab utama ketimbang perubahan kopi.",
+        "feedback": "Tanpa desain pembanding, preferensi tidak mengidentifikasi penyebab individual."
       },
       {
-        "text": "Kopi baru pasti lebih unggul secara universal.",
-        "feedback": "Ini menambah asumsi atau mengabaikan informasi penting; bedakan tujuan dan pengamatan sebelum memilih resep."
+        "text": "Kopi baru dapat dinilai unggul karena dua variabel berubah dan responnya tetap positif.",
+        "feedback": "Pengujian satu sesi tidak membuktikan keunggulan kopi universal maupun peran tiap variabel."
       },
       {
-        "text": "Tidak ada manfaat catatan eksperimen.",
-        "feedback": "Jawaban ini memperlakukan satu indikator sebagai sebab/standar universal, padahal variabel lain masih perlu diperiksa."
+        "text": "Karena percobaan belum terkontrol, semua catatan rasa perlu dihapus dan diulang dari nol.",
+        "feedback": "Observasi preferensi tetap bermakna sebagai pengalaman; keterbatasan kausal yang perlu ditulis."
       }
     ],
     "correct": 0,
@@ -502,20 +502,20 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Teman tak memahami resep 'tuang sampai pas'. Detail mana paling membantu?",
     "options": [
       {
-        "text": "Nama minuman lebih puitis.",
-        "feedback": "Solusi ini tidak menjawab pertanyaan utama atau melewati batas keselamatan/penyimpanan yang perlu diverifikasi."
+        "text": "Tuliskan nama kreatif dan deskripsi rasa agar orang lain bisa menyesuaikan dosis sendiri.",
+        "feedback": "Cerita rasa membantu tujuan, tetapi tidak menggantikan ukuran dan urutan kerja."
       },
       {
-        "text": "Foto kemasan merek grinder.",
-        "feedback": "Ini menambah asumsi atau mengabaikan informasi penting; bedakan tujuan dan pengamatan sebelum memilih resep."
+        "text": "Cukup foto grinder dan ketel agar setting dan suhu bisa direplikasi tanpa angka.",
+        "feedback": "Foto tidak memberi dose/air, definisi waktu, setting atau output yang digunakan."
       },
       {
         "text": "Dose/air, alat, tahap/waktu dan cara mencatat hasil.",
         "feedback": "SOP reproduksibel memuat metrik, proses, konteks dan batas adaptasi."
       },
       {
-        "text": "Satu rating selera tanpa kondisi brew.",
-        "feedback": "Kesimpulan itu belum terbukti oleh data pada skenario; pilih pengamatan atau uji yang dapat membedakan mekanismenya."
+        "text": "Berikan rating cangkir serta foto hasil, lalu biarkan pembaca mengikuti intuisi rasanya.",
+        "feedback": "Rating/foto tidak menunjukkan proses, satuan dan batas adaptasi recipe."
       }
     ],
     "correct": 2,
