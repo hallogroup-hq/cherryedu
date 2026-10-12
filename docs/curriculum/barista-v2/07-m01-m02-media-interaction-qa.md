@@ -1,6 +1,6 @@
 # Barista V2 — M01/M02 Editorial, Visual & Interaction QA
 
-**Status:** 11 learner manuscripts AUTHORED, but visual assets, stateful interactions, expert review and browser presentation are NOT DONE. This is an internal QA document, NEVER a student-facing lesson. No production changes.
+**Status (updated):** This document is a historical **M01–M02 media/interaction checklist**, not a current full-program completion status. Across the path, 68 manuscripts now exist. Twelve concept labs, 12 module checkpoints, 36 revision-based case studies and 24 formative diagnostics are implemented on isolated review routes; seven schematic visuals exist. Many listed M01/M02 media requirements remain missing, especially real bar photography and expert clearance. This is internal QA, NEVER a student-facing lesson. No production changes.
 
 ## Lesson-to-learning-experience matrix
 
@@ -18,7 +18,7 @@
 | M02.L04 | A/B experiment timeline with controlled conditions | Stateful notebook: question, prediction, controls, results, interpretation, next experiment | Genuine test design, no invented outcome |
 | M02.L05 | Data log graph showing lack of sensory/TDS measures | Separate observed data from interpretation and propose discriminating test | Able to learn from contradictory outcomes |
 
-**Do not call a two-column markdown table a card. Do not label a nonfunctional text prompt interactive.** Current learner markdown contains exercises, but these are **NOT typed UI interactions** and cannot pass the visualization/interaction gate yet. Real photos, licensed videos or professionally reviewed diagrams must be added where mechanical technique needs representation.
+**Do not call a two-column markdown table a card. Do not label a nonfunctional text prompt interactive.** Existing stateful labs/case studies are real browser interactions, but they do **not** cover every needed activity on every lesson; some written exercises remain plain prompts. Real licensed/consented photos and videos, and scientific/media review, remain a release gate where physical techniques are taught.
 
 ## Manuscript inventory
 
@@ -26,7 +26,7 @@ M01 files: M01-L01-peran-barista-dari-pesanan-ke-cangkir.md; M01-L02-peta-stasiu
 
 M02 files: M02-L01-ekstraksi-kekuatan-dan-rasa.md; M02-L02-rasio-bukan-hukum.md; M02-L03-mengapa-variabel-saling-berinteraksi.md; M02-L04-percobaan-kopi-pertama-yang-bermakna.md; M02-L05-belajar-dari-hasil-yang-tak-terduga.md.
 
-All live-source lesson candidates are in docs/curriculum/barista-v2/03-lessons. Editorial notes stay OUTSIDE this directory. No lesson content is integrated with the live app or legacy Barista IDs yet.
+All 68 learner candidates are in docs/curriculum/barista-v2/03-lessons. Editorial notes stay OUTSIDE this directory. All 68 are rendered in an **isolated, gated Barista V2 reader**; nothing is merged into the original Barista production path, legacy IDs, credit or payments.
 
 ## Specific transfer tasks and checks
 
@@ -59,16 +59,16 @@ Qualified barista, extraction-science, allergen-safety, accessibility and media-
 ## Gate status
 
 - **Dependency-first 12-module audit:** internal revised order complete; external trainer verification outstanding.
-- **Manuscripts:** 6/6 M01 and 5/5 M02 authored and independently filed (11/68 planned).
-- **Student-facing visual/media assets:** 0/11 cleared and implemented. **BLOCKED.**
-- **Stateful activity widgets:** 0/11 implemented. **BLOCKED.**
+- **Manuscripts:** 68/68 now authored. M01/M02 details below remain historical scope; program-wide checks reside in 08, 09 and 10.
+- **M01/M02 instructional media:** conceptual diagrams in M01/M02 are implemented where applicable; required real, rights-cleared bar photography/filming not yet produced. **BLOCKED.**
+- **Stateful learning activities:** module-level labs/cases, module checkpoints and 24 diagnostics implemented across path; **lesson-specific M01/M02 media interactions and novice outcomes remain partly unverified.**
 - **Human novice transfer tests:** not conducted. **BLOCKED.**
 - **Scientific and food-safety sign-off:** not obtained. **BLOCKED.**
-- **Question bank and official practical credential claims:** not implemented/authorized.
+- **Formative assessment:** 36 changing-evidence cases + 24 multi-choice diagnostics exist; a validated/high-stakes practical exam and any official BNSP/SCA credential claim are **not** authorized.
 - **Production/release:** NOT APPROVED.
 
 ## Boundary against embarrassing live release copy
 
 Internal status words, internal reviewer rubrics, experiment source notes, test-run output and candidate/review labels must NEVER be embedded in visible lessons or customer-facing course metadata. Student manuscript and editorial QA are separate data sources. A future generator must have an explicit allowlist and real rendered-page checks for leakage.
 
-**Next authoring checkpoint:** M03 — grinder and espresso fundamentals. Before any production release, material requires actual instructional media, functional experiments, novice trial and expert review.
+**Next release checkpoint:** finish media rights/physical demonstrations, lesson-specific novice testing, expert/safety review and validated hands-on assessment. Do not expose as a finished profession-credential path based on technical CI alone.
