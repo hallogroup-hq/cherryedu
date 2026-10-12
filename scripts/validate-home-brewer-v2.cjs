@@ -26,6 +26,7 @@ const questions=extractTS('lib/data/homeBrewerV2Diagnostics.ts',/export const HO
 if(cases.length!==30)fail.push('Expected 30 changing-evidence cases, got '+cases.length);
 if(questions.length!==20)fail.push('Expected 20 diagnostics, got '+questions.length);
 const ids=new Set(),qid=new Set(),position=[0,0,0,0];
+let correctLongest=0;
 for(const c of cases){
  if(ids.has(c.id))fail.push('Duplicate case '+c.id);ids.add(c.id);
  for(const key of ['brief','initialPrompt','newEvidence','revisionPrompt','model'])if(String(c[key]||'').trim().length<18)fail.push('Thin case '+c.id+' '+key);
@@ -34,6 +35,7 @@ for(const c of cases){
 for(const q of questions){
  if(qid.has(q.id))fail.push('Duplicate question '+q.id);qid.add(q.id);
  if(!Number.isInteger(q.correct)||q.correct<0||q.correct>3)fail.push('Bad answer key '+q.id);else position[q.correct]++;
+ if(Array.isArray(q.options)&&q.options.length===4&&q.options[q.correct]&&q.options[q.correct].text.length===Math.max(...q.options.map(o=>o.text.length)))correctLongest++;
  if(!Array.isArray(q.options)||q.options.length!==4)fail.push('Need 4 options '+q.id);
  else{
   if(new Set(q.options.map(x=>x.text)).size!==4)fail.push('Duplicate option '+q.id);
@@ -46,6 +48,7 @@ for(let n=1;n<=10;n++){
  if(questions.filter(x=>x.module===m).length!==2)fail.push('Expected 2 questions for '+m);
 }
 if(position.some(n=>n!==5))fail.push('Answer key positions unbalanced: '+position.join(','));
+if(correctLongest>Math.floor(questions.length*0.4))fail.push('Longest-correct-answer leakage: '+correctLongest+'/'+questions.length);
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');
 for(const p of ['app/home-brewer-v2/page.tsx','app/home-brewer-v2/[lessonId]/page.tsx','app/home-brewer-v2/practice/[moduleId]/page.tsx']){
  const s=read(p);
@@ -61,6 +64,6 @@ if(!diagrams.includes('aria-label')||!diagrams.includes('figcaption'))fail.push(
 const packageScripts=JSON.parse(read('package.json')).scripts;
 if(!packageScripts.prebuild?.includes('generate-home-brewer-v2'))fail.push('Missing deterministic prebuild compiler');
 if(!packageScripts.pretypecheck?.includes('generate-home-brewer-v2'))fail.push('Missing generated data for typecheck');
-const summary={modules:10,lessons:files.length,caseCount:cases.length,diagnostics:questions.length,diagrams:6,minLessonWords:min,meanLessonWords:Math.round(words/files.length),warnings:warn.length,blockedUntilOwnerValidation:true,videoRequiredNow:false};
+const summary={modules:10,lessons:files.length,caseCount:cases.length,diagnostics:questions.length,diagrams:6,minLessonWords:min,meanLessonWords:Math.round(words/files.length),warnings:warn.length,longestCorrectOption:correctLongest,blockedUntilOwnerValidation:true,videoRequiredNow:false};
 console.log(JSON.stringify({summary,errors:fail,warnings:warn.slice(0,55)},null,2));
 if(fail.length)process.exit(1);
