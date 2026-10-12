@@ -83,7 +83,7 @@ function toLearnerMarkdown(lessonId, markdown) {
   if (/https?:\/\/\S+/i.test(lesson)) {
     throw new Error(lessonId + ': raw reference URL leaked into learner-facing content; move to editorial appendix');
   }
-  if (/\\[(?:CLAIM|CAP|CVA|SEN|LEX|BIAS)-\d{1,3}\]/.test(lesson)) {
+  if (/\[(?:CLAIM|CAP|CVA|SEN|LEX|BIAS)-\d{1,3}\]/.test(lesson)) {
     throw new Error(lessonId + ': unstripped claim annotations');
   }
   return lesson;
