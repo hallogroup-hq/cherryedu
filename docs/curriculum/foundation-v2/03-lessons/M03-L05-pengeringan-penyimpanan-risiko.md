@@ -29,6 +29,9 @@ Beberapa faktor memengaruhi pengeringan:
 
 Kesalahan umum: “Natural wajib tepat 21 hari.” Tanpa konteks, kalimat ini tidak bermakna sebagai standar mutu. Durasi bisa bervariasi; hasil perlu dinilai dari kondisi bahan, metode pengukuran dan prosedur yang berlaku. [R1]
 
+
+[VISUAL:drying-water]
+
 ## 2. Apa beda moisture content dan water activity?
 
 Dua istilah ini sangat penting karena sering dianggap sama.
