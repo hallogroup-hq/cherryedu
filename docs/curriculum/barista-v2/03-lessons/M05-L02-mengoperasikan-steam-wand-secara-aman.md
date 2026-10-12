@@ -20,6 +20,25 @@ Latihan gambar: pilih posisi tangan yang berada di luar jalur steam, lihat arah 
 
 **Sebelum membaca contoh jawaban dari pengajar:** tulis hipotesis, prediksi, pengamatan yang dibutuhkan, variabel kontrol, keamanan, dan alasan kenapa satu uji lebih informatif daripada tebakan. Kesalahan hipotesis tidak otomatis berarti kegagalan belajar jika proses dan keselamatan dijaga.
 
+## Kenali titik risiko sebelum belajar gerakan
+
+Steam wand bekerja menggunakan uap panas dan dapat menyebabkan luka bakar serta menyebarkan cairan panas. Ada tiga hal yang harus dipahami sebelum mencoba membuat foam: **arah keluarnya uap**, **posisi tangan dan pitcher yang aman menurut manual alat**, dan **prosedur membersihkan wand setelah penggunaan**. Susunan tombol, daya uap, sensor otomatis dan cara purge dapat berbeda antarprodusen. Karena itu, teks ini bukan pengganti instruksi mesin tertentu.
+
+Perhatikan latihan pemilahan berikut:
+
+| Situasi | Keputusan aman |
+|---|---|
+| Wand mengeluarkan bunyi yang tidak biasa disertai kebocoran | Hentikan penggunaan unit terkait dan eskalasi |
+| Staf memegang ujung logam wand sesaat setelah steaming | Perilaku berisiko luka bakar, jangan ditiru |
+| Susu sudah dituangkan tetapi status sanitasi pitcher tidak jelas | Tahan dan verifikasi alat sebelum dipakai |
+| Produk baru memerlukan rekomendasi suhu berbeda | Periksa label produk, SOP dan panduan instruktur |
+
+Dalam observasi video yang telah diverifikasi, arahkan perhatian pada *apa yang dilakukan operator sebelum mengaktifkan uap*, bagaimana ia menjauhkan tangan dari jalur panas, serta langkah cleaning setelah selesai. Tanyakan mengapa tiap langkah ada—bukan hanya menghitung berapa detik barista memegang pitcher.
+
+**Eksperimen awal tanpa uap:** buat urutan kartu proses dari verifikasi alat, pemilihan bahan, persiapan pitcher, operasi oleh instruktur, pemeriksaan hasil, cleaning, hingga handoff. Tambahkan skenario baru: mesin menunjukkan indikator fault. Pada langkah mana proses berhenti? Tuliskan alasannya.
+
+**Batas kompetensi:** latihan di atas hanya dapat menguji penalaran. Kemampuan mengoperasikan steam wand dan mencegah luka bakar harus diamati langsung oleh instruktur yang memahami model mesin tersebut.
+
 ## Situasi baru
 
 Mesin berbeda memiliki tombol otomatis dan steam wand lain. Apa yang perlu diperiksa pada manual sebelum mengadopsi teknik senior? Bagaimana jika ada suara atau panas yang tidak biasa?
