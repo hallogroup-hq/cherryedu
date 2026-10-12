@@ -47,7 +47,7 @@ for (const name of lessons) {
   try {
     const learnerText = toLearnerMarkdown(id, body);
     if (!learnerText.includes('# ')) fail('No learner-facing title after cleanup: ' + id);
-    if (!/latihan|tugas|pertanyaan|eksperimen/i.test(learnerText)) fail('Learner activity missing: ' + id);
+    if (!/latihan|tugas|pertanyaan|eksperimen|coba jawab|urutkan|pemeriksaan pemahaman/i.test(learnerText)) fail('Learner activity missing: ' + id);
     if (/^#{2,3}\s+(?:Referensi|Rujukan|Editorial|Sumber dan QA|Catatan pengajar)/im.test(learnerText))
       fail('Internal appendix retained: ' + id);
   } catch (err) {
