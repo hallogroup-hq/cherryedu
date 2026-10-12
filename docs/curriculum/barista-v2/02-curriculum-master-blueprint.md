@@ -197,6 +197,20 @@ If a visual would **materially teach physical mechanics**, a text-only fallback 
 "Belajar keterampilan barista melalui materi, simulasi, dan latihan. Sertifikat kompetensi profesi resmi memerlukan asesmen praktik melalui penyelenggara yang berwenang."  
 Show this short, honest distinction in relevant course detail and graduation FAQ, not internal status jargon or repetitive badges on every lesson.
 
+## Continuous menu innovation — keep Barista skills current
+
+Barista students must be able to repeat the R&D cycle **after the course**. Fast-moving drink trends are **case studies, not permanent recipes to memorize**. Keep two distinct content layers: (1) evergreen flavor, extraction, hospitality, costing, food-safety and experiment principles; and (2) a dated, editable example library of seasonal drinks, menu formats, local ingredients and customer preferences.
+
+- **Every 3 months (editorial review):** verify current menus and industry publications, local guest/customer evidence, ingredient availability and safety requirements. Add or retire examples with dated sources, documented reviewer and clearly limited geographic relevance. Do not turn a US consumer survey into an assertion about Indonesian customers.
+- **Optional monthly learner challenge:** brief → 2 concepts → prototype → feedback → cost/service test → pitch → keep/revise/retire. Learners build a versioned signature portfolio, not just win quizzes.
+- **Rotating "Barista's Choice" service scenario:** customer asks about taste, caffeine and allergens; barista uses a controlled, documented recipe family. Improvisation cannot waive allergen controls or safe prep.
+- **Production-feedback loop for café teams:** actual trial requires customer consent, anonymized feedback, prep time, waste, repeatability and permission to publish staff recipe attribution. Without a real trial, show an explicitly fictional teaching dataset and no invented sales results.
+- **Curriculum governance:** new trend examples pass scientific, food-safety, learner-copy, media-rights and mobile UI QA before publication. Stable theory modules do not get rewritten simply because a flavor is trending.
+
+**Future implementation notes:** Learner-authored recipe versioning, ingredients with units and allergens, controlled trial logs, costing, peer handoff and evidence source dates should be extensible independent records—not hardcoded 2026 examples. A proposed or simulated recipe must never be labeled production-validated, independently tasted or officially certified.
+
+**Evidence:** SCA Barista Skills Professional custom drink outcome (https://education.sca.coffee/coffee-skills-program); WCC signature beverage category (https://wcc.coffee/rules-regulations); National Restaurant Association 2026 Beverage Trends (US-specific context, https://www.restaurant.org/research-and-media/research/research-reports/restaurant-beverage-trends-report/); Indonesian secondary menu examples above.
+
 ## 6. Migration / compatibility contract
 
 - Leave existing `path-barista`, `mod-bX`, `les-bX-X`, `quiz-bX`, past quiz attempts, purchases and profile progress untouched during V2 authoring.
