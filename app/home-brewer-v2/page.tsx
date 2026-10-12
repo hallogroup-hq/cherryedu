@@ -4,7 +4,7 @@ import {HOME_BREWER_V2_MODULES,HOME_BREWER_V2_LESSONS} from '@/lib/data/homeBrew
 
 export default function HomeBrewerV2Index(){
  if(process.env.CHERRYEDU_HOME_BREWER_V2_REVIEW!=='enabled')notFound();
- return <main className="min-h-screen bg-paper-50 pb-24 text-roast-950">
+ return <div className="min-h-screen bg-paper-50 pb-24 text-roast-950">
   <div className="mx-auto max-w-5xl px-4 pt-16 sm:px-6">
    <Link href="/paths" className="text-sm text-roast-700 underline underline-offset-4">Kembali ke Kelas Kopi</Link>
    <p className="mt-12 font-mono text-xs font-semibold uppercase tracking-widest text-cherry-700">Home Brewer Specialization</p>
@@ -30,5 +30,5 @@ export default function HomeBrewerV2Index(){
    </ol>
   </section>)}
   </div>
- </main>;
+ </div>;
 }
