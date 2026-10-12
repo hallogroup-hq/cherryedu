@@ -55,7 +55,7 @@ const APPENDIX_HEADINGS = Object.freeze({
  * block. This is *not* a grading engine, and it never runs on legacy V1.
  */
 function hideImmediateAnswers(markdown) {
-  const label=/\*\*(?:Jawab(?:an)?|Kunci|Contoh jawaban|Pembahasan|Pilihan terbaik|Respons terbaik|Contoh perbaikan|Versi lebih baik)\s*:?\*\*/i;
+  const label=/\*\*(?:Jawab(?:an)?|Kunci|Contoh jawaban|Contoh lulus|Contoh perbaikan|Pembahasan|Pilihan terbaik|Respons terbaik|Versi lebih baik|Respons yang baik)[^*:]{0,90}:[^*]*\*\*/i;
   let codeBlock=false;
   const output=[];
   for(const line of markdown.split('\n')){
