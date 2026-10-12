@@ -18,6 +18,18 @@ Rancang dua eksperimen berbeda: (1) air melewati bed berbeda dan (2) hasil seduh
 
 Catat pertanyaanmu, hipotesis, prediksi, satu kondisi yang diubah, variabel kontrol, apa yang benar-benar diamati, dan informasi yang belum diketahui. Jika berlatih dengan simulasi, jangan menulis hasil seolah-olah kamu sudah mencicipi atau bekerja dengan mesin nyata. Eksperimen aman mengikuti pedoman mesin dan prosedur kedai.
 
+## Data akhir yang memaksa kamu bertanya lagi
+
+Percobaan A memakai 15 g kopi, 225 g brew water dan menghasilkan 180 g minuman dalam 3 menit. Percobaan B memakai 15 g kopi, 240 g brew water dan menghasilkan 194 g minuman dalam 3 menit 25 detik. **Ini dataset fiktif tanpa TDS dan hasil cicip.**
+
+Kamu dapat menghitung A 1:15, B 1:16 untuk rasio input. Tetapi perbedaan massa output dan waktu tidak cukup membuktikan B lebih encer ataupun lebih terekstraksi. Penambahan air melalui bed dapat mengubah flow, kontak dan total senyawa terlarut.
+
+Untuk membedakan pengaruh **bypass**, buat percobaan C: seduh seperti A, kemudian tambahkan air setelah kopi dipisah dari bed. Ukur massa minuman A sebelum penambahan. Jika menambahkan 15 g air murni ke 180 g minuman, maka massa akhir ideal 195 g, dengan konsentrasi zat kopi relatif lebih rendah. Namun rasa sebenarnya tetap butuh pengamatan.
+
+**Pertanyaan eksperimen:** bedakan prediksi yang bisa dihitung dengan prediksi yang masih sensorik. Variabel apa yang perlu dijaga agar perubahan B dan C tidak tercampur? Siswa yang tidak memiliki alat tetap dapat mengevaluasi rancangan dan mengakui keterbatasannya.
+
+**Kasus transfer:** kopi baru sangat berbeda karakter dari sebelumnya. Jelaskan mengapa menyimpulkan “rasio 1:16 selalu cocok” dari satu dataset melanggar kebiasaan eksperimen yang baik.
+
 ## Tantangan transfer
 
 Pelanggan menyukai kopi kemarin, hari ini lot baru memiliki acidity berbeda. Rancang percakapan dan uji adjustment yang tidak melanggar SOP. Bagaimana menyampaikan bahwa rasa mungkin tidak identik?
