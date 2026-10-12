@@ -5,9 +5,9 @@
 **Updated:** 2026-10-12  
 **Status:** All 7 modules and 36/36 lesson manuscripts fully authored for **internal expert/learner review** (3+5+7+5+6+5+5). All production learning content unchanged; no professional sign-off claimed.
 
-## Learning experience critical review — current verdict
+## Learning experience critical review — historical baseline and current RC
 
-**Full 36/36 beginner UX desk audit completed 12 October 2026:** [Complete Learning Experience Red-Team](./07-release/FULL-36-LESSON-LEARNING-EXPERIENCE-REDTEAM.md). **19/36 lesson audits tagged P0**, 17 P1. P0 means a specific learning/experience gap, **not** a factual error in all those lessons. Concrete example: **M02.L02 does not first explain what Liberica is before moving to Excelsa's shifting taxonomy**. Some activities expose answers, request nonexistent visuals, or demand a long independent memo without learner workspace. Eight typed activity pilots are present; 28 lessons have not yet received individualized widget/visual remediation.
+**Historical baseline (12 October 2026):** [Complete Learning Experience Red-Team](./07-release/FULL-36-LESSON-LEARNING-EXPERIENCE-REDTEAM.md) identified **19/36 P0 beginner-experience gaps**, 17 P1, including premature Excelsa taxonomy, exposed exercise answers, missing visual aids and absent writing workspaces. These are **original audit observations, not the current implementation status**. Subsequent RC changes supplied at least one appropriate visual or actual interactive task for **all 36 lessons**, rewrote the Liberika-first section, added answer disclosure controls and recurring case P-17. See [learning experience implementation addendum](./07-release/LEARNING-EXPERIENCE-AUDIT.md). This does not imply that every interaction has been independently validated or that rights-cleared botanical/processing photography exists. **Expert sign-off and observed novice studies remain blocked.**
 
 **Source research has not been deleted.** The module structure (7 modules / 36 lessons), mandatory historical section, 76 MCQ IDs and legacy V1 progress are preserved. This audit is a **review deliverable, not proof of production-ready learning**. Any earlier statements about 76-item bank still failing due to longest-answer patterns describe the **earlier authoring snapshot** and have since been revised on RC; psychometric validity and human pilot still pending.
 
@@ -83,7 +83,7 @@
 25. [06 — FULL Foundation cross-module preliminary QA](./06-qa/FULL-COURSE-CROSS-MODULE-AUDIT.md): seven-module continuity, eight legacy P0 claim checks, ID consistency fix, release blockers, source and progress migration gates.
 
 26. **Targeted scientific fact-check / red-team, Batch 01:** [Scientific Fact-Check Batch 01](./06-qa/SCIENTIFIC-FACT-CHECK-BATCH-01.md) — ten source checks across six modules; four substantive manuscript revisions (M03 OTA/Codex, M05 water, M06 label bias, M07 EUDR).
-27. **Assessment validity red-team, Batch 01:** [Assessment Red-Team Batch 01](./06-qa/ASSESSMENT-RED-TEAM-BATCH-01.md) — **critical leak:** 72/76 correct options originally longest; M01 and M02 16 items rewritten; **M03–M07 remain release-blocked** pending item redesign and learner pilot.
+27. **Assessment validity red-team, historical Batch 01:** [Assessment Red-Team Batch 01](./06-qa/ASSESSMENT-RED-TEAM-BATCH-01.md) — originally 72/76 keys were the longest options. **Subsequent RC editorial revisions covered all 76 items**, including M03–M07. They remain **not scientifically/psychometrically validated**; reviewer checks, novice pilot and retake variants are still required.
 
 ## Workflow and safeguards
 
@@ -104,8 +104,8 @@
 | 02 — Curriculum architecture | **36 specified lesson slots**, seven modules, history protected | Expert/learner review still open |
 | 03 — Lesson authoring | **COMPLETE DRAFT: M01 3/3 + M02 5/5 + M03 7/7 + M04 5/5 + M05 6/6 + M06 5/5 + M07 5/5** | Scientific review and learner pilots still required |
 | 04 — Assessment writing | **76 items editorially revised on RC, NOT externally validated** | Independent item/teacher review, learner pilot, holdout variants and official platform assessment integration |
-| 05 — Scientific/learning QA | Seven module QA files, source red-team, quiz red-team, and full 36-lesson learning-experience red-team; 19 P0 novice-experience concerns | **BLOCKED:** foundational concept scaffolding, media, answer reveal, expert/learner tests, IP and safety release review |
-| 06 — Implementation | **Isolated reviewer preview and eight typed activities implemented on RC** | Finish all 36 learning UX reviews, migration/persistence, security hardening and separate production sign-off |
+| 05 — Scientific/learning QA | Desk review of all 36 lessons, initial 19 P0 novice issues, followed by RC text/visual/interaction repairs; editorial review only | **BLOCKED:** independent expert review, real photography/rights, novice comprehension and assessment calibration, accessible-device QA |
+| 06 — Implementation | **Isolated read-only RC preview serves 36/36 lessons, with selected actual interactions/visuals, including M02 label audit workspace** | Latest commit CI, migration/persistence, security hardening, user testing and separate production sign-off |
 
 ## Current work snapshot
 
