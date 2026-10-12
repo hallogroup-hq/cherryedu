@@ -117,3 +117,16 @@
 - **Software, accessibility and production:** **NOT STARTED**.
 
 **DO NOT MERGE OR DEPLOY.** The only safe statement is **Stage 03 complete as internal authoring** and **Stage 05 preliminary desk QA initiated**. “Top notch” remains an acceptance target, not a label earned by having long manuscripts.
+
+## 7. Post-audit addendum — 2026-10-12 scientific and assessment red-team
+
+Two focused audits now supersede some of the preliminary desk conclusions:
+
+- [Scientific Fact-Check Batch 01](./SCIENTIFIC-FACT-CHECK-BATCH-01.md): independently checked official SCA/CVA standards, Kew taxonomy, 2026 water chemistry and label studies, FAO/WHO Codex, Fairtrade and the 2026 EU regulation amendment; **four substantive manuscript clarifications** made, not a 36-lesson line-by-line expert sign-off.
+- [Assessment Red-Team Batch 01](./ASSESSMENT-RED-TEAM-BATCH-01.md): an objective MCQ leak found **72/76 longest-answer keys** in the original question drafts. M01 and M02 were rewritten, reducing their combined longest-key count from 15/16 to 3/16; the **current total 60/76** is still unacceptable for release.
+
+**New high-priority gate:** All remaining M03–M07 item banks must be edited and tested for cueing, distractor plausibility, transfer and ambiguity. Prior “PASS assessment authoring” means *a file exists*, **not** that the questions are instructionally valid.
+
+**M07/EUDR:** Application is not solely size-based; new product categories (coffee extracts/essences/concentrates, CN 2101 11 00) were brought into scope by Commission Delegated Regulation 2026/2102 with **30 December 2027** application. Existing in-scope coffee products still have 2026/2027 operator-stage dates. This nuance has been added to M07.L04.
+
+**Release remains BLOCKED.** No SME external sign-off, learner pilot, code or production environment changes followed.
