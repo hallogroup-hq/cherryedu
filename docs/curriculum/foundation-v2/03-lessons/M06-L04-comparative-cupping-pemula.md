@@ -86,6 +86,10 @@ Format berikut **ditulis orisinal untuk CherryEdu**, bukan formulir SCA/CVA.
 
 Tidak perlu menebak varietas, proses dan harga. Jika kamu baru mampu berkata “lebih pahit, aroma lebih panggang dan aku lebih suka B”, itu sudah menjadi catatan berguna.
 
+### Jejak P-17 — kesepakatan atribut tidak sama dengan kesepakatan selera
+
+Pada dossier P-17, dua panelis simulasi mencatat kesan aroma buah, tetapi satu lebih menyukai cangkirnya daripada yang lain. Salah satu panelis juga telah melihat informasi fermentasi, sedangkan yang lain hanya mengenal kode sampel. Itu berarti mereka tidak berada pada kondisi blind comparison yang identik. **Keduanya bukan pengujian SCA resmi** dan tidak mendukung klaim “90+”.
+
 ## 5. Tidak punya kopi? Gunakan rekaman fiktif
 
 **Kasus ini simulasi pendidikan, bukan data cupping sungguhan.** Dua panelis menerima kopi berkode A dan B dengan metode penyajian yang dinyatakan mirip, tetapi pencatatan temperatur minum tidak lengkap.
