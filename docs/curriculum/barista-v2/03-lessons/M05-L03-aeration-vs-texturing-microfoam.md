@@ -20,6 +20,22 @@ Prediksikan hasil aeration lebih panjang dibanding lebih singkat pada kondisi ya
 
 **Sebelum membaca contoh jawaban dari pengajar:** tulis hipotesis, prediksi, pengamatan yang dibutuhkan, variabel kontrol, keamanan, dan alasan kenapa satu uji lebih informatif daripada tebakan. Kesalahan hipotesis tidak otomatis berarti kegagalan belajar jika proses dan keselamatan dijaga.
 
+## Dua fase, dua pertanyaan
+
+**Aeration** berkaitan dengan memasukkan udara sehingga gelembung terbentuk. **Texturing** berkaitan dengan menyebarkan dan mengintegrasikan gelembung dalam cairan. Bayangkan kamu mempunyai dua hasil: foam A memperlihatkan lapisan besar yang cepat terpisah, foam B terlihat lebih homogen. Dari foto akhir kamu tidak tahu persis berapa lama udara dimasukkan atau bagaimana sirkulasi terjadi. Kamu hanya melihat kondisi akhir.
+
+| Yang diamati | Dugaan yang boleh diajukan | Data yang masih perlu dilihat |
+|---|---|---|
+| Gelembung besar di permukaan | Udara yang masuk mungkin tidak terintegrasi | Video proses, bahan, suhu, mesin |
+| Foam cepat terpisah | Stabilitas emulsi/foam mungkin kurang | Komposisi susu, timing, teknik |
+| Foam tampak halus saat dituangkan | Kondisi visual sesuai salah satu sasaran | Kesesuaian rasa, suhu aman, repeatability |
+
+Merek susu alternatif dapat bereaksi berbeda karena komposisi protein, lemak dan stabilizer. Membandingkan dua hasil dari produk berbeda lalu menyalahkan operator hanya mengandalkan asumsi.
+
+**Tugas pengamatan:** minta instruktur menunjukkan dua footage nyata yang telah disetujui. Tanpa mengetahui label sampel, tulis tiga observasi visual, satu hipotesis mekanisme dan dua informasi yang belum terekam. Setelah melihat proses lengkap, revisi hipotesis bila perlu. Jangan mengarang suara steam atau suhu berdasarkan foto diam.
+
+Ketika memiliki kesempatan mencoba di bar, ikuti instruksi supervisor, manual mesin dan SOP pangan. Tentukan satu aspek teknik yang aman untuk diuji dan catat volume/suhu awal/hasil nyata. Tidak ada target universal “aeration harus tepat X detik” yang berlaku pada semua pitcher dan formula.
+
 ## Situasi baru
 
 Seorang pelanggan memesan cappuccino dengan tekstur lebih airy daripada latte. Bagaimana kamu menjelaskan perbedaan target tanpa memaksakan satu durasi steam untuk semua pitcher?
