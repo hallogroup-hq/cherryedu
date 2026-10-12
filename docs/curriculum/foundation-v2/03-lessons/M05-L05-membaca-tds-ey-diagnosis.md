@@ -120,10 +120,11 @@ Staf berkata: “EY 23% berarti pasti overextracted dan minuman harus dibuang.�
 
 **Perbaikan:** “23% adalah angka estimasi dengan metode dan asumsi tertentu. Kita perlu memeriksa sampel, alat, kualitas pencicipan, dan tujuan resep sebelum menyimpulkan ada masalah. Ambang chart klasik bukan verdict universal.”
 
-## 7. Cek pemahaman
+## 7. Coba hitung sendiri
 
-**Q1.** 20 g kopi, 300 g minuman, TDS 1,35%. Berapa estimated EY?  
-**Jawab:** Massa terlarut 300 × 0,0135 = 4,05 g; EY = 4,05 / 20 × 100 = **20,25%**.
+[ACTIVITY:brew-ey]
+
+### Pertanyaan lanjutan
 
 **Q2.** Air masuk 300 g tetapi beverage mass 265 g. Angka mana dipakai dalam model EY berbasis cangkir?  
 **Jawab:** 265 g.
