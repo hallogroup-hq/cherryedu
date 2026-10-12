@@ -24,8 +24,8 @@ for(const file of all){
   const words=s.trim().split(/\s+/).filter(Boolean).length;
   const headings=(s.match(/^## /gm)||[]).length;
   if(!s.startsWith('# '))fail(file+': requires learner-facing title');
-  if(words<260)fail(file+': below 260 words of meaningful manuscript ('+words+')');
-  if(words<500)warning(file+': needs depth/SME editorial expansion before public release ('+words+' words)');
+  if(words<450)fail(file+': below revised 450-word minimum for instructional manuscript ('+words+')');
+  if(words<550)warning(file+': below recommended 550-word depth; SME must check conceptual completeness ('+words+' words)');
   if(headings<3)fail(file+': missing instructional progression');
   if(!/eksperimen|percobaan/i.test(s))fail(file+': no safe experiment or hypothesis exercise');
   if(!/prediksi|hipotesis|dugaan/i.test(s))fail(file+': no meaningful prediction/causal thinking');
@@ -126,7 +126,7 @@ const summary={
   moduleCounts: counts, learnerFiles: all.length, plannedModules: 12,
   plannedLessons: plannedCounts, authoredFirstBatch: all.length, blockersRemaining:[
     'Real instructional media not all produced or rights reviewed',
-    'Shorter draft lessons still need instructor-led depth expansion and novice test',
+    '450-word minimum is structural only; lesson-specific mechanism, visual, examples, prerequisites and novice comprehension still need expert review',
     'Interactive lab route needs full browser/mobile/accessibility QA and 68-lesson pedagogical review',
     'Expert review, novice test and practical supervision not complete',
     '36 open-response cases and 24 formative diagnostics exist; high-stakes exam psychometrics and practical verification remain pending',
