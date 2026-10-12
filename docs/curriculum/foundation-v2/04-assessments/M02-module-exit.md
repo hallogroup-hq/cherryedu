@@ -59,7 +59,7 @@ Apa prinsip seleksi yang paling dapat dipertanggungjawabkan?
 
 A. Singkirkan seluruh buah kuning meskipun itulah warna matang kultivar tersebut.  
 B. Terima semua buah kuning; untuk kultivar ini warna saja cukup menentukan mutu.  
-C. Tetapkan semua buah kuning sebagai Excelsa karena warnanya bukan merah.  
+C. Tetapkan buah kuning sebagai Excelsa.  
 D. Gunakan indikator kematangan kultivar dan periksa kondisi tiap buah.
 
 **Kunci: D.** Warna dapat menjadi petunjuk bila dikaitkan dengan kultivar, tetapi tidak menghapus kebutuhan menilai kerusakan/kematangan. **Distraktor:** A tidak memakai dokumen kultivar; B overtrust pada satu indikator; C mencampur warna dengan spesies.  
@@ -88,7 +88,7 @@ Langkah awal paling bertanggung jawab?
 A. Ganti varietas sekarang agar biaya pemantauan dan diagnosis dapat dihindari.  
 B. Tentukan dosis pestisida dari foto daun, tanpa pemeriksaan lokasi.  
 C. Catat kondisi per petak dan konsultasikan diagnosis lebih dulu.  
-D. Tunda seluruh pencatatan sampai ada kepastian penyakit dari pihak lain.
+D. Tunggu diagnosis sebelum membuat catatan.
 
 **Kunci: C.** Dokumentasi dan konsultasi agronomi dapat membantu menghindari tindakan yang salah sasaran dan berisiko. Pilihan tindakan baru dinilai setelah data memadai. **Distraktor:** A mengabaikan diagnosis/biaya; B tidak aman; D mengabaikan data lapangan yang perlu dicatat sejak awal.  
 **Rujukan balik:** M02.L05 §5–7. **Tag:** agronomy-single-magic-fix.
@@ -101,7 +101,7 @@ Kesimpulan yang didukung informasi itu adalah ...
 
 A. Identitas elevasi cukup untuk memprediksi profil rasa seduhan yang identik.  
 B. Perbedaan sensori yang kelak muncul pasti disebabkan varietas saja.  
-C. Karena label varietas sama, semua keputusan kebun juga harus sama.  
+C. Label varietas sama berarti pengelolaannya sama.  
 D. Evaluasi lingkungan dan pengelolaan; elevasi saja tidak cukup.
 
 **Kunci: D.** Kondisi lingkungan, genetik yang benar-benar diverifikasi dan praktik pengelolaan dapat berinteraksi. **Distraktor:** A menganggap elevasi penentu tunggal; B menolak variasi lingkungan; C menyamakan label kultivar dengan kebutuhan agronomi identik.  
@@ -130,7 +130,7 @@ Evaluasi paling tepat?
 A. Naungan memengaruhi kebun; itu cukup untuk membuktikan jeruk meresap ke biji.  
 B. Deskriptor citrus pada kopi memastikan kebun tersebut ditanami pohon jeruk.  
 C. Kedekatan tanaman jeruk tidak membuktikan transfer aroma ke biji.  
-D. Tanaman jeruk bisa memengaruhi lingkungan, maka semua kopi otomatis citrus.
+D. Kehadiran jeruk pasti membuat kopi citrus.
 
 **Kunci: C.** Tanaman pendamping bisa mengubah kondisi pertumbuhan, tetapi klaim mekanisme transfer aroma langsung membutuhkan bukti terpisah; klaim “semua hasil” berlebihan. **Distraktor:** A/B/D melompat dari hubungan ekologis atau deskripsi sensori ke kepastian mekanisme yang tidak diuji.  
 **Rujukan balik:** M02.L03 §3. **Tag:** agroforestry-aroma-transfer-myth.
