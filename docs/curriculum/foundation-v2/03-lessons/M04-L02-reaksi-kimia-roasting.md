@@ -24,6 +24,9 @@ Ketika suhu meningkat, jaringan mengalami transformasi. Sebagian zat terurai, se
 
 **Jangan menganggap satu aroma “karamel” berarti kristal karamel dimasukkan ke dalam kopi.** Itu adalah deskripsi sensori, dan hubungan antara molekul, campuran aroma dan persepsi tidak sesederhana satu senyawa = satu rasa.
 
+
+[VISUAL:roast-chemistry]
+
 ## 2. Apa itu reaksi Maillard?
 
 Reaksi Maillard adalah rangkaian proses kimia non-enzimatis yang melibatkan gula pereduksi serta gugus amino dari asam amino/protein. Jalur lanjutannya membentuk berbagai senyawa dan turut berkontribusi terhadap aroma serta pencokelatan.
@@ -91,6 +94,9 @@ Manajer berkata, “DTR sama berarti kedua rasa sama dan lulus QC.”
 Apa yang salah? **DTR tidak memberi informasi cukup** untuk menyimpulkan hasil sensorik. Catatan menunjukkan setidaknya perbedaan dalam lintasan suhu; apakah itu merupakan masalah sebenarnya perlu dibuktikan dengan pemeriksaan lebih lanjut, termasuk evaluasi warna, pencatatan mesin dan sensory.
 
 **Pertanyaan tambahan:** Apakah jeda pada pembacaan sensor pasti menunjukkan roasting gagal? **Tidak.** Bisa mencerminkan perubahan transfer energi, gangguan instrumen atau pengolahan data. Jangan memberi diagnosis tunggal dari grafik saja.
+
+
+[ACTIVITY:roast-chemistry-check]
 
 ## 8. Pemeriksaan pemahaman
 
