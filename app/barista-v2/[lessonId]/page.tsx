@@ -5,6 +5,7 @@ import { MarkdownRenderer } from '@/components/MarkdownRenderer';
 import { BaristaConceptLab } from '@/components/barista-v2/BaristaConceptLab';
 import { ExperimentNotebook } from '@/components/barista-v2/ExperimentNotebook';
 import { BaristaModuleCheckpoint } from '@/components/barista-v2/ModuleCheckpoint';
+import { LearningMechanismVisual } from '@/components/barista-v2/LearningMechanismVisual';
 
 export function generateStaticParams() {
   return BARISTA_V2_LESSONS.map(lesson=>({lessonId:lesson.id}));
@@ -29,6 +30,7 @@ export default function BaristaV2Lesson({params}:{params:{lessonId:string}}) {
       <div className="mt-8 border-t border-paper-300 pt-7">
         <MarkdownRenderer content={lesson.content}/>
       </div>
+      <LearningMechanismVisual lessonId={lesson.id}/>
       {lesson.order === 1 && <BaristaConceptLab moduleCode={lesson.moduleId}/>}
       {lesson.order === mod.count && <BaristaModuleCheckpoint moduleCode={lesson.moduleId}/>}
       <details className="group my-12 border-t border-paper-300 pt-5">
