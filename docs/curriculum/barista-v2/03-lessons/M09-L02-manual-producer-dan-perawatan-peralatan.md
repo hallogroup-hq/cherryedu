@@ -18,6 +18,26 @@ Buat tabel 'boleh operator / perlu konfirmasi / teknisi saja' untuk tindakan sep
 
 Tuliskan **pertanyaan eksperimenmu, hipotesis, prediksi, apa yang dikontrol, apa yang diamati, dan hasil seperti apa yang akan membuatmu mengubah keputusan**. Jika data hanya simulasi, tandai sumbernya. Kebersihan, keselamatan, alergen dan otorisasi lebih penting daripada ingin mencoba hal baru.
 
+## Manual adalah batas antara operator dan teknisi
+
+Barista berhak memahami bagaimana alat bekerja, tetapi tidak otomatis berwenang mengubah pressure valve, membuka panel listrik atau memperbaiki boiler. Mesin espresso memadukan panas, tekanan dan listrik; grinder mempunyai komponen bergerak yang dapat berbahaya. Kompetensi justru termasuk mengetahui kapan harus menghentikan eksperimen.
+
+| Tindakan | Kategori awal |
+|---|---|
+| Menimbang output dan mengamati indikator normal | Operator jika SOP membolehkan |
+| Cleaning bagian user-removable sesuai manual | Operator terlatih sesuai manual |
+| Membuka panel listrik ketika ada fault | Teknisi berwenang |
+| Mengubah komponen tekanan internal | Teknisi/otorisasi spesifik |
+| Melaporkan kebocoran panas | Stop-work dan eskalasi |
+
+Kategori ini harus dicocokkan dengan model peralatan nyata. Tidak semua mesin mempunyai langkah user-service yang sama.
+
+**Latihan diagnosis:** lampu fault menyala, shot tampak mengalir tidak normal, dan ada bau panas. Tuliskan laporan yang menyatakan **gejala**, bukan klaim komponen tertentu rusak. Sertakan waktu, model, dampak pesanan, siapa diberi tahu, dan status alat.
+
+**Transfer:** rekan senior berkata “di mesin lama aku biasa memperbaiki sendiri.” Mengapa pengalaman pada mesin lain tidak cukup sebagai izin untuk membuka bagian berisiko? Jelaskan respons profesional tanpa membuat konflik pribadi.
+
+**Eksperimen konsep:** jika ingin mempelajari preinfusion, lakukan perbandingan data yang disediakan instruktur atau fitur operator yang jelas diizinkan—bukan mengutak-atik katup internal.
+
 ## Transfer: kondisi berbeda
 
 Mesin otomatis menawarkan setting preinfusion baru. Kapan itu eksperimen resep yang diizinkan dan kapan perlu persetujuan headbar?
