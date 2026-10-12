@@ -45,6 +45,7 @@ export default function PathDetailPage() {
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [expandedModules, setExpandedModules] = useState<Record<string, boolean>>({
     'mod-f1': true,
+    'mod-fv2-m01': true, // Foundation V2 draft preview only; no effect on legacy modules
     'mod-b1': true,
     'mod-h1': true,
   });
