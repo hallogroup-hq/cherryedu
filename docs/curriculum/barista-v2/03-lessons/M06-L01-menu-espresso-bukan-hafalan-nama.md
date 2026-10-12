@@ -18,6 +18,22 @@ Buat peta empat minuman kedai, tulis variabel yang membedakan espresso, american
 
 Catat pertanyaanmu, hipotesis, prediksi, satu kondisi yang diubah, variabel kontrol, apa yang benar-benar diamati, dan informasi yang belum diketahui. Jika berlatih dengan simulasi, jangan menulis hasil seolah-olah kamu sudah mencicipi atau bekerja dengan mesin nyata. Eksperimen aman mengikuti pedoman mesin dan prosedur kedai.
 
+## Membaca menu melalui komponen, bukan nama
+
+Nama latte, cappuccino dan flat white bisa dipakai berbeda oleh tiap kedai. Mulailah dari resep aktual: coffee base, ukuran, susu atau air tambahan, target suhu, tekstur, serta toleransi pesanan.
+
+| Minuman | Variabel penting | Pertanyaan pelanggan |
+|---|---|---|
+| Americano | Espresso, air, penyajian | “Mau lebih pekat atau porsinya berbeda?” |
+| Latte | Espresso, jenis dan volume susu | “Ada kebutuhan khusus jenis susu?” |
+| Cappuccino | Coffee base dan target foam | “Lebih suka busa tebal atau halus?” |
+
+Jangan menebak kadar kafein hanya dari ukuran gelas; konsentrasi minuman dan jumlah kafein bukan pengukuran yang sama.
+
+**Eksperimen pemahaman:** pilih dua menu dengan dose espresso sama tetapi susu berbeda. Prediksikan perbedaan pengalaman, lalu tulis yang perlu diuji nyata: massa, suhu, tekstur dan sensori. Tanpa tasting, berhenti pada prediksi. Untuk permintaan “strong”, klarifikasi apakah maksudnya intensitas rasa atau kadar kafein.
+
+**Kondisi baru:** kedai mengganti ukuran gelas tetapi nama menu tetap. Apakah takaran kopi harus ikut berubah? Rancang proses verifikasi menu dan handoff antartim, bukan menyalin angka tanpa memahami tujuan rasa.
+
 ## Tantangan transfer
 
 Pelanggan meminta versi tanpa dairy karena alergi. Bagaimana memastikan bahan dan alat, bukannya sekadar mengganti nama susu?
