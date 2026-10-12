@@ -20,6 +20,21 @@ Bandingkan dua log shot dengan resep sama tetapi profil mesin atau definisi wakt
 
 **Catatan eksperimenmu:** tuliskan pertanyaan, hipotesis, variabel yang diubah, variabel yang dijaga, hasil yang *akan diukur*, risiko keselamatan, serta temuan yang akan membuatmu mengubah pendapat. Jika tanpa peralatan, gunakan data fiktif dan jangan mengarang pengamatan rasa.
 
+## Tekanan bukan angka magis
+
+Bayangkan mesin X menunjukkan angka tekanan pada sebuah gauge, sementara mesin Y memungkinkan preinfusion dan perubahan profil tekanan selama proses. Keduanya mungkin menghasilkan output 36 g, tetapi kamu tidak boleh memperlakukan pembacaan gauge sebagai pengukuran langsung tekanan pada setiap bagian coffee bed. Lokasi sensor, cara kontrol mesin bekerja, dan durasi proses perlu dicatat.
+
+| Hal yang ingin dibandingkan | Informasi yang perlu ada |
+|---|---|
+| Durasi shot X dan Y | Start time sama: dari tombol atau first drip |
+| Perbedaan tekanan | Lokasi gauge, unit dan manual kedua mesin |
+| Output cangkir | Massa beverage, dose, basket dan kondisi bubuk |
+| Mutu sensorik | Hasil cicip sebenarnya, bukan asumsi dari gauge |
+
+Jangan menulis “9 bar pasti ideal untuk semua espresso”. Di beberapa venue angka itu dipakai sebagai referensi teknis, tetapi resep yang layak tetap bergantung pada mesin, kopi, metode, dan target mutu kedai. **Tidak perlu bereksperimen mengubah pressure valve atau kelistrikan untuk memahami bahwa tekanan adalah variabel.** Itu wilayah servis yang hanya boleh dilakukan oleh pihak berwenang.
+
+**Simulasi:** dua log menunjukkan shot 30 detik dari tombol pada mesin X dan 25 detik dari tetesan pertama pada Y. Apa yang bisa dibandingkan secara langsung? Belum banyak. Tulis informasi tambahan yang dibutuhkan, lalu usulkan pelatihan observasi tanpa menyentuh konfigurasi berisiko. Jika ada gejala kebocoran panas atau bunyi listrik, pilih eskalasi terlebih dahulu.
+
 ## Tantangan transfer: kondisi berubah
 
 Head bar meminta pindah dari mesin manual ke otomatis saat ramai. Bagaimana kamu memastikan standar minuman tetap dapat diverifikasi? Bedakan pengaturan yang boleh dioperasikan, kalibrasi yang perlu dilakukan dan kondisi wajib eskalasi.
