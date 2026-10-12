@@ -195,3 +195,33 @@ test('farmer income sandbox teaches cost difference rather than label premium', 
   await expect(section).toContainText(/Rp\s*220\.000/);
   await expect(section).toContainText(/-Rp\s*80\.000/);
 });
+
+
+const completeFoundationV2Inventory = [
+  { module: '01', lessons: 3 },
+  { module: '02', lessons: 5 },
+  { module: '03', lessons: 7 },
+  { module: '04', lessons: 5 },
+  { module: '05', lessons: 6 },
+  { module: '06', lessons: 5 },
+  { module: '07', lessons: 5 },
+];
+
+for (const { module: moduleId, lessons } of completeFoundationV2Inventory) {
+  test('all M' + moduleId + ' learner pages render actual readable material', async ({ page }) => {
+    test.setTimeout(180_000);
+    for (let index = 1; index <= lessons; index++) {
+      const id = 'lesson-fv2-m' + moduleId + '-l' + String(index).padStart(2, '0');
+      const response = await page.goto('/paths/foundation-v2-preview/lessons/' + id, { waitUntil: 'domcontentloaded' });
+      expect(response?.status(), id + ' HTTP status').toBe(200);
+      const article = page.locator('article');
+      await expect(article, id + ' content area').toBeVisible();
+      await expect(article.locator('h1').first(), id + ' first learning heading').toBeVisible();
+      const prose = await article.innerText();
+      expect(prose.length, id + ' lesson length').toBeGreaterThan(500);
+      expect(prose, id + ' raw directive leakage').not.toMatch(/\[(?:VISUAL|ACTIVITY|DIAGRAM):[a-z0-9-]+\]/);
+      expect(prose, id + ' internal research leakage').not.toMatch(/SME review pending|Human learner test pending|Editorial source register/i);
+      await expect(page.getByRole('button', { name: /Tandai Selesai/i })).toHaveCount(0);
+    }
+  });
+}
