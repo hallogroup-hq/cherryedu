@@ -77,14 +77,9 @@ Angka tetap berguna untuk membandingkan batch **dalam sistem yang sama dengan ca
 
 ## 5. Urutkan perubahan dengan benar
 
-**Kasus simulasi:** Sebuah tim mencatat kondisi biji pada empat kesempatan, tanpa menunjukkan angka suhu atau menit.
+[ACTIVITY:roast-order]
 
-A. Warna hijau kekuningan, sangat keras.  
-B. Warna makin kuning, mulai muncul kesan aroma berubah.  
-C. Warna cokelat, struktur mengembang dan muncul bunyi retakan.  
-D. Warna lebih gelap, roast telah dilanjutkan sesudah bunyi awal.
-
-Urutan paling masuk akal: **A → B → C → D**, tetapi jangan memakai urutan sederhana ini sebagai bukti bahwa semua reaksi hanya terjadi pada satu kotak.
+Setiap tahap pada ilustrasi ini membantu mengamati perubahan fisik. Namun reaksi Maillard, pelepasan gas dan transformasi kimia lain **tidak terkurung dalam satu fase saja**.
 
 ### Coba jawab
 
