@@ -120,11 +120,9 @@ Panelis menulis “A enak, seger, kaya rasa buah-buahan. B pahit dan jelek.”
 
 **Tugas 2 — apa yang masih tidak diketahui?** Contoh: suhu minum, metode seduh, sampel terkode atau tidak, kesepakatan panelis lain, dan penjelasan apa yang dimaksud “buah”.
 
-**Tugas 3 — pilih confidence.** Mana lebih dapat dipertanggungjawabkan?
-- “A pasti blackcurrant karena lebih spesifik.”
-- “A memiliki asosiasi buah segar; aku belum yakin jenis buah tertentu.”
+**Tugas 3 — pilih tingkat keyakinan yang tepat.**
 
-**Jawaban:** Pernyataan kedua, bila memang itu batas kemampuan identifikasi pencicip. Spesifisitas tidak boleh dibuat-buat.
+[ACTIVITY:lexicon-confidence]
 
 ## 8. Ujian mini tanpa peralatan
 
