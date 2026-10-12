@@ -47,6 +47,40 @@ const APPENDIX_HEADINGS = Object.freeze({
   'M07.L05': 'Sumber dan status',
 });
 
+
+/**
+ * Inline lesson answer keys are authoring aids, not automatically visible
+ * learner feedback. Collapse a standalone **Jawaban:** / **Kunci:** paragraph,
+ * or the answer suffix of a one-line Q&A, into an explicit semantic solution
+ * block. This is *not* a grading engine, and it never runs on legacy V1.
+ */
+function hideImmediateAnswers(markdown) {
+  const label=/\*\*(?:Jawab(?:an)?|Kunci|Contoh jawaban|Pembahasan|Pilihan terbaik|Respons terbaik|Contoh perbaikan|Versi lebih baik)\s*:?\*\*/i;
+  let codeBlock=false;
+  const output=[];
+  for(const line of markdown.split('\n')){
+    if(/^\s*```/.test(line)){codeBlock=!codeBlock;output.push(line);continue;}
+    if(codeBlock){output.push(line);continue;}
+    const m=label.exec(line);
+    if(!m){output.push(line);continue;}
+    const start=m.index;
+    // Standalone answers, or answers paired with a "Q..." question on
+    // the same line. Do not hide a worked example inside normal prose.
+    const prefix=line.slice(0,start);
+    const rest=line.slice(start).trim();
+    const standalone=prefix.trim().length===0;
+    const onQuestion=/\*\*(?:Q\d+|Soal|Pertanyaan|A\.|B\.|C\.|D\.)/.test(prefix);
+    if(!standalone&&!onQuestion){output.push(line);continue;}
+    if(!standalone)output.push(prefix.trimEnd());
+    output.push('');
+    output.push('```solution');
+    output.push(rest);
+    output.push('```');
+    output.push('');
+  }
+  return output.join('\n');
+}
+
 function toLearnerMarkdown(lessonId, markdown) {
   const expected = APPENDIX_HEADINGS[lessonId];
   if (!expected) throw new Error('Unknown Foundation V2 lesson ID: ' + lessonId);
@@ -86,7 +120,7 @@ function toLearnerMarkdown(lessonId, markdown) {
   if (/\[(?:CLAIM|CAP|CVA|SEN|LEX|BIAS)-\d{1,3}\]/.test(lesson)) {
     throw new Error(lessonId + ': unstripped claim annotations');
   }
-  return lesson;
+  return hideImmediateAnswers(lesson);
 }
 
 module.exports = { APPENDIX_HEADINGS, toLearnerMarkdown };
