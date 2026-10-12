@@ -15,6 +15,9 @@ Padahal **yang dipetik adalah buah**, dan keputusan selepas panen menentukan bag
 
 Bayangkan kamu menerima tiga karung dari kelompok tani. Semuanya diberi label “kopi Gayo”, tetapi satu berisi ceri segar, satu berisi parchment kering, dan satu berisi green bean. Ketiganya **bukan bahan yang sama**, tidak membutuhkan proses lanjutan yang sama, dan tidak seharusnya dihitung sebagai kilogram produk akhir tanpa menyebut tahapnya.
 
+
+[VISUAL:coffee-journey]
+
 ## 1. Kenali bentuk produk pada setiap titik
 
 **Ceri segar:** buah kopi setelah panen, masih mencakup kulit, daging buah, mucilage, parchment, dan biji. Kondisi matang, kerusakan, kontaminasi, serta waktu penanganan penting.
@@ -72,6 +75,9 @@ Apa yang keliru? Pertama, berat pada tahap berbeda tidak bisa dibandingkan tanpa
 Pertanyaan yang perlu diajukan adalah: adakah neraca material per tahap, apakah sampel 10 kg hanya sebagian, dan apakah kode lot benar-benar unik?
 
 Jangan memakai persentase susut tunggal sebagai ukuran kualitas tanpa memahami basis perhitungannya.
+
+
+[ACTIVITY:green-lot-order]
 
 ### Latihan 1 — susun alur
 
