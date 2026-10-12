@@ -183,6 +183,15 @@ export const foundationV2Interactions: Record<string, Activity> = {
     ],
     model:'Contoh ringkas: tahan bagian lot dengan riwayat air tak jelas, jangan menyatakan skor 90 tanpa uji sesuai metode. Hitung biaya dan penerimaan secara terpisah, serta tinjau klaim asal/sustainability lewat bukti. Peta kekuasaan dan kerja dari sejarah kopi Jawa penting saat berbicara tentang nilai bagi produsen kini.',
   },
+  'excelsa-label-audit':{
+    kind:'workspace',title:'Periksa label sebelum mempercayai klaim',
+    intro:'Label ini sepenuhnya fiktif. Identifikasi klaim, bedakan jenis informasi, lalu ajukan bukti yang masuk akal. Jawabanmu hanya tersimpan di halaman selama terbuka.',
+    prompts:[
+      {label:'Klaim mana yang perlu diuji, dan mengapa?',hint:'Pilih setidaknya dua: nama Excelsa, asal Jawa Barat, aroma mangga, elevasi 1.200 mdpl, atau pernyataan taksonomi.'},
+      {label:'Bukti dan klarifikasi apa yang kamu minta?',hint:'Pisahkan dokumen asal lot, identitas bahan tanam, catatan kebun, dan deskripsi sensorik yang harus dicicipi.'}
+    ],
+    model:'Contoh: Excelsa dikenal sebagai nama perdagangan/umum, tetapi tidak otomatis membuktikan satu identitas ilmiah lot; Kew mencatat riwayat klasifikasi yang berubah, sehingga klaim bahwa klasifikasinya tidak pernah berubah salah. Jawa Barat dan 1.200 mdpl memerlukan catatan sumber lot dan kebun. Aroma mangga adalah deskripsi sensori yang dapat diperiksa dengan mencicipi, bukan bukti spesies. Minta dokumen asal, data bahan tanam dan catatan pencicipan; jangan menyatakan semua klaim sudah terbukti hanya dari teks kemasan.',
+  },
   'farm-income-sandbox':{
     kind:'income',title:'Berapa sisa setelah biaya, bukan sekadar kenaikan harga?',
     intro:'Masukkan skenario fiktif dengan satuan kg ceri yang sama. Angka tidak mewakili pendapatan petani sebenarnya dan bukan ukuran living income.',
