@@ -18,7 +18,7 @@ test.describe('Foundation V2 isolated editorial preview', () => {
     await expect(page.locator('article')).toBeVisible();
     await expect(page.locator('article')).toContainText('Apa yang sebenarnya kita rasakan saat minum kopi?');
     await expect(page.locator('article')).toContainText('Kenapa kita bisa mencium aroma');
-    await expect(page.getByRole('status')).toContainText(/Draft untuk review/);
+    await expect(page.getByRole('status')).toContainText(/Bacaan Publik \(Beta\)/);
     await expect(page.getByRole('button', { name: /Tandai Selesai|Selesai ✓/i })).toHaveCount(0);
     await expect(page.getByRole('button', { name: /^Simpan$|^Tersimpan$/i })).toHaveCount(0);
     await expect(page).toHaveURL(/foundation-v2-preview\/lessons\/lesson-fv2-m01-l01/);
