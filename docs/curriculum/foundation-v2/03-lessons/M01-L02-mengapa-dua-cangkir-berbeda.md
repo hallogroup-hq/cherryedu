@@ -157,6 +157,10 @@ Semua data di bawah **dibuat untuk latihan**. Angka dan komentar ini bukan hasil
 
 **Contoh jawaban:** Ulangi dua setelan beberapa kali, acak urutan penyajian, samakan kondisi pencicipan, lalu catat perbedaan yang berulang. Jika tersedia dua orang pencicip, bandingkan catatan keduanya sebelum membuka kode sampel.
 
+### Jejak P-17: satu kopi yang akan kita ikuti
+
+Sepanjang kelas, kita akan mengikuti **P-17, lot fiktif untuk latihan**. Di suatu bagian kamu melihat ceri dari kebun, pada bagian lain log processing, roast, brewing, sensori dan catatan pembayaran. **Semua nama dan angkanya simulasi; bukan data petani atau produk CherryEdu.** Kita sengaja belum tahu hasil rasanya agar tidak menebak karakter cangkir dari asal atau label.
+
 ## 7. Bagaimana mencari penyebab ketika datanya sangat sedikit?
 
 Perhatikan ucapan pelanggan: “Kopi ini asam banget. Berarti petaninya memetik terlalu muda, ya?”
