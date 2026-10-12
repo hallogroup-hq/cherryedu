@@ -18,7 +18,7 @@ export default defineConfig({
   },
   webServer: {
     command: 'npm run dev -- -p 3100',
-    url: 'http://127.0.0.1:3100/paths/foundation-v2-preview',
+    url: 'http://127.0.0.1:3100/paths/memahami-kopi-dari-hulu-ke-hilir',
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
     env: {
