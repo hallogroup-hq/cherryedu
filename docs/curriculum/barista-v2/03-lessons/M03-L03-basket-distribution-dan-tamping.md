@@ -20,6 +20,22 @@ Susun checklist pengguna: massa dose, basket, keringnya basket sesuai SOP, pendi
 
 **Catatan eksperimenmu:** tuliskan pertanyaan, hipotesis, variabel yang diubah, variabel yang dijaga, hasil yang *akan diukur*, risiko keselamatan, serta temuan yang akan membuatmu mengubah pendapat. Jika tanpa peralatan, gunakan data fiktif dan jangan mengarang pengamatan rasa.
 
+## Apa fungsi tiap langkah puck preparation?
+
+Perhatikan bed kopi sebelum air dialirkan. Dose menentukan banyak bubuk, tetapi belum menjamin bubuk tersebar merata. Distribusi bertujuan mengurangi ketidakseragaman sebelum tamp; tamp membantu membentuk permukaan bed yang stabil. Keduanya bukan kompetisi memakai gaya paling kuat atau alat paling mahal. Basket juga punya rentang kapasitas yang harus mengikuti model dan rekomendasi alat, bukan angka resep yang dipaksakan.
+
+Tiga contoh gejala berikut adalah **observasi**, bukan diagnosis pasti:
+
+| Observasi | Kemungkinan yang patut dicek | Klaim yang belum boleh dibuat |
+|---|---|---|
+| Shot menyemprot ke satu sisi | Distribusi bed, basket, grind, seal atau komponen terkait | Pasti hanya channeling akibat tamp |
+| Waktu shot berfluktuasi | Konsistensi dosis, giling, persiapan dan mesin | Shot tercepat pasti paling asam |
+| Permukaan bubuk miring | Prosedur distribusi/tamp dan cara basket ditangani | Rasa shot pasti buruk |
+
+Dalam eksperimen pelatihan, seorang barista dapat menyiapkan tiga puck dengan prosedur yang **sedekat mungkin identik**. Ulangi pengukuran dose dan waktu shot, lalu catat variasi. Bila perbaikan prosedur menghasilkan data lebih stabil, itu petunjuk berguna tetapi belum membuktikan semua variabel lain konstan. Kamera pada bottomless portafilter bisa membantu mengamati aliran, tetapi foto menarik saja tidak menunjukkan tingkat ekstraksi atau preferensi rasa.
+
+**Tantangan baru:** basket diganti dan kopi tampak penuh hingga mendekati permukaan portafilter. Apa yang harus diverifikasi sebelum menambah tekanan tamping? Tuliskan pertanyaan tentang kapasitas basket, headspace, pemasangan ke group, serta risiko kerusakan dan keselamatan. Jelaskan mengapa tindakan paling bertanggung jawab kadang adalah menunda percobaan sampai spesifikasi alat diketahui.
+
 ## Tantangan transfer: kondisi berubah
 
 Pada shift lain, basket diganti dengan ukuran berbeda. Apa yang perlu dicek sebelum menyalin dose 18 g? Jelaskan hubungan antara kapasitas basket, headspace, risiko mesin dan konsistensi prosedur.
