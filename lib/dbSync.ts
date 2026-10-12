@@ -1,12 +1,15 @@
 import { supabase, isSupabaseConfigured } from './supabase';
 import { User, PaymentTransaction, SubscriptionCycle } from './types';
 
+// Reviewer builds must never sync accounts, billing or private profile data.
+const IS_CURRICULUM_REVIEW = process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW === 'review-only';
+
 /**
  * Push user profile to Supabase `profiles` table.
  * Fault-tolerant: If the table has not been created yet, it fails silently without crashing.
  */
 export async function syncProfileToSupabase(user: User): Promise<void> {
-  if (!isSupabaseConfigured() || user.id === 'guest') return;
+  if (IS_CURRICULUM_REVIEW || !isSupabaseConfigured() || user.id === 'guest') return;
 
   try {
     // Check existing profile in Supabase first to guard against downgrading active Pro or Admin status
@@ -54,7 +57,7 @@ export async function syncProfileToSupabase(user: User): Promise<void> {
  * Fetch all registered user profiles from Supabase.
  */
 export async function fetchProfilesFromSupabase(): Promise<User[] | null> {
-  if (!isSupabaseConfigured()) return null;
+  if (IS_CURRICULUM_REVIEW || !isSupabaseConfigured()) return null;
 
   try {
     const { data, error } = await supabase
@@ -98,7 +101,7 @@ export async function updateProStatusInSupabase(
   cycle?: SubscriptionCycle,
   expiresAt?: string
 ): Promise<void> {
-  if (!isSupabaseConfigured() || userId === 'guest') return;
+  if (IS_CURRICULUM_REVIEW || !isSupabaseConfigured() || userId === 'guest') return;
 
   try {
     await supabase
@@ -120,7 +123,7 @@ export async function updateProStatusInSupabase(
  * Push payment transaction to Supabase `transactions` table.
  */
 export async function syncTransactionToSupabase(tx: PaymentTransaction): Promise<void> {
-  if (!isSupabaseConfigured()) return;
+  if (IS_CURRICULUM_REVIEW || !isSupabaseConfigured()) return;
 
   try {
     const payload: Record<string, any> = {
@@ -162,7 +165,7 @@ export async function syncTransactionToSupabase(tx: PaymentTransaction): Promise
  * Fetch all transactions from Supabase for Admin overview.
  */
 export async function fetchTransactionsFromSupabase(): Promise<PaymentTransaction[] | null> {
-  if (!isSupabaseConfigured()) return null;
+  if (IS_CURRICULUM_REVIEW || !isSupabaseConfigured()) return null;
 
   try {
     const { data, error } = await supabase
@@ -209,7 +212,7 @@ export async function updateTransactionStatusInSupabase(
   paidAt?: string,
   proofUrl?: string
 ): Promise<void> {
-  if (!isSupabaseConfigured()) return;
+  if (IS_CURRICULUM_REVIEW || !isSupabaseConfigured()) return;
 
   try {
     const updatePayload: Record<string, any> = {
@@ -238,7 +241,7 @@ export async function updateTransactionStatusInSupabase(
  * Delete a transaction permanently from Supabase.
  */
 export async function deleteTransactionFromSupabase(txId: string): Promise<void> {
-  if (!isSupabaseConfigured() || !txId) return;
+  if (IS_CURRICULUM_REVIEW || !isSupabaseConfigured() || !txId) return;
 
   try {
     await supabase.from('transactions').delete().eq('id', txId);
@@ -253,7 +256,7 @@ export async function deleteTransactionFromSupabase(txId: string): Promise<void>
 export async function fetchTransactionByIdFromSupabase(
   txId: string
 ): Promise<PaymentTransaction | null> {
-  if (!isSupabaseConfigured() || !txId) return null;
+  if (IS_CURRICULUM_REVIEW || !isSupabaseConfigured() || !txId) return null;
 
   try {
     const { data, error } = await supabase
