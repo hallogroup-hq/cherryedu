@@ -1,0 +1,74 @@
+name: Home Brewer V2 Authoring QA (No Deploy)
+
+on:
+  push:
+    branches:
+      - feat/home-brewer-v2-curriculum
+  pull_request:
+    paths:
+      - 'docs/curriculum/home-brewer-v2/**'
+      - 'scripts/generate-home-brewer-v2.cjs'
+      - 'scripts/validate-home-brewer-v2.cjs'
+      - 'lib/data/homeBrewerV2*'
+      - 'app/home-brewer-v2/**'
+      - 'components/home-brewer-v2/**'
+      - 'playwright.homebrewer.config.ts'
+      - 'tests/homebrewer/**'
+      - 'package.json'
+      - '.github/workflows/home-brewer-v2-qa.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: home-brewer-v2-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  curriculum-integrity:
+    name: 50 Lessons and 50 Learning Assessments
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/validate-home-brewer-v2.cjs
+      - run: node scripts/generate-home-brewer-v2.cjs
+
+  app-build:
+    name: Typecheck and Build (No Deploy)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+        env:
+          CHERRYEDU_HOME_BREWER_V2_REVIEW: enabled
+          NEXT_TELEMETRY_DISABLED: '1'
+          CI: 'true'
+
+  home-brewer-e2e:
+    name: 50 Lessons and Interactive Browser QA
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test -c playwright.homebrewer.config.ts
+        env:
+          CI: 'true'
+          CHERRYEDU_HOME_BREWER_V2_REVIEW: enabled
+          NEXT_TELEMETRY_DISABLED: '1'
