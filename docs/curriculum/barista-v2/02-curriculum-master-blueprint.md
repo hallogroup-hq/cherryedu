@@ -1,23 +1,40 @@
 # CherryEdu Barista Specialization V2 — Curriculum & Learning Experience Architecture
 
 **Stage:** 02 — blueprint candidate, amended for signature R&D as core competency; not implemented or student-reviewed  
-**Mission:** From first safe shift behind the bar to repeatable coffee service **and independent, commercially viable signature-beverage development**: define a creative brief, prototype coffee-led drinks, validate with real customers, cost, document and hand off an original recipe that another barista can reproduce.  
+**Mission:** Develop **independent barista judgment under changing conditions** (not obedience to one recipe), safe and repeatable coffee service, **and commercially viable, original signature-beverage development**: define a creative brief, prototype coffee-led drinks, validate with real customers, cost, document and hand off an original recipe that another barista can reproduce.  
 **Audience:** Foundation-level learners transitioning to bar work, working baristas needing a repeatable SOP, coffee shop teams; also supports no-machine learners with honest limits.  
 **Do not claim:** That an online-only completion proves professional bar competence or awards SCA/BNSP credentials.
 
 ## 1. Pedagogical contract (must pass on EACH lesson)
 
 - **First mental model, then terminology.** Show the physical object and purpose (portafilter, filter basket, group, burr) BEFORE grind distribution formulas and pressure curves.
+- **Principle before prescription.** The learner must explain what each variable controls, what evidence to observe, and what tradeoff a change may introduce. Recipes supplied by a head barista are useful operational baselines, **not universal laws**.
+- **Customer-responsive autonomy.** Teach clarification of ambiguous requests (stronger, less acidic, lighter, no dairy), safe substitutions and permitted recipe adjustments. The student must be able to ask the right follow-up question, not guess their meaning.
 - **Observe → predict → act → measure → decide → reflect.** Each lesson ends in an observable task, not an arbitrary 2-column “quiz”.
 - **No fake cards.** Distinct interaction types need real state and feedback, meaningful affordances, progressive reveal and keyboard/phone support. A long bulleted explanation is never presented as an interactive activity.
 - **Creative agency is core.** Learners must propose, prototype, evaluate, name, cost, operationalize and explain their own signature drink—not just memorize popular syrup pairings or replicate an instructor's menu.
 - **Theoretical knowledge and real skill are different claims.** Case-based desk exercises are genuine learning, but cannot establish real steaming, espresso, sanitation or customer service competence.
-- **No one magical number.** 9 bar, 1:2, 25–30 seconds, 55–65°C etc are contextual/illustrative, NOT automatically universal standards. Label recipe as example and teach controlled experimentation; safety ranges follow ingredient/equipment context.
+- **No one magical number.** 1:15 for filter coffee, 1:2 for espresso, 9 bar, 25–30 seconds, or any example temperature are **working reference points, not universal best outcomes**. State the intended beverage, roast/bean, brew method, grinder, water, sensory outcome, throughput and guest request. Explain that changing the water-to-coffee ratio can change concentration *and* extraction when brew water passes through the bed; bypass dilution is a different operation. Adjust in controlled trials, measure and taste again. Equipment and food-safety boundaries remain non-negotiable.
+- **Avoid false certainty in diagnosis.** One sour shot does not prove under-extraction, and one slow shot does not prove too-fine grind. Require multiple observations, competing hypotheses and meaningful checks, including machine, water, puck and customer preference.
+- **Safe SOP flexibility.** Respect menu specification, allergen/hygiene controls and authorized cafe procedures. Propose a tested adjustment within the venue's scope or escalate; do not teach unauthorized improvisation as competence.
 - **Safety-first gating.** Hot steam, pressure, chemicals, allergens, electrical faults, spoiled ingredients: stop-work and trained-personnel escalation have precedence over speed and beautiful latte art.
 - **Evidence & source QA.** Each lesson has learner-facing educational content PLUS separate references/claim-review appendix with publication or edition. Technical advice is reviewed by qualified barista trainer and relevant hygiene/safety specialist.
 - **Visuals that teach.** Espressogram/flow graph, real portafilter cutaway, grind distribution side-by-side, milk microfoam close-up, steam wand positions, pour sequence and physical bar work triangle; no stock images pretending to demonstrate equipment technique.
 - **No answer leakage.** Model solutions unlock after authentic attempt; scenario data differs from worked examples; final exams have plausible distractors without length-key cues.
 - **Plain, humane copy.** “Barista Specialization: Keterampilan Bar & Espresso” is a working CUSTOMER-FACING title candidate. Do not use “Sertifikasi Profesional Kompetensi Bar” before independent credential authorization.
+
+## Design principle: teach barista reasoning, not recipe obedience
+
+**North-star ability (Bahasa Indonesia):** "Barista bisa menjelaskan mengapa sebuah resep cocok pada kondisi tertentu, mengenali kapan kondisi berubah, dan mengambil keputusan berbasis bukti tanpa melanggar keamanan atau prosedur kerja." The complete reusable diagnostic method, scenario bank and acceptance rubric are maintained in [Adaptive Barista Reasoning Standard](./04-adaptive-barista-reasoning-standard.md).
+
+Every lesson and final assessment must distinguish:
+- **What must stay safe**: food hygiene, allergens, machine/electrical/steam hazards, cafe authorizations.
+- **What can be adjusted**: grinding, dose, yield, ratio, extraction process, water, temperature (within approved equipment/food conditions), sensory balance, drink assembly and service flow.
+- **What cannot be assumed**: a unique 'perfect' recipe, cause inferred from a single symptom, a guaranteed sensory effect, or guest meaning behind an ambiguous description.
+
+**Six-step learner method:** Clarify desired outcome → observe present constraints → rule out safety/authority violations → form plausible hypotheses → change one meaningful variable and measure/taste → explain tradeoffs, record and iterate. Under ambiguous results, choose another diagnostic test or escalate instead of performing arbitrary changes.
+
+**Non-negotiable QA:** A beautiful step-by-step recipe, an attractive image and even a working dose/yield calculator are insufficient if the learner cannot **transfer** the principle to a new scenario.
 
 ## 2. Proposed learning stages
 
@@ -47,11 +64,11 @@ The original production identifiers `mod-b1`–`mod-b10` are NOT to be silently 
 ### BV2.M02 — Menguasai Grinder & Espresso Pertama (7 lessons)
 1. Bean freshness/recipe as practical inputs, no premature origin deep dive.
 2. Burr grinder, adjustment mechanisms, retention/purging and safe handling.
-3. Dose (g), beverage mass/yield (g), time (s), brew ratio — distinguish all units.
+3. Dose (g), beverage mass/yield (g), time (s), brew ratio — distinguish all units, and compare different ratio choices for different sensory and service goals.
 4. Distribution and tamping: puck preparation sequences and effect of variation.
 5. Basic machine controls, group and portafilter; examples not “always 9 bar”.
 6. Pull and record first shots; a minimally sufficient observation log.
-7. Intro dial-in: comparison of two shots, hold everything except one change.
+7. Intro dial-in: comparison of two shots, hold everything except one change; then introduce a transfer case where the reference recipe no longer performs as expected.
 
 **Mastery:** Learner chooses a next intervention using a given shot log, records plausible settings and knows what remains unmeasured. **Media:** puck cross-section, grinder settings and extraction clip. **Practical:** supervised safe grinder/espresso operation.
 
@@ -60,7 +77,7 @@ The original production identifiers `mod-b1`–`mod-b10` are NOT to be silently 
 2. Assess acidity, bitterness, balance and body without “sour = under” certainty.
 3. Channeling and puck defects: what a bottomless shot can/cannot prove.
 4. Adjust recipe one variable at a time; handle changing beans/environment.
-5. Diagnose multi-factor inconsistency across 3 simulated shifts.
+5. Diagnose multi-factor inconsistency across 3 simulated shifts; contrast multiple plausible root causes and prioritize the cheapest safe test.
 6. Calibration log and service decision: remake, hold, maintenance escalation.
 
 **Mastery:** Analyze three unfamiliar espresso records and propose evidence-based, safe decisions. **Media:** side-by-side visually **real** espresso flow plus plotted logs. **Practical:** produce repeatable shots to trainer-approved recipe/tolerance, with measured variation.
@@ -86,9 +103,9 @@ The original production identifiers `mod-b1`–`mod-b10` are NOT to be silently 
 
 ### BV2.M06 — Filter & Batch Brewing untuk Layanan Bar (5 lessons)
 1. Filter setup & a reproducible recipe; equipment and water context.
-2. Grind, ratio, pour, brew time and sensory feedback, distinguishing controls from observations.
+2. Grind, ratio, pour, brew time and sensory feedback, distinguishing controls from observations; **1:15 is a starting example**, with justified deviations for a different bean, brewer, water or guest goal.
 3. Choose immersion/percolation/batch service by constraints.
-4. Serving multiple manual brews without losing measurements/labels.
+4. Serving multiple manual brews without losing measurements/labels; balance recipe adjustment with documented café handoffs and customer preference.
 5. Diagnose batch-brew concentration and bypass/holding limitations safely.
 
 **Mastery:** Adapt a service plan to a plausible ticket queue, maintaining order accuracy. **Media:** flow path comparison and queue simulator. **Practical:** measured filter brew repeatability.
@@ -104,9 +121,9 @@ The original production identifiers `mod-b1`–`mod-b10` are NOT to be silently 
 **Mastery:** Correctly sort barista-safe actions vs service technician escalation. **Media:** verified equipment model, hazard icon/photo and maintenance checklist. **Practical:** trainer-observed cleaning and lockout procedure.
 
 ### BV2.M08 — Hospitality & High-Volume Service (5 lessons)
-1. Ask good questions and explain coffee flavors without intimidating jargon.
-2. Allergen, intolerance and customer preference communication using neutral language.
-3. Handle a customer complaint without blame; clear remake policy.
+1. Interpret ambiguous requests such as 'strong', 'less acidic', 'less sweet', 'more coffee', 'dairy-free'; clarify desired experience before suggesting a change.
+2. Distinguish preference from allergy/intolerance; disclose cross-contact limits and never improvise unsafe substitutions.
+3. Handle a customer complaint without blame; decide when to remake, adapt within venue policy, explain alternatives or escalate.
 4. Ticket/order sequencing, teammate handoff and cross-shift traceability.
 5. Peak-hour simulation: throughput without skipping temperature, cleaning or identity labels.
 
@@ -145,7 +162,7 @@ The original production identifiers `mod-b1`–`mod-b10` are NOT to be silently 
 ### BV2.M11 — Bar Service & Signature Drink Capstone (5 lessons)
 1. Case intake: venue layout, staff roles, target customers, menu, signature proposal and equipment constraints.
 2. Service scenario A: opening, normal shift and serving the barista-designed signature alongside core beverages.
-3. Service scenario B: espresso drifts, ingredient unavailable, milk allergen uncertainty, concurrent complaint and rush-hour queue.
+3. Service scenario B: espresso drifts, grinder changes, a customer requests an unusual strength/acidity profile, an ingredient is unavailable, milk allergen uncertainty arises and several orders queue.
 4. Diagnose/recover: revise recipe or hold it; quality log, stop-work calls, technician escalation and cost/waste record.
 5. Deliver a final portfolio: repeatable SOP and costing for a signature beverage, product story, iteration evidence, service decisions, reflective dossier and career action plan.
 
@@ -183,7 +200,8 @@ If a visual would **materially teach physical mechanics**, a text-only fallback 
 - No mandatory fixed 3 MCQ per module. Start with an item pool sized to objectives and cognitive load, then **calibrate empirically**; never force quantity over validity.
 - Make 4-option MCQs have plausible wrong answers with similar length and voice; run longest-key, first-word, answer-position, giveaway and repeated-pattern checks.
 - Store correct answers and rationale in protected question bank, not leaked in initial presentation; don't claim exam integrity if all answers are client bundled.
-- Module exit must assess **transfer on an unseen case**, not memorized working examples.
+- Module exit must assess **transfer on an unseen case**, not memorized working examples. Each tested concept must include at least one altered condition and a defensible decision with explanatory rationale, uncertainty and follow-up measurement. Do not automatically mark a defensible alternative wrong because it differs from the head barista's recipe.
+- No single-score quiz can substitute for a **customer request clarification + safe tradeoff + hypothesis + proposed test**. Unusual customer requests are essential competency cases across the course, not a single hospitality-only topic.
 - Retries require item variants and feedback timing rules; preserve existing learners' historic attempts/version.
 
 ### Practical verification
@@ -224,7 +242,7 @@ Barista students must be able to repeat the R&D cycle **after the course**. Fast
 | Gate | Pass evidence | Current |
 |---|---|---|
 | B0 Baseline forensic audit | 30-lesson inventory, quiz-length leak, credential issue | **DOCUMENTED** |
-| B1 Syllabus / objective mapping | BNSP/SCA benchmark interpretation + novice progression + safety prioritization + a required signature R&D competency | **BLUEPRINT CANDIDATE; reviewer pending** |
+| B1 Syllabus / objective mapping | BNSP/SCA interpretation + novice progression + safety + signature R&D + **adaptive decisions under novel equipment, coffee and customer constraints** | **BLUEPRINT CANDIDATE; reviewer pending** |
 | B2 Content authoring | Complete lesson bodies, claim sources, novice mental-model checks | NOT STARTED |
 | B3 Instructional media | Actual rights-cleared teaching visuals / real motion demos where needed | NOT STARTED |
 | B4 Genuine interaction | Functional differentiated components, keyboard/mobile, feedback after attempt | NOT STARTED |
