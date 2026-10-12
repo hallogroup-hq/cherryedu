@@ -13,7 +13,9 @@
     "db:reset": "npx ts-node scripts/setup-db.ts --reset",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "test:e2e:report": "playwright show-report"
+    "test:e2e:report": "playwright show-report",
+    "test:foundation": "node scripts/validate-foundation-v2.cjs",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.6",
