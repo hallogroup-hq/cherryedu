@@ -16,6 +16,9 @@ Kita sering meringkas perubahan ini dengan satu kata: **roasting**. Tetapi prose
 
 Pada lesson ini kamu akan belajar **apa yang dapat diamati**, apa yang **mungkin sedang terjadi**, serta mengapa angka suhu pada layar mesin belum tentu memberi cerita utuh.
 
+
+[VISUAL:roast-stages]
+
 ## 1. Apa yang terjadi pada biji?
 
 Bayangkan satu biji hijau memasuki roaster. Biji menerima energi melalui permukaan dan udara di sekitarnya.
