@@ -70,7 +70,7 @@ export default function PathsPage() {
         <div className="flex items-center gap-2">
           <span className="font-mono text-cherry-700 font-bold">[!]</span>
           <span>
-            <strong>Prinsip Kurikulum CherryEdu:</strong> Anda wajib menyelesaikan seluruh 7 modul di Foundation Layer sebelum kredensial kelulusan jalur spesialisasi dapat diterbitkan.
+            <strong>Prinsip Kurikulum CherryEdu:</strong> Untuk memenuhi prasyarat jalur spesialisasi, selesaikan kelas Foundation utama. Materi pendamping dapat dipelajari secara bebas.
           </span>
         </div>
       </div>
@@ -78,7 +78,8 @@ export default function PathsPage() {
       {/* Grid of Paths */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
         {filteredPaths.map((path, idx) => {
-          const isFoundation = path.layer_type === 'foundation';
+          const isPublicReading = path.slug === 'foundation-v2-preview';
+          const isFoundation = path.layer_type === 'foundation' && !isPublicReading;
           const enrollment = enrollments.find(
             (e) => e.user_id === currentUser.id && e.learning_path_id === path.id
           );
@@ -108,7 +109,7 @@ export default function PathsPage() {
 
                   <div className="absolute top-3 left-3 flex gap-1.5">
                     <span className="font-mono text-[9px] uppercase tracking-widest px-2 py-0.5 bg-roast-950 text-crema-300 border border-roast-800 font-bold">
-                      {isFoundation ? 'VOL. 01 • WAJIB' : `TRACK 0${idx}`}
+                      {isPublicReading ? 'KELAS TERBUKA' : isFoundation ? 'VOL. 01 • WAJIB' : `TRACK 0${idx}`}
                     </span>
                     {!path.is_published && (
                       <span className="font-mono text-[9px] uppercase tracking-widest px-2 py-0.5 bg-paper-200 text-roast-700 border border-paper-400 font-bold">
@@ -181,7 +182,7 @@ export default function PathsPage() {
               <div className="p-6 pt-0">
                 {path.is_published ? (
                   <Link
-                    href={isAuthenticated ? `/paths/${path.slug}` : `/login?redirect=/paths/${path.slug}`}
+                    href={isPublicReading || isAuthenticated ? `/paths/${path.slug}` : `/login?redirect=/paths/${path.slug}`}
                     className={`w-full py-2.5 font-mono text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 transition-all border shadow-xs ${
                       isEnrolled
                         ? 'bg-roast-950 hover:bg-cherry-800 text-paper-50 border-roast-950'
@@ -190,7 +191,7 @@ export default function PathsPage() {
                         : 'bg-roast-950 hover:bg-cherry-800 text-paper-50 border-roast-950'
                     }`}
                   >
-                    <span>{isEnrolled ? 'Lanjutkan Pembelajaran' : (isAuthenticated ? 'Buka Silabus Lengkap' : 'Masuk untuk Buka Silabus')}</span>
+                    <span>{isPublicReading ? 'Mulai Belajar' : isEnrolled ? 'Lanjutkan Pembelajaran' : (isAuthenticated ? 'Buka Silabus Lengkap' : 'Masuk untuk Buka Silabus')}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 ) : (
