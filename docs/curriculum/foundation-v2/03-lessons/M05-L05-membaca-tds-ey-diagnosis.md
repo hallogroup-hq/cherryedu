@@ -33,6 +33,10 @@ Persamaan ini menggunakan TDS sebagai angka persen, bukan pecahan desimal. Jika 
 
 **Catatan metodologi:** Ini *perkiraan* jumlah zat kopi di **minuman yang dikumpulkan**, bukan selalu seluruh zat yang keluar dari partikel bubuk selama proses. Dalam immersion, sebagian cairan yang mengandung zat kopi masih tertahan bersama ampas; publikasi UC Davis secara khusus membahas kekeliruan metode neraca massa bila fraksi cairan tertahan diabaikan. [M01]
 
+### Jejak P-17 — hitungan yang akan kamu pakai lagi
+
+Dalam kasus integratif P-17 nanti, barista menggunakan **15 g** kopi, **240 g air masuk**, mengumpulkan **210 g minuman**, dan membaca **TDS 1,35%**. Pada model sederhana berbasis minuman terkumpul, zat kopi terlarut ≈ 210 × 0,0135 = **2,835 g**, sehingga EY ≈ **18,9%**. Angka simulasi ini membantu memisahkan *air masuk* dari *massa minuman*, bukan menilai rasa kopi sebagai “pasti enak”.
+
 ## 2. Hitung satu contoh langkah demi langkah
 
 **Data simulasi:**
