@@ -34,6 +34,10 @@ Kamu belum boleh menganggap massa minuman B atau C tepat sama dengan air masuk: 
 
 **Eksperimen dua jalur:** prediksikan perubahan yang diharapkan pada B dan C, lalu jelaskan apa yang harus dikontrol (lot, dose, grinder, brewer, air dan prosedur sejauh mungkin) dan apa yang perlu diukur (output, waktu, TDS jika alat tersedia, serta rasa bila benar-benar dicicipi). Jika hipotesis gagal, apakah penyebabnya aliran, retensi, pengukuran, atau asumsi awal yang perlu direvisi?
 
+## Uji konsep sebelum menyentuh alat
+
+Pelanggan berkata “kopinya kemarin terasa lebih jelas, tetapi aku tidak mau ukuran lebih kecil.” Jangan langsung menjawab dengan angka 1:14. Buat dua rencana: satu mengubah massa air melalui bed dan satu mempertahankan seduhan lalu melakukan bypass. Untuk masing-masing, prediksikan dampak yang mungkin, catat apa yang diketahui dan tidak diketahui, serta kriteria hasil yang relevan. Bila data cangkir tidak diukur atau dicicipi, kesimpulan tetap berada pada tingkat mekanisme, bukan rasa pasti. Komunikasi yang jujur lebih berguna daripada rasa yakin yang keliru.
+
 ## Tantangan transfer
 
 Customer minta tetap porsi besar tetapi lebih terasa kopi. Apa opsi yang layak dipertimbangkan tanpa otomatis memperkecil rasio?
