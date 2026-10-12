@@ -1,6 +1,29 @@
 # Foundation V2 — Learning Experience & Visual Aid Audit
 
-**Date:** 12 Oct 2026 • **Branch:** `release/foundation-v2-rc` • **Status:** PILOT IMPLEMENTED, **NOT** 36/36 UX COMPLETE.
+**Date:** 12 Oct 2026 • **Branch:** `release/foundation-v2-rc` • **Status:** PILOT HISTORICAL AUDIT, FOLLOWED BY 36/36 TECHNICAL LEARNING PASS; independent novice/SME and production approval remain **PENDING**.
+
+## Implementation addendum — 36-lesson remediation (12 October 2026)
+
+This earlier audit remains the historical baseline. The subsequent RC implementation includes:
+
+- **36/36 manuscripts received a selected meaningful diagram or real activity**; all 36 learner pages were opened and checked by Playwright at commit `63971bd` (CI [38258786527](https://github.com/hallogroup-hq/cherryedu/actions/runs/38258786527), 3/3 success). Later refinements require **their own fresh CI**; do not copy the old green status to newer commits.
+- **Botanical correction in M02.L02:** Liberica explained first as plant/species and market coffee; Excelsa classification after. A correct nested genus→species→variety view now separates geographic/trade names.
+- **Original explanatory media:** anatomy layers, maturity color caution, cherry→green chain, washed/natural/honey alternatives, wet hulling, fermentation variables, dry mill, roast color/curve, brew contact, dilution, water property comparisons, sensory/CVA, history, farmer value transfer and claim evidence. These are **conceptual diagrams**, not verified specimen photography or equipment measurement.
+- **Genuine exercises:** progressive classification, one-at-a-time cards, ordering with keyboard buttons, decision scenarios, extraction calculator, farmer revenue/cost sandbox, write-first worksheets for cup comparison, farm decisions, lot QC, one-variable brew test, cupping and capstone.
+- **Immediate answer disclosure:** common in-lesson model answers are compiled into expandable, initially collapsed feedback; specific large exposed exemplar sections in M03.L07 and M07.L05 moved to their internal editorial appendix or learner-mediated model. M01.L03 and M06.L04 duplicate fake tables removed; the related worksheet appears after the relevant example data.
+- **Consistent case P-17:** explicitly fictional recurring lot across harvest, processing, roasting, brewing, sensory and economic modules, with unchanged numbers and no invented claim of real farmer evidence.
+- **Platform safety:** isolated reviewer build remains uncredited; it does not create enrollments, XP, real certificates, payments or live sync. Neither Supabase production policy nor main branch was changed.
+
+### What is still NOT accomplished
+
+**These gaps are hard release blockers, not deferred optional polish.** The engineering and manuscript integration pass is not the same as scientifically reviewed photographic teaching media, validated assessment items, or observed beginner learning:
+1. Rights-cleared and botanically identified **real photographs** of coffee varieties/specimens, ripe/unripe fruit, green defects, roasting progression, and actual equipment. Original drawings explicitly say schematic and cannot replace all real photographs.
+2. Independent SME sign-off on new diagrams (taxonomy, tissue layers, fermentation process boundaries, batch roasting), safety, sensory and historical claims. The source papers are retained in the authoring appendix, not printed to students.
+3. Novice user sessions with a representative mix of learner abilities and no gear, measuring ability to explain Liberica and apply examples without reading answers.
+4. Full hands-on accessibility audit (screen-reader, keyboard, phone/tablet, low bandwidth) and physical performance review; browser smoke tests alone do not establish usability.
+5. Public release backend RLS, authenticated payment processing, secure edition-based progress storage and migration/rollback validation. See production release gatebook.
+
+**Release verdict: NOT PRODUCTION-READY.** The current 36-lesson pass proves functional page coverage only; quality and security need independent final gates.
 
 ## Why the current lesson experience failed
 
