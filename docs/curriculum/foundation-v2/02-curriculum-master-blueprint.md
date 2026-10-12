@@ -115,7 +115,7 @@
 - **Remediation:** If a student cannot demonstrate the concept, send them to the relevant explanatory example and a new variant of the case. Do not recycle identical answer order as a pass condition.
 
 
-## 5 — Lesson specifications (32 / 32)
+## 5 — Lesson specifications (33 / 33)
 
 **Format note:** Legacy IDs show content provenance only. Create stable new IDs during implementation after migration mapping is approved. A blank/NEW source means the lesson was absent as a standalone article. Outcome, required ideas, exercise and evidence below are mandatory authoring acceptance criteria, not the finished lesson text.
 
@@ -242,12 +242,21 @@
 - **Legacy source:** F4-2,F4-4,F2-1
 - **Reference anchor(s):** PROCESSING
 
-#### M03.L06 — Praktikum keputusan wet mill (simulasi)
-- **Observable outcome:** Memilih tindakan konservatif ketika permintaan produksi melebihi kapasitas pengeringan.
-- **Concept boundaries:** Production constraints; risk; monitoring; safety; process tradeoffs.
-- **Preferred learning treatment:** Branching case: musim hujan, jumlah batch, fasilitas dan catatan lot.
-- **Check for understanding / evidence:** Memo keputusan 150–250 kata atau structured-claim-evidence format.
-- **Mandatory misconceptions/guardrails:** Bukan pengganti pelatihan operator; jangan sarankan batch berisiko.
+#### M03.L06 — Dry mill, sortasi dan penilaian fisik green coffee
+- **Observable outcome:** Menjelaskan urutan hulling, sorting, physical defect checks, moisture and sample identity; membedakan temuan fisik dari deskripsi sensori maupun harga.
+- **Concept boundaries:** Dry mill and wet mill not interchangeable; hulling timing differs by process; screen size, density, optical sorting; physical defects and representative samples; current CVA physical assessment based on 2004 green grading; ISO 4149:2025; SCA-110 still in development at source check.
+- **Preferred learning treatment:** Sample handoff case, flow diagram and defect/lot identity table without copied licensed defect chart.
+- **Check for understanding / evidence:** Diagnose three red flags on an invented green-bean inspection sheet and list follow-up checks.
+- **Mandatory misconceptions/guardrails:** Don't claim zero defects means safe from toxins or guarantees excellent cup; don't treat SCA-110 as published; do not publish a universal binding numerical contract specification.
+- **Legacy source:** F1-2,F1-3,F4-4 (new explicit quality-control competency)
+- **Reference anchor(s):** SCA-CVA; SCA-STD; ISO-4149; FAO-OTA
+
+#### M03.L07 — Dari wet mill ke dry mill: keputusan lot (simulasi)
+- **Observable outcome:** Memilih tindakan konservatif saat kapasitas drying terbatas dan menindaklanjuti pemeriksaan fisik green coffee sebelum menjual lot.
+- **Concept boundaries:** Production constraints; drying risks; green grading and sampling; document traceability; hold/release/escalation decision.
+- **Preferred learning treatment:** Branching case: musim hujan, kapasitas drying, nomor lot, defect notes dan data yang hilang.
+- **Check for understanding / evidence:** Memo keputusan 150–250 kata dengan verdict HOLD / REQUEST EVIDENCE / PROCEED FOR REVIEW dan alasan; tidak boleh otomatis menyatakan layak jual.
+- **Mandatory misconceptions/guardrails:** Bukan pengganti operator QC; jangan menyatakan lot aman atau layak ekspor dari simulasi.
 - **Legacy source:** F4-1..F4-5
 - **Reference anchor(s):** PROCESSING
 
@@ -520,7 +529,7 @@ Every substantive technical assertion in the finished lesson must be auditable b
 |---|---|---|---|
 | M01 | None | F7-1 beginner overload, missing observation discipline | 1,8 |
 | M02 | M01 | F2-2 altitude; F2-4 Brix; F3-1 taxonomy; F2-3 agroforestry | 2,3 |
-| M03 | M02 | F4-2 osmosis; F4-5 fermentation risk; F4-3 honey labeling | 2,3,5 |
+| M03 | M02 | F4-2 osmosis; F4-5 fermentation risk; F4-3 honey labeling; drying/storage; NEW green coffee grading | 2,3,5 |
 | M04 | M03 | F5-2 fixed reaction temps; F5-3 drop temps; F5-4 resting | 4,5 |
 | M05 | M04 | F6-1 'hungry water'; F6-2 full solvent; F6-3 Mg flavor | 4,5 |
 | M06 | M01,M05 | F7-2 old protocol; F7-4 legacy scoring; F7-3 tongue zone | 1,6 |
@@ -530,7 +539,7 @@ Every substantive technical assertion in the finished lesson must be auditable b
 
 | Gate | Acceptance rule | What blocks progress |
 |---|---|---|
-| G02-A Curriculum integrity | 32 unique new lesson slots; each belongs to one module; full CLO mapping; prerequisites acyclic | Missing slot, duplicate, orphan outcome |
+| G02-A Curriculum integrity | 33 unique new lesson slots; each belongs to one module; full CLO mapping; prerequisites acyclic | Missing slot, duplicate, orphan outcome |
 | G02-B Scientific guardrail | Each P0 Stage01 issue assigned specific lesson + explicit disallowed claim | P0 unmapped or current standards called obsolete incorrectly |
 | G02-C Assessment alignment | Every lesson has evidence + module exit; every CLO has graded evidence and transfer | Pure trivia only; unscorable skill claims |
 | G02-D Accessibility | All required activities have no-equipment alternative and nonvisual text equivalent | Buying equipment required; audio-only evaluation |
@@ -540,6 +549,12 @@ Every substantive technical assertion in the finished lesson must be auditable b
 **Stage 02 status on 2026-10-12 (rev. 2: history core protected):** Blueprint drafted and self-consistency checks complete; **not yet expert approved or learner validated**. Gate G02-A and structural elements of G02-B–E are document-check candidates, not empirical passes. Stage 03 authoring may start as internal draft, but MUST NOT replace production before research/source/expert/learner gates.
 
 ## 12 — Reference registry (starting points, not citations for all specific claims)
+
+**New processing-quality anchors:**
+- **ISO-4149:** https://www.iso.org/standard/87699.html — ISO 4149:2025, green coffee visual/olfactory examination and foreign matter/defect methods (paid full text, do not reproduce).
+- **FAO-OTA:** https://www.fao.org/4/x6939e/X6939e04.htm — OTA risk from processing and storage; older guidance, corroborate current requirements.
+- **SCA-STD:** https://sca.coffee/research/coffee-standards — SCA-110 is **in development**, not published as of checked date 2026-10-12.
+
 
 **History sources used for M07.L01:**
 - **HISTORY-OXFORD:** Michel Tuchscherer (2024), *The Ethiopian and Yemeni Roots of Coffee*, Oxford Research Encyclopedia, https://academic.oup.com/edited-volume/61795/chapter-abstract/546047404 — historic uncertainty, origin, Kaldi as myth.
@@ -573,7 +588,7 @@ Proposed files for subsequent stages: `03-lessons/M01-L01.md` onward; `04-assess
 ## 14 — Blueprint acceptance checklist
 
 - [x] 7 module contracts defined.
-- [x] 32 lesson IDs specified without duplicate new slot (legacy sources may repeat intentionally).
+- [x] 33 lesson IDs specified without duplicate new slot (legacy sources may repeat intentionally).
 - [x] Every lesson has explicit observable outcome, boundaries, preferred teaching treatment and evidence.
 - [x] P0 issues routed to relevant lessons with disallowed misconceptions.
 - [x] Module exit and capstone scoring frameworks drafted.
