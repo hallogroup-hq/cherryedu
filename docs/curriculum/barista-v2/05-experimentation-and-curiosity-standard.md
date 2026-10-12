@@ -18,21 +18,22 @@ Experiments are not synonymous with signature drinks. Changing only the grind, a
 6. **Observe and reflect:** Record actual measurements, sensory feedback where tasted, contradictory evidence, uncertainty and unexpected outcomes—**not just success stories**.
 7. **Iterate:** Explain the next test, keep the result, revise the original idea or stop because the evidence/risk warrants it.
 
-## Representative mini-labs (one reasoning opportunity per related lesson)
+## Representative mini-labs — 12-module mapping
 
-| Module | Learner question / experiment | What must be controlled or stated |
+| Module | Experiment / question | Controls and safety |
 |---|---|---|
-| M01 Bar setup | What changes when the tool layout is rearranged? | Safe reach, spill hazards, service context; no unsafe speed competition |
-| M02 Espresso basics | How does beverage mass affect a given shot profile? | Same dose, grinder, machine and lot where practical; compare measured yield and actual taste if experienced |
-| M03 Dial-in | Why does identical recipe yield a different result after a bean change? | Separate equipment/coffee factors, competing hypotheses and prioritized safe tests |
-| M04 Milk | How does aeration versus texturing influence foam? | Same milk type/volume and approved operation; temperature/safety and actual texture evidence |
-| M05 Menu | What does a customer mean by 'stronger' and which recipe choice best meets it? | Clarification question, beverage style and tradeoffs; do not infer caffeine from intensity |
-| M06 Filter | What changes when 1:15 becomes 1:16 for one brewer/coffee? | Identical dose/grind/pour where appropriate; changing water may also alter extraction, not simply dilute |
-| M07 Equipment | Can we isolate why a group is underperforming without opening the machine? | User-safe checks only; escalate faults or electrical/pressure hazards |
-| M08 Hospitality | Which of two explanations helps a customer make an informed choice? | Respectful scripts, customer context; do not label personal preference objectively right/wrong |
-| M09 Costs | How do waste and ingredient yield affect the true recipe cost? | Units, finite amounts, documented assumptions and sensitivity analysis |
-| M10 Signature Lab | Does a novel ingredient genuinely improve the coffee-led concept? | Design brief, controlled variants, ingredient/allergen safety, blind or balanced tasting when real |
-| M11 Capstone | What should the barista experiment with first when multiple symptoms change? | Safe prioritization, minimal viable measurement and versioned decisions |
+| M01 | Does a station layout change safe order handoff? | Safe reach, clean/dirty zones, no speed competition |
+| M02 | How do two brew-water ratios differ with one coffee? | Coffee dose, grinder, water, brew method and measured vs perceived outcomes |
+| M03 | What changes when espresso beverage yield changes? | Stable dose/grind where practical; distinguish mass and taste |
+| M04 | Why does a familiar shot vary when one condition changes? | Competing hypotheses, minimal safe tests, actual readings |
+| M05 | How do controlled milk aeration changes affect texture? | Same milk, temperature safety, authorized wand use |
+| M06 | What shifts taste if a beverage construction variable changes? | Defined recipe, no allergen improvisation |
+| M07 | When should a service-filter recipe change for different goals? | Brewer, flow, dose and controlled variables |
+| M08 | Which clarification question improves an unusual customer request? | Respectful evidence, privacy and allergy limits |
+| M09 | Which user-safe inspection helps distinguish a fault before escalation? | Never open electrical/pressurized equipment |
+| M10 | How do usable yield and waste influence unit cost? | Explicit money and quantity units |
+| M11 | Does a new signature ingredient improve a defined sensory goal? | Hypothesis, blind trial where feasible, ingredients and food safety |
+| M12 | Which next experiment is most informative under multiple failures? | Safety first, plausible causes, documented limits |
 
 ## True interactive teaching pattern
 
