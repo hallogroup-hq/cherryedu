@@ -116,8 +116,11 @@ function BrewEY() {
   const [tds, setTds] = useState('1.35');
   const [show, setShow] = useState(false);
   const d = Number(dose), b = Number(beverage), t = Number(tds);
-  const valid = Number.isFinite(d) && Number.isFinite(b) && Number.isFinite(t) && d > 0 && d <= 100 && b > 0 && b <= 2500 && t > 0 && t <= 15;
+  const inputsValid = Number.isFinite(d) && Number.isFinite(b) && Number.isFinite(t) && d > 0 && d <= 100 && b > 0 && b <= 2500 && t > 0 && t <= 15;
   const soluble = b * t / 100, ey = soluble / d * 100;
+  // Extracted solubles cannot exceed the starting dry coffee mass.
+  // A mathematically computable percentage is not necessarily physically possible.
+  const valid = inputsValid && Number.isFinite(soluble) && Number.isFinite(ey) && ey <= 100;
   const inputs = [
     { id: 'dose', label: 'Dosis kopi kering (g)', value: dose, set: setDose },
     { id: 'beverage', label: 'Minuman terkumpul (g)', value: beverage, set: setBeverage },
@@ -131,6 +134,9 @@ function BrewEY() {
           className="mt-1 w-full text-base px-3 py-3 border border-paper-300 rounded-lg text-roast-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cherry-700"/>
       </label>)}
     </div>
+    {inputsValid && !valid && <p role="alert" className="text-sm leading-6 text-rose-800">
+      Periksa angka yang dimasukkan: perkiraan zat terlarut melebihi massa kopi kering awal (EY di atas 100%). Kombinasi ini tidak mungkin secara fisik.
+    </p>}
     <button type="button" disabled={!valid} className={btn + ' bg-roast-950 text-white disabled:opacity-30'} onClick={() => setShow(true)}>Hitung estimasi EY</button>
     {show && valid && <div role="status" aria-live="polite" className="bg-paper-100 rounded-lg border border-paper-300 p-4">
       <p className="text-xs text-roast-600">Estimasi extraction yield dari minuman terkumpul</p>
