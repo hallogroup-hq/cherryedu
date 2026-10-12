@@ -18,6 +18,23 @@ Buat log tiga hari dengan jenis waste, sebab mungkin, massa, harga satuan dan ap
 
 Tuliskan **pertanyaan eksperimenmu, hipotesis, prediksi, apa yang dikontrol, apa yang diamati, dan hasil seperti apa yang akan membuatmu mengubah keputusan**. Jika data hanya simulasi, tandai sumbernya. Kebersihan, keselamatan, alergen dan otorisasi lebih penting daripada ingin mencoba hal baru.
 
+## Waste berbeda dari semua bahan yang terpakai untuk training
+
+Kedai melakukan 20 shot untuk latihan, masing-masing dose 18 g. Tiga shot tidak disajikan karena tidak sesuai standar internal. Massa kopi pada tiga shot itu 3 × 18 = 54 g. Jika harga pembelian kopi Rp250.000/kg, nilai bahan kopi pada ketiga shot adalah 54/1.000 × Rp250.000 = **Rp13.500**. Perhitungan ini belum memasukkan purging, listrik, tenaga, air maupun pengeluaran lain.
+
+| Kategori | Pertanyaan evaluasi |
+|---|---|
+| Trial terencana | Apa tujuan dan berapa ulangan perlu? |
+| Shot karena salah tiket | Bagaimana kegagalan handoff terjadi? |
+| Susu tersisa | Apa sebab dan apakah aman/diizinkan disimpan? |
+| Stock expiry | Apakah rotasi, pengadaan atau label bermasalah? |
+
+Tidak semua bahan untuk calibration adalah “mubazir”. Dial-in terencana bisa penting bagi kualitas. Targetnya adalah mengurangi percobaan tanpa arah, bukan memaksa 100% nol bahan training dengan risiko minuman buruk.
+
+**Eksperimen efisiensi:** selama tiga shift fiktif, bandingkan jumlah remake sebelum dan sesudah format handoff diperbaiki. Apa variabel lain yang mungkin berubah—staffing, order mix, lot kopi—dan mengapa kamu tidak bisa langsung mengklaim seluruh penurunan disebabkan form baru?
+
+**Kondisi baru:** pemilik mengusulkan meniadakan seluruh trial. Buat argumentasi menggunakan biaya, risiko produk tidak konsisten, dan opsi trial terbatas yang terukur.
+
 ## Transfer: kondisi berbeda
 
 Coffee shop ingin memangkas 100% waste, termasuk calibration shots. Apa risiko pada kualitas dan bagaimana kamu menjelaskan tradeoff?
