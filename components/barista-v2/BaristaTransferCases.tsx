@@ -81,7 +81,7 @@ export function BaristaTransferCases({moduleCode}:{moduleCode:string}){
    </div>}
   </div>
   <div className="border-t border-paper-300 pt-4 text-xs leading-6 text-roast-700">
-   Tidak ada progres atau jawaban yang disimpan otomatis ke akun. Latihan ini menguji pemikiran pada dataset contoh, bukan kemampuan praktik bersertifikat.
+   Jawabanmu tidak disimpan otomatis ke akun. Ini latihan mandiri, bukan hasil penilaian profesi. Latihan ini menguji pemikiran pada dataset contoh, bukan kemampuan praktik bersertifikat.
   </div>
  </section>;
 }
