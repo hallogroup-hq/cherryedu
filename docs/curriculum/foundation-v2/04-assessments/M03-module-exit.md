@@ -9,6 +9,8 @@ pilot_mastery: "Draft proposal 8 of 10 correct AND safety-critical issues remedi
 
 # Modul 03 — Assessment Pack: Apa yang terjadi setelah panen?
 
+> **Editorial update 2026-10-12:** revised all answer options to remove length cues and improve plausible misconceptions; answer positions/IDs unchanged; domain-expert and learner validation remain outstanding.
+
 **Prinsip:** Peserta tidak dinilai atas kemampuan mengoperasikan peralatan fermentasi atau memberi izin keamanan pangan. Yang diukur adalah pemahaman proses fisik, interpretasi catatan dan keputusan yang aman ketika bukti belum cukup.
 
 Kunci dan pembahasan di bawah merupakan *author draft*. Saat diimplementasikan ke UI, kunci dan pembahasan jangan dibuka sebelum pengguna menjawab. Kategori keamanan kritis memerlukan remediasi sekalipun total nilainya tinggi. Angka kelulusan **8/10** adalah hipotesis produk untuk dikalibrasi, bukan nilai resmi industri.
@@ -18,20 +20,20 @@ Kunci dan pembahasan di bawah merupakan *author draft*. Saat diimplementasikan k
 ### M03-Q01: Parchment yang mana?
 Pada washed coffee, bahan yang lazim masuk pengeringan setelah mucilage dihilangkan adalah ...
 
-A. Biji sangrai tanpa silverskin  
-B. Buah utuh yang belum diproses  
-C. Parchment coffee yang masih melindungi biji  
-D. Biji hijau yang sudah disortir dan dikemas ekspor
+A. Parchment coffee yang masih berlapis kulit tanduk.
+B. Green coffee setelah kulit tanduk dilepas di dry mill.
+C. Roasted bean sesudah silverskin lepas selama sangrai.
+D. Ceri utuh yang masih mengandung kulit dan daging buah.
 
 **Kunci C.** Proses washed umumnya mengeringkan parchment coffee sebelum hulling. **A** dan **D** terlalu jauh dalam rantai; **B** lebih dekat natural. Rujuk M03.L01.
 
 ### M03-Q02: Apa yang membedakan wet hulling?
 Ciri paling menentukan giling basah dibanding hulling setelah pengeringan lazim adalah ...
 
-A. Parchment dihilangkan ketika biji masih lebih lembap, lalu green bean ditangani/dikeringkan lebih lanjut.  
-B. Biji selalu ditambahkan madu saat fermentasi.  
-C. Proses ini tidak bisa melibatkan tahap washed sama sekali.  
-D. Hulling berarti menggiling kopi sangrai menjadi bubuk.
+A. Kulit tanduk dilepas saat biji masih relatif lembap.
+B. Kulit tanduk dilepas sesudah biji mencapai kondisi kering.
+C. Seluruh daging buah dipertahankan sampai akhir pengeringan.
+D. Buah utuh difermentasi sebelum kulitnya mulai dipisahkan.
 
 **Kunci A.** Ini terkait waktu dan kondisi hulling, bukan rasa atau penambahan bahan. Rujuk M03.L03.
 
@@ -40,40 +42,40 @@ D. Hulling berarti menggiling kopi sangrai menjadi bubuk.
 ### M03-Q03: Menanggapi “natural harus blueberry”
 Brosur menyebut “Natural Process = Blueberry Guarantee”. Bagaimana kamu memperbaikinya?
 
-A. “Natural pasti selalu lebih asam daripada washed.”  
-B. “Blueberry membuktikan gula buah berpindah seluruhnya melalui osmosis.”  
-C. “Semua natural buruk dan tidak layak specialty.”  
-D. “Natural menjelaskan penanganan ceri utuh; hasil sensorinya bisa berbeda sesuai bahan, pengolahan dan tahapan berikutnya.”
+A. Natural lebih sering berarti penambahan sari buah fermentasi.
+B. Blueberry di label menandakan buah blueberry ditambahkan.
+C. Seluruh kopi natural perlu menunjukkan aroma buah beri.
+D. Natural menjelaskan bentuk ceri saat pengeringan, bukan rasa.
 
 **Kunci D.** Nama proses tidak menjamin satu deskriptor. Rujuk M03.L02.
 
 ### M03-Q04: Label “Anaerobic 96h”
 Produsen menyertakan label “anaerobic 96h”, tetapi tidak memberi penjelasan kondisi proses. Apa pertanyaan pertama yang terbaik?
 
-A. Apakah aroma nanas pasti muncul jika waktunya tepat 96 jam?  
-B. Bagaimana buah ditangani, apa konfigurasi wadah, apa yang dipantau, dan bagaimana lot serta risiko ditelusuri?  
-C. Apakah semakin banyak hari pasti semakin enak?  
-D. Apakah pH tertentu otomatis membuktikan bebas patogen?
+A. Bisakah suhu wadah saja memprediksi aroma batch ini?
+B. Apa catatan bahan, wadah, waktu, suhu dan kontrol risiko?
+C. Apakah 96 jam cukup untuk memastikan seluruh lot seragam?
+D. Apakah durasi saja dapat menggantikan uji pada hasil akhir?
 
 **Kunci B.** Meminta parameter nyata tanpa mengarang inferensi. Rujuk M03.L04.
 
 ### M03-Q05: Air masuk gudang
 Setelah hujan, satu karung green coffee menunjukkan bekas kelembapan; belum ada hasil inspeksi baru. Tindakan awal yang tepat?
 
-A. Pisahkan/tahan sesuai kewenangan dan eskalasi untuk evaluasi berdasarkan SOP; jangan klaim aman.  
-B. Campurkan ke lot lain agar kelembapan rata.  
-C. Langsung sangrai semua; panas pasti menghilangkan seluruh kontaminan.  
-D. Tambah label “premium” karena terlihat sedikit lebih gelap.
+A. Tahan lot terdampak, catat dan eskalasi pemeriksaan QC.
+B. Jemur ulang tanpa dokumentasi insiden karena sudah kering.
+C. Pindahkan ke karung baru dan hapus informasi rembesan.
+D. Campurkan dengan lot kering agar rerata moisture normal.
 
 **Kunci A.** Ada red flag, tidak ada clearance. Rujuk M03.L05.
 
 ### M03-Q06: No visual safety guarantee
 Saat sortasi green, beberapa biji tampak kurang seragam tetapi bahan asing tidak terlihat pada satu genggam sampel. Apa kesimpulan yang layak?
 
-A. Keseluruhan lot pasti bebas kontaminan karena tidak ada benda asing di tangan petugas.  
-B. Seluruh lot pasti tidak berkualitas karena ukuran tak sama.  
-C. Hasil pemeriksaan satu genggam belum tentu mewakili lot; perlu metode sampling dan spesifikasi penilaian yang sesuai.  
-D. Keseragaman warna selalu berarti skor cupping setidaknya 90.
+A. Pemeriksaan segenggam bisa mewakili semua karung jika warna mirip.
+B. Keseragaman bentuk cukup untuk memprediksi skor cupping tinggi.
+C. Keterwakilan sampel perlu diuji sebelum klaim seluruh lot.
+D. Sampling lebih penting saat ada defect terlihat daripada saat tidak.
 
 **Kunci C.** Perlu keterwakilan, standar metode, dan pemisahan penilaian fisik-sensorik. Rujuk M03.L06.
 
@@ -84,10 +86,10 @@ D. Keseragaman warna selalu berarti skor cupping setidaknya 90.
 
 Apa respons tepat?
 
-A. Benar, keduanya selalu angka sama setelah dibagi 100.  
-B. Moisture content dan water activity adalah parameter berbeda; nilai a_w tidak dapat disimpulkan dengan pembagian itu.  
-C. Nilai a_w hanya istilah lain untuk TDS.  
-D. Moisture content 11% membuktikan tidak ada mikotoksin.
+A. Kadar air dan a_w selalu setara bila suhu pengukur sama.
+B. Kadar air dan a_w mengukur besaran berbeda, bukan konversi.
+C. Aktivitas air adalah satuan baru untuk kadar zat terlarut.
+D. Nilai a_w menentukan langsung ada atau tidaknya mikotoksin.
 
 **Kunci B.** Skala dan makna fisika berbeda. Rujuk M03.L05.
 
@@ -96,20 +98,20 @@ D. Moisture content 11% membuktikan tidak ada mikotoksin.
 
 Keputusan awal yang paling aman?
 
-A. P-21 lanjut untuk pemeriksaan berikutnya; P-22 hold dan eskalasi. Keduanya belum otomatis lulus seluruh persyaratan jual.  
-B. Keduanya langsung layak ekspor karena berasal dari kebun sama.  
-C. P-22 dijemur ulang lalu diberi kode P-21 tanpa catatan.  
-D. P-21 otomatis memiliki sensory score lebih tinggi.
+A. Lanjutkan P-21 ke pemeriksaan; tahan P-22 untuk evaluasi.
+B. Luluskan P-21 sepenuhnya, dan sortir P-22 tanpa mencatat.
+C. Tahan kedua lot sampai label sensori dinilai oleh pelanggan.
+D. Campurkan P-22 dengan P-21 lalu gunakan hasil QC P-21.
 
 **Kunci A.** Bukti berbeda menuntut keputusan berbeda; jangan menyamakan review dengan clearance. Rujuk M03.L07.
 
 ### M03-Q09: Standar fisik
 Tim pemasaran menulis: “SCA-110 telah diterbitkan, sehingga semua lot dengan warna hijau dapat dinyatakan specialty tanpa sensory test.” Menurut halaman SCA yang diperiksa pada 12 Oktober 2026, apa koreksi paling tepat?
 
-A. Warna hijau berarti dapat menghilangkan seluruh tahap QC.  
-B. Hanya ISO yang mengatur penilaian preferensi sensory.  
-C. Standar fisik dan deskriptif sebenarnya tidak ada.  
-D. SCA-110 masih dalam pengembangan; evaluasi fisik berbeda dari sensori, dan interpretasi harus menyebut standar serta versinya.
+A. SCA-110 kini wajib dipakai sebagai satu-satunya skor rasa.
+B. Metode fisik cukup untuk memverifikasi preferensi konsumen.
+C. CVA mengganti seluruh pemeriksaan green bean menjadi aroma.
+D. SCA-110 belum final; pisahkan pemeriksaan fisik dan sensori.
 
 **Kunci D.** Status standar penting; satu pemeriksaan bukan seluruh CVA. Rujuk M03.L06, situs SCA standar dan CVA.
 
@@ -118,10 +120,10 @@ D. SCA-110 masih dalam pengembangan; evaluasi fisik berbeda dari sensori, dan in
 ### M03-Q10: Klaim gabungan berisiko
 Manakah kalimat yang **paling perlu ditolak** sebagai instruksi kurikulum pemula?
 
-A. “Periksa kondisi bahan awal, catatan proses, dan kebutuhan evaluasi lanjutan.”  
-B. “Durasi proses, mikrobiologi, serta keadaan pengeringan dapat memengaruhi hasil.”  
-C. “Gunakan tangki tertutup bertekanan selama 120 jam dan cukup cek satu angka pH untuk memastikan kopi aman serta pasti fruity.”  
-D. “Jika menemukan tanda air masuk ke gudang, tahan dan laporkan untuk inspeksi.”
+A. Periksa catatan bahan dan perubahan suhu sebelum menyimpulkan aroma.
+B. Evaluasi perubahan fermentasi serta pengeringan sebagai dua tahap berbeda.
+C. Gunakan tangki tertutup bertekanan selama 120 jam dan cukup cek satu angka pH untuk memastikan kopi aman serta pasti fruity.
+D. Tahan lot dengan dugaan kerusakan gudang dan gunakan prosedur QC.
 
 **Kunci C.** Berisi instruksi operasional berbahaya dan dua klaim tak terbukti: satu pH menjamin keamanan, dan proses menjamin rasa. **Ini item safety-critical**; jawaban keliru wajib mendapat remediasi terarah walaupun skor total tinggi. Rujuk M03.L04 & L05.
 
