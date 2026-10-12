@@ -71,6 +71,12 @@ Keduanya membantu mencapai target awal Foundation: memisahkan pengamatan, prefer
 
 Pada tahap Foundation, kita tidak akan memaksakan pengukuran intensitas yang tampak presisi seperti 7,3/10. Jika perlu, gunakan “lemah/sedang/kuat” sebagai **skala pribadi sementara**, bukan skor laboratorium atau CVA.
 
+## 3. Lembar pengamatan yang bisa diisi
+
+Kamu tidak harus memiliki kopi atau alat. Jika menggunakan catatan simulasi di bawah, **kamu sedang memeriksa laporan orang lain, bukan mencicipi lewat layar**.
+
+[ACTIVITY:cup-compare-notes]
+
 ## 3. Lembar pengamatan yang bisa langsung dipakai
 
 Salin format ini ke catatan atau isi di buku.
