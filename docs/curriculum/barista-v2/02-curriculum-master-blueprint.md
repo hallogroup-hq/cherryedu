@@ -10,7 +10,8 @@
 - **First mental model, then terminology.** Show the physical object and purpose (portafilter, filter basket, group, burr) BEFORE grind distribution formulas and pressure curves.
 - **Principle before prescription.** The learner must explain what each variable controls, what evidence to observe, and what tradeoff a change may introduce. Recipes supplied by a head barista are useful operational baselines, **not universal laws**.
 - **Customer-responsive autonomy.** Teach clarification of ambiguous requests (stronger, less acidic, lighter, no dairy), safe substitutions and permitted recipe adjustments. The student must be able to ask the right follow-up question, not guess their meaning.
-- **Observe → predict → act → measure → decide → reflect.** Each lesson ends in an observable task, not an arbitrary 2-column “quiz”.
+- **Curiosity and experimentation are trained habits.** Invite learner-owned 'what if?' questions across the course; learners hypothesize, predict, control variables, observe, explain surprises and propose next trials. An experiment that disproves a hypothesis can still be excellent learning.
+- **Ask → hypothesize → predict → change → observe → interpret → repeat.** Each lesson builds a mental model and a genuine decision; a quiz or two-column 'card' cannot substitute for experimentation. Actual tasting evidence requires tasting; hypothetical simulation must be labeled.
 - **No fake cards.** Distinct interaction types need real state and feedback, meaningful affordances, progressive reveal and keyboard/phone support. A long bulleted explanation is never presented as an interactive activity.
 - **Creative agency is core.** Learners must propose, prototype, evaluate, name, cost, operationalize and explain their own signature drink—not just memorize popular syrup pairings or replicate an instructor's menu.
 - **Theoretical knowledge and real skill are different claims.** Case-based desk exercises are genuine learning, but cannot establish real steaming, espresso, sanitation or customer service competence.
@@ -35,6 +36,18 @@ Every lesson and final assessment must distinguish:
 **Six-step learner method:** Clarify desired outcome → observe present constraints → rule out safety/authority violations → form plausible hypotheses → change one meaningful variable and measure/taste → explain tradeoffs, record and iterate. Under ambiguous results, choose another diagnostic test or escalate instead of performing arbitrary changes.
 
 **Non-negotiable QA:** A beautiful step-by-step recipe, an attractive image and even a working dose/yield calculator are insufficient if the learner cannot **transfer** the principle to a new scenario.
+
+## Curiosity through experimentation — cross-course design contract
+
+Curiosity means **active question formation and willingness to revise beliefs based on evidence**, not random mixing, excessive spending, speed or personality. Students learn to ask their own 'what if?' questions even in everyday bar work.
+
+A complete experiment includes: (1) question, (2) hypothesis plus prediction, (3) controlled variable(s) and context, (4) safe method, (5) actual measurement or clearly marked simulated data, (6) interpretation including uncertainty, and (7) a useful next trial. *A failed hypothesis is not a failed learner.*
+
+**Coverage:** meaningful hypothesis/prediction opportunities across skill lessons; at least one documented appropriately scoped experiment per module. Build an ongoing notebook and use it for the signature-drink R&D portfolio and unseen capstone cases. No fixed number of shots, costly ingredients or equipment ownership required. Never invent sensory results or encourage unauthorized experiments during service.
+
+**Observe curiosity as behavior**: asks meaningful questions, designs careful tests, considers surprising outcomes, changes their mind with evidence, records constraints and knows when to stop/escalate safely. Do not give learners personality scores or automatically reward novelty over safety.
+
+Implementation and QA details: [Experimentation & Curiosity Standard](./05-experimentation-and-curiosity-standard.md).
 
 ## 2. Proposed learning stages
 
@@ -67,7 +80,7 @@ The original production identifiers `mod-b1`–`mod-b10` are NOT to be silently 
 3. Dose (g), beverage mass/yield (g), time (s), brew ratio — distinguish all units, and compare different ratio choices for different sensory and service goals.
 4. Distribution and tamping: puck preparation sequences and effect of variation.
 5. Basic machine controls, group and portafilter; examples not “always 9 bar”.
-6. Pull and record first shots; a minimally sufficient observation log.
+6. Pull and record first shots; a minimally sufficient observation log, including one learner-originated question and prediction.
 7. Intro dial-in: comparison of two shots, hold everything except one change; then introduce a transfer case where the reference recipe no longer performs as expected.
 
 **Mastery:** Learner chooses a next intervention using a given shot log, records plausible settings and knows what remains unmeasured. **Media:** puck cross-section, grinder settings and extraction clip. **Practical:** supervised safe grinder/espresso operation.
@@ -76,8 +89,8 @@ The original production identifiers `mod-b1`–`mod-b10` are NOT to be silently 
 1. Distinguish concentration, extraction, beverage mass, time and flavor.
 2. Assess acidity, bitterness, balance and body without “sour = under” certainty.
 3. Channeling and puck defects: what a bottomless shot can/cannot prove.
-4. Adjust recipe one variable at a time; handle changing beans/environment.
-5. Diagnose multi-factor inconsistency across 3 simulated shifts; contrast multiple plausible root causes and prioritize the cheapest safe test.
+4. Adjust recipe one meaningful variable at a time for diagnosis; document a controlled A/B comparison and explain when more complex experiments are necessary.
+5. Diagnose multi-factor inconsistency across 3 simulated shifts; contrast multiple plausible root causes, prioritize the lowest-risk test, and interpret an unexpected result.
 6. Calibration log and service decision: remake, hold, maintenance escalation.
 
 **Mastery:** Analyze three unfamiliar espresso records and propose evidence-based, safe decisions. **Media:** side-by-side visually **real** espresso flow plus plotted logs. **Practical:** produce repeatable shots to trainer-approved recipe/tolerance, with measured variation.
@@ -86,7 +99,7 @@ The original production identifiers `mod-b1`–`mod-b10` are NOT to be silently 
 1. Milk and plant-based alternatives: protein/fat differences and label reading.
 2. Safe steam-wand setup; never overfill, never position hand in steam path.
 3. Aeration vs texturing; position, vortex and sound — video with slow-motion controls.
-4. Microfoam diagnosis: big bubbles, separation, overheated/undertextured milk.
+4. Microfoam diagnosis: big bubbles, separation, overheated/undertextured milk. Make and test a prediction about aeration/texturing variables in a safe demonstrated context.
 5. Temperature, sanitation, reuse decisions and cold-chain hygiene according to policies.
 6. One espresso + one textured milk drink, consistent finish and cleaning.
 
@@ -103,10 +116,10 @@ The original production identifiers `mod-b1`–`mod-b10` are NOT to be silently 
 
 ### BV2.M06 — Filter & Batch Brewing untuk Layanan Bar (5 lessons)
 1. Filter setup & a reproducible recipe; equipment and water context.
-2. Grind, ratio, pour, brew time and sensory feedback, distinguishing controls from observations; **1:15 is a starting example**, with justified deviations for a different bean, brewer, water or guest goal.
+2. Grind, ratio, pour, brew time and sensory feedback, distinguishing controls from observations; **1:15 is a starting example**, with justified deviations for a different bean, brewer, water or guest goal. Learner forms an explicit hypothesis for changing ratio before seeing results.
 3. Choose immersion/percolation/batch service by constraints.
 4. Serving multiple manual brews without losing measurements/labels; balance recipe adjustment with documented café handoffs and customer preference.
-5. Diagnose batch-brew concentration and bypass/holding limitations safely.
+5. Diagnose batch-brew concentration and bypass/holding limitations safely; compare controlled recipe adjustments and their tradeoffs.
 
 **Mastery:** Adapt a service plan to a plausible ticket queue, maintaining order accuracy. **Media:** flow path comparison and queue simulator. **Practical:** measured filter brew repeatability.
 
@@ -124,7 +137,7 @@ The original production identifiers `mod-b1`–`mod-b10` are NOT to be silently 
 1. Interpret ambiguous requests such as 'strong', 'less acidic', 'less sweet', 'more coffee', 'dairy-free'; clarify desired experience before suggesting a change.
 2. Distinguish preference from allergy/intolerance; disclose cross-contact limits and never improvise unsafe substitutions.
 3. Handle a customer complaint without blame; decide when to remake, adapt within venue policy, explain alternatives or escalate.
-4. Ticket/order sequencing, teammate handoff and cross-shift traceability.
+4. Ticket/order sequencing, teammate handoff and cross-shift traceability; compare two defensible service solutions with different constraints.
 5. Peak-hour simulation: throughput without skipping temperature, cleaning or identity labels.
 
 **Mastery:** Role-play new customer cases and prioritize safety over speed. **Media:** interactive POS order queue and a real service video. **Practical:** observed service role-play.
@@ -133,7 +146,7 @@ The original production identifiers `mod-b1`–`mod-b10` are NOT to be silently 
 1. FIFO vs FEFO; why expiration, batch and storage condition matter.
 2. Milk handling, refrigerated logs, labeling and supplier checks.
 3. Weigh and calculate grinder retention, dial-in wastage and service yield.
-4. Cost per drink vs selling price: cost inputs and uncertainty.
+4. Cost per drink vs selling price: cost inputs and uncertainty; run a sensitivity experiment with ingredient cost, yield and waste.
 5. Opening/closing audit, cash/POS control boundaries and incident log; calculate constraints for a future signature drink project.
 
 **Mastery:** Process fictional invoices, stock rotations and ingredient-loss records; avoid handling real user financial data. **Media:** inventory worksheet and waste calculator. **Practical:** daily stock station check.
@@ -145,7 +158,7 @@ The original production identifiers `mod-b1`–`mod-b10` are NOT to be silently 
 1. **Read customers, brand & menu gaps:** define venue style, target customer occasion, price band, available equipment, taste preference and a reason a new drink should exist. Explore menu examples without copying unlicensed recipes. Output: one-page creative brief and explicit success criteria.
 2. **Build a flavor architecture:** choose the coffee anchor (espresso/filter/cold brew), intended sensory role of coffee, supporting aromas, sweetness, acid, bitterness, texture, mouthfeel, temperature and aftertaste. Learn ingredient pairing and subtraction. Output: flavor map and justified **three different** concept directions.
 3. **Ingredient feasibility & food safety:** research freshness, traceability, local/seasonal substitutes, allergens and dairy–acid incompatibility; define safe handling/storage by ingredient with appropriate expert procedures. No speculative syrup shelf-life, "natural preservative" or unsafe fermentation claims. Output: ingredient risk sheet.
-4. **Prototype, taste & iterate:** build gram/ml recipe V0, then compare V1/V2/V3 under controlled changes; note what was measured and what was only perceived, collect independent taster feedback and explain reversals. No fabricated tasting results. Output: versioned experiment log and sensory evidence.
+4. **Prototype, taste & iterate:** build gram/ml recipe V0, compare V1/V2/V3 under controlled changes, test a learner-originated hypothesis, record surprising/negative results if they occur, distinguish measurements from subjective perceptions and revise based on independent tasting. Never invent tasting results or failures. Output: versioned experiment log and sensory evidence.
 5. **Calculate cost, waste & price:** true per-serving quantities, usable yield, packaging, prep waste and relevant overhead assumptions; compare menu price, margin and affordability in an explicit venue scenario. No universal "ideal margin". Output: ingredient bill, cost calculator and suggested price **with assumptions**.
 6. **Engineer service repeatability:** rewrite recipe as a production SOP for a different barista; batch-prep limits, safe holding, substitution handling, stock availability, rush-hour assembly, cleanup and quality tolerance. Test a missing ingredient and ticket-queue case. Output: service recipe card and critical-hold criteria.
 7. **Name, present & sell honestly:** design menu name, description, coffee identity, glassware/garnish with realistic resources, allergen information and 20-second barista explanation. The design should convey a real taste proposition, not generic "luxury/symphony" marketing copy. Output: menu-ready copy and a grounded visual/media brief.
@@ -184,6 +197,7 @@ Advanced swan/competition latte art; specialist molecular techniques (clarificat
 | **Cold chain & allergen check** | Critical sanitation | Explicit critical fail vs explanatory knowledge checks; no false operational green clearance |
 | **Opening–closing checklist** | Safe routine | Item states + why; practice in browser, optional real supervised signature |
 | **QC decision workbench** | Calibration and honest uncertainty | Evidence log, missing data choices, independent explanation then model comparison |
+| **Curiosity Lab / Experiment Notebook** | Build independent experimental thinking | Learner-owned question, falsifiable hypothesis, prediction, controlled variables, measurement, observation, uncertainty, interpretation and next trial; accept defensible negative results |
 | **Waste and cost calculator** | Operational math | Units required; finite and realistic amounts, clear assumptions, no silent overflow |
 | **Signature flavor canvas** | Build an original concept from sensory evidence | Choose intended customer experience, coffee anchor, flavor structure, ingredients and rationale before any model answer; no unsupported automatic 'taste score' |
 | **Recipe experiment log** | Compare meaningful prototypes | Editable gram/ml units, variable tracking, anonymized tasting observations, repeat-trial history, explicit 'hypothetical' mark for simulated data |
@@ -245,10 +259,10 @@ Barista students must be able to repeat the R&D cycle **after the course**. Fast
 | B1 Syllabus / objective mapping | BNSP/SCA interpretation + novice progression + safety + signature R&D + **adaptive decisions under novel equipment, coffee and customer constraints** | **BLUEPRINT CANDIDATE; reviewer pending** |
 | B2 Content authoring | Complete lesson bodies, claim sources, novice mental-model checks | NOT STARTED |
 | B3 Instructional media | Actual rights-cleared teaching visuals / real motion demos where needed | NOT STARTED |
-| B4 Genuine interaction | Functional differentiated components, keyboard/mobile, feedback after attempt | NOT STARTED |
+| B4 Genuine interaction | Functional differentiated components, keyboard/mobile, feedback after attempt, authentic learner experiment log | NOT STARTED |
 | B5 Exam psychometrics | Reasonable distractors, no answer cues, explanations, calibrated pilots | NOT STARTED |
 | B6 Practical performance & reviewer protocol | Observed skill criteria, **independent signature drink development/replication**, and licensed/qualified practical assessors where credential relevant | NOT STARTED |
-| B7 Independent review and novice test | Barista SME, food-safety review, learner transfer test, UX review | NOT STARTED |
+| B7 Independent review and novice test | Barista SME, food-safety review, learner transfer test, observed experiment design and iteration, UX review | NOT STARTED |
 | B8 Engineering QA | V2 edition isolated; content security; progress/purchase migration tests and rollback | NOT STARTED |
 | B9 User-facing copy & deploy | Screenshots + tests for **real** pages, no “draft/review” labels, no unauthorized credential marketing | NOT STARTED |
 
