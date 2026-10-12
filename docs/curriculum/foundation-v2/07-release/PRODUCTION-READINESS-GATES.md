@@ -25,6 +25,14 @@ On 12 October 2026, connected Supabase project **cherryedu** (region Asia Southe
 
 The current client stores `userProgress`, `quizAttempts`, `enrollments`, `certificates` and seed data in `cherryedu_state_v8` localStorage. Do not change the live denominator from 32 to 36 or presume all users have cloud backups. See [Migration & Rollback](./MIGRATION-AND-ROLLBACK.md).
 
+## Additional platform security gate (P0 — hold)
+
+The release candidate now contains source-code hardening for synthetic demo logins, identity/role trust, cross-path lesson ownership, and a read-only curriculum review environment. **This is not enough for production authorization.**
+
+Before merging, the platform needs a privately reviewed, staging-tested security remediation covering backend authorization policies, least-privilege database grants, owner-scoped profile/transaction access, trusted server-side payment status, session lifecycle, and historical subscription-data reconciliation. The detailed observations and operational SQL draft are intentionally kept in a **private owner handoff**, not in this public repository. **Do not attempt a direct database permissions switch using this PR alone.**
+
+All current application changes are preview/RC only. Credentials and financial state must not be writable merely because a browser has a profile object. Formal security acceptance and production-safe rollout/rollback approval remain **BLOCKED**.
+
 ## PUBLIC RELEASE P0 — Mandatory BLOCKERS (all must pass)
 
 ### P0-01 — Expert science and safety validation
