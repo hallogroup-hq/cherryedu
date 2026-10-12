@@ -10,7 +10,7 @@ A learner can demonstrate:
 - **Experimental literacy:** ask their own question, hypothesize, predict, control meaningful variables, record real vs simulated observations, and iterate honestly.
 - **Operational readiness (only with real equipment and supervision):** execute safe espresso, milk, cleaning, service and a staff-reproducible signature drink.
 
-The 36 changing-condition transfer cases are **formative self-comparison activities**, not authenticated or psychometrically validated exams. The 12 end-of-module checkpoints are open-response teaching tools. Neither grants actual credentials or proves practical competence.
+The 36 changing-condition transfer cases, **24 misconception-focused multi-choice diagnostics** and 12 end-of-module checkpoints are **formative learning activities**, not authenticated or psychometrically validated exams. The 24 questions have explicit option-level explanations and do not count toward learner-account grade, credits or certificate. None proves real-world practical competence.
 
 ## 2. Competency mapping and suggested demonstrations
 
@@ -75,14 +75,14 @@ Before a real release, a reviewer record must contain:
 - Media asset ID, copyright owner/consent, accuracy sign-off, alt/caption/transcript evidence.
 - Novice test result with question, changed-condition prompt and independently coded transfer observation.
 - Safety check outcome separate from theory grade.
-- Exam item bank review and proper assessment calibration. Current 36 essays are **practice**, not exam questions with official grading.
+- Exam item bank review and proper assessment calibration. Current 36 changing-condition essays and 24 diagnostics are **practice**, not an official or high-stakes exam.
 - Deployment copy/UI snapshot to ensure no release jargon or review status leaks into the learner view.
 - Evidence no existing student purchase, progress, quiz attempts, or certificates were silently reset.
 
 ### Current gate
 
 **Program outline:** 12 modules / 68 authored draft lessons.  
-**Interactivity:** 12 concept labs, three scoped filter notebook placements, 12 end-module checkpoints, 36 initial+surprise transfer cases.  
+**Interactivity:** 12 concept labs, three scoped filter notebook placements, 12 end-module checkpoints, 36 initial+surprise transfer cases, and 24 targeted misconception diagnostics (2 per module), all formative/isolated review tools.  
 **Media:** seven original diagrams; 25 identified filmed/photographed demonstrations **not produced**.  
 **Pedagogy:** known short lessons still require substantive depth, visual alignment and independent novice/SME review.  
 **Official certification:** not authorized or claimed.  
