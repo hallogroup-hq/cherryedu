@@ -11,62 +11,62 @@ learning_outcome: "Membedakan genus, spesies, varietas, nama komersial, dan peru
 
 # Arabika, Robusta, Liberika, Excelsa: apa nama tanaman yang kita minum?
 
-Pernah melihat satu kedai menulis “empat jenis kopi dunia: Arabika, Robusta, Liberika, dan Excelsa”, lalu melihat artikel lain menyatakan hanya ada dua yang penting secara komersial?
+Pernah melihat tulisan Arabika, Robusta, Liberika atau Excelsa pada kemasan? Sebelum membandingkan namanya, kenali dulu: **semuanya berkaitan dengan tanaman kopi**, tetapi tidak setiap nama dagang menunjukkan satu spesies yang pasti.
 
-Keduanya bisa sedang membahas hal yang **berbeda**. Salah satunya berbicara mengenai kategori yang dikenal pasar. Yang lain menjelaskan proporsi budidaya global. Tanpa membedakan istilah, kita mudah menganggap daftar pemasaran sebagai pohon kekerabatan ilmiah.
+Tanaman kopi menghasilkan buah yang sering disebut *coffee cherry*. Di balik kulit buah ada biji yang, setelah diolah dan disangrai, menjadi kopi yang kita seduh. **Biji Arabika dan Liberika sama-sama bagian dari buah**, bukan bahan tambahan atau metode penyeduhan.
 
-Di pelajaran ini kita tidak mencari satu “jenis terbaik”. Kita belajar menanyakan **nama ini berada di tingkat klasifikasi mana, dan seberapa kuat data yang mendukungnya?**
+## 1. Kenali tanamannya dulu, baru namanya
 
-## 1. Dari keluarga besar ke identitas tanaman
+Ada banyak spesies dalam genus *Coffea*. Untuk mulai belajar, kenali tiga yang sering muncul dalam pembicaraan kopi di Indonesia:
 
-Kopi yang kita minum berasal dari genus **Coffea**, bagian keluarga tanaman Rubiaceae. Dalam genus itu terdapat banyak spesies, tetapi produksi dan perdagangan kopi dunia didominasi dua spesies: **Coffea arabica** (Arabika) dan **Coffea canephora** (umumnya disebut Robusta). [B01, B02]
+- **Arabika — *Coffea arabica*.** Tanaman kopi yang sangat luas dibudidayakan untuk minuman, dengan banyak varietas seperti Bourbon dan Typica. Tanamannya dapat tumbuh sebagai pohon kecil dan sering dipangkas agar mudah dirawat atau dipanen.
+- **Robusta — kelompok kopi yang lazim diperdagangkan dari spesies *Coffea canephora*.** Dikenal luas di produksi dan konsumsi kopi Indonesia. Ia bukan Arabika versi buruk: bahan, pengolahan dan tujuan seduh tetap menentukan pengalaman di cangkir.
+- **Liberika — *Coffea liberica*.** Spesies tanaman kopi lain, berasal dari wilayah Afrika tropis dan kemudian ditanam di sejumlah wilayah Asia, termasuk Indonesia. Tanamannya dapat membentuk pohon besar; daun, buah dan bijinya pada beberapa bahan tanam tampak relatif besar dibanding Arabika yang biasa dijumpai. **Ukuran saja bukan uji identitas spesies**—tanaman, varietas dan kondisi kebun tetap dapat berbeda.
 
-Istilahnya:
-- **Genus** = kelompok taksonomi yang mencakup sejumlah spesies; contoh *Coffea*.
-- **Spesies** = satuan klasifikasi biologis; contoh *Coffea arabica*.
-- **Varietas/kultivar** = kelompok di dalam spesies yang dipilih atau dikenali memiliki sifat tertentu; contoh banyak kultivar Arabika.
-- **Nama dagang/lokal** = nama yang dipakai untuk komunikasi pasar atau masyarakat. Tidak selalu menunjuk taksonomi yang unik.
+Bayangkan kamu berdiri di kebun: melihat tanaman dan buahnya memberi gambaran wujudnya; melihat kemasan kopi di kedai memberi petunjuk nama dagangnya. Keduanya saling berhubungan, tetapi foto buah **tidak cukup** untuk memverifikasi nama ilmiah tanpa informasi sumber tanaman.
 
-Contoh: **Arabika** adalah spesies; **Bourbon** merupakan kelompok varietas/kultivar Arabika; **Gayo** menunjukkan lokasi/identitas geografis dagang, bukan nama satu varietas botani.
+[VISUAL:species-family]
 
-Memisahkan tiga lapisan informasi ini berguna ketika kamu membaca label kopi dan mencoba melacak asal lot.
+## 2. Liberika: kenali dulu sebelum membahas Excelsa
 
-## 2. Arabika bukan sekadar “kopi yang lebih enak”
+Kalau kamu belum pernah melihat Liberika, empat hal berikut adalah titik awal yang berguna.
 
-Arabika memiliki riwayat evolusi serta sejarah budidaya yang khas dan telah berkembang menjadi banyak varietas. Katalog WCR menggambarkan keragaman sifat agronominya, dari potensi kualitas seduhan hingga kerentanan terhadap penyakit karat daun. [B01]
+**Pertama, apa yang dipanen?** Sama seperti spesies kopi lain, petani memanen **buah Liberika**. Biji dari buah itu dipisahkan, dikeringkan, disangrai dan diseduh. Nama Liberika tidak merujuk metode processing tertentu.
 
-Dalam perdagangan specialty, Arabika banyak digunakan. Tetapi jangan mengubah kecenderungan historis pasar menjadi pernyataan “setiap Arabika lebih enak daripada setiap Robusta”.
+**Kedua, di mana ditemui?** Liberika mempunyai asal biologis di Afrika tropis dan telah diperkenalkan ke beberapa wilayah Asia. Di Indonesia, nama Liberika juga dikenal dalam budidaya dan perdagangan, walau informasi varietas, kebun dan lot setiap produk harus diperiksa sendiri.
 
-Mengenali spesies membantu mengantisipasi sebagian karakteristik agronomi serta kemungkinan komposisi kimia, **tidak cukup untuk menetapkan skor, deskriptor rasa, atau harga sebuah lot**.
+**Ketiga, apakah ukuran biji menentukan rasanya?** Tidak. Spesies bisa memengaruhi sifat bahan, tetapi rasa satu lot tetap melalui banyak tahap: kematangan panen, processing, penyimpanan, roasting, penyeduhan dan persepsi manusia. Jangan menghafal “Liberika pasti beraroma X”.
 
-Satu Arabika yang tidak dipanen atau dikeringkan dengan baik bisa memiliki masalah serius. Robusta yang dikelola baik bisa menghasilkan minuman yang disukai banyak orang. Bahkan di dalam Arabika pun varietas dan kebun dapat berbeda jauh.
+**Keempat, bagaimana menjelaskannya ke orang baru?** “Liberika adalah kopi dari spesies tanaman *Coffea liberica*. Ia bukan varietas Arabika dan bukan proses seduh. Kalau ingin tahu bagaimana rasa suatu Liberika, kita perlu mengenali kopinya dan mencicipi sampel yang jelas.”
 
-## 3. Robusta adalah nama populer; *Coffea canephora* nama spesies
+## 3. Arabika, Robusta, Liberika — apa yang perlu dibandingkan?
 
-Di banyak menu, kata “Robusta” lebih mudah dijumpai daripada *Coffea canephora*. Itu tidak masalah dalam komunikasi pelanggan asalkan kita tahu dasar botani istilahnya.
+| Yang dibandingkan | Arabika | Robusta | Liberika |
+|---|---|---|---|
+| Nama spesies yang umum dirujuk | *C. arabica* | *C. canephora* | *C. liberica* |
+| Mengapa siswa mengenalnya? | Banyak varietas kopi komersial dan specialty | Penting dalam produksi dan konsumsi Indonesia | Memperluas pemahaman tentang keragaman tanaman kopi |
+| Apakah nama menentukan hasil seduhan? | Tidak | Tidak | Tidak |
+| Bukti jika ingin memastikan identitas lot | Dokumen sumber tanaman dan lot | Dokumen sumber tanaman dan lot | Dokumen sumber tanaman dan lot |
 
-WCR menjelaskan bahwa keragaman genetik Robusta relatif besar dan eksplorasi pemuliaan komersialnya masih berkembang. Karenanya, menyebut “Robusta selalu berkualitas rendah” justru mengabaikan ragam genetik, adaptasi lingkungan, dan praktik pengelolaannya. [B01, B02]
+**Coba jelaskan:** Jika di dua kemasan tertulis “Arabika Bourbon, Gayo” dan “Liberika, Jambi”, bagian mana menunjukkan tanaman, bagian mana menunjukkan kelompok varietas, dan bagian mana menunjukkan tempat? Tidak perlu langsung mempelajari seluruh aturan taksonomi untuk menjawab.
 
-Tetapi kita juga tidak perlu membuat romantisasi kebalikannya, seperti “semua rasa kurang enak pada Robusta murni akibat petani yang salah”.
+## 4. Jadi, apa hubungan Excelsa dengan Liberika?
 
-Secara biologis spesies memang mempunyai karakteristik berbeda, dan ini dapat berinteraksi dengan roasting serta brewing. Tujuan belajar adalah memahami *keragaman dan kondisi*, bukan mengganti satu stereotip dengan stereotip baru.
+Sekarang setelah kamu mengenal Liberika sebagai tanaman, perhatikan satu masalah **penamaan**, bukan perubahan mendadak pada bentuk biji.
 
-## 4. Liberika dan persoalan Excelsa
+Kata **Excelsa** sering dipakai dalam perdagangan kopi. Dalam literatur botani, tanaman yang disebut Excelsa pernah dikelompokkan dekat atau di bawah Liberika dalam sejumlah klasifikasi lama. **Kew Plants of the World Online, ketika diperiksa Oktober 2026, menerima *Coffea dewevrei* sebagai spesies** dan mencatat *Coffea excelsa* sebagai sinonimnya. Kew juga mencatat riwayat penamaan *Coffea liberica* var. *dewevrei*. [B03, B04]
 
-Ada nama **Liberika** yang lazim digunakan untuk kopi yang berkaitan dengan *Coffea liberica*. Pada praktik pasar Indonesia, berbagai nama lokal bisa dipakai; akurasi identitas perlu diperiksa berdasarkan sumber tanaman, penelusuran lot, atau data botani.
+Bagi pemula, cukup ingat dua hal:
+- **Liberika**: kenali terlebih dulu sebagai kopi dari spesies *C. liberica*.
+- **Excelsa**: nama yang dikenal di pasar dan memiliki sejarah penamaan botani; bila mengurus dokumen ilmiah atau asal lot, cek nama ilmiah yang benar beserta sumber verifikasinya.
 
-Lalu bagaimana **Excelsa**?
+Tidak perlu menghafal semua sinonim untuk memahami kopi. Buka pendalaman taksonomi nanti jika kamu sedang membaca laporan ilmiah atau memverifikasi identitas bahan tanam.
 
-Dulu Excelsa sering dituliskan sebagai jenis yang terpisah, atau dikelompokkan sebagai bagian dari Liberika. Taksonomi tumbuhan bisa berubah ketika ada kajian baru dan pilihan klasifikasi yang diperbarui.
+### Saat label menyebut varietas atau asal
 
-**Menurut Kew Plants of the World Online pada saat pemeriksaan Oktober 2026**, nama ilmiah **Coffea dewevrei** diterima sebagai spesies, sedangkan nama **Coffea excelsa** dicatat sebagai sinonim taksonominya. Kew juga mencatat bahwa karya taksonomi sebelumnya pernah mengelompokkannya sebagai varietas *Coffea liberica*. [B03, B04]
+**Genus** adalah kelompok yang mencakup beberapa spesies, misalnya *Coffea*. **Spesies** contohnya *C. arabica*, *C. canephora* dan *C. liberica*. **Varietas/kultivar** adalah kelompok tanaman yang dikenali/dibudidayakan di bawah cakupan spesies, misalnya Bourbon dalam Arabika. **Gayo** atau **Jambi** menjelaskan wilayah/asal, bukan tingkatan taksonomi.
 
-Artinya:
-- Menyebut kata “Excelsa” dalam percakapan perdagangan tidak otomatis salah.
-- Namun membuat tabel kaku bahwa “Excelsa **pasti** subspesies Liberika menurut semua ahli selamanya” adalah keliru.
-- Jika laporan ilmiah memerlukan nama botani, **cantumkan otoritas klasifikasi dan tanggal pemeriksaan**.
-
-Ini contoh bagus dari literasi ilmiah: ilmu pengetahuan memperbarui klasifikasi bukan karena sebelumnya tidak berguna, melainkan karena bukti, data genetik, dan penafsiran sistematika berkembang.
+Jadi, daftar kata pada label bisa mencampur **jenis tanaman, kelompok di dalam spesies, lokasi dan nama perdagangan**. Latihan setelah ini akan membantumu memilahnya.
 
 ## 5. Kalau varietasnya disebut Gesha atau Bourbon, apakah rasanya sudah bisa ditebak?
 
@@ -94,7 +94,7 @@ Di bawah ini ada lima kartu yang perlu kamu klasifikasikan. Jawabannya tidak lan
 
 ## 7. Kasus pengecekan label
 
-**Kemasan ilustratif:** “Excelsa Specialty / Jawa Barat / Aroma mangga / 1.200 mdpl / Berasal dari spesies Liberika yang tidak pernah berubah klasifikasinya.”
+**Kemasan ilustratif:** “Excelsa / Jawa Barat / Aroma mangga / 1.200 mdpl / Berasal dari spesies Liberika yang tidak pernah berubah klasifikasinya.”
 
 Manakah bagian yang layak dipertanyakan?
 
