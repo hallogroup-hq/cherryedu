@@ -101,17 +101,11 @@ Itu tidak berarti semua kebun Indonesia melanggar hukum. Justru konteksnya meneg
 
 Ketika nanti membahas sustainability, ingat: kondisi pekerja juga bagian dari keberlanjutan sosial. Menanam pohon penaung sambil mengabaikan keselamatan pemetik bukan gambaran lengkap.
 
-## 6. Latihan memilih pertanyaan yang tepat
+## 6. Menguji klaim pembelian langsung
 
-**Skenario:** Kafe menyatakan “Kami membeli langsung dari petani sehingga 100% uang kopi masuk ke petani.”
+[ACTIVITY:value-chain-claim]
 
-Apa kesalahan logikanya?
-
-Pembelian langsung tidak menghapus biaya roasting, distribusi, sewa, upah kafe dan aktivitas lain. Satu-satunya cara mengetahui jumlah pembayaran petani adalah **memeriksa transaksi yang terkait, satuan, volume, pihak penerima dan biaya tambahan**. Bahkan jika kafe membeli dari koperasi, pembayaran ke koperasi belum membuktikan seluruh nilai sampai pada anggota tertentu.
-
-**Perbaiki kalimat:** “Kami membeli green coffee melalui hubungan pembelian langsung dengan [pihak], dan memiliki dokumen pembayaran kepada [pihak] sebesar [nilai/satuan/periode]. Dampaknya pada pendapatan bersih petani perlu data tersendiri.”
-
-Tidak perlu mengarang angka jika belum tersedia.
+**Setelah mencoba:** Bagaimana kamu akan menulis ulang klaim agar tetap menarik, tetapi dapat didukung oleh bukti pembayaran, identitas pihak, volume dan periode transaksi? Jangan mengarang angka yang belum tersedia.
 
 ## 7. Pemeriksaan pemahaman
 
