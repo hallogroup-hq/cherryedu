@@ -92,19 +92,20 @@ Setiap dimensi **0–3**, digunakan untuk umpan balik dan belum sebagai ambang s
 
 **Critical safety rule:** nilai tinggi tidak menebus keputusan berbahaya (mis. mengabaikan alergen atau membongkar mesin bertekanan tanpa wewenang). Ambang passing **harus dikalibrasi lewat uji peserta dan ahli**, bukan ditentukan seolah-olah sudah teruji.
 
-## G. Pemetaan lintas modul
+## G. Pemetaan lintas 12 modul
 
-- **M01:** keputusan aman saat workstation berubah, bukan menghafal urutan.
-- **M02:** memahami variabel espresso pertama, bukan "9 bar harus".
-- **M03:** multi-hipotesis troubleshooting, bukan “sour = grind finer” selalu.
-- **M04:** pengaruh bahan/teknik susu dan alergen, bukan suhu tunggal.
-- **M05:** menyeimbangkan pelanggan, menu & hasil minuman, bukan memaksa latte art.
-- **M06:** rasio/filter berbeda sesuai tujuan dan equipment, termasuk kasus 1:15.
-- **M07:** kapan barista boleh membersihkan, kapan harus panggil teknisi.
-- **M08:** request unik pelanggan, klarifikasi dan adaptasi dengan hospitality.
-- **M09:** tradeoff bahan, stok, waste, biaya dan waktu layanan.
-- **M10:** signature design sendiri berdasarkan rasa, eksperimen, pelanggan, biaya dan eksekusi.
-- **M11:** capstone dengan masalah baru *setelah* peserta menunjukkan resep dasar; ada situasi ambigu yang belum muncul pada latihan.
+- **M01:** bar setup, safety, service observation and customer intent before machine work.
+- **M02:** low-risk extraction principles and learner-owned experiments; ratio 1:15 is contextual.
+- **M03:** grind/espresso variables, shot log, first safe controlled adjustment.
+- **M04:** shot diagnosis, multi-hypothesis troubleshooting, independent A/B experiment.
+- **M05:** milk/alternatives, texture hypotheses, allergen boundaries.
+- **M06:** menu assembly, latte art foundations, introductory beverage ideation.
+- **M07:** applying extraction theory to filter/batch workflow and changed customer targets.
+- **M08:** unusual customer requests, preferences/allergy distinction and calm service decisions.
+- **M09:** safe cleaning, preventive care, fault observation and technician escalation.
+- **M10:** stock/waste/cost sensitivity experiments and ingredient constraints.
+- **M11:** coffee-led signature drink experiments, versioning, feedback and repeatable SOP.
+- **M12:** capstone with unfamiliar conditions, evidence-based decisions and creative adaptation.
 
 ## H. QA acceptance untuk author & developer
 
