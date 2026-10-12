@@ -64,15 +64,15 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
         "feedback": "Descriptor berasal dari observasi rasa/aroma, bukan daftar bahan dan bukan janji universal."
       },
       {
-        "text": "Flavor notes merupakan daftar senyawa buah yang selalu muncul bila air sesuai suhu resep.",
+        "text": "Catatan strawberry wajib muncul bila suhu dan grind sesuai rekomendasi.",
         "feedback": "Descriptor adalah pengalaman aroma/rasa, bukan kandungan buah pasti atau jaminan suhu seduh."
       },
       {
-        "text": "Roastery sudah mencicipi produk, sehingga preferensi semua pelanggan dapat diprediksi dari label.",
+        "text": "Catatan roastery harus dipakai sebagai acuan rasa akhir semua pembeli.",
         "feedback": "Penilaian roastery memberi konteks, tetapi respons individu dan metode seduh dapat berbeda."
       },
       {
-        "text": "Rasa strawberry harus diperoleh dengan memaksimalkan extraction yield mengikuti grafik brewing.",
+        "text": "Grafik ekstraksi akan memastikan strawberry muncul pada cangkir.",
         "feedback": "Grafik ekstraksi tidak membuktikan hadirnya descriptor tertentu atau preferensi universal."
       }
     ],
@@ -216,7 +216,7 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Kamu ingin menahan drip-through. Apa pendekatan yang sejalan dengan keselamatan produsen?",
     "options": [
       {
-        "text": "Gunakan inverted dengan sleeve khusus agar waktu kontak lebih dapat dipertahankan.",
+        "text": "Inverted boleh dipakai asal bejana ditahan erat dengan kedua tangan.",
         "feedback": "Pabrikan justru menyarankan menghindari inverted karena ketidakstabilan dan risiko tumpahan panas."
       },
       {
@@ -224,11 +224,11 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
         "feedback": "AeroPress memperingatkan inverted tidak stabil dan berisiko luka bakar. Gunakan metode standar/manual."
       },
       {
-        "text": "Gunakan tekanan manual tambahan pada plunger untuk mencegah cairan menetes sebelum waktunya.",
+        "text": "Plunger diberi tekanan ekstra agar waktu immersion lebih konsisten.",
         "feedback": "Tekanan ekstra tidak diperlukan untuk mengatasi drip-through dan dapat menimbulkan bahaya."
       },
       {
-        "text": "Beri alas silikon agar tabung inverted lebih kuat ketika dipindahkan sebelum ditekan.",
+        "text": "Metode inverted aman bila dilakukan jauh dari pinggir meja.",
         "feedback": "Improvisasi alas tidak membatalkan peringatan resmi tentang metode inverted."
       }
     ],
@@ -242,15 +242,15 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "French press meninggalkan partikel halus. Apa pernyataan paling hati-hati?",
     "options": [
       {
-        "text": "Endapan membuktikan kopi terlalu lama terkena air walau mesh filter masih berfungsi baik.",
+        "text": "Sedimen terjadi karena kopi terlalu lama berkontak dengan air.",
         "feedback": "Sedimen terutama terkait partikel dan filter; waktu saja tidak dapat membuktikan penyebabnya."
       },
       {
-        "text": "Endapan berarti ukuran grind harus dinaikkan tanpa perlu mengevaluasi filter atau teknik pemisahan.",
+        "text": "Endapan menunjukkan grind harus dibuat lebih kasar setiap kali.",
         "feedback": "Grind dapat berperan, tetapi mesh, penanganan plunge dan pilihan mouthfeel juga relevan."
       },
       {
-        "text": "Partikel yang terlihat membuktikan French press tidak mampu mengekstraksi kopi secara konsisten.",
+        "text": "Partikel membuktikan mesh filter sudah tak layak dipakai.",
         "feedback": "Keberadaan partikel bukan pengukuran ekstraksi ataupun konsistensi proses keseluruhan."
       },
       {
@@ -450,15 +450,15 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
     "scenario": "Botol cold brew tanpa log penyimpanan terlihat dan berbau normal. Pilihan defensibel?",
     "options": [
       {
-        "text": "Cicipi sedikit di awal sebagai uji cepat sebelum menyajikan seluruh botol pada tamu.",
+        "text": "Sedikit kopi dicicipi dahulu sebelum batch diberikan ke tamu.",
         "feedback": "Mengecap sedikit tidak membuktikan keamanan dari patogen atau penanganan yang buruk."
       },
       {
-        "text": "Tambahkan gula pekat dan simpan dingin untuk memperpanjang masa simpan tanpa perlu validasi.",
+        "text": "Gula pekat akan membantu batch bertahan beberapa hari lagi.",
         "feedback": "Gula dan suhu tidak memberi izin masa simpan arbitrer tanpa prosedur valid."
       },
       {
-        "text": "Pindahkan ke botol steril baru agar risiko penyimpanan sebelumnya dapat dihapus.",
+        "text": "Botol baru cukup mengatasi ketidakjelasan log suhu lama.",
         "feedback": "Memindahkan wadah tidak membuktikan bahan yang disimpan sebelumnya masih aman."
       },
       {
@@ -480,15 +480,15 @@ export const HOME_BREWER_DIAGNOSTICS:HomeBrewerDiagnostic[]=[
         "feedback": "Preferensi aktual dapat dicatat; klaim mekanisme butuh desain lebih terkontrol."
       },
       {
-        "text": "Jika V1 lebih disukai, perubahan kertas lebih mungkin penyebab utama ketimbang perubahan kopi.",
+        "text": "Filter menjadi penyebab utama karena kopi baru lebih segar.",
         "feedback": "Tanpa desain pembanding, preferensi tidak mengidentifikasi penyebab individual."
       },
       {
-        "text": "Kopi baru dapat dinilai unggul karena dua variabel berubah dan responnya tetap positif.",
+        "text": "Kopi baru unggul karena uji menghasilkan preferensi tinggi.",
         "feedback": "Pengujian satu sesi tidak membuktikan keunggulan kopi universal maupun peran tiap variabel."
       },
       {
-        "text": "Karena percobaan belum terkontrol, semua catatan rasa perlu dihapus dan diulang dari nol.",
+        "text": "Catatan eksperimen harus dihapus sebab pembanding tidak valid.",
         "feedback": "Observasi preferensi tetap bermakna sebagai pengalaman; keterbatasan kausal yang perlu ditulis."
       }
     ],
