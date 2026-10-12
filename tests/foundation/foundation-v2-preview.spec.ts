@@ -201,6 +201,17 @@ test('workspace requires attempt before showing model; no account or XP', async 
   await expect(page.getByRole('button',{name:/Tandai Selesai/i})).toHaveCount(0);
 });
 
+test('brew EY calculator rejects physically impossible mass balance', async ({ page }) => {
+  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m05-l05');
+  const activity=page.getByRole('region',{name:/Hitung estimasi extraction yield/i});
+  await activity.getByLabel('Dosis kopi kering (g)').fill('1');
+  await expect(activity.getByRole('button',{name:'Hitung estimasi EY'})).toBeDisabled();
+  await expect(activity.getByRole('alert')).toContainText('tidak mungkin secara fisik');
+  await activity.getByLabel('Dosis kopi kering (g)').fill('20');
+  await expect(activity.getByRole('alert')).toHaveCount(0);
+  await expect(activity.getByRole('button',{name:'Hitung estimasi EY'})).toBeEnabled();
+});
+
 test('farmer income sandbox teaches cost difference rather than label premium', async ({ page }) => {
   await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m07-l03');
   const section=page.getByRole('region',{name:/Berapa sisa setelah biaya/});
