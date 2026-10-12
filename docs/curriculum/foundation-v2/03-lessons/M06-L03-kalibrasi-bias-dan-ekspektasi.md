@@ -19,7 +19,9 @@ Apa itu berarti deskripsinya salah? **Belum tentu.** Tetapi informasi yang ia ba
 
 ## 1. Apa yang ditemukan penelitian 2026?
 
-Pada sebuah studi yang diterbitkan 2026, **180 konsumen specialty coffee** mencicipi kopi yang sama di bawah tiga kondisi informasi label: tanpa keterangan processing, label “fermentation”, dan label “carbonic maceration”. Desainnya *within-subject*: peserta mengalami kondisi label yang berbeda dan peneliti mengamati ekspektasi serta respons sensorik/hedonik. [BIAS-01]
+Pada studi **Carvalho dan kolega yang diterbitkan 9 April 2026**, **180 konsumen amatir yang telah membeli dan meminum specialty coffee setidaknya setahun**, direkrut melalui profil media sosial kedai di **São Paulo, Brasil**, mengikuti uji dengan kopi yang sama dan tiga kondisi label: tanpa keterangan processing, “fermentation”, dan “carbonic maceration”. Kopinya berasal dari **satu mikrolot Arabika MG Paraíso 2 dari Brasil** yang telah menjalani fermentasi anaerob dengan kultur ragi. Dalam desain *within-subject* ini, peserta mengevaluasi ekspektasi dan respons setelah mencicipi. [BIAS-01]
+
+Karena hanya ada **satu kopi, populasi rekrutmen spesifik, dan kondisi eksperimen tertentu**, hasilnya tidak boleh dianggap berlaku sama pada semua pencicip, seluruh variasi kopi Indonesia, atau semua jenis label. Bahkan pada uji *within-subject*, urutan dan efek paparan berulang perlu dipertimbangkan sesuai rancangan aslinya.
 
 Dalam konteks penelitian tersebut, label “fermentation” menimbulkan ekspektasi acidity lebih tinggi dan kesukaan lebih rendah, yang juga tercermin pada respons pencicipan; label “carbonic maceration” meningkatkan rasa penasaran dan kesan kebaruan tanpa dampak penerimaan negatif yang sama.
 
