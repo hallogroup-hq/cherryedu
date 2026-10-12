@@ -144,6 +144,22 @@ test('Liberica now gets concrete biological explanation before Excelsa taxonomy'
   expect(articleText.indexOf('Liberika: kenali dulu')).toBeLessThan(articleText.indexOf('hubungan Excelsa dengan Liberika'));
 });
 
+test('label-check case hides exemplar until learner writes independent evidence reasoning', async ({ page }) => {
+  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m02-l02');
+  const workspace = page.getByRole('region', { name: /Periksa label sebelum mempercayai klaim/i });
+  await expect(workspace).toBeVisible();
+  await expect(workspace.locator('textarea')).toHaveCount(2);
+  const check = workspace.getByRole('button', { name: /Bandingkan dengan contoh pembahasan/i });
+  await expect(check).toBeDisabled();
+  await expect(workspace).not.toContainText('Kew mencatat riwayat klasifikasi yang berubah');
+  for (const field of await workspace.locator('textarea').all()) {
+    await field.fill('Saya ingin memeriksa bukti asal serta penamaan sebelum mempercayai label.');
+  }
+  await expect(check).toBeEnabled();
+  await check.click();
+  await expect(workspace).toContainText('Kew mencatat riwayat klasifikasi yang berubah');
+});
+
 test('genuine course visuals render across processing, roast, brew and history', async ({ page }) => {
   const cases = [
     ['lesson-fv2-m03-l02','Apa yang tertinggal saat pengeringan?'],
