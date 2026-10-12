@@ -40,7 +40,7 @@ Selisih 225 − 185 = 40 g **tidak bisa disebut EY 40 g atau 40%**. Untuk memper
 
 ## Kalau tidak punya alat pengukur TDS
 
-Kamu masih bisa belajar banyak. Timbang kopi, air masuk dan minuman keluar bila memungkinkan; catat grinder, filter, suhu yang benar-benar diketahui, cara tuang, waktu menurut definisi yang konsisten, serta hasil cicip **yang memang dilakukan**. Data tersebut dapat membantu membandingkan dua percobaan. Tetapi biarkan kolom EY kosong. Jangan menebaknya dari rasa, drawdown, atau tabel rasio.
+Kamu masih bisa belajar banyak. Timbang kopi, air masuk dan minuman keluar bila memungkinkan; catat grinder, filter, suhu yang benar-benar diketahui, cara tuang, waktu menurut definisi yang konsisten, serta hasil cicip **yang memang dilakukan**. Data tersebut dapat membantu membandingkan dua percobaan. Susun **hipotesis** tentang satu faktor yang mungkin berubah, tulis prediksi sebelum mencoba, lalu cari bukti yang dapat membantah dugaanmu. Tetapi biarkan kolom EY kosong. Jangan menebaknya dari rasa, drawdown, atau tabel rasio.
 
 Coba hitung ulang skenario A dan B tanpa melihat langkah contoh. Lalu jawab: jika sebuah cangkir C memiliki dosis 20 g dan minuman 60 g, **bisakah EY dihitung tanpa angka TDS?** Mengapa? Jika kamu hanya ingin membandingkan persepsi pekat, eksperimen apa yang bisa dilakukan tanpa berpura-pura mengetahui EY?
 
