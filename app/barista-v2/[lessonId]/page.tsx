@@ -18,6 +18,7 @@ export default function BaristaV2Lesson({params}:{params:{lessonId:string}}) {
   if(!mod)notFound();
   const index=BARISTA_V2_LESSONS.findIndex(l=>l.id===lesson.id);
   const prev=BARISTA_V2_LESSONS[index-1],next=BARISTA_V2_LESSONS[index+1];
+  const filterNotebookRelevant=['bv2-m02-l04','bv2-m02-l05','bv2-m07-l05'].includes(lesson.id);
   return <div className="min-h-screen bg-paper-50 pb-32">
     <div className="mx-auto max-w-3xl px-4 pt-12 sm:px-6">
       <nav aria-label="Breadcrumb" className="text-sm text-roast-700">
@@ -34,12 +35,12 @@ export default function BaristaV2Lesson({params}:{params:{lessonId:string}}) {
       {lesson.order === 1 && <BaristaConceptLab moduleCode={lesson.moduleId}/>}
       {lesson.order === mod.count && <BaristaModuleCheckpoint moduleCode={lesson.moduleId}/>}
       {lesson.order === mod.count && <Link href={'/barista-v2/practice/'+lesson.moduleId.toLowerCase()} className="my-8 inline-block rounded-lg border border-roast-900 px-5 py-3 text-sm font-semibold text-roast-900 underline-offset-4 hover:bg-paper-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cherry-700">Lanjutkan: tiga kasus situasi baru →</Link>}
-      <details className="group my-12 border-t border-paper-300 pt-5">
+      {filterNotebookRelevant && <details className="group my-12 border-t border-paper-300 pt-5">
         <summary className="cursor-pointer list-none text-lg font-serif font-bold text-roast-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cherry-700">
           Laboratorium pribadimu <span className="ml-2 text-sm font-sans font-normal text-roast-600">(buka untuk mencoba)</span>
         </summary>
-        <ExperimentNotebook title={'Eksperimen: '+lesson.title}/>
-      </details>
+        <ExperimentNotebook title={'Eksperimen filter: '+lesson.title}/>
+      </details>}
       <nav aria-label="Navigasi pelajaran" className="mt-16 flex items-start justify-between gap-6 border-t border-paper-300 pt-7 text-sm">
         <div>{prev?<Link href={'/barista-v2/'+prev.id} className="underline underline-offset-4 text-roast-800">← {prev.title}</Link>:<Link href="/barista-v2" className="underline underline-offset-4">Daftar materi</Link>}</div>
         <div className="text-right">{next?<Link href={'/barista-v2/'+next.id} className="font-semibold underline underline-offset-4 text-roast-900">{next.title} →</Link>:<Link href="/barista-v2" className="font-semibold underline underline-offset-4">Kembali ke daftar materi →</Link>}</div>
