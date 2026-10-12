@@ -108,14 +108,7 @@ Data ini **fiktif**, dibuat untuk menguji penalaran:
 
 ## 7. Latihan membaca proses
 
-Susun ketiga cerita berikut menjadi kategori:
-
-1. Bubuk direndam dalam air, baru dipisahkan di akhir. → **Immersion**.
-2. Air baru terus melewati bed bubuk menuju wadah. → **Percolation**.
-3. Seseorang menambah air setelah espresso jadi untuk mengurangi konsentrasi. → **Post-brew dilution/bypass**.
-
-**Pertanyaan lanjutan:** Apakah semua cara itu dapat digabung pada satu resep?  
-**Jawab:** Ada metode hibrida yang menggunakan fase rendam dan alir. Kategorinya adalah alat berpikir, bukan dua kotak yang tidak pernah bercampur.
+Gunakan tiga kartu pada aktivitas interaktif di atas. Pastikan kamu dapat menjelaskan perbedaan **air yang direndam bersama bubuk**, **air yang mengalir melalui bed**, dan **menambahkan air setelah minuman jadi**.
 
 ## 8. Penutup
 
