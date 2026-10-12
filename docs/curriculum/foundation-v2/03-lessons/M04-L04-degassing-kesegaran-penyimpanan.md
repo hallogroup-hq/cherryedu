@@ -20,6 +20,9 @@ Keduanya terdengar pasti, tetapi **tidak ada satu tanggal terbaik untuk semua ko
 
 Kita akan memisahkan tiga pertanyaan yang sering dicampur: **seberapa cepat gas keluar, bagaimana aroma berubah, dan kapan kopi menghasilkan seduhan yang kita inginkan?**
 
+
+[VISUAL:packaging-gas]
+
 ## 1. Apa itu degassing?
 
 Selama roasting terbentuk gas, terutama karbon dioksida (CO₂) dalam jumlah berarti. Sebagiannya lepas ketika roasting, dan sebagian dapat tertahan di struktur roasted bean lalu keluar secara bertahap selama penyimpanan.
@@ -76,6 +79,9 @@ Percobaan seperti ini tidak perlu dilakukan untuk lulus Foundation. Kita bisa be
 Penelitian 2022 membandingkan empat cara penyimpanan roasted whole bean setelah kemasan dibuka dan menemukan perubahan indikator aroma yang berbeda. Dalam konfigurasi yang diuji, kemasan dengan tutup ulir bawaan menunjukkan hasil terbaik pada parameter yang mereka ukur. **Itu bukan bukti semua tutup ulir selalu terbaik bagi semua kopi atau bahwa kontainer lain pasti buruk.** [D03]
 
 Sederhananya, konsumen perlu memperhatikan kondisi kemasan, paparan udara, panas, dan kelembapan. Tidak ada kemasan ajaib yang mengembalikan aroma yang sudah hilang.
+
+
+[ACTIVITY:resting-choice]
 
 ## 6. Studi kasus: kapan produk siap dicoba?
 
