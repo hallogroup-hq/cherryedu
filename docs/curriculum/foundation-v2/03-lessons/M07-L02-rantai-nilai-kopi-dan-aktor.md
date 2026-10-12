@@ -17,6 +17,9 @@ Yang tidak terlihat: siapa memanen cerinya? Siapa membayar pemetik? Siapa menyed
 
 Kalau kita membayangkan rantai kopi hanya sebagai **petani → barista → pelanggan**, sebagian besar pekerjaan dan risiko hilang dari cerita. Sebaliknya, menggambar terlalu banyak perantara tanpa melihat fungsinya juga keliru. Kita perlu melihat **fungsi** yang dilakukan orang atau organisasi, bukan hanya banyaknya nama dalam transaksi.
 
+
+[VISUAL:value-three-flows]
+
 ## 1. Kopi berpindah dalam tiga arus sekaligus
 
 Pada setiap titik kita dapat mengajukan tiga pertanyaan:
