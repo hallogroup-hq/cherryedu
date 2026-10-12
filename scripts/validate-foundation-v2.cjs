@@ -88,6 +88,44 @@ const taxonomyLesson = read(path.join(lessonFolder, lessons.find(n => n.startsWi
 if (taxonomyLesson.includes('| Coffea | Genus |'))
   fail('False card exercise leaked its answer key into a static learner table');
 
+// Global beginner experience gate: no lesson may claim a card, picture,
+// process diagram or independent practice without a real supporting UI block.
+const visualCode = read(path.resolve(__dirname, '../components/FoundationConceptVisual.tsx'));
+const revealCode = read(path.resolve(__dirname, '../components/FoundationRevealAnswer.tsx'));
+const practiceCode = read(path.resolve(__dirname, '../components/FoundationPracticeWorkspace.tsx'));
+let interactiveLessons = 0;
+let visualLessons = 0;
+let hiddenSolutions = 0;
+for (const name of lessons) {
+  const id = name.slice(0, 7).replace('-', '.');
+  const source = read(path.join(lessonFolder, name));
+  let clean;
+  try { clean = toLearnerMarkdown(id, source); } catch (error) { fail('Invalid learner markdown for '+id+': '+String(error)); continue; }
+  const acts = [...clean.matchAll(/\[ACTIVITY:([a-z0-9-]+)\]/g)].map(m=>m[1]);
+  const visuals = [...clean.matchAll(/\[VISUAL:([a-z0-9-]+)\]/g)].map(m=>m[1]);
+  if(!acts.length && !visuals.length) fail(id+': missing a grounded learner representation or task');
+  for(const act of acts) if(!registry.includes("'" + act + "': {") && !registry.includes("'" + act + "':{"))
+    fail(id+': undefined interactive block '+act);
+  for(const v of visuals) if(!visualCode.includes("'"+v+"'"))
+    fail(id+': undefined visual '+v);
+  if(acts.length) interactiveLessons++;
+  if(visuals.length) visualLessons++;
+  hiddenSolutions += (clean.match(/```solution/g)||[]).length;
+  if(id==='M02.L02' && !clean.includes('## 2. Liberika: kenali dulu'))
+    fail('Liberica basic plant knowledge must come before Excelsa history');
+  if(id==='M06.L01' && clean.includes('Sepuluh kartu pengalaman — coba klasifikasikan\n\n|'))
+    fail('Answer-revealing ten-card static sensory table has been reintroduced');
+  if(id==='M04.L05' && !clean.includes('[VISUAL:roast-curve]'))
+    fail('Roast-log task requires an actual synthetic curve');
+}
+if(interactiveLessons < 25) fail('Fewer than 25 lessons contain purposeful interactive practice: '+interactiveLessons);
+if(visualLessons < 17) fail('Insufficient physical/spatial visuals: '+visualLessons);
+if(hiddenSolutions < 20) fail('Auto-collapsed learner answers unexpectedly missing: '+hiddenSolutions);
+if(!revealCode.includes('aria-expanded={open}')) fail('Model-answer reveal needs explicit accessible expansion control');
+if(!practiceCode.includes('jawaban tidak disimpan')) fail('Review workspaces need explicit non-persistence notice');
+if(!renderer.includes('FoundationConceptVisual') || !renderer.includes('FoundationRevealAnswer'))
+  fail('Visual and answer-reveal components must actually mount in lesson player');
+
 const questions = new Set();
 let allQuestions = 0;
 let longestTotal = 0;
