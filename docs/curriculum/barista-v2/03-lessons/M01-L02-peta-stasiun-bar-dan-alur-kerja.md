@@ -38,6 +38,10 @@ Hipotesis yang bisa diuji: “Jika knock box ditempatkan pada jangkauan aman set
 
 Untuk mengujinya, rekam alur menggunakan kertas simulasi, bukan langsung menggeser mesin panas/terpasang listrik. Bandingkan **langkah, lintasan silang, potensi tumpahan, dan hambatan kerja tim**, bukan kecepatan saja.
 
+## Eksperimen tanpa memindahkan alat nyata
+
+Sebelum menggambar solusi, buat satu **hipotesis**: “Jika titik sampah ampas tidak lagi menyilang jalur gelas bersih, risiko jalur saling bertabrakan akan berkurang.” Gunakan dua sketsa, hitung lintasan silang pada urutan kerja yang sama, dan nyatakan **batas** hasilnya: gambar hanya menunjukkan kemungkinan, bukan pengukuran nyata seluruh situasi bar. Jika hipotesis tidak terbukti pada sketsa, periksa apakah urutan tugas atau letak benda lain ikut berpengaruh.
+
 ## Latihan: Susun jalur satu minuman
 
 Di atas kertas, gambar empat zona. Tempatkan grinder, timbangan, mesin, knock box, chiller, rak gelas, tempat cuci, dan titik serah pesanan. Beri tanda:
