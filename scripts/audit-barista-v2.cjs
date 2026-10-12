@@ -19,7 +19,7 @@ function section(a, b) {
   return source.slice(x, y);
 }
 function entries(s, prefix) {
-  return [...s.matchAll(new RegExp("id:\\s*'(" + prefix + "[^']+)'", 'g'))]
+  return [...s.matchAll(new RegExp("^\\s*id:\\s*'(" + prefix + "[^']+)'", 'gm'))]
     .map(m => ({ id: m[1], pos: m.index }));
 }
 const modules = entries(section('BARISTA_MODULES', 'BARISTA_LESSONS'), 'mod-b');
