@@ -35,7 +35,7 @@ test.describe('Foundation V2 isolated editorial preview', () => {
 test('public course metadata is learner-facing and contains no editorial release labels', async ({ page }) => {
   await page.goto('/paths/foundation-v2-preview');
   const visible = await page.locator('body').innerText();
-  expect(visible).not.toMatch(/Beta Publik|Materi Dapat Diperbarui|DRAFT REVIEW|Silabus Review|Foundation Layer • Wajib|Edisi Baru — Tanpa Sertifikat|[0-9]+\\/[0-9]+ Pelajaran/i);
+  expect(visible).not.toMatch(/Beta Publik|Materi Dapat Diperbarui|DRAFT REVIEW|Silabus Review|Foundation Layer • Wajib|Edisi Baru — Tanpa Sertifikat|[0-9]+\/[0-9]+ Pelajaran/i);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Memahami Kopi dari Hulu ke Hilir');
   await expect(page.getByText(/Pelajari perjalanan kopi dari buah dan kebun/i)).toBeVisible();
   await expect(page.getByText(/Mulai dari Cangkir/i).first()).toBeVisible();
@@ -46,10 +46,9 @@ test('public learning edition is accessible from catalog without login or compul
   const direct = page.locator('a[href="/paths/foundation-v2-preview"]');
   await expect(direct).toBeVisible();
   await expect(direct).toContainText('Mulai Belajar');
-  const card = page.locator('div').filter({has: direct}).last();
   await expect(page.getByText('KELAS TERBUKA')).toBeVisible();
   await direct.click();
-  await expect(page).toHaveURL(/\\/paths\\/foundation-v2-preview$/);
+  await expect(page).toHaveURL(/\/paths\/foundation-v2-preview$/);
   await expect(page.getByRole('heading', {level:1})).toHaveText('Memahami Kopi dari Hulu ke Hilir');
 });
 
