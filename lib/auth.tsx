@@ -48,12 +48,21 @@ function translateAuthError(message: string): string {
   return message;
 }
 
+const IS_CURRICULUM_REVIEW = process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW === 'review-only';
+
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<SupabaseUser | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // The V2 editorial preview must never authenticate against live Supabase.
+    if (IS_CURRICULUM_REVIEW) {
+      setSession(null);
+      setUser(null);
+      setLoading(false);
+      return;
+    }
     // Proactively purge any leftover demo auth user
     try {
       localStorage.removeItem('cherryedu_local_auth_user');
@@ -121,6 +130,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const signIn = async (email: string, password: string): Promise<{ error: string | null }> => {
+    if (IS_CURRICULUM_REVIEW) return { error: 'Login dinonaktifkan pada preview kurikulum.' };
     // Authenticate with Supabase
     try {
       const { data, error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
@@ -141,6 +151,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const signInWithGoogle = async (customRedirect?: string): Promise<{ error: string | null }> => {
+    if (IS_CURRICULUM_REVIEW) return { error: 'Login Google dinonaktifkan pada preview kurikulum.' };
     try {
       const origin = typeof window !== 'undefined' ? window.location.origin : (process.env.NEXT_PUBLIC_SITE_URL || '');
       const callbackUrl = `${origin}/auth/callback${customRedirect ? `?next=${encodeURIComponent(customRedirect)}` : ''}`;
@@ -197,6 +208,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     name: string,
     coffeeRole: string = 'barista'
   ): Promise<{ error: string | null; needsConfirmation?: boolean }> => {
+    if (IS_CURRICULUM_REVIEW) return { error: 'Pendaftaran akun dinonaktifkan pada preview kurikulum.' };
     try {
       const { data, error } = await supabase.auth.signUp({
         email,
