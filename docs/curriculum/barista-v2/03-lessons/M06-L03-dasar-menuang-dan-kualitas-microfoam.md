@@ -35,6 +35,8 @@ Saat susu dituang, sebagian bisa terintegrasi dengan espresso; dalam kondisi lai
 
 **Transfer:** pelanggan memesan iced latte, tetapi barista menyajikan latte panas bergambar heart. Keputusan mutu mana lebih penting dibanding art? Jelaskan remake dan komunikasi sesuai SOP.
 
+**Perhatikan satu batas lagi:** hasil pour bisa berbeda ketika jenis susu berubah meskipun posisi pitcher terlihat sama. Satu frame tidak membuktikan bahwa proses aeration, suhu dan kekuatan uap identik. Saat menguji pengaruh gerakan, minta instruktur memastikan formula susu, volume, gelas dan persiapan sedekat mungkin setara. Jika ada perubahan bahan karena preferensi atau alergi pelanggan, ulangi verifikasi bahan dan alat terlebih dahulu sebelum menilai pola.
+
 ## Tantangan transfer
 
 Saat pelanggan terburu-buru dan pola tidak sempurna tetapi minuman sesuai spesifikasi, apakah kamu harus remake? Pertimbangkan mutu, kebijakan kedai dan pelanggan.
