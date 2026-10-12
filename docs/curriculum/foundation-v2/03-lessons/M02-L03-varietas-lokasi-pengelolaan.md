@@ -124,6 +124,8 @@ Untuk mempelajari hubungan antara faktor kebun dan hasil, kita bisa:
 
 Contohnya, jika kamu ingin memeriksa apakah naungan membantu kesehatan tanaman pada satu kebun, informasi tentang intensitas naungan dan kondisi penyakit penting. Tetapi catatan satu hari tidak dapat membuktikan semua dampak jangka panjang.
 
+[ACTIVITY:farm-evidence]
+
 ## 7. Pemeriksaan pemahaman
 
 **Soal A:** Mana pernyataan paling dapat dipertanggungjawabkan?
