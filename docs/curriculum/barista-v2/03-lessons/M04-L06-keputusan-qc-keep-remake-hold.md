@@ -20,6 +20,25 @@ Susun pohon keputusan kecil: cek keselamatan, cek tiket dan identitas bahan, cek
 
 Sebelum memeriksa pembahasan, tulis **pertanyaan, prediksi, variabel yang ingin diuji, data yang masih belum diketahui, dan kondisi yang memaksamu berhenti**. Jawaban yang bisa dipertanggungjawabkan boleh berbeda; bukti dan keselamatan tetap menentukan.
 
+## Tidak semua kegagalan mutu boleh diperbaiki dengan resep
+
+Di bar, ada empat jenis situasi yang membutuhkan keputusan berbeda:
+
+| Kondisi | Keputusan yang perlu dipertimbangkan | Alasannya |
+|---|---|---|
+| Espresso sesuai tiket dan standar terverifikasi | Keep | Ada dasar untuk penyajian |
+| Latte panas dibuat untuk tiket iced | Remake/konfirmasi sesuai SOP | Produk tidak sesuai pesanan |
+| Produk diminta tanpa alergen, tetapi proses silang tidak terverifikasi | Hold dan klarifikasi/eskalasi | Keamanan tidak dapat dijanjikan |
+| Mesin mengeluarkan bau listrik panas | Stop penggunaan terkait dan eskalasi | Bahaya teknis, bukan masalah dial-in |
+
+Perhatikan bahwa shot dengan angka sempurna **bisa tetap tidak layak disajikan** jika salah bahan atau keamanan alat tidak diketahui. Sebaliknya, shot dengan durasi berbeda dari catatan lama belum pasti gagal mutu jika kondisi dan kriteria menu telah dievaluasi dengan benar.
+
+Dalam latihan, siswa diberi kartu kasus secara bertahap. Tahap pertama hanya mencantumkan yield dan waktu. Tahap kedua mengungkap pelanggan punya alergi protein susu. Pada titik ini, keputusan harus direvisi berdasarkan **prioritas keselamatan**, bukan tetap dipertahankan demi terlihat konsisten.
+
+Buat alasan keputusan dengan pola sederhana: **fakta → risiko → opsi yang diizinkan → siapa perlu diberi tahu**. Catat apa yang belum diketahui, terutama jika perlu hold. Kompetensi QC adalah keberanian menghentikan proses yang tidak dapat dibuktikan aman, bukan mencari cara supaya semua pesanan tetap disajikan.
+
+**Tantangan transfer:** seorang manajer berkata terlalu banyak remake menambah cost. Bagaimana kamu membedakan masalah waste yang boleh dioptimalkan dari kewajiban keamanan dan ketepatan pesanan yang tidak boleh dikompromikan?
+
 ## Tantangan transfer: situasi baru
 
 Seorang supervisor meminta tetap menyajikan minuman dari bahan yang tanggal atau labelnya tidak jelas. Bagaimana kamu merespons secara profesional, terdokumentasi, dan selamat?
