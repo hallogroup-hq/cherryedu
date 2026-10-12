@@ -20,6 +20,24 @@ Tulis dua hipotesis: satu mengenai grind dan satu mengenai persiapan puck. Tentu
 
 Sebelum memeriksa pembahasan, tulis **pertanyaan, prediksi, variabel yang ingin diuji, data yang masih belum diketahui, dan kondisi yang memaksamu berhenti**. Jawaban yang bisa dipertanggungjawabkan boleh berbeda; bukti dan keselamatan tetap menentukan.
 
+## Bangun dua hipotesis yang benar-benar dapat dibedakan
+
+**Dataset latihan, bukan hasil bar nyata:**
+
+| Shot | Dose | Yield | Time | Informasi puck |
+|---|---:|---:|---:|---|
+| A | 18 g | 36 g | 29 s | Distribusi dicatat konsisten |
+| B | 18 g | 36 g | 21 s | Tidak tercatat |
+| C | 18 g | 36 g | 23 s | Tidak tercatat |
+
+Hipotesis pertama: output grinder berubah sehingga coffee bed menawarkan hambatan lebih rendah. Hipotesis kedua: distribusi puck B/C tidak seragam. Kedua hipotesis dapat menghasilkan shot yang tampak cepat, sehingga data waktu saja **tidak mampu membedakannya**. C lebih dekat ke A dari sisi waktu, tetapi tidak membuktikan grinder menjadi benar setelah penyesuaian kecil.
+
+Jika kamu bisa melakukan satu percobaan aman, pertimbangkan mereplikasi prosedur persiapan yang terdokumentasi dengan lot, dose, basket dan grind sedekat mungkin sama; catat apakah variasi masih muncul. Alternatifnya, bila prosedur puk konsisten dan grinder baru saja diubah, periksa retensi dan cara setting diterapkan sesuai manual. Pilih berdasarkan bukti—bukan satu urutan saklek.
+
+**Perangkap diagnosis:** seseorang berkata, “Jika shot lambat, selalu lebih kasar.” Mengubah grind mungkin membantu aliran, tetapi belum tentu memecahkan sumber hambatan, dan bisa menghasilkan profil rasa berbeda. Kalau indikator menunjukkan gangguan tekanan/air/listrik, jangan terus menarik shot untuk mencoba keberuntungan.
+
+**Transfer:** setelah pergantian shift, hanya durasi yang dicatat, tanpa informasi mulai timer. Usulkan format log yang membuat perbandingan besok lebih bisa dipercaya.
+
 ## Tantangan transfer: situasi baru
 
 Pada mesin lain shot tetap 22 detik tetapi rasanya dinilai sesuai standar kedai setelah tasting. Apakah waktu saja cukup untuk memaksa perubahan? Jelaskan posisi sensorik dan SOP.
