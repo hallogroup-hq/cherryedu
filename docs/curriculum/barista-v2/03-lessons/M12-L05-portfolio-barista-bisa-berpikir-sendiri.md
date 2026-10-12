@@ -18,6 +18,27 @@ Susun dossier ringkas dengan daftar evidence, hipotesis awal, hasil yang membuat
 
 Tuliskan pertanyaan yang kamu pilih, prediksi, variabel yang dikendalikan, risiko, pengamatan yang akan dibutuhkan dan satu hasil yang akan membuatmu merevisi keputusan. Bekerja dengan bahan/alat nyata memerlukan kondisi aman, penanganan higienis, SOP dan pengawasan yang sesuai.
 
+## Portofolio bukti lebih penting daripada daftar resep
+
+Dossier akhir sebaiknya menunjukkan *bagaimana kamu berubah pikiran ketika data baru muncul*. Kumpulan foto latte art saja belum menunjukkan kemampuan memperbaiki masalah pelanggan, mengukur espresso, atau merancang eksperimen aman.
+
+| Bukti portofolio | Apa yang dinilai |
+|---|---|
+| Log dua shot atau filter | Konsistensi unit, batas interpretasi |
+| Kasus pelanggan ambigu | Klarifikasi dan opsi layanan |
+| Kasus alergen/alat fault | Keputusan hold/eskalasi |
+| Notebook eksperimen | Hipotesis, prediksi, kontrol, hasil, revisi |
+| Signature V0–V3 | Pengembangan resep yang bertujuan |
+| SOP + costing + trial operator kedua | Potensi replikasi dan operasional |
+
+Jika siswa hanya mengikuti simulasi daring, setiap tabel wajib diberi label *latihan*, bukan *pengukuran nyata*. Jika ada tasting betulan, catat metode, peserta yang bersedia, kondisi dan keterbatasan. Tidak dibenarkan mengarang feedback agar karya terlihat selesai.
+
+**Eksperimen retrospektif:** pilih satu dugaan awal yang ternyata salah dalam latihan. Tuliskan bukti baru yang membuatmu mengubah pendapat dan uji berikutnya. Ini lebih berharga daripada “aku benar dari awal” tanpa data.
+
+**Transfer akhir:** besok kamu ditempatkan di alat, kopi dan tim yang berbeda. Buat daftar apa yang kamu tanyakan, apa yang kamu ukur dan kapan kamu akan menolak menyajikan sesuatu yang belum aman. Barista kompeten bukan orang yang tak pernah bingung, melainkan orang yang tahu cara mencari bukti.
+
+**Penting:** kelulusan teori online tetap bukan sertifikasi praktik. Penilaian motorik dan standar kompetensi resmi memerlukan pihak berwenang, pengawasan dan prosedur yang terpisah.
+
 ## Tantangan pada kondisi berbeda
 
 Jika kamu ditempatkan pada mesin dan menu asing minggu depan, bagaimana kamu memulai pembelajaran dengan aman tanpa menunggu setiap instruksi headbar?
