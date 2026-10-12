@@ -20,7 +20,7 @@ export function FoundationPracticeWorkspace({activity}:{activity:WorkspaceActivi
   }
   return <div className="space-y-5">
     <p role="status" className="text-xs leading-5 text-roast-700 border-b border-paper-200 pb-3">
-      Mode review: <strong>jawaban tidak disimpan ke akun atau server</strong>. Salin catatanmu sebelum menutup halaman.
+      Jawaban latihan <strong>tidak tersimpan otomatis</strong>. Salin catatanmu sebelum meninggalkan halaman.
     </p>
     {activity.prompts.map((p,i)=><label key={p.label} className="block">
       <span className="font-semibold text-sm text-roast-950">{i+1}. {p.label}</span>
@@ -41,7 +41,7 @@ export function FoundationPracticeWorkspace({activity}:{activity:WorkspaceActivi
     {show&&<div className="rounded-lg border border-paper-300 bg-paper-100 p-4" role="status" aria-live="polite">
       <p className="text-sm font-bold text-roast-950">Contoh penalaran — bukan satu-satunya jawaban</p>
       <p className="mt-2 text-sm leading-6 text-roast-800">{activity.model}</p>
-      <p className="mt-2 text-xs leading-5 text-roast-700">Bandingkan alasan, data yang dipakai dan batas kesimpulan. Ini belum diperiksa oleh pengajar dan tidak menghasilkan sertifikat.</p>
+      <p className="mt-2 text-xs leading-5 text-roast-700">Bandingkan alasan, data yang digunakan, dan batas kesimpulanmu dengan contoh. Pembahasan ini bukan penilaian dari pengajar.</p>
     </div>}
   </div>;
 }
