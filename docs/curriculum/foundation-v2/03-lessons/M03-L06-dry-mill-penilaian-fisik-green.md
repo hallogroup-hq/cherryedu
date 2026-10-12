@@ -15,6 +15,9 @@ Dari mana seorang pembeli harus mulai? Bukan dari menebak aroma kopi sangrai yan
 
 Itulah alasan dry milling dan penilaian fisik menjadi lesson tersendiri. Tanpanya, perjalanan “hulu ke hilir” tiba-tiba melompat dari penjemuran ke mesin roasting.
 
+
+[VISUAL:dry-mill-flow]
+
 ## 1. Apa yang dilakukan dry mill?
 
 Istilah *dry mill* menggambarkan fasilitas/fungsi yang menyiapkan biji kopi setelah pengeringan untuk produk green coffee, termasuk beberapa kegiatan berikut:
@@ -66,6 +69,9 @@ Jadi ada perbedaan penting antara:
 - **Hasil sampel:** data dari lot tertentu.
 
 Metode yang benar belum otomatis menghasilkan satu angka ambang cocok untuk semua pasar. Angka klasifikasi perdagangan mesti menyebut konteks dan versi standar/kontraknya.
+
+
+[ACTIVITY:dry-mill-check]
 
 ## 5. Representative sampling: masalah “satu genggam terlihat bagus”
 
