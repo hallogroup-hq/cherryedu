@@ -157,12 +157,17 @@ export function ExperimentNotebook({ title = 'Laboratorium Pertanyaan Kopi' }: {
         <p aria-live="polite" className="text-xs text-roast-700">{copyMessage}</p>
         {revealed && <div role="status" aria-live="polite" className="space-y-2 rounded-lg border border-paper-300 bg-paper-100 p-4">
           <h5 className="font-semibold text-roast-950">Contoh cara membaca bukti</h5>
-          <p className="text-sm leading-6 text-roast-800">
+          {mode === 'example' ? <p className="text-sm leading-6 text-roast-800">
             Pada dataset simulasi, trial B memakai air masuk dan menghasilkan massa minuman lebih banyak;
             waktunya juga lebih panjang. Kita belum punya TDS, data sensori, atau informasi cukup untuk
             memastikan sebab tunggal. Uji berikutnya sebaiknya mengecek variabel yang tidak tercatat,
             menyamakan prosedur, dan mencatat outcome yang memang ingin dibandingkan.
-          </p>
+          </p> : <p className="text-sm leading-6 text-roast-800">
+            Untuk pengamatan nyata, periksa apakah prediksi diuji oleh data yang relevan; apakah kondisi
+            pembanding cukup terkontrol; apakah ada variabel pengganggu atau variasi pengukuran;
+            serta apakah hasil yang bertentangan menuntut percobaan lanjutan. Tidak ada kesimpulan otomatis
+            atas rasa atau keamanan dari teks yang kamu masukkan.
+          </p>}
           <p className="text-xs leading-5 text-roast-700">
             Ini contoh penalaran untuk data simulasi, bukan evaluasi otomatis terhadap jawabanmu
             atau klaim bahwa pengamatan nyata milikmu telah diverifikasi. Beberapa hipotesis yang masuk akal bisa berbeda.
