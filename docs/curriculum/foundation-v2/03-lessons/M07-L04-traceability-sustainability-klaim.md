@@ -95,32 +95,6 @@ Penelitian tentang kemanfaatan sosial harus memperhatikan:
 
 Mengirim pupuk kompos kepada petani bisa menjadi **aktivitas bantuan** yang bermanfaat. Namun pernyataan “program ini telah menaikkan pendapatan semua petani 40%” membutuhkan data hasil yang berbeda. Aktivitas, output, outcome dan impact bukan satu hal.
 
-## 5. EUDR: contoh mengapa tanggal dan ruang lingkup hukum sangat penting
-
-Uni Eropa memiliki **EU Deforestation Regulation (EUDR)** yang mencakup komoditas serta produk tertentu, termasuk kopi menurut kode barang yang ditetapkan. **Menurut halaman resmi Komisi Eropa dan regulasi perubahan yang berlaku saat diperiksa 12 Oktober 2026**, jadwal penerapannya harus dibedakan berdasarkan **kategori produk sekaligus kategori pelaku**:
-
-| Kategori dalam aturan yang dicek | Tanggal penerapan yang dinyatakan |
-|---|---|
-| Operator besar/menengah untuk produk yang sudah lebih dahulu tercakup, misalnya kopi dalam kode HS 0901 | **30 Desember 2026** |
-| Sebagian besar operator mikro/kecil untuk produk yang sudah tercakup | **30 Juni 2027** |
-| Operator mikro/kecil yang telah tercakup EU Timber Regulation (EUTR) | **30 Desember 2026** |
-| **Produk kopi yang baru ditambahkan**: ekstrak, esens dan konsentrat kopi pada kode **2101 11 00** (*termasuk kategori soluble coffee sesuai klasifikasi barang yang relevan*) | **30 Desember 2027** |
-
-Tanggal khusus produk baru tersebut disebut dalam **Commission Delegated Regulation (EU) 2026/2102**, yang diterbitkan **17 September 2026**. Jangan menyamakan produk kopi panggang/biji pada HS 0901 dengan seluruh produk ekstrak kopi pada HS 2101. Satu brand dapat menjual produk dengan klasifikasi berbeda dan memperoleh akibat regulasi berbeda. [CLAIM-04,CLAIM-05,CLAIM-07,CLAIM-08]
-
-**Tabel ini ringkasan pendidikan, bukan keputusan klasifikasi hukum produk tertentu.** Perusahaan perlu meninjau kode barang, peran rantai pasok, asal produksi, ketentuan transisi, dokumen dan teks hukum terkonsolidasi yang berlaku pada tanggal transaksi bersama penanggung jawab compliance.
-
-**Tanggal tersebut belum tiba pada saat lesson ini ditulis.** Halaman regulasi dan kriteria pelaku harus dicek ulang ketika suatu transaksi nyata diproses.
-
-Yang perlu dipelajari pemula:
-- Kewajiban tergantung **aktor, produk, pasar, tanggal, dan kondisi hukum** yang relevan.
-- Menulis “EUDR compliant” pada kantong kopi bukan bukti kepatuhan.
-- Koordinat lahan, dokumentasi rantai pasok, dan due diligence bukan hal yang sama.
-- Data GPS saja tidak membuktikan tak ada deforestasi atau memenuhi semua syarat.
-- Materi Foundation **tidak menentukan kewajiban hukum eksportir atau mengeluarkan pernyataan kepatuhan**.
-
-Jika perusahaan hendak masuk pasar UE, gunakan panduan resmi terkini dan konsultan/penanggung jawab kepatuhan yang tepat.
-
 ## 6. Carbon neutral: batas sistem menentukan makna angka
 
 Bayangkan produsen mengklaim “setiap cangkir coffee carbon neutral”.
@@ -174,6 +148,33 @@ Revisi itu tetap membutuhkan bukti minimal bahwa kebun memang menerapkan sistem 
 **Copy awal:** “Kami membeli langsung sehingga 100% margin kembali ke petani.”
 
 **Contoh revisi jika transaksi benar ada:** “Kami membeli dari [pihak yang tercatat] dengan kontrak [jenis] dan sedang menyusun ringkasan harga per [satuan] yang dapat dibagikan secara bertanggung jawab. Informasi keuntungan bersih petani belum kami ukur.”
+
+## Pendalaman opsional — EUDR dan peraturan yang bisa berubah
+
+Uni Eropa memiliki **EU Deforestation Regulation (EUDR)** yang mencakup komoditas serta produk tertentu, termasuk kopi menurut kode barang yang ditetapkan. **Menurut halaman resmi Komisi Eropa dan regulasi perubahan yang berlaku saat diperiksa 12 Oktober 2026**, jadwal penerapannya harus dibedakan berdasarkan **kategori produk sekaligus kategori pelaku**:
+
+| Kategori dalam aturan yang dicek | Tanggal penerapan yang dinyatakan |
+|---|---|
+| Operator besar/menengah untuk produk yang sudah lebih dahulu tercakup, misalnya kopi dalam kode HS 0901 | **30 Desember 2026** |
+| Sebagian besar operator mikro/kecil untuk produk yang sudah tercakup | **30 Juni 2027** |
+| Operator mikro/kecil yang telah tercakup EU Timber Regulation (EUTR) | **30 Desember 2026** |
+| **Produk kopi yang baru ditambahkan**: ekstrak, esens dan konsentrat kopi pada kode **2101 11 00** (*termasuk kategori soluble coffee sesuai klasifikasi barang yang relevan*) | **30 Desember 2027** |
+
+Tanggal khusus produk baru tersebut disebut dalam **Commission Delegated Regulation (EU) 2026/2102**, yang diterbitkan **17 September 2026**. Jangan menyamakan produk kopi panggang/biji pada HS 0901 dengan seluruh produk ekstrak kopi pada HS 2101. Satu brand dapat menjual produk dengan klasifikasi berbeda dan memperoleh akibat regulasi berbeda. [CLAIM-04,CLAIM-05,CLAIM-07,CLAIM-08]
+
+**Tabel ini ringkasan pendidikan, bukan keputusan klasifikasi hukum produk tertentu.** Perusahaan perlu meninjau kode barang, peran rantai pasok, asal produksi, ketentuan transisi, dokumen dan teks hukum terkonsolidasi yang berlaku pada tanggal transaksi bersama penanggung jawab compliance.
+
+**Tanggal tersebut belum tiba pada saat lesson ini ditulis.** Halaman regulasi dan kriteria pelaku harus dicek ulang ketika suatu transaksi nyata diproses.
+
+Yang perlu dipelajari pemula:
+- Kewajiban tergantung **aktor, produk, pasar, tanggal, dan kondisi hukum** yang relevan.
+- Menulis “EUDR compliant” pada kantong kopi bukan bukti kepatuhan.
+- Koordinat lahan, dokumentasi rantai pasok, dan due diligence bukan hal yang sama.
+- Data GPS saja tidak membuktikan tak ada deforestasi atau memenuhi semua syarat.
+- Materi Foundation **tidak menentukan kewajiban hukum eksportir atau mengeluarkan pernyataan kepatuhan**.
+
+Jika perusahaan hendak masuk pasar UE, gunakan panduan resmi terkini dan konsultan/penanggung jawab kepatuhan yang tepat.
+
 
 ## 9. Pemeriksaan pemahaman
 
