@@ -64,7 +64,9 @@ const lessons = slots.map((slot) => {
     title: title, content,
     content_type: 'text', duration_minutes: Math.max(8, Math.min(25, Math.ceil(words / 130))),
     order_index: order, is_free: true, is_published: true, created_at: createdAt,
-    summary: 'Foundation V2 · draft untuk peninjauan; belum merupakan materi production.'
+    // Leave summary blank. The editorial reader must not show a generic
+    // internal-status paragraph as a learner-facing lesson takeaway.
+    summary: ''
   };
 });
 const code = [
