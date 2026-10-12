@@ -35,13 +35,15 @@ for(let m=1;m<=10;m++){
  });
  test('M'+String(m).padStart(2,'0')+' concept diagram and usable interactive lab',async({page})=>{
   await page.goto('/home-brewer-v2/hbv2-'+code+'-l01',{waitUntil:'domcontentloaded'});
+  const lab=page.getByRole('region',{name:'Laboratorium konsep M'+String(m).padStart(2,'0')});
+  await expect(lab).toBeVisible();
+  await expect(lab.locator('input, textarea')).not.toHaveCount(0);
+  // M02 teaches its particle-distribution concept in L03, not the label lesson L01.
+  if(m===2)await page.goto('/home-brewer-v2/hbv2-m02-l03',{waitUntil:'domcontentloaded'});
   const fig=page.locator('figure').filter({has:page.locator('svg[role="img"]')});
   await expect(fig).toHaveCount(1);
   await expect(fig.locator('figcaption')).toBeVisible();
   await expect(fig.locator('svg[aria-label]')).toBeVisible();
-  const lab=page.getByRole('region',{name:'Laboratorium konsep M'+String(m).padStart(2,'0')});
-  await expect(lab).toBeVisible();
-  await expect(lab.locator('input, textarea')).not.toHaveCount(0);
  });
 }
 
@@ -104,16 +106,35 @@ test('final case links are present after fourth lesson without pretending to gra
 });
 
 
-test('ten lesson-specific educational diagrams add context without demanding video',async({page})=>{
- const ids=['hbv2-m01-l02','hbv2-m02-l01','hbv2-m03-l02','hbv2-m04-l03','hbv2-m05-l03',
-   'hbv2-m06-l02','hbv2-m07-l02','hbv2-m08-l03','hbv2-m09-l02','hbv2-m10-l02'];
- for(const id of ids){
+test('lesson-specific diagrams render with the correct accessible title, not just any SVG',async({page})=>{
+ const visuals=[
+  ['hbv2-m01-l02','Zona kerja aman untuk seduh rumahan'],
+  ['hbv2-m02-l01','Fakta kemasan berbeda dari janji rasa'],
+  ['hbv2-m03-l02','EY sama, kekuatan minuman berbeda'],
+  ['hbv2-m04-l03','Waktu lambat dapat punya beberapa penyebab'],
+  ['hbv2-m05-l03','AeroPress: stabilitas alat mendahului resep'],
+  ['hbv2-m06-l02','Tiga parameter air menjawab pertanyaan berbeda'],
+  ['hbv2-m07-l02','Blind tasting mengurangi informasi pemicu ekspektasi'],
+  ['hbv2-m08-l03','Variabel pengganggu menyulitkan klaim penyebab'],
+  ['hbv2-m09-l02','Cold brew: rasa dan keamanan adalah dua pemeriksaan'],
+  ['hbv2-m10-l02','Prediksi yang salah tetap menghasilkan pembelajaran']
+ ] as const;
+ for(const [id,title] of visuals){
   await page.goto('/home-brewer-v2/'+id,{waitUntil:'domcontentloaded'});
-  const img=page.locator('figure').filter({has:page.locator('svg[role="img"]')});
-  await expect(img).toHaveCount(1);
-  await expect(img.locator('figcaption')).toBeVisible();
-  await expect(img.locator('svg[aria-label]')).toBeVisible();
+  const fig=page.getByRole('figure',{name:title,exact:true});
+  await expect(fig).toHaveCount(1);
+  await expect(fig.locator('figcaption')).toBeVisible();
+  await expect(fig.locator('svg[aria-label]')).toBeVisible();
  }
+});
+
+test('M02 concept and deep visuals belong to different chapters',async({page})=>{
+ await page.goto('/home-brewer-v2/hbv2-m02-l01');
+ await expect(page.getByRole('figure',{name:'Fakta kemasan berbeda dari janji rasa'})).toBeVisible();
+ await expect(page.getByRole('figure',{name:'Grind bukan satu ukuran partikel'})).toHaveCount(0);
+ await page.goto('/home-brewer-v2/hbv2-m02-l03');
+ await expect(page.getByRole('figure',{name:'Grind bukan satu ukuran partikel'})).toBeVisible();
+ await expect(page.getByRole('figure',{name:'Fakta kemasan berbeda dari janji rasa'})).toHaveCount(0);
 });
 
 test('AeroPress safety diagram explicitly discourages risky inverted brewing',async({page})=>{
