@@ -16,7 +16,7 @@ export default function HomeBrewerV2Lesson({params}:{params:{lessonId:string}}){
  const before=HOME_BREWER_V2_LESSONS[index-1],after=HOME_BREWER_V2_LESSONS[index+1];
  const firstSection=lesson.markdown.indexOf('\n## ');
  const hasDiagram=['hbv2-hb02-l02','hbv2-hb02-l03','hbv2-hb04-l03','hbv2-hb05-l01','hbv2-hb09-l01','hbv2-hb10-l02'].includes(lesson.id);
- return <main className="min-h-screen bg-paper-50 px-4 pb-28 pt-12 text-roast-950 sm:px-6">
+ return <div className="min-h-screen bg-paper-50 px-4 pb-28 pt-12 text-roast-950 sm:px-6">
   <article className="mx-auto max-w-3xl">
    <nav aria-label="Breadcrumb" className="text-sm text-roast-700"><Link href="/home-brewer-v2" className="underline underline-offset-4">Home Brewer Specialization</Link><span className="px-2" aria-hidden="true">/</span>{mod.code.replace('HB','Modul ')}</nav>
    <p className="mt-12 font-mono text-xs uppercase font-semibold tracking-widest text-cherry-700">{mod.title} · Pelajaran {lesson.order}</p>
@@ -35,5 +35,5 @@ export default function HomeBrewerV2Lesson({params}:{params:{lessonId:string}}){
     <div className="text-right">{after?<Link className="font-semibold underline underline-offset-4" href={'/home-brewer-v2/'+after.id}>{after.title} →</Link>:<Link href="/home-brewer-v2" className="font-semibold underline underline-offset-4">Kembali ke semua modul →</Link>}</div>
    </nav>
   </article>
- </main>;
+ </div>;
 }
