@@ -21,6 +21,9 @@ Bukan berarti semua klaim marketing salah. Beberapa mungkin didukung dokumen, pe
 
 Pada lesson ini kita akan menjadi pembaca label yang kritis, tanpa berubah menjadi orang yang otomatis mencurigai semua produsen.
 
+
+[VISUAL:claim-evidence]
+
 ## 1. Empat tingkatan: observasi, catatan, klaim dan dampak
 
 Saat membaca kemasan, kita bisa memilah informasi:
@@ -130,6 +133,9 @@ Kita perlu bertanya:
 - Apakah serapan karbon agroforestri diasumsikan tetap selamanya tanpa risiko?
 
 Tanpa jawaban itu, **kata carbon neutral bukan angka yang dapat diaudit**. Sebaliknya, belum tentu semua upaya penurunan emisi tidak berarti hanya karena belum ada label global. Kita dapat mengapresiasi perbaikan yang benar-benar terukur tanpa menyebutnya “nol” terlalu cepat.
+
+
+[ACTIVITY:sustainability-claim-check]
 
 ## 7. Tiga kemasan fiktif: jadi detektif label
 
