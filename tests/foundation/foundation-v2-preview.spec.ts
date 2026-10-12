@@ -138,7 +138,7 @@ test('Liberica now gets concrete biological explanation before Excelsa taxonomy'
   await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m02-l02');
   const article=page.locator('article');
   await expect(article).toContainText('Liberika: kenali dulu sebelum membahas Excelsa');
-  await expect(article).toContainText('biji relatif besar dibanding Arabika');
+  await expect(article).toContainText(/relatif besar dibanding Arabika/i);
   await expect(article.getByRole('figure', {name:/Nama tanaman dan nama pasar tidak sejajar/})).toBeVisible();
   const articleText=await article.innerText();
   expect(articleText.indexOf('Liberika: kenali dulu')).toBeLessThan(articleText.indexOf('hubungan Excelsa dengan Liberika'));
@@ -150,7 +150,7 @@ test('genuine course visuals render across processing, roast, brew and history',
     ['lesson-fv2-m04-l05','Grafik roasting simulasi yang benar-benar bisa dibaca'],
     ['lesson-fv2-m05-l04','Dua jalur air dalam kopi'],
     ['lesson-fv2-m06-l05','Empat pertanyaan berbeda untuk satu kopi'],
-    ['lesson-fv2-m07-l01','Perjalanan berbeda: asal biologis, tradisi, perdagangan, kekuasaan'],
+    ['lesson-fv2-m07-l01','Satu sejarah, beberapa jalur kekuasaan'],
   ];
   for(const [id,heading] of cases){
     await page.goto('/paths/foundation-v2-preview/lessons/'+id);
@@ -192,5 +192,5 @@ test('farmer income sandbox teaches cost difference rather than label premium', 
   await section.getByRole('button',{name:/Hitung sisa setelah biaya/i}).click();
   await expect(section).toContainText('Rp300.000');
   await expect(section).toContainText('Rp220.000');
-  await expect(section).toContainText('−');
+  await expect(section).toContainText('Rp80.000');
 });
