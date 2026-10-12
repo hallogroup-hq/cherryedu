@@ -18,6 +18,23 @@ Desain tiga percobaan yang purposeful, pilih variabel pertama, prediksi efek sen
 
 Tuliskan pertanyaan yang kamu pilih, prediksi, variabel yang dikendalikan, risiko, pengamatan yang akan dibutuhkan dan satu hasil yang akan membuatmu merevisi keputusan. Bekerja dengan bahan/alat nyata memerlukan kondisi aman, penanganan higienis, SOP dan pengawasan yang sesuai.
 
+## V0–V3: setiap revisi harus menjawab satu pertanyaan
+
+Kamu merancang minuman coffee-forward untuk pelanggan yang menyukai aroma lokal dan sweetness rendah. Contoh ini adalah **rancangan**, bukan hasil tasting.
+
+| Versi | Espresso | Komponen susu | Sirup | Pertanyaan uji |
+|---|---:|---:|---:|---|
+| V0 | 36 g | 140 g | 18 g | Resep referensi |
+| V1 | 36 g | 140 g | 12 g | Apa akibat mengurangi sirup? |
+| V2 | 36 g | 120 g | 12 g | Apa akibat mengurangi susu? |
+| V3 | 36 g | 120 g | 12 g | Apa akibat mengubah suhu penyajian? |
+
+V0 dibanding V1 menyasar satu faktor. V1 dibanding V2 menyasar faktor lain. Pada V3, jumlah bahan sama tetapi kondisi suhu berubah. Tidak ada rasa yang boleh dinyatakan “lebih balance” sebelum hasil nyata tercatat.
+
+Untuk tasting yang diizinkan, catat jenis kopi, lot, bahan, satuan, suhu, urutan penyajian, identitas sampel yang disamarkan bila layak, dan umpan balik yang ditanya tanpa mengarahkan jawaban. Jika ada dua pencicip memilih versi berbeda, jangan menyebut satu orang salah; pelajari perbedaan preferensi dan keterbatasan sampel.
+
+**Pertanyaan eksperimen:** variabel apa yang akan kamu ubah jika V1 terasa terlalu manis menurut sebagian orang tetapi kopi masih kurang dominan? Tulis dua hipotesis yang *bisa saja bertentangan*, pilih satu pengujian awal, dan sebutkan hasil yang membuatmu mengubah pikiran. Jangan mengganti empat bahan sekaligus lalu mengklaim tahu penyebabnya.
+
 ## Tantangan pada kondisi berbeda
 
 Taster pertama menyukai V1 sementara kedua memilih V0. Apa yang dapat dipelajari, data apa yang belum cukup, dan bagaimana memilih eksperimen berikutnya tanpa menyebut salah satu tidak mengerti kopi?

@@ -18,6 +18,18 @@ Urutkan lima tindakan: isolasi risiko alergi, konfirmasi order, cek catatan grin
 
 Tuliskan pertanyaan yang kamu pilih, prediksi, variabel yang dikendalikan, risiko, pengamatan yang akan dibutuhkan dan satu hasil yang akan membuatmu merevisi keputusan. Bekerja dengan bahan/alat nyata memerlukan kondisi aman, penanganan higienis, SOP dan pengawasan yang sesuai.
 
+## Tiga masalah yang membutuhkan tiga jenis respons
+
+**Masalah ekstraksi:** shot hari ini 18 g → 36 g dalam 20 detik, kemarin 29 detik pada resep tertulis sama. Jangan menyimpulkan grinder pasti terlalu kasar. Ada ketidakpastian tentang lot, retensi grinder, puck dan kondisi mesin. Tuliskan dua dugaan serta satu pemeriksaan yang dapat membedakan keduanya. Tasting nyata diperlukan sebelum menyebut shot terbaik.
+
+**Masalah keselamatan:** pelanggan kedua menyebut alergi protein susu sapi. Susu nabati ada, tetapi steam wand digunakan bersama. Ini bukan uji kreatif; verifikasi label, proses penanganan alergen, dan alat. Jika keamanan tidak dapat dipastikan, tahan minuman dan eskalasi. Kecepatan layanan tidak membenarkan janji palsu bahwa pesanan aman.
+
+**Masalah preferensi:** pelanggan ketiga berkata “lebih strong”. Tanyakan apakah maksudnya intensitas rasa, body, porsi, atau kadar kafein. Jangan menggandakan espresso atau menjanjikan lebih banyak kafein hanya dari kesan pahit.
+
+Sekarang muncul informasi baru: grinder baru dibersihkan kemarin dan operator mengubah basket. Apakah itu membuktikan sumber perubahan shot? Tidak. Namun keduanya membantu menentukan data mana yang perlu dikumpulkan berikutnya.
+
+**Latihan akhir:** buat tiga kolom *fakta / hipotesis / tindakan sementara*. Susun prioritas pada shift sibuk, satu eksperimen terkendali yang bisa dilakukan saat aman, komunikasi penundaan yang sopan, dan informasi handoff. Bandingkan rencana sebelum dan setelah informasi basket muncul: keputusan mana berubah, mana harus tetap sama?
+
 ## Tantangan pada kondisi berbeda
 
 Customer tidak mau menunggu penyesuaian kopi dan meminta 'pokoknya yang aman'. Bagaimana menjelaskan pilihan tanpa menyamakan preferensi rasa dengan keamanan bahan?

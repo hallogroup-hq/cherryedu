@@ -18,6 +18,24 @@ Hitung dua variasi: bila susu naik 10% atau usable yield sirup hanya 85%. Bandin
 
 Tuliskan **pertanyaan eksperimenmu, hipotesis, prediksi, apa yang dikontrol, apa yang diamati, dan hasil seperti apa yang akan membuatmu mengubah keputusan**. Jika data hanya simulasi, tandai sumbernya. Kebersihan, keselamatan, alergen dan otorisasi lebih penting daripada ingin mencoba hal baru.
 
+## Perhitungan per serving yang bisa diperiksa
+
+Harga pembelian harus dikonversi menjadi biaya **jumlah yang benar-benar digunakan**.
+
+| Bahan | Jumlah | Harga beli | Biaya |
+|---|---:|---:|---:|
+| Kopi | 18 g | Rp240.000/kg | Rp4.320 |
+| Susu | 150 mL | Rp24.000/L | Rp3.600 |
+| Sirup | 20 g | Rp75.000/kg | Rp1.500 |
+| Cup | 1 buah | Rp1.200/buah | Rp1.200 |
+| **Jumlah** | | | **Rp10.620** |
+
+Jika harga jual Rp32.000, selisihnya Rp21.380 **sebelum** biaya lain: waste, tenaga kerja, utilitas, sewa, biaya transaksi, pajak bila berlaku, dan berbagai biaya operasional. Itu bukan laba bersih. Harga beli bahan juga tidak selalu mencerminkan usable yield: bagian yang dibuang atau tertinggal bisa menambah biaya porsi layak jual.
+
+**Eksperimen sensitivitas:** harga susu naik dari Rp24.000 menjadi Rp26.000 per liter. Untuk 150 mL, biaya susu menjadi Rp3.900, naik Rp300 per gelas. Apakah harga jual *harus* langsung naik Rp300? Belum tentu—pertimbangkan posisi harga menu, harga pemasok lain, waste dan batas menu. Jika mengganti susu, lakukan verifikasi bahan, alergen, tekstur, proses dan uji sensori nyata yang aman sebelum menyatakan substitusi setara.
+
+**Tantangan baru:** dua barista sama-sama menghitung HPP benar, tetapi satu membuang 20% sirup karena batch gagal. Siapa yang membuat proyeksi biaya lebih realistis, dan informasi apa yang perlu dicatat sebelum menentukan harga?
+
 ## Transfer: kondisi berbeda
 
 Ketika pelanggan meminta extra espresso, bagaimana mengomunikasikan opsi menu dan implikasi biaya tanpa menjanjikan caffeination atau perubahan rasa tertentu?

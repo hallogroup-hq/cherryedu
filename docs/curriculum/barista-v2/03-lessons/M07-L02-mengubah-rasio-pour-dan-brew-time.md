@@ -18,6 +18,22 @@ Rancang A/B dengan dosis sama dan satu variabel utama. Tulis dua variabel yang s
 
 Catat pertanyaanmu, hipotesis, prediksi, satu kondisi yang diubah, variabel kontrol, apa yang benar-benar diamati, dan informasi yang belum diketahui. Jika berlatih dengan simulasi, jangan menulis hasil seolah-olah kamu sudah mencicipi atau bekerja dengan mesin nyata. Eksperimen aman mengikuti pedoman mesin dan prosedur kedai.
 
+## Membandingkan 1:15 dan bypass dengan benar
+
+Bayangkan tiga cara menghasilkan filter yang lebih banyak, semuanya pada dosis 15 g kopi.
+
+| Kondisi | Air melalui coffee bed | Air bypass setelah seduh |
+|---|---:|---:|
+| A | 225 g | 0 g |
+| B | 240 g | 0 g |
+| C | 225 g | 15 g |
+
+**A memiliki brew-water ratio 1:15.** B 1:16. Total air B dan C sama, tetapi bukan proses yang sama. Pada B, air tambahan melewati bubuk sehingga mungkin mengubah ekstraksi, kecepatan aliran, waktu kontak dan jumlah zat terlarut. Pada C, air ditambahkan setelah minuman terpisah dari bed; dalam model dilution sederhana ini terutama menurunkan konsentrasi.
+
+Kamu belum boleh menganggap massa minuman B atau C tepat sama dengan air masuk: kopi dan alat dapat menahan sebagian air. Kamu juga belum boleh menulis hasil sensorik tanpa mencicipi.
+
+**Eksperimen dua jalur:** prediksikan perubahan yang diharapkan pada B dan C, lalu jelaskan apa yang harus dikontrol (lot, dose, grinder, brewer, air dan prosedur sejauh mungkin) dan apa yang perlu diukur (output, waktu, TDS jika alat tersedia, serta rasa bila benar-benar dicicipi). Jika hipotesis gagal, apakah penyebabnya aliran, retensi, pengukuran, atau asumsi awal yang perlu direvisi?
+
 ## Tantangan transfer
 
 Customer minta tetap porsi besar tetapi lebih terasa kopi. Apa opsi yang layak dipertimbangkan tanpa otomatis memperkecil rasio?
