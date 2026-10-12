@@ -24,7 +24,7 @@ export default function PathDetailPage() {
   const params = useParams();
   const router = useRouter();
   const slug = params.slug as string;
-  const isDraftPreview = slug === 'foundation-v2-preview' && ['review-only', 'public-readonly'].includes(process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW || '');
+  const isDraftPreview = slug === 'memahami-kopi-dari-hulu-ke-hilir' && ['review-only', 'public-readonly'].includes(process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW || '');
 
   const {
     learningPaths,
@@ -159,7 +159,7 @@ export default function PathDetailPage() {
                     Ikuti materi, amati ilustrasi, dan coba latihan mandiri sesuai urutan. Catatan latihan dan progres pada edisi ini belum tersimpan ke akun.
                   </p>
                   <Link
-                    href="/paths/foundation-v2-preview/lessons/lesson-fv2-m01-l01"
+                    href="/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m01-l01"
                     className="w-full py-2.5 bg-roast-950 text-white font-bold text-xs rounded-lg flex items-center justify-center"
                   >
                     Baca Materi Pertama <ArrowRight className="w-3.5 h-3.5 ml-2" />
