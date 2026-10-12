@@ -31,6 +31,9 @@ Lesson ini mengajarkan konsep dasar ekonomi kopi, bukan agar kamu menjadi akunta
 
 **Pendapatan rumah tangga petani** bahkan lebih luas: dapat mencakup usaha tani lain, pendapatan nonpertanian, biaya hidup dan pekerjaan anggota keluarga. Maka “margin satu kali panen” bukan ukuran langsung apakah keluarga mencapai *living income*.
 
+
+[ACTIVITY:farm-income-sandbox]
+
 ## 2. Kasus pertama: harga jual naik, pendapatan bersih turun
 
 **SEMUA ANGKA DI BAWAH FIKTIF, bukan harga aktual Jawa Barat atau pendapatan nyata petani.** Keduanya membandingkan **100 kg ceri segar dari satu periode penjualan** agar unit tetap konsisten.
