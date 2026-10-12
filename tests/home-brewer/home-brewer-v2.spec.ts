@@ -72,6 +72,32 @@ test('diagnostic requires answer and shows option-specific explanation',async({p
  await expect(quiz.getByRole('button',{name:'Periksa alasan'})).toBeDisabled();
 });
 
+test('M02 label lab needs four deliberate classifications and explains each',async({page})=>{
+ await page.goto('/home-brewer-v2/hbv2-m02-l01');
+ const lab=page.getByRole('region',{name:'Laboratorium konsep M02'});
+ const cards=lab.locator('fieldset');
+ await expect(cards).toHaveCount(4);
+ const check=lab.getByRole('button',{name:'Cek pembacaan label'});
+ await expect(check).toBeDisabled();
+ const labels=['Informasi tercantum','Deskripsi sensori','Informasi tercantum','Belum bisa disimpulkan'];
+ for(let i=0;i<4;i++)await cards.nth(i).getByRole('radio',{name:labels[i]}).check();
+ await expect(check).toBeEnabled();
+ await check.click();
+ await expect(lab.getByRole('status')).toContainText('4 dari 4 klasifikasi sesuai');
+ await expect(cards.nth(1)).toContainText('bukan daftar bahan');
+ await cards.nth(1).getByRole('radio',{name:'Belum bisa disimpulkan'}).check();
+ await expect(lab.getByRole('status')).toHaveCount(0);
+ await check.click();
+ await expect(lab.getByRole('status')).toContainText('3 dari 4 klasifikasi sesuai');
+});
+
+test('M01 goal lab does not preselect a learner preference',async({page})=>{
+ await page.goto('/home-brewer-v2/hbv2-m01-l01');
+ const lab=page.getByRole('region',{name:'Laboratorium konsep M01'});
+ await expect(lab.getByRole('radio',{checked:true})).toHaveCount(0);
+ await expect(lab.getByRole('button',{name:'Bandingkan pertimbanganku'})).toBeDisabled();
+});
+
 test('ratio calculator distinguishes output mass and missing TDS',async({page})=>{
  await page.goto('/home-brewer-v2/hbv2-m03-l01');
  const lab=page.getByRole('region',{name:'Laboratorium konsep M03'});
