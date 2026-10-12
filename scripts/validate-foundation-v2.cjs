@@ -127,7 +127,7 @@ if(interactiveLessons < 25) fail('Fewer than 25 lessons contain purposeful inter
 if(visualLessons < 17) fail('Insufficient physical/spatial visuals: '+visualLessons);
 if(hiddenSolutions < 20) fail('Auto-collapsed learner answers unexpectedly missing: '+hiddenSolutions);
 if(!revealCode.includes('aria-expanded={open}')) fail('Model-answer reveal needs explicit accessible expansion control');
-if(!practiceCode.includes('jawaban tidak disimpan')) fail('Review workspaces need explicit non-persistence notice');
+if(!practiceCode.includes('tidak tersimpan otomatis')) fail('Learner workspaces must explicitly warn that practice answers are not automatically saved');
 if(!renderer.includes('FoundationConceptVisual') || !renderer.includes('FoundationRevealAnswer'))
   fail('Visual and answer-reveal components must actually mount in lesson player');
 
