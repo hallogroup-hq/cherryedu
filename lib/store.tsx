@@ -1258,6 +1258,9 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const enrollInPath = (pathId: string, bypassPrerequisite: boolean = false) => {
+    if (pathId === FOUNDATION_V2_PREVIEW_PATH.id) {
+      return { success: false, message: 'Foundation V2 masih dalam review. Tidak ada enrollment atau kredit belajar.' };
+    }
     const check = canEnrollInPath(pathId);
     if (!check.allowed && !bypassPrerequisite) {
       return { success: false, message: check.reason || 'Tidak memenuhi prasyarat.' };
@@ -1285,12 +1288,14 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const isLessonCompleted = (lessonId: string): boolean => {
+    if (lessonId.startsWith('lesson-fv2-')) return false;
     return userProgress.some(
       (p) => p.user_id === currentUser.id && p.lesson_id === lessonId && p.status === 'completed'
     );
   };
 
   const getPathProgress = (pathId: string): number => {
+    if (pathId === FOUNDATION_V2_PREVIEW_PATH.id) return 0;
     const pathModules = modules.filter((m) => m.learning_path_id === pathId);
     const moduleIds = pathModules.map((m) => m.id);
     const pathLessons = lessons.filter((l) => moduleIds.includes(l.module_id));
@@ -1302,6 +1307,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const isPathCompleted = (pathId: string): boolean => {
+    if (pathId === FOUNDATION_V2_PREVIEW_PATH.id) return false;
     const enrollment = enrollments.find(
       (e) => e.user_id === currentUser.id && e.learning_path_id === pathId
     );
@@ -1309,6 +1315,8 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const markLessonComplete = (lessonId: string, timeSpentSeconds: number = 300) => {
+    // The versioned preview is intentionally read-only; no user credit or XP.
+    if (lessonId.startsWith('lesson-fv2-')) return;
     const now = new Date().toISOString();
     const existing = userProgress.find((p) => p.user_id === currentUser.id && p.lesson_id === lessonId);
 
@@ -1450,6 +1458,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const toggleBookmark = (lessonId: string) => {
+    if (lessonId.startsWith('lesson-fv2-')) return;
     setBookmarks((prev) => {
       const exists = prev.some((b) => b.user_id === currentUser.id && b.lesson_id === lessonId);
       if (exists) {
@@ -1469,6 +1478,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const isBookmarked = (lessonId: string): boolean => {
+    if (lessonId.startsWith('lesson-fv2-')) return false;
     return bookmarks.some((b) => b.user_id === currentUser.id && b.lesson_id === lessonId);
   };
 
