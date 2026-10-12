@@ -328,7 +328,7 @@ export default function LessonPlayerPage() {
         </aside>
 
         {/* Center / Main Editorial Reader */}
-        <main className="lg:col-span-8 bg-white rounded-xl border border-paper-300 p-5 sm:p-8 lg:p-14 shadow-card">
+        <article className="lg:col-span-8 bg-white rounded-xl border border-paper-300 p-5 sm:p-8 lg:p-14 shadow-card">
           {completedNotification && (
             <div className="mb-6 p-4 rounded bg-emerald-50 border border-emerald-300 font-mono text-xs text-emerald-900 flex items-center gap-2 animate-in fade-in slide-in-from-top-2 duration-200">
               <Check className="w-4 h-4 text-emerald-700 shrink-0" />
@@ -444,7 +444,7 @@ export default function LessonPlayerPage() {
               </Link>
             )}
           </div>
-        </main>
+        </article>
       </div>
     </div>
   );
