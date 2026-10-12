@@ -56,7 +56,7 @@ Meter EC/TDS air menunjukkan “130 ppm”. Refraktometer minuman menunjukkan �
 
 A. Angkanya setara karena konversi ppm dan persen selalu sama.
 B. Kedua angka membandingkan kekerasan air setelah diseduh.
-C. Alat serta sampelnya berbeda; satuannya tidak setara.
+C. Sampel dan alatnya berbeda; 130 ppm air bukan 1,30% kopi jadi.
 D. Keduanya mengukur mineral saja, bukan senyawa hasil kopi.
 
 **Kunci C.** Air dan minuman berbeda, demikian pula cara ukur/konversinya. **Remediasi:** L01/L03/L05. **Tag:** coffee-tds-vs-water-tds.
@@ -64,7 +64,7 @@ D. Keduanya mengukur mineral saja, bukan senyawa hasil kopi.
 ### M05-Q05 — Membaca laporan air
 **Data fiktif:** Air A pH 7,1 dan alkalinity 35 mg/L as CaCO₃; Air B pH 7,2 dan alkalinity 100 mg/L as CaCO₃. Apa kesimpulan yang paling sah?
 
-A. pH mirip tidak berarti alkalinitas keduanya sama.
+A. pH yang mirip tidak membuktikan alkalinitas kedua air juga sama.
 B. Nilai pH mirip berarti total hardness juga harus mirip.
 C. Air dengan pH lebih tinggi pasti selalu lebih aman bagi mesin.
 D. Alkalinitas bisa diketahui langsung dari angka pH saja.
@@ -89,7 +89,7 @@ D. Pada TDS/EY setara, rentang suhu studi sedikit mengubah sensori.
 Apa masalah utamanya?
 
 A. Ganti grinder dahulu karena ketidaksesuaian massa menandakan rusak.
-B. Gunakan 285 g hasil seduh, bukan 320 g air masuk.
+B. Gunakan 285 g minuman terkumpul; 320 g adalah air masuk.
 C. Ambil rata-rata 320 g dan 285 g supaya EY lebih netral.
 D. Gunakan 320 g karena air yang dituang adalah hasil brewing.
 
@@ -100,7 +100,7 @@ D. Gunakan 320 g karena air yang dituang adalah hasil brewing.
 
 A. EY A dan B identik karena kedua TDS terukur sama persis.
 B. EY A 20% dan B 18% sebab A menghasilkan minuman lebih sedikit.
-C. EY A 18%, B 20%; jumlah solut dalam cangkir berbeda.
+C. EY A 18%, B 20%; TDS sama tetapi massa minuman berbeda.
 D. EY tidak dapat dihitung dari dosis dan TDS tanpa suhu biji.
 
 **Kunci C.** A: 270 × 1,20 / 18 = 18%; B: 300 × 1,20 / 18 = 20%. **Remediasi:** L05 §3.
@@ -113,7 +113,7 @@ Apa yang terjadi secara konseptual jika tak ada kopi baru terekstraksi dan tidak
 A. Penambahan air meningkatkan jumlah zat kopi tanpa ekstraksi baru.
 B. Dilusi menaikkan EY karena berat cangkir bertambah 50 gram.
 C. TDS dan EY dari dosis awal selalu naik dengan penambahan air.
-D. TDS turun; jumlah solut kopi sebelumnya relatif tetap.
+D. Konsentrasi turun; jumlah zat kopi sebelumnya relatif tetap.
 
 **Kunci D.** Ini membedakan konsentrasi dan jumlah zat terlarut. **Remediasi:** L01 §3 dan L04 §3.
 
@@ -122,7 +122,7 @@ Brosur menulis, “18–22% EY adalah satu-satunya zona rasa enak untuk semua pe
 
 Mana kritik terkuat?
 
-A. Zona lama membantu komunikasi, tetapi bukan selera universal.
+A. Chart lama membantu orientasi, tetapi bukan patokan kesukaan universal.
 B. Rentang historis 18–22% berlaku wajib untuk semua metode seduh.
 C. Chart baru membuktikan preferensi seluruh konsumen selalu identik.
 D. Zona ideal ditentukan hanya oleh dosis air, bukan persepsi rasa.
