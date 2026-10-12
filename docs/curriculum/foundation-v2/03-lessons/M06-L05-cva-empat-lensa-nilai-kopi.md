@@ -23,7 +23,38 @@ Pertanyaannya tidak bisa dijawab hanya dengan **satu angka**. Yang dianggap pent
 
 Di sinilah **Coffee Value Assessment (CVA)** menjadi kerangka yang berguna. Tujuannya memperluas gambaran tentang atribut kopi, bukan menghapus seluruh keputusan manusia dan menggantinya dengan rumus nilai yang mutlak. [CVA-01]
 
-## 1. Dari cupping klasik ke penilaian yang lebih luas
+## 1. Empat lensa — mulai dari pertanyaan sederhana
+
+SCA menyusun CVA melalui **Physical, Descriptive, Affective, dan Extrinsic Assessment**. Evaluator dapat menggunakan satu atau beberapa komponen sesuai kebutuhan, meskipun gambaran yang lebih luas diperoleh ketika informasi dari beberapa sudut pandang tersedia. [CVA-01]
+
+| Lensa | Pertanyaan yang dijawab | Contoh bukti | Yang tidak otomatis dibuktikan |
+|---|---|---|---|
+| **Physical** | Bagaimana kondisi fisik green coffee? | Warna, ukuran, kadar air, defect fisik menurut metode | Favorit semua konsumen atau bebas seluruh kontaminan |
+| **Descriptive** | Atribut sensori apa yang teramati? | Kesan aroma, flavor, texture, aftertaste, intensitas dengan metode | Semua orang menyukainya atau mendapat harga tinggi |
+| **Affective** | Bagaimana impresi kualitas menurut evaluator atau target pasar? | Penilaian liking atau kualitas dalam konteks evaluasi | Satu preferensi mewakili setiap pembeli di dunia |
+| **Extrinsic** | Informasi di luar cangkir apa yang menambah atau menjelaskan nilai? | Asal, produsen, proses, traceability, sertifikasi, praktik produksi | Setiap narasi pemasaran pasti benar tanpa verifikasi |
+
+**Jangan memaksa satu lensa menggantikan yang lain.**
+
+Jika biji hijau terlihat bersih, belum tentu hasil seduhnya sesuai preferensi pembeli. Jika cangkir mempunyai aroma yang unik, tidak otomatis berarti klaim mengenai praktik organik atau harga adil terbukti. Jika ada sertifikat, kita tetap perlu melihat cakupan, penerbit, masa berlaku, dan lot yang ditunjuk.
+
+
+## 2. Descriptive berbeda dari affective
+
+Dua panelis dapat menyepakati bahwa kopi mempunyai keasaman jelas, aroma buah, dan mouthfeel ringan. Itu lebih dekat ke **deskripsi**.
+
+Namun panelis pertama lebih menyukai keasaman tersebut, sedangkan panelis kedua memilih kopi lebih pahit dan tebal. Itu menyangkut **afeksi/evaluasi kualitas yang tergantung preferensi dan tujuan pasar**.
+
+Dalam CVA, descriptive assessment memakai pendekatan untuk mencatat atribut sensori secara terstruktur, termasuk kategori deskriptor dan penilaian intensitas. Affective assessment menangkap impresi penilai atas kualitas sensori sesuai konteks penggunaannya. Tidak tepat menjelaskan affective sebagai “angka benar-salah objektif” yang menentukan kualitas untuk semua orang. [CVA-01]
+
+Perbedaan ini menjaga diskusi tetap produktif:
+- **Kopi seperti apa?** Pertanyaan deskriptif.
+- **Siapa yang menyukainya dan untuk kebutuhan apa?** Pertanyaan afektif.
+- **Apakah bahan fisiknya sesuai spesifikasi?** Pertanyaan fisik.
+- **Apa konteks asal serta hubungan dagangnya?** Pertanyaan ekstrinsik.
+
+
+## 3. Dari penilaian klasik ke pemahaman nilai yang lebih luas
 
 Selama bertahun-tahun, industri memakai formulir cupping yang dikenal dengan **skala 100 poin**. Di banyak konteks historis, angka **80+** dipakai sebagai ambang pembicaraan atau klasifikasi specialty coffee.
 
@@ -43,22 +74,8 @@ Perubahan ini bukan berarti penilaian rasa atau scoring tidak diperlukan lagi. A
 
 [VISUAL:cva-lenses]
 
-## 2. Empat lensa, empat jenis pertanyaan
 
-SCA menyusun CVA melalui **Physical, Descriptive, Affective, dan Extrinsic Assessment**. Evaluator dapat menggunakan satu atau beberapa komponen sesuai kebutuhan, meskipun gambaran yang lebih luas diperoleh ketika informasi dari beberapa sudut pandang tersedia. [CVA-01]
-
-| Lensa | Pertanyaan yang dijawab | Contoh bukti | Yang tidak otomatis dibuktikan |
-|---|---|---|---|
-| **Physical** | Bagaimana kondisi fisik green coffee? | Warna, ukuran, kadar air, defect fisik menurut metode | Favorit semua konsumen atau bebas seluruh kontaminan |
-| **Descriptive** | Atribut sensori apa yang teramati? | Kesan aroma, flavor, texture, aftertaste, intensitas dengan metode | Semua orang menyukainya atau mendapat harga tinggi |
-| **Affective** | Bagaimana impresi kualitas menurut evaluator atau target pasar? | Penilaian liking atau kualitas dalam konteks evaluasi | Satu preferensi mewakili setiap pembeli di dunia |
-| **Extrinsic** | Informasi di luar cangkir apa yang menambah atau menjelaskan nilai? | Asal, produsen, proses, traceability, sertifikasi, praktik produksi | Setiap narasi pemasaran pasti benar tanpa verifikasi |
-
-**Jangan memaksa satu lensa menggantikan yang lain.**
-
-Jika biji hijau terlihat bersih, belum tentu hasil seduhnya sesuai preferensi pembeli. Jika cangkir mempunyai aroma yang unik, tidak otomatis berarti klaim mengenai praktik organik atau harga adil terbukti. Jika ada sertifikat, kita tetap perlu melihat cakupan, penerbit, masa berlaku, dan lot yang ditunjuk.
-
-## 3. Standar SCA mana yang diterbitkan?
+## 4. Pendalaman: nomor standar SCA dan status publikasinya
 
 Pada pemeriksaan registri resmi SCA tanggal **12 Oktober 2026**, standar terkait CVA yang tercantum sebagai **published** adalah:
 
@@ -73,19 +90,6 @@ Bagian physical CVA tetap mempunyai praktik green grading dan ketentuan relevan 
 
 Materi CherryEdu Foundation **bukan** salinan resmi form CVA, bukan ujian Q Grader, bukan pelatihan yang menjamin bisa menjalankan SCA-102 sampai SCA-105 secara mandiri. Untuk itu ada jalur profesional serta prosedur yang harus dipelajari dengan lengkap.
 
-## 4. Descriptive dan affective: perbedaannya halus tetapi penting
-
-Dua panelis dapat menyepakati bahwa kopi mempunyai keasaman jelas, aroma buah, dan mouthfeel ringan. Itu lebih dekat ke **deskripsi**.
-
-Namun panelis pertama lebih menyukai keasaman tersebut, sedangkan panelis kedua memilih kopi lebih pahit dan tebal. Itu menyangkut **afeksi/evaluasi kualitas yang tergantung preferensi dan tujuan pasar**.
-
-Dalam CVA, descriptive assessment memakai pendekatan untuk mencatat atribut sensori secara terstruktur, termasuk kategori deskriptor dan penilaian intensitas. Affective assessment menangkap impresi penilai atas kualitas sensori sesuai konteks penggunaannya. Tidak tepat menjelaskan affective sebagai “angka benar-salah objektif” yang menentukan kualitas untuk semua orang. [CVA-01]
-
-Perbedaan ini menjaga diskusi tetap produktif:
-- **Kopi seperti apa?** Pertanyaan deskriptif.
-- **Siapa yang menyukainya dan untuk kebutuhan apa?** Pertanyaan afektif.
-- **Apakah bahan fisiknya sesuai spesifikasi?** Pertanyaan fisik.
-- **Apa konteks asal serta hubungan dagangnya?** Pertanyaan ekstrinsik.
 
 ## 5. Extrinsic bukan izin membuat cerita yang menyentuh hati tanpa bukti
 
