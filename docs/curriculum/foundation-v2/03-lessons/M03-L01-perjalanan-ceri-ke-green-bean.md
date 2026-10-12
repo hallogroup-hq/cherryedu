@@ -54,6 +54,10 @@ FAO telah lama menekankan pengeringan, rewetting, dan penyimpanan sebagai titik 
 
 Setelah hulling, green bean pun belum “lulus” hanya karena tampak hijau. Masih perlu inspeksi fisik, identitas lot, dan pengujian yang sesuai tujuan jual-beli.
 
+### Jejak P-17 — dari 100 kg buah ke identitas produk
+
+Dalam satu dossier yang akan kamu jumpai lagi di akhir kursus, **100 kg ceri fiktif berkode P-17** masuk stasiun pengolahan di Jawa Barat. Angka akhir green pada kasus adalah sekitar **17,5 kg**, tetapi catatan sortasi, hubungan dua petak dan sebagian dokumen belum lengkap. Angka ini *bukan* rendemen yang harus terjadi pada semua kopi; yang perlu diikuti adalah **produk berubah bentuk sementara kode dan bukti asal seharusnya tetap jelas**.
+
 ## 4. Peta data yang harus ikut bergerak
 
 Bayangkan kopi berpindah dari petani ke pengolah lalu ke roaster. Bahan fisiknya berpindah, tetapi **identitas lot harus ikut berpindah juga**.
