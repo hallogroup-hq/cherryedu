@@ -18,6 +18,22 @@ Buat skrip 20–40 detik untuk mengajukan dua klarifikasi dan menawarkan dua alt
 
 Tuliskan **pertanyaan eksperimenmu, hipotesis, prediksi, apa yang dikontrol, apa yang diamati, dan hasil seperti apa yang akan membuatmu mengubah keputusan**. Jika data hanya simulasi, tandai sumbernya. Kebersihan, keselamatan, alergen dan otorisasi lebih penting daripada ingin mencoba hal baru.
 
+## Latihan tanpa resep rahasia headbar
+
+Kasus baru: pelanggan meminta kopi dingin dengan aroma buah tetapi tidak suka sweetness tinggi, ingin porsi tidak terlalu besar, dan alergi kacang. Bar saat itu hanya punya house espresso, filter satu lot, es, air dan beberapa bahan pendamping berlabel.
+
+**Urutan yang masuk akal** bukan “pilih bahan tropis paling unik”. Pertama, cek risiko bahan dan alat. Kedua, klarifikasi apakah *fruity* berarti aroma buah, acidity tertentu, atau keduanya. Ketiga, tentukan apakah pilihan menu yang sudah disetujui mencakup kebutuhan itu. Kalau tidak, jelaskan keterbatasan dan hindari menjadikan order customer sebagai laboratorium resep yang belum aman.
+
+| Jawaban awal | Informasi yang hilang |
+|---|---|
+| “Aku buat double shot buah saja” | Makna strong/fruity, bahan, izin resep |
+| “Aku pastikan alerginya dulu dan tawarkan opsi menu” | Perlu cek label/alat/SOP aktual |
+| “Semua minuman kopi aman tanpa susu” | Alat dan bahan pendamping bisa bermasalah |
+
+**Latihan role-play:** tulis dua pertanyaan pendek, dua pilihan aman yang masuk akal, dan satu kalimat sopan ketika order harus ditahan. Mintalah rekan memberikan informasi baru setelah jawabanmu, lalu revisi opsi dengan alasan.
+
+**Eksperimen lanjutan:** di luar jam layanan, rumuskan brief signature yang mungkin memenuhi kebutuhan itu. Jangan menyatakan rasa cocok sebelum trial sensory dan verifikasi keamanan benar-benar terjadi.
+
 ## Transfer: kondisi berbeda
 
 Pelanggan kemudian menyebut alergi protein susu yang tidak tercatat pada tiket. Bagaimana seluruh rekomendasimu harus dievaluasi ulang?
