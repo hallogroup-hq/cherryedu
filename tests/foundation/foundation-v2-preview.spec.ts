@@ -83,7 +83,7 @@ test('internal references and QA never render inside learner lesson bodies', asy
     const article = page.locator('article');
     await expect(article).toBeVisible();
     await expect(article).not.toContainText(/Catatan editorial dan referensi|SME review pending|Human learner test pending|Editorial source register|Referensi dan QA|Sumber dan status/i);
-    await expect(article).not.toContainText(/https?:\\/\\/(?:pubmed|sca\\.coffee|doi\\.org|www\\.mdpi)/i);
-    await expect(article).not.toContainText(/\\[(?:S01|R1|CAP-01|CLAIM-04)\\]/);
+    await expect(article).not.toContainText(/https?:\/\/(?:pubmed|sca\.coffee|doi\.org|www\.mdpi)/i);
+    await expect(article).not.toContainText(/\[(?:S01|R1|CAP-01|CLAIM-04)\]/);
   }
 });
