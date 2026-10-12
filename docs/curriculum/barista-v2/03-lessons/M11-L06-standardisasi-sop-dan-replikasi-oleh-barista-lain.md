@@ -18,6 +18,29 @@ Tulis SOP satu halaman untuk draft signature. Minta orang lain membaca tanpa ban
 
 Tuliskan pertanyaan yang kamu pilih, prediksi, variabel yang dikendalikan, risiko, pengamatan yang akan dibutuhkan dan satu hasil yang akan membuatmu merevisi keputusan. Bekerja dengan bahan/alat nyata memerlukan kondisi aman, penanganan higienis, SOP dan pengawasan yang sesuai.
 
+## Tes penting: apakah rekan barista bisa mereproduksi tanpa bertanya?
+
+Resep “tuang sirup secukupnya, shake sebentar” bukan SOP yang bisa diuji. Dua barista dapat menafsirkan “secukupnya” secara berbeda. Resep operasional perlu membedakan **angka yang diukur**, **pengamatan mutu**, dan **toleransi yang disetujui venue**.
+
+Contoh checklist dokumentasi satu serving:
+
+| Elemen SOP | Apa yang wajib jelas? |
+|---|---|
+| Bahan | Jenis, merek/spesifikasi, lot bila penting, alergen |
+| Kopi | Jenis base, dose/brew yield atau konsentrasi yang relevan |
+| Takaran lain | Massa atau volume dengan satuan |
+| Alat | Jenis dan kondisi alat, prosedur yang diizinkan |
+| Urutan | Langkah produksi dan waktu kritis |
+| Penyajian | Ukuran, es/suhu sesuai menu, gelas, label |
+| Pemeriksaan mutu | Hal yang dapat diamati, penyimpangan, kapan remake/hold |
+| Penyimpanan | Hanya prosedur dan batas yang tervalidasi |
+
+Untuk tes replikasi, *pembuat minuman pertama tidak boleh membimbing langkah secara lisan*. Barista kedua mengikuti dokumen, melakukan kegiatan dengan alat aman di bawah pengawasan, lalu mencatat input dan output yang benar-benar didapat. Jika hasil berbeda, tandai bagian SOP yang ambigu sebelum menyalahkan pembuat kedua.
+
+**Kondisi berubah:** bahan pendamping habis dan rekan ingin mengganti dengan merek lain. Apakah SOP memberikan izin substitusi? Jika tidak ada bukti kesetaraan atau keamanan, jangan diam-diam menyajikan varian lain sebagai resep asli. Diskusikan dengan penanggung jawab dan komunikasikan ketersediaan dengan jujur.
+
+**Refleksi:** buat satu revisi SOP yang mengurangi pertanyaan dari barista kedua tanpa menambah teks dekoratif atau penjelasan yang tidak dibutuhkan.
+
 ## Tantangan pada kondisi berbeda
 
 Pesanan signature datang saat stok garnish habis. Apa yang boleh dihilangkan tanpa mengubah janji menu, apa yang wajib ditahan, dan siapa yang berwenang memutuskan?
