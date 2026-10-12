@@ -17,7 +17,7 @@ export default function BaristaV2Lesson({params}:{params:{lessonId:string}}) {
   if(!mod)notFound();
   const index=BARISTA_V2_LESSONS.findIndex(l=>l.id===lesson.id);
   const prev=BARISTA_V2_LESSONS[index-1],next=BARISTA_V2_LESSONS[index+1];
-  return <main className="min-h-screen bg-paper-50 pb-32">
+  return <div className="min-h-screen bg-paper-50 pb-32">
     <div className="mx-auto max-w-3xl px-4 pt-12 sm:px-6">
       <nav aria-label="Breadcrumb" className="text-sm text-roast-700">
         <Link className="underline underline-offset-4" href="/barista-v2">Barista Specialization</Link>
@@ -42,5 +42,5 @@ export default function BaristaV2Lesson({params}:{params:{lessonId:string}}) {
         <div className="text-right">{next?<Link href={'/barista-v2/'+next.id} className="font-semibold underline underline-offset-4 text-roast-900">{next.title} →</Link>:<Link href="/barista-v2" className="font-semibold underline underline-offset-4">Kembali ke daftar materi →</Link>}</div>
       </nav>
     </div>
-  </main>;
+  </div>;
 }
