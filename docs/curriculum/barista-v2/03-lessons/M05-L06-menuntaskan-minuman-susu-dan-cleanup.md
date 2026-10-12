@@ -20,6 +20,25 @@ Buat urutan produksi dan bersih-bersih untuk kasus dua tiket yang satu mengandun
 
 **Sebelum membaca contoh jawaban dari pengajar:** tulis hipotesis, prediksi, pengamatan yang dibutuhkan, variabel kontrol, keamanan, dan alasan kenapa satu uji lebih informatif daripada tebakan. Kesalahan hipotesis tidak otomatis berarti kegagalan belajar jika proses dan keselamatan dijaga.
 
+## Kualitas minuman bergantung pada titik handoff
+
+Sebuah pesanan tidak selesai ketika foam terbentuk. Identitas tiket, komposisi, kebersihan alat, suhu sesuai menu, dan penyerahan ke orang yang benar tetap perlu dikonfirmasi. Dua barista mungkin membagi pekerjaan antara menarik shot dan menyelesaikan minuman; tanpa komunikasi, pergantian jenis susu bisa hilang.
+
+Gunakan simulasi dua tiket berikut:
+
+| Tiket | Permintaan | Risiko titik serah |
+|---|---|---|
+| A | Latte panas dengan susu sapi | Tertukar dengan gelas B |
+| B | Iced oat latte, tujuan penggunaan susu belum dijelaskan | Jenis bahan dan kemungkinan alergen belum dikonfirmasi |
+
+Tiket B membutuhkan klarifikasi karena preferensi bahan dan kebutuhan alergi bisa memerlukan proses verifikasi berbeda. Jangan berasumsi minuman oat otomatis aman untuk seseorang yang alergi susu sapi jika peralatan bersama belum diverifikasi.
+
+**Rancang alur:** siapa membaca tiket, siapa menandai gelas, siapa menyiapkan bahan, siapa memeriksa akhir, kapan peralatan dibersihkan, dan kapan produk perlu di-remake? Catat juga apa yang terjadi bila mesin mengeluarkan fault, es habis, atau satu pelanggan mengubah pesanan di tengah proses.
+
+Buat eksperimen komunikasi di atas kertas dengan dua versi handoff: “oat latte untuk B” versus tiket lengkap yang berisi suhu, ukuran, identitas pesanan dan catatan bahan. Berikan kepada pembaca kedua dan hitung informasi penting yang hilang; jangan gunakan pelanggan nyata tanpa izin.
+
+**Tantangan lanjutan:** B kembali berkata pesanan seharusnya dairy-free karena alergi. Apakah memindahkan susu yang telah disiapkan ke gelas lain cukup? Jelaskan mengapa keputusan yang bertanggung jawab terkait bahan, alat dan proses, bukan hanya tampilan minumannya.
+
 ## Situasi baru
 
 Pesanan kedua memiliki bahan yang sama tetapi suhu berbeda. Apa yang dapat kamu sesuaikan dengan aman sesuai SOP, bagaimana mencatatnya dan apa yang perlu dijelaskan kepada pelanggan?
