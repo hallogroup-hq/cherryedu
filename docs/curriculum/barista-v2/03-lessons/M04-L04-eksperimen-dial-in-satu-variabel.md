@@ -20,6 +20,23 @@ Buat notebook: pertanyaan, hipotesis, prediksi, input terukur, apa yang berubah,
 
 Sebelum memeriksa pembahasan, tulis **pertanyaan, prediksi, variabel yang ingin diuji, data yang masih belum diketahui, dan kondisi yang memaksamu berhenti**. Jawaban yang bisa dipertanggungjawabkan boleh berbeda; bukti dan keselamatan tetap menentukan.
 
+## Merancang A/B yang tidak menipu penguji
+
+Dua versi shot tidak otomatis menjadi eksperimen terkontrol. Bayangkan barista A menaikkan output 36→42 g dan sekaligus mengganti grind, kopi dan basket. Jika ia lebih menyukai cangkir terakhir, ia hanya tahu **seluruh paket perubahan** terasa berbeda, bukan komponen mana yang berperan.
+
+Rancangan yang lebih dapat ditafsirkan dapat dimulai dari dose 18 g dan satu kopi, basket, grinder, air dan proses puck yang sedekat mungkin konsisten. Kondisi A menargetkan beverage 36 g; B menargetkan 42 g. Catat durasi masing-masing, massa aktual, penilaian sensorik **yang benar-benar dilakukan**, serta kemungkinan perubahan yang menyertai output lebih besar (misalnya waktu aliran). Jika minuman yang dicicipi berbeda suhu karena antrean, catat bias itu.
+
+| Langkah | A | B |
+|---|---|---|
+| Pertanyaan | Apakah target yield berbeda memberi pengalaman berbeda? | Pertanyaan sama |
+| Yang sengaja diubah | Target 36 g | Target 42 g |
+| Kondisi dijaga | Kopi/dose/basket/proses | Semirip mungkin |
+| Hasil yang dibutuhkan | Massa nyata, waktu, sensory | Massa nyata, waktu, sensory |
+
+**Hipotesis bukan jawaban final.** Tulis prediksi sebelum melihat hasil dan satu observasi yang akan bertentangan dengannya. Contoh: bila kamu mengira B pasti lebih ringan tetapi panel mencicipi tidak sepakat, jangan edit catatan agar prediksi tampak benar. Ulangi secara masuk akal, pertimbangkan desain blind, dan cek apakah target pengujian memang sesuai kebutuhan menu.
+
+Ketika biaya kopi terbatas, eksperimen yang dirancang baik sering **lebih hemat** daripada puluhan shot tanpa tujuan. Tuliskan jumlah trial yang diizinkan dan kapan harus berhenti jika kondisi alat berubah.
+
 ## Tantangan transfer: situasi baru
 
 Catatan eksperimen menunjukkan shot B lebih disukai dua penguji tetapi variabel suhu juga berubah. Klaim apa yang boleh dibuat, klaim apa yang harus ditunda, dan uji berikutnya apa?
