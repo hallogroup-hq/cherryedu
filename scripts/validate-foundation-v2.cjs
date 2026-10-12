@@ -195,6 +195,10 @@ const course = read(path.resolve(__dirname, '../app/paths/[slug]/page.tsx'));
 const reader = read(path.resolve(__dirname, '../app/paths/[slug]/lessons/[lessonId]/page.tsx'));
 const workspace = read(path.resolve(__dirname, '../components/FoundationPracticeWorkspace.tsx'));
 const registryText = read(path.resolve(__dirname, '../lib/data/foundationV2Interactions.ts'));
+const audioReader = read(path.resolve(__dirname, '../components/AudioNarrationPlayer.tsx'));
+if (!audioReader.includes('(?:DIAGRAM|ACTIVITY|VISUAL)')) {
+  fail('Audio narration may speak raw visual or interactive activity tokens to students');
+}
 for (const unwanted of [
   'Foundation V2 — Beta Publik (Materi Dapat Diperbarui)',
   'edisi beta publik. Materi dapat diperbarui',
