@@ -38,7 +38,7 @@ Selain bentuk bahan fisik, dua arus lain yang penting dicatat pada handoff kopi 
 A. Peringkat rasa kopi dan jumlah followers kedai di platform sosial.
 B. Warna biji sebelum roasting dan tingkat harga kopi di kedai.
 C. Merek grinder yang dipakai roaster dan ukuran kemasan ekspor.
-D. Informasi lot, alur pembayaran dan pembagian risiko usaha.
+D. Catatan identitas lot, riwayat pembayaran dan pihak penanggung risiko.
 
 **Kunci D.** Material, informasi dan pembayaran/risiko saling terkait.  
 **Remediasi:** M07.L02 §§1–3; **tag:** product-only-value-chain.
@@ -79,7 +79,7 @@ Apa evaluasi paling tepat?
 A. Campuran tetap single-farm jika hasilnya menunjukkan aroma serupa.
 B. Sorting dapat memulihkan identitas asal yang tidak lagi tercatat.
 C. Asal lot dianggap cukup bila dua petak ada pada kabupaten sama.
-D. Klaim single farm A belum terdukung tanpa catatan campuran.
+D. Klaim single farm A belum terdukung jika hubungan dua sublot tak tercatat.
 
 **Kunci D.** Penggabungan bisa sah sebagai blend, tetapi klaim origin spesifik harus akurat.  
 **Remediasi:** M07.L02 §4; **tag:** mixed-lot-mislabel.
@@ -116,7 +116,7 @@ Kebun berada di bawah pohon penaung. Apa klaim yang didukung informasi itu saja?
 
 A. Naungan pasti menjadikan kopi netral karbon hingga tahap konsumsi.
 B. Naungan selalu mengurangi hasil panen tanpa manfaat lingkungan.
-C. Naungan perlu dinilai dengan indikator manfaat dan trade-off.
+C. Naungan perlu dinilai menurut dampak ekologis, biaya dan hasil panen.
 D. Naungan cukup membuktikan lahan tidak pernah mengalami deforestasi.
 
 **Kunci C.** Studi naungan memperlihatkan potensi manfaat dan tradeoff.  
@@ -183,7 +183,7 @@ D. 16,2%
 
 Keputusan paling bertanggung jawab?
 
-A. Tahan lot terkait dan eskalasi QC; keamanan belum terbukti.
+A. Tahan lot terdampak dan eskalasi QC untuk memeriksa risiko dan riwayatnya.
 B. Hasil awal moisture 11,2% cukup untuk membebaskan lot dari risiko.
 C. Insiden air bisa diabaikan jika warna biji masih relatif normal.
 D. Kopi dapat dinyatakan aman setelah satu sampel foto dari karung.
@@ -202,7 +202,7 @@ Apa kesimpulan tepat?
 A. Sisa naik Rp330.000 karena harga premium meningkatkan penerimaan.
 B. Living income naik 50% walaupun biaya lebih tinggi dari sebelumnya.
 C. Margin sama karena persentase harga dan biaya saling meniadakan.
-D. Sisa biaya tercatat turun Rp30.000, belum bukti living income.
+D. Sisa setelah biaya tercatat turun Rp30.000; bukan bukti living income.
 
 **Kunci D.** 150.000 − 180.000 = −30.000.  
 **Remediasi:** M07.L03 §§2,5; **tag:** premium-equals-living-income.
@@ -230,7 +230,7 @@ Apa respons paling baik?
 
 A. Publikasikan klaim apa pun selama pembeli menerima harga premium.
 B. Ubah desain agar klaim lebih jelas tanpa meminta dokumen bukti.
-C. Tahan klaim, tinjau QC serta bukti sensory dan ekonomi.
+C. Tahan klaim hingga data QC, asal, sensory dan transaksi dinilai.
 D. Anggap semua klaim pasti palsu tanpa menyelidiki dokumen.
 
 **Kunci C.** Pembelajar harus membuat keputusan sesuai bukti dan kewenangan, bukan menganggap slogan sebagai verifikasi.
