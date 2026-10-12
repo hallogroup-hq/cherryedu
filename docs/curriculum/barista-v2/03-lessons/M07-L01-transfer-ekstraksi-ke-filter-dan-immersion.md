@@ -18,6 +18,22 @@ Prediksikan apa yang terjadi jika kopi tetap 15 g dan air berubah 225→240 g. R
 
 Catat pertanyaanmu, hipotesis, prediksi, satu kondisi yang diubah, variabel kontrol, apa yang benar-benar diamati, dan informasi yang belum diketahui. Jika berlatih dengan simulasi, jangan menulis hasil seolah-olah kamu sudah mencicipi atau bekerja dengan mesin nyata. Eksperimen aman mengikuti pedoman mesin dan prosedur kedai.
 
+## Air masuk, air tertahan, minuman keluar
+
+Dosis 15 g dengan 225 g air seduh merupakan **rasio input 1:15**. Jika minuman yang terkumpul hanya 185 g, selisihnya bukan bukti kesalahan barista. Air dapat tertahan oleh bubuk dan filter atau hilang dari sistem selama proses. Retensi bergantung pada alat dan kondisi; jangan menyalin angka retensi ini untuk semua metode.
+
+| Metode | Proses dominan | Catatan penting |
+|---|---|---|
+| Pour-over | Air melewati bed | Flow, pola tuang dan retensi perlu dicatat |
+| Immersion | Air berkontak dengan bubuk lalu dipisah | Waktu kontak dan pemisahan berbeda |
+| Espresso | Air melewati puck dengan mesin | Dose dan beverage-output ratio sering dipakai |
+
+Semuanya melakukan ekstraksi tetapi distribusi waktu kontak, hambatan dan cara pengukurannya berbeda. Menghafal “1:15 untuk filter, 1:2 untuk espresso” tanpa memahami pembilang akan membuat perbandingan keliru.
+
+**Eksperimen:** rancang perbandingan immersion dan percolation dengan kopi/air yang terdokumentasi. Sebutkan variabel yang tidak mungkin identik sepenuhnya (alat dan jalur aliran), serta hasil yang bisa dibandingkan secara bermakna. Jika dua cangkir berbeda rasanya, jangan menyatakan penyebab tunggal hanya dari nama metodenya.
+
+**Situasi baru:** pelanggan meminta filter yang lebih lembut tetapi volume tetap. Jelaskan mengapa mengganti rasio, memilih kopi lain atau melakukan bypass adalah hipotesis yang berbeda dan memerlukan uji.
+
 ## Tantangan transfer
 
 Pelangan biasa minum espresso lalu meminta filter lebih ringan. Apa yang perlu ditanyakan dan mengapa tidak cukup memakai angka espresso?
