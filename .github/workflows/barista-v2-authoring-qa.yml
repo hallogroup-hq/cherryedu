@@ -7,6 +7,11 @@ on:
       - 'docs/curriculum/barista-v2/**'
       - 'components/barista-v2/**'
       - 'scripts/validate-barista-v2-drafts.cjs'
+      - 'scripts/generate-barista-v2.cjs'
+      - 'app/barista-v2/**'
+      - 'playwright.barista.config.ts'
+      - 'tests/barista/**'
+      - 'package.json'
       - '.github/workflows/barista-v2-authoring-qa.yml'
 
 permissions:
@@ -33,3 +38,29 @@ jobs:
         run: node scripts/validate-barista-v2-drafts.cjs
       - name: TypeScript typecheck (includes draft Experiment Notebook component)
         run: npm run typecheck
+
+      - name: App build (flag-gated, no deploy)
+        run: npm run build
+        env:
+          CHERRYEDU_BARISTA_V2_REVIEW: enabled
+          NEXT_TELEMETRY_DISABLED: '1'
+          CI: 'true'
+
+  barista-learning-e2e:
+    name: 68-Lesson Local Preview Browser QA
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Test public-readable V2 candidate in local flag-gated site
+        run: npx playwright test -c playwright.barista.config.ts
+        env:
+          CI: 'true'
+          CHERRYEDU_BARISTA_V2_REVIEW: enabled
+          NEXT_TELEMETRY_DISABLED: '1'
