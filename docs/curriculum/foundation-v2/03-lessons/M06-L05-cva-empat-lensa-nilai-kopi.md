@@ -136,20 +136,9 @@ Pertanyaan extrinsic juga berhubungan dengan sejarah Modul 07: siapa pemilik inf
 
 [ACTIVITY:cva-four-lenses]
 
-## 7. Latihan empat lensa — pasangkan datanya
+## 7. Latihan empat lensa — klasifikasikan dulu
 
-Pilih lensa yang paling sesuai untuk masing-masing kartu.
-
-1. “Sampel green coffee mengandung sejumlah biji pecah pada pemeriksaan fisik.” → **Physical**.
-2. “Dalam uji terkontrol, panelis menulis aroma floral dan acidity kuat.” → **Descriptive**.
-3. “Pembeli target lebih menyukai versi A daripada B.” → **Affective**.
-4. “Lot memiliki nomor batch dan dokumen kebun.” → **Extrinsic**.
-5. “Kemasan bertuliskan direct trade, tanpa catatan harga atau pihak transaksi.” → **Extrinsic claim yang belum terverifikasi**.
-6. “Warna biji terlihat baik tetapi belum ada cupping.” → **Physical evidence yang tidak menjawab Descriptive/Affective**.
-7. “Satu panelis sangat menyukai kopi H-20, namun orang lain tidak.” → **Affective, dengan keterbatasan generalisasi**.
-8. “Dokumen sertifikasi tercantum, tetapi masa berlaku dan cakupannya tidak jelas.” → **Extrinsic evidence yang perlu diverifikasi**.
-
-Tidak ada lensa yang otomatis “paling penting” dalam semua situasi. Keputusan akhir bergantung pada **pertanyaan, pengguna, kondisi produk, dan bukti yang tersedia**.
+Pilih kategori untuk empat jenis bukti pada aktivitas di atas. Setelah mengerjakannya, coba jelaskan mengapa skor kesukaan tidak menggantikan informasi asal lot atau hasil pemeriksaan fisik.
 
 ## 8. Pertanyaan tentang Q Grader dan sertifikat CherryEdu
 
