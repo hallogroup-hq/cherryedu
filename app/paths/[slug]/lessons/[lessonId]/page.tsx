@@ -342,7 +342,7 @@ export default function LessonPlayerPage() {
               {currentLesson.duration_minutes} Menit Baca
             </span>
             <span>•</span>
-            <span className="uppercase bg-paper-100 px-2 py-0.5 rounded border border-paper-300">{currentLesson.content_type}</span>
+            <span className="uppercase bg-paper-100 px-2 py-0.5 rounded border border-paper-300">{isDraftPreview ? 'Materi Belajar' : currentLesson.content_type}</span>
             <span>•</span>
             <span className="text-roast-600 truncate max-w-[200px]">{path.title}</span>
           </div>
