@@ -47,6 +47,9 @@ Dua sublot berasal dari kiriman ceri kebun yang sama, tetapi dipisahkan berdasar
 
 Kata-kata ini adalah **kategori pendidikan dalam simulasi**, bukan prosedur resmi SCA, ISO, HACCP, atau kebijakan ekspor.
 
+
+[ACTIVITY:lot-qc-note]
+
 ## 3. Pilih tindakan terhadap tiap sublot
 
 ### P-21
