@@ -81,9 +81,7 @@ Jangan memakai persentase susut tunggal sebagai ukuran kualitas tanpa memahami b
 
 ### Latihan 1 — susun alur
 
-Urutkan kartu untuk washed: **dry grading / reception / hulling / drying parchment / depulping / removal of mucilage**.
-
-**Jawaban contoh:** Reception → depulping → removal of mucilage → drying parchment → hulling → dry grading. Di lapangan bisa ada sortasi tambahan pada beberapa tahapan. Poin utamanya adalah mengerti perubahan bentuk material.
+Gunakan kartu urutan interaktif yang muncul sebelum bagian ini. Urutkan tahapan contoh washed sebelum meminta pembahasan; cara belajar ini bukan SOP pengolahan.
 
 ### Latihan 2 — kenali informasi yang hilang
 
