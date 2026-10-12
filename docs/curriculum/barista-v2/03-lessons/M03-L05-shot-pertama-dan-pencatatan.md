@@ -20,6 +20,27 @@ Buat shot log dengan kolom sumber angka (timbangan/timer/pengamatan), lalu isila
 
 **Catatan eksperimenmu:** tuliskan pertanyaan, hipotesis, variabel yang diubah, variabel yang dijaga, hasil yang *akan diukur*, risiko keselamatan, serta temuan yang akan membuatmu mengubah pendapat. Jika tanpa peralatan, gunakan data fiktif dan jangan mengarang pengamatan rasa.
 
+## Log yang baik memisahkan nilai ukur, asumsi, dan pengamatan
+
+Log pendek “grinder 6, 28 detik, enak” sulit ditindaklanjuti oleh orang lain. Coba format berikut pada data **fiktif**:
+
+| Komponen | Catatan |
+|---|---|
+| Kopi | Lot P, bag dibuka hari ini |
+| Grinder | Model G, setelan 6, belum dicatat purge/retention |
+| Dose | 18,0 g ditimbang setelah grind |
+| Output | 37,0 g beverage di cangkir |
+| Waktu | 27 s dari pompa aktif |
+| Basket | Model/ukuran belum tercatat |
+| Sensorik | Belum dicicipi |
+| Pengamatan lain | Aliran tampak stabil pada akhir shot |
+
+Kalimat “aliran tampak stabil” adalah **observasi visual**, bukan klaim rasa. Di sini masih ada ketidakpastian kapasitas basket dan sisa bubuk setelan lama. Jangan menebak angka-angka yang tidak kamu ukur lalu memasukkannya ke log sebagai fakta.
+
+Saat melakukan dial-in, catatan harus memungkinkan barista lain **mereplikasi kondisi atau mengetahui alasan tidak bisa mereplikasinya**. Jika dua shot dengan resep sama keluar pada waktu berbeda, cek definisi waktu, kopi, sebaran puck, alat, suhu dan retensi sebelum menyalahkan operator.
+
+**Latihan:** tuliskan format handoff 60 detik: kondisi alat, resep referensi, shot terakhir yang *benar-benar diamati*, perubahan yang telah dilakukan, dan masalah terbuka. Setelah itu berikan kepada teman yang tidak hadir dalam shift. Jika ia masih bertanya “36 gram itu bubuk atau minuman?” berarti log perlu diperbaiki.
+
 ## Tantangan transfer: kondisi berubah
 
 Rekan shift hanya meninggalkan pesan 'grinder 8, enak'. Apa yang perlu kamu tanyakan sebelum menggunakan nilai itu? Buat format handoff satu menit yang lebih bisa diaudit.
