@@ -18,6 +18,23 @@ Rancang format label dan log suhu dengan siapa, kapan, lot, kondisi produk, tind
 
 Tuliskan **pertanyaan eksperimenmu, hipotesis, prediksi, apa yang dikontrol, apa yang diamati, dan hasil seperti apa yang akan membuatmu mengubah keputusan**. Jika data hanya simulasi, tandai sumbernya. Kebersihan, keselamatan, alergen dan otorisasi lebih penting daripada ingin mencoba hal baru.
 
+## Bau dan warna tidak cukup untuk menjamin keamanan bahan
+
+Bahan susu, puree buah dan minuman siap saji dapat mempunyai aturan simpan berbeda. Tidak ada satu lama simpan universal yang cocok untuk seluruh produk. Ketentuan setelah dibuka dan prosedur sanitasi perlu berdasarkan produk aktual, kebijakan, dan regulasi relevan.
+
+| Bahan | Catatan yang harus tersedia |
+|---|---|
+| Susu cair | Identitas produk, label, kapan dibuka, suhu |
+| Buah/puree | Bahan, lot, proses dan kondisi simpan |
+| Batch cold brew | Proses, lokasi, waktu, wadah dan aturan holding terverifikasi |
+| Sirup internal | Prosedur produksi/shelf-life yang telah divalidasi |
+
+**Kesalahan umum:** menggunakan bahan karena “masih enak dicicip” meski riwayat suhu dan penanganannya tidak jelas. Rasa tidak membuktikan produk aman terhadap mikroorganisme atau kontaminan lain. Jika catatan kritis tidak tersedia, lakukan hold sesuai SOP dan tanyakan penanggung jawab.
+
+**Eksperimen simulasi:** buat empat kartu bahan dengan kombinasi log lengkap, label hilang, produk kedaluwarsa, dan kemasan rusak. Susun tindakan serve/verify/hold/dispatch. Uji ulang setelah salah satu kartu mendapat data baru. Yang dinilai adalah kemampuan mengubah keputusan ketika kelayakan dapat atau tidak dapat dibuktikan.
+
+**Transfer:** pelanggan ingin minuman yang sudah tidak bisa dibuat dari stok layak. Tawarkan alternatif yang jujur, bukan memakai bahan berisiko demi mengurangi waste.
+
 ## Transfer: kondisi berbeda
 
 Kalau pelanggan meminta bahan segar yang hari itu habis, bagaimana menawarkan alternatif tanpa menggunakan batch yang tidak terverifikasi?
