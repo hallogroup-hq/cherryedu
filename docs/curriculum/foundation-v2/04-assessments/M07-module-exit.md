@@ -266,7 +266,7 @@ Use the **full fictional P-17 dossier** at [M07.L05](../03-lessons/M07-L05-final
 **Deliverables:**
 - A. Five-stage material + evidence + payment/risks map, include gap and responsible actor.
 - B. Correct 18,9% estimated cup EY calculation and limitations, plus critiques of sensory/roast claims.
-- C. Premium economics: Rp300.000 vs Rp270.000 recorded cost margin; explain why not living income.
+- C. Premium economics in the NEW P-17 capstone: 100kg sold @Rp12.000, cost Rp900.000 → Rp300.000; versus 90kg sold @Rp15.000, cost Rp1.130.000 → Rp220.000; **10kg unsold outcome unknown**. Explain why price/kg rise and limited-period margins are not household living income.
 - D. QC decision, 3 redacted/revised claims, evidence requests and responsible product copy.
 - Mandatory history reflection: link historical power structures and today's need for payment transparency, **without equating current actors with colonial forced labor**.
 
