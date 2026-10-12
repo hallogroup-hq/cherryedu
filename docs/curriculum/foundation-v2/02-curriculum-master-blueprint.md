@@ -14,6 +14,8 @@
 
 **Audience:** Indonesian-speaking beginner (consumer, aspiring barista, student, farmer-family member or hobbyist). No equipment, paid coffee kits, math fluency, or prior specialty coffee knowledge required. A **no-equipment equivalent** is mandatory for activities involving coffee tasting, scales, refractometers, lab records or brewing. Hands-on capability cannot be certified via simulations.
 
+**Mandatory history policy:** Coffee history is a **core assessed lesson**, not an optional supplement. M07.L01 preserves origins in Ethiopia/Yemen, trade and arrival to Java, Priangan colonial labor systems, and connections to contemporary culture and value. Legends must not be presented as archival fact. The coffee-waves framework may enrich cultural interpretation but must not displace history or be asserted as universally official.
+
 **Out of scope (move to relevant specialty):** Commercial RO design, boiler engineering, professional cupping accreditation, industrial fermentation recipes, pesticide management/dosing, proprietary green grading threshold tables without standards version, pro roasting profiles and detailed DTR optimization, industrial food safety SOPs, market price promises.
 
 **Editorial voice:** Clear conversational Bahasa Indonesia; technical term introduced after why it matters; avoid marketing hype, AI-slop microcopy, fake exactitude, overused hero analogies and prescriptive flavor claims. Distinguish facts, inference, probability, preference and claims.
@@ -37,7 +39,7 @@
 
 ## 3 — Learning topology
 
-`M01 → M02 → M03 → M04 → M05 → M06 → M07` is the suggested first-time path. M06 revisits M01 sensory concepts with new vocabulary after M05 extraction; M07 links all modules. Optional enrichment nodes (coffee history, coffee waves, detailed genetics, certification comparison, industrial process operations) must not block progress.
+`M01 → M02 → M03 → M04 → M05 → M06 → M07` is the suggested first-time path. M06 revisits M01 sensory concepts with new vocabulary after M05 extraction; M07 links all modules. Optional enrichment nodes (extended coffee-waves debate, detailed genetics, certification comparison, industrial process operations) must not block progress.
 
 **No overwhelm:** Learner first sees current module and next meaningful action, not 31 cards or an alphabet soup of industry terminology. Overview of the journey can be accessible on demand. Practice-feedback precedes graded evaluation. Learners may revisit any prior completed lesson and inspect sources/limitations.
 
@@ -51,7 +53,7 @@
 | M04: Bagaimana Panas Mengubah Kopi? | Mengapa green coffee berbeda dari roasted coffee, dan apa kompromi keputusan roasting? | Mendeskripsikan perubahan fisik/kimia roasting tanpa menggeneralisasi suhu/profil dan menjaga kesegaran. | Bukti perbandingan warna/hasil seduh dan interpretasi kontekstual. | M03 |
 | M05: Mengekstraksi Rasa ke Cangkir | Mengapa air, gilingan dan metode seduh mengubah hasil walau kopinya sama? | Membedakan kekuatan dan ekstraksi; memilih eksperimen satu variabel dan membaca parameter air dengan tepat. | Rancangan eksperimen dan catatan perbandingan; mode simulator untuk peserta tanpa perlengkapan. | M04 |
 | M06: Belajar Mengenali & Menilai Rasa | Bagaimana berbicara tentang rasa tanpa mencampuradukkan deskripsi, kesukaan dan penilaian mutu? | Memisahkan taste/aroma/texture, memberi deskriptor terukur, memahami tujuan cupping dan empat perspektif CVA. | Dua catatan sensory yang dapat dibandingkan, dan pilihan kerangka evaluasi yang sesuai. | M01,M05 |
-| M07: Memahami Nilai di Balik Kopi | Bagaimana satu kopi memperoleh nilai, dan apa yang benar-benar bisa dibuktikan dari ceritanya? | Menjelaskan hubungan pelaku rantai nilai, membaca label kritis, memisahkan klaim dan bukti, menyelesaikan kasus integratif. | Argumentasi dari data, identifikasi keterbatasan bukti, dan keputusan yang bisa dipertanggungjawabkan. | M02,M03,M04,M05,M06 |
+| M07: Memahami Nilai di Balik Kopi | Bagaimana sejarah, pelaku dan bukti membentuk nilai kopi hingga hari ini? | Menjelaskan hubungan pelaku rantai nilai, membaca label kritis, memisahkan klaim dan bukti, menyelesaikan kasus integratif. | Argumentasi dari data, identifikasi keterbatasan bukti, dan keputusan yang bisa dipertanggungjawabkan. | M02,M03,M04,M05,M06 |
 
 ### Module entry/exit and remediation rules
 
@@ -104,6 +106,7 @@
 - **Remediation:** If a student cannot demonstrate the concept, send them to the relevant explanatory example and a new variant of the case. Do not recycle identical answer order as a pass condition.
 
 #### M07 — Memahami Nilai di Balik Kopi
+- **Core history rule:** M07.L01 is required and assessed (not optional). Historic VOC/Priangan systems must be narrated with indigenous labor perspectives, distinguish legend from source, and avoid conflating Preangerstelsel with Cultuurstelsel.
 - **Entry:** M02,M03,M04,M05,M06.
 - **Essential question:** Bagaimana satu kopi memperoleh nilai, dan apa yang benar-benar bisa dibuktikan dari ceritanya?
 - **Required evidence:** Argumentasi dari data, identifikasi keterbatasan bukti, dan keputusan yang bisa dipertanggungjawabkan.
@@ -112,7 +115,7 @@
 - **Remediation:** If a student cannot demonstrate the concept, send them to the relevant explanatory example and a new variant of the case. Do not recycle identical answer order as a pass condition.
 
 
-## 5 — Lesson specifications (31 / 31)
+## 5 — Lesson specifications (32 / 32)
 
 **Format note:** Legacy IDs show content provenance only. Create stable new IDs during implementation after migration mapping is approved. A blank/NEW source means the lesson was absent as a standalone article. Outcome, required ideas, exercise and evidence below are mandatory authoring acceptance criteria, not the finished lesson text.
 
@@ -373,7 +376,16 @@
 
 ### M07 — Memahami Nilai di Balik Kopi
 
-#### M07.L01 — Siapa melakukan apa dalam perjalanan kopi?
+#### M07.L01 — Dari Ethiopia dan Yaman ke Jawa: sejarah yang membentuk kopi dunia
+- **Observable outcome:** Menempatkan minimal enam peristiwa/konteks sejarah dalam urutan yang dapat dipertanggungjawabkan; membedakan satu legenda populer dengan bukti sejarah; menjelaskan dua akibat sistem kopi kolonial bagi masyarakat Priangan.
+- **Concept boundaries:** Ethiopia origins; Yemen documented cultivation/culture; Red Sea/Indian Ocean networks; VOC Java and early trade; Preangerstelsel and differences from 1830 Cultuurstelsel; coffeehouse culture; postcolonial producer agency; coffee waves as optional contested lens rather than categorical official taxonomy.
+- **Preferred learning treatment:** Story-driven chronological map with an evidence ladder (legend / archival-historical scholarship / later interpretation); Indonesia/Priangan case and competing actor viewpoints. Text-only timeline equivalent.
+- **Check for understanding / evidence:** Chronological timeline of 6 events, evidence-grade notes for 3 claims, and a short reflection on who gained and who bore costs in forced coffee production.
+- **Mandatory misconceptions/guardrails:** Kaldi is legend, not verifiable historical witness; avoid stating 1696 as proven first successful cultivation; distinguish Preangerstelsel and Cultuurstelsel; the term 'Java' in European markets reflects supply chains and power, not merely a natural regional tasting note; don't describe colonial coerced labor as idyllic.
+- **Legacy source:** F1-1,F1-4 (history retained; waves moved to optional historical note).
+- **Reference anchor(s):** HISTORY-OXFORD; HISTORY-BREMAN; HISTORY-CAMBRIDGE; HISTORY-INDONESIA
+
+#### M07.L02 — Siapa melakukan apa dalam perjalanan kopi?
 - **Observable outcome:** Memetakan alur produk, keputusan, data, risiko dan arus pembayaran dari farm ke cup.
 - **Concept boundaries:** Farmer; processor; trader; dry mill; roaster; barista; consumer.
 - **Preferred learning treatment:** Value chain interactive node map using Indonesia case.
@@ -382,7 +394,7 @@
 - **Legacy source:** F1-2,F1-1
 - **Reference anchor(s):** SCA-CSP
 
-#### M07.L02 — Kualitas, harga, dan nilai: apakah selalu sejalan?
+#### M07.L03 — Kualitas, harga, dan nilai: apakah selalu sejalan?
 - **Observable outcome:** Membedakan sensori, harga, biaya, preferensi konsumen, sertifikasi serta income petani.
 - **Concept boundaries:** Specialty/commodity contextual; price vs profit; value lens; evidence.
 - **Preferred learning treatment:** Compare two coffee value propositions and economics simplified.
@@ -391,7 +403,7 @@
 - **Legacy source:** F1-3,F1-5
 - **Reference anchor(s):** SCA-SPEC; SOCIOECON
 
-#### M07.L03 — Membaca label: fakta, klaim dan yang belum diketahui
+#### M07.L04 — Membaca label: fakta, klaim dan yang belum diketahui
 - **Observable outcome:** Mengelompokkan traceability evidence, labels, processing notes, sensory language dan sustainability claim.
 - **Concept boundaries:** Origin metadata; producer info; grade; timestamp; documentation; misleading marketing.
 - **Preferred learning treatment:** Label detective exercise three fictitious retail bags.
@@ -400,7 +412,7 @@
 - **Legacy source:** F3-5,F1-5
 - **Reference anchor(s):** SCA-CVA; WCR-V
 
-#### M07.L04 — Final Case — Satu kopi dari kebun hingga cangkir
+#### M07.L05 — Final Case — Satu kopi dari kebun hingga cangkir
 - **Observable outcome:** Mengintegrasikan semua CLO dalam analisis lintas tahap dengan penjelasan keterbatasan.
 - **Concept boundaries:** Origin→processing→roast→water→sensory→value; claim-evidence-uncertainty.
 - **Preferred learning treatment:** Capstone dossier dataset sintetis, branching decision and justification.
@@ -512,22 +524,29 @@ Every substantive technical assertion in the finished lesson must be auditable b
 | M04 | M03 | F5-2 fixed reaction temps; F5-3 drop temps; F5-4 resting | 4,5 |
 | M05 | M04 | F6-1 'hungry water'; F6-2 full solvent; F6-3 Mg flavor | 4,5 |
 | M06 | M01,M05 | F7-2 old protocol; F7-4 legacy scoring; F7-3 tongue zone | 1,6 |
-| M07 | All | F1-2 score degradation metaphor; F1-3 specialty; F1-5 fair trade; F3-5 label claims | 2,6,7,8 |
+| M07 | All | F1-1 preserved history; F1-4 as optional interpretive wave lens; F1-2 score metaphor; F1-3 specialty; F1-5 fair trade; F3-5 label claims | 2,6,7,8 |
 
 ## 11 — Gates (fail closed)
 
 | Gate | Acceptance rule | What blocks progress |
 |---|---|---|
-| G02-A Curriculum integrity | 31 unique new lesson slots; each belongs to one module; full CLO mapping; prerequisites acyclic | Missing slot, duplicate, orphan outcome |
+| G02-A Curriculum integrity | 32 unique new lesson slots; each belongs to one module; full CLO mapping; prerequisites acyclic | Missing slot, duplicate, orphan outcome |
 | G02-B Scientific guardrail | Each P0 Stage01 issue assigned specific lesson + explicit disallowed claim | P0 unmapped or current standards called obsolete incorrectly |
 | G02-C Assessment alignment | Every lesson has evidence + module exit; every CLO has graded evidence and transfer | Pure trivia only; unscorable skill claims |
 | G02-D Accessibility | All required activities have no-equipment alternative and nonvisual text equivalent | Buying equipment required; audio-only evaluation |
 | G02-E Editorial feasibility | Sources named, claims flagged for validation, no fake confidence, license plan | Uncited numeric SOP, safety recipe, asset rights unclear |
 | G03 Authoring readiness | Module map reviewed; pilot first module after source-by-claim check | Expert/safety reviewer needed but absent for technical prescriptive content |
 
-**Stage 02 status on 2026-10-12:** Blueprint drafted and self-consistency checks complete; **not yet expert approved or learner validated**. Gate G02-A and structural elements of G02-B–E are document-check candidates, not empirical passes. Stage 03 authoring may start as internal draft, but MUST NOT replace production before research/source/expert/learner gates.
+**Stage 02 status on 2026-10-12 (rev. 2: history core protected):** Blueprint drafted and self-consistency checks complete; **not yet expert approved or learner validated**. Gate G02-A and structural elements of G02-B–E are document-check candidates, not empirical passes. Stage 03 authoring may start as internal draft, but MUST NOT replace production before research/source/expert/learner gates.
 
 ## 12 — Reference registry (starting points, not citations for all specific claims)
+
+**History sources used for M07.L01:**
+- **HISTORY-OXFORD:** Michel Tuchscherer (2024), *The Ethiopian and Yemeni Roots of Coffee*, Oxford Research Encyclopedia, https://academic.oup.com/edited-volume/61795/chapter-abstract/546047404 — historic uncertainty, origin, Kaldi as myth.
+- **HISTORY-BREMAN:** Jan Breman (2015), *Mobilizing Labour for the Global Coffee Market: Profits from an Unfree Work Regime in Colonial Java*, Amsterdam University Press, https://www.jstor.org/stable/j.ctt197055k — coercion and economics of Priangan coffee.
+- **HISTORY-CAMBRIDGE:** *The Demographic Effects of Colonialism: Forced Labor and Mortality in Java, 1834–1879*, Journal of Economic History (2022), https://www.cambridge.org/core/journals/journal-of-economic-history/article/demographic-effects-of-colonialism-forced-labor-and-mortality-in-java-18341879/8263BFDEC1A77EA9B92BBCABC278F4F9 — broader Java forced cultivation; distinguish periods.
+- **HISTORY-INDONESIA:** Mumuh Muhsin Zakaria, *Coffee Priangan in the Nineteenth Century*, Universitas Padjadjaran, https://vm36.upi.edu/index.php/historia/article/view/12227 — regional case/context; competing periodizations to verify at drafting stage.
+
 
 | Code | Source | Link | Role / caveat |
 |---|---|---|---|
@@ -554,7 +573,7 @@ Proposed files for subsequent stages: `03-lessons/M01-L01.md` onward; `04-assess
 ## 14 — Blueprint acceptance checklist
 
 - [x] 7 module contracts defined.
-- [x] 31 lesson IDs specified without duplicate new slot (legacy sources may repeat intentionally).
+- [x] 32 lesson IDs specified without duplicate new slot (legacy sources may repeat intentionally).
 - [x] Every lesson has explicit observable outcome, boundaries, preferred teaching treatment and evidence.
 - [x] P0 issues routed to relevant lessons with disallowed misconceptions.
 - [x] Module exit and capstone scoring frameworks drafted.
