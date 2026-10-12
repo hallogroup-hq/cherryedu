@@ -19,6 +19,8 @@ Di kebun, keputusan panen punya konsekuensi: buah yang belum berkembang optimal 
 
 Pertanyaan yang lebih tepat: **bagaimana petani menilai kematangan dan memisahkan buah yang tidak sesuai untuk lot yang dituju?**
 
+[VISUAL:cherry-ripeness]
+
 ## 1. Mengapa ceri satu pohon tidak matang sekaligus?
 
 Pada banyak kondisi, pembungaan dan pembentukan buah kopi tidak berlangsung serempak. Akibatnya satu cabang dapat memuat ceri pada berbagai tahap perkembangan. Faktor cuaca, varietas, lokasi, dan pola pengelolaan berperan.
@@ -98,6 +100,8 @@ Kelompok B berasal dari dua kultivar berbeda yang sudah diidentifikasi; sebagian
 - Seberapa cepat ceri dapat dibawa ke tahap penanganan berikutnya?
 
 Latihan itu membangun kebiasaan penting: **jangan mengubah satu pengukuran menjadi pengganti penilaian keseluruhan**.
+
+[ACTIVITY:cherry-ripeness-check]
 
 ## 7. Latihan mandiri tanpa refraktometer
 
