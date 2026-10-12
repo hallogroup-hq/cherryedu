@@ -20,6 +20,22 @@ Ambil tiga catatan shot fiktif: 17 g→34 g dalam 24 s, 18 g→36 g dalam 29 s, 
 
 **Catatan eksperimenmu:** tuliskan pertanyaan, hipotesis, variabel yang diubah, variabel yang dijaga, hasil yang *akan diukur*, risiko keselamatan, serta temuan yang akan membuatmu mengubah pendapat. Jika tanpa peralatan, gunakan data fiktif dan jangan mengarang pengamatan rasa.
 
+## Dari angka yang sama ke proses yang berbeda
+
+Sebelum mengubah resep, catat **apa yang ditimbang**. Dose 18 g berarti bubuk kering yang benar-benar berada di basket. Yield 36 g berarti hasil cair yang ditimbang dalam cangkir—bukan jumlah air yang dikirim pompa. Waktu perlu definisi yang disepakati; 28 detik dari tombol tidak identik dengan 28 detik dari first drip.
+
+| Shot fiktif | Dose | Beverage yield | Ratio output | Waktu sejak tombol |
+|---|---:|---:|---:|---:|
+| A | 18 g | 30 g | 1:1,67 | 26 s |
+| B | 18 g | 36 g | 1:2 | 29 s |
+| C | 18 g | 45 g | 1:2,5 | 34 s |
+
+Kamu bisa menghitung rasio dan membandingkan waktu. Tetapi kamu **tidak** bisa mengurutkan A, B, C dari yang paling enak, paling banyak kafein, atau paling terekstraksi tanpa data relevan. Kalau output ditambah dengan meneruskan air melalui coffee bed, komposisi hasil juga mungkin berubah; itu bukan sekadar mengencerkan minuman yang sudah selesai.
+
+Bayangkan headbar meminta espresso lebih padat untuk diminum straight, sementara menu susu justru menginginkan kopi terasa dominan setelah dicampur. Dua tujuan itu mungkin membutuhkan pendekatan yang berbeda. Mengganti yield shot dan mengubah proporsi susu adalah **dua pengujian yang terpisah**. Perhatikan batas peralatan dan kewenangan resep menu saat mencoba.
+
+**Cek pemahaman:** barista menulis “36 ml” karena gelas tampak penuh. Apa masalahnya dibanding massa 36 g? Bagaimana foam/crema dapat memengaruhi kesan volume? Buat satu format pencatatan yang tetap berguna ketika mesin atau barista diganti.
+
 ## Tantangan transfer: kondisi berubah
 
 Customer meminta espresso lebih pendek namun volumenya tidak penting. Sebutkan dua opsi yang boleh dipertimbangkan menurut menu, perbedaan dengan sekadar mengurangi cairan sesudah espresso dibuat, dan kebutuhan uji rasa.
