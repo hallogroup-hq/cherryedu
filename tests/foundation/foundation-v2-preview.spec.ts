@@ -146,10 +146,10 @@ test('Liberica now gets concrete biological explanation before Excelsa taxonomy'
 
 test('genuine course visuals render across processing, roast, brew and history', async ({ page }) => {
   const cases = [
-    ['lesson-fv2-m03-l02','Perbedaan fisik washed, natural, dan honey'],
+    ['lesson-fv2-m03-l02','Apa yang tertinggal saat pengeringan?'],
     ['lesson-fv2-m04-l05','Grafik roasting simulasi yang benar-benar bisa dibaca'],
     ['lesson-fv2-m05-l04','Dua jalur air dalam kopi'],
-    ['lesson-fv2-m06-l05','Empat pertanyaan berbeda untuk satu kopi'],
+    ['lesson-fv2-m06-l05','Empat sudut pandang penilaian kopi'],
     ['lesson-fv2-m07-l01','Satu sejarah, beberapa jalur kekuasaan'],
   ];
   for(const [id,heading] of cases){
@@ -166,7 +166,7 @@ test('in-lesson answers do not start expanded', async ({ page }) => {
   await expect(reveal).toBeVisible();
   await expect(reveal).toHaveAttribute('aria-expanded','false');
   await reveal.click();
-  await expect(reveal).toHaveAttribute('aria-expanded','true');
+  await expect(article.getByRole('button',{name:'Sembunyikan pembahasan'}).first()).toHaveAttribute('aria-expanded','true');
   await expect(article).toContainText('Jawab');
 });
 
@@ -190,7 +190,8 @@ test('farmer income sandbox teaches cost difference rather than label premium', 
   const section=page.getByRole('region',{name:/Berapa sisa setelah biaya/});
   await expect(section).toBeVisible();
   await section.getByRole('button',{name:/Hitung sisa setelah biaya/i}).click();
-  await expect(section).toContainText('Rp300.000');
-  await expect(section).toContainText('Rp220.000');
-  await expect(section).toContainText('Rp80.000');
+  // Indonesian currency uses a non-breaking space after Rp in Intl.NumberFormat.
+  await expect(section).toContainText(/Rp\s*300\.000/);
+  await expect(section).toContainText(/Rp\s*220\.000/);
+  await expect(section).toContainText(/-Rp\s*80\.000/);
 });
