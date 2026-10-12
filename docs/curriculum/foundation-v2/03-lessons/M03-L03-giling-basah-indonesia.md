@@ -15,6 +15,9 @@ Sebelum membahas rasanya, perhatikan keputusan paling penting pada giling basah:
 
 Proses ini relevan karena di Indonesia iklim, perjalanan antarpelaku, kapasitas pengeringan dan kebutuhan arus kas dapat memengaruhi cara kopi berpindah dari kebun ke pedagang atau pengolah.
 
+
+[VISUAL:wet-hull-paths]
+
 ## 1. Ini bukan washed dengan nama Indonesia
 
 Ada perbedaan antara:
@@ -73,6 +76,9 @@ Apa yang harus diinvestigasi?
 4. Bukti sortasi dan segregasi lot.
 
 Apakah kita bisa langsung menyimpulkan petani salah memetik ceri? **Tidak**. Bukti mengarah ke beberapa titik berbeda yang masih perlu ditinjau. Salah menuduh pihak tertentu tidak memperbaiki kontrol mutu.
+
+
+[ACTIVITY:wet-hull-check]
 
 ### Latihan keputusan
 
