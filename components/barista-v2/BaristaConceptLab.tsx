@@ -124,16 +124,18 @@ function ScenarioLab({scenario}:{scenario:Scenario}){
  </div>;
 }
 
-function RatioDiagram({dose,water,output}:{dose:number;water:number;output:number}){
- const scale=Math.max(water,output,1);
+function RatioDiagram({dose,water,output,waterLabel='Air masuk'}:{dose:number;water:number;output?:number;waterLabel?:string}){
+ const scale=Math.max(water,output??0,1);
  return <figure aria-label="Diagram massa air masuk, kopi, dan minuman keluar" className="space-y-2 border-y border-paper-200 py-4">
   <div className="flex items-center justify-between gap-2 text-xs text-roast-700"><span>Bubuk kopi</span><strong>{format(dose)} g</strong></div>
   <div className="h-3 overflow-hidden rounded-sm bg-paper-200"><div className="h-full bg-roast-600" style={{width:(dose/scale*100)+'%'}}/></div>
-  <div className="flex items-center justify-between gap-2 text-xs text-roast-700"><span>Air masuk</span><strong>{format(water)} g</strong></div>
+  <div className="flex items-center justify-between gap-2 text-xs text-roast-700"><span>{waterLabel}</span><strong>{format(water)} g</strong></div>
   <div className="h-3 overflow-hidden rounded-sm bg-paper-200"><div className="h-full bg-cherry-600" style={{width:(water/scale*100)+'%'}}/></div>
-  <div className="flex items-center justify-between gap-2 text-xs text-roast-700"><span>Minuman keluar (contoh massa)</span><strong>{format(output)} g</strong></div>
-  <div className="h-3 overflow-hidden rounded-sm bg-paper-200"><div className="h-full bg-roast-900" style={{width:(output/scale*100)+'%'}}/></div>
-  <figcaption className="text-xs leading-5 text-roast-700">Batang menunjukkan perbandingan massa, bukan konsentrasi, extraction yield atau prediksi rasa.</figcaption>
+  {output !== undefined && <>
+    <div className="flex items-center justify-between gap-2 text-xs text-roast-700"><span>Minuman keluar (data latihan)</span><strong>{format(output)} g</strong></div>
+    <div className="h-3 overflow-hidden rounded-sm bg-paper-200"><div className="h-full bg-roast-900" style={{width:(output/scale*100)+'%'}}/></div>
+  </>}
+  <figcaption className="text-xs leading-5 text-roast-700">Batang hanya menunjukkan besaran massa yang dinyatakan; bukan konsentrasi, extraction yield atau prediksi rasa.</figcaption>
  </figure>;
 }
 
@@ -156,7 +158,7 @@ function RatioLab({espresso=false,filter=false}:{espresso?:boolean;filter?:boole
     <div className="flex items-center justify-between gap-2 text-xs text-roast-700"><span>Beverage yield (yang ditimbang)</span><strong>{format(water)} g</strong></div>
     <div className="h-3 rounded-sm bg-paper-200"><div className="h-full bg-cherry-600" style={{width:Math.min(100,water/Math.max(water,dose)*100)+'%'}}/></div>
     <figcaption className="text-xs leading-5 text-roast-700">Tidak ada pengukuran massa air yang dipompa pada visual ini. Bedakan minuman keluar dan air masuk mesin.</figcaption>
-  </figure>:<RatioDiagram dose={dose} water={water} output={Math.max(0,water-dose*2.5)}/>} </>:<p role="alert" className="text-sm text-rose-800">Masukkan massa positif yang berada dalam rentang alat latihan.</p>}
+  </figure>:<RatioDiagram dose={dose} water={water}/>} </>:<p role="alert" className="text-sm text-rose-800">Masukkan massa positif yang berada dalam rentang alat latihan.</p>}
    <label className="block text-sm font-semibold text-roast-900">Prediksi: apa yang belum bisa disimpulkan dari angka ini?
      <textarea className={'mt-2 '+inputClass} rows={3} value={pred} maxLength={900} onChange={e=>{setPred(e.target.value);setRevealed(false);}} />
    </label>
@@ -174,7 +176,7 @@ function FilterLab(){
   <h4 className="font-serif text-xl font-bold text-roast-950">Brew-through vs bypass</h4>
   <p className="text-sm leading-7 text-roast-800">Dataset fiktif: kopi 15 g, air melalui bed 225 g, minuman yang ditimbang 185 g. Air tambahan berikut dicampur <strong>setelah</strong> seduh selesai. Bagaimana perubahan konsentrasi jika massa zat terlarut dianggap sama?</p>
   <label className="block text-xs font-semibold text-roast-800">Air bypass (0–180 g)<input type="range" min="0" max="180" step="5" value={bypass} onChange={e=>{setBypass(Number(e.target.value));setShow(false);}} className="mt-2 block w-full"/><span className="font-mono">{bypass} g</span></label>
-  <RatioDiagram dose={15} water={225+bypass} output={output}/>
+  <RatioDiagram dose={15} water={225+bypass} output={output} waterLabel="Air total (melalui bed + bypass)"/>
   {valid&&<p className="text-sm leading-6 text-roast-900">Massa minuman sesudah bypass: <strong>{format(output)} g</strong>; fraksi konsentrasi relatif terhadap sebelum bypass (model tanpa solut tambahan): <strong>{format(185/output*100)}%</strong>.</p>}
   <label className="block text-sm font-semibold text-roast-900">Mengapa ini berbeda dari menambah air melalui bed?<textarea className={'mt-2 '+inputClass} rows={3} value={answer} maxLength={800} onChange={e=>{setAnswer(e.target.value);setShow(false);}}/></label>
   <button type="button" disabled={answer.trim().length<20} className={btn+' bg-roast-950 text-white disabled:opacity-50'} onClick={()=>setShow(true)}>Periksa penjelasan</button>
