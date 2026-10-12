@@ -115,7 +115,7 @@
 - **Remediation:** If a student cannot demonstrate the concept, send them to the relevant explanatory example and a new variant of the case. Do not recycle identical answer order as a pass condition.
 
 
-## 5 — Lesson specifications (35 / 35)
+## 5 — Lesson specifications (36 / 36)
 
 **Format note:** Legacy IDs show content provenance only. Create stable new IDs during implementation after migration mapping is approved. A blank/NEW source means the lesson was absent as a standalone article. Outcome, required ideas, exercise and evidence below are mandatory authoring acceptance criteria, not the finished lesson text.
 
@@ -383,23 +383,32 @@
 - **Legacy source:** F7-3
 - **Reference anchor(s):** WCR-L
 
-#### M06.L03 — Dasar comparative cupping
-- **Observable outcome:** Menjalankan/menafsirkan perbandingan sampel sederhana; mengenali perbedaan from full professional protocol.
-- **Concept boundaries:** Controlled cupping rationale; protocol version; hygiene; temperature; blinding.
-- **Preferred learning treatment:** Guided cupping at home OR provided synthetic dataset with two panelists.
-- **Check for understanding / evidence:** Two structured observations + one possible confounder.
-- **Mandatory misconceptions/guardrails:** Do not label informal home tasting SCA-certified cupping.
-- **Legacy source:** F7-2
-- **Reference anchor(s):** SCA-STD; SCA-CVA
+#### M06.L03 — Apakah kita merasakan rasa, atau mengikuti ekspektasi?
+- **Observable outcome:** Menyebut tiga sumber bias sensori; merancang blind A/B sederhana, menggunakan tingkat keyakinan, dan membedakan repeatability dari keakuratan identitas flavor.
+- **Concept boundaries:** Expectations induced by label/price/color, tasting order, sensory fatigue and adaptation, personal experience/cultural naming, blind coding, replicates and panel calibration. Specific 2026 fermentation label study limitations.
+- **Preferred learning treatment:** Same-coffee/different-label deceptive scenario explicitly identified as hypothetical in teaching; choose interpretation, then see evidence from controlled study. Follow with 2-person simulated panel disagreement and correction.
+- **Check for understanding / evidence:** Describe a fairer comparison, one uncertainty note, and two plausible reasons for disagreement.
+- **Mandatory misconceptions/guardrails:** Blinding reduces some bias, doesn't make the assessor infallible; confidence≠chemical proof; do not run deceptive study on real learners without consent; don't diagnose smell disorders; no tasting required.
+- **Legacy source:** F7-1,F7-3 supplemented by NEW bias/calibration outcome
+- **Reference anchor(s):** LABEL-BIAS-2026; WCR-L; SCA-103
 
-#### M06.L04 — Mengapa CVA tidak berhenti di satu angka?
-- **Observable outcome:** Membedakan physical, descriptive, affective, extrinsic assessments dan kapan masing-masing relevan.
-- **Concept boundaries:** CVA framework; specialty definition; legacy 80+ vs modern context; qualitative value.
-- **Preferred learning treatment:** Four-lens cards: classify different measurements and claims.
-- **Check for understanding / evidence:** Apply each of four lenses to one sample profile and note unknowns.
-- **Mandatory misconceptions/guardrails:** Not a Q Grader qualification; do not mix scoring instruments.
+#### M06.L04 — Dasar comparative cupping
+- **Observable outcome:** Menafsirkan perbandingan dua kopi dengan sampel berkode dan menyebut apa yang berbeda dari cupping CVA profesional.
+- **Concept boundaries:** Sample preparation and tasting mechanics, reason to control parameters, sample ID, safe temperature, order, cleaning/hygiene, descriptive vs affective outputs, no-equipment equivalent.
+- **Preferred learning treatment:** Optional tasting using accessible safe coffee plus a synthetic two-panelist dataset; note not a formal SCA session.
+- **Check for understanding / evidence:** Record two observations, one preference, one confounder and one improvement to reliability.
+- **Mandatory misconceptions/guardrails:** Do not claim formal SCA compliance without actual SCA-102 protocol, trained staff and controlled setup; no invented mandatory dose/time/temperature; no professional certificate through simulation.
+- **Legacy source:** F7-2
+- **Reference anchor(s):** SCA-102; SCA-103; SCA-104
+
+#### M06.L05 — Mengapa CVA tidak berhenti di satu angka?
+- **Observable outcome:** Membedakan physical, descriptive, affective, extrinsic assessments, peran SCA-102 through SCA-105, dan penggunaan informasi yang sesuai untuk keputusan pembeli.
+- **Concept boundaries:** CVA 4 lenses, published 102/103/104/105, legacy 80+ context, descriptive CATA/intensity vs affective impression, traceability verification, specialty coffee as plural value, CVA vs professional Q Grader credential.
+- **Preferred learning treatment:** Four-lens evidence cards and a buyer/roaster/farmer case; identify what each can and cannot claim from dossier.
+- **Check for understanding / evidence:** Analyze physical, sensory-descriptive, affective and extrinsic data in fictional lot, identify missing evidence and avoid forced single overall score.
+- **Mandatory misconceptions/guardrails:** SCA-105 is published as of Oct 2026; 80+ historic threshold should not be restated as the sole current SCA determination; no simulation as official grading; official forms and flavor-wheel artwork not copied into commercial platform without rights assessment.
 - **Legacy source:** F1-3,F7-4
-- **Reference anchor(s):** SCA-CVA; SCA-SPEC
+- **Reference anchor(s):** SCA-CVA; SCA-102; SCA-103; SCA-104; SCA-105; SCA-SPEC
 
 ### M07 — Memahami Nilai di Balik Kopi
 
@@ -557,7 +566,7 @@ Every substantive technical assertion in the finished lesson must be auditable b
 
 | Gate | Acceptance rule | What blocks progress |
 |---|---|---|
-| G02-A Curriculum integrity | 35 unique new lesson slots; each belongs to one module; full CLO mapping; prerequisites acyclic | Missing slot, duplicate, orphan outcome |
+| G02-A Curriculum integrity | 36 unique new lesson slots; each belongs to one module; full CLO mapping; prerequisites acyclic | Missing slot, duplicate, orphan outcome |
 | G02-B Scientific guardrail | Each P0 Stage01 issue assigned specific lesson + explicit disallowed claim | P0 unmapped or current standards called obsolete incorrectly |
 | G02-C Assessment alignment | Every lesson has evidence + module exit; every CLO has graded evidence and transfer | Pure trivia only; unscorable skill claims |
 | G02-D Accessibility | All required activities have no-equipment alternative and nonvisual text equivalent | Buying equipment required; audio-only evaluation |
@@ -567,6 +576,14 @@ Every substantive technical assertion in the finished lesson must be auditable b
 **Stage 02 status on 2026-10-12 (rev. 4: history core protected, processing QC + roasting safety explicit):** Blueprint drafted and self-consistency checks complete; **not yet expert approved or learner validated**. Gate G02-A and structural elements of G02-B–E are document-check candidates, not empirical passes. Stage 03 authoring may start as internal draft, but MUST NOT replace production before research/source/expert/learner gates.
 
 ## 12 — Reference registry (starting points, not citations for all specific claims)
+
+**Module 06 source anchors (verified Oct 12 2026):**
+- **SCA-102 / SCA-103 / SCA-104 / SCA-105:** [Official published SCA standards registry](https://sca.coffee/research/coffee-standards). SCA-102 sample preparation/tasting mechanics; SCA-103 descriptive; SCA-104 affective; SCA-105 extrinsic.
+- **SCA-CVA:** [Official CVA framework](https://sca.coffee/value-assessment) separates physical, descriptive, affective, extrinsic assessment.
+- **WCR-L:** [WCR Sensory Lexicon 2.0](https://worldcoffeeresearch.org/read-more/news/174-world-coffee-research-sensory-lexicon), 110 attributes; reference materials for calibrated descriptive sensory analysis.
+- **LABEL-BIAS-2026:** [Fermentation label information and coffee sensory/hedonic judgements](https://pubmed.ncbi.nlm.nih.gov/42073175/) — same coffee with different labels, 180 specialty consumers, within-subject design; avoid generalizing to every coffee drinker.
+- **WHEEL-RIGHTS:** [SCA Flavor Wheel digital store](https://sca.coffee/store/flavor-wheel). SCA/WCR artwork ©2016 CC BY-NC-ND 4.0; commercial software usage or derivative art needs explicit rights analysis.
+
 
 **Added Module 04 roasting/occupational source anchors:**
 - **ROAST-ACIDITY-2024:** [Roast profile effects on titratable acidity (2024)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11002029/). Maillard chemistry continues after first crack; profile and acidity changes are context-dependent.
@@ -613,7 +630,7 @@ Proposed files for subsequent stages: `03-lessons/M01-L01.md` onward; `04-assess
 ## 14 — Blueprint acceptance checklist
 
 - [x] 7 module contracts defined.
-- [x] 35 lesson IDs specified without duplicate new slot (legacy sources may repeat intentionally).
+- [x] 36 lesson IDs specified without duplicate new slot (legacy sources may repeat intentionally).
 - [x] Every lesson has explicit observable outcome, boundaries, preferred teaching treatment and evidence.
 - [x] P0 issues routed to relevant lessons with disallowed misconceptions.
 - [x] Module exit and capstone scoring frameworks drafted.
