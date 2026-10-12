@@ -29,7 +29,7 @@ Eight items measure observable skill from M01 rather than knowledge of geography
 Manakah koreksi yang paling tepat?
 
 A. Melati adalah rasa dasar; penciuman hanya memperkuatnya.  
-B. Melati terutama asosiasi aroma, bukan rasa dasar lidah.  
+B. Melati terutama merupakan asosiasi aroma melalui penciuman, bukan taste dasar lidah.  
 C. Melati adalah bentuk rasa manis hasil ekstraksi gula.  
 D. Melati adalah sensasi mulut, tanpa peran penciuman.
 
@@ -45,7 +45,7 @@ Pernyataan mana yang sesuai dengan data?
 A. Kesamaan aroma berarti kedua pencicip harus menyukainya.  
 B. Perbedaan kesukaan membuktikan penilaian aroma salah.  
 C. Satu penilaian suka cukup untuk menetapkan mutu semua kopi.  
-D. Atribut yang dicatat sama; preferensinya tetap bisa berbeda.
+D. Atribut aroma yang dicatat sama, tetapi preferensinya tetap bisa berbeda.
 
 **Kunci: D.** Deskripsi atribut dan kesukaan adalah dua macam informasi yang tidak identik. Intensitas yang dinilai tiap orang mungkin tetap berbeda meskipun kategori deskriptornya sama. **Mengapa lainnya salah:** A/B menyamakan deskripsi dan kesukaan; C menggeneralisasi satu penilai.  
 **Remediation:** M01.L01 §4. **CLO:** 1. **Risk tag:** preference-as-fact.
@@ -57,7 +57,7 @@ D. Atribut yang dicatat sama; preferensinya tetap bisa berbeda.
 Jawaban yang paling tepat adalah ...
 
 A. Itu asosiasi sensori; bila ragu, cek daftar bahannya.  
-B. Tasting notes biasanya menunjukkan bahan campuran tersembunyi.  
+B. Tasting notes berarti tambahan bahan tersembunyi.  
 C. Tanpa uji laboratorium, semua deskriptor harus dianggap palsu.  
 D. Istilah orange dan chocolate sebenarnya kategori varietas biji.
 
@@ -71,7 +71,7 @@ D. Istilah orange dan chocolate sebenarnya kategori varietas biji.
 Perbandingan ulang apa yang paling berguna?
 
 A. Catat suhu saja; dua catatan tadi sudah membuktikan asal berbeda.  
-B. Pakai grinder lain agar perubahan rasa lebih mudah dikenali.  
+B. Ganti grinder agar efeknya lebih jelas.  
 C. Samakan suhu minum dan catat kondisi saat mengulang.  
 D. Naikkan suhu sampel A, biarkan B tetap dingin, lalu bandingkan.
 
@@ -84,7 +84,7 @@ D. Naikkan suhu sampel A, biarkan B tetap dingin, lalu bandingkan.
 
 Kemampuan apa yang ditunjukkan tugas ini?
 
-A. Pengenalan aroma nyata tanpa mencium minuman secara langsung.  
+A. Pengenalan aroma nyata hanya melalui layar.  
 B. Analisis bukti dan kesimpulan dari catatan yang tersedia.  
 C. Kalibrasi indera dengan acuan sensorik yang telah diuji panel.  
 D. Cupping terstandar yang memenuhi kompetensi operator profesional.
@@ -101,7 +101,7 @@ Kesimpulan mana yang bisa diuji lebih lanjut?
 A. Grind mungkin memengaruhi hasil lewat aliran; ulangi uji.  
 B. Perubahan waktu alir pasti merupakan intervensi kedua terpisah.  
 C. Grind terbukti satu-satunya penyebab rasa, tanpa perlu uji ulang.  
-D. Catatan rasa pahit langsung membuktikan ekstraksi terlalu tinggi.
+D. Rasa pahit selalu berarti ekstraksi berlebihan.
 
 **Kunci: A.** Mengubah grind dapat berpengaruh pada aliran dan hasil, tetapi satu data dengan perubahan parameter yang saling terkait belum menetapkan sebab tunggal atau hukum universal. **Mengapa lainnya salah:** B keliru membedakan intervensi dengan konsekuensi; C overclaim; D menegakkan diagnosis dari satu deskriptor.  
 **Remediation:** M01.L02 §5–6. **CLO:** 4,8. **Risk tag:** causal-overreach.
@@ -115,7 +115,7 @@ Pernyataan yang merangkum keduanya adalah ...
 A. Aroma jeruk telah dikonfirmasi independen oleh dua pencicip.  
 B. R tidak mampu menilai kopi karena menghindari nama buah tertentu.  
 C. Sama-sama mencatat kesan buah; spesifisitasnya berbeda.  
-D. N pasti lebih tepat sebab deskripsinya lebih spesifik daripada R.
+D. N pasti benar karena ia lebih spesifik.
 
 **Kunci: C.** N menyebut deskriptor spesifik, R hanya keluarga buah. Keduanya sejalan pada keluarga atribut tanpa membuktikan identitas yang lebih sempit. **Mengapa lainnya salah:** A/D menambah kepastian, B menghukum ketidakpastian yang wajar.  
 **Remediation:** M01.L03 §5. **CLO:** 1,8. **Risk tag:** unsupported-specificity.
