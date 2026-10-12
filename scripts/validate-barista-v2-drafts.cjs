@@ -87,6 +87,32 @@ const diagrams=[...visual.matchAll(/'bv2-m\d\d-l\d\d':'[^']+'/g)];
 if(diagrams.length<7)fail('Expected at least seven original concept teaching diagrams');
 if(!visual.includes('aria-label={alt}')||!visual.includes('<figcaption'))fail('Teaching diagrams need accessible labels and explanation');
 
+const diagnosticsFile=fs.readFileSync(path.resolve(__dirname,'../lib/data/baristaV2Diagnostics.ts'),'utf8');
+const questionArray=diagnosticsFile.match(/export const BARISTA_V2_DIAGNOSTICS:BaristaDiagnosticQuestion\[\]=(\[[\s\S]*?\]);/);
+if(!questionArray)fail('Diagnostic assessment bank cannot be parsed');
+else {
+  const questions=JSON.parse(questionArray[1]);
+  if(questions.length!==24)fail('Expected 24 diagnostic questions, got '+questions.length);
+  const allIds=new Set();
+  for(const q of questions){
+    if(allIds.has(q.id))fail('Duplicate diagnostic item '+q.id);
+    allIds.add(q.id);
+    if(!Array.isArray(q.options)||q.options.length!==4)fail(q.id+' requires four distractors/options');
+    if(!Number.isInteger(q.correct)||q.correct<0||q.correct>3)fail(q.id+' has invalid keyed response');
+    if(new Set(q.options.map(v=>v.text)).size!==4)fail(q.id+' repeats an answer');
+    if(q.options.some(v=>v.text.length<12||v.feedback.length<28))fail(q.id+' requires meaningful per-option reasoning');
+    if(q.scenario.length<45||q.objective.length<12)fail(q.id+' needs novel scenario and clear competency');
+    if(/sertifikasi profesional kompetensi bar|draft review|beta publik/i.test(JSON.stringify(q)))fail('Assessment leaks internal or unapproved credential copy '+q.id);
+  }
+  for(const code of Object.keys(expectedModuleCounts)){
+    const n=questions.filter(q=>q.module===code).length;
+    if(n!==2)fail(code+' needs 2 diagnostic items, got '+n);
+  }
+}
+const diagUI=fs.readFileSync(path.resolve(__dirname,'../components/barista-v2/BaristaDiagnosticQuiz.tsx'),'utf8');
+if(!diagUI.includes('answer.selection===null||answer.submitted')||!diagUI.includes('answer.submitted&&answer.selection!==null'))
+  fail('Diagnostic feedback must remain hidden before submitted attempt');
+
 const notebook=fs.readFileSync(path.resolve(__dirname,'../components/barista-v2/ExperimentNotebook.tsx'),'utf8');
 for(const required of ['hypothesis','prediction','independent','controls','observations','interpretation','next','setRevealed','simulasi','tidak tersimpan otomatis']){
   if(!notebook.includes(required))fail('ExperimentNotebook missing '+required);
@@ -103,7 +129,7 @@ const summary={
     'Shorter draft lessons still need instructor-led depth expansion and novice test',
     'Interactive lab route needs full browser/mobile/accessibility QA and 68-lesson pedagogical review',
     'Expert review, novice test and practical supervision not complete',
-    '36 open-response formative transfer cases exist, but valid scored theory exam and practical assessments still require psychometric/SME review',
+    '36 open-response cases and 24 formative diagnostics exist; high-stakes exam psychometrics and practical verification remain pending',
     'No production credential approval or data migration'
   ],warnings,issues
 };
