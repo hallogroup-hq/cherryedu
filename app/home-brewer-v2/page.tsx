@@ -6,7 +6,7 @@ export const metadata={title:'Home Brewer Specialization | CherryEdu',descriptio
 
 export default function HomeBrewerV2Overview(){
  if(process.env.CHERRYEDU_HOME_BREWER_V2_REVIEW!=='enabled')notFound();
- return <main className="min-h-screen bg-paper-50 pb-28">
+ return <div className="min-h-screen bg-paper-50 pb-28">
   <div className="mx-auto max-w-5xl px-5 pb-14 pt-16 sm:pt-24">
    <Link href="/paths" className="text-sm text-roast-700 underline underline-offset-4">← Kembali ke Kelas Kopi</Link>
    <p className="mt-16 font-mono text-xs font-semibold uppercase tracking-widest text-cherry-700">Home Brewer Specialization</p>
@@ -49,5 +49,5 @@ export default function HomeBrewerV2Overview(){
    Materi dan latihan ini membantumu mengembangkan pemahaman serta resep pribadi.
    Latihan digital tidak menyatakan kemampuan praktik langsung atau sertifikasi eksternal.
   </p>
- </main>;
+ </div>;
 }
