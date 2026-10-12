@@ -122,7 +122,14 @@ export default function LessonPlayerPage() {
   const nextItem =
     currentIndex < allPathLessons.length - 1 ? allPathLessons[currentIndex + 1] : null;
 
-  if (!path || !currentLesson) {
+  // Security invariant: a route may render only lessons belonging to the
+  // modules of THAT path. Otherwise a free Foundation slug could be combined
+  // with a paid specialization lesson ID to bypass module access checks.
+  if (
+    !path ||
+    !currentLesson ||
+    !pathModules.some((module) => module.id === currentLesson.module_id)
+  ) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center">
         <h2 className="text-xl font-serif font-bold text-roast-950">Materi Tidak Ditemukan</h2>
