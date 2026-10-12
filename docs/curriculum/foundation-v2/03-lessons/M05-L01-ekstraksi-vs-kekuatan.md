@@ -26,6 +26,9 @@ Kita butuh dua cara mengajukan pertanyaan:
 
 Pertanyaan pertama berbicara tentang **strength atau solubles concentration**. Pertanyaan kedua tentang **extraction yield**.
 
+
+[VISUAL:strength-vs-extraction]
+
 ## 2. Strength: konsentrasi di minuman
 
 Bayangkan kamu membuat satu gelas minuman lalu menambahkan air. Jumlah zat kopi yang sudah terlarut mungkin tidak berubah banyak, tetapi volumenya bertambah dan rasanya terasa lebih ringan.
@@ -82,6 +85,9 @@ Demikian juga “pahit” tidak selalu membuktikan EY terlalu tinggi; bisa berka
 Seorang pelanggan mencicipi kopi filter dan berkata “terlalu kuat”. Kalau ia terutama terganggu oleh intensitas minuman, salah satu pertanyaan adalah apakah **konsentrasi** memang terlalu tinggi untuk preferensinya. Mengubah brew ratio atau dilusi dapat memengaruhi strength, sementara perubahan gilingan juga bisa mengubah extraction.
 
 Jawaban yang lebih tepat: “Apakah yang terasa terlalu intens, terlalu pahit, atau ada sensasi lain yang tidak disukai?” Lalu pilih perubahan yang memungkinkan pembandingan yang bermakna.
+
+
+[ACTIVITY:strength-extraction-check]
 
 ## 6. Latihan tanpa alat
 
