@@ -4,7 +4,7 @@ import { BARISTA_V2_LESSONS, BARISTA_V2_MODULES } from '@/lib/data/baristaV2.gen
 
 export default function BaristaV2Overview() {
   if (process.env.CHERRYEDU_BARISTA_V2_REVIEW !== 'enabled') notFound();
-  return <main className="min-h-screen bg-paper-50 pb-24">
+  return <div className="min-h-screen bg-paper-50 pb-24">
     <div className="mx-auto max-w-5xl px-4 pt-20 sm:px-6">
       <Link href="/paths" className="text-sm text-roast-700 underline underline-offset-4">Kembali ke Kelas Kopi</Link>
       <p className="mt-12 text-xs uppercase font-semibold tracking-widest text-cherry-700">Barista Specialization</p>
@@ -40,5 +40,5 @@ export default function BaristaV2Overview() {
         })}
       </div>
     </div>
-  </main>;
+  </div>;
 }
