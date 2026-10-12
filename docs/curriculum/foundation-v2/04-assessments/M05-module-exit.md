@@ -9,6 +9,8 @@ passing_proposal: "10/12 correct and applied case >=9/12 with no rubric dimensio
 
 # Modul 05 — Assessment Pack: Mengekstraksi Rasa ke Cangkir
 
+> **Editorial anti-cue revision (2026-10-12):** Answer options revised for plausible concepts and more varied length; stable IDs/keys maintained. Independent expert and learner validation pending.
+
 Tujuan asesmen ini adalah menilai apakah peserta mampu **membedakan besaran pengukuran, menerapkan konsep brewing secara kontekstual, merancang perbandingan wajar, dan menolak kesimpulan yang melampaui data**.
 
 **Tidak ada sertifikasi profesional di sini.** Kelulusan quiz digital tidak membuktikan kemampuan menggunakan refraktometer, mengenali aroma, mengoperasikan espresso machine, atau merancang air untuk boiler. Skenario semuanya fiktif dan ditandai demikian.
@@ -18,20 +20,20 @@ Tujuan asesmen ini adalah menilai apakah peserta mampu **membedakan besaran peng
 ### M05-Q01 — Strength berbeda dari extraction yield
 Dua istilah berikut sering dicampur. Mana yang paling tepat?
 
-A. Strength adalah persentase kadar air di biji hijau dan EY adalah pH kopi jadi.  
-B. Strength adalah konsentrasi zat terlarut dalam minuman; EY adalah perkiraan bagian massa kopi kering yang berpindah sebagai zat terlarut.  
-C. Strength selalu menentukan rasa terbaik dan EY selalu menentukan aroma spesifik.  
-D. Keduanya adalah cara lain untuk menulis berat air masuk dalam gram.
+A. Strength menyatakan volume air masuk; EY menilai kuatnya rasa.
+B. Strength mengukur konsentrasi; EY mengukur bagian dosis larut.
+C. Strength menunjukkan kadar mineral; EY adalah durasi brewing.
+D. Strength dan EY mengukur hal sama dalam satuan berbeda.
 
 **Kunci B.** Konsentrasi minuman dan bagian zat terlarut dari dosis bukan besaran identik. A/D kategori salah; C berlebihan. **Remediasi:** L01 §§1–3.
 
 ### M05-Q02 — Alur immersion/percolation
 Apa perbedaan mendasar kedua metode?
 
-A. Immersion hanya terjadi saat kopi direbus di mesin espresso.  
-B. Percolation berarti kopi tidak pernah menyentuh air.  
-C. Keduanya menghasilkan semua rasa yang sama tanpa pengecualian.  
-D. Immersion menahan air dan bubuk bersama selama fase kontak; percolation mengalirkan air melewati bed bubuk.
+A. Immersion selalu memerlukan mesin yang memberi tekanan tinggi.
+B. Percolation hanya mencampur air dan kopi lalu didiamkan.
+C. Immersion memakai aliran kontinyu melewati bed kopi.
+D. Immersion merendam bubuk; percolation mengalirkan air.
 
 **Kunci D.** Perbedaan mekanisme aliran, bukan jaminan kualitas. **Remediasi:** L04 §§1–2.
 
@@ -52,30 +54,30 @@ D. 16,7%
 ### M05-Q04 — Water TDS versus coffee TDS
 Meter EC/TDS air menunjukkan “130 ppm”. Refraktometer minuman menunjukkan “1,30%”. Penjelasan yang benar?
 
-A. Keduanya sama karena angka pertama dikalikan 100.  
-B. Meter EC langsung mengukur seluruh aroma buah dalam kopi.  
-C. Keduanya berasal dari sampel dan metode yang berbeda; ppm air dari EC conversion tidak sama dengan persen kopi terlarut dalam minuman.  
-D. Kedua alat cukup untuk memastikan keamanan semua boiler.
+A. Angkanya setara karena konversi ppm dan persen selalu sama.
+B. Kedua angka membandingkan kekerasan air setelah diseduh.
+C. Alat serta sampelnya berbeda; satuannya tidak setara.
+D. Keduanya mengukur mineral saja, bukan senyawa hasil kopi.
 
 **Kunci C.** Air dan minuman berbeda, demikian pula cara ukur/konversinya. **Remediasi:** L01/L03/L05. **Tag:** coffee-tds-vs-water-tds.
 
 ### M05-Q05 — Membaca laporan air
 **Data fiktif:** Air A pH 7,1 dan alkalinity 35 mg/L as CaCO₃; Air B pH 7,2 dan alkalinity 100 mg/L as CaCO₃. Apa kesimpulan yang paling sah?
 
-A. pH mirip tidak berarti kapasitas menetralkan asam sama; data alkalinitas perlu dipertimbangkan terpisah.  
-B. Kedua air pasti sama profil mineralnya karena pH hampir sama.  
-C. Hardness dan pH merupakan parameter yang identik.  
-D. Air B pasti aman untuk semua espresso machine tanpa pemeriksaan.
+A. pH mirip tidak berarti alkalinitas keduanya sama.
+B. Nilai pH mirip berarti total hardness juga harus mirip.
+C. Air dengan pH lebih tinggi pasti selalu lebih aman bagi mesin.
+D. Alkalinitas bisa diketahui langsung dari angka pH saja.
 
 **Kunci A.** pH bukan ukuran alkalinitas. **Remediasi:** L03 §§1,5.
 
 ### M05-Q06 — Suhu dalam penelitian
 Studi drip brew UC Davis membandingkan 87°C, 90°C, 93°C dan menyesuaikan variabel lain agar TDS/EY target sebanding. Apa kesimpulan edukatif yang sesuai?
 
-A. Suhu tidak memengaruhi kecepatan ekstraksi pada semua kondisi.  
-B. Semua espresso seharusnya dibuat tepat 87°C.  
-C. Semakin panas selalu paling bagus bagi semua orang.  
-D. Pada kondisi dan rentang studi itu, setelah strength dan EY disamakan, perbedaan suhu tidak menghasilkan perubahan sensori berarti; ini tidak menghapus pentingnya suhu bagi dinamika ekstraksi.
+A. Suhu sama sekali tidak memengaruhi perpindahan zat dalam kopi.
+B. Semua kopi pada suhu 87°C akan menghasilkan sensory setara.
+C. Menaikkan suhu selalu meningkatkan kesukaan konsumen.
+D. Pada TDS/EY setara, rentang suhu studi sedikit mengubah sensori.
 
 **Kunci D.** Kesimpulan dibatasi oleh desain studi. **Remediasi:** L02 §4. **Source:** https://pubmed.ncbi.nlm.nih.gov/33020560/.
 
@@ -86,20 +88,20 @@ D. Pada kondisi dan rentang studi itu, setelah strength dan EY disamakan, perbed
 
 Apa masalah utamanya?
 
-A. Grinder harus diganti otomatis.  
-B. Massa air masuk dan massa minuman keluar berbeda; untuk estimasi EY berbasis cangkir gunakan 285 g, serta catat keterbatasan cairan tertahan.  
-C. Semua kopi yang menyerap air berarti kurang berkualitas.  
-D. Tidak diperlukan TDS untuk menghitung EY.
+A. Ganti grinder dahulu karena ketidaksesuaian massa menandakan rusak.
+B. Gunakan 285 g hasil seduh, bukan 320 g air masuk.
+C. Ambil rata-rata 320 g dan 285 g supaya EY lebih netral.
+D. Gunakan 320 g karena air yang dituang adalah hasil brewing.
 
 **Kunci B.** Salah input membuat perkiraan EY bias. **Remediasi:** L02/L05 §§1–2.
 
 ### M05-Q08 — TDS sama, EY berbeda
 **Data simulasi:** A dosis 18 g, minuman 270 g, TDS 1,20%; B dosis 18 g, minuman 300 g, TDS 1,20%. Mana yang tepat?
 
-A. Karena TDS sama, EY pasti sama.  
-B. Karena B lebih banyak, TDS-nya pasti lebih tinggi meski tercatat sama.  
-C. Estimated EY A=18%, B=20%; konsentrasi sama tidak membuat jumlah zat terlarut dalam kedua minuman identik.  
-D. Keduanya pasti menghasilkan kesukaan yang sama.
+A. EY A dan B identik karena kedua TDS terukur sama persis.
+B. EY A 20% dan B 18% sebab A menghasilkan minuman lebih sedikit.
+C. EY A 18%, B 20%; jumlah solut dalam cangkir berbeda.
+D. EY tidak dapat dihitung dari dosis dan TDS tanpa suhu biji.
 
 **Kunci C.** A: 270 × 1,20 / 18 = 18%; B: 300 × 1,20 / 18 = 20%. **Remediasi:** L05 §3.
 
@@ -108,10 +110,10 @@ Dua peserta menerima 200 g minuman dari batch sama. Salah satu menambah 50 g air
 
 Apa yang terjadi secara konseptual jika tak ada kopi baru terekstraksi dan tidak ada kehilangan zat?
 
-A. Jumlah zat kopi di cangkir otomatis bertambah.  
-B. EY dari dosis semula otomatis meningkat karena volume bertambah.  
-C. Konsentrasi minuman otomatis meningkat.  
-D. Konsentrasi zat kopi turun, tetapi jumlah zat kopi yang sebelumnya sudah masuk cangkir tidak berubah.
+A. Penambahan air meningkatkan jumlah zat kopi tanpa ekstraksi baru.
+B. Dilusi menaikkan EY karena berat cangkir bertambah 50 gram.
+C. TDS dan EY dari dosis awal selalu naik dengan penambahan air.
+D. TDS turun; jumlah solut kopi sebelumnya relatif tetap.
 
 **Kunci D.** Ini membedakan konsentrasi dan jumlah zat terlarut. **Remediasi:** L01 §3 dan L04 §3.
 
@@ -120,10 +122,10 @@ Brosur menulis, “18–22% EY adalah satu-satunya zona rasa enak untuk semua pe
 
 Mana kritik terkuat?
 
-A. Zona historis berguna sebagai kerangka, tetapi penelitian sensori dan preferensi konsumen menunjukkan batas rasa tidak setajam itu serta kesukaan dapat berbeda antarkelompok.  
-B. Tidak ada penelitian tentang extraction yield.  
-C. TDS adalah nama lain untuk varietas kopi.  
-D. Semua konsumen selalu memilih seduhan paling encer.
+A. Zona lama membantu komunikasi, tetapi bukan selera universal.
+B. Rentang historis 18–22% berlaku wajib untuk semua metode seduh.
+C. Chart baru membuktikan preferensi seluruh konsumen selalu identik.
+D. Zona ideal ditentukan hanya oleh dosis air, bukan persepsi rasa.
 
 **Kunci A.** Chart klasik bukan hukum preferensi universal. **Remediasi:** L01 §4, L05 §4. **Source:** https://pubmed.ncbi.nlm.nih.gov/36988107/.
 
@@ -134,10 +136,10 @@ Seorang instruktur berkata: “Hendon 2014 membuktikan magnesium pasti membuat f
 
 Apa kritik berdasarkan bukti yang paling kuat?
 
-A. Magnesium dan kalsium tidak ada di air alami.  
-B. Jika mineral tinggi, air penuh sehingga tidak dapat melarutkan apa pun.  
-C. Studi 2014 berupa pemodelan ikatan molekul; studi sensorik 2026 pada satu kopi justru menemukan pengaruh hardness sendiri yang kecil, sedangkan bikarbonat lebih jelas. Klaim flavor universal tidak didukung.  
-D. Bikarbonat pasti tidak berpengaruh terhadap rasa dalam kondisi apa pun.
+A. Studi 2014 menguji kesukaan konsumen terhadap air tiap negara.
+B. Studi 2026 menunjukkan semua kopi selalu sama pada hardness apa pun.
+C. Model ion 2014 bukan bukti flavor universal; bikarbonat penting pada studi 2026.
+D. Studi 2014 membuktikan Mg pasti fruity pada setiap espresso.
 
 **Kunci C.** Menghubungkan jenis bukti dan batas generalisasi. **Remediasi:** L03 §§2–3. **Sources:** https://pubmed.ncbi.nlm.nih.gov/24802110/ ; https://pubmed.ncbi.nlm.nih.gov/42746805/.
 
@@ -146,10 +148,10 @@ D. Bikarbonat pasti tidak berpengaruh terhadap rasa dalam kondisi apa pun.
 
 Apa kritik terbaik?
 
-A. Rasa pahit selalu disebabkan suhu tinggi.  
-B. Karena dua intervensi berubah sekaligus, data tidak mengisolasi efek grind saja. Perlu perbandingan dengan kontrol lebih baik serta pengulangan.  
-C. Grind sama sekali tak berpengaruh pada aliran.  
-D. Satu kali mencicipi membuktikan semua kopi akan sama hasilnya.
+A. Pahit membuktikan perubahan gilingan sebagai penyebab tunggal.
+B. Dua intervensi berubah; pengaruh grind belum terisolasi.
+C. Karena suhu berubah, data gilingan otomatis tidak relevan.
+D. Catatan rasa satu panelis sudah cukup untuk memastikan kausalitas.
 
 **Kunci B.** Kesimpulan kausal terlalu jauh dari data. **Remediasi:** L02 §6, L06 §§1–4.
 
