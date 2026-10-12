@@ -40,6 +40,9 @@ Perubahan ini bukan berarti penilaian rasa atau scoring tidak diperlukan lagi. A
 - “Semua kopi dengan angka 79,9 pasti buruk dan semua 80,1 pasti istimewa untuk semua orang.” **Tidak dapat dibenarkan.**
 - “CVA otomatis mengganti setiap skor industri dengan satu skor baru yang lebih benar.” **Tidak sesuai tujuan framework-nya.**
 
+
+[VISUAL:cva-lenses]
+
 ## 2. Empat lensa, empat jenis pertanyaan
 
 SCA menyusun CVA melalui **Physical, Descriptive, Affective, dan Extrinsic Assessment**. Evaluator dapat menggunakan satu atau beberapa komponen sesuai kebutuhan, meskipun gambaran yang lebih luas diperoleh ketika informasi dari beberapa sudut pandang tersedia. [CVA-01]
@@ -129,6 +132,9 @@ Pertanyaan extrinsic juga berhubungan dengan sejarah Modul 07: siapa pemilik inf
 
 **Pertanyaan 5:** Pembeli lain memprioritaskan traceability dan praktik produksi. Bukti mana penting?  
 **Contoh:** Dokumen lot, kondisi transaksi, sertifikasi bila ada, riwayat produksi yang dapat diperiksa, serta pengungkapan yang akurat.
+
+
+[ACTIVITY:cva-four-lenses]
 
 ## 7. Latihan empat lensa — pasangkan datanya
 
