@@ -87,3 +87,49 @@ test('internal references and QA never render inside learner lesson bodies', asy
     await expect(article).not.toContainText(/\[(?:S01|R1|CAP-01|CLAIM-04)\]/);
   }
 });
+
+test('taxonomy exercise is five interactive cards, not a table showing answers', async ({ page }) => {
+  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m02-l02');
+  const activity = page.getByRole('region', { name: /Lima nama, lima tingkat informasi/i });
+  await expect(activity).toBeVisible();
+  await expect(activity.getByText('Coffea', { exact: true })).toBeVisible();
+  await expect(activity.locator('table')).toHaveCount(0);
+  await expect(activity.getByText('Tepat.', { exact: true })).toHaveCount(0);
+  await activity.getByRole('button', { name: 'Genus', exact: true }).click();
+  await expect(activity).toContainText('Tepat.');
+  await expect(activity).toContainText('Coffea adalah genus');
+  await activity.getByRole('button', { name: /Kartu berikutnya/i }).click();
+  await expect(activity).toContainText('Coffea arabica');
+});
+
+test('coffee fruit anatomy is visible and its layer descriptions respond to clicks', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m02-l01');
+  const activity = page.getByRole('region', { name: 'Jelajahi isi buah kopi' });
+  await expect(activity).toBeVisible();
+  await expect(activity.getByRole('img', { name: /Skema penampang melintang buah kopi/i })).toBeVisible();
+  await activity.getByRole('button', { name: /Kulit tanduk/i }).click();
+  await expect(activity).toContainText('Lapisan keras pelindung biji');
+});
+
+test('different modules use different appropriate interaction types', async ({ page }) => {
+  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m04-l01');
+  const roast = page.getByRole('region', { name: /Susun perjalanan satu batch/i });
+  await expect(roast.getByRole('button', { name: 'Periksa urutan' })).toBeVisible();
+  await roast.getByRole('button', { name: 'Periksa urutan' }).click();
+  await expect(roast).toContainText('Belum tepat');
+  await expect(roast.getByRole('button', { name: /Naikkan/i }).first()).toBeVisible();
+
+  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m05-l05');
+  const brew = page.getByRole('region', { name: /Hitung estimasi extraction yield/i });
+  await expect(brew.getByLabel('Dosis kopi kering (g)')).toHaveValue('20');
+  await brew.getByRole('button', { name: 'Hitung estimasi EY' }).click();
+  await expect(brew).toContainText('20,25%');
+
+  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m07-l02');
+  const chain = page.getByRole('region', { name: 'Periksa klaim pembelian langsung' });
+  await expect(chain).toBeVisible();
+  await expect(chain).not.toContainText('Tepat.');
+  await chain.getByRole('button', { name: /Minta bukti pembayaran/i }).click();
+  await expect(chain).toContainText('Tepat.');
+});
