@@ -34,6 +34,10 @@ Lesson ini mengajarkan konsep dasar ekonomi kopi, bukan agar kamu menjadi akunta
 
 [ACTIVITY:farm-income-sandbox]
 
+### Jejak P-17 — uang yang benar-benar masuk hitungan
+
+Dalam kasus akhir P-17, bandingkan dua skenario **fiktif dengan satuan yang sama**, yaitu kg ceri segar. Skenario standar: 100 kg terjual × Rp12.000/kg dengan biaya tercatat Rp900.000 → sisa **Rp300.000**. Skenario premium: 90 kg terjual × Rp15.000/kg dengan biaya tercatat Rp1.130.000 → sisa **Rp220.000**. Ada 10 kg yang status penjualannya belum diketahui. Ini **bukan living income** atau bukti pendapatan satu keluarga; gunakan kalkulator di bawah untuk menguji sendiri.
+
 ## 2. Kasus pertama: harga jual naik, pendapatan bersih turun
 
 **SEMUA ANGKA DI BAWAH FIKTIF, bukan harga aktual Jawa Barat atau pendapatan nyata petani.** Keduanya membandingkan **100 kg ceri segar dari satu periode penjualan** agar unit tetap konsisten.
