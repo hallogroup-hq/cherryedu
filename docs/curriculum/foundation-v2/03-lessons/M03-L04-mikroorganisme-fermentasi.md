@@ -96,14 +96,9 @@ Tiga lot fiktif diserahkan kepada pembeli.
 
 [ACTIVITY:microbial-evidence]
 
-## 7. Latihan membedakan empat tingkat klaim
+## 7. Latihan membedakan data dan kesimpulan
 
-Klasifikasikan pernyataan berikut.
-
-- “pH pada sampel tangki berubah dari 5,4 ke 4,2” → **Observasi terukur**, bila alat/sampling dapat diverifikasi.
-- “Perubahan ini mungkin berhubungan dengan pembentukan asam oleh aktivitas mikroba” → **Hipotesis mekanistik**.
-- “Proses ini pasti menghasilkan aroma nanas pada semua batch” → **Klaim tidak didukung data tersebut**.
-- “Batch ini telah aman dan bebas toksin hanya karena pH turun” → **Klaim keamanan tidak valid berdasarkan informasi itu saja**.
+Kerjakan kartu klasifikasi yang ada tepat sebelum bagian ini, lalu sebutkan **informasi apa yang masih kurang** agar sebuah hipotesis dapat diuji. Nama proses atau satu angka pH tidak otomatis membuktikan keselamatan pangan.
 
 ### Pemeriksaan pemahaman
 
