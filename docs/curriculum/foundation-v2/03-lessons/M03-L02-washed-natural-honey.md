@@ -13,6 +13,9 @@ Bayangkan dua kopi dari kebun sama. Yang satu dijual dengan kata **washed**, yan
 
 Sebenarnya informasi proses memang bisa membantu kita membentuk dugaan, tetapi **tidak menjamin satu tasting note**. Untuk memahaminya, pertama-tama tanyakan: **apa yang dipisahkan dari buah, kapan, dan bagaimana air dikeluarkan?**
 
+
+[VISUAL:processing-paths]
+
 ## 1. Perbedaan inti berasal dari penanganan buah
 
 Pada **washed**, kulit dan pulp biasanya dilepaskan lebih awal. Mucilage di sekitar parchment kemudian dikurangi melalui kegiatan biologis, mekanis, pembilasan, atau gabungan metode. Setelah itu parchment dikeringkan. Fermentasi dapat digunakan untuk membantu penghilangan mucilage; washed bukan sinonim “tidak ada mikroba”.
