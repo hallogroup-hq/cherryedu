@@ -52,21 +52,7 @@ Kata-kata ini adalah **kategori pendidikan dalam simulasi**, bukan prosedur resm
 
 ## 3. Pilih tindakan terhadap tiap sublot
 
-### P-21
-
-Apa yang pantas kamu sarankan?
-
-**Pilihan terbaik:** PROCEED FOR REVIEW secara terbatas, dengan syarat prosedur QC yang relevan masih perlu dilakukan. Ada catatan lebih lengkap, tetapi **belum ada bukti seluruh aspek fisik, sensorik dan keamanan telah dinyatakan lulus oleh pihak yang berwenang**.
-
-Kesalahan yang harus dihindari adalah menulis “P-21 pasti aman dan specialty 90+”. Tidak ada hasil CVA sensorik, detail kontrak dagang atau keputusan final yang mendukung klaim tersebut.
-
-### P-22
-
-Apa yang pantas kamu sarankan?
-
-**Pilihan terbaik:** HOLD & ESCALATE. Ada indikasi air masuk, riwayat penanganan tidak lengkap, label karung hilang, dan temuan benda asing. Langkah aman ialah memastikan sublot diidentifikasi serta dikontrol untuk pemeriksaan yang tepat.
-
-**Jangan** mengarahkan peserta sekadar “jemur ulang lalu jual”. Itu adalah keputusan teknis/keamanan yang memerlukan penilaian operator berkualifikasi, terutama ketika terdapat kelembapan dan potensi kontaminasi.
+Baca dua sublot P-21 dan P-22, lalu gunakan **lembar keputusan interaktif di atas** sebelum membandingkan alasanmu dengan contoh yang disediakan setelah mengisi catatan. Kamu tidak sedang mengeluarkan sertifikat mutu atau keputusan keselamatan produksi.
 
 ## 4. Informasi apa yang paling berguna?
 
@@ -110,9 +96,9 @@ Buat memo **150–250 kata** kepada pengelola. Sertakan:
 4. Penjelasan singkat mengapa nilai fisik, sensorik, dan informasi asal adalah jenis evaluasi berbeda.
 5. Satu kesimpulan yang **tidak boleh** dibuat dari data ini.
 
-### Contoh memo (bukan jawaban satu-satunya)
+### Contoh jawaban sesudah mencoba
 
-“Untuk P-21, saya menyarankan penerusan ke tahap review QC berikutnya karena catatan penerimaan, proses, pengeringan, dan identitas sublot lebih lengkap. Saya tidak menyatakan lot sudah aman atau memenuhi skor sensorik tertentu. P-22 sebaiknya ditahan dan dievaluasi petugas berwenang karena ada insiden kebocoran, label hilang, belum ada hasil kadar air yang dapat diverifikasi, dan fragmen asing teramati. Kami perlu meninjau dokumentasi insiden serta mengambil sampel ulang dengan metode yang tepat. Walaupun lot P-21 terlihat baik pada inspeksi awal, penilaian fisik tidak otomatis menjamin skor cup atau bebas kontaminan. Sebelum ada prosedur serta pengujian yang memadai, promosi ‘90+ guaranteed’ harus ditolak.”
+Model penalaran tersedia melalui tombol pembahasan pada lembar kerja. Bandingkan alasan dan keterbatasan buktimu, bukan hanya format memo.
 
 ## 8. Rubrik penilaian (bukan sertifikasi)
 
@@ -145,3 +131,35 @@ Dari buah ke biji hijau bukan sekadar serangkaian kata di kemasan. Ada **bahan y
 - [R4] ISO 4149:2025 summary: https://www.iso.org/standard/87699.html .
 - **Simulated data:** P-21, P-22, calendar, scores, incidents and dialogue are fictional.
 - **Safety note:** Decisions are educational categories, not operational clearance; qualified operator review required. No food-safety clearance conferred by the exercise.
+
+**Editorial-only model answers moved from earlier learner narrative (not for publication):**
+
+**Teaching exemplar 1:**
+
+**3. Pilih tindakan terhadap tiap sublot
+
+**P-21
+
+Apa yang pantas kamu sarankan?
+
+**Pilihan terbaik:** PROCEED FOR REVIEW secara terbatas, dengan syarat prosedur QC yang relevan masih perlu dilakukan. Ada catatan lebih lengkap, tetapi **belum ada bukti seluruh aspek fisik, sensorik dan keamanan telah dinyatakan lulus oleh pihak yang berwenang**.
+
+Kesalahan yang harus dihindari adalah menulis “P-21 pasti aman dan specialty 90+”. Tidak ada hasil CVA sensorik, detail kontrak dagang atau keputusan final yang mendukung klaim tersebut.
+
+**P-22
+
+Apa yang pantas kamu sarankan?
+
+**Pilihan terbaik:** HOLD & ESCALATE. Ada indikasi air masuk, riwayat penanganan tidak lengkap, label karung hilang, dan temuan benda asing. Langkah aman ialah memastikan sublot diidentifikasi serta dikontrol untuk pemeriksaan yang tepat.
+
+**Jangan** mengarahkan peserta sekadar “jemur ulang lalu jual”. Itu adalah keputusan teknis/keamanan yang memerlukan penilaian operator berkualifikasi, terutama ketika terdapat kelembapan dan potensi kontaminasi.
+
+
+
+**Teaching exemplar 2:**
+
+**Contoh memo (bukan jawaban satu-satunya)
+
+“Untuk P-21, saya menyarankan penerusan ke tahap review QC berikutnya karena catatan penerimaan, proses, pengeringan, dan identitas sublot lebih lengkap. Saya tidak menyatakan lot sudah aman atau memenuhi skor sensorik tertentu. P-22 sebaiknya ditahan dan dievaluasi petugas berwenang karena ada insiden kebocoran, label hilang, belum ada hasil kadar air yang dapat diverifikasi, dan fragmen asing teramati. Kami perlu meninjau dokumentasi insiden serta mengambil sampel ulang dengan metode yang tepat. Walaupun lot P-21 terlihat baik pada inspeksi awal, penilaian fisik tidak otomatis menjamin skor cup atau bebas kontaminan. Sebelum ada prosedur serta pengujian yang memadai, promosi ‘90+ guaranteed’ harus ditolak.”
+
+
