@@ -29,6 +29,8 @@ Kalau begitu, bagaimana mempelajari kopi tanpa terjebak pada seribu kemungkinan?
 
 Kuncinya bukan menghafal semua kemungkinan sekaligus. Kuncinya belajar **menata pertanyaan**.
 
+[VISUAL:coffee-journey]
+
 ## 1. Satu cangkir adalah hasil dari rangkaian keputusan
 
 Kopi tidak mulai “dibuat” saat bubuk bertemu air. Jauh sebelum itu, ada tanaman yang tumbuh, buah yang matang, biji yang diproses, dikeringkan, disimpan, dan disangrai.
@@ -173,6 +175,8 @@ Kita bisa memakai pola empat langkah:
 4. **Uji dan revisi:** Apa yang dapat dikontrol dan dibandingkan secara aman?
 
 Cara ini berlaku untuk kopi di rumah, barista yang menangani keluhan, bahkan processor yang mengevaluasi perubahan lot. Teknik di setiap profesi berbeda; kebiasaan berpikirnya sama.
+
+[ACTIVITY:brew-hypothesis]
 
 ## 8. Tantangan keputusan: pilih penjelasan yang paling baik
 
