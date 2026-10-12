@@ -18,6 +18,23 @@ Urutkan adegan real-pour video: mixing awal, turun untuk membentuk white surface
 
 Catat pertanyaanmu, hipotesis, prediksi, satu kondisi yang diubah, variabel kontrol, apa yang benar-benar diamati, dan informasi yang belum diketahui. Jika berlatih dengan simulasi, jangan menulis hasil seolah-olah kamu sudah mencicipi atau bekerja dengan mesin nyata. Eksperimen aman mengikuti pedoman mesin dan prosedur kedai.
 
+## Foto akhir tidak membuktikan kualitas proses
+
+Foto pola heart hanya menunjukkan bentuk akhir. Foto tidak memberi suhu, sanitasi, kualitas rasa, atau teknik aeration. Untuk belajar gerakan pouring diperlukan footage nyata yang memperlihatkan **awal tuang, perubahan posisi pitcher, munculnya pola dan akhir aliran**.
+
+| Bukti | Kesimpulan yang sah |
+|---|---|
+| Foto akhir | Bentuk dan kontras yang tampak |
+| Video proses | Tahapan gerakan |
+| Video ditambah log | Konteks bahan dan suhu |
+| Tasting nyata | Persepsi pencicip tertentu |
+
+Saat susu dituang, sebagian bisa terintegrasi dengan espresso; dalam kondisi lain microfoam terlihat putih di permukaan. Hasil dipengaruhi tekstur, tinggi tuang, aliran dan gelas. Tidak ada satu tinggi pitcher yang wajib untuk semua kondisi.
+
+**Latihan observasi:** tandai dua perubahan gerakan pada video terverifikasi instruktur. Tuliskan dua kemungkinan penyebab jika pola gagal serta data yang membedakannya. Praktik tangan wajib mengikuti prosedur mesin dan supervisi.
+
+**Transfer:** pelanggan memesan iced latte, tetapi barista menyajikan latte panas bergambar heart. Keputusan mutu mana lebih penting dibanding art? Jelaskan remake dan komunikasi sesuai SOP.
+
 ## Tantangan transfer
 
 Saat pelanggan terburu-buru dan pola tidak sempurna tetapi minuman sesuai spesifikasi, apakah kamu harus remake? Pertimbangkan mutu, kebijakan kedai dan pelanggan.
