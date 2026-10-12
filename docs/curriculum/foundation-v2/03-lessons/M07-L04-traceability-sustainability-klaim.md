@@ -94,7 +94,18 @@ Mengirim pupuk kompos kepada petani bisa menjadi **aktivitas bantuan** yang berm
 
 ## 5. EUDR: contoh mengapa tanggal dan ruang lingkup hukum sangat penting
 
-Uni Eropa memiliki **EU Deforestation Regulation (EUDR)** yang mencakup berbagai komoditas dan produk tertentu, termasuk kategori kopi dalam cakupannya. Dalam kerangka yang berlaku pada **12 Oktober 2026**, penjelasan resmi Komisi Eropa menyatakan penerapan kewajiban utama bagi banyak operator besar dan menengah dimulai **30 Desember 2026**, sedangkan sebagian besar usaha mikro dan kecil memperoleh tanggal **30 Juni 2027**; ketentuan khusus dan perubahan daftar produk dapat memengaruhi analisis. [CLAIM-04,CLAIM-05]
+Uni Eropa memiliki **EU Deforestation Regulation (EUDR)** yang mencakup komoditas serta produk tertentu, termasuk kopi menurut kode barang yang ditetapkan. **Menurut halaman resmi Komisi Eropa dan regulasi perubahan yang berlaku saat diperiksa 12 Oktober 2026**, jadwal penerapannya harus dibedakan berdasarkan **kategori produk sekaligus kategori pelaku**:
+
+| Kategori dalam aturan yang dicek | Tanggal penerapan yang dinyatakan |
+|---|---|
+| Operator besar/menengah untuk produk yang sudah lebih dahulu tercakup, misalnya kopi dalam kode HS 0901 | **30 Desember 2026** |
+| Sebagian besar operator mikro/kecil untuk produk yang sudah tercakup | **30 Juni 2027** |
+| Operator mikro/kecil yang telah tercakup EU Timber Regulation (EUTR) | **30 Desember 2026** |
+| **Produk kopi yang baru ditambahkan**: ekstrak, esens dan konsentrat kopi pada kode **2101 11 00** (*termasuk kategori soluble coffee sesuai klasifikasi barang yang relevan*) | **30 Desember 2027** |
+
+Tanggal khusus produk baru tersebut disebut dalam **Commission Delegated Regulation (EU) 2026/2102**, yang diterbitkan **17 September 2026**. Jangan menyamakan produk kopi panggang/biji pada HS 0901 dengan seluruh produk ekstrak kopi pada HS 2101. Satu brand dapat menjual produk dengan klasifikasi berbeda dan memperoleh akibat regulasi berbeda. [CLAIM-04,CLAIM-05,CLAIM-07,CLAIM-08]
+
+**Tabel ini ringkasan pendidikan, bukan keputusan klasifikasi hukum produk tertentu.** Perusahaan perlu meninjau kode barang, peran rantai pasok, asal produksi, ketentuan transisi, dokumen dan teks hukum terkonsolidasi yang berlaku pada tanggal transaksi bersama penanggung jawab compliance.
 
 **Tanggal tersebut belum tiba pada saat lesson ini ditulis.** Halaman regulasi dan kriteria pelaku harus dicek ulang ketika suatu transaksi nyata diproses.
 
@@ -188,6 +199,8 @@ Di final case, kamu akan memeriksa satu lot dari buah hingga cangkir, menghitung
 - **CLAIM-04** — European Commission EUDR July 13 2026 official guidance: https://environment.ec.europa.eu/news/commission-updates-product-scope-and-tools-support-eudr-2026-07-13_en
 - **CLAIM-05** — EU official Journal EUDR interpretation and transition dates (2026): https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ%3AC_202603896
 - **CLAIM-06** — SCA Coffee Value Assessment official four lenses: https://sca.coffee/value-assessment
+- **CLAIM-07** — European Commission, *Roles and responsibilities*, including different dates for newly added products: https://green-forum.ec.europa.eu/nature-and-biodiversity/deforestation-regulation-implementation/roles-and-responsibilities_en
+- **CLAIM-08** — Commission Delegated Regulation (EU) 2026/2102, published 17 September 2026, Annex I code **2101 11 00** applies from 30 December 2027: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX%3A32026R2102
 - **Regulatory watch:** EUDR dates, commodities, operator categories and implementations can change; recheck before live release. This is **educational context**, NOT a compliance determination.
 - **Rights:** No official SCA diagrams, proprietary scheme logos, labels or certification marks reproduced.
 - **Reviewer gates:** Indonesian producer/ESG specialist, environmental methodology reviewer and trade compliance legal reviewer pending. All three product labels and stories are fiction.
