@@ -115,7 +115,7 @@
 - **Remediation:** If a student cannot demonstrate the concept, send them to the relevant explanatory example and a new variant of the case. Do not recycle identical answer order as a pass condition.
 
 
-## 5 — Lesson specifications (33 / 33)
+## 5 — Lesson specifications (34 / 34)
 
 **Format note:** Legacy IDs show content provenance only. Create stable new IDs during implementation after migration mapping is approved. A blank/NEW source means the lesson was absent as a standalone article. Outcome, required ideas, exercise and evidence below are mandatory authoring acceptance criteria, not the finished lesson text.
 
@@ -297,6 +297,15 @@
 - **Mandatory misconceptions/guardrails:** Valve bukan oxygen barrier 100%; rest depends context.
 - **Legacy source:** F5-4
 - **Reference anchor(s):** ROASTING
+
+#### M04.L05 — Membaca roast log, mengenali masalah dan menjaga keselamatan
+- **Observable outcome:** Menafsirkan catatan roast batch sederhana, mengidentifikasi minimal tiga data yang perlu dibandingkan, membedakan dugaan defect dari bukti sensorik, dan menandai risiko kebakaran/ventilasi untuk eskalasi.
+- **Concept boundaries:** Batch ID, roast curve/probe limits, first crack marker, RoR and smoothing, color/weight loss as imperfect descriptors, underdevelopment/scorching/baking as context-dependent diagnoses, fire/chaff/ventilation/airborne chemicals and safe work boundaries.
+- **Preferred learning treatment:** Compare two fictional roast logs of the same lot with different endpoints; identify missing data, possible faults and safety red flags. No roasting required.
+- **Check for understanding / evidence:** Produce an evidence-limited batch QC memo and a safety stop/escalate response; no sensory score without cupping data.
+- **Mandatory misconceptions/guardrails:** Equal DTR ≠ equal flavor; smooth RoR ≠ guaranteed quality; nominal bean temperature ≠ true identical bean thermal history across probes; roast color ≠ sole defect test; no equipment-operation recipe, pressure, gas burner/firefighting or exposure advice without certified professional.
+- **Legacy source:** F5-1,F5-2,F5-3,F5-4 (new explicit QA + workplace safety competency)
+- **Reference anchor(s):** ROASTING; ROAST-ACIDITY-2024; ROAST-DEFECTS-2018; CDC-NIOSH; SCA-CSP
 
 ### M05 — Mengekstraksi Rasa ke Cangkir
 
@@ -530,7 +539,7 @@ Every substantive technical assertion in the finished lesson must be auditable b
 | M01 | None | F7-1 beginner overload, missing observation discipline | 1,8 |
 | M02 | M01 | F2-2 altitude; F2-4 Brix; F3-1 taxonomy; F2-3 agroforestry | 2,3 |
 | M03 | M02 | F4-2 osmosis; F4-5 fermentation risk; F4-3 honey labeling; drying/storage; NEW green coffee grading | 2,3,5 |
-| M04 | M03 | F5-2 fixed reaction temps; F5-3 drop temps; F5-4 resting | 4,5 |
+| M04 | M03 | F5-2 fixed reaction temps; F5-3 drop temps; F5-4 resting; NEW reading roast logs, defects and workplace safety | 4,5 |
 | M05 | M04 | F6-1 'hungry water'; F6-2 full solvent; F6-3 Mg flavor | 4,5 |
 | M06 | M01,M05 | F7-2 old protocol; F7-4 legacy scoring; F7-3 tongue zone | 1,6 |
 | M07 | All | F1-1 preserved history; F1-4 as optional interpretive wave lens; F1-2 score metaphor; F1-3 specialty; F1-5 fair trade; F3-5 label claims | 2,6,7,8 |
@@ -539,16 +548,23 @@ Every substantive technical assertion in the finished lesson must be auditable b
 
 | Gate | Acceptance rule | What blocks progress |
 |---|---|---|
-| G02-A Curriculum integrity | 33 unique new lesson slots; each belongs to one module; full CLO mapping; prerequisites acyclic | Missing slot, duplicate, orphan outcome |
+| G02-A Curriculum integrity | 34 unique new lesson slots; each belongs to one module; full CLO mapping; prerequisites acyclic | Missing slot, duplicate, orphan outcome |
 | G02-B Scientific guardrail | Each P0 Stage01 issue assigned specific lesson + explicit disallowed claim | P0 unmapped or current standards called obsolete incorrectly |
 | G02-C Assessment alignment | Every lesson has evidence + module exit; every CLO has graded evidence and transfer | Pure trivia only; unscorable skill claims |
 | G02-D Accessibility | All required activities have no-equipment alternative and nonvisual text equivalent | Buying equipment required; audio-only evaluation |
 | G02-E Editorial feasibility | Sources named, claims flagged for validation, no fake confidence, license plan | Uncited numeric SOP, safety recipe, asset rights unclear |
 | G03 Authoring readiness | Module map reviewed; pilot first module after source-by-claim check | Expert/safety reviewer needed but absent for technical prescriptive content |
 
-**Stage 02 status on 2026-10-12 (rev. 2: history core protected):** Blueprint drafted and self-consistency checks complete; **not yet expert approved or learner validated**. Gate G02-A and structural elements of G02-B–E are document-check candidates, not empirical passes. Stage 03 authoring may start as internal draft, but MUST NOT replace production before research/source/expert/learner gates.
+**Stage 02 status on 2026-10-12 (rev. 4: history core protected, processing QC + roasting safety explicit):** Blueprint drafted and self-consistency checks complete; **not yet expert approved or learner validated**. Gate G02-A and structural elements of G02-B–E are document-check candidates, not empirical passes. Stage 03 authoring may start as internal draft, but MUST NOT replace production before research/source/expert/learner gates.
 
 ## 12 — Reference registry (starting points, not citations for all specific claims)
+
+**Added Module 04 roasting/occupational source anchors:**
+- **ROAST-ACIDITY-2024:** [Roast profile effects on titratable acidity (2024)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11002029/). Maillard chemistry continues after first crack; profile and acidity changes are context-dependent.
+- **ROAST-DEFECTS-2018:** [Giacalone et al., common roasting defects with sensory and consumer testing (2018)](https://www.sciencedirect.com/science/article/pii/S0950329318302015). Do not transfer its defect settings to other machines as universal SOP.
+- **CDC-NIOSH:** [Coffee workers' exposure to diacetyl and 2,3-pentanedione](https://www.cdc.gov/niosh/bulletin/2016/coffee-workers.html). Workplace exposure risks; do not conflate all roasting settings with identical exposures.
+- **SCA-CSP:** [Coffee Skills Program — Roasting module](https://education.sca.coffee/coffee-skills-program). Official specialist scope includes basic equipment safety; CherryEdu is not SCA-certified.
+
 
 **New processing-quality anchors:**
 - **ISO-4149:** https://www.iso.org/standard/87699.html — ISO 4149:2025, green coffee visual/olfactory examination and foreign matter/defect methods (paid full text, do not reproduce).
@@ -588,7 +604,7 @@ Proposed files for subsequent stages: `03-lessons/M01-L01.md` onward; `04-assess
 ## 14 — Blueprint acceptance checklist
 
 - [x] 7 module contracts defined.
-- [x] 33 lesson IDs specified without duplicate new slot (legacy sources may repeat intentionally).
+- [x] 34 lesson IDs specified without duplicate new slot (legacy sources may repeat intentionally).
 - [x] Every lesson has explicit observable outcome, boundaries, preferred teaching treatment and evidence.
 - [x] P0 issues routed to relevant lessons with disallowed misconceptions.
 - [x] Module exit and capstone scoring frameworks drafted.
