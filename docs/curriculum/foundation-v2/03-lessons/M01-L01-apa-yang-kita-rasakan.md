@@ -22,6 +22,8 @@ Biasanya tidak. Pada kopi tanpa tambahan bahan perisa, kata-kata itu dipakai unt
 
 Kita tidak akan mencoba menebak *tasting notes* yang terlihat paling keren. Kita akan belajar mendeskripsikan apa yang dialami, sesederhana dan sejelas mungkin.
 
+[VISUAL:sensory-dimensions]
+
 ## 1. Apa bedanya rasa dan aroma?
 
 Bayangkan kamu menggigit jeruk. Ada rasa asam, aroma kulit dan daging buah, sensasi air yang memenuhi mulut, mungkin juga sedikit pahit dari selaput putihnya. Semua hadir bersamaan, sehingga sehari-hari kita menyebutnya satu hal: “rasa jeruk”.
