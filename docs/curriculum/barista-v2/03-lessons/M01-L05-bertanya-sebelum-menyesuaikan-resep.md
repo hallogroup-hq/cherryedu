@@ -34,7 +34,7 @@ Misalnya pelanggan berkata americano terlalu tipis. Sebelum menambah espresso at
 
 Yang terlihat seperti “inisiatif” belum tentu benar bila dilakukan diam-diam. Barista profesional **menggabungkan pemahaman teknis dengan komunikasi dan batas wewenang**.
 
-## Kasus pelanggan: Tidak ada jawaban tunggal
+## Latihan kasus pelanggan: Tidak ada jawaban tunggal
 
 **Skenario fiktif.** Customer berkata, “Saya suka aroma buah, tapi biasanya nggak suka kopi yang asam. Punya saran?”
 
