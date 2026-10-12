@@ -71,29 +71,13 @@ Keduanya membantu mencapai target awal Foundation: memisahkan pengamatan, prefer
 
 Pada tahap Foundation, kita tidak akan memaksakan pengukuran intensitas yang tampak presisi seperti 7,3/10. Jika perlu, gunakan “lemah/sedang/kuat” sebagai **skala pribadi sementara**, bukan skor laboratorium atau CVA.
 
-## 3. Lembar pengamatan yang bisa diisi
+## 3. Bagaimana mencatat dua sampel
 
-Kamu tidak harus memiliki kopi atau alat. Jika menggunakan catatan simulasi di bawah, **kamu sedang memeriksa laporan orang lain, bukan mencicipi lewat layar**.
+**Untuk jalur A (mencicipi langsung):** buat catatan tentang aroma, taste, mouthfeel, preferensi, dan kondisi penyajian. Gunakan kata sederhana; kamu tidak perlu mengidentifikasi varietas atau metode processing dari satu tegukan.
 
-[ACTIVITY:cup-compare-notes]
+**Untuk jalur B (tanpa kopi):** baca catatan simulasi panelis di bagian 5, lalu gunakan **lembar kerja yang sama** untuk membandingkan pernyataan mereka. Kamu sedang menilai laporan tertulis, bukan menjalani tes indra penciuman.
 
-## 3. Lembar pengamatan yang bisa langsung dipakai
-
-Salin format ini ke catatan atau isi di buku.
-
-| Pertanyaan | Cangkir A | Cangkir B |
-|---|---|---|
-| Aroma sebelum diminum: kelompok umum | ... | ... |
-| Kesan taste/flavor paling menonjol | ... | ... |
-| Kesan asam: tidak terasa / sedikit / jelas | ... | ... |
-| Kesan pahit: tidak terasa / sedikit / jelas | ... | ... |
-| Mouthfeel: ringan / sedang / berat / lainnya | ... | ... |
-| Aftertaste: singkat / bertahan / tidak yakin | ... | ... |
-| **Preferensiku** (suka/tidak suka, alasannya) | ... | ... |
-| Suhu minum dan kondisi penyajian | ... | ... |
-| Informasi yang **belum kuketahui** | ... | ... |
-
-**Cara memberi jawaban yang baik:** “Cangkir B lebih pahit menurutku dan aku kurang menyukainya” berguna. “B kualitasnya buruk karena petani salah fermentasi” tidak didukung oleh lembar ini.
+Keduanya bisa memakai lembar kerja yang muncul **setelah contoh dan dataset di bawah**. Jika ingin membuat catatan di buku sendiri, cukup tulis informasi untuk sampel A, B, kesukaan yang dinyatakan, serta apa yang belum dapat dipastikan.
 
 ## 4. Contoh pengisian: seperti apa catatan yang jujur?
 
@@ -131,6 +115,12 @@ Panelis 2 mengatakan:
 
 Di bawah tabel penilaian, salah seorang staf menambahkan:
 > “A pasti kopi anaerobik dari kebun tinggi. B pasti Robusta yang disangrai gelap.”
+
+### Sekarang isi catatanmu
+
+Pilih satu jalur: hasil pengamatan pribadimu (A), atau pernyataan panelis dari **data simulasi di atas** (B). Isi empat bagian terlebih dulu. Contoh pembahasan baru tersedia setelah kamu menulis jawaban. Review ini belum menyimpan catatan ke akun, jadi salin bila ingin menyimpannya.
+
+[ACTIVITY:cup-compare-notes]
 
 ### Tugas 1 — Temukan dua pengamatan yang relatif sejalan
 
