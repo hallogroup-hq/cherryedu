@@ -52,3 +52,22 @@ test('a browser-created legacy demo/admin session never authenticates a reviewer
   await expect(page.getByText(/Akses Terbatas Administrator/i).first()).toBeVisible();
   await expect(page.getByRole('link', { name: /Masuk sebagai Administrator/i })).toBeVisible();
 });
+
+test('review environment blocks QRIS, payment status and subscription email', async ({ request }) => {
+  const qris = await request.post('/api/payment/create-qris', { data: { amount: 49000 } });
+  expect(qris.status()).toBe(503);
+  const status = await request.get('/api/payment/status/example123');
+  expect(status.status()).toBe(503);
+  const email = await request.post('/api/email/subscription', {
+    data: { toEmail: 'never-send@example.invalid', transactionId: 'review-only' },
+  });
+  expect(email.status()).toBe(503);
+});
+
+test('review build rejects account login without any local demo session', async ({ page }) => {
+  await page.goto('/login');
+  await page.locator('input[type="email"]').fill('nobody@example.invalid');
+  await page.locator('input[type="password"]').fill('not-a-real-password');
+  await page.getByRole('button', { name: /Masuk Sekarang/i }).click();
+  await expect(page.locator('body')).toContainText(/login dinonaktifkan pada preview/i);
+});
