@@ -40,7 +40,9 @@ Banyak TDS meter murah mengukur **EC**, lalu memakai faktor konversi untuk menam
 
 Air mengandung spesies terlarut yang dapat bereaksi dengan komponen asam dari kopi. Bikarbonat mempunyai kemampuan buffering yang berpengaruh pada karakter keasaman.
 
-**Penelitian September 2026 dari peneliti University of Copenhagen** menguji perubahan Ca, Mg dan bikarbonat pada satu jenis kopi Colombian Kachalu menggunakan diskriminasi sensori dan penilaian deskriptif. Dalam kondisi studi itu, perubahan hardness **sendiri** tidak menghasilkan perbedaan rasa yang konsisten. Sebaliknya peningkatan bikarbonat memberi pengaruh kuat terhadap persepsi keasaman, fruitiness dan beberapa atribut lainnya. [W01]
+**Penelitian Rune dan kolega (terbit 16 September 2026)** menguji perubahan Ca, Mg dan bikarbonat dengan satu sampel komersial **Colombian Kachalu** menggunakan uji diskriminasi dan analisis deskriptif sensori. Pada kondisi pengujian itu, variasi hardness **sendiri** tidak menghasilkan perbedaan sensori yang konsisten; perubahan bikarbonat jauh lebih jelas, termasuk berkurangnya kesan acidity dan fruitiness pada konsentrasi lebih tinggi. **Konsentrasi percobaan juga mencakup rentang ekstrem di luar rekomendasi brewing biasa.** [W01]
+
+Studi tersebut **tidak melaporkan profil roasting atau roast color terukur yang terperinci** untuk kopi uji. Karena hanya satu kopi dan satu rancangan yang diuji, hasilnya tidak boleh diubah menjadi resep mineral preskriptif untuk semua mesin, spesies, asal, roast degree atau preferensi. Ini merupakan bukti sensori yang memperkuat kehati-hatian terhadap slogan magnesium=khas buah.
 
 Ini adalah pembaruan penting terhadap cerita populer “magnesium membuat fruity dan kalsium membuat chocolate”. **Pada kopi dan kondisi yang diteliti, bukti sensoriknya tidak mendukung penyederhanaan tersebut.**
 
