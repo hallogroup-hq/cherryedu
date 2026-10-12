@@ -6,6 +6,7 @@ import remarkGfm from 'remark-gfm';
 import { CoffeeDiagram } from '@/components/CoffeeDiagram';
 import { FoundationLearningActivity } from '@/components/FoundationLearningActivity';
 import { FoundationConceptVisual } from '@/components/FoundationConceptVisual';
+import { FoundationRevealAnswer } from '@/components/FoundationRevealAnswer';
 
 interface MarkdownRendererProps {
   content: string;
@@ -189,6 +190,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             if (activity) return <FoundationLearningActivity id={activity[1]} />;
             const visual = /language-visual:([a-z0-9-]+)/.exec(className || '');
             if (visual) return <FoundationConceptVisual id={visual[1]} />;
+            if (className === 'language-solution') return <FoundationRevealAnswer text={String(children).trim()} />;
             return (
               <code className="font-mono text-xs bg-paper-200 text-roast-950 px-1.5 py-0.5 rounded border border-paper-300 font-semibold" {...props}>
                 {children}
@@ -198,7 +200,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
           pre: ({ children }: { children?: React.ReactNode }) => {
             if (React.isValidElement<{ className?: string }>(children)) {
               const childProps = children.props;
-              if (childProps?.className && (String(childProps.className).startsWith('language-diagram:') || String(childProps.className).startsWith('language-activity:') || String(childProps.className).startsWith('language-visual:'))) {
+              if (childProps?.className && (String(childProps.className).startsWith('language-diagram:') || String(childProps.className).startsWith('language-activity:') || String(childProps.className).startsWith('language-visual:') || String(childProps.className) === 'language-solution')) {
                 return <div className="not-prose my-6">{children}</div>;
               }
             }
