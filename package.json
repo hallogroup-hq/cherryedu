@@ -15,7 +15,10 @@
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:report": "playwright show-report",
     "test:foundation": "node scripts/validate-foundation-v2.cjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "predev": "node scripts/generate-foundation-v2-preview.cjs",
+    "prebuild": "node scripts/generate-foundation-v2-preview.cjs",
+    "pretypecheck": "node scripts/generate-foundation-v2-preview.cjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.6",
