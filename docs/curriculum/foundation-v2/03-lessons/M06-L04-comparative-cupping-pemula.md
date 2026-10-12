@@ -67,6 +67,9 @@ Ini **panduan perbandingan rumah tangga**, bukan reproduksi angka rasio, durasi 
 
 **Mengapa tidak memberi angka “8,25 g per 150 ml wajib”?** Karena mengutip angka protokol lama tanpa memverifikasi versi terbaru dan metode yang sedang digunakan dapat menghasilkan klaim kepatuhan yang salah. Foundation memprioritaskan prinsip dan batas kemampuan.
 
+
+[ACTIVITY:cupping-comparison-note]
+
 ## 4. Form sederhana yang tidak meniru formulir resmi
 
 Format berikut **ditulis orisinal untuk CherryEdu**, bukan formulir SCA/CVA.
