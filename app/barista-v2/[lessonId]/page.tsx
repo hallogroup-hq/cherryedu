@@ -4,6 +4,7 @@ import { BARISTA_V2_LESSONS, BARISTA_V2_MODULES } from '@/lib/data/baristaV2.gen
 import { MarkdownRenderer } from '@/components/MarkdownRenderer';
 import { BaristaConceptLab } from '@/components/barista-v2/BaristaConceptLab';
 import { ExperimentNotebook } from '@/components/barista-v2/ExperimentNotebook';
+import { BaristaModuleCheckpoint } from '@/components/barista-v2/ModuleCheckpoint';
 
 export function generateStaticParams() {
   return BARISTA_V2_LESSONS.map(lesson=>({lessonId:lesson.id}));
@@ -29,6 +30,7 @@ export default function BaristaV2Lesson({params}:{params:{lessonId:string}}) {
         <MarkdownRenderer content={lesson.content}/>
       </div>
       {lesson.order === 1 && <BaristaConceptLab moduleCode={lesson.moduleId}/>}
+      {lesson.order === mod.count && <BaristaModuleCheckpoint moduleCode={lesson.moduleId}/>}
       <details className="group my-12 border-t border-paper-300 pt-5">
         <summary className="cursor-pointer list-none text-lg font-serif font-bold text-roast-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cherry-700">
           Laboratorium pribadimu <span className="ml-2 text-sm font-sans font-normal text-roast-600">(buka untuk mencoba)</span>
