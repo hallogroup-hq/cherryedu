@@ -23,106 +23,117 @@ Tujuan modul ini bukan membuat pemula hafal nama gen, rumus Brix dan semua penya
 
 Catatan: Pilihan ganda tidak memberi sertifikasi kompetensi agronomi. Tidak ada diagnosis penyakit, instruksi pestisida, atau “jaminan menghasilkan kopi terbaik”.
 
-## 2. Delapan soal modul beserta pembahasan
+## 2. Delapan soal modul — revisi red-team 2026-10-12
+
+**Cakupan tetap:** 2 retrieval, 3 application, 2 evidence, 1 claim critique. Distraktor disusun dari kebingungan yang masuk akal mengenai anatomi, taksonomi, indikator panen, dan faktor perancu. Panjang jawaban bukan petunjuk yang dapat diandalkan; semua rasional diberikan sebagai *feedback*.
 
 ### M02-Q01 — Retrieval: anatomi buah
-**Stem:** Dalam banyak metode washed, bagian luar buah dilepaskan lebih dulu, sementara biji masih sering dilindungi kulit tanduk selama pengeringan. Apa nama kulit tanduk tersebut?
+
+Dalam proses washed, bagian luar buah dilepaskan ketika depulping, tetapi biji dapat tetap dikelilingi lapisan keras selama pengeringan. Nama lapisan keras itu adalah ...
 
 A. Exocarp  
 B. Silverskin  
-C. Endocarp/parchment  
+C. Endocarp  
 D. Mucilage
 
-**Kunci: C.** Parchment adalah lapisan pelindung di sekitar biji, berbeda dari kulit buah luar.  
-**Distraktor:** A kulit terluar; B kulit ari tipis; D jaringan berlendir.  
-**Rujukan balik:** M02.L01 §1–2.  
-**Tag:** anatomy-layer-confusion.
+**Kunci: C.** Endocarp dikenal sebagai parchment atau kulit tanduk yang melapisi biji. **Distraktor:** A adalah kulit buah luar; B kulit ari pada biji; D lapisan mucilage.  
+**Rujukan balik:** M02.L01 §1–2. **Tag:** anatomy-layer-confusion.
 
 ### M02-Q02 — Retrieval: taksonomi
-**Stem:** Mana pasangan klasifikasi yang benar?
 
-A. *Coffea* = genus, *Coffea canephora* = spesies, Bourbon = varietas/kultivar.  
-B. Gayo = spesies; Arabika = kota perdagangan; Bourbon = metode drying.  
-C. Washed = varietas; Excelsa = ketinggian; Liberika = suhu roasting.  
-D. *Coffea* = processing; Robusta = single-origin region; Sigarar Utang = merek air.
+Manakah pengelompokan yang tepat untuk tiga nama berikut?
 
-**Kunci: A.** Tiga tingkat informasinya berbeda dan harus dibedakan.  
-**Rujukan balik:** M02.L02 §1–2.  
-**Tag:** taxonomy-trade-label.
+A. *Coffea* = genus; *C. canephora* = spesies; Bourbon = kultivar.  
+B. *Coffea* = spesies; *C. canephora* = kultivar; Bourbon = genus.  
+C. Bourbon = genus; *Coffea* = spesies; *C. canephora* = kultivar.  
+D. *Coffea* = genus; Bourbon = spesies; *C. canephora* = proses.
+
+**Kunci: A.** Klasifikasi botani mempunyai hierarki; sebuah nama kultivar seperti Bourbon tidak berada setingkat dengan genus *Coffea*. **Distraktor:** B/C membalik jenjang; D mencampur kultivar, spesies dan processing.  
+**Rujukan balik:** M02.L02 §1–2. **Tag:** taxonomy-trade-label.
 
 ### M02-Q03 — Application: yellow-fruited variety
-**Stem:** **Data simulasi:** Tim panen menemukan ceri kuning pada kultivar yang terdokumentasi berbuah kuning saat matang. Apa tindakan berpikir paling tepat?
 
-A. Buang semua karena yang matang harus selalu merah.  
-B. Anggap seluruh ceri kuning pasti berkualitas terbaik.  
-C. Simpulkan buah kuning pasti spesies Excelsa.  
-D. Gunakan indikator kematangan yang relevan untuk kultivar itu, serta periksa kondisi fisik dan kerusakan buah.
+**Data simulasi:** Dokumen kultivar sebuah kebun menyatakan buah matang berwarna kuning. Tim menemukan ceri kuning dalam beberapa kondisi fisik yang berbeda.
 
-**Kunci: D.** Warna harus diinterpretasikan dalam konteks kultivar dan mutu fisik.  
-**Rujukan balik:** M02.L04 §1–2.  
-**Tag:** red-cherry-universal.
+Apa prinsip seleksi yang paling dapat dipertanggungjawabkan?
+
+A. Singkirkan seluruh buah kuning meskipun itulah warna matang kultivar tersebut.  
+B. Terima semua buah kuning; untuk kultivar ini warna saja cukup menentukan mutu.  
+C. Tetapkan semua buah kuning sebagai Excelsa karena warnanya bukan merah.  
+D. Gunakan indikator kematangan kultivar dan periksa kondisi tiap buah.
+
+**Kunci: D.** Warna dapat menjadi petunjuk bila dikaitkan dengan kultivar, tetapi tidak menghapus kebutuhan menilai kerusakan/kematangan. **Distraktor:** A tidak memakai dokumen kultivar; B overtrust pada satu indikator; C mencampur warna dengan spesies.  
+**Rujukan balik:** M02.L04 §1–2. **Tag:** red-cherry-universal.
 
 ### M02-Q04 — Application: Brix and risk
-**Stem:** **Data simulasi:** Sampel ceri D berwarna gelap dan sangat lembek, Brix 22°. Sampel C terlihat utuh, Brix 18°. Apa kesimpulan yang paling bertanggung jawab?
 
-A. D pasti terbaik, karena angkanya lebih tinggi.  
-B. Angka Brix saja tidak cukup; perlu konteks varietas, metode sampling, kematangan, dan pemeriksaan kerusakan.  
-C. C pasti tidak matang karena Brix belum mencapai 24°.  
-D. Semua ceri harus dibuang ketika Brix >20°.
+**Data simulasi:** Buah D sangat lunak dan agak rusak, Brix 22°. Buah C utuh, Brix 18°. Kedua sampel diambil dengan prosedur yang belum terdokumentasi.
 
-**Kunci: B.** Brix bukan nilai cupping dan tidak menjamin keamanan/kematangan.  
-**Rujukan balik:** M02.L04 §3–5.  
-**Tag:** brix-universal-cutoff.
+Apa langkah pertama yang dapat dibenarkan?
+
+A. Pilih D sebagai terbaik karena angka Brix yang lebih tinggi selalu menunjukkan mutu.  
+B. Verifikasi sampling dan kondisi fisik; Brix saja tidak memadai.  
+C. Tolak C karena Brix 18° berada di bawah batas matang universal 24°.  
+D. Pakai Brix D sebagai bukti kedua buah punya kematangan identik.
+
+**Kunci: B.** Kematangan dan kualitas bahan tidak dapat disimpulkan dari satu angka, terutama saat sampling tidak jelas dan salah satu buah mungkin rusak. **Distraktor:** A/C mengarang cutoff; D menggeneralisasi satu sampel.  
+**Rujukan balik:** M02.L04 §3–5. **Tag:** brix-universal-cutoff.
 
 ### M02-Q05 — Application: agronomy decision
-**Stem:** Kelompok tani memiliki catatan penyakit yang belum terdiagnosis, identitas varietas belum jelas, dan dana terbatas. Rekomendasi pertama yang terbaik?
 
-A. Ganti semua tanaman hari ini dengan varietas yang dijanjikan kebal total.  
-B. Semprot bahan kimia dosis tertentu berdasarkan foto yang tidak diverifikasi.  
-C. Kumpulkan data per petak, minta diagnosis pendamping agronomi, dan nilai pilihan berdasar biaya/risiko.  
-D. Abaikan penyakit karena semua masalah selalu berasal dari cuaca.
+Kelompok tani mendapati bercak daun yang belum terdiagnosis; identitas beberapa varietas belum jelas, sementara biaya terbatas.
 
-**Kunci: C.** Langkah yang transparan tentang ketidakpastian dan tidak memberi instruksi berisiko tanpa diagnosis.  
-**Rujukan balik:** M02.L05 §5–7.  
-**Tag:** agronomy-single-magic-fix.
+Langkah awal paling bertanggung jawab?
+
+A. Ganti varietas sekarang agar biaya pemantauan dan diagnosis dapat dihindari.  
+B. Tentukan dosis pestisida dari foto daun, tanpa pemeriksaan lokasi.  
+C. Catat kondisi per petak dan konsultasikan diagnosis lebih dulu.  
+D. Tunda seluruh pencatatan sampai ada kepastian penyakit dari pihak lain.
+
+**Kunci: C.** Dokumentasi dan konsultasi agronomi dapat membantu menghindari tindakan yang salah sasaran dan berisiko. Pilihan tindakan baru dinilai setelah data memadai. **Distraktor:** A mengabaikan diagnosis/biaya; B tidak aman; D mengabaikan data lapangan yang perlu dicatat sejak awal.  
+**Rujukan balik:** M02.L05 §5–7. **Tag:** agronomy-single-magic-fix.
 
 ### M02-Q06 — Evidence interpretation: altitude
-**Stem:** **Simulasi:** Dua kebun sama-sama berada di 1.600 mdpl, varietas labelnya sama, tetapi naungan, curah hujan dan pemantauan kebun berbeda. Apa kesimpulan yang didukung?
 
-A. Kedua kebun harus menghasilkan kopi dengan flavor identik.  
-B. Tanpa data tasting, mutu harus dipilih hanya dari luas daun.  
-C. Seluruh perbedaan pasti disebabkan naungan saja.  
-D. Elevasi sama tidak menjamin kondisi atau hasil yang sama; data lingkungan, pengelolaan dan penanganan lot perlu dibandingkan.
+**Data simulasi:** Dua kebun memiliki elevasi tercatat sama dan label varietas yang sama. Naungan, curah hujan dan cara pengelolaannya berbeda.
 
-**Kunci: D.** Genetika, lingkungan dan manajemen dapat berinteraksi.  
-**Rujukan balik:** M02.L03 §1–5.  
-**Tag:** altitude-determinism.
+Kesimpulan yang didukung informasi itu adalah ...
+
+A. Identitas elevasi cukup untuk memprediksi profil rasa seduhan yang identik.  
+B. Perbedaan sensori yang kelak muncul pasti disebabkan varietas saja.  
+C. Karena label varietas sama, semua keputusan kebun juga harus sama.  
+D. Evaluasi lingkungan dan pengelolaan; elevasi saja tidak cukup.
+
+**Kunci: D.** Kondisi lingkungan, genetik yang benar-benar diverifikasi dan praktik pengelolaan dapat berinteraksi. **Distraktor:** A menganggap elevasi penentu tunggal; B menolak variasi lingkungan; C menyamakan label kultivar dengan kebutuhan agronomi identik.  
+**Rujukan balik:** M02.L03 §1–5. **Tag:** altitude-determinism.
 
 ### M02-Q07 — Evidence interpretation: Excelsa
-**Stem:** Materi lama menulis bahwa Excelsa “selamanya hanya varietas Liberika”, tetapi database botani Kew yang diperiksa pada Oktober 2026 menerima *Coffea dewevrei* sebagai spesies dan memperlakukan *C. excelsa* sebagai sinonim.
 
-Bagaimana menyunting materi dengan benar?
+Database botani Kew pada Oktober 2026 menerima *Coffea dewevrei* sebagai spesies dan mencatat *C. excelsa* sebagai sinonim. Materi lama menyatakan “Excelsa selalu hanya varietas Liberika”.
 
-A. Jelaskan nama dagang Excelsa dan riwayat klasifikasinya, cantumkan nama yang diterima beserta sumber/tanggal.  
-B. Singkirkan semua penyebutan Excelsa agar konsumen tidak tahu namanya.  
-C. Paksa semua produsen mengubah nama dagang dan mengklaim rasa kopi berubah akibat klasifikasi baru.  
-D. Sebut klasifikasi lama mutlak benar dan tidak perlu mengecek sumber.
+Perbaikan paling tepat adalah ...
 
-**Kunci: A.** Taksonomi memiliki otoritas/sumber dan bisa berubah; nama dagang dan botani tidak sama.  
-**Rujukan balik:** M02.L02 §4.  
-**Tag:** taxonomy-versioning.
+A. Tulis nama Kew terkini, sumber/tanggal, dan sejarah pemakaian Excelsa.  
+B. Hapus nama Excelsa dari penjelasan karena semua istilah pasar wajib botanis.  
+C. Ubah semua label dagang Excelsa langsung menjadi spesies lain tanpa bukti.  
+D. Pertahankan klaim lama sebab taksonomi tanaman tidak pernah berubah.
+
+**Kunci: A.** Jenjang taksonomi dan nama komersial perlu dibedakan serta diberi sumber bertanggal. **Distraktor:** B menghapus konteks dagang yang relevan; C menganggap semua lot telah diverifikasi identitas genetiknya; D menyangkal perubahan yang terdokumentasi.  
+**Rujukan balik:** M02.L02 §4. **Tag:** taxonomy-versioning.
 
 ### M02-Q08 — Claim critique: farm neighbors dictate flavor
-**Stem:** Poster kebun menyatakan: “Di sini kopi ditanam bersama jeruk, maka otomatis aroma jeruk berpindah melalui tanah dan semua kopi kami berasa citrus.” Apa masalah terkuatnya?
 
-A. Tidak mungkin kebun kopi ditanami tanaman lain.  
-B. Menanam jeruk pasti merusak semua kualitas kopi.  
-C. Keberadaan pohon jeruk di dekat tanaman kopi tidak membuktikan perpindahan aroma otomatis ke biji atau flavor universal; klaim butuh bukti terpisah.  
-D. Semua aroma kopi berasal sepenuhnya dari jenis tanah.
+Poster menyebut, “Pohon jeruk ditanam dekat kopi; aromanya pasti berpindah lewat tanah ke biji dan semua hasil panen terasa citrus.”
 
-**Kunci: C.** Klaim melompat dari kondisi kebun ke penjelasan flavor yang tidak terbukti.  
-**Rujukan balik:** M02.L03 §3.  
-**Tag:** agroforestry-aroma-transfer-myth.
+Evaluasi paling tepat?
+
+A. Naungan memengaruhi kebun; itu cukup untuk membuktikan jeruk meresap ke biji.  
+B. Deskriptor citrus pada kopi memastikan kebun tersebut ditanami pohon jeruk.  
+C. Kedekatan tanaman jeruk tidak membuktikan transfer aroma ke biji.  
+D. Tanaman jeruk bisa memengaruhi lingkungan, maka semua kopi otomatis citrus.
+
+**Kunci: C.** Tanaman pendamping bisa mengubah kondisi pertumbuhan, tetapi klaim mekanisme transfer aroma langsung membutuhkan bukti terpisah; klaim “semua hasil” berlebihan. **Distraktor:** A/B/D melompat dari hubungan ekologis atau deskripsi sensori ke kepastian mekanisme yang tidak diuji.  
+**Rujukan balik:** M02.L03 §3. **Tag:** agroforestry-aroma-transfer-myth.
 
 ## 3. Distribusi kunci dan jenis berpikir
 
