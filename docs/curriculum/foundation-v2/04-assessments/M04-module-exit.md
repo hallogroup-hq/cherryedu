@@ -9,6 +9,8 @@ passing_proposal: "8/10 plus safety remediation; unvalidated, not SCA certificat
 
 # Modul 04 — Asesmen: Memahami Roasting, Membaca Bukti, Mengenali Risiko
 
+> **Editorial update 2026-10-12:** revised all answer options to remove length cues and improve plausible misconceptions; answer positions/IDs unchanged; domain-expert and learner validation remain outstanding.
+
 ## Tujuan & batas penilaian
 
 Peserta dinilai atas pemahaman **perubahan fisik dan kimia saat roasting, roast level, degassing/freshness, interpretasi log, serta respons aman terhadap red flag**.
@@ -22,20 +24,20 @@ Lulus asesmen tertulis **bukan** sertifikasi operator roaster, bukti keterampila
 ### M04-Q01 — Perubahan fisik
 Setelah roasting, massa biji bisa berkurang meskipun volumenya bertambah. Penjelasan yang paling tepat adalah:
 
-A. Biji menerima massa dari udara setiap kali mengembang.  
-B. Massa berkurang hanya karena biji digiling.  
-C. Gas dan air tidak pernah keluar selama roasting.  
-D. Kehilangan air dan gas dapat mengurangi massa, sementara perubahan struktur memungkinkan ekspansi volume.
+A. Ekspansi biji berarti massa totalnya pasti meningkat.
+B. Penyusutan massa hanya bergantung pada nilai DTR akhir.
+C. Pembacaan suhu udara cukup menjelaskan massa tiap biji.
+D. Massa bisa turun saat air/gas keluar walau volumenya naik.
 
 **Kunci D.** Massa dan volume bukan parameter yang selalu berubah searah. A/C salah mekanisme; B tidak menjelaskan roasting sebelum grinding. **Rujuk:** M04.L01 §1. **Tag:** mass-volume-confusion.
 
 ### M04-Q02 — Maillard
 Pernyataan yang sesuai ilmu roasting adalah:
 
-A. Reaksi Maillard dapat berlanjut setelah first crack dan istilah “Maillard phase” adalah pembagian operasional pada log.  
-B. Semua reaksi Maillard baru terjadi tepat ketika first crack terdengar.  
-C. First crack membuktikan gula karamel ditambahkan ke biji.  
-D. Warna hijau kopi mentah sudah membuktikan profil roast selesai.
+A. Maillard bisa berlanjut sesudah first crack berlangsung.
+B. Maillard hanya berlangsung sebelum warna biji berubah.
+C. First crack menghentikan seluruh reaksi pembentuk aroma.
+D. Maillard baru dimulai ketika first crack pertama terdengar.
 
 **Kunci A.** First crack indikator fisik, bukan saklar yang membatasi reaksi. **Rujuk:** M04.L02 §2–3. **Tag:** discrete-chemical-phase-myth.
 
@@ -44,10 +46,10 @@ D. Warna hijau kopi mentah sudah membuktikan profil roast selesai.
 ### M04-Q03 — Perbandingan mesin
 Dua roaster berbeda menampilkan bean temperature 200°C. Apa kesimpulan terbaik?
 
-A. Pasti suhu semua biji dan transfer panas sama persis.  
-B. Angka yang tampil perlu ditafsirkan sesuai sensor, mesin dan prosedur; pembacaan sama belum menjamin keadaan biji identik.  
-C. Angka 200°C membuktikan keduanya dark roast.  
-D. Hasil rasa pasti identik tanpa melihat bahan dan waktu.
+A. Probe serupa berarti pusat biji selalu berada di suhu sama.
+B. Angka probe perlu konteks alat, lokasi sensor dan proses.
+C. Sensor dapat menggantikan penilaian roasting serta sensory.
+D. Suhu drum pada dua mesin selalu menunjukkan suhu biji.
 
 **Kunci B.** Lokasi probe, kondisi material dan desain mesin dapat berbeda. **Rujuk:** M04.L01 §4. **Tag:** probe-absolute-thermometer.
 
@@ -56,10 +58,10 @@ Seseorang berkata “Semua dark roast pasti defect; hanya light roast berkualita
 
 Bagaimana koreksi terbaik?
 
-A. Semua light roast pasti floral.  
-B. Medium roast selalu menjamin nilai sensori tertinggi.  
-C. Dark roast bisa merupakan gaya yang disengaja; dugaan defect harus dievaluasi dengan kriteria, pemeriksaan dan hasil sensori, bukan label roast level semata.  
-D. Warna coffee bean sudah mencukupi untuk memeriksa seluruh aspek keamanan dan flavor.
+A. Dark roast otomatis tergolong defect bila warna sangat gelap.
+B. Medium roast selalu dipilih panel bila durasinya konsisten.
+C. Roast level adalah gaya; dugaan defect butuh pemeriksaan.
+D. Label light roast sudah menentukan deskriptor yang muncul.
 
 **Kunci C.** Roast degree/style dan defect tidak identik. **Rujuk:** M04.L03 §1–4. **Tag:** roast-style-defect-conflation.
 
@@ -68,10 +70,10 @@ Pelanggan berkata, “Karena kopi masih menghasilkan CO₂, berarti pasti tidak 
 
 Apa respons yang paling tepat?
 
-A. Semua gas yang keluar menunjukkan penambahan perisa.  
-B. Degassing dan staling adalah proses berbeda yang bisa terjadi bersamaan; keluarnya CO₂ tidak menjamin tidak ada perubahan kesegaran.  
-C. Selama ada bloom, kopi pasti bebas oksidasi sepanjang penyimpanan.  
-D. CO₂ selalu membuat kopi berkualitas buruk.
+A. CO₂ tinggi membuktikan aroma tidak akan berkurang di kemasan.
+B. Degassing berbeda dari penuaan; keduanya bisa tumpang tindih.
+C. Saat bloom muncul, oksidasi dalam kemasan pasti berhenti.
+D. Kesegaran selalu meningkat seiring banyaknya CO₂ keluar.
 
 **Kunci B.** Dua proses berbeda dapat berlangsung dalam periode sama. **Rujuk:** M04.L04 §1–2. **Tag:** degassing-equals-freshness.
 
@@ -80,10 +82,10 @@ Sebuah kedai meminta “hari resting terbaik untuk setiap espresso”. Data yang
 
 Apa saran yang paling bertanggung jawab?
 
-A. Semua kopi wajib 10–14 hari tanpa pengecualian.  
-B. Tidak ada gunanya mencatat tanggal sangrai.  
-C. Seluruh kopi selalu terbaik dalam satu jam setelah roasting.  
-D. Tanggal sangrai penting, tetapi waktu ideal perlu dievaluasi pada kopi, roast, cara seduh dan penyimpanan yang relevan.
+A. Semua kopi filter perlu paling sedikit 14 hari resting.
+B. Resting tidak berguna bila roast level tertulis di kemasan.
+C. Roasting date menentukan tunggal tanggal seduh paling baik.
+D. Evaluasi resting menurut kopi, roast, seduh, dan simpan.
 
 **Kunci D.** Resting kontekstual. **Rujuk:** M04.L04 §4–6. **Tag:** universal-resting-days.
 
@@ -94,10 +96,10 @@ D. Tanggal sangrai penting, tetapi waktu ideal perlu dievaluasi pada kopi, roast
 
 Kesimpulan mana paling kuat?
 
-A. DTR sama memastikan rasa dan kualitas sama.  
-B. DTR 20% membuktikan tidak ada roasting defect.  
-C. DTR hanya merangkum waktu setelah first crack relatif terhadap total dalam pencatatan itu; mutu kedua batch belum bisa disimpulkan dari rasio saja.  
-D. Batch dengan RoR paling halus selalu mendapat skor tertinggi.
+A. DTR sama berarti kedua roast memiliki distribusi warna serupa.
+B. DTR 20% cukup untuk menetapkan roast bebas defect.
+C. DTR merangkum rasio waktu, bukan mutu seluruh batch.
+D. DTR dan RoR identik karena berasal dari sensor yang sama.
 
 **Kunci C.** Rasio waktu bukan ringkasan semua informasi thermal/sensory. **Rujuk:** M04.L02 §6 dan L05 §2. **Tag:** dtr-universal.
 
@@ -106,10 +108,10 @@ D. Batch dengan RoR paling halus selalu mendapat skor tertinggi.
 
 Apa kesimpulan terbaik?
 
-A. Warna dapat menggambarkan derajat roast; preferensi berbeda dan penilaian defect memerlukan bukti yang sesuai.  
-B. Jika panelis berbeda pendapat, seluruh penilaian warna pasti tidak valid.  
-C. Roast medium pasti paling tinggi kualitasnya.  
-D. Pencicip yang suka gelap otomatis kurang terlatih.
+A. Warna menggambarkan roast; preferensi perlu dinilai terpisah.
+B. Panel yang suka dark roast belum memahami kualitas kopi.
+C. Roast medium harus diberi nilai lebih tinggi oleh panelis.
+D. Warna mendefinisikan keseluruhan profil rasa suatu kopi.
 
 **Kunci A.** Warna, preferensi dan penilaian cacat tidak boleh dicampur. **Rujuk:** M04.L03 §5. **Tag:** preference-as-grading.
 
@@ -118,10 +120,10 @@ D. Pencicip yang suka gelap otomatis kurang terlatih.
 
 Respons yang paling tepat?
 
-A. Lanjutkan roast karena kurva rapi membuktikan aman.  
-B. Abaikan laporan operator karena RoR tidak berubah.  
-C. Seorang pemula sebaiknya mengutak-atik burner dan kipas dari instruksi internet.  
-D. Utamakan prosedur keselamatan fasilitas serta eskalasi pada personel berwenang; kurva produksi tidak membuktikan kondisi kerja aman.
+A. Log tampak normal, jadi ventilasi tidak perlu diperiksa.
+B. Jika RoR belum berubah, laporan operator bisa ditunda.
+C. Pemula boleh mengatur burner tanpa pedoman bila suhu rendah.
+D. Ikuti SOP keselamatan dan eskalasi gangguan ventilasi.
 
 **Kunci D.** **SAFETY-CRITICAL ITEM.** Laporan fasilitas memerlukan penanganan menurut SOP, bukan interpretasi flavor. **Rujuk:** M04.L05 §3–5. **Tag:** machine-safety-confusion.
 
@@ -132,10 +134,10 @@ Kursus online mengiklankan: “Jika DTR 15–20% dan first crack tepat di 195°C
 
 Apa kritik yang paling lengkap?
 
-A. Semua roaster seharusnya mematuhi angka itu tanpa perlu catatan lainnya.  
-B. DTR, suhu dan RoR dipengaruhi sensor/kondisi dan tidak menjamin mutu sensori; keselamatan pekerja harus dinilai secara terpisah dari roast log.  
-C. Jika roasting lebih lama maka tidak perlu inspeksi udara.  
-D. Satu-satunya masalah pernyataan itu adalah rentang suhunya kurang tinggi.
+A. Angka RoR valid untuk semua mesin dengan probe berbeda.
+B. Log roast tak menjamin rasa maupun keselamatan pekerja.
+C. Batas DTR dapat langsung menjadi sertifikat kontrol udara.
+D. Suhu akhir adalah prediktor tunggal kenyamanan operator.
 
 **Kunci B.** Memisahkan klaim mutu yang belum dibuktikan dari klaim keselamatan yang keliru. **SAFETY-CRITICAL** jika peserta memilih opsi yang mengabaikan prosedur kerja. **Rujuk:** M04.L01–L05. **Tag:** pseudo-precision-safety.
 
