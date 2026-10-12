@@ -42,6 +42,9 @@ Tetapi berhati-hati: jumlah minuman yang keluar ke cangkir **tidak otomatis 240 
 
 Jangan langsung menyalin angka espresso 1:2 ke filter 1:16 seolah metriknya sama. Rasio adalah bahasa pengukuran, bukan target mutu independen dari metodenya.
 
+
+[VISUAL:grind-and-flow]
+
 ## 3. Kenapa gilingan memengaruhi ekstraksi dan aliran?
 
 Ukuran partikel memengaruhi luas permukaan dan karakter transport zat. Dalam percolation, partikel juga membentuk bed yang memengaruhi jalur dan kecepatan air.
@@ -98,6 +101,9 @@ Bagaimana memperbaiki percobaan?
 - Ulangi perbandingan agar tidak bergantung pada satu seduhan yang kebetulan berbeda.
 
 Penting: **mengontrol satu variabel tidak berarti semua hasil lain tetap sama**. Contohnya waktu alir ikut berubah karena mekanisme yang ingin kita uji; catat hasil itu alih-alih menyembunyikannya.
+
+
+[ACTIVITY:brew-variable-check]
 
 ## 7. Latihan cepat
 
