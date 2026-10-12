@@ -25,7 +25,7 @@ Catatan: Pilihan ganda tidak memberi sertifikasi kompetensi agronomi. Tidak ada 
 
 ## 2. Delapan soal modul beserta pembahasan
 
-### Q01 — Retrieval: anatomi buah
+### M02-Q01 — Retrieval: anatomi buah
 **Stem:** Dalam banyak metode washed, bagian luar buah dilepaskan lebih dulu, sementara biji masih sering dilindungi kulit tanduk selama pengeringan. Apa nama kulit tanduk tersebut?
 
 A. Exocarp  
@@ -38,7 +38,7 @@ D. Mucilage
 **Rujukan balik:** M02.L01 §1–2.  
 **Tag:** anatomy-layer-confusion.
 
-### Q02 — Retrieval: taksonomi
+### M02-Q02 — Retrieval: taksonomi
 **Stem:** Mana pasangan klasifikasi yang benar?
 
 A. *Coffea* = genus, *Coffea canephora* = spesies, Bourbon = varietas/kultivar.  
@@ -50,7 +50,7 @@ D. *Coffea* = processing; Robusta = single-origin region; Sigarar Utang = merek 
 **Rujukan balik:** M02.L02 §1–2.  
 **Tag:** taxonomy-trade-label.
 
-### Q03 — Application: yellow-fruited variety
+### M02-Q03 — Application: yellow-fruited variety
 **Stem:** **Data simulasi:** Tim panen menemukan ceri kuning pada kultivar yang terdokumentasi berbuah kuning saat matang. Apa tindakan berpikir paling tepat?
 
 A. Buang semua karena yang matang harus selalu merah.  
@@ -62,7 +62,7 @@ D. Gunakan indikator kematangan yang relevan untuk kultivar itu, serta periksa k
 **Rujukan balik:** M02.L04 §1–2.  
 **Tag:** red-cherry-universal.
 
-### Q04 — Application: Brix and risk
+### M02-Q04 — Application: Brix and risk
 **Stem:** **Data simulasi:** Sampel ceri D berwarna gelap dan sangat lembek, Brix 22°. Sampel C terlihat utuh, Brix 18°. Apa kesimpulan yang paling bertanggung jawab?
 
 A. D pasti terbaik, karena angkanya lebih tinggi.  
@@ -74,7 +74,7 @@ D. Semua ceri harus dibuang ketika Brix >20°.
 **Rujukan balik:** M02.L04 §3–5.  
 **Tag:** brix-universal-cutoff.
 
-### Q05 — Application: agronomy decision
+### M02-Q05 — Application: agronomy decision
 **Stem:** Kelompok tani memiliki catatan penyakit yang belum terdiagnosis, identitas varietas belum jelas, dan dana terbatas. Rekomendasi pertama yang terbaik?
 
 A. Ganti semua tanaman hari ini dengan varietas yang dijanjikan kebal total.  
@@ -86,7 +86,7 @@ D. Abaikan penyakit karena semua masalah selalu berasal dari cuaca.
 **Rujukan balik:** M02.L05 §5–7.  
 **Tag:** agronomy-single-magic-fix.
 
-### Q06 — Evidence interpretation: altitude
+### M02-Q06 — Evidence interpretation: altitude
 **Stem:** **Simulasi:** Dua kebun sama-sama berada di 1.600 mdpl, varietas labelnya sama, tetapi naungan, curah hujan dan pemantauan kebun berbeda. Apa kesimpulan yang didukung?
 
 A. Kedua kebun harus menghasilkan kopi dengan flavor identik.  
@@ -98,7 +98,7 @@ D. Elevasi sama tidak menjamin kondisi atau hasil yang sama; data lingkungan, pe
 **Rujukan balik:** M02.L03 §1–5.  
 **Tag:** altitude-determinism.
 
-### Q07 — Evidence interpretation: Excelsa
+### M02-Q07 — Evidence interpretation: Excelsa
 **Stem:** Materi lama menulis bahwa Excelsa “selamanya hanya varietas Liberika”, tetapi database botani Kew yang diperiksa pada Oktober 2026 menerima *Coffea dewevrei* sebagai spesies dan memperlakukan *C. excelsa* sebagai sinonim.
 
 Bagaimana menyunting materi dengan benar?
@@ -112,7 +112,7 @@ D. Sebut klasifikasi lama mutlak benar dan tidak perlu mengecek sumber.
 **Rujukan balik:** M02.L02 §4.  
 **Tag:** taxonomy-versioning.
 
-### Q08 — Claim critique: farm neighbors dictate flavor
+### M02-Q08 — Claim critique: farm neighbors dictate flavor
 **Stem:** Poster kebun menyatakan: “Di sini kopi ditanam bersama jeruk, maka otomatis aroma jeruk berpindah melalui tanah dan semua kopi kami berasa citrus.” Apa masalah terkuatnya?
 
 A. Tidak mungkin kebun kopi ditanami tanaman lain.  
