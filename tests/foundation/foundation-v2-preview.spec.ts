@@ -225,3 +225,34 @@ for (const { module: moduleId, lessons } of completeFoundationV2Inventory) {
     }
   });
 }
+
+
+test('first sensory lab uses one worksheet after the case data, not two fake forms', async ({ page }) => {
+  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m01-l03');
+  const article = page.locator('article');
+  await expect(article.getByRole('heading', { name: '3. Bagaimana mencatat dua sampel' })).toBeVisible();
+  await expect(article.getByText('Lembar pengamatan yang bisa langsung dipakai')).toHaveCount(0);
+  const workspace = article.getByRole('region', { name: /Catat dua cangkir/ });
+  await expect(workspace).toBeVisible();
+  expect((await article.innerText()).indexOf('Kasus latihan tanpa alat')).toBeLessThan((await article.innerText()).indexOf('Catat dua cangkir, jangan langsung'));
+  await expect(workspace.locator('textarea')).toHaveCount(4);
+});
+
+test('beginner cupping has one real form and hides analysis until requested', async ({ page }) => {
+  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m06-l04');
+  const article = page.locator('article');
+  await expect(article.getByRole('region', { name: /Catat perbandingan sampel A dan B/ })).toBeVisible();
+  await expect(article.getByText(/Format berikut ditulis orisinal untuk CherryEdu/)).toHaveCount(0);
+  await expect(article.getByText('Kesepakatan luas:')).toHaveCount(0);
+  await expect(article.getByRole('button', {name:/Sudah mencoba\? Lihat pembahasan/}).first()).toBeVisible();
+});
+
+test('brewing worked solution is not revealed before asking for it', async ({ page }) => {
+  await page.goto('/paths/foundation-v2-preview/lessons/lesson-fv2-m05-l06');
+  const article = page.locator('article');
+  await expect(article.getByRole('region', { name:/Rancang eksperimen seduh satu variabel/ })).toBeVisible();
+  await expect(article.getByRole('heading', {name:'Contoh setelah kamu mencoba'})).toBeVisible();
+  const buttons = article.getByRole('button', {name:/Sudah mencoba\? Lihat pembahasan/});
+  await expect(buttons.first()).toHaveAttribute('aria-expanded','false');
+  await expect(article.getByText(/Pada satu kopi dan metode seduh yang sama, perubahan grind G6/i)).toHaveCount(0);
+});
