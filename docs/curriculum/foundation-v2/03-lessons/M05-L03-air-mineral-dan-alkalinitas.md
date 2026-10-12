@@ -21,6 +21,12 @@ Pertanyaan yang lebih berguna: **mineral apa yang ada, apa yang sebenarnya diuku
 
 [VISUAL:water-chemistry]
 
+### Bayangkan dua botol air di dapur
+
+Sama-sama bening dan aman diminum belum berarti kedua air memiliki komposisi zat terlarut yang sama. Saat menyeduh, kopi membawa asam dan senyawa lain ke air. Sebagian ion dalam air dapat mengubah cara keseimbangan kimia minuman terbentuk, tetapi **tidak ada ion tunggal yang otomatis menghasilkan rasa buah atau cokelat**.
+
+Sebagai pemula, kamu hanya perlu mengenali **empat jenis informasi** berikut, bukan menghafal persamaan kimia atau mencampur larutan mineral sendiri. Coba tanyakan pada setiap alat: *angka ini sebenarnya menjawab pertanyaan apa?* Sesudah itu barulah kita membaca studi penelitian sebagai contoh bagaimana ilmuwan menguji hipotesisnya.
+
 ## 1. Empat konsep yang wajib dibedakan
 
 | Parameter | Apa maknanya? | Apa yang *tidak* dibuktikan oleh angkanya? |
