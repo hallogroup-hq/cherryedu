@@ -1,9 +1,15 @@
 # CherryEdu — Foundation Curriculum V2
 
-**Work branch:** `curriculum/foundation-v2`  
+**Authoring branch:** `curriculum/foundation-v2` · **Active review candidate:** `release/foundation-v2-rc`  
 **Baseline:** `main` @ `e21db3d6fdb863d5fedc73741042bdbdb447b95b`  
 **Updated:** 2026-10-12  
 **Status:** All 7 modules and 36/36 lesson manuscripts fully authored for **internal expert/learner review** (3+5+7+5+6+5+5). All production learning content unchanged; no professional sign-off claimed.
+
+## Learning experience critical review — current verdict
+
+**Full 36/36 beginner UX desk audit completed 12 October 2026:** [Complete Learning Experience Red-Team](./07-release/FULL-36-LESSON-LEARNING-EXPERIENCE-REDTEAM.md). **19/36 lesson audits tagged P0**, 17 P1. P0 means a specific learning/experience gap, **not** a factual error in all those lessons. Concrete example: **M02.L02 does not first explain what Liberica is before moving to Excelsa's shifting taxonomy**. Some activities expose answers, request nonexistent visuals, or demand a long independent memo without learner workspace. Eight typed activity pilots are present; 28 lessons have not yet received individualized widget/visual remediation.
+
+**Source research has not been deleted.** The module structure (7 modules / 36 lessons), mandatory historical section, 76 MCQ IDs and legacy V1 progress are preserved. This audit is a **review deliverable, not proof of production-ready learning**. Any earlier statements about 76-item bank still failing due to longest-answer patterns describe the **earlier authoring snapshot** and have since been revised on RC; psychometric validity and human pilot still pending.
 
 ## Documents
 
@@ -97,16 +103,16 @@
 | 01 — Source audit | Complete as desk audit | External scientific validation not claimed |
 | 02 — Curriculum architecture | **36 specified lesson slots**, seven modules, history protected | Expert/learner review still open |
 | 03 — Lesson authoring | **COMPLETE DRAFT: M01 3/3 + M02 5/5 + M03 7/7 + M04 5/5 + M05 6/6 + M06 5/5 + M07 5/5** | Scientific review and learner pilots still required |
-| 04 — Assessment writing | **76 items authored, NOT validated**. M01/M02 16 questions revised after answer-cue defect; **M03–M07 fail editorial anti-guessing gate** | Rewrite remaining 60 questions; holdout variants, item/SME pilot and platform integration |
-| 05 — Scientific/learning QA | Seven module QA files + cross-module audit + targeted scientific/source and assessment red-team reports. Four source-scope manuscript corrections documented | **BLOCKED: 60/76 current longest-answer cue rate; expert and learner testing, IP, rights and release review** |
-| 06 — Implementation | Not started | Legacy ID/progress migration plan + CI/preview approvals |
+| 04 — Assessment writing | **76 items editorially revised on RC, NOT externally validated** | Independent item/teacher review, learner pilot, holdout variants and official platform assessment integration |
+| 05 — Scientific/learning QA | Seven module QA files, source red-team, quiz red-team, and full 36-lesson learning-experience red-team; 19 P0 novice-experience concerns | **BLOCKED:** foundational concept scaffolding, media, answer reveal, expert/learner tests, IP and safety release review |
+| 06 — Implementation | **Isolated reviewer preview and eight typed activities implemented on RC** | Finish all 36 learning UX reviews, migration/persistence, security hardening and separate production sign-off |
 
 ## Current work snapshot
 
 - Foundation architecture is **7 modules / 36 slots**; coffee history is a protected mandatory core lesson.
 - **36 full lesson drafts** currently authored: M01 (3), M02 (5), M03 (7), M04 (5), M05 (6), M06 (5), M07 (5).
 - **76 module-exit MCQs** authored (M01 8, M02 8, M03 10, M04 10, M05 12, M06 12, M07 16), plus applied reasoning rubrics.
-- **7 module-level internal QA files + 1 cross-module preliminary audit + 2 targeted red-team reports** present; none substitutes for botanical/agronomic/sensory/historical/food-safety/economic review. **The bank of 76 draft MCQs is NOT release-ready: 60/76 correct choices are still the longest after M01–M02 revisions.**
+- **7 module-level internal QA files + 1 cross-module preliminary audit + 2 targeted red-team reports** present; none substitutes for botanical/agronomic/sensory/historical/food-safety/economic review. **The RC bank of 76 draft MCQs is NOT release-ready until actual learner/teacher item calibration; all 76 received a first-round answer-cue editorial revision.**
 - All production, migrations, certificates and actual learning assessment integrations are untouched.
 
 ## Module 01 snapshot
