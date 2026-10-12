@@ -62,6 +62,9 @@ Angka tersebut berbeda dari 19,5%. Kita bisa melihat bagaimana kelalaian satu ko
 
 **Pemeriksaan:** Tidak ada alasan mengganti beverage mass dengan massa air masuk jika keduanya memang berbeda.
 
+
+[VISUAL:strength-vs-extraction]
+
 ## 3. Dua seduhan, TDS sama, EY tidak sama
 
 Semua angka berikut **simulasi**.
