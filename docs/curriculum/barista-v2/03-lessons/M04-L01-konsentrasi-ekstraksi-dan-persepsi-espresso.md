@@ -20,6 +20,21 @@ Prediksi hubungan dosis, yield dan konsentrasi pada tiga resep hipotetis. Hitung
 
 Sebelum memeriksa pembahasan, tulis **pertanyaan, prediksi, variabel yang ingin diuji, data yang masih belum diketahui, dan kondisi yang memaksamu berhenti**. Jawaban yang bisa dipertanggungjawabkan boleh berbeda; bukti dan keselamatan tetap menentukan.
 
+## Mengapa A dan B bisa punya EY sama tetapi terasa berbeda?
+
+Mari pisahkan aritmetika dari indera:
+
+| Seduhan fiktif | Kopi kering | Beverage | TDS | Estimasi zat terlarut | Estimasi EY |
+|---|---:|---:|---:|---:|---:|
+| A | 18 g | 36 g | 10% | 3,6 g | 20% |
+| B | 18 g | 45 g | 8% | 3,6 g | 20% |
+
+EY sederhana dihitung dengan **massa beverage × fraksi TDS ÷ dose**, lalu dinyatakan dalam persen. Pada A, 36 × 0,10 ÷ 18 = 0,20 atau 20%. B menghasilkan perkiraan sama. Tetapi hasil itu tidak membuktikan senyawa yang membentuk aroma dan rasa diekstraksi pada komposisi identik. Bahkan angka TDS pun membutuhkan pengambilan sampel, persiapan alat, dan kalibrasi yang benar.
+
+Ketika seseorang mengatakan espresso “tipis”, pisahkan tiga pertanyaan: apakah minuman memiliki konsentrasi terlarut rendah, apakah body yang dirasakan rendah, atau apakah minuman hanya tidak sesuai ekspektasi pribadi? Masing-masing mengarah ke pemeriksaan berbeda. Berikan pelanggan pilihan yang jujur tanpa memperlakukan hasil refraktometer sebagai penentu kesukaan.
+
+**Tes penalaran:** alat TDS rusak, tetapi timbangan dan timer berfungsi. Informasi apa yang masih bisa direkam dengan benar? Klaim apa yang harus ditunda? Buat hipotesis yang dapat diuji kemudian, tanpa memasukkan angka TDS rekaan. Jika dua pencicip tidak sepakat, usulkan cara membandingkan suhu, urutan, dan identitas sampel.
+
 ## Tantangan transfer: situasi baru
 
 Seorang pelanggan berkata espresso 'terlalu asam' tetapi alat baca TDS menunjukkan angka lazim. Apa dua alasan berbeda yang masih mungkin, dan langkah aman untuk membedakan keduanya?
