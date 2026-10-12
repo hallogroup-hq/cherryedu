@@ -136,27 +136,9 @@ Kamu harus **memutuskan mana yang boleh dipakai, mana perlu dihapus sementara, d
 
 [ACTIVITY:foundation-dossier]
 
-## Bagian 2 — Empat keputusan yang harus dibuat
+## Bagian 2 — Analisis empat keputusan
 
-### Keputusan 1: Apakah green coffee P-17 boleh dinyatakan lolos QC?
-
-**Jawaban contoh:** **HOLD FOR QUALIFIED REVIEW** pada barang yang relevan sampai identitas terdampak insiden air, sampling dan data mutu yang perlu diperiksa dapat dinilai sesuai SOP. Tidak cukup data untuk pernyataan “aman”, “terkontaminasi toksin”, atau “layak ekspor”.
-
-Alasannya: ada insiden gudang yang belum ditelusuri, informasi sublot yang tidak konsisten dan hasil QC fisik belum lengkap. Ini keputusan edukasi mengenai eskalasi, bukan instruksi hukum atau izin operasional nyata.
-
-### Keputusan 2: Apakah kopi layak dinyatakan “90+” atau paling enak?
-
-**Jawaban contoh:** Tidak. Data trial roast dan dua catatan sensory informal tidak membuktikan skor penilaian terstandardisasi. SCA CVA melibatkan lensa yang berbeda; jangan membuat angka total baru tanpa metode yang sah.
-
-### Keputusan 3: Apakah selisih harga premium menaikkan hasil setelah biaya?
-
-**Hitung ulang:** Versi standar: 100 × Rp12.000 − Rp900.000 = **Rp300.000**. Versi premium: 90 × Rp15.000 − Rp1.130.000 = **Rp220.000**. Penerimaan tercatat naik Rp150.000 tetapi biaya yang dicatat naik Rp230.000, sehingga sisa turun **Rp80.000**. Sepuluh kilogram belum terjual belum punya catatan outcome, jadi jangan mengarang kerugian finalnya. Klaim kenaikan pendapatan 50% **tidak didukung oleh data terbatas ini**, dan tidak ada data living income rumah tangga.
-
-Tetapi jangan langsung menyimpulkan premium selalu merugikan: volume, tingkat penolakan, keuntungan jangka panjang atau biaya yang tidak tercatat belum diketahui.
-
-### Keputusan 4: Apakah promosi tentang sustainability atau single farmer dapat dipublikasikan?
-
-**Jawaban contoh:** Belum. Catatan awal memperlihatkan kemungkinan dua petak/pemilik, sementara bukti emisi, penggunaan lahan dan kepatuhan perdagangan tidak tersedia. Hapus klaim absolut sampai dokumen sesuai tersedia dan diverifikasi. Boleh mengkomunikasikan hal yang faktual serta terkonfirmasi, dengan bahasa spesifik dan caveat.
+Gunakan **lembar dossier interaktif tepat sebelum bagian ini** untuk menjawab isu mutu fisik, roasting/brewing/sensory, ekonomi produsen, dan klaim label. Jawaban kasus tidak ditampilkan lebih dahulu; setiap kesimpulan perlu menautkan bukti dan menyebut hal yang belum diketahui.
 
 ## Bagian 3 — Tugas peserta: memo empat bagian
 
@@ -170,11 +152,9 @@ Tuliskan empat bagian **dengan total 350–500 kata** atau empat formulir ringka
 
 **D. Decision and responsible copy:** buat verdict status QC dan pemasaran, pilih tiga klaim untuk ditahan/diperbaiki dengan bukti yang diminta, lalu tulis **copy produk 35–55 kata** yang tidak mengarang asal, keamanan, rasa, sertifikasi, atau dampak.
 
-### Contoh copy yang masih mungkin digunakan — setelah hal yang tertulis diverifikasi
+### Setelah kamu selesai
 
-“Batch P-17 sedang melalui pemeriksaan ketertelusuran dan mutu lebih lanjut. Kami belum membuka pemesanan karena penilaian belum selesai. Informasi proses dan sampel akan tersedia setelah dokumen lot serta pemeriksaan selesai.”
-
-Contoh ini sengaja berupa status internal/prosedural, **bukan promosi rasa premium**. Bahkan klaim status harus sesuai keadaan nyata bila dipublikasikan. Bila produk belum dapat ditawarkan, keputusan yang benar bisa berarti **tidak menerbitkan iklan sama sekali**.
+Baca contoh pendek dari lembar dossier dan gunakan rubrik berikut untuk memeriksa alasan, bukan menilai diri berdasarkan gaya menulis semata.
 
 ## Bagian 4 — Rubrik integratif (16 poin)
 
@@ -241,3 +221,41 @@ Kursus ini **tidak memberikan sertifikasi profesional SCA, Q Grader, audit panga
 - **CAP-05:** ILO labour and worker protection (Indonesia 2026): https://www.ilo.org/id/resource/news/dari-kesepakatan-lisan-menuju-perjanjian-tertulis-komunitas-kopi-indonesia
 - **All case details synthetic.** No producer interview, no physical lot inspection, no tasting, no instrument reading, no legal review performed.
 - **External reviews pending:** Science SMEs for M02–M06, history scholar, producer/co-op economics expert, legal and sustainability reviewer, beginner pilot, assessment calibration, accessibility and content/IP clearance.
+
+**Editorial-only model answers moved from earlier learner narrative (not for publication):**
+
+**Teaching exemplar 1:**
+
+**Bagian 2 — Empat keputusan yang harus dibuat
+
+**Keputusan 1: Apakah green coffee P-17 boleh dinyatakan lolos QC?
+
+**Jawaban contoh:** **HOLD FOR QUALIFIED REVIEW** pada barang yang relevan sampai identitas terdampak insiden air, sampling dan data mutu yang perlu diperiksa dapat dinilai sesuai SOP. Tidak cukup data untuk pernyataan “aman”, “terkontaminasi toksin”, atau “layak ekspor”.
+
+Alasannya: ada insiden gudang yang belum ditelusuri, informasi sublot yang tidak konsisten dan hasil QC fisik belum lengkap. Ini keputusan edukasi mengenai eskalasi, bukan instruksi hukum atau izin operasional nyata.
+
+**Keputusan 2: Apakah kopi layak dinyatakan “90+” atau paling enak?
+
+**Jawaban contoh:** Tidak. Data trial roast dan dua catatan sensory informal tidak membuktikan skor penilaian terstandardisasi. SCA CVA melibatkan lensa yang berbeda; jangan membuat angka total baru tanpa metode yang sah.
+
+**Keputusan 3: Apakah selisih harga premium menaikkan hasil setelah biaya?
+
+**Hitung ulang:** Versi standar: 100 × Rp12.000 − Rp900.000 = **Rp300.000**. Versi premium: 90 × Rp15.000 − Rp1.130.000 = **Rp220.000**. Penerimaan tercatat naik Rp150.000 tetapi biaya yang dicatat naik Rp230.000, sehingga sisa turun **Rp80.000**. Sepuluh kilogram belum terjual belum punya catatan outcome, jadi jangan mengarang kerugian finalnya. Klaim kenaikan pendapatan 50% **tidak didukung oleh data terbatas ini**, dan tidak ada data living income rumah tangga.
+
+Tetapi jangan langsung menyimpulkan premium selalu merugikan: volume, tingkat penolakan, keuntungan jangka panjang atau biaya yang tidak tercatat belum diketahui.
+
+**Keputusan 4: Apakah promosi tentang sustainability atau single farmer dapat dipublikasikan?
+
+**Jawaban contoh:** Belum. Catatan awal memperlihatkan kemungkinan dua petak/pemilik, sementara bukti emisi, penggunaan lahan dan kepatuhan perdagangan tidak tersedia. Hapus klaim absolut sampai dokumen sesuai tersedia dan diverifikasi. Boleh mengkomunikasikan hal yang faktual serta terkonfirmasi, dengan bahasa spesifik dan caveat.
+
+
+
+**Teaching exemplar 2:**
+
+**Contoh copy yang masih mungkin digunakan — setelah hal yang tertulis diverifikasi
+
+“Batch P-17 sedang melalui pemeriksaan ketertelusuran dan mutu lebih lanjut. Kami belum membuka pemesanan karena penilaian belum selesai. Informasi proses dan sampel akan tersedia setelah dokumen lot serta pemeriksaan selesai.”
+
+Contoh ini sengaja berupa status internal/prosedural, **bukan promosi rasa premium**. Bahkan klaim status harus sesuai keadaan nyata bila dipublikasikan. Bila produk belum dapat ditawarkan, keputusan yang benar bisa berarti **tidak menerbitkan iklan sama sekali**.
+
+
