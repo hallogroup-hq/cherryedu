@@ -23,6 +23,7 @@
 | Severity | Finding | Evidence | Required action |
 |---|---|---|---|
 | **P0 — credential / customer trust** | “Sertifikasi Profesional Kompetensi Bar” makes a formal-sounding competency claim without verifying issuing authority, practical assessment, or accreditation | BARISTA_PATH.title, published flag | Replace with neutral learner-focused title before the next safe deploy; official BNSP/SCA credit may only be claimed with real authorization and exam process |
+| **P0 — recipe dependence / poor transfer** | Current modules teach fixed reference ratios, 9-bar framing and ready-made responses without demanding explanation of variable relationships or context-specific diagnosis | B1/B4/B7 fixed recipe focus, mostly short expository lessons and 3 MCQ per module | Enforce **adaptive decision-making standard** on all 11 proposed modules: goal → observe → safety/SOP → competing hypotheses → controlled test → measured feedback, including unusual guest requests; see `04-adaptive-barista-reasoning-standard.md` |
 | **P0 — assessment validity** | 30/30 answer keys coincide with longest answer; only 3 items/module | BARISTA_QUESTIONS | Re-author test blueprint, plausible similar-length distractors, expert check, novel scenario bank and retake variants; use anti-cue gate |
 | **P0 — hands-on competency** | No assessed videos, real equipment demonstrations, hygiene observation or bar performance verification | 30 short text lessons; standalone MCQ | Separately design supervised hands-on rubrics and evidence verification, plus safe no-equipment online alternatives that are **not** a substitute for physical verification |
 | **P0 — safety** | Food hygiene, allergens, hot steam, chemicals and machine fault escalation are not sufficiently operationalized for a novice to act safely | B2/B5/B6/B10 outline | Require context-specific safety procedures, equipment manufacturer instructions, allergen controls, no internal repairs by unqualified operators, and independent SME sign-off |
@@ -70,7 +71,8 @@ These are references to **synthesize** an original CherryEdu training program. D
 
 ## 6. Release state
 
-**Gate B0 = AUDIT DOCUMENTED; GATE B1+ = BLOCKED.** Current production was not changed by this audit. The Barista replacement must remain in isolated branch until:
+**Gate B0 = AUDIT DOCUMENTED; GATE B1+ = BLOCKED.**
+**Added binding requirement:** Every future Barista V2 lesson and assessment must test transfer beyond a headbar-provided recipe. A correctly repeated 1:15 filter ratio is **not** evidence of understanding without mechanism, alternatives, tradeoffs, and safe testing. Current production was not changed by this audit. The Barista replacement must remain in isolated branch until:
 - all lesson objectives and safety claims are reviewed;
 - every motor/spatial learning target has real instructional media or appropriate simulation;
 - independent assessments and distractor analysis pass;
