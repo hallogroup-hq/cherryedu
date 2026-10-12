@@ -20,6 +20,21 @@ Rancang dua opsi eksperimen untuk tugas pelatihan: pertama membandingkan output 
 
 **Catatan eksperimenmu:** tuliskan pertanyaan, hipotesis, variabel yang diubah, variabel yang dijaga, hasil yang *akan diukur*, risiko keselamatan, serta temuan yang akan membuatmu mengubah pendapat. Jika tanpa peralatan, gunakan data fiktif dan jangan mengarang pengamatan rasa.
 
+## Dua tujuan minuman, dua cara menguji
+
+Bayangkan target A adalah espresso diminum langsung dengan karakter sensori jelas. Target B adalah latte dingin 240 mL yang tetap terasa kopi tanpa menambah sweetness. Data shot latihan:
+
+| Shot | Dose | Output | Waktu | Rasa |
+|---|---:|---:|---:|---|
+| A | 18 g | 36 g | 28 s | Belum dicicipi |
+| B | 18 g | 42 g | 30 s | Belum dicicipi |
+
+Jangan langsung mengatakan A “lebih bold” bagi semua pelanggan. Kamu hanya tahu A memiliki beverage ratio yang lebih pendek. Untuk minuman susu, pengaruh output shot, konsentrasi kopi, volume susu dan pencairan es saling terkait.
+
+Buat **dua rancangan uji terpisah**. Rancangan 1 mempertahankan dose dan bahan susu sambil menguji output shot yang berbeda—ini mencoba efek kondisi ekstraksi. Rancangan 2 mempertahankan shot dan menyesuaikan volume komponen susu sesuai izin kedai—ini menguji perubahan komposisi minuman. Jangan membandingkan hasil kedua rancangan sebagai bukti bahwa satu-satunya penyebab perbedaan adalah yield espresso.
+
+**Kasus lanjutan:** customer ternyata meminta 'strong' karena ingin lebih banyak kafein untuk tetap terjaga. Apa informasi yang tidak tersedia dari ratio? Mengapa intensitas rasa dan kepastian kandungan kafein tidak boleh disamakan? Jelaskan alternatif komunikasi yang jujur tanpa membuat klaim kesehatan atau dosis kafein yang tidak diukur.
+
 ## Tantangan transfer: kondisi berubah
 
 Satu shift kemudian bijinya berganti. Semua angka resep sama tetapi hasil rasa berbeda. Susun daftar faktor yang perlu dicek dan tulis pertanyaan percobaan berikutnya. Jangan langsung menyalahkan orang yang menyiapkan shot.
