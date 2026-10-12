@@ -111,6 +111,9 @@ Kita sudah belajar dari Modul 02–04 bahwa spesies, lokasi, processing, dan roa
 
 Kebiasaan dasar yang paling bermanfaat adalah mulai dari variabel yang dapat diamati, lalu memperluas hipotesis bila perlu. Tidak perlu berpura-pura punya alat uji laboratorium untuk membuat catatan jujur.
 
+
+[ACTIVITY:brew-investigation-note]
+
 ## 6. Tugas akhir — Brew Investigation Note
 
 Buat laporan pendek. Kamu bisa memilih jalur nyata atau menggunakan data simulasi di lesson ini.
