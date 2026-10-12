@@ -1,0 +1,35 @@
+name: Barista V2 Authoring QA (No Deploy)
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/curriculum/barista-v2/**'
+      - 'components/barista-v2/**'
+      - 'scripts/validate-barista-v2-drafts.cjs'
+      - '.github/workflows/barista-v2-authoring-qa.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: barista-v2-authoring-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  editorial-and-typecheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Barista manuscript and curriculum validator
+        run: node scripts/validate-barista-v2-drafts.cjs
+      - name: TypeScript typecheck (includes draft Experiment Notebook component)
+        run: npm run typecheck
