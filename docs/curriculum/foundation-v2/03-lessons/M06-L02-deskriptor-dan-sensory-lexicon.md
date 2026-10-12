@@ -41,6 +41,9 @@ Ubah kalimat “kopinya wangi” menjadi dua catatan yang lebih jelas.
 
 Keduanya memperjelas pengamatan tanpa mengaku tahu penyebab kimia.
 
+
+[VISUAL:sensory-dimensions]
+
 ## 2. Mengapa ada Sensory Lexicon?
 
 World Coffee Research (WCR) mengembangkan **Sensory Lexicon**, yaitu kumpulan istilah beserta definisi dan referensi bagi pekerjaan deskriptif sensorik. Edisi 2.0 diterbitkan pada Oktober 2017. WCR menjelaskan bahwa lexicon tersebut mencakup **110 atribut flavor, aroma, dan tekstur**, dengan referensi untuk membantu panel terlatih menilai intensitasnya. [LEX-01]
