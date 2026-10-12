@@ -187,7 +187,7 @@ test('in-lesson answers do not start expanded', async ({ page }) => {
 test('workspace requires attempt before showing model; no account or XP', async ({ page }) => {
   await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m01-l03');
   const section=page.getByRole('region',{name:/Catat dua cangkir/});
-  await expect(section.getByText(/jawaban tidak disimpan/i)).toBeVisible();
+  await expect(section.getByText(/tidak tersimpan otomatis/i)).toBeVisible();
   const compare=section.getByRole('button',{name:/Bandingkan dengan contoh pembahasan/i});
   await expect(compare).toBeDisabled();
   const fields=section.locator('textarea');
