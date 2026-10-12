@@ -28,7 +28,7 @@ export default function LessonPlayerPage() {
   const router = useRouter();
   const slug = params.slug as string;
   const lessonId = params.lessonId as string;
-  const isDraftPreview = slug === 'foundation-v2-preview' &&
+  const isDraftPreview = slug === 'memahami-kopi-dari-hulu-ke-hilir' &&
     lessonId.startsWith('lesson-fv2-') &&
     ['review-only', 'public-readonly'].includes(process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW || '');
 
