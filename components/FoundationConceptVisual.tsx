@@ -133,6 +133,37 @@ function StrengthGlasses(){
     </svg><figcaption><strong className="text-xs sm:text-sm text-roast-950">{label}</strong><p className="text-xs text-roast-700 mt-1">{detail}</p></figcaption>
   </figure>)}</div>;
 }
+function CoffeeNameLevels(){
+  return <div className="space-y-3">
+    <div className="rounded-lg bg-roast-950 text-white text-center py-3 px-4">
+      <strong className="font-serif text-lg">Genus: Coffea</strong>
+      <p className="text-xs mt-1 opacity-90">Kelompok tanaman yang mencakup banyak spesies</p>
+    </div>
+    <p className="text-center text-xs font-mono text-roast-700" aria-hidden="true">↓ Tiga contoh spesies dalam genus yang sama ↓</p>
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+      <div className="rounded-lg border border-paper-300 bg-white p-3">
+        <strong className="block text-sm text-roast-950">C. arabica</strong>
+        <span className="block text-xs text-roast-700 mt-1">Arabika</span>
+        <div className="mt-3 rounded border-l-2 border-cherry-700 bg-paper-100 px-3 py-2">
+          <p className="text-xs font-semibold text-roast-900">Contoh varietas: Bourbon</p>
+          <p className="text-xs text-roast-700 mt-1">Bagian dari kelompok Arabika, bukan spesies baru</p>
+        </div>
+      </div>
+      <div className="rounded-lg border border-paper-300 bg-white p-3">
+        <strong className="block text-sm text-roast-950">C. canephora</strong>
+        <span className="block text-xs text-roast-700 mt-1">Dikenal di pasar sebagai Robusta</span>
+      </div>
+      <div className="rounded-lg border border-paper-300 bg-white p-3">
+        <strong className="block text-sm text-roast-950">C. liberica</strong>
+        <span className="block text-xs text-roast-700 mt-1">Liberika, spesies yang berbeda dari Arabika</span>
+      </div>
+    </div>
+    <div className="rounded-lg border border-dashed border-paper-300 bg-white px-4 py-3">
+      <p className="font-semibold text-sm text-roast-950">Di luar pohon klasifikasi ini: informasi pada label</p>
+      <p className="text-xs leading-5 text-roast-700 mt-1"><strong>Gayo / Jambi</strong> menyebut wilayah asal. <strong>Excelsa</strong> adalah nama yang dipakai di perdagangan dengan riwayat taksonomi terkait <em>C. dewevrei</em>. Informasi tempat dan nama pasar tidak otomatis menjadi cabang spesies baru.</p>
+    </div>
+  </div>;
+}
 function Shell({title,scope,children}:{title:string;scope:string;children:React.ReactNode}){
   return <figure className="my-8 bg-paper-50 border border-paper-300 rounded-xl overflow-hidden not-prose" aria-label={title}>
     <header className="px-4 sm:px-6 py-4 bg-white border-b border-paper-300">
@@ -143,6 +174,7 @@ function Shell({title,scope,children}:{title:string;scope:string;children:React.
   </figure>;
 }
 export function FoundationConceptVisual({ id }:{id:string}){
+  if(id==='species-family')return <Shell title="Nama tanaman dan nama pasar tidak sejajar" scope="Skema klasifikasi ilustratif, bukan pohon filogenetik lengkap atau hasil identifikasi sampel."><CoffeeNameLevels/></Shell>;
   if(id==='cherry-ripeness')return <Shell title="Warna buah kopi matang tidak selalu sama" scope="Skema orisinal, bukan foto inspeksi kebun atau ukuran/pengujian kematangan."><CherryStages/></Shell>;
   if(id==='roast-levels'||id==='roast-stages')return <Shell title="Lihat perubahan penampilan biji" scope="Tidak berskala dan bukan diagnosis warna atau defect."><RoastBeans/></Shell>;
   if(id==='roast-curve')return <Shell title="Grafik roasting simulasi yang benar-benar bisa dibaca" scope="Gunakan untuk latihan membaca bukti, bukan menjalankan mesin."><RoastGraph/></Shell>;
@@ -150,11 +182,20 @@ export function FoundationConceptVisual({ id }:{id:string}){
   if(id==='strength-vs-extraction')return <Shell title="Jumlah zat sama, jumlah air berbeda" scope="Konsentrasi (strength) berbeda dari berapa banyak zat berpindah dari bubuk (EY)."><StrengthGlasses/></Shell>;
   const flow=flows[id];if(!flow)return null;
   return <Shell title={flow.title} scope={flow.scope}>
-    <ol className={flow.grid?'grid grid-cols-1 sm:grid-cols-2 gap-3':'flex flex-col gap-2'}>
-      {flow.steps.map((step,i)=><li key={step.label} className="rounded-lg border border-paper-300 bg-white px-4 py-3 flex gap-3 items-start">
-        <span className="shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-roast-950 text-white text-xs font-mono">{i+1}</span>
-        <div><p className="font-sans font-bold text-sm text-roast-950">{step.label}</p><p className="mt-1 font-sans text-xs sm:text-sm leading-5 text-roast-700">{step.detail}</p></div>
-      </li>)}
-    </ol>
+    {flow.grid ? (
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {flow.steps.map(step => <div key={step.label} className="rounded-lg border border-paper-300 bg-white px-4 py-3">
+          <p className="font-sans font-bold text-sm text-roast-950">{step.label}</p>
+          <p className="mt-1 font-sans text-xs sm:text-sm leading-5 text-roast-700">{step.detail}</p>
+        </div>)}
+      </div>
+    ) : (
+      <ol className="flex flex-col gap-2">
+        {flow.steps.map((step,i) => <li key={step.label} className="rounded-lg border border-paper-300 bg-white px-4 py-3 flex gap-3 items-start">
+          <span className="shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-roast-950 text-white text-xs font-mono">{i+1}</span>
+          <div><p className="font-sans font-bold text-sm text-roast-950">{step.label}</p><p className="mt-1 font-sans text-xs sm:text-sm leading-5 text-roast-700">{step.detail}</p></div>
+        </li>)}
+      </ol>
+    )}
   </Shell>;
 }
