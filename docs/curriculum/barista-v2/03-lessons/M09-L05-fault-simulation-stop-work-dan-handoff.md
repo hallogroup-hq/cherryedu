@@ -18,6 +18,24 @@ Buat laporan insiden ringkas: alat/model, waktu, gejala tanpa diagnosis pasti, l
 
 Tuliskan **pertanyaan eksperimenmu, hipotesis, prediksi, apa yang dikontrol, apa yang diamati, dan hasil seperti apa yang akan membuatmu mengubah keputusan**. Jika data hanya simulasi, tandai sumbernya. Kebersihan, keselamatan, alergen dan otorisasi lebih penting daripada ingin mencoba hal baru.
 
+## Simulasi fault yang tidak menormalisasi tindakan berbahaya
+
+Kamu sedang melayani lima tiket saat mesin mengeluarkan bau listrik panas dan percikan di area yang tidak semestinya. Tidak perlu memastikan diagnosis komponen secara pasti sebelum bertindak. Keputusan yang bertanggung jawab adalah menghentikan penggunaan peralatan terdampak, menjauhkan aktivitas dari bahaya sesuai SOP, melaporkan, dan mengikuti instruksi petugas yang berwenang.
+
+| Tahap | Catatan penting |
+|---|---|
+| Observasi | Bau/bunyi/indikator serta waktu, tanpa diagnosis spekulatif |
+| Pengamanan | Menghentikan operasi bagian terkait menurut SOP |
+| Komunikasi | Supervisor dan staf yang menerima tiket berikutnya |
+| Pelayanan | Informasi penundaan dan opsi aman yang masih tersedia |
+| Pemulihan | Hanya setelah inspeksi dan otorisasi pihak berwenang |
+
+**Latihan:** tulis log insiden 90 detik yang dapat dibaca shift berikutnya. Bedakan fakta “indikator fault merah menyala” dari dugaan “boiler rusak”. Jika belum ada pemeriksaan, status alat tetap tidak boleh ditulis “aman digunakan”.
+
+**Eksperimen kelas:** tampilkan dua laporan simulasi—satu penuh dugaan komponen, satu berbasis observasi dan keputusan stop. Minta siswa menentukan laporan mana mempermudah troubleshooting dan mengurangi risiko.
+
+**Kondisi berubah:** pelanggan meminta kopi manual brew dari peralatan lain. Apakah itu boleh? Periksa lokasi, jalur air/panas/listrik, keamanan bahan, kondisi kerja serta keputusan supervisor. Tidak semua alat di venue otomatis aman hanya karena berbeda dari mesin yang fault.
+
 ## Transfer: kondisi berbeda
 
 Rekan meminta memindahkan minuman yang sudah dibuat saat mesin rusak. Informasi apa tentang kontaminasi, suhu, identitas dan kualitas yang harus diketahui sebelum disajikan?
