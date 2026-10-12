@@ -18,6 +18,24 @@ Buat tiga nama, tulis setiap menu description dalam bahasa sederhana dan 15–25
 
 Tuliskan pertanyaan yang kamu pilih, prediksi, variabel yang dikendalikan, risiko, pengamatan yang akan dibutuhkan dan satu hasil yang akan membuatmu merevisi keputusan. Bekerja dengan bahan/alat nyata memerlukan kondisi aman, penanganan higienis, SOP dan pengawasan yang sesuai.
 
+## Tulis deskripsi yang membantu memilih, bukan memuji minuman sendiri
+
+Bandingkan dua deskripsi hipotetis berikut:
+
+> “Sebuah simfoni aromatik tropis yang tak terlupakan dalam setiap tegukan.”
+
+> “Es kopi berbasis espresso dengan aroma pandan dan manis ringan.”
+
+Deskripsi kedua lebih informatif **jika karakter dan komposisi tersebut benar-benar sesuai hasil uji produk**. Ia memberi petunjuk jenis minuman, coffee base dan pengalaman yang ditawarkan. Kalimat pertama terdengar indah tetapi tidak membantu customer yang ingin tahu apakah minuman mengandung susu atau seberapa manis rasanya.
+
+Nama kreatif boleh digunakan, tetapi sebaiknya dilengkapi penjelasan ringkas tentang bahan penting, suhu, alergen yang relevan dan cara penyajian. Jangan mengklaim manfaat kesehatan, cerita petani, asal bahan atau awards bila belum ada bukti.
+
+**Eksperimen pemahaman menu:** siapkan dua deskripsi untuk produk yang sama. Berikan kepada dua pembaca yang belum tahu resep, tanpa memengaruhi mereka. Minta keduanya menyebut jenis minuman, bahan kunci dan kesan yang mereka harapkan. Catat bagian yang mereka salah pahami. Ini menguji kejelasan komunikasi, bukan membuktikan salah satu gaya copy pasti meningkatkan penjualan.
+
+**Kasus transfer:** customer berkata “ini dairy-free kan?” padahal menu memakai bahan plant milk dari mesin bersama. Apa yang boleh kamu katakan? Penjelasan menu tidak dapat menjamin keamanan alergen tanpa proses terverifikasi.
+
+**Latihan akhir:** buat satu nama, satu deskripsi maksimal dua kalimat, dan satu jawaban 20 detik tentang “kenapa minuman ini berbeda dengan latte biasa?” Hindari pernyataan yang lebih besar dari bukti tasting dan recipe yang sudah ada.
+
 ## Tantangan pada kondisi berbeda
 
 Pelanggan ingin minuman signature tetapi menghindari satu bahan. Bagaimana menjelaskan bahwa versi modifikasi akan punya karakter berbeda atau tidak bisa disajikan?
