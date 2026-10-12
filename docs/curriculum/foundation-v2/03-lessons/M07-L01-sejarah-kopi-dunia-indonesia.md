@@ -36,6 +36,9 @@ B. “Ada legenda terkenal mengenai Kaldi, tetapi asal-usul awal konsumsi kopi j
 
 **Jawaban:** B. Kita masih bisa menikmati legenda tanpa mengubahnya menjadi fakta.
 
+
+[VISUAL:history-timeline]
+
 ## 2 — Ethiopia: rumah biologis, bukan berarti semua sejarah selesai di sana
 
 Arabika (*Coffea arabica*) berasal dari wilayah Afrika timur, terutama Ethiopia, dengan keragaman genetik penting di kawasan asalnya. [H01, H05]
@@ -137,6 +140,9 @@ Di Indonesia, kopi sachet, tubruk, kedai espresso, manual brew, dan kopi ferment
 **Aturan penting:** “Gelombang keempat” bukan bukti bahwa metode processing baru lebih ilmiah atau lebih bermutu daripada tradisi sebelumnya.
 
 Kamu boleh menggunakan kerangka gelombang sebagai alat diskusi. Tetapi ketika menceritakan sejarah kolonial atau asal tanaman, gunakan metode dan sumber **sejarah**, bukan label gelombang.
+
+
+[ACTIVITY:coffee-history-sequence]
 
 ## 9 — Latihan membaca sumber: tiga pernyataan, tiga status
 
