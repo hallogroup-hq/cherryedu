@@ -2,8 +2,8 @@
  * Deterministically compile the reviewed source Markdown into an isolated,
  * preview-only CherryEdu data module. No database operations or publication.
  *
- * node scripts/generate-memahami-kopi-dari-hulu-ke-hilir.cjs
- * node scripts/generate-memahami-kopi-dari-hulu-ke-hilir.cjs --check
+ * node scripts/generate-foundation-v2-preview.cjs
+ * node scripts/generate-foundation-v2-preview.cjs --check
  */
 'use strict';
 const fs = require('node:fs');
@@ -29,7 +29,7 @@ const moduleNames = {
 };
 const createdAt = '2026-10-12T00:00:00Z';
 const previewPath = {
-  id: 'path-memahami-kopi-dari-hulu-ke-hilir',
+  id: 'path-foundation-v2-preview',
   title: 'Memahami Kopi dari Hulu ke Hilir',
   slug: 'memahami-kopi-dari-hulu-ke-hilir',
   description: 'Pelajari perjalanan kopi dari buah dan kebun hingga pengolahan, roasting, penyeduhan, penilaian rasa, serta orang-orang di balik setiap cangkir.',
@@ -79,7 +79,7 @@ const lessons = slots.map((slot) => {
 });
 const code = [
   '// GENERATED FILE — DO NOT EDIT. Source of truth: docs/curriculum/foundation-v2.',
-  '// Run: node scripts/generate-memahami-kopi-dari-hulu-ke-hilir.cjs',
+  '// Run: node scripts/generate-foundation-v2-preview.cjs',
   '// ISOLATED PREVIEW ONLY. No quizzes/certificates are registered from this artifact.',
   "import type { LearningPath, Module, Lesson } from '../types';",
   '',
@@ -91,7 +91,7 @@ const code = [
 ].join('\n');
 if (process.argv.includes('--check')) {
   if (!fs.existsSync(output) || fs.readFileSync(output, 'utf8') !== code) {
-    console.error('Stale V2 preview data: run node scripts/generate-memahami-kopi-dari-hulu-ke-hilir.cjs and commit the generated file.');
+    console.error('Stale V2 preview data: run node scripts/generate-foundation-v2-preview.cjs and commit the generated file.');
     process.exitCode = 1;
   } else {
     console.log('Foundation V2 generated data up to date: ' + lessons.length + ' lessons');
