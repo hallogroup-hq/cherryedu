@@ -20,6 +20,24 @@ Eksperimen hanya bila ada sesi training yang aman: bandingkan dua jenis susu pad
 
 **Sebelum membaca contoh jawaban dari pengajar:** tulis hipotesis, prediksi, pengamatan yang dibutuhkan, variabel kontrol, keamanan, dan alasan kenapa satu uji lebih informatif daripada tebakan. Kesalahan hipotesis tidak otomatis berarti kegagalan belajar jika proses dan keselamatan dijaga.
 
+## Jenis bahan dan alasan permintaan pelanggan tidak selalu sama
+
+Perhatikan tiga permintaan yang sekilas terdengar seperti “latte tanpa susu sapi”:
+
+| Ucapan tamu | Kemungkinan maksud | Informasi yang perlu dipastikan |
+|---|---|---|
+| “Aku lebih suka oat.” | Preferensi rasa atau gaya minum | Menu dan bahan yang tersedia |
+| “Aku lactose-intolerant.” | Kesulitan mencerna laktosa | Kebutuhan pelanggan dan label bahan |
+| “Aku alergi susu sapi.” | Reaksi terhadap protein susu | Bahan, proses, alat dan risiko kontak silang |
+
+**Intoleransi laktosa bukan alergi protein susu.** Produk lactose-free dapat saja tetap mengandung protein susu. Karena itu, mengganti susu biasa dengan lactose-free tidak otomatis menyelesaikan permintaan dari orang yang alergi protein susu.
+
+Bahkan plant-based milk punya variasi formula, bahan tambahan, dan kemungkinan alergen seperti kedelai atau kacang. Tidak ada klaim aman hanya dari nama “oat”. Cara steam, kestabilan busa dan rasa dapat bervariasi menurut produk tertentu.
+
+**Latihan informasi bertahap:** kamu menerima tiket “oat latte”. Pada putaran pertama pelanggan menyebut preferensi aroma oat, sehingga memilih bahan yang ada mungkin cukup bila SOP normal terpenuhi. Pada putaran kedua ia menambahkan bahwa ada alergi protein susu dan wand dipakai bergantian. Apakah kamu tetap memproses tanpa verifikasi? Jelaskan kapan perlu hold, apa yang dicek di label/prosedur venue, dan bagaimana menyampaikan keterbatasan tanpa memberi janji palsu.
+
+**Eksperimen aman:** untuk mengevaluasi kestabilan foam antara dua formula, lakukan hanya dalam sesi yang diizinkan, gunakan alat dan bahan terverifikasi, dan catat merek/lot, volume, suhu awal, teknik serta pengamatan sebenarnya. Jangan melakukan uji yang sengaja menimbulkan cross-contact.
+
 ## Situasi baru
 
 Bagaimana merespons permintaan 'tanpa laktosa' yang lalu diketahui sebenarnya alergi protein susu? Jelaskan apa yang harus ditanyakan, diverifikasi, dan kapan memilih tidak melayani.
