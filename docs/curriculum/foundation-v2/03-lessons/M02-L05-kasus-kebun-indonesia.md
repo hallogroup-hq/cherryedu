@@ -75,6 +75,10 @@ Di Foundation, tujuan kita adalah:
 
 Seorang petani berpengalaman bisa menggunakan teknik pengelolaan terpadu yang sesuai kebun. Materi digital untuk pemula tidak boleh berpura-pura menggantikan pemeriksaan lapangan.
 
+### Jejak P-17 — kebun yang sama belum tentu satu pemilik
+
+Pada studi kasus lintas modul P-17, **100 kg ceri** diterima dari dua petak yang berdekatan di Jawa Barat; nama kultivar Arabika “X” belum terverifikasi, dan catatan mandor menyebut **dua pemilik**, walaupun formulir penerimaan memakai satu farm code. Angka ini **fiktif**. Keterlacakan dimulai dengan mengakui data yang belum lengkap, bukan langsung menulis “single farmer”.
+
 ## 5. Kasus utuh: tiga pilihan, satu anggaran terbatas
 
 **Seluruh data kasus berikut fiktif untuk latihan. Tidak mengacu pada kebun atau petani tertentu.**
