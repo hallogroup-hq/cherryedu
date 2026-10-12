@@ -49,7 +49,9 @@ Green coffee bersifat higroskopis, artinya dapat berinteraksi dengan kelembapan 
 
 Masalahnya bukan cuma berat karung berubah. Ada risiko perubahan warna, stabilitas kimia, mikroorganisme, bau tak diinginkan, dan penurunan mutu.
 
-FAO menekankan bahwa kondisi pengeringan dan penyimpanan merupakan titik penting pencegahan kontaminasi oleh kapang dan risiko ochratoxin A. **Kapang yang terlihat atau bau apek tidak dapat digunakan sebagai satu-satunya alat diagnosis keberadaan toksin.** Produk memerlukan prosedur evaluasi sesuai standar dan konteks keamanan pangan. [R1]
+Pencegahan *ochratoxin A* (OTA) pada kopi bukan hanya anjuran umum dari FAO: **Codex Alimentarius (FAO/WHO) mencantumkan CXC 69-2009, Code of Practice for the Prevention and Reduction of Ochratoxin A Contamination in Coffee**. Dokumen ini secara khusus membahas pengendalian risiko sepanjang penanganan pascapanen, pengeringan dan penyimpanan. [R1,R5]
+
+**Kapang yang terlihat atau bau apek tidak dapat dipakai sendirian untuk membuktikan ada atau tidaknya OTA.** Demikian pula, pembacaan kadar air pada satu kesempatan belum merupakan sertifikat keamanan. Risiko harus ditinjau melalui penelusuran lot, pengendalian proses, sampling yang sesuai dan prosedur pengujian/keputusan oleh personel berwenang, mengikuti regulasi serta tujuan perdagangan yang berlaku. Materi pemula ini tidak memberi batas angka untuk menolak atau meluluskan lot. [R5]
 
 Jangan pula menyimpulkan bahwa kopi dengan bau normal pasti terbebas dari kontaminan. Bau bukan pengganti pengujian.
 
@@ -126,4 +128,5 @@ Mengelola pengeringan dan penyimpanan berarti memahami **waktu, air, lingkungan,
 - [R2] *Effect of green and roasted coffee storage conditions on selected quality parameters* (2023): https://pmc.ncbi.nlm.nih.gov/articles/PMC10119118/ .
 - [R3] *Effect of storage conditions on chemical and sensory quality of pulped natural coffee* (2023): https://www.sciencedirect.com/science/article/pii/S0022474X23001091 .
 - [R4] Study of green coffee during shipping with moisture and water activity (2023): https://www.sciencedirect.com/science/article/pii/S2666154322002113 .
+- [R5] FAO/WHO Codex Alimentarius, **CXC 69-2009**, *Code of Practice for the Prevention and Reduction of Ochratoxin A Contamination in Coffee*: https://www.fao.org/fao-who-codexalimentarius/codex-texts/codes-of-practice/en/ . This is risk-prevention guidance, not proof a particular lot passed laboratory safety tests.
 - **Safety/QA:** Tidak ada suhu/hari target sebagai instruksi operator, a_w safe cutoff mutlak, atau klaim bebas toksin. Review pakar food safety dan dry mill diperlukan sebelum publikasi.
