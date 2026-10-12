@@ -162,3 +162,12 @@ test('practice links are discoverable from the module index and the final lesson
  await page.goto('/barista-v2/bv2-m11-l08');
  await expect(page.getByRole('link',{name:/tiga kasus situasi baru/i})).toHaveAttribute('href','/barista-v2/practice/m11');
 });
+
+test('a filter-specific notebook is not inserted into milk, chemical safety or other unrelated lessons',async({page})=>{
+ for(const id of ['bv2-m05-l03','bv2-m09-l03','bv2-m11-l04']){
+  await page.goto('/barista-v2/'+id,{waitUntil:'domcontentloaded'});
+  await expect(page.getByText('Laboratorium pribadimu')).toHaveCount(0);
+ }
+ await page.goto('/barista-v2/bv2-m07-l05',{waitUntil:'domcontentloaded'});
+ await expect(page.getByText('Laboratorium pribadimu')).toBeVisible();
+});
