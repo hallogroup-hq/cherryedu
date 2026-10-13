@@ -27,16 +27,16 @@ for(const f of all){
  // The previous manuscript batch copied the same long experiment checklist into most lessons.
  // Require topic-specific practice and challenge wording instead of green-lighting AI-like filler.
  const genericPatterns=[
-  /Sebelum mencoba, pisahkan \\*\\*tujuan\\*\\*, \\*\\*prediksi\\*\\*/,
-  /Tulis catatan percobaan \\*\\*sebelum\\*\\* melakukan perubahan/,
-  /Pertama tentukan \\*\\*tujuan percobaan\\*\\*/,
-  /Sebelum mengubah resep, tulis \\*\\*pertanyaan\\*\\*/,
+  /Sebelum mencoba, pisahkan \*\*tujuan\*\*, \*\*prediksi\*\*/,
+  /Tulis catatan percobaan \*\*sebelum\*\* melakukan perubahan/,
+  /Pertama tentukan \*\*tujuan percobaan\*\*/,
+  /Sebelum mengubah resep, tulis \*\*pertanyaan\*\*/,
   /Saat menulis eksperimen, bedakan prediksi, pengamatan nyata, dan data simulasi/,
-  /\\*\\*Jurnal pribadi:\\*\\* Apa hal yang baru/,
-  /\\*\\*Apa yang kamu pelajari\\?\\*\\* Jawab menggunakan bahasa sendiri/,
-  /\\*\\*Periksa pemahamanmu:\\*\\* sebutkan satu informasi/,
-  /\\*\\*Ringkas dengan bahasamu:\\*\\* jelaskan mengapa hasil berubah/,
-  /\\*\\*Penutup pelajaran:\\*\\* sebutkan satu variabel/
+  /\*\*Jurnal pribadi:\*\* Apa hal yang baru/,
+  /\*\*Apa yang kamu pelajari\?\*\* Jawab menggunakan bahasa sendiri/,
+  /\*\*Periksa pemahamanmu:\*\* sebutkan satu informasi/,
+  /\*\*Ringkas dengan bahasamu:\*\* jelaskan mengapa hasil berubah/,
+  /\*\*Penutup pelajaran:\*\* sebutkan satu variabel/
  ];
  for(const pattern of genericPatterns)if(pattern.test(c))fail('Repeated generic learner checklist/closing: '+f);
 }
