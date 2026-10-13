@@ -7,7 +7,7 @@ test('every module introduces an accessible concept diagram with no horizontal p
   const code=String(i).padStart(2,'0');
   await page.goto('/roaster-v2/rv2-m'+code+'-l01');
   await expect(page.getByRole('heading',{level:1})).toBeVisible();
-  await expect(page.getByRole('img')).toHaveCount(1);
+  await expect(page.locator('figure svg[role="img"]')).toHaveCount(1);
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
   expect(overflow,'Horizontal overflow on M'+code+' lesson').toBeLessThanOrEqual(2);
  }
