@@ -31,5 +31,3 @@ Coba lakukan **dry run tanpa air panas**. Letakkan alat seperti saat akan menyed
 ## Tantangan saat kondisi berubah
 
 Kamu pindah ke kos sempit dengan satu stopkontak di dekat wastafel. Apa yang harus dipindah, kegiatan mana ditunda, dan opsi seduh mana lebih praktis? Ukur keamanan terlebih dahulu daripada memaksakan gaya foto setup.
-
-**Jurnal pribadi:** Apa hal yang baru kamu pahami, asumsi mana yang masih perlu diperiksa, dan eksperimen paling sederhana apa yang bisa menjawabnya pada sesi berikutnya? Jawaban yang beralasan boleh berbeda dari resep orang lain.
