@@ -31,5 +31,3 @@ Setelah tiga ulangan, jika hasil masih beragam, periksa cara menuang, stabilitas
 ## Coba pada situasi baru
 
 Setelah tiga kali mengulang, variasi hasil tetap besar. Apa yang harus diperiksa sebelum mengubah recipe lagi? Jelaskan tentang proses, timbangan, setting grinder, metode penyeduhan, dan faktor manusia.
-
-**Apa yang kamu pelajari?** Jawab menggunakan bahasa sendiri: apa data yang mendukung, apa yang belum diketahui, dan percobaan aman apa yang akan memberikan informasi paling berguna berikutnya.
