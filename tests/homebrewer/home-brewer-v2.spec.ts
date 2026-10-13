@@ -3,8 +3,8 @@ const pad=(n:number)=>String(n).padStart(2,'0');
 test('overview lists ten modules, fifty lessons and ten distinct practice routes',async({page})=>{
  const res=await page.goto('/home-brewer-v2',{waitUntil:'domcontentloaded'});
  expect(res?.status()).toBe(200);
- await expect(page.getByRole('heading',{level:1})).toContainText('Bukan Menghafal Resep');
- await expect(page.getByRole('heading',{level:2})).toHaveCount(10);
+ await expect(page.getByRole('heading',{level:1})).toContainText('Home Brewer Specialization');
+ await expect(page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])')).toHaveCount(10);
  await expect(page.locator('a[href^="/home-brewer-v2/hbv2-hb"]')).toHaveCount(50);
  await expect(page.locator('a[href^="/home-brewer-v2/practice/"]')).toHaveCount(10);
  const text=await page.locator('main').innerText();

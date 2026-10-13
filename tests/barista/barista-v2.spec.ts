@@ -5,8 +5,8 @@ const counts = [6,5,6,7,6,5,5,5,5,5,8,5];
 
 test('68 lesson links are available under 12 clear, learner-facing modules',async ({page})=>{
  await page.goto('/barista-v2');
- await expect(page.getByRole('heading',{level:1})).toContainText('Pahami Kopi.');
- await expect(page.getByRole('heading',{level:2})).toHaveCount(12);
+ await expect(page.getByRole('heading',{level:1})).toContainText('Barista Specialization');
+ await expect(page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])')).toHaveCount(12);
  await expect(page.locator('a[href^="/barista-v2/bv2-"]')).toHaveCount(68);
  const visible = await page.locator('main').innerText();
  expect(visible).not.toMatch(/DRAFT REVIEW|Beta Publik|review build|sertifikasi profesional kompetensi bar|QA internal/i);

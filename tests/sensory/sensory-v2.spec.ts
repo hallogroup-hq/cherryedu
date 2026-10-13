@@ -2,7 +2,7 @@ import {test,expect} from '@playwright/test';
 
 test('course shows 10 modules, 40 lessons and role-specific learning title',async({page})=>{
  await page.goto('/sensory-v2');
- await expect(page.getByRole('heading',{name:'Memahami Kualitas Kopi dari Empat Sudut'})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Q Grader & Sensory Specialist'})).toBeVisible();
  await expect(page.locator('section[aria-labelledby^="sv2-"]')).toHaveCount(10);
  await expect(page.locator('section[aria-labelledby^="sv2-"] ol li')).toHaveCount(40);
  await page.getByRole('link',{name:/Mengapa penilai kopi tidak cukup memberi skor/}).click();

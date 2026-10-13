@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 test('course inventory, navigation and accessible concept model',async({page})=>{
  await page.goto('/roaster-v2');
- await expect(page.getByRole('heading',{name:'Sains & Seni Penyangraian Kopi'})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Roaster Specialization'})).toBeVisible();
  await expect(page.locator('section[aria-labelledby^="module-"]')).toHaveCount(10);
  await expect(page.locator('section[aria-labelledby^="module-"] ol li')).toHaveCount(40);
  await page.getByRole('link',{name:/Bagaimana panas benar-benar sampai ke biji/}).click();
