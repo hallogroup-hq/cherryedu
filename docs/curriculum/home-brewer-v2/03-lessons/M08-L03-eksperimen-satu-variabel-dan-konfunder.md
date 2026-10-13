@@ -18,7 +18,15 @@ Prediksi yang ditulis setelah hasil keluar bukan uji yang jujur. Hasil tasting y
 
 Buat lembar R&D empat baris: pertanyaan, prediksi, kondisi A/B, hasil yang akan membantah hipotesis. Isi dengan satu masalah nyata yang belum kamu pahami. Setelah hasil, tulis apa yang **tidak** dapat disimpulkan. Jika hanya punya satu kopi dan satu alat, itu cukup untuk satu eksperimen yang bagus.
 
-Pertama tentukan **tujuan percobaan**, lalu tulis **prediksi** dan **apa yang dapat membuat dugaanmu salah**. Tentukan faktor yang tetap dan berubah, lalu catat data secara jujur. Pengukuran fiktif bukan tasting nyata; selera pribadi bukan nilai salah-benar objektif. Biaya dan risiko peralatan juga menjadi bagian dari keputusan.
+## Bedakan perubahan utama, pengganggu dan hasil
+
+**Variabel utama** adalah hal yang sengaja kamu uji, misalnya setting grinder. **Variabel pengganggu (*confounder*)** adalah hal lain yang berubah pada saat yang sama dan berpotensi menjelaskan hasil—misalnya jenis filter ikut diganti. **Hasil observasi** adalah angka atau pengalaman yang benar-benar tercatat, seperti waktu alir atau preferensi.
+
+Dalam data A/B di atas, grind dan filter sama-sama berbeda. Kalau B lebih lambat 40 detik, kamu belum bisa mengidentifikasi kontribusi masing-masing. Desain C dengan grind X serta filter Q dapat membantu membandingkan salah satu faktor, **selama prosedur lain cukup konsisten**. Namun percobaan rumahan tetap mempunyai variasi yang tidak seluruhnya hilang.
+
+**Bentuk prediksi sebelum uji:** “Dengan kopi dan filter yang sama, setelan Y diperkirakan menghasilkan waktu lebih lama daripada X.” **Hasil yang melawan prediksi:** Y ternyata sama atau lebih cepat pada pengulangan yang sebanding. Itu alasan untuk memeriksa ulang asumsi, bukan menghapus angka dari jurnal.
+
+Setelah tiga ulangan, jika hasil masih beragam, periksa cara menuang, stabilitas timbangan, suhu awal alat, retensi grinder dan kapan timer dimulai. Jangan mengubah semuanya sekaligus. Pilih sumber variasi terbesar yang dapat diukur tanpa membeli perangkat baru atau mengabaikan keamanan.
 
 ## Coba pada situasi baru
 
