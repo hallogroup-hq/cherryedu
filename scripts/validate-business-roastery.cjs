@@ -24,7 +24,7 @@ const forbidden=/\b(?:DRAFT|PREVIEW|BETA|TBD|COMING SOON|LOREM IPSUM)\b/i;
 for(const l of lessons){
  if(!modules.some(m=>m.code===l.moduleId))fail('Orphan lesson '+l.id);
  if(l.content.trim().split(/\s+/).length<300)fail('Thin lesson '+l.id);
- if(!l.content.includes('SKENARIO')&&!l.content.includes('Asset-light'))fail('Missing business comparison '+l.id);
+ if(!l.content.includes('**A · Brand asset-light:**')||!l.content.includes('**B · Fasilitas kecil:**')||!l.content.includes('**C · Roastery berkembang:**'))fail('Missing three-model business comparison '+l.id);
  for(const phrase of ['informasi terverifikasi','asumsi belum terverifikasi','Checkpoint pemahaman'])if(!l.content.includes(phrase))fail('Missing evidence structure '+l.id+' '+phrase);
  if(forbidden.test(l.title+' '+l.content))fail('Internal/editorial copy '+l.id);
 }
@@ -38,7 +38,7 @@ for(const f of refs.filter(x=>x.category==='freight')){
 }
 if(refs.filter(x=>x.category==='freight').length!==3)fail('No three directional reference lanes');
 const calc=read('components/business-roastery/BusinessRoasteryCalculator.tsx');
-for(const flag of ['Math.max(quoteKg,volKg??0,minCharge)','greenUsable','roasted','landedTotal','rawPerRoast','cm','bepkg','freightMode','tarif publik','BEP','source.url'])if(!calc.toLowerCase().includes(flag.toLowerCase()))fail('Cost provenance/math missing '+flag);
+for(const flag of ['Math.max(quoteKg,volKg??0,minCharge)','greenUsable','roasted','landedTotal','rawPerRoast','cm','bepkg','freightMode','Referensi publik','BEP','source.url'])if(!calc.toLowerCase().includes(flag.toLowerCase()))fail('Cost provenance/math missing '+flag);
 if(!calc.includes('inbound lagi')||!calc.includes('bukan penawaran final')&&!calc.includes('quotation final'))fail('Unsafe quote interpretation');
 for(const path of ['app/business-roastery-v1/page.tsx','app/business-roastery-v1/[lessonId]/page.tsx','app/business-roastery-v1/practice/[moduleId]/page.tsx','app/business-roastery-v1/calculator/page.tsx','app/business-roastery-v1/cashflow/page.tsx','app/business-roastery-v1/plan/page.tsx']){
  const src=read(path);
@@ -48,6 +48,6 @@ for(const path of ['app/business-roastery-v1/page.tsx','app/business-roastery-v1
 const publishedCafe=read('lib/data/paths/coffeeBusinessData.ts');
 if(!publishedCafe.includes('path-coffee-business'))fail('Published cafe path moved');
 const docs=read('docs/curriculum/business-roastery-v1/01-blueprint-evidence-policy.md');
-for(const phrase of ['0,5%','2026','100 kg','minimum','bukan'])if(!docs.includes(phrase))fail('Evidence policy incomplete '+phrase);
+for(const phrase of ['PP 20/2026','2026','100 kg','minimum','NOT'])if(!docs.includes(phrase))fail('Evidence policy incomplete '+phrase);
 const summary={modules:modules.length,lessons:lessons.length,minWords:Math.min(...lessons.map(l=>l.content.split(/\s+/).length)),cases:cases.length,threeModelComparison:scenarios.map(s=>s.name),freightEvidence:refs.filter(x=>x.category==='freight').map(x=>({lane:x.scope,rate:x.value,minimumKg:x.minimumKg})),issues};
 console.log(JSON.stringify(summary,null,2));if(issues.length)process.exitCode=1;
