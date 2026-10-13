@@ -31,13 +31,13 @@ Supplier URLs are embedded in `lib/data/businessRoasteryReferences.ts`. **NEVER 
 - Chargeable kg for an applicable kg-based quotation = max(actual kg, volumetric kg **if** carrier uses it, minimum billed kg), for the tariff structure *actually specified*. FTL is a separate flat quote and must not be forced into kg logic.
 - Invoice green = ordered kg × invoice price per kg.
 - Total inbound acquisition costs = invoice green + carrier freight + pickup, packing and handling that are **not already included** + other appropriately capitalizable, nonrecoverable purchase costs.
-- Usable green kg = received and accepted quantity. For this educational form the ordered kg is assumed received; rejects can be entered by percentage. Real QC discrepancy and total received separately should be tracked in operating systems.
+- Usable green kg = physically received kg × (1 − inspected rejection/loss percentage). The form requires received kg independently of invoiced/ordered kg; it does **not** assume they are equal. Discrepancies must be reconciled with supplier credits, rejection records or claims.
 - Landed cost/usable kg = above total / usable green.
 - Saleable roasted kg = usable green × (1 − roasting loss fraction). The same applies only when other downstream losses are zero; otherwise extend the model with packing reject and QC sample loss.
 - Raw bean cost/saleable roasted kg = total inbound acquisition costs / saleable roasted kg.
 - HPP finished roast = raw bean cost per saleable kg + documented transformation cost + packaging and relevant manufacturing overhead.
-- Contribution/kg = net price (consistent VAT basis) − HPP − non-HPP variable selling/fulfillment costs. Avoid double counting inbound/outbound freight, overhead and VAT.
-- BEP/month kg = unallocated monthly fixed cost / contribution/kg **only when contribution > 0**.
+- Contribution/kg = net selling price (consistent VAT basis) − **variable manufacturing cost/kg** − **variable selling/fulfillment cost/kg**. Fixed factory overhead belongs in absorbed full manufacturing HPP for gross margin, but must NOT be subtracted again from contribution. Avoid double counting inbound/outbound freight, overhead and VAT.
+- BEP/month kg = (**monthly fixed factory overhead + monthly fixed nonproduction cost**) / contribution/kg, **only when contribution > 0** and on a consistent period/output basis. Neither fixed component is deducted in contribution/kg.
 - For accounting and decisions distinguish cost of inventory, cost of goods sold, noncash depreciation, cash payments, income taxes, VAT, and debt financing.
 
 ## Regulatory notes verified October 13, 2026
@@ -68,7 +68,7 @@ Supplier URLs are embedded in `lib/data/businessRoasteryReferences.ts`. **NEVER 
 ### Release checklist
 - [x] Curriculum authoring candidate staged behind isolated review flag.
 - [x] Financial labs and source-policy design written.
-- [ ] Browser and CI status must be verified for final HEAD.
+- [x] Previous automated checkpoint passed at commit `2f703e9` (11 browser checks and three Foundation compatibility gates). **Retest after any newer edits; do not inherit prior pass status.**
 - [ ] Live carrier and supplier RFQs for target city/route; currently only published directional estimates.
 - [ ] Indonesian industry expert review; user academic approval and learner pilot.
 - [ ] Explicit owner-authorized integration/migration and production release.
@@ -87,7 +87,7 @@ All prices in worked field guides other than explicitly referenced carrier posti
 
 The authoring interface also includes two interactive, non-persistent labs available from the learner catalog and linked from modules B02/B16:
 
-- **Three-model make-or-buy:** user-defined saleable kg/month, variable conversion cost, fixed monthly conversion, capacity and machine CAPEX, compared across outsourced, owner-operated small, and commercial facility. A 60% downside tests sensitivity; machine CAPEX is shown as investment cash rather than silently included in operating cost per kg. This tool compares **conversion cost**, not all-in HPP, and cannot replace the complete landed-cost calculator or financing analysis.
-- **13-week cash ledger:** user-defined initial cash and an editable set of individual cash receipts/payments by week, with an ending-balance schedule and negative-cash warning. Blank weeks are unentered obligations, not an affirmative zero. No learner account state is written.
+- **Three-model make-or-buy:** user-defined saleable kg/month, variable conversion cost, fixed monthly conversion, capacity and machine CAPEX, compared across outsourced, owner-operated small, and commercial facility. A 60% downside tests sensitivity; **capacity-infeasible output is not shown as a financially deliverable quotation**, and the model identifies shortfalls at both volumes. Machine CAPEX is shown as investment cash rather than silently included in operating cost per kg. This tool compares **conversion cost**, not all-in HPP, and cannot replace the complete landed-cost calculator or financing analysis.
+- **13-week cash ledger:** user-defined initial cash and an editable set of individual cash receipts/payments by week **and relative day (1–7)**, with ending-balance schedule and a negative-cash warning even when an intraweek dip disappears in the week-end net balance. For entries sharing a day, the calculation conservatively books outflows before inflows; actual bank timestamps must still be confirmed. Blank weeks are unentered obligations, not an affirmative zero. No learner account state is written.
 
 Academic owner signoff and verified carrier quotes remain necessary. Browser validation tests are separate from claims that these numbers constitute a real commercial quotation.
