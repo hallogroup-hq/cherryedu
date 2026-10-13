@@ -24,6 +24,8 @@ Instruksi “tuang sampai 225 g” masih bisa ambigu: apakah 225 g **total air y
 
 **Contoh catatan operasional:** “Gunakan kopi Lot A, 15 g bubuk, filter sesuai dripper X, air layak minum. Mulai timer ketika air pertama menyentuh bed. Tuang total air masuk 225 g menurut tahapan yang ditulis; timbang massa minuman setelah selesai jika tersedia.” Ini masih contoh simulasi yang **harus dilengkapi tahapan penuangan** untuk menjadi SOP operasional penuh.
 
+**Hipotesis transfer:** bila instruksi membedakan massa kumulatif, tahap tuang, serta kondisi alat dengan jelas, pembaca lain mungkin lebih sedikit membutuhkan klarifikasi. Dugaan ini dapat dibantah dengan *paper walkthrough* tanpa menyeduh; catat bagian SOP yang tetap ambigu untuk direvisi sebelum tes praktik.
+
 Mintalah teman melakukan **paper walkthrough**: menunjuk kalimat mana yang tidak bisa ia kerjakan tanpa bertanya. Jika ia tidak tahu versi grind yang dimaksud, jelaskan bahwa angka pada satu grinder tidak dapat ditransfer otomatis ke merek lain. Berikan kriteria adaptasi seperti tujuan aliran atau pengalaman minuman, lalu catat perubahan yang dibuat orang tersebut.
 
 **Tes transfer:** seorang teman memakai alat berbeda. Mana yang tetap? Tujuan, keamanan, dan prinsip pencatatan. Mana yang harus diuji lagi? Respons grinder/filter, pola aliran, dan hasil rasa. SOP yang baik tidak menjanjikan rasa persis identik; ia membuat alasan dan perubahan bisa ditelusuri serta direvisi.
