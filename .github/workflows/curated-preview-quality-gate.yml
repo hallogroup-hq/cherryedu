@@ -45,6 +45,8 @@ jobs:
         run: |
           node scripts/validate-business-roastery.cjs
           node scripts/validate-business-roastery-numbers.cjs
+      - name: Six-path editorial readability gate
+        run: node scripts/validate-curated-editorial.cjs
       - name: TypeScript
         run: npm run typecheck
       - name: Build complete preview
