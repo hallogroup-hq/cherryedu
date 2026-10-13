@@ -67,6 +67,42 @@ for(const mod of modules){
 }
 if(new Set(Object.values(moduleLectures)).size!==21)fail('Duplicated module introduction');
 if(!read(course).includes('BUSINESS_ROASTERY_MODULE_LECTURES[lesson.moduleId]'))fail('Module introductions not mounted in lesson content');
+const methods=extract('lib/data/businessRoasteryWorkedMethods.ts',/BUSINESS_ROASTERY_WORKED_METHODS:Record<string,\{title:string;steps:\{heading:string;explanation:string\}\[\];caution:string\}> = (\{[\s\S]*?\});/);
+if(Object.keys(methods).length!==21)fail('Missing 21 module-specific guided learning walkthroughs');
+const uniqueSteps=new Set();
+for(const mod of modules){
+ const method=methods[mod.code];
+ if(!method||method.steps.length!==4||!method.title||!method.caution) {
+   fail('Missing complete 4-step walkthrough '+mod.code);
+   continue;
+ }
+ for(const step of method.steps){
+   if(!step.heading||step.explanation.trim().split(/\s+/).length<12)fail('Shallow instructional step '+mod.code);
+   const normalized=step.heading.trim().toLowerCase()+'|'+step.explanation.trim().toLowerCase();
+   if(uniqueSteps.has(normalized))fail('Repeated walkthrough step '+mod.code);
+   uniqueSteps.add(normalized);
+ }
+}
+if(!read('components/business-roastery/BusinessRoasteryReader.tsx').includes('workedMethods[lesson.moduleId]'))fail('Guided worked examples not integrated in reader');
+const mathChecks=[
+ ['asset-light equal unit costs',6000000/(20000-8000),500],
+ ['shipment minimum charge',Math.max(18,30)*8000,240000],
+ ['usable landed per kg',3200000/20,160000],
+ ['effective roasting output',540*.84*.97,439.992],
+ ['available to promise',500-20-50,430],
+ ['green material per saleable',13000000/82,158536.58536585365],
+ ['manufacturing full HPP example',13000000/82+20000+5000+15000,198536.58536585365],
+ ['gross markup',50000/150000*100,33.33333333333333],
+ ['gross margin',50000/200000*100,25],
+ ['net contribution before fixed',200000-130000-15000,55000],
+ ['break even output',12000000/40000,300],
+ ['cash trough',2000000-3000000,-1000000],
+ ['D2C contribution',220000-140000-35000,45000],
+ ['wholesale contribution',185000-140000-12000-8000,25000],
+ ['OTIF percent',18/20*100,90]
+];
+for(const [label,value,target] of mathChecks)if(Math.abs(value-target)>1e-7)fail('Numeric method fixture wrong '+label);
+
 const diagnosticBlocks=lessons.map(l=>extractLessonSection(l.content,'### Checkpoint pemahaman'));
 if(teachingBlocks.some(x=>!x))fail('Missing original instructional concept section');
 if(diagnosticBlocks.some(x=>!x))fail('Missing diagnostic checkpoint');
