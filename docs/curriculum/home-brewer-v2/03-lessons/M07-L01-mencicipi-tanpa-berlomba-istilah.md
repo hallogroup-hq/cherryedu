@@ -31,5 +31,3 @@ Ambil contoh deskripsi “seperti jeruk”. Bisa jadi orang sedang menunjuk arom
 ## Coba pada situasi baru
 
 Kamu diminta mendeskripsikan kopi untuk teman yang tak mengenal istilah specialty. Bagaimana mengkomunikasikan pilihan rasa tanpa mengejek atau mengklaim deskripsi kamu paling objektif?
-
-**Apa yang kamu pelajari?** Jawab menggunakan bahasa sendiri: apa data yang mendukung, apa yang belum diketahui, dan percobaan aman apa yang akan memberikan informasi paling berguna berikutnya.
