@@ -34,3 +34,8 @@ next-env.d.ts
 # Playwright Test Outputs
 test-results/
 playwright-report/
+
+# Database Dumps and Staging Backups
+supabase/staging/backups/
+*.dump
+*.sql.bak

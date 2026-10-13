@@ -1,0 +1,513 @@
+/**
+ * Cherry Edu Teams — Isolated Development Fixtures
+ * For staging development & UI testing only.
+ * Isolated from production data.
+ */
+
+import {
+  Organization,
+  Outlet,
+  OrganizationMembership,
+  Program,
+  ProgramVersion,
+  ProgramStep,
+  Cohort,
+  Enrollment,
+  Competency,
+  RubricVersion,
+  PracticalAssessment,
+  TrainingSession,
+  RemediationTask,
+} from '../types';
+
+export const FIXTURE_ORGS: Organization[] = [
+  {
+    id: 'org-kopi-ruang',
+    slug: 'kopi-ruang',
+    display_name: 'Kopi Ruang',
+    legal_name: 'PT Ruang Rasa Kopi',
+    business_category: 'Specialty Coffee Shop',
+    status: 'active',
+    primary_contact_user_id: 'user-owner-budi',
+    timezone: 'Asia/Jakarta',
+    created_at: '2026-09-01T08:00:00Z',
+    updated_at: '2026-10-14T00:00:00Z',
+  },
+  {
+    id: 'org-tanah-senja',
+    slug: 'tanah-senja',
+    display_name: 'Tanah Senja Roastery & Cafe',
+    legal_name: 'CV Tanah Senja Nusantara',
+    business_category: 'Cafe & Micro-Roastery',
+    status: 'active',
+    primary_contact_user_id: 'user-owner-senja',
+    timezone: 'Asia/Jakarta',
+    created_at: '2026-09-15T09:00:00Z',
+    updated_at: '2026-10-14T00:00:00Z',
+  },
+];
+
+export const FIXTURE_OUTLETS: Outlet[] = [
+  {
+    id: 'outlet-kr-senopati',
+    organization_id: 'org-kopi-ruang',
+    name: 'Kopi Ruang Senopati',
+    city: 'Jakarta Selatan',
+    address: 'Jl. Senopati No. 42',
+    status: 'active',
+    created_at: '2026-09-01T08:00:00Z',
+    updated_at: '2026-09-01T08:00:00Z',
+  },
+  {
+    id: 'outlet-kr-bintaro',
+    organization_id: 'org-kopi-ruang',
+    name: 'Kopi Ruang Bintaro',
+    city: 'Tangerang Selatan',
+    address: 'Sektor 7 Bintaro Jaya',
+    status: 'active',
+    created_at: '2026-09-10T08:00:00Z',
+    updated_at: '2026-09-10T08:00:00Z',
+  },
+];
+
+export const FIXTURE_MEMBERSHIPS: OrganizationMembership[] = [
+  {
+    id: 'mem-owner-budi',
+    organization_id: 'org-kopi-ruang',
+    user_id: 'user-owner-budi',
+    status: 'active',
+    joined_at: '2026-09-01T08:00:00Z',
+    created_at: '2026-09-01T08:00:00Z',
+    roles: ['owner'],
+  },
+  {
+    id: 'mem-hb-dani',
+    organization_id: 'org-kopi-ruang',
+    user_id: 'user-headbar-dani',
+    status: 'active',
+    joined_at: '2026-09-01T08:00:00Z',
+    created_at: '2026-09-01T08:00:00Z',
+    roles: ['head_bar'],
+    outlet_scopes: ['outlet-kr-senopati'],
+  },
+  {
+    id: 'mem-barista-raka',
+    organization_id: 'org-kopi-ruang',
+    user_id: 'user-barista-raka',
+    status: 'active',
+    joined_at: '2026-09-05T08:00:00Z',
+    created_at: '2026-09-05T08:00:00Z',
+    roles: ['learner'],
+    outlet_scopes: ['outlet-kr-senopati'],
+  },
+  {
+    id: 'mem-barista-dina',
+    organization_id: 'org-kopi-ruang',
+    user_id: 'user-barista-dina',
+    status: 'active',
+    joined_at: '2026-09-05T08:00:00Z',
+    created_at: '2026-09-05T08:00:00Z',
+    roles: ['learner'],
+    outlet_scopes: ['outlet-kr-senopati'],
+  },
+  {
+    id: 'mem-barista-fajar',
+    organization_id: 'org-kopi-ruang',
+    user_id: 'user-barista-fajar',
+    status: 'active',
+    joined_at: '2026-09-05T08:00:00Z',
+    created_at: '2026-09-05T08:00:00Z',
+    roles: ['learner'],
+    outlet_scopes: ['outlet-kr-bintaro'],
+  },
+];
+
+export const FIXTURE_COMPETENCIES: Competency[] = [
+  {
+    id: 'comp-espresso-dialin',
+    code: 'BAR-ESP-01',
+    name: 'Espresso Dial-in & Troubleshooting',
+    description:
+      'Mampu mengidentifikasi anomali ekstraksi espresso, mendiagnosis penyebab variabel grind/dose/yield, dan menyesuaikan resep secara mandiri.',
+    source_standard_ref: 'SKKNI Kepmenaker 32/2023 — Pembuatan Minuman Kopi Berbasis Espresso',
+    criticality: 'critical',
+    status: 'active',
+    created_at: '2026-09-01T08:00:00Z',
+  },
+  {
+    id: 'comp-milk-steaming',
+    code: 'BAR-MLK-01',
+    name: 'Milk Steaming & Microfoam Texture',
+    description:
+      'Mampu melakukan frothing susu hingga tekstur glossy microfoam 60-65°C tanpa gelembung kasar dan menuang dasar latte art.',
+    source_standard_ref: 'SKKNI Kepmenaker 32/2023 — Penyiapan Minuman Berbasis Susu',
+    criticality: 'normal',
+    status: 'active',
+    created_at: '2026-09-01T08:00:00Z',
+  },
+];
+
+export const FIXTURE_RUBRIC_ESPRESSO: RubricVersion = {
+  id: 'rub-v1-espresso',
+  rubric_id: 'rub-espresso',
+  version_no: 1,
+  status: 'published',
+  published_at: '2026-09-01T08:00:00Z',
+  created_at: '2026-09-01T08:00:00Z',
+  criteria: [
+    {
+      id: 'crit-esp-01',
+      rubric_version_id: 'rub-v1-espresso',
+      code: 'PREP-DOSING',
+      description: 'Presisi dosing dan distribusi kopi pada portafilter',
+      weight: 1.0,
+      is_critical: false,
+      anchors: {
+        1: 'Dosing tidak ditimbang, tamping miring > 5 derajat',
+        2: 'Ditimbang tetapi banyak kopi tercecer, tamping butuh arahan',
+        3: 'Dosing presisi (toleransi ±0.2g), distribusi rata, tamping tegak',
+        4: 'Mandiri, konsisten cepat (<15 detik), area kerja tetap bersih',
+      },
+    },
+    {
+      id: 'crit-esp-02',
+      rubric_version_id: 'rub-v1-espresso',
+      code: 'EXTRACTION-DIAG',
+      description: 'Diagnosis rasa under/over-extraction dan penyesuaian grinder',
+      weight: 2.0,
+      is_critical: true,
+      anchors: {
+        1: 'Tidak mampu membedakan rasa asam kecut (sour) dan pahit gosong (bitter)',
+        2: 'Mengetahui masalah tetapi keliru menentukan arah settingan gilingan',
+        3: 'Mendiagnosis tepat, menyesuaikan ukuran gilingan secara sistematis',
+        4: 'Mandiri dan mampu menjelaskan rasional ekstraksi ke tim lain',
+      },
+    },
+    {
+      id: 'crit-esp-03',
+      rubric_version_id: 'rub-v1-espresso',
+      code: 'MACHINE-HYGIENE',
+      description: 'Kebersihan portafilter, flush group head, dan keselamatan kerja',
+      weight: 1.0,
+      is_critical: true,
+      anchors: {
+        1: 'Tidak melakukan purge/flush, basket kotor dimasukkan ke group head',
+        2: 'Flush dilakukan setelah diingatkan oleh trainer',
+        3: 'Flush konsisten sebelum dan sesudah menyeduh, portafilter dilap kering',
+        4: 'Menjaga standar higienitas dan keselamatan kerja secara konsisten',
+      },
+    },
+  ],
+};
+
+export const FIXTURE_PROGRAM: Program = {
+  id: 'prog-onboarding-kr',
+  organization_id: 'org-kopi-ruang',
+  title: 'Program Akselerasi Barista Kopi Ruang',
+  description: 'Penguasaan dasar espresso, susu, workflow pesanan, dan SOP resmi Kopi Ruang.',
+  status: 'active',
+  created_at: '2026-09-01T08:00:00Z',
+};
+
+export const FIXTURE_PROGRAM_VERSION: ProgramVersion = {
+  id: 'pv-kr-v1',
+  program_id: 'prog-onboarding-kr',
+  organization_id: 'org-kopi-ruang',
+  version_no: 1,
+  status: 'published',
+  policy_snapshot: {
+    passing_grade: 80,
+    max_quiz_attempts: 3,
+    require_practical_signoff: true,
+  },
+  published_at: '2026-09-01T08:00:00Z',
+  created_at: '2026-09-01T08:00:00Z',
+};
+
+export const FIXTURE_PROGRAM_STEPS: ProgramStep[] = [
+  {
+    id: 'step-01',
+    program_version_id: 'pv-kr-v1',
+    organization_id: 'org-kopi-ruang',
+    step_type: 'lesson',
+    source_type: 'cherry_learning',
+    source_ref: 'bs-fd-01',
+    title_override: 'Pengantar Kalibrasi Rasa Espresso',
+    sort_order: 1,
+    is_required: true,
+    estimated_minutes: 10,
+    created_at: '2026-09-01T08:00:00Z',
+  },
+  {
+    id: 'step-02',
+    program_version_id: 'pv-kr-v1',
+    organization_id: 'org-kopi-ruang',
+    step_type: 'quiz',
+    source_type: 'cherry_learning',
+    source_ref: 'quiz-esp-vars',
+    title_override: 'Kuis Checkpoint: Variabel Ekstraksi',
+    sort_order: 2,
+    is_required: true,
+    estimated_minutes: 15,
+    gate_policy: {
+      requires_prior_steps: ['step-01'],
+      min_score: 80,
+    },
+    created_at: '2026-09-01T08:00:00Z',
+  },
+  {
+    id: 'step-03',
+    program_version_id: 'pv-kr-v1',
+    organization_id: 'org-kopi-ruang',
+    step_type: 'practice',
+    source_type: 'practical',
+    source_ref: 'comp-espresso-dialin',
+    title_override: 'Observasi Praktik: Dial-in Mandiri',
+    sort_order: 3,
+    is_required: true,
+    estimated_minutes: 60,
+    gate_policy: {
+      requires_prior_steps: ['step-02'],
+    },
+    created_at: '2026-09-01T08:00:00Z',
+  },
+];
+
+export const FIXTURE_COHORT: Cohort = {
+  id: 'cohort-kr-batch-1',
+  organization_id: 'org-kopi-ruang',
+  program_version_id: 'pv-kr-v1',
+  name: 'Angkatan 1 (September - Oktober 2026)',
+  start_at: '2026-09-15T09:00:00Z',
+  end_at: '2026-10-31T17:00:00Z',
+  status: 'active',
+  created_at: '2026-09-01T08:00:00Z',
+};
+
+export const FIXTURE_ENROLLMENTS: Enrollment[] = [
+  {
+    id: 'en-raka',
+    organization_id: 'org-kopi-ruang',
+    cohort_id: 'cohort-kr-batch-1',
+    user_id: 'user-barista-raka',
+    outlet_id: 'outlet-kr-senopati',
+    status: 'active',
+    enrolled_at: '2026-09-15T09:00:00Z',
+  },
+  {
+    id: 'en-dina',
+    organization_id: 'org-kopi-ruang',
+    cohort_id: 'cohort-kr-batch-1',
+    user_id: 'user-barista-dina',
+    outlet_id: 'outlet-kr-senopati',
+    status: 'active',
+    enrolled_at: '2026-09-15T09:00:00Z',
+  },
+  {
+    id: 'en-fajar',
+    organization_id: 'org-kopi-ruang',
+    cohort_id: 'cohort-kr-batch-1',
+    user_id: 'user-barista-fajar',
+    outlet_id: 'outlet-kr-bintaro',
+    status: 'active',
+    enrolled_at: '2026-09-15T09:00:00Z',
+  },
+];
+
+export const FIXTURE_ASSESSMENTS: PracticalAssessment[] = [
+  // Raka: Practical completed, awaiting trainer final signoff
+  {
+    id: 'ass-raka-01',
+    organization_id: 'org-kopi-ruang',
+    enrollment_id: 'en-raka',
+    competency_id: 'comp-espresso-dialin',
+    rubric_version_id: 'rub-v1-espresso',
+    session_id: 'ses-kr-01',
+    assessor_user_id: 'user-trainer-sarah',
+    status: 'submitted',
+    attempt_no: 1,
+    idempotency_key: 'idemp-raka-01',
+    started_at: '2026-10-10T10:00:00Z',
+    submitted_at: '2026-10-10T11:00:00Z',
+    criterion_results: [
+      {
+        id: 'cr-raka-1',
+        assessment_id: 'ass-raka-01',
+        criterion_id: 'crit-esp-01',
+        level: 3,
+        critical_failure: false,
+        notes: 'Dosing rapi dan tamping rata.',
+        entered_at: '2026-10-10T10:30:00Z',
+      },
+      {
+        id: 'cr-raka-2',
+        assessment_id: 'ass-raka-01',
+        criterion_id: 'crit-esp-02',
+        level: 3,
+        critical_failure: false,
+        notes: 'Mampu kalibrasi rasa espresso dalam 3 kali percobaan.',
+        entered_at: '2026-10-10T10:45:00Z',
+      },
+      {
+        id: 'cr-raka-3',
+        assessment_id: 'ass-raka-01',
+        criterion_id: 'crit-esp-03',
+        level: 4,
+        critical_failure: false,
+        notes: 'Hygiene dan purge sangat konsisten.',
+        entered_at: '2026-10-10T11:00:00Z',
+      },
+    ],
+    head_bar_observation: {
+      observed_by: 'user-headbar-dani',
+      recommendation: 'recommend_competent',
+      notes: 'Raka sudah mandiri kalibrasi saat jam sibuk.',
+      observed_at: '2026-10-10T11:15:00Z',
+    },
+  },
+  // Dina: Fully competent, signed off by Cherry Trainer
+  {
+    id: 'ass-dina-01',
+    organization_id: 'org-kopi-ruang',
+    enrollment_id: 'en-dina',
+    competency_id: 'comp-espresso-dialin',
+    rubric_version_id: 'rub-v1-espresso',
+    session_id: 'ses-kr-01',
+    assessor_user_id: 'user-trainer-sarah',
+    status: 'signed_off',
+    attempt_no: 1,
+    idempotency_key: 'idemp-dina-01',
+    started_at: '2026-10-10T13:00:00Z',
+    submitted_at: '2026-10-10T14:00:00Z',
+    signed_off_at: '2026-10-10T14:15:00Z',
+    criterion_results: [
+      {
+        id: 'cr-dina-1',
+        assessment_id: 'ass-dina-01',
+        criterion_id: 'crit-esp-01',
+        level: 4,
+        critical_failure: false,
+        entered_at: '2026-10-10T13:30:00Z',
+      },
+      {
+        id: 'cr-dina-2',
+        assessment_id: 'ass-dina-01',
+        criterion_id: 'crit-esp-02',
+        level: 4,
+        critical_failure: false,
+        entered_at: '2026-10-10T13:45:00Z',
+      },
+      {
+        id: 'cr-dina-3',
+        assessment_id: 'ass-dina-01',
+        criterion_id: 'crit-esp-03',
+        level: 4,
+        critical_failure: false,
+        entered_at: '2026-10-10T14:00:00Z',
+      },
+    ],
+    signoff: {
+      decision: 'competent',
+      signed_by: 'user-trainer-sarah',
+      assessor_type: 'cherry_trainer',
+      reason: 'Sangat menguasai teknik ekstraksi dan higienitas.',
+      signed_at: '2026-10-10T14:15:00Z',
+    },
+  },
+  // Fajar: Needs practice (remedial assigned)
+  {
+    id: 'ass-fajar-01',
+    organization_id: 'org-kopi-ruang',
+    enrollment_id: 'en-fajar',
+    competency_id: 'comp-espresso-dialin',
+    rubric_version_id: 'rub-v1-espresso',
+    session_id: 'ses-kr-01',
+    assessor_user_id: 'user-trainer-sarah',
+    status: 'submitted',
+    attempt_no: 1,
+    idempotency_key: 'idemp-fajar-01',
+    started_at: '2026-10-10T15:00:00Z',
+    submitted_at: '2026-10-10T16:00:00Z',
+    criterion_results: [
+      {
+        id: 'cr-fajar-1',
+        assessment_id: 'ass-fajar-01',
+        criterion_id: 'crit-esp-01',
+        level: 2,
+        critical_failure: false,
+        notes: 'Dosing masih kurang stabil.',
+        entered_at: '2026-10-10T15:30:00Z',
+      },
+      {
+        id: 'cr-fajar-2',
+        assessment_id: 'ass-fajar-01',
+        criterion_id: 'crit-esp-02',
+        level: 2,
+        critical_failure: false,
+        notes: 'Belum bisa membedakan under vs over extraction.',
+        entered_at: '2026-10-10T15:45:00Z',
+      },
+      {
+        id: 'cr-fajar-3',
+        assessment_id: 'ass-fajar-01',
+        criterion_id: 'crit-esp-03',
+        level: 3,
+        critical_failure: false,
+        entered_at: '2026-10-10T16:00:00Z',
+      },
+    ],
+    signoff: {
+      decision: 'not_yet_competent',
+      signed_by: 'user-trainer-sarah',
+      assessor_type: 'cherry_trainer',
+      reason: 'Perlu latihan kalibrasi rasa espresso sebelum evaluasi ulang.',
+      signed_at: '2026-10-10T16:15:00Z',
+    },
+  },
+];
+
+export const FIXTURE_REMEDIATION: RemediationTask[] = [
+  {
+    id: 'rem-fajar-01',
+    organization_id: 'org-kopi-ruang',
+    enrollment_id: 'en-fajar',
+    competency_id: 'comp-espresso-dialin',
+    criterion_id: 'crit-esp-02',
+    assigned_by: 'user-trainer-sarah',
+    title: 'Latihan Uji Cita Rasa Espresso (Under vs Over)',
+    instructions:
+      'Lakukan ekstraksi 3 shot dengan rasio berbeda (1:1.5, 1:2, 1:2.5). Catat profil rasa asam, manis, dan pahit bersama Head Bar Dani.',
+    due_at: '2026-10-18T17:00:00Z',
+    status: 'assigned',
+    created_at: '2026-10-10T16:20:00Z',
+  },
+];
+
+export const FIXTURE_SESSIONS: TrainingSession[] = [
+  {
+    id: 'ses-kr-01',
+    organization_id: 'org-kopi-ruang',
+    cohort_id: 'cohort-kr-batch-1',
+    title: 'Sesi Praktik Kalibrasi Espresso & Steaming',
+    start_at: '2026-10-10T09:00:00Z',
+    end_at: '2026-10-10T17:00:00Z',
+    timezone: 'Asia/Jakarta',
+    location_text: 'Kopi Ruang Senopati Bar Area',
+    status: 'completed',
+    created_by: 'user-trainer-sarah',
+    created_at: '2026-09-20T08:00:00Z',
+  },
+  {
+    id: 'ses-kr-02',
+    organization_id: 'org-kopi-ruang',
+    cohort_id: 'cohort-kr-batch-1',
+    title: 'Sesi Evaluasi Ulang & Workflow Pelayanan',
+    start_at: '2026-10-20T09:00:00Z',
+    end_at: '2026-10-20T17:00:00Z',
+    timezone: 'Asia/Jakarta',
+    location_text: 'Kopi Ruang Bintaro Bar Area',
+    status: 'scheduled',
+    created_by: 'user-trainer-sarah',
+    created_at: '2026-10-11T08:00:00Z',
+  },
+];
