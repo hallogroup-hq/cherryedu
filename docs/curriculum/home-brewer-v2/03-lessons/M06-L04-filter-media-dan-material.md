@@ -18,7 +18,15 @@ Jangan menyimpulkan jernih berarti lebih sehat atau lebih aman tanpa bukti. Filt
 
 Buat perbandingan dua filter yang tersedia. Pertahankan kopi/dose/air sesuai kemampuan dan catat flow, sedimen yang tampak serta sensori sebenarnya. Jika tak ada dua filter, analisis gambar pemisahan partikel dan tulis hipotesis tanpa mengarang hasil cangkir.
 
-Sebelum mengubah resep, tulis **pertanyaan**, **prediksi**, **variabel utama**, **faktor pembanding** dan **batas keselamatan**. Jika hasil belum benar-benar dicicipi, biarkan kolom rasa kosong. Jangan menggunakan data fiktif sebagai bukti suatu metode lebih unggul. Jika menggunakan air panas, kaca, alat tekanan atau listrik, ikuti panduan resmi produsennya.
+## Memilih filter dari target, bukan hierarki mutu
+
+Kertas, mesh metal dan kain tidak hanya berbeda nama. **Pori, ketebalan, bentuk, dan perawatan** memengaruhi apa yang tertahan dan bagaimana cairan mengalir. Minuman lebih jernih sering berarti partikel terlihat lebih sedikit, tetapi kejernihan **bukan** bukti lebih aman diminum maupun lebih tinggi ekstraksinya.
+
+Jika ingin cangkir dengan mouthfeel lebih bersih, mula-mula tanyakan apakah keluhannya memang tentang sedimen, minyak yang terasa, atau rasa pahit. Filter dengan pori berbeda mungkin membantu pada sebagian aspek, tetapi mengubah filter juga dapat mengubah hambatan air, retensi, dan waktu proses. Karena itu perbandingan “waktu kertas versus metal” tidak memisahkan semua mekanisme.
+
+**Rancang observasi:** seduh satu kopi dengan filter A dan B yang kompatibel dengan alatmu. Pertahankan dosis dan massa air; catat waktu, sedimen yang tampak, serta deskripsi tekstur bila benar-benar dicicipi. Jika B lebih disukai, tuliskan alasannya tanpa berkata semua orang harus memakai B. Jika tidak punya dua filter, gunakan foto atau deskripsi material untuk mengajukan hipotesis—**bukan** hasil tasting palsu.
+
+**Perawatan bagian dari metode:** kain yang disimpan basah tanpa prosedur layak dapat menimbulkan risiko higienitas. Gunakan petunjuk pabrikan soal pembersihan dan penggantian media. Jangan menggunakan filter improvisasi dari bahan yang tidak diketahui aman untuk pangan.
 
 ## Pindah ke situasi berbeda
 
