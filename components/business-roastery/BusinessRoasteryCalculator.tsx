@@ -20,7 +20,7 @@ export function BusinessRoasteryCalculator(){
  const vmode=freightMode==='public'?'public':freightMode;
  const ratePerKg=vmode==='public'?source.value??0:vmode==='perkg'?n(customRate):null;
  const minCharge=vmode==='public'?source.minimumKg??0:vmode==='perkg'?n(quoteMin):0;
- const chargedKg=quoteKg!==null&&quoteKg>0&&minCharge!==null?Math.max(quoteKg,volKg??0,minCharge):null;
+ const chargedKg=vmode==='flat'?null:quoteKg!==null&&quoteKg>0&&minCharge!==null?Math.max(quoteKg,volKg??0,minCharge):null;
  const freight=vmode==='flat'?n(flat):chargedKg!==null&&ratePerKg!==null?chargedKg*ratePerKg:null;
  const greenUsable=arrived!==null&&arrived>0&&quoteKg!==null&&arrived<=quoteKg&&rej!==null&&rej<100?arrived*(1-rej/100):null;
  const roastedGross=greenUsable!==null&&roastLoss!==null&&roastLoss<100?greenUsable*(1-roastLoss/100):null;
@@ -89,7 +89,7 @@ export function BusinessRoasteryCalculator(){
   <div className="mt-8 border-t border-paper-300 pt-5">
    <h3 className="font-serif text-xl font-bold text-roast-950">Hasil perhitungan</h3>
    <div className="mt-4 grid grid-cols-2 gap-3">
-    {[['Berat ditagih untuk freight',chargedKg===null?'Perlu data':chargedKg.toLocaleString('id-ID')+' kg'],['Ongkos freight',freight===null?'Perlu quotation':r(freight)],
+    {[['Berat ditagih untuk freight',vmode==='flat'?'Tidak berlaku (tarif flat)':chargedKg===null?'Perlu data':chargedKg.toLocaleString('id-ID')+' kg'],['Ongkos freight',freight===null?'Perlu quotation':r(freight)],
       ['Green usable',greenUsable===null?'Perlu inspeksi':greenUsable.toLocaleString('id-ID',{maximumFractionDigits:2})+' kg'],['Hasil roasted saleable',roasted===null?'Perlu data':roasted.toLocaleString('id-ID',{maximumFractionDigits:2})+' kg'],
       ['Landed cost/green usable',landedKg===null?'Belum bisa dihitung':r(landedKg)],['Biaya bahan/kg roasted',rawPerRoast===null?'Belum bisa dihitung':r(rawPerRoast)],
       ['Biaya manufaktur variabel/kg',variableHpp===null?'Belum bisa dihitung':r(variableHpp)],['HPP manufaktur serapan/kg roasted',hpp===null?'Belum bisa dihitung':r(hpp)],['Contribution/kg',cm===null?'Belum bisa dihitung':r(cm)],
