@@ -1,27 +1,54 @@
-# Final Project: V0, V1, dan Hasil yang Mengejutkan
+# Eksperimen yang Membantah Asumsi Justru Berguna
 
-Home brewer yang matang tidak hanya membuat resep berhasil; ia bisa berkata 'hipotesisku ternyata belum didukung' dan menjelaskan apa yang terjadi. Inilah inti tugas eksperimen.
+Kamu mencoba resep baru. Kamu berharap rasanya lebih cocok, tetapi ternyata tidak. Apakah percobaannya gagal? Kalau perubahan dilakukan dengan sengaja dan hasilnya dicatat jujur, kamu tetap belajar sesuatu: **prediksimu belum didukung pada kondisi yang diuji**.
 
-## Tujuan dan mekanisme
+## Bedakan tujuan, hipotesis, dan prediksi
 
-Gunakan V0 sebagai baseline yang didokumentasikan. Sebelum V1, pilih satu pertanyaan dan satu perubahan utama. Jika outcome berbeda dari prediksi, jangan mengubah catatan asli atau membuat hasil rasa seolah diukur. Buat V2 untuk memeriksa hipotesis saingan bila bahan dan kondisi aman. Pengujian perlu menyatakan faktor yang tidak bisa dikontrol serta jumlah ulangan yang realistis.
+**Tujuan** adalah pengalaman yang dicari, misalnya “minuman terasa lebih ringan bagi tamu”. Tujuan bisa melibatkan preferensi; itu bukan rumus kimia.
 
-## Data latihan untuk dianalisis
+**Hipotesis** adalah dugaan yang bisa diuji, misalnya “dengan kopi dan metode ini, mengubah air seduh masuk sambil menjaga faktor lain semirip mungkin akan mengubah pengalaman intensitas”. Hipotesis tidak harus pasti benar.
 
-Kasus fiktif: V0 15g/225g, drawdown 3:10, komentar peserta 'body ringan'; V1 15g/240g, drawdown 3:35, peserta justru menyukai V1 lebih tinggi. Tanpa TDS dan beberapa pengulangan, ini bukti preferensi sesi itu, bukan bahwa rasio 1:16 lebih baik untuk semua kopi. Jika filter juga berubah, rancangan sebab harus diperbaiki.
+**Prediksi** adalah hasil yang kamu harapkan **sebelum** percobaan: “Peserta akan menilai V1 kurang intens daripada V0 ketika keduanya dicicipi pada suhu serupa”. Prediksi harus cukup jelas agar bisa dibandingkan dengan pengamatan.
 
-## Batas keselamatan dan inferensi
+**Observasi** adalah apa yang benar-benar terukur atau dirasakan dalam sesi, termasuk hasil yang tidak cocok dengan prediksi. Hindari mengganti kata “tidak sesuai” menjadi angka atau rasa lain hanya supaya cerita terlihat berhasil.
 
-Jangan membuang kopi berkali-kali tanpa pertanyaan hanya untuk mengejar skor orang lain. Jangan menukar jenis air tanpa catatan dan menyalahkan grinder jika hasil berubah. Satu cangkir yang tidak disukai belum tentu kesalahan besar; ia dapat menambah informasi.
+## V0, V1, dan V2 bukan tangga menuju satu rasio sempurna
 
-## Tugas mandiri dan eksperimen
+V0 adalah **baseline**, kondisi awal yang dicatat lengkap. V1 adalah percobaan pertama setelah kamu menetapkan pertanyaan dan perubahan utama. V2 merupakan perbaikan rancangan setelah melihat hasil atau muncul hipotesis saingan. Nama versi membantu pencatatan; tidak berarti V2 wajib terasa lebih enak.
 
-Isi tabel V0–V2 dengan jumlah benar-benar digunakan, prediksi, hasil observasi, keterbatasan, serta langkah selanjutnya. Bila belum melakukan percobaan fisik, gunakan dataset latihan terpisah dan jangan menyatakan pernah mencicipinya.
+Perhatikan **simulasi** berikut. Belum ada kopi sungguhan yang dibuat atau dicicipi untuk materi ini.
 
-Saat menulis eksperimen, bedakan prediksi, pengamatan nyata, dan data simulasi; jangan mengisi kolom tasting yang belum dilakukan. Periksa kelayakan bahan/air, alat food-safe, penyimpanan dan risiko panas. Nilai kemampuan belajar dari alasan yang bisa diuji dan keputusan saat keadaan berubah, bukan kepatuhan pada satu resep.
+| Versi | Kopi | Air masuk | Waktu total | Catatan preferensi simulasi |
+| --- | --- | --- | --- | --- |
+| V0 | 15 g | 225 g | 3:10 | Peserta menyebut body ringan |
+| V1 | 15 g | 240 g | 3:35 | Peserta justru memilih V1 |
+
+Angka 15 g, 225 g dan 240 g hanyalah contoh untuk membedakan massa input. Kamu **tidak dapat** menyimpulkan V1 punya EY lebih tinggi, lebih manis, atau lebih enak untuk semua orang. Hasil preferensi di tabel secara eksplisit fiktif; jangan menyalinnya sebagai hasil percobaanmu.
+
+Jika hipotesismu semula “V1 akan kurang disukai karena semakin encer”, pilihan peserta pada data simulasi **melawan prediksi tersebut**. Langkah berikutnya bukan mengubah catatan V0. Kamu boleh menduga bahwa asumsi awal tentang hubungan jumlah air dan preferensi terlalu sederhana.
+
+## Perubahan bersamaan mengaburkan kesimpulan
+
+Sekarang kamu mengetahui fakta baru: ternyata V1 juga memakai filter lain dan ketel sempat kehilangan kestabilan kontrol suhu. Variabel air seduh bukan satu-satunya yang mungkin berbeda. Maka, sekalipun preferensi nyata terbukti berubah, kamu **belum bisa mengatribusikannya hanya pada jumlah air**.
+
+Rancang V2 yang lebih informatif: kembali memakai filter sama, gunakan alat yang aman dan stabil, dokumentasikan air masuk serta urutan mencicipi. Tentukan perubahan utama yang ingin diuji. Jika suhu tidak bisa dikontrol dengan aman, akui keterbatasannya atau hentikan uji fisik. Jangan menggunakan ketel bermasalah demi memenuhi tugas.
+
+Selain membandingkan hasil satu sesi, kamu dapat **mengulang** bila biaya, waktu, bahan, dan keselamatan memungkinkan. Ulangan membantu melihat apakah perbedaan muncul konsisten atau hanya variasi pada sesi tertentu. Namun sedikit ulangan rumahan tetap tidak membuktikan resep berlaku bagi semua orang.
+
+## Catatan eksperimen yang bisa diperiksa orang lain
+
+Buat jurnal dengan bagian berikut:
+
+1. **Konteks:** identitas/lot kopi, alat, filter, air minum, siapa pencicipnya.
+2. **Baseline V0:** dosis, massa air masuk, output minuman bila diukur, definisi waktu yang digunakan, serta catatan sensori yang benar-benar tersedia.
+3. **Satu pertanyaan V1:** hipotesis, perubahan utama, faktor yang dijaga, dan prediksi yang ditulis sebelum uji.
+4. **Hasil:** angka terukur, kesan pencicip, perbedaan dari prediksi, keadaan tidak terkontrol, dan masalah keselamatan.
+5. **Tindak lanjut V2:** alasan revisi, cara membedakan dua penyebab yang masih masuk akal, serta kondisi yang membuatmu mengubah keputusan.
+
+Kalau latihan ini memakai data tabel ilustratif, beri label **simulasi**. Kosongkan kolom tasting untuk percobaan yang belum dilakukan. Catatan kosong yang jujur lebih berguna daripada angka rekaan.
 
 ## Tantangan transfer
 
-Informasi baru: ternyata kettle mendadak tak stabil, suhu air tidak diukur dan server berbeda. Bagaimana merevisi keyakinan bahwa perubahan ratio sendirian menyebabkan hasil?
+Kamu memilih V1 karena satu tamu menyukainya. Keesokan hari kopi lot berubah dan tamu lain ingin karakter yang berbeda. Apakah V1 harus dipertahankan? Jelaskan apakah kamu akan **mengulang baseline, bertanya tentang tujuan baru, atau membuat hipotesis baru**. Sebutkan data yang diperlukan agar keputusanmu bisa direvisi dengan bertanggung jawab.
 
-**Penutup pelajaran:** sebutkan satu variabel yang paling ingin kamu pahami, alasan memilihnya, dan kondisi yang akan membuatmu mengubah keputusan. Bila belum memiliki alat, latihan penalaran tetap valid tetapi bukan bukti keahlian praktik fisik.
+**Ukuran keberhasilan proyek ini bukan persentase jawaban yang cocok dengan prediksi.** Yang dinilai adalah kemampuan menjelaskan apa yang diketahui, apa yang belum diketahui, dan uji aman mana yang paling mungkin memberi informasi berikutnya.
