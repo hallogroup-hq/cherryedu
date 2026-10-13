@@ -5,6 +5,7 @@ import {SENSORY_V2_LESSONS,SENSORY_V2_MODULES} from '@/lib/data/sensoryV2Course'
 import {SensoryV2Lab} from '@/components/sensory-v2/SensoryV2Lab';
 import {SensoryConceptVisual} from '@/components/sensory-v2/SensoryConceptVisual';
 import {SENSORY_V2_DEEP_DIVES} from '@/lib/data/sensoryV2DeepDives';
+import {SENSORY_V2_WORKED_EXAMPLES} from '@/lib/data/sensoryV2WorkedExamples';
 
 export function generateStaticParams(){return SENSORY_V2_LESSONS.map(l=>({lessonId:l.id}));}
 export default function SensoryLessonPage({params}:{params:{lessonId:string}}){
@@ -25,7 +26,8 @@ export default function SensoryLessonPage({params}:{params:{lessonId:string}}){
   <div className="mt-8 border-t border-paper-300 pt-8"><MarkdownRenderer content={l.content}/></div>
   {l.order===1&&<SensoryConceptVisual moduleCode={m.code}/>} 
   {SENSORY_V2_DEEP_DIVES[l.id]&&<div className="mt-9 border-t border-paper-300 pt-6"><MarkdownRenderer content={SENSORY_V2_DEEP_DIVES[l.id]}/></div>}
-  {l.order===2&&<SensoryV2Lab moduleCode={m.code}/>}
+  {l.order===2&&<SensoryV2Lab moduleCode={m.code}/>} 
+  {SENSORY_V2_WORKED_EXAMPLES[l.id]&&<div className="mt-9 border-t border-paper-300 pt-6"><MarkdownRenderer content={SENSORY_V2_WORKED_EXAMPLES[l.id]}/></div>}
   {l.order===4&&<section className="mt-10 border-y border-paper-300 py-8">
    <h2 className="font-serif text-2xl font-semibold text-roast-950">Apa yang berubah setelah bukti baru muncul?</h2>
    <p className="mt-3 text-sm leading-7 text-roast-800">Uji dua situasi dengan informasi yang berkembang. Catat keputusan pertama, kemudian perbaiki setelah fakta berikutnya dibuka.</p>
