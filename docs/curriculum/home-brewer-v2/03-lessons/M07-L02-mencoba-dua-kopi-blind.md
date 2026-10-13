@@ -31,5 +31,3 @@ Bayangkan A disajikan saat masih panas, sedangkan B sudah cukup dingin. Kamu mem
 ## Coba pada situasi baru
 
 Tiga percobaan memberi pemenang yang berbeda. Apakah kamu harus mencari angka yang akan memaksa semua hasil sama? Tawarkan hipotesis tentang variabilitas dan desain ulangan berikutnya.
-
-**Apa yang kamu pelajari?** Jawab menggunakan bahasa sendiri: apa data yang mendukung, apa yang belum diketahui, dan percobaan aman apa yang akan memberikan informasi paling berguna berikutnya.
