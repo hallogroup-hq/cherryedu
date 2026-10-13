@@ -1,64 +1,53 @@
 # Business Roastery — Editorial Learning QA checkpoint
-**Date:** 2026-10-13  
-**Branch:** `feat/business-roastery-v1-curriculum` / PR #10  
-**Release policy:** No merge, no public deployment, no owner academic signoff. This document is internal editorial QA, not learner-facing.
 
-## Why automated coverage is not academic completeness
+**Audit date:** 2026-10-13  
+**Branch:** `feat/business-roastery-v1-curriculum` / PR #10 (unmerged)  
+**Purpose:** Internal quality record. Never display this document or its status terms in learner UI.
 
-The original course contained 21 modules and 84 uniquely titled 300+ word lessons, one distinctive field guide per module and one evolving decision case per module. However an independent inspection found:
-- **84/84 original lessons reused exactly the same ~139-word three-model comparison** instead of applying A, B, C to their specific subjects.
-- **84/84 original lessons reused exactly the same ~49-word checkpoint** even though learning objectives differed.
-- Counting words and checking that markdown headings exist did not detect this failure.
-- The 21 original field guides are useful original applications, but their presence in lesson three of each module does not substitute for a genuinely taught concept in all four lessons.
+## Audit findings and remediation
 
-Consequently **previous CI success must not be labeled academic readiness**.
+Initial inspection identified substantial copying: all 84 lessons contained an identical approximately 139-word A/B/C model description and an identical approximately 49-word diagnostic checkpoint. Those duplicates were pedagogically ineffective despite 84 lesson titles, 21 unique field guides, and 21 evolving cases. Previous passing automated tests covered structure and browser behavior, **not** the understanding a novice gains from the content.
 
-## Rewriting progress
+**Remediation complete in the authoring branch:**
+- **84/84** lessons have been rewritten where the boilerplate A/B/C model description once appeared: every lesson now connects the three possible roastery operating models to its actual topic, trade-offs, and consequences.
+- **84/84** lesson checkpoints now have topic-specific diagnostic questions rather than the copied 49-word template.
+- Every one of the 84 revised sections includes an operational worked illustration or decision case, usually quantitative; examples use explicitly hypothetical numbers unless a published, directional carrier reference is named and qualified.
+- Independent parse/inspection on 2026-10-13 found **84 distinct A/B/C teaching blocks**, **84 distinct checkpoints**, **minimum 339 words** among lessons, and **zero** learner-facing matches for DRAFT/PREVIEW/BETA/TBD/COMING SOON/LOREM IPSUM after final removal of editorial language.
+- The existing topic-centered introductory paragraph, evidence categorization scaffold, some assignment patterns, and one unique field guide per module remain. Teaching comprehension and page design still require human review; **unique copy alone is not proof of learning**.
 
-### Substantive replacements completed on this branch (16/84)
-- **B02, 4 lessons:** contract roasting responsibility, realistic saleable throughput, scaling procurement/roles, capacity-aware make-or-buy with 60% downside.
-- **B08, 4 lessons:** literal direction of published freight lanes; provider minimum and volumetric rules; cost bridge from invoice through received/rejected/roasted/sample; full lead-time/reorder-point calculations.
-- **B13, 4 lessons:** landed material vs variable conversion vs full manufacturing HPP; fixed vs variable labor; variance/yield sensitivity; inventory-to-COGS reconciliation.
-- **B16, 4 lessons:** why a valid PO may precede cash; CCC with supplier DP; AR aging and term exposure; 13-week cash runway and spending priorities.
-- All replacement market-like prices other than clearly referenced carrier listings are explicitly **hypothetical learning assumptions**; never claim live supplier rates.
-- Both common blocks were replaced with *lesson-specific* A/B/C decisions, calculations or operational demonstrations and diagnostic questions for these 16 lessons.
+## Covered modules
 
-### Still requiring substantive editorial rewrite (68/84)
-- **B01** industry and economic actors (4).
-- **B03–B07** demand, product, feasibility, legal and sourcing (20).
-- **B09–B12** facility safety, machine selection, roasting QA, packaging and fulfillment (16).
-- **B14–B15** pricing, channel economics, forecast, BEP and budget (8).
-- **B17–B21** B2B, D2C, people, KPI/contingency, export introduction and capstone (20).
+| Area | Modules | Lessons remediated |
+|---|---|---:|
+| Industry, scenarios, research, product, business planning | B01–B05 | 20 |
+| Legal, suppliers, freight, facility safety and machinery | B06–B10 | 20 |
+| Production QC, packaging, HPP, channel pricing and forecasting | B11–B15 | 20 |
+| Working capital, B2B, D2C/private label, team and KPIs | B16–B20 | 20 |
+| Export introduction and end-to-end business-plan capstone | B21 | 4 |
+| **Total** | **B01–B21** | **84** |
 
-Until these are rewritten and reviewed, treat the entire path as **editorially not ready** even if compilation, validator and all automated browser suites pass.
+## Quantitative model and UI fixes
 
-## Pedagogical acceptance criteria for each remaining lesson
+1. A/B/C comparator suppresses deceptively precise unit economics when output is above actual saleable capacity. Checks full expected demand and 60% downside, and keeps initial CAPEX separately visible.
+2. Cash ledger allows relative day 1–7 within each of 13 weeks and shows intraweek cash deficit even when week-end balance becomes positive; same-day outflows precede inflows conservatively absent timestamps.
+3. Flat-quote freight no longer displays a misleading weight-based freight bill.
+4. JSX text emphasis is rendered as proper tags rather than raw Markdown asterisks.
+5. Finance model defines absorbed full HPP for gross margin, variable manufacturing and channel costs for contribution, and fixed factory plus nonproduction overhead once for BEP.
+6. Fourteen Playwright checks are now authored, including tests for capacity, intraweek cash and flat freight. **Read current CI run status before claiming they pass.**
 
-1. Explain one specific mental model in accessible Indonesian *before* introducing jargon, exceptions or three scenario variants.
-2. Show causality: input/measurement → decision → operational consequence; do not just give an instruction to fill a table.
-3. A/B/C implications must be specific to the lesson, not a reusable paragraph describing business models. Each variant needs at least one trade-off.
-4. Include concrete worked evidence or a quantified example when appropriate. State whether amount is carrier-published, a learner-entered quote or an educational assumption. Never reverse freight directions or invent provider rates.
-5. End with a diagnostic question requiring demonstration/justification, not a universal template reused 84 times.
-6. Ensure legal/food-safety/tax guidance uses the applicable regulator and conditional business/product classification. Reverify the October 2026 sources near release.
-7. Preserve 21 evolving decisions, real financial tools, no demonstration videos for this version, no student progress writes, and no student-facing internal draft/review labels.
-8. Run independent expert/owner academic review and a novice learner comprehension pilot, then integrate into student catalog only under explicit release approval.
+## Still required for academic release
 
-## Engineering corrections in the same review pass
+- Verify carrier tariffs for the *actual direction and destination* with live written RFQs, including green-coffee acceptance, pickup, minimum, volumetric conventions, last-mile Sukabumi if appropriate, exclusions and taxes. Published sample lanes are estimates, not delivery offers.
+- Obtain real green-bean and equipment supplier quotations for realistic Indonesia case studies. Hypothetical exercises must remain plainly marked.
+- Indonesian specialist review of current coffee/food manufacturing licensing, halal status, BSN product standards and current tax classification; these change and differ by activity/product/entity.
+- Have a practicing roastery operator and Indonesian SME accountant validate teaching correctness and assumptions.
+- Run novice comprehension pilot: Can a student justify three-model selection, trace yields, calculate full HPP/gross/contribution/BEP, identify cash shortfall, and respond to new QC/supplier evidence without memorizing a recipe?
+- Owner academic signoff before publication. No demonstration videos in this release. No student progress writes in authoring path. No merge or deploy under this checkpoint.
 
-- A/B/C comparator suppresses apparently precise target-volume unit costs when monthly available capacity is below demand; also checks the 60% downside.
-- Cash planning now allows relative day 1–7 within each week and conservatively orders same-day outgoing payments before incoming receipts for liquidity-trough detection.
-- Flat freight prices do not render meaningless chargeable kilograms.
-- Raw Markdown bold markers inside ordinary JSX text were changed to real emphasis elements.
-- Finance model definitions updated: contribution margin excludes fixed absorbed manufacturing overhead; fixed plant plus fixed nonproduction costs are included once in the BEP numerator.
-- New Playwright tests cover these regressions; **the latest commit's results must be checked** separately from previous passing builds.
+## Evidence boundaries
 
-## Evidence policy
+- [Mandala Cargo](https://mandalacargo.id/jasa-pengiriman-cargo-makassar-ke-jabodetabek/), Makassar **to** Jabodetabek, advertised starting Rp3,500/kg, minimum 50 kg; **not** Makassar-to-Sukabumi delivery.
+- [IndoExpress](https://www.indoexpress.co.id/tarif/cargo-jakarta-ke-makassar.html), Jakarta **to** Makassar, published Rp6,100/kg, minimum 100 kg, exclusions; **cannot** reverse rate direction.
+- Localized prices for beans, labor, energy, packaging, machine and channel are learner-entered quote inputs or marked educational assumptions. Currency, origin, quality, weight, timing and liability must be normalized before comparison.
 
-Public cargo listings are directional *starting estimates*, not carrier quotations for a particular green-coffee commodity, pickup, dropoff or address:
-- [Mandala Cargo Makassar → Jabodetabek](https://mandalacargo.id/jasa-pengiriman-cargo-makassar-ke-jabodetabek/) from Rp3,500/kg minimum 50 kg (published reference).
-- [IndoExpress Jakarta → Makassar](https://www.indoexpress.co.id/tarif/cargo-jakarta-ke-makassar.html) sea Rp6,100/kg minimum 100 kg (published reference, not reverse direction).
-Sukabumi delivery, pickup details, add-on charges, tax, insurance, packing, exclusions, ETA, quality and supplier prices all still need transaction-specific written quotations.
-
-## Next gate
-
-Do not publish or call this path finished. Rewrite and academically QA the remaining 68 lessons, inspect visual/interaction comprehension rather than merely counting interactive elements, verify latest CI, and obtain external compliance/carrier verification and the owner's final curriculum signoff.
+**Status:** Distinct subject-matter teaching pass COMPLETE 84/84. Automated tests must be confirmed on latest HEAD; human academic, financial, food compliance, real carrier quotations, user pilot and final release approval remain OPEN.
