@@ -8,6 +8,7 @@ on:
       - 'lib/data/businessRoasteryReferences.ts'
       - 'docs/curriculum/business-roastery-v1/**'
       - 'scripts/validate-business-roastery.cjs'
+      - 'scripts/validate-business-roastery-numbers.cjs'
       - 'tests/business-roastery/**'
       - 'playwright.business-roastery.config.ts'
       - '.github/workflows/business-roastery-authoring-qa.yml'
@@ -23,6 +24,7 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: node scripts/validate-business-roastery.cjs
+      - run: node scripts/validate-business-roastery-numbers.cjs
       - run: npm run typecheck
       - run: npm run build
         env:
