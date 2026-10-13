@@ -100,13 +100,26 @@ test('M01 goal lab does not preselect a learner preference',async({page})=>{
  await expect(lab.getByRole('button',{name:'Bandingkan pertimbanganku'})).toBeDisabled();
 });
 
-test('ratio calculator distinguishes output mass and missing TDS',async({page})=>{
+test('ratio calculator distinguishes missing TDS from a measured value and rejects physically impossible EY',async({page})=>{
  await page.goto('/home-brewer-v2/hbv2-m03-l01');
  const lab=page.getByRole('region',{name:'Laboratorium konsep M03'});
+ const tds=lab.getByLabel('TDS, jika diketahui (%)');
  await expect(lab).toContainText('Rasio air masuk 1 : 15');
+ await expect(tds).toHaveValue('');
  await expect(lab).toContainText('EY tidak dapat dihitung tanpa pengukuran TDS.');
- await lab.getByLabel('TDS, jika diketahui (%)').fill('10');
- await expect(lab).toContainText('Estimasi EY');
+ await tds.fill('1.5');
+ await expect(lab).toContainText('Estimasi EY (model sederhana): 18,5%');
+ await tds.fill('10');
+ await expect(lab.getByRole('alert')).toContainText('EY di atas 100%');
+ await expect(lab).not.toContainText('Estimasi EY (model sederhana):');
+ await lab.getByRole('textbox',{name:/Mengapa rasio/}).fill('Tidak semua zat terlarut menyumbang karakter rasa yang sama dan preferensi setiap pencicip dapat berbeda.');
+ await expect(lab.getByRole('button',{name:'Periksa penjelasan'})).toBeDisabled();
+ await tds.fill('');
+ await expect(lab).toContainText('EY tidak dapat dihitung tanpa pengukuran TDS.');
+ await expect(lab.getByRole('button',{name:'Periksa penjelasan'})).toBeEnabled();
+ await lab.getByLabel('Kopi kering (g)').fill('0');
+ await expect(lab.getByRole('alert')).toContainText('Periksa massa');
+ await expect(lab.getByRole('button',{name:'Periksa penjelasan'})).toBeDisabled();
 });
 
 test('iced coffee formula maintains total water and separates ice from brew water',async({page})=>{
