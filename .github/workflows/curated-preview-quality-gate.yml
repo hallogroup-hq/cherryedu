@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - preview/cherryedu-curated-2026-10
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
