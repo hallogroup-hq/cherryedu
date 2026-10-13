@@ -18,7 +18,15 @@ Jangan mengubah setiap deskripsi jadi diagnosis proses: 'asam' bukan otomatis un
 
 Mulai dengan tiga kata sederhana untuk aroma, rasa dan tekstur. Setelah mencoba, tulis mana observasi dan mana penilaian kesukaan. Jika tidak ada kopi, baca dua contoh catatan dan tandai kalimat yang merupakan diagnosis tak didukung bukti.
 
-Pertama tentukan **tujuan percobaan**, lalu tulis **prediksi** dan **apa yang dapat membuat dugaanmu salah**. Tentukan faktor yang tetap dan berubah, lalu catat data secara jujur. Pengukuran fiktif bukan tasting nyata; selera pribadi bukan nilai salah-benar objektif. Biaya dan risiko peralatan juga menjadi bagian dari keputusan.
+## Latihan tiga lapis yang bisa dilakukan pemula
+
+Mulai dari **aroma**, yaitu kesan yang berkaitan dengan indra penciuman. Lanjutkan ke **rasa dasar**, misalnya asam dan pahit. Setelah itu amati **mouthfeel**, yakni sensasi tekstur seperti ringan, tebal, licin atau sepat. Ketiga lapis itu membantu supaya kata “kuat” tidak dipakai untuk menjelaskan semuanya.
+
+Ambil contoh deskripsi “seperti jeruk”. Bisa jadi orang sedang menunjuk aroma mirip kulit jeruk, rasa asam, atau gabungan keduanya. Pertanyaan sederhana “jeruknya lebih terasa ketika mencium atau ketika meneguk?” sering lebih berguna daripada menebak asal kopi. Kata flavor notes pada kemasan adalah bantuan komunikasi, **bukan** bukti ada bahan buah literal di dalam bubuk.
+
+**Latihan:** jika ada kopi yang aman dicicipi, beri waktu mendingin hingga nyaman. Tuliskan satu deskripsi untuk tiap lapisan. Tambahkan kolom terpisah “aku suka atau tidak, dan mengapa”. Jangan memaksa istilah seperti *stone fruit* bila pengalamanmu lebih tepat dijelaskan dengan kata sehari-hari. Jika belum bisa mengenali suatu aspek, tulis “belum bisa membedakan” sebagai data.
+
+**Situasi baru:** teman menggunakan kata “terlalu tajam”. Tanyakan maksudnya: acidity, bitterness, aroma tertentu, atau suhu minuman? Baru sesudah itu bentuk hipotesis seduhan. Pengamatan yang dapat dipahami bersama lebih penting daripada kosakata mewah.
 
 ## Coba pada situasi baru
 
