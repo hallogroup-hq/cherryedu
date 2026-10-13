@@ -31,5 +31,3 @@ Jika kamu sempat menimbang minuman yang keluar, angkanya juga tidak otomatis sam
 ## Saat situasinya berbeda
 
 Teman merekomendasikan cara baru yang memerlukan alat yang tidak kamu punya. Bagaimana memodifikasi tujuan eksperimennya agar tetap dapat diuji dengan penimbangan, waktu dan tasting saja?
-
-**Periksa pemahamanmu:** sebutkan satu informasi yang masih belum diketahui, dua kemungkinan sebab yang berbeda, dan satu eksperimen aman yang paling berpeluang membedakannya. Tidak ada angka resep universal yang menggantikan keputusan berdasarkan bukti.
