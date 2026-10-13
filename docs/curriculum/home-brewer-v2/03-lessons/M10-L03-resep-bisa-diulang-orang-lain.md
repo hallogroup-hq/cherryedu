@@ -31,5 +31,3 @@ Mintalah teman melakukan **paper walkthrough**: menunjuk kalimat mana yang tidak
 ## Tantangan transfer
 
 Teman tidak punya grinder atau kettle modelmu. Bagaimana menjelaskan target dan variabel yang relevan sehingga ia bisa beradaptasi, bukan cuma gagal mengikuti angka yang tak dapat ditiru?
-
-**Penutup pelajaran:** sebutkan satu variabel yang paling ingin kamu pahami, alasan memilihnya, dan kondisi yang akan membuatmu mengubah keputusan. Bila belum memiliki alat, latihan penalaran tetap valid tetapi bukan bukti keahlian praktik fisik.
