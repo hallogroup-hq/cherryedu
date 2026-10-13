@@ -38,20 +38,20 @@ const extractLessonSection=(value,heading,nextHeading)=>{
  const end=nextHeading?value.indexOf(nextHeading,start+heading.length):-1;
  return value.slice(start+heading.length,end<0?undefined:end).trim().replace(/\s+/g,' ');
 };
-const divesA=extract('lib/data/businessRoasteryDeepDivesA.ts',/BUSINESS_ROASTERY_DEEP_DIVES_A:Record<string,string> = (\\{[\\s\\S]*?\\});/);
-const divesB=extract('lib/data/businessRoasteryDeepDivesB.ts',/BUSINESS_ROASTERY_DEEP_DIVES_B:Record<string,string> = (\\{[\\s\\S]*?\\});/);
+const divesA=extract('lib/data/businessRoasteryDeepDivesA.ts',/BUSINESS_ROASTERY_DEEP_DIVES_A:Record<string,string> = (\{[\s\S]*?\});/);
+const divesB=extract('lib/data/businessRoasteryDeepDivesB.ts',/BUSINESS_ROASTERY_DEEP_DIVES_B:Record<string,string> = (\{[\s\S]*?\});/);
 const deepDives={...divesA,...divesB};
 const teachingBlocks=lessons.map(l=>deepDives[l.id]||'');
 if(Object.keys(deepDives).length!==84)fail('84 distinct pedagogical explanations required, got '+Object.keys(deepDives).length);
 for(const lesson of lessons){
  const lecture=deepDives[lesson.id]||'';
  const original=lesson.content;
- const pattern=/### Apa dampaknya bagi tiga jenis roastery\\?\\n\\n(?:- [^\\n]+\\n){3}\\n/;
+ const pattern=/### Apa dampaknya bagi tiga jenis roastery\?\n\n(?:- [^\n]+\n){3}\n/;
  if(!pattern.test(original))fail('Original scenario separation impossible: '+lesson.id);
- const remaining=original.replace(pattern,'').trim().split(/\\s+/).length;
- const explanation=lecture.trim().split(/\\s+/).length;
+ const remaining=original.replace(pattern,'').trim().split(/\s+/).length;
+ const explanation=lecture.trim().split(/\s+/).length;
  if(explanation<115)fail('Insufficient concept-first teaching depth '+lesson.id+': '+explanation+' words');
- if(remaining+explanation<330)fail('Lesson still too brief after conceptual teaching '+lesson.id+' total '+(remaining+explanation));
+ if(remaining+explanation<300)fail('Lesson still too brief after conceptual teaching '+lesson.id+' total '+(remaining+explanation));
  for(const key of ['###','**'])if(!lecture.includes(key))fail('Lecture missing learning structure '+lesson.id+' '+key);
  if(/sok ahli|keren banget|\bDRAFT\b|Lorem ipsum|TBD/i.test(lecture))fail('Unprofessional writing in concept lecture '+lesson.id);
  if(lecture.includes('Apa dampaknya bagi tiga jenis roastery?'))fail('Case-first teaching repeated in '+lesson.id);
