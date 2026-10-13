@@ -18,7 +18,15 @@ Jangan memaksakan 1:15 sebagai total air yang sempurna bagi semua iced filter. J
 
 Rancang dua versi iced brew dengan total air sama dan pembagian panas/es berbeda. Prediksikan perubahan proses dan pengalaman yang mungkin. Jika melakukannya nyata, rekam temperatur akhir secara aman bila tersedia, massa minuman/ice, waktu, serta tasting yang benar-benar dilakukan.
 
-Saat menulis eksperimen, bedakan prediksi, pengamatan nyata, dan data simulasi; jangan mengisi kolom tasting yang belum dilakukan. Periksa kelayakan bahan/air, alat food-safe, penyimpanan dan risiko panas. Nilai kemampuan belajar dari alasan yang bisa diuji dan keputusan saat keadaan berubah, bukan kepatuhan pada satu resep.
+## Pisahkan empat massa agar resep tidak menyesatkan
+
+Misalnya **15 g kopi**, **150 g air panas melewati bed**, dan **75 g es awal**. Total *air awal* yang dialokasikan adalah 225 g, tetapi angka tersebut **bukan** 225 g minuman akhir. Sebagian air seduh bisa tertahan di kopi/filter dan sebagian es mungkin belum mencair ketika minuman disajikan.
+
+Sekarang bandingkan dengan versi kedua: **175 g air panas melalui bed + 50 g es awal**. Kedua versi memiliki total air awal sama, tetapi **jumlah air yang terlibat langsung dalam ekstraksi berbeda**. Karena es berperan pada pendinginan dan pengenceran setelah minuman keluar, hasil kedua proses tidak dapat disamakan dengan satu label rasio.
+
+**Jurnal iced brew:** catat dosis, air panas yang dituang, massa minuman sebelum mengenai es bila bisa diukur, es awal, dan apakah es masih tersisa saat disajikan. Jangan mengisi “es meleleh 100%” hanya karena waktu sudah lewat beberapa menit. Beri label “belum diketahui” saat tidak ada pengukuran.
+
+**Eksperimen aman:** gunakan gelas tahan perubahan suhu sesuai petunjuk produsen, air dan es layak konsumsi, dan desain dua versi dengan satu perubahan utama yang jelas. Jika tamu menginginkan kopi lebih tegas, tanyakan apakah intensitas, volume atau sweetness yang ingin diubah. Menambah es bukan selalu jawaban terbaik.
 
 ## Tantangan transfer
 
