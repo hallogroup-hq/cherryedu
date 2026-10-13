@@ -58,6 +58,15 @@ for(const lesson of lessons){
 }
 if(!read(course).includes('for (const lesson of BUSINESS_ROASTERY_LESSONS)')||!read(course).includes('## Pelajari konsep dan cara kerjanya'))fail('Concept-first content not mounted on every lesson');
 
+const moduleLectures=extract('lib/data/businessRoasteryModuleLectures.ts',/BUSINESS_ROASTERY_MODULE_LECTURES:Record<string,string> = (\{[\s\S]*?\\});/);
+if(Object.keys(moduleLectures).length!==21)fail('21 introductory module lectures required');
+for(const mod of modules){
+ const introduction=moduleLectures[mod.code]||'';
+ if(introduction.trim().split(/\s+/).length<130)fail('Module lacks comprehensive concept introduction '+mod.code);
+ if(!introduction.startsWith('## ')||!introduction.includes('\n\n'))fail('Module introduction lacks readable sections '+mod.code);
+}
+if(new Set(Object.values(moduleLectures)).size!==21)fail('Duplicated module introduction');
+if(!read(course).includes('BUSINESS_ROASTERY_MODULE_LECTURES[lesson.moduleId]'))fail('Module introductions not mounted in lesson content');
 const diagnosticBlocks=lessons.map(l=>extractLessonSection(l.content,'### Checkpoint pemahaman'));
 if(teachingBlocks.some(x=>!x))fail('Missing original instructional concept section');
 if(diagnosticBlocks.some(x=>!x))fail('Missing diagnostic checkpoint');

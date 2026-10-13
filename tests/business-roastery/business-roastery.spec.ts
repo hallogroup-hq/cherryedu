@@ -283,3 +283,15 @@ test('mobile syllabus can be opened and chapter remains readable without horizon
  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
  expect(overflow).toBeLessThanOrEqual(2);
 });
+
+test('each module begins with explanatory fundamentals, useful terminology, and real diagram before cases',async({page})=>{
+ await page.goto('/business-roastery-v1/br-b01-l01');
+ await expect(page.getByRole('heading',{name:'Memahami apa yang sebenarnya dijual roastery'})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Istilah yang perlu kamu kenali'})).toBeVisible();
+ await expect(page.getByText('Rantai nilai',{exact:true})).toBeVisible();
+ await expect(page.getByText('Satu produk, lima tahapan berbeda')).toBeVisible();
+ await expect(page.getByText('Lihat penerapan pada tiga skala bisnis')).toBeVisible();
+ const lesson=await page.locator('article').innerText();
+ expect(lesson.indexOf('Memahami apa yang sebenarnya dijual roastery')).toBeLessThan(lesson.indexOf('Pelajari konsep dan cara kerjanya'));
+ await expect(page.getByRole('heading',{name:'Lihat contoh penerapan'})).toHaveCount(0);
+});
