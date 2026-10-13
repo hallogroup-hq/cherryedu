@@ -18,7 +18,13 @@ Kesalahan umum adalah memakai nomor grinder berbeda sebagai satuan universal. Se
 
 Buat dua hipotesis saat flow tiba-tiba melambat: grind yang berubah atau filter/pola tuang yang berubah. Pilih pengamatan yang dapat membedakannya sebelum mengatur grinder berulang-ulang. Jika tak punya grinder, gunakan kopi preground dari satu batch untuk membandingkan faktor lain secara terkendali.
 
-Sebelum mencoba, pisahkan **tujuan**, **prediksi**, **apa yang diubah**, **apa yang dijaga**, dan **apa yang benar-benar diamati**. Jika latihan menggunakan angka ilustrasi, tandai hasil sebagai simulasi. Jangan menuliskan hasil rasa seolah kamu sudah mencicipinya. Seduh nyata hanya dengan wadah yang sesuai, air aman dan prosedur peralatan dari produsennya.
+## Mengapa satu nomor grinder tidak menceritakan semuanya?
+
+Bayangkan satu ember berisi kerikil besar dan pasir halus. Dua ember bisa mempunyai ukuran batu “rata-rata” mirip, tetapi jumlah pasir halus yang berbeda akan memengaruhi cara air melewatinya. Analogi ini menjelaskan mengapa **distribusi ukuran partikel** perlu dipikirkan, bukan hanya angka knob. Bubuk halus dapat berpindah selama seduhan dan memengaruhi hambatan filter; hal ini tidak berarti setiap bed lambat pasti tersumbat fines.
+
+Perhatikan juga **retensi**: sebagian bubuk mungkin tertinggal di ruang grinder dari penggunaan sebelumnya. Jika kopi masuk 15 g dan yang keluar tidak selalu persis sama, catat selisihnya sebelum menilai hasil. Pastikan timbangan digunakan konsisten dan jangan menyentuh burr atau ruang bergerak ketika alat menyala.
+
+**Percobaan sederhana:** dengan satu biji dan filter sama, bandingkan setelan X dan Y yang memang diizinkan pada grindermu. Ukur bubuk hasil giling, timbang air masuk, dan tentukan definisi waktu dari awal yang sama. Tuliskan lebih dulu: “Aku menduga setelan Y membuat aliran lebih lambat dalam setup ini.” Jika Y ternyata tidak lebih lambat, hipotesis itu tidak didukung pada kondisi tersebut. Jika terpaksa membeli preground, jangan berpura-pura pernah mengukur distribusi partikelnya: gunakan pertanyaan seduh lain yang bisa diuji.
 
 ## Tantangan saat kondisi berubah
 
