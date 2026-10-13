@@ -31,5 +31,3 @@ Jika ingin mencicipi seduhan yang sama saat hangat dan lebih dingin, tunggu hing
 ## Tantangan saat kondisi berubah
 
 Teman memberi penilaian yang berbeda pada cangkir sama. Buat satu cara membandingkan catatan kalian tanpa mencari siapa yang lebih 'ahli'. Apa yang harus kalian samakan: waktu, suhu, identitas sampel, atau semua faktor sejauh mungkin?
-
-**Jurnal pribadi:** Apa hal yang baru kamu pahami, asumsi mana yang masih perlu diperiksa, dan eksperimen paling sederhana apa yang bisa menjawabnya pada sesi berikutnya? Jawaban yang beralasan boleh berbeda dari resep orang lain.
