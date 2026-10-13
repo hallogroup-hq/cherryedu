@@ -47,5 +47,3 @@ Baru setelah itu bandingkan. Ketika berbeda, coba deskripsikan ulang dengan acua
 Sekarang kamu mendapat permintaan: “Aku tidak suka kopi yang terlalu asam, tapi tetap ingin aromanya terasa.” Kamu tidak harus menolak kopi yang kamu sendiri sukai. Tanyakan dulu apa arti “asam” bagi tamu tersebut dan pengalaman apa yang diinginkan.
 
 Buat **hipotesis**, bukan janji: mungkin kopi lain, metode lain atau penyesuaian resep akan lebih sesuai. Pilih satu pembanding yang masuk akal lalu minta umpan balik. Jika tamu tidak suka hasilnya, revisi keputusan berdasarkan pengamatan, bukan dengan menyalahkan lidahnya.
-
-**Periksa pemahamanmu:** buat satu kalimat deskriptif dan satu kalimat preferensi tentang cangkir yang pernah benar-benar kamu minum. Apa informasi yang masih belum diketahui? Apa yang akan kamu tanyakan sebelum membuat kopi untuk orang dengan preferensi berbeda?
