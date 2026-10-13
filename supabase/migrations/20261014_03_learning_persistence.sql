@@ -54,14 +54,15 @@ CREATE INDEX IF NOT EXISTS idx_quiz_attempts_quiz_id ON public.quiz_attempts(qui
 
 -- 4. Learning Event Receipts (for idempotent multi-instance synchronization)
 CREATE TABLE IF NOT EXISTS public.learning_event_receipts (
-    event_id TEXT PRIMARY KEY,
+    event_id TEXT NOT NULL,
     user_id TEXT NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
     event_type TEXT NOT NULL,
     payload_hash TEXT NOT NULL,
-    processed_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    processed_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    PRIMARY KEY (user_id, event_id)
 );
 
-CREATE INDEX IF NOT EXISTS idx_learning_receipts_user_id ON public.learning_event_receipts(user_id);
+CREATE INDEX IF NOT EXISTS idx_learning_receipts_user_lookup ON public.learning_event_receipts(user_id, event_type, payload_hash);
 
 -- 5. Row Level Security for Learning Persistence Tables
 ALTER TABLE public.enrollments ENABLE ROW LEVEL SECURITY;

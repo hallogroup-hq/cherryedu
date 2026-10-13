@@ -4,47 +4,41 @@ import { UserAuthContext, RoleCode, StaffPermissionCode, OrganizationMembership 
 import { AuthorizationError } from './authz';
 import { query } from '@/lib/db';
 
-export const JWT_SECRET =
-  process.env.SUPABASE_JWT_SECRET ||
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-  'cherryedu-staging-auth-jwt-secret-secure-key-2026';
-
 export interface DecodedToken {
   sub: string; // user id
   email?: string;
   role?: string;
   exp: number;
-  aud?: string;
+  nbf?: number;
+  aud?: string | string[];
+  iss?: string;
 }
 
 /**
- * Creates a cryptographically signed HS256 JWT for testing/authenticated sessions
+ * Returns server Supabase JWT Secret.
+ * Strictly fails closed if not configured.
  */
-export function createSignedToken(payload: Partial<DecodedToken> & { sub: string }): string {
-  const header = { alg: 'HS256', typ: 'JWT' };
-  const fullPayload: DecodedToken = {
-    exp: Math.floor(Date.now() / 1000) + 3600, // 1 hour default
-    aud: 'authenticated',
-    ...payload,
-  };
-
-  const headerB64 = Buffer.from(JSON.stringify(header)).toString('base64url');
-  const payloadB64 = Buffer.from(JSON.stringify(fullPayload)).toString('base64url');
-  const signature = crypto
-    .createHmac('sha256', JWT_SECRET)
-    .update(`${headerB64}.${payloadB64}`)
-    .digest('base64url');
-
-  return `${headerB64}.${payloadB64}.${signature}`;
+function getJwtSecret(): string {
+  const secret = process.env.SUPABASE_JWT_SECRET;
+  if (!secret || secret.trim() === '') {
+    throw new AuthorizationError(
+      'AUTH_CONFIG_MISSING',
+      'Konfigurasi secret otentikasi server (SUPABASE_JWT_SECRET) tidak ditemukan. Sistem menolak seluruh permintaan secara fail-closed.',
+      500
+    );
+  }
+  return secret.trim();
 }
 
 /**
- * Validates a JWT token cryptographically and checks for expiration.
+ * Validates a JWT token cryptographically and checks for expiration, audience, algorithm, and tampering.
  */
 export function verifyJwtToken(token: string): DecodedToken {
   if (!token || typeof token !== 'string') {
     throw new AuthorizationError('INVALID_TOKEN', 'Token otentikasi kosong atau tidak valid.', 401);
   }
+
+  const jwtSecret = getJwtSecret();
 
   const parts = token.trim().split('.');
   if (parts.length !== 3) {
@@ -52,15 +46,35 @@ export function verifyJwtToken(token: string): DecodedToken {
   }
 
   const [headerB64, payloadB64, signature] = parts;
-  const data = `${headerB64}.${payloadB64}`;
 
-  // Signature check
+  // 1. Validate Header
+  let header: { alg?: string; typ?: string };
+  try {
+    const headerJson = Buffer.from(headerB64, 'base64url').toString('utf8');
+    header = JSON.parse(headerJson);
+  } catch {
+    throw new AuthorizationError('MALFORMED_HEADER', 'Header JWT tidak dapat diurai.', 401);
+  }
+
+  if (header.alg !== 'HS256') {
+    throw new AuthorizationError(
+      'UNSUPPORTED_ALGORITHM',
+      `Algoritma token "${header.alg}" tidak diizinkan. Hanya HS256 yang didukung.`,
+      401
+    );
+  }
+
+  // 2. Cryptographic Signature Verification (timing-safe)
+  const data = `${headerB64}.${payloadB64}`;
   const expectedSig = crypto
-    .createHmac('sha256', JWT_SECRET)
+    .createHmac('sha256', jwtSecret)
     .update(data)
     .digest('base64url');
 
-  if (signature !== expectedSig) {
+  const sigBuf = Buffer.from(signature);
+  const expBuf = Buffer.from(expectedSig);
+
+  if (sigBuf.length !== expBuf.length || !crypto.timingSafeEqual(sigBuf, expBuf)) {
     throw new AuthorizationError(
       'FORGED_TOKEN',
       'Tanda tangan token otentikasi tidak valid atau telah dimanipulasi.',
@@ -68,12 +82,23 @@ export function verifyJwtToken(token: string): DecodedToken {
     );
   }
 
+  // 3. Validate Payload Claims
   try {
     const payloadJson = Buffer.from(payloadB64, 'base64url').toString('utf8');
     const payload = JSON.parse(payloadJson) as DecodedToken;
 
+    if (!payload.sub || typeof payload.sub !== 'string' || payload.sub.trim() === '') {
+      throw new AuthorizationError(
+        'INVALID_TOKEN_PAYLOAD',
+        'Payload token tidak memiliki sub (user_id) yang sah.',
+        401
+      );
+    }
+
     const nowSec = Math.floor(Date.now() / 1000);
-    if (payload.exp && payload.exp < nowSec) {
+
+    // Expiry check
+    if (typeof payload.exp !== 'number' || payload.exp < nowSec) {
       throw new AuthorizationError(
         'EXPIRED_SESSION',
         'Sesi login telah kedaluwarsa. Silakan masuk kembali.',
@@ -81,12 +106,25 @@ export function verifyJwtToken(token: string): DecodedToken {
       );
     }
 
-    if (!payload.sub) {
+    // Not before check
+    if (payload.nbf && typeof payload.nbf === 'number' && payload.nbf > nowSec) {
       throw new AuthorizationError(
-        'INVALID_TOKEN_PAYLOAD',
-        'Payload token tidak memiliki sub (user_id).',
+        'SESSION_NOT_YET_VALID',
+        'Token otentikasi belum dapat digunakan (nbf claim).',
         401
       );
+    }
+
+    // Audience check (Supabase access tokens carry aud: 'authenticated')
+    if (payload.aud) {
+      const audList = Array.isArray(payload.aud) ? payload.aud : [payload.aud];
+      if (!audList.includes('authenticated')) {
+        throw new AuthorizationError(
+          'INVALID_AUDIENCE',
+          'Audience token otentikasi tidak valid untuk sesi pengguna.',
+          401
+        );
+      }
     }
 
     return payload;
@@ -98,9 +136,9 @@ export function verifyJwtToken(token: string): DecodedToken {
 
 /**
  * Resolves the authenticated UserAuthContext strictly from the database.
- * 1. Verifies Bearer token.
- * 2. Fetches user record from auth.users.
- * 3. Queries real organization memberships and roles from b2b.organization_memberships.
+ * 1. Verifies Bearer token cryptographically.
+ * 2. Fetches user record from auth.users and public.profiles.
+ * 3. Queries active organization memberships and roles from b2b.organization_memberships.
  * 4. Queries internal staff permissions from b2b.internal_staff_permissions.
  * 5. Rejects suspended memberships and revoked permissions.
  */
@@ -181,6 +219,7 @@ export async function resolveTeamsUser(
 
   // Determine active membership
   let activeMembership: OrganizationMembership | null = null;
+  let assignedCohorts: string[] | undefined = undefined;
   const memberships = memberResult.rows;
 
   if (targetOrgId) {
@@ -204,6 +243,35 @@ export async function resolveTeamsUser(
           created_at: target.created_at,
         };
       }
+    } else if (staffPermissions.includes('cherry_trainer')) {
+      // Scoped access: Check if trainer has active cohort assignment in target organization
+      const assignmentRes = await query<{ cohort_id: string }>(
+        `SELECT cohort_id::text
+         FROM b2b.trainer_assignments
+         WHERE organization_id = $1 AND trainer_user_id = $2
+           AND active_from <= NOW() AND (active_until IS NULL OR active_until >= NOW())`,
+        [targetOrgId, dbUser.id]
+      );
+      if (assignmentRes.rows.length > 0) {
+        assignedCohorts = assignmentRes.rows.map((r) => r.cohort_id);
+        activeMembership = {
+          id: `trainer-${dbUser.id}`,
+          organization_id: targetOrgId,
+          user_id: dbUser.id,
+          status: 'active',
+          roles: ['trainer'],
+          created_at: new Date().toISOString(),
+        };
+      }
+    } else if (staffPermissions.includes('platform_admin')) {
+      activeMembership = {
+        id: `admin-${dbUser.id}`,
+        organization_id: targetOrgId,
+        user_id: dbUser.id,
+        status: 'active',
+        roles: ['client_manager'],
+        created_at: new Date().toISOString(),
+      };
     }
   } else if (memberships.length > 0) {
     // Default to first active membership if none specified
@@ -228,5 +296,6 @@ export async function resolveTeamsUser(
     activeOrganizationId: activeMembership?.organization_id || null,
     activeMembership,
     staffPermissions,
+    assignedCohorts,
   };
 }

@@ -34,12 +34,8 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Optional test settlement token header (for automated testing of gateway simulation)
-    const testSettlementToken = req.headers.get('x-test-settlement-token') || undefined;
-
-    const result = await confirmOrderPayment(authenticatedUserId, orderId, {
-      testSettlementToken,
-    });
+    // Call server-authoritative payment confirmation service (no test bypass headers allowed)
+    const result = await confirmOrderPayment(authenticatedUserId, orderId);
 
     return NextResponse.json(result, { status: 200 });
   } catch (error: any) {
@@ -58,10 +54,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(
       {
         success: false,
-        error: 'Terjadi kesalahan internal pada server.',
-        code: 'INTERNAL_SERVER_ERROR',
+        error: error.message || 'Terjadi kesalahan internal pada server.',
+        code: error.code || 'INTERNAL_SERVER_ERROR',
       },
-      { status: 500 }
+      { status: error.status || 500 }
     );
   }
 }

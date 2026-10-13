@@ -28,20 +28,57 @@ export async function GET(
     const orgId = params.orgId;
     const user = await resolveTeamsUser(req, orgId);
 
-    assertMembership(user, orgId);
+    const membership = assertMembership(user, orgId);
 
-    const res = await query<any>(
-      `SELECT pa.id, pa.organization_id, pa.enrollment_id, pa.competency_id,
-              pa.rubric_version_id, pa.training_session_id, pa.assessor_user_id,
-              pa.status, pa.attempt_no, pa.started_at, pa.submitted_at,
-              s.assessor_type, s.signed_at as signed_off_at
-       FROM b2b.practical_assessments pa
-       LEFT JOIN b2b.assessment_signoffs s ON s.assessment_id = pa.id
-       WHERE pa.organization_id = $1
-       ORDER BY pa.created_at DESC`,
-      [orgId]
-    );
+    // Object-level authorization filters
+    const isOwnerOrManager =
+      user.staffPermissions.includes('platform_admin') ||
+      membership.roles.includes('owner') ||
+      membership.roles.includes('client_manager');
 
+    const isHeadBar = membership.roles.includes('head_bar');
+    const isTrainer =
+      user.staffPermissions.includes('cherry_trainer') ||
+      membership.roles.includes('trainer');
+
+    let sql = `
+      SELECT pa.id, pa.organization_id, pa.enrollment_id, pa.competency_id,
+             pa.rubric_version_id, pa.session_id as training_session_id, pa.assessor_user_id,
+             pa.status, pa.attempt_no, pa.started_at, pa.submitted_at,
+             s.decision, s.signed_by, s.signed_at as signed_off_at
+      FROM b2b.practical_assessments pa
+      JOIN b2b.enrollments e ON e.id = pa.enrollment_id
+      LEFT JOIN b2b.assessment_signoffs s ON s.assessment_id = pa.id
+      WHERE pa.organization_id = $1
+    `;
+    const sqlParams: any[] = [orgId];
+
+    if (isOwnerOrManager) {
+      // Full tenant access
+    } else if (isTrainer) {
+      // Scoped to assigned cohorts
+      const assignedCohorts = user.assignedCohorts || [];
+      if (assignedCohorts.length === 0) {
+        return NextResponse.json({ success: true, assessments: [] });
+      }
+      sqlParams.push(assignedCohorts);
+      sql += ` AND e.cohort_id = ANY($${sqlParams.length}::uuid[])`;
+    } else if (isHeadBar) {
+      // Scoped to assigned outlets
+      const outletScopes = membership.outlet_scopes || [];
+      if (outletScopes.length > 0) {
+        sqlParams.push(outletScopes);
+        sql += ` AND (e.outlet_id = ANY($${sqlParams.length}::uuid[]) OR e.outlet_id IS NULL)`;
+      }
+    } else {
+      // Barista/Learner: object-level restriction to own assessments only
+      sqlParams.push(user.userId);
+      sql += ` AND e.user_id = $${sqlParams.length}::uuid`;
+    }
+
+    sql += ` ORDER BY pa.started_at DESC`;
+
+    const res = await query<any>(sql, sqlParams);
     return NextResponse.json({ success: true, assessments: res.rows });
   } catch (err: any) {
     if (err instanceof AuthorizationError) {
@@ -168,9 +205,12 @@ export async function POST(
         );
       }
 
-      // 4.1. Verify enrollment and get cohort
-      const enrollRes = await query<{ id: string; cohort_id: string; user_id: string }>(
-        `SELECT id, cohort_id, user_id FROM b2b.enrollments WHERE id = $1 AND organization_id = $2`,
+      // 4.1. Verify enrollment and program version
+      const enrollRes = await query<{ id: string; cohort_id: string; user_id: string; program_version_id: string }>(
+        `SELECT e.id, e.cohort_id, e.user_id, c.program_version_id
+         FROM b2b.enrollments e
+         JOIN b2b.cohorts c ON c.id = e.cohort_id
+         WHERE e.id = $1 AND e.organization_id = $2`,
         [enrollmentId, orgId]
       );
 
@@ -183,8 +223,7 @@ export async function POST(
 
       const enrollment = enrollRes.rows[0];
 
-      // 4.2. Server-Authoritative Assessor Verification (NO TRUST IN CLIENT REQUEST BODY)
-      // Check if user is officially assigned trainer for this cohort in b2b.trainer_assignments
+      // 4.2. Server-Authoritative Assessor Verification
       const trainerAssignmentRes = await query<{ id: string }>(
         `SELECT id FROM b2b.trainer_assignments 
          WHERE organization_id = $1 AND cohort_id = $2 AND trainer_user_id = $3
@@ -193,7 +232,6 @@ export async function POST(
       );
       const isAssignedTrainer = trainerAssignmentRes.rows.length > 0;
 
-      // Check if user has explicit delegated assessment permissions
       const delegationRes = await query<{ id: string }>(
         `SELECT id FROM b2b.internal_staff_permissions
          WHERE user_id = $1 AND permission_code = 'assessment_quality_reviewer' AND revoked_at IS NULL`,
@@ -207,17 +245,38 @@ export async function POST(
         isDelegatedAssessor,
       });
 
-      // 4.3. Server-Authoritative Online Theory Completion Check (strictly from database, not client)
-      const progressCountRes = await query<{ count: string }>(
-        `SELECT COUNT(*) as count 
-         FROM b2b.learning_step_progress 
-         WHERE enrollment_id = $1 AND state = 'completed'`,
-        [enrollmentId]
+      // 4.3. Validate Rubric Version & Competency Relation from Database (Fail Closed)
+      const rubricRes = await query<{ id: string; status: string; competency_id: string }>(
+        `SELECT rv.id, rv.status, r.competency_id
+         FROM b2b.rubric_versions rv
+         JOIN b2b.rubrics r ON r.id = rv.rubric_id
+         WHERE rv.id = $1`,
+        [rubricVersionId]
       );
-      const completedSteps = parseInt(progressCountRes.rows[0]?.count || '0', 10);
-      const hasCompletedOnlineLessons = completedSteps > 0;
 
-      // 4.4. Fetch Official Rubric Definition from Database
+      if (rubricRes.rows.length === 0) {
+        return NextResponse.json(
+          { success: false, error: `Rubrik dengan ID "${rubricVersionId}" tidak ditemukan.`, code: 'RUBRIC_NOT_FOUND' },
+          { status: 422 }
+        );
+      }
+
+      const rubric = rubricRes.rows[0];
+      if (rubric.status !== 'published') {
+        return NextResponse.json(
+          { success: false, error: 'Rubrik belum dipublikasikan (status bukan published).', code: 'RUBRIC_NOT_PUBLISHED' },
+          { status: 422 }
+        );
+      }
+
+      if (rubric.competency_id !== competencyId) {
+        return NextResponse.json(
+          { success: false, error: 'Rubrik yang digunakan tidak sesuai dengan kompetensi yang diuji.', code: 'RUBRIC_COMPETENCY_MISMATCH' },
+          { status: 422 }
+        );
+      }
+
+      // Fetch Official Rubric Criteria (No Hardcoded Fallback!)
       const criteriaRes = await query<{
         code: string;
         description: string;
@@ -230,6 +289,13 @@ export async function POST(
         [rubricVersionId]
       );
 
+      if (criteriaRes.rows.length === 0) {
+        return NextResponse.json(
+          { success: false, error: 'Kriteria rubrik tidak ditemukan pada database (rubrik kosong).', code: 'RUBRIC_CRITERIA_EMPTY' },
+          { status: 422 }
+        );
+      }
+
       const officialCriteria: RubricCriterionDefinition[] = criteriaRes.rows.map((r) => ({
         code: r.code,
         description: r.description,
@@ -237,15 +303,38 @@ export async function POST(
         is_critical: r.is_critical,
       }));
 
-      // Fallback: If staging test has not seeded rubric_criteria for this ID, use standard SKKNI criteria
-      const effectiveCriteria =
-        officialCriteria.length > 0
-          ? officialCriteria
-          : [
-              { code: 'crit-dose', description: 'Ketepatan Dosis Biji Kopi', weight: 1.0, is_critical: false },
-              { code: 'crit-tamp', description: 'Kerapian Tamping & Distribusi', weight: 1.0, is_critical: true },
-              { code: 'crit-cleanliness', description: 'Kebersihan Portafilter & Steam Wand', weight: 1.0, is_critical: true },
-            ];
+      // 4.4. Server-Authoritative Required Steps & Prerequisites Validation
+      const requiredStepsRes = await query<{ id: string; title_override: string; step_type: string }>(
+        `SELECT id, title_override, step_type
+         FROM b2b.program_steps
+         WHERE program_version_id = $1 AND is_required = true`,
+        [enrollment.program_version_id]
+      );
+
+      if (requiredStepsRes.rows.length > 0) {
+        const requiredStepIds = requiredStepsRes.rows.map((s) => s.id);
+        const completedStepsRes = await query<{ program_step_id: string }>(
+          `SELECT program_step_id
+           FROM b2b.learning_step_progress
+           WHERE enrollment_id = $1 AND state = 'completed' AND program_step_id = ANY($2::uuid[])`,
+          [enrollmentId, requiredStepIds]
+        );
+
+        const completedSet = new Set(completedStepsRes.rows.map((r) => r.program_step_id));
+        const missingSteps = requiredStepsRes.rows.filter((s) => !completedSet.has(s.id));
+
+        if (missingSteps.length > 0) {
+          return NextResponse.json(
+            {
+              success: false,
+              error: `Prasyarat pembelajaran teori online belum diselesaikan: ${missingSteps.map((m) => m.title_override || m.id).join(', ')}.`,
+              code: 'PREREQUISITES_NOT_MET',
+              missing_step_ids: missingSteps.map((m) => m.id),
+            },
+            { status: 422 }
+          );
+        }
+      }
 
       // 4.5. Run Authoritative Pedagogical Gate Evaluation
       const submittedCriterionResults: CriterionResult[] = body.criterion_results || [];
@@ -275,9 +364,9 @@ export async function POST(
 
       const evaluation = evaluateCompetency({
         competencyId,
-        hasCompletedOnlineLessons,
+        hasCompletedOnlineLessons: true,
         latestAssessment,
-        officialRubricCriteria: effectiveCriteria,
+        officialRubricCriteria: officialCriteria,
       });
 
       if (evaluation.state !== 'competent') {
@@ -292,8 +381,11 @@ export async function POST(
         );
       }
 
-      // 4.6. Atomic Database Transaction: Save Assessment, Criteria, Signoff, Evidence, and Update Competency Status
+      // 4.6. Atomic Database Transaction with Row Lock on Enrollment
       return withTransaction(async (client) => {
+        // Lock enrollment row
+        await client.query(`SELECT id FROM b2b.enrollments WHERE id = $1 FOR UPDATE`, [enrollmentId]);
+
         const assessmentInsert = await client.query<{ id: string }>(
           `INSERT INTO b2b.practical_assessments (
              organization_id, enrollment_id, competency_id,
@@ -352,7 +444,7 @@ export async function POST(
           [orgId, enrollmentId, competencyId]
         );
 
-        // Also record in b2b.competency_evidence
+        // Record in b2b.competency_evidence
         await client.query(
           `INSERT INTO b2b.competency_evidence (
              organization_id, enrollment_id, competency_id, evidence_type, source_record_ref, rubric_version_id, verification_status, recorded_at

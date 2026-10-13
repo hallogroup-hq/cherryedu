@@ -16,6 +16,7 @@
     "test:e2e:report": "playwright show-report",
     "test:foundation": "node scripts/validate-foundation-v2.cjs",
     "test:teams:staging": "npx tsx teams/tests/verify_staging_integration.ts",
+    "test:teams:http": "npx tsx teams/tests/verify_http_e2e.ts",
     "typecheck": "tsc --noEmit",
     "predev": "node scripts/generate-foundation-v2-preview.cjs",
     "prebuild": "node scripts/generate-foundation-v2-preview.cjs",

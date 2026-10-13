@@ -1,6 +1,7 @@
+import crypto from 'crypto';
 import { query, withTransaction } from './db';
 import { UserProgress, QuizAttempt, Enrollment, ProgressStatus } from './types';
-import { SEED_QUIZZES, SEED_QUESTIONS } from './data/seedData';
+import { SEED_QUIZZES, SEED_QUESTIONS, SEED_PATHS, SEED_MODULES, SEED_LESSONS } from './data/seedData';
 
 export interface ProgressSyncItem {
   lesson_id: string;
@@ -49,6 +50,16 @@ export interface QuizSubmissionResult {
 }
 
 /**
+ * Returns canonical lesson IDs belonging to a given learning path.
+ */
+function getCanonicalLessonIdsForPath(pathId: string): string[] {
+  const moduleIds = new Set(
+    SEED_MODULES.filter((m) => m.learning_path_id === pathId).map((m) => m.id)
+  );
+  return SEED_LESSONS.filter((l) => moduleIds.has(l.module_id)).map((l) => l.id);
+}
+
+/**
  * Server-authoritative Database Learning Persistence Service.
  * Canonical Source of Truth: PostgreSQL database (public.lesson_progress, public.enrollments, public.quiz_attempts).
  * Consistent across multiple server instances and persistent across process restarts.
@@ -57,6 +68,7 @@ export class DatabaseLearningService {
   /**
    * Idempotently syncs progress and enrollments to the PostgreSQL database in a transaction.
    * User identity is strictly derived from the authenticated server session.
+   * Server recalculates progress percent from versioned curriculum.
    */
   public async syncProgress(
     userId: string,
@@ -70,15 +82,15 @@ export class DatabaseLearningService {
     const eventId = payload.event_id || `evt-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
 
     return withTransaction(async (client) => {
-      // 1. Idempotency Check across multi-instance server deployments
+      // 1. Idempotency Check across multi-instance server deployments (scoped strictly to user_id)
       if (payload.event_id) {
         const existingReceipt = await client.query(
-          `SELECT event_id, processed_at FROM public.learning_event_receipts WHERE event_id = $1`,
-          [payload.event_id]
+          `SELECT event_id, processed_at FROM public.learning_event_receipts WHERE user_id = $1 AND event_id = $2`,
+          [userId, payload.event_id]
         );
 
         if (existingReceipt.rows.length > 0) {
-          // Event already processed; fetch and return current authoritative state idempotently
+          // Event already processed for this user; fetch and return current authoritative state idempotently
           const userProgress = await this.getUserProgressFromClient(client, userId);
           const userEnrollments = await this.getUserEnrollmentsFromClient(client, userId);
           return {
@@ -92,11 +104,18 @@ export class DatabaseLearningService {
           };
         }
 
-        // Record receipt
+        // Canonical payload hash
+        const canonicalPayloadHash = crypto
+          .createHash('sha256')
+          .update(JSON.stringify({ progress: payload.progress, enrollments: payload.enrollments }))
+          .digest('hex');
+
+        // Record receipt scoped to user_id
         await client.query(
           `INSERT INTO public.learning_event_receipts (event_id, user_id, event_type, payload_hash, processed_at)
-           VALUES ($1, $2, 'progress_sync', $3, NOW())`,
-          [payload.event_id, userId, JSON.stringify(payload).length.toString()]
+           VALUES ($1, $2, 'progress_sync', $3, NOW())
+           ON CONFLICT (user_id, event_id) DO NOTHING`,
+          [payload.event_id, userId, canonicalPayloadHash]
         );
       }
 
@@ -106,8 +125,16 @@ export class DatabaseLearningService {
       for (const item of payload.progress) {
         if (!item.lesson_id) continue;
 
+        // Verify lesson exists in canonical seed curriculum or quizzes
+        const isValidLesson =
+          SEED_LESSONS.some((l) => l.id === item.lesson_id) ||
+          SEED_QUIZZES.some((q) => q.id === item.lesson_id);
+        if (!isValidLesson) {
+          continue; // Skip unrecognized lesson IDs
+        }
+
         const timeSpent = Math.max(0, item.time_spent_seconds || 0);
-        const incomingStatus = item.status || 'not_started';
+        const incomingStatus = item.status === 'completed' ? 'completed' : (item.status === 'in_progress' ? 'in_progress' : 'not_started');
         const updatedAt = item.updated_at || now;
         const completedAt = incomingStatus === 'completed' ? (item.completed_at || now) : null;
 
@@ -136,14 +163,31 @@ export class DatabaseLearningService {
         syncedCount++;
       }
 
-      // 3. Process Enrollments if provided
+      // 3. Process Enrollments: Server-authoritative recalculation
       if (payload.enrollments) {
         for (const enr of payload.enrollments) {
           if (!enr.learning_path_id) continue;
 
-          // Compute real server-side progress percentage based on completed lessons
-          const percent = Math.min(100, Math.max(0, enr.progress_percent || 0));
-          const status = percent >= 100 || enr.status === 'completed' ? 'completed' : 'active';
+          // Verify path exists in canonical curriculum
+          const pathExists = SEED_PATHS.some((p) => p.id === enr.learning_path_id);
+          if (!pathExists) continue;
+
+          // Recompute progress percent server-side from canonical curriculum
+          const pathLessons = getCanonicalLessonIdsForPath(enr.learning_path_id);
+          let calculatedPercent = 0;
+
+          if (pathLessons.length > 0) {
+            const countRes = await client.query<{ count: string }>(
+              `SELECT COUNT(*) as count
+               FROM public.lesson_progress
+               WHERE user_id = $1 AND status = 'completed' AND lesson_id = ANY($2::text[])`,
+              [userId, pathLessons]
+            );
+            const completedCount = parseInt(countRes.rows[0]?.count || '0', 10);
+            calculatedPercent = Math.min(100, Math.round((completedCount / pathLessons.length) * 100));
+          }
+
+          const status = calculatedPercent >= 100 ? 'completed' : 'active';
           const completedAt = status === 'completed' ? now : null;
 
           await client.query(
@@ -152,18 +196,15 @@ export class DatabaseLearningService {
              )
              VALUES ($1, $2, $3, $4, NOW(), $5, NOW())
              ON CONFLICT (user_id, learning_path_id) DO UPDATE SET
-               progress_percent = GREATEST(public.enrollments.progress_percent, EXCLUDED.progress_percent),
-               status = CASE
-                 WHEN EXCLUDED.progress_percent >= 100 THEN 'completed'
-                 WHEN public.enrollments.status = 'completed' THEN 'completed'
-                 ELSE public.enrollments.status
-               END,
+               progress_percent = EXCLUDED.progress_percent,
+               status = EXCLUDED.status,
                completed_at = CASE
                  WHEN EXCLUDED.progress_percent >= 100 AND public.enrollments.completed_at IS NULL THEN NOW()
+                 WHEN EXCLUDED.progress_percent < 100 THEN NULL
                  ELSE public.enrollments.completed_at
                END,
                last_accessed_at = NOW()`,
-            [userId, enr.learning_path_id, status, percent, completedAt]
+            [userId, enr.learning_path_id, status, calculatedPercent, completedAt]
           );
         }
       }
@@ -185,6 +226,7 @@ export class DatabaseLearningService {
 
   /**
    * Submits a quiz attempt, computes authoritative server score, and records attempt in PostgreSQL.
+   * Concurrency-safe with row locking on profiles.
    */
   public async submitQuizAttempt(
     userId: string,
@@ -210,7 +252,10 @@ export class DatabaseLearningService {
     }
 
     return withTransaction(async (client) => {
-      // 1. Check attempt limit
+      // 1. Lock user profile to prevent race conditions on concurrent quiz attempts
+      await client.query(`SELECT id FROM public.profiles WHERE id = $1 FOR UPDATE`, [userId]);
+
+      // Check attempt limit
       const countRes = await client.query<{ count: string }>(
         `SELECT COUNT(*) as count FROM public.quiz_attempts WHERE user_id = $1 AND quiz_id = $2`,
         [userId, submission.quiz_id]

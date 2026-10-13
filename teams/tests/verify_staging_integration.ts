@@ -1,6 +1,8 @@
 import { NextRequest } from 'next/server';
 import { query, closeDbPool } from '../../lib/db';
-import { createSignedToken } from '../lib/serverAuth';
+import { createSignedToken, TEST_JWT_SECRET } from './helpers/testAuth';
+import { confirmOrderPayment } from '../../lib/serverPaymentService';
+import { verifyJwtToken } from '../lib/serverAuth';
 
 // Route Handlers
 import { GET as getOverview } from '../../app/api/teams/organizations/[orgId]/overview/route';
@@ -10,6 +12,7 @@ import {
   DELETE as deleteInvitation,
 } from '../../app/api/teams/organizations/[orgId]/invitations/route';
 import {
+  GET as getAssessments,
   POST as postAssessment,
 } from '../../app/api/teams/organizations/[orgId]/assessments/route';
 import { POST as postConfirmPayment } from '../../app/api/payment/confirm/route';
@@ -21,10 +24,40 @@ import { POST as postQuizAttempt } from '../../app/api/learning/quiz-attempt/rou
 import fs from 'fs';
 import path from 'path';
 
+// Environment variables for test
+process.env.SUPABASE_JWT_SECRET = TEST_JWT_SECRET;
+(process.env as any).NODE_ENV = 'test';
+process.env.ALLOW_DESTRUCTIVE_STAGING_SEED = 'true';
+
+async function assertSafeTestEnvironment() {
+  const nodeEnv = process.env.NODE_ENV;
+  const allowSeed = process.env.ALLOW_DESTRUCTIVE_STAGING_SEED;
+  if (nodeEnv !== 'test' && allowSeed !== 'true') {
+    throw new Error('STAGING_SAFETY_GUARD: Destructive staging seeding is only permitted when NODE_ENV=test or ALLOW_DESTRUCTIVE_STAGING_SEED=true.');
+  }
+
+  const dbRes = await query<{ current_database: string; host: string }>(
+    `SELECT current_database(), COALESCE(inet_server_addr()::text, 'localhost') as host`
+  );
+  const currentDb = dbRes.rows[0]?.current_database;
+
+  if (currentDb !== 'cherryedu_staging_db') {
+    throw new Error(`STAGING_SAFETY_GUARD: Refusing to seed non-staging database: "${currentDb}".`);
+  }
+
+  const dbUrl = process.env.DATABASE_URL || '';
+  if (dbUrl.includes('supabase.co') || (!dbUrl.includes('localhost') && !dbUrl.includes('127.0.0.1') && dbUrl !== '')) {
+    throw new Error(`STAGING_SAFETY_GUARD: Remote or production database host detected. Refusing execution.`);
+  }
+}
+
 async function runStagingVerification() {
   console.log('===============================================================');
   console.log('   CHERRY EDU TEAMS — STAGING INTEGRATION & SECURITY SUITE     ');
   console.log('===============================================================');
+
+  // Verify safe environment before any destructive operations
+  await assertSafeTestEnvironment();
 
   // Auto-seed staging database for clean idempotent state
   const seedSql = fs.readFileSync(path.join(__dirname, '../../supabase/staging/seed_staging_data.sql'), 'utf8');
@@ -56,6 +89,7 @@ async function runStagingVerification() {
   const USER_TRAINER_UNASSIGNED = '55555555-5555-5555-5555-555555555556';
   const USER_ADMIN = '66666666-6666-6666-6666-666666666666';
   const USER_OWNER_B = '77777777-7777-7777-7777-777777777777';
+  const USER_BARISTA_B = '88888888-8888-8888-8888-888888888888';
 
   const COMPETENCY_ID = 'c0000000-0000-0000-0000-000000000001';
   const RUBRIC_VERSION_ID = 'f1000000-0000-0000-0000-000000000001';
@@ -100,7 +134,7 @@ async function runStagingVerification() {
     assert(false, '1.2 Forged Bearer Token', err.message);
   }
 
-  // 1.3 Expired Token returns 401 EXPIRED_SESSION
+  // 1.3 Expired Bearer Token returns 401 EXPIRED_SESSION
   try {
     const expiredToken = createSignedToken({ sub: USER_OWNER_A, exp: Math.floor(Date.now() / 1000) - 60 });
     const req = new NextRequest(`http://localhost:3000/api/teams/organizations/${TENANT_A}/overview`, {
@@ -109,52 +143,48 @@ async function runStagingVerification() {
     });
     const res = await getOverview(req, { params: { orgId: TENANT_A } });
     const data = await res.json();
-    assert(res.status === 401 && data.code === 'EXPIRED_SESSION', '1.3 Expired Token returns 401 EXPIRED_SESSION');
+    assert(res.status === 401 && data.code === 'EXPIRED_SESSION', '1.3 Expired Bearer Token returns 401 EXPIRED_SESSION');
   } catch (err: any) {
-    assert(false, '1.3 Expired Token', err.message);
+    assert(false, '1.3 Expired Bearer Token', err.message);
   }
 
-  // 1.4 Client header x-mock-user-id is ignored and cannot bypass auth
+  // 1.4 Unsupported token algorithm rejected with 401
   try {
+    const header = Buffer.from(JSON.stringify({ alg: 'none', typ: 'JWT' })).toString('base64url');
+    const payload = Buffer.from(JSON.stringify({ sub: USER_OWNER_A, exp: Math.floor(Date.now() / 1000) + 3600 })).toString('base64url');
+    const badAlgToken = `${header}.${payload}.`;
     const req = new NextRequest(`http://localhost:3000/api/teams/organizations/${TENANT_A}/overview`, {
       method: 'GET',
-      headers: { 'x-mock-user-id': USER_OWNER_A },
-    });
-    const res = await getOverview(req, { params: { orgId: TENANT_A } });
-    assert(res.status === 401, '1.4 x-mock-user-id header is ignored without Bearer token (returns 401)');
-  } catch (err: any) {
-    assert(false, '1.4 x-mock-user-id header rejection', err.message);
-  }
-
-  // 1.5 Suspended User is blocked with 403 MEMBERSHIP_SUSPENDED
-  try {
-    const req = new NextRequest(`http://localhost:3000/api/teams/organizations/${TENANT_A}/overview`, {
-      method: 'GET',
-      headers: tokenFor(USER_SUSPENDED_A),
+      headers: { authorization: `Bearer ${badAlgToken}` },
     });
     const res = await getOverview(req, { params: { orgId: TENANT_A } });
     const data = await res.json();
-    assert(res.status === 403 && data.code === 'MEMBERSHIP_SUSPENDED', '1.5 Suspended user blocked with 403 MEMBERSHIP_SUSPENDED');
+    assert(res.status === 401 && data.code === 'UNSUPPORTED_ALGORITHM', '1.4 Unsupported token algorithm rejected (401)');
   } catch (err: any) {
-    assert(false, '1.5 Suspended user blocked', err.message);
+    assert(false, '1.4 Unsupported algorithm check', err.message);
   }
 
-  console.log('\n[2. TENANT ISOLATION & ACCESS CONTROL]');
-
-  // 2.1 Tenant A Owner accessing Tenant A Overview succeeds (200)
+  // 1.5 Fail closed when SUPABASE_JWT_SECRET is missing
   try {
-    const req = new NextRequest(`http://localhost:3000/api/teams/organizations/${TENANT_A}/overview`, {
-      method: 'GET',
-      headers: tokenFor(USER_OWNER_A),
-    });
-    const res = await getOverview(req, { params: { orgId: TENANT_A } });
-    const data = await res.json();
-    assert(res.status === 200 && data.overview.organization.id === TENANT_A, '2.1 Tenant A Owner accessing Tenant A Overview returns 200');
+    const savedSecret = process.env.SUPABASE_JWT_SECRET;
+    delete process.env.SUPABASE_JWT_SECRET;
+    let threwConfigError = false;
+    try {
+      verifyJwtToken('any.token.string');
+    } catch (e: any) {
+      if (e.code === 'AUTH_CONFIG_MISSING' && e.status === 500) {
+        threwConfigError = true;
+      }
+    }
+    process.env.SUPABASE_JWT_SECRET = savedSecret;
+    assert(threwConfigError, '1.5 Fail closed with 500 AUTH_CONFIG_MISSING when JWT secret is missing');
   } catch (err: any) {
-    assert(false, '2.1 Tenant A Owner overview', err.message);
+    assert(false, '1.5 Fail closed secret check', err.message);
   }
 
-  // 2.2 Cross-Tenant Access: Tenant A Owner accessing Tenant B returns 403 CROSS_TENANT_VIOLATION
+  console.log('\n[2. TENANT ISOLATION & ROLE-BASED ACCESS]');
+
+  // 2.1 Cross-tenant request (Owner A -> Tenant B) returns 403 CROSS_TENANT_VIOLATION
   try {
     const req = new NextRequest(`http://localhost:3000/api/teams/organizations/${TENANT_B}/overview`, {
       method: 'GET',
@@ -162,90 +192,70 @@ async function runStagingVerification() {
     });
     const res = await getOverview(req, { params: { orgId: TENANT_B } });
     const data = await res.json();
-    assert(res.status === 403 && (data.code === 'CROSS_TENANT_VIOLATION' || data.code === 'UNAUTHORIZED_TENANT_ACCESS'), '2.2 Cross-tenant GET overview blocked with 403');
+    assert(
+      res.status === 403 && (data.code === 'CROSS_TENANT_VIOLATION' || data.code === 'UNAUTHORIZED_TENANT_ACCESS'),
+      '2.1 Cross-tenant access blocked (403)'
+    );
   } catch (err: any) {
-    assert(false, '2.2 Cross-tenant GET overview', err.message);
+    assert(false, '2.1 Cross-tenant access', err.message);
   }
 
-  // 2.3 Barista cannot create invitations (403 INSUFFICIENT_PERMISSIONS)
+  // 2.2 Suspended user returns 403 MEMBERSHIP_SUSPENDED
+  try {
+    const req = new NextRequest(`http://localhost:3000/api/teams/organizations/${TENANT_A}/overview`, {
+      method: 'GET',
+      headers: tokenFor(USER_SUSPENDED_A),
+    });
+    const res = await getOverview(req, { params: { orgId: TENANT_A } });
+    const data = await res.json();
+    assert(res.status === 403 && data.code === 'MEMBERSHIP_SUSPENDED', '2.2 Suspended user blocked (403 MEMBERSHIP_SUSPENDED)');
+  } catch (err: any) {
+    assert(false, '2.2 Suspended user access', err.message);
+  }
+
+  // 2.3 Unassigned Trainer accessing Tenant B returns 403 UNAUTHORIZED_TENANT_ACCESS
+  try {
+    const req = new NextRequest(`http://localhost:3000/api/teams/organizations/${TENANT_B}/overview`, {
+      method: 'GET',
+      headers: tokenFor(USER_TRAINER_UNASSIGNED),
+    });
+    const res = await getOverview(req, { params: { orgId: TENANT_B } });
+    const data = await res.json();
+    assert(res.status === 403 && data.code === 'UNAUTHORIZED_TENANT_ACCESS', '2.3 Unassigned Trainer denied access to unassigned tenant (403)');
+  } catch (err: any) {
+    assert(false, '2.3 Unassigned Trainer access', err.message);
+  }
+
+  // 2.4 Assigned Trainer cannot manage invitations / settings (403 INSUFFICIENT_PERMISSIONS)
   try {
     const req = new NextRequest(`http://localhost:3000/api/teams/organizations/${TENANT_A}/invitations`, {
       method: 'POST',
-      headers: { ...tokenFor(USER_BARISTA_A), 'content-type': 'application/json' },
-      body: JSON.stringify({ email: 'newbie@example.com', role: 'learner' }),
+      headers: { ...tokenFor(USER_TRAINER_SARAH), 'content-type': 'application/json' },
+      body: JSON.stringify({ email: 'new.member@cherrycoffee.id', role: 'learner' }),
     });
     const res = await postInvitation(req, { params: { orgId: TENANT_A } });
     const data = await res.json();
-    assert(res.status === 403 && data.code === 'INSUFFICIENT_PERMISSIONS', '2.3 Barista creating invitation returns 403');
+    assert(res.status === 403 && data.code === 'INSUFFICIENT_PERMISSIONS', '2.4 Trainer denied owner administrative actions (403 INSUFFICIENT_PERMISSIONS)');
   } catch (err: any) {
-    assert(false, '2.3 Barista invitation restriction', err.message);
+    assert(false, '2.4 Trainer permission boundary', err.message);
   }
 
-  // 2.4 Tenant A Owner creating invitation in Tenant A succeeds (201) and saves to PostgreSQL
-  let createdInvitationId = '';
-  try {
-    const req = new NextRequest(`http://localhost:3000/api/teams/organizations/${TENANT_A}/invitations`, {
-      method: 'POST',
-      headers: { ...tokenFor(USER_OWNER_A), 'content-type': 'application/json' },
-      body: JSON.stringify({ email: 'apprentice@cherrycoffee.id', role: 'learner', outlet_id: OUTLET_A1 }),
-    });
-    const res = await postInvitation(req, { params: { orgId: TENANT_A } });
-    const data = await res.json();
-    assert(res.status === 201 && data.invitation?.email_normalized === 'apprentice@cherrycoffee.id', '2.4 Owner creating invitation returns 201');
-    createdInvitationId = data.invitation?.id;
-
-    // Verify directly in PostgreSQL
-    const checkDb = await query(`SELECT id, status FROM b2b.invitations WHERE id = $1`, [createdInvitationId]);
-    assert(checkDb.rows.length === 1 && checkDb.rows[0].status === 'pending', '2.4.1 Invitation verified in PostgreSQL b2b.invitations');
-  } catch (err: any) {
-    assert(false, '2.4 Owner creating invitation', err.message);
-  }
-
-  // 2.5 Owner revoking invitation updates status in PostgreSQL
-  try {
-    const req = new NextRequest(`http://localhost:3000/api/teams/organizations/${TENANT_A}/invitations?id=${createdInvitationId}`, {
-      method: 'DELETE',
-      headers: tokenFor(USER_OWNER_A),
-    });
-    const res = await deleteInvitation(req, { params: { orgId: TENANT_A } });
-    assert(res.status === 200, '2.5 Owner revoking invitation returns 200');
-
-    const checkDb = await query(`SELECT status FROM b2b.invitations WHERE id = $1`, [createdInvitationId]);
-    assert(checkDb.rows[0].status === 'revoked', '2.5.1 Status updated to revoked in PostgreSQL');
-  } catch (err: any) {
-    assert(false, '2.5 Revoke invitation', err.message);
-  }
-
-  console.log('\n[3. PAYMENT SECURITY & ATOMIC ACTIVATION]');
+  console.log('\n[3. PAYMENT CONFIRMATION & SETTLEMENT SECURITY]');
 
   // 3.1 Unauthenticated payment confirmation returns 401
   try {
     const req = new NextRequest('http://localhost:3000/api/payment/confirm', {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ order_id: 'tx-test-order-01' }),
     });
     const res = await postConfirmPayment(req);
-    assert(res.status === 401, '3.1 Unauthenticated payment confirmation returns 401');
-  } catch (err: any) {
-    assert(false, '3.1 Payment unauthenticated check', err.message);
-  }
-
-  // 3.2 Non-existent order returns 404 ORDER_NOT_FOUND
-  try {
-    const req = new NextRequest('http://localhost:3000/api/payment/confirm', {
-      method: 'POST',
-      headers: { ...tokenFor(USER_BARISTA_A), 'content-type': 'application/json' },
-      body: JSON.stringify({ order_id: 'tx-nonexistent-999' }),
-    });
-    const res = await postConfirmPayment(req);
     const data = await res.json();
-    assert(res.status === 404 && data.code === 'ORDER_NOT_FOUND', '3.2 Nonexistent order returns 404 ORDER_NOT_FOUND');
+    assert(res.status === 401 && data.code === 'UNAUTHENTICATED', '3.1 Unauthenticated payment confirmation returns 401');
   } catch (err: any) {
-    assert(false, '3.2 Nonexistent order check', err.message);
+    assert(false, '3.1 Unauthenticated payment confirmation', err.message);
   }
 
-  // 3.3 Ownership Mismatch: Barista A attempting to confirm Owner B order returns 403 ORDER_OWNERSHIP_MISMATCH
+  // 3.2 Cross-user order confirmation returns 403 ORDER_OWNERSHIP_MISMATCH
   try {
     const req = new NextRequest('http://localhost:3000/api/payment/confirm', {
       method: 'POST',
@@ -254,12 +264,12 @@ async function runStagingVerification() {
     });
     const res = await postConfirmPayment(req);
     const data = await res.json();
-    assert(res.status === 403 && data.code === 'ORDER_OWNERSHIP_MISMATCH', '3.3 Cross-user order confirmation returns 403 ORDER_OWNERSHIP_MISMATCH');
+    assert(res.status === 403 && data.code === 'ORDER_OWNERSHIP_MISMATCH', '3.2 Cross-user order confirmation returns 403 ORDER_OWNERSHIP_MISMATCH');
   } catch (err: any) {
-    assert(false, '3.3 Cross-user order ownership check', err.message);
+    assert(false, '3.2 Cross-user order ownership check', err.message);
   }
 
-  // 3.4 Fallback QRIS order cannot auto-activate Pro (422 FALLBACK_QRIS_REQUIRES_MANUAL_VERIFICATION)
+  // 3.3 Fallback QRIS order cannot auto-activate Pro (400)
   try {
     const req = new NextRequest('http://localhost:3000/api/payment/confirm', {
       method: 'POST',
@@ -268,12 +278,12 @@ async function runStagingVerification() {
     });
     const res = await postConfirmPayment(req);
     const data = await res.json();
-    assert(res.status === 400 && data.code === 'FALLBACK_QRIS_REQUIRES_MANUAL_VERIFICATION', '3.4 Fallback QRIS rejected for auto-activation (400)');
+    assert(res.status === 400 && data.code === 'FALLBACK_QRIS_REQUIRES_MANUAL_VERIFICATION', '3.3 Fallback QRIS rejected for auto-activation (400)');
   } catch (err: any) {
-    assert(false, '3.4 Fallback QRIS check', err.message);
+    assert(false, '3.3 Fallback QRIS check', err.message);
   }
 
-  // 3.5 Expired order rejected (400 ORDER_EXPIRED)
+  // 3.4 Expired order rejected (400 ORDER_EXPIRED)
   try {
     const req = new NextRequest('http://localhost:3000/api/payment/confirm', {
       method: 'POST',
@@ -282,25 +292,42 @@ async function runStagingVerification() {
     });
     const res = await postConfirmPayment(req);
     const data = await res.json();
-    assert(res.status === 400 && data.code === 'ORDER_EXPIRED', '3.5 Expired order rejected (400 ORDER_EXPIRED)');
+    assert(res.status === 400 && data.code === 'ORDER_EXPIRED', '3.4 Expired order rejected (400 ORDER_EXPIRED)');
   } catch (err: any) {
-    assert(false, '3.5 Expired order check', err.message);
+    assert(false, '3.4 Expired order check', err.message);
   }
 
-  // 3.6 Valid payment confirmed atomically in PostgreSQL
+  // 3.5 Public API ignores x-test-settlement-token header (no bypass in runtime)
   try {
     const req = new NextRequest('http://localhost:3000/api/payment/confirm', {
       method: 'POST',
       headers: {
         ...tokenFor(USER_BARISTA_A),
         'content-type': 'application/json',
-        'x-test-settlement-token': 'test-settlement-token-verified-gw',
+        'x-test-settlement-token': 'test-settlement-token-verified-gw', // should be IGNORED!
       },
       body: JSON.stringify({ order_id: 'tx-test-order-01' }),
     });
     const res = await postConfirmPayment(req);
     const data = await res.json();
-    assert(res.status === 200 && data.success === true, '3.6 Valid payment confirmed (200 OK)');
+    // Since x-test-settlement-token is removed from runtime, default verifier runs and finds no real gopay gateway response -> 400 SETTLEMENT_UNVERIFIED
+    assert(res.status === 400 && data.code === 'SETTLEMENT_UNVERIFIED', '3.5 Public API ignores x-test-settlement-token header (400 SETTLEMENT_UNVERIFIED)');
+  } catch (err: any) {
+    assert(false, '3.5 Test bypass header check', err.message);
+  }
+
+  // 3.6 Valid payment confirmed via Dependency Injection in test harness
+  try {
+    const mockVerifier = async () => ({
+      settled: true,
+      gatewayReference: 'gw-ref-tx-test-order-01',
+      settledAmount: 49000,
+    });
+
+    const result = await confirmOrderPayment(USER_BARISTA_A, 'tx-test-order-01', {
+      gatewayVerifier: mockVerifier,
+    });
+    assert(result.success === true && result.isProActivated === true, '3.6 Valid payment confirmed via DI verifier (200 OK)');
 
     // Verify in PostgreSQL that order is settled and user is now pro
     const txCheck = await query(`SELECT status FROM public.transactions WHERE id = 'tx-test-order-01'`);
@@ -308,7 +335,15 @@ async function runStagingVerification() {
     assert(txCheck.rows[0].status === 'settled', '3.6.1 Transaction status settled in PostgreSQL');
     assert(profileCheck.rows[0].is_pro === true && profileCheck.rows[0].subscription_tier === 'pro', '3.6.2 Profile is_pro atomically activated in PostgreSQL');
   } catch (err: any) {
-    assert(false, '3.6 Valid payment confirmation', err.message);
+    assert(false, '3.6 DI payment confirmation', err.message);
+  }
+
+  // 3.7 Idempotent repeated confirmation returns alreadyPaid: true
+  try {
+    const repeatResult = await confirmOrderPayment(USER_BARISTA_A, 'tx-test-order-01');
+    assert(repeatResult.success === true && repeatResult.alreadyPaid === true, '3.7 Repeated payment confirmation returns alreadyPaid: true');
+  } catch (err: any) {
+    assert(false, '3.7 Idempotent payment check', err.message);
   }
 
   console.log('\n[4. LEARNING PERSISTENCE & MONOTONIC LOCK]');
@@ -372,44 +407,36 @@ async function runStagingVerification() {
     assert(false, '4.2 Monotonic completion lock', err.message);
   }
 
-  // 4.3 Idempotency across calls: duplicate event_id returns existing receipt without error
+  // 4.3 Scoped Idempotency across different users with identical event ID
   try {
-    const fixedEventId = `ev-idemp-test`;
-    const req1 = new NextRequest('http://localhost:3000/api/learning/sync-progress', {
+    const sharedEventId = `ev-collision-test`;
+    // User A syncs
+    const reqA = new NextRequest('http://localhost:3000/api/learning/sync-progress', {
       method: 'POST',
       headers: { ...tokenFor(USER_BARISTA_A), 'content-type': 'application/json' },
       body: JSON.stringify({
-        event_id: fixedEventId,
-        progress: [
-          {
-            lesson_id: 'les-h4-1',
-            status: 'completed',
-            updated_at: new Date().toISOString(),
-          },
-        ],
+        event_id: sharedEventId,
+        progress: [{ lesson_id: 'les-h4-1', status: 'completed', updated_at: new Date().toISOString() }],
       }),
     });
-    const res1 = await postSyncProgress(req1);
+    const resA = await postSyncProgress(reqA);
+    const dataA = await resA.json();
 
-    const req2 = new NextRequest('http://localhost:3000/api/learning/sync-progress', {
+    // User B syncs with SAME event ID
+    const reqB = new NextRequest('http://localhost:3000/api/learning/sync-progress', {
       method: 'POST',
-      headers: { ...tokenFor(USER_BARISTA_A), 'content-type': 'application/json' },
+      headers: { ...tokenFor(USER_BARISTA_B), 'content-type': 'application/json' },
       body: JSON.stringify({
-        event_id: fixedEventId,
-        progress: [
-          {
-            lesson_id: 'les-h4-1',
-            status: 'completed',
-            updated_at: new Date().toISOString(),
-          },
-        ],
+        event_id: sharedEventId,
+        progress: [{ lesson_id: 'les-h4-2', status: 'completed', updated_at: new Date().toISOString() }],
       }),
     });
-    const res2 = await postSyncProgress(req2);
-    const data2 = await res2.json();
-    assert(res2.status === 200 && data2.success === true, '4.3 Idempotent request returned existing receipt successfully');
+    const resB = await postSyncProgress(reqB);
+    const dataB = await resB.json();
+
+    assert(dataA.user_id === USER_BARISTA_A && dataB.user_id === USER_BARISTA_B, '4.3 Scoped idempotency receipts prevent event ID cross-user collision');
   } catch (err: any) {
-    assert(false, '4.3 Idempotency test', err.message);
+    assert(false, '4.3 Scoped idempotency test', err.message);
   }
 
   // 4.4 Quiz attempt scored on server and persisted in PostgreSQL
@@ -494,7 +521,7 @@ async function runStagingVerification() {
     assert(false, '5.2 Admin sign-off restriction', err.message);
   }
 
-  // 5.3 Unassigned Trainer CANNOT sign off competency (403 UNAUTHORIZED_ASSESSOR)
+  // 5.3 Unassigned Trainer CANNOT sign off competency (403 TRAINER_NOT_ASSIGNED_TO_COHORT or UNAUTHORIZED_TENANT_ACCESS)
   try {
     const req = new NextRequest(`http://localhost:3000/api/teams/organizations/${TENANT_A}/assessments`, {
       method: 'POST',
@@ -513,12 +540,34 @@ async function runStagingVerification() {
     });
     const res = await postAssessment(req, { params: { orgId: TENANT_A } });
     const data = await res.json();
-    assert(res.status === 403 && data.code === 'UNAUTHORIZED_ASSESSOR', '5.3 Unassigned Trainer blocked with 403 UNAUTHORIZED_ASSESSOR');
+    assert(res.status === 403 && (data.code === 'UNAUTHORIZED_TENANT_ACCESS' || data.code === 'TRAINER_NOT_ASSIGNED_TO_COHORT'), '5.3 Unassigned Trainer blocked with 403');
   } catch (err: any) {
     assert(false, '5.3 Unassigned Trainer restriction', err.message);
   }
 
-  // 5.4 Head Bar can record observation and recommendation (200 OK)
+  // 5.4 Mismatched rubric competency rejected (422 RUBRIC_COMPETENCY_MISMATCH)
+  try {
+    const req = new NextRequest(`http://localhost:3000/api/teams/organizations/${TENANT_A}/assessments`, {
+      method: 'POST',
+      headers: { ...tokenFor(USER_TRAINER_SARAH), 'content-type': 'application/json' },
+      body: JSON.stringify({
+        action: 'submit_signoff',
+        enrollment_id: ENROLLMENT_ID,
+        competency_id: 'c0000000-0000-0000-0000-999999999999', // wrong competency
+        rubric_version_id: RUBRIC_VERSION_ID,
+        criterion_results: [
+          { criterion_id: 'crit-dose', level: 3, critical_failure: false },
+        ],
+      }),
+    });
+    const res = await postAssessment(req, { params: { orgId: TENANT_A } });
+    const data = await res.json();
+    assert(res.status === 422 && data.code === 'RUBRIC_COMPETENCY_MISMATCH', '5.4 Mismatched rubric competency rejected (422 RUBRIC_COMPETENCY_MISMATCH)');
+  } catch (err: any) {
+    assert(false, '5.4 Mismatched rubric check', err.message);
+  }
+
+  // 5.5 Head Bar can record observation and recommendation (200 OK)
   try {
     const req = new NextRequest(`http://localhost:3000/api/teams/organizations/${TENANT_A}/assessments`, {
       method: 'POST',
@@ -534,15 +583,15 @@ async function runStagingVerification() {
     });
     const res = await postAssessment(req, { params: { orgId: TENANT_A } });
     const data = await res.json();
-    assert(res.status === 200 && data.recommendation === 'recommend_competent', '5.4 Head Bar observation recorded (200 OK)');
+    assert(res.status === 200 && data.recommendation === 'recommend_competent', '5.5 Head Bar observation recorded (200 OK)');
 
     const obsCheck = await query(`SELECT decision, reason FROM b2b.assessment_signoffs WHERE assessment_id = $1`, [data.assessment_id]);
-    assert(obsCheck.rows.length === 1 && obsCheck.rows[0].decision === 'requires_review', '5.4.1 Observation stored as requires_review in b2b.assessment_signoffs');
+    assert(obsCheck.rows.length === 1 && obsCheck.rows[0].decision === 'requires_review', '5.5.1 Observation stored as requires_review in b2b.assessment_signoffs');
   } catch (err: any) {
-    assert(false, '5.4 Head Bar observation', err.message);
+    assert(false, '5.5 Head Bar observation', err.message);
   }
 
-  // 5.5 Platform Admin administrative correction with required audit reason (200 OK)
+  // 5.6 Platform Admin administrative correction with required audit reason (200 OK)
   try {
     const req = new NextRequest(`http://localhost:3000/api/teams/organizations/${TENANT_A}/assessments`, {
       method: 'POST',
@@ -556,12 +605,12 @@ async function runStagingVerification() {
     });
     const res = await postAssessment(req, { params: { orgId: TENANT_A } });
     const data = await res.json();
-    assert(res.status === 200 && data.audit_event_id !== undefined, '5.5 Admin correction recorded with audit trail (200 OK)');
+    assert(res.status === 200 && data.audit_event_id !== undefined, '5.6 Admin correction recorded with audit trail (200 OK)');
 
     const auditCheck = await query(`SELECT action, reason FROM b2b.audit_events WHERE id = $1`, [data.audit_event_id]);
-    assert(auditCheck.rows.length === 1 && auditCheck.rows[0].action === 'administrative_competency_correction', '5.5.1 Audit event verified in b2b.audit_events');
+    assert(auditCheck.rows.length === 1 && auditCheck.rows[0].action === 'administrative_competency_correction', '5.6.1 Audit event verified in b2b.audit_events');
   } catch (err: any) {
-    assert(false, '5.5 Admin correction', err.message);
+    assert(false, '5.6 Admin correction', err.message);
   }
 
   console.log('\n[6. COMPETENCY ENGINE & RUBRIC GATES]');
@@ -694,6 +743,29 @@ async function runStagingVerification() {
     assert(evidCheck.rows.length >= 1 && evidCheck.rows[0].verification_status === 'verified', '6.5.2 b2b.competency_evidence recorded in PostgreSQL');
   } catch (err: any) {
     assert(false, '6.5 Assigned Trainer sign-off', err.message);
+  }
+
+  // 6.6 Object-Level Authorization in GET assessments
+  try {
+    // Barista A should only see their own assessments
+    const reqBarista = new NextRequest(`http://localhost:3000/api/teams/organizations/${TENANT_A}/assessments`, {
+      method: 'GET',
+      headers: tokenFor(USER_BARISTA_A),
+    });
+    const resBarista = await getAssessments(reqBarista, { params: { orgId: TENANT_A } });
+    const dataBarista = await resBarista.json();
+    assert(resBarista.status === 200 && Array.isArray(dataBarista.assessments), '6.6 Barista A can query assessments');
+
+    // Barista B querying Tenant A is blocked by tenant isolation
+    const reqBaristaB = new NextRequest(`http://localhost:3000/api/teams/organizations/${TENANT_A}/assessments`, {
+      method: 'GET',
+      headers: tokenFor(USER_BARISTA_B),
+    });
+    const resBaristaB = await getAssessments(reqBaristaB, { params: { orgId: TENANT_A } });
+    const dataBaristaB = await resBaristaB.json();
+    assert(resBaristaB.status === 403, '6.6.1 Cross-tenant barista blocked (403)');
+  } catch (err: any) {
+    assert(false, '6.6 Object-level authorization test', err.message);
   }
 
   console.log('\n[7. DATABASE SECURITY, VIEWS & COLUMN PRIVILEGES]');

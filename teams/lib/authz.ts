@@ -19,30 +19,15 @@ export class AuthorizationError extends Error {
 
 /**
  * Validates that the requester belongs to targetOrgId, has an active membership,
- * and possesses at least one of the required roles (or platform_admin staff permission).
+ * and possesses at least one of the required roles.
+ * Never gives synthetic owner bypass to internal trainers or unassigned users.
  */
 export function assertMembership(
   user: UserAuthContext,
   targetOrgId: string,
   allowedRoles?: RoleCode[]
 ): OrganizationMembership {
-  // 1. Platform superadmins and Cherry Edu Trainers bypass tenant membership checks
-  if (user.staffPermissions.includes('platform_admin') || user.staffPermissions.includes('cherry_trainer')) {
-    if (user.activeMembership && user.activeMembership.organization_id === targetOrgId) {
-      return user.activeMembership;
-    }
-    // Synthetic membership for internal staff audit
-    return {
-      id: `staff-${user.userId}`,
-      organization_id: targetOrgId,
-      user_id: user.userId,
-      status: 'active',
-      created_at: new Date().toISOString(),
-      roles: ['owner'],
-    };
-  }
-
-  // 2. Validate membership presence
+  // 1. Validate membership presence in the target organization
   const membership = user.activeMembership;
   if (!membership || membership.organization_id !== targetOrgId) {
     throw new AuthorizationError(
@@ -52,7 +37,7 @@ export function assertMembership(
     );
   }
 
-  // 3. Validate membership status
+  // 2. Validate membership status
   if (membership.status !== 'active') {
     throw new AuthorizationError(
       'MEMBERSHIP_INACTIVE',
@@ -61,10 +46,14 @@ export function assertMembership(
     );
   }
 
-  // 4. Validate roles if required
+  // 3. Validate roles if required
   if (allowedRoles && allowedRoles.length > 0) {
+    // Platform superadmins can manage client organizations for administrative roles
+    const isPlatformAdmin = user.staffPermissions.includes('platform_admin');
+    const hasAdminAllowedRole = allowedRoles.includes('owner') || allowedRoles.includes('client_manager');
+
     const hasRole = membership.roles.some((r) => allowedRoles.includes(r));
-    if (!hasRole) {
+    if (!hasRole && !(isPlatformAdmin && hasAdminAllowedRole)) {
       throw new AuthorizationError(
         'INSUFFICIENT_PERMISSIONS',
         'Peranmu tidak memiliki wewenang untuk tindakan ini.',
@@ -113,7 +102,7 @@ export function assertOutletScope(
 
 /**
  * Decision 2 — Assessment Authority:
- * - Cherry Edu Trainer: Authorized for practical assessment & final sign-off.
+ * - Cherry Edu Trainer: Authorized for practical assessment & final sign-off ONLY if actively assigned to the cohort.
  * - Client Head Bar: Can observe and recommend, NO final signoff by default unless delegated.
  * - Platform Admin: Manages users, but CANNOT sign off as an assessor. Admin can only execute audited corrections.
  */
@@ -134,8 +123,15 @@ export function assertSignoffAuthority(
   }
 
   const isCherryTrainer = user.staffPermissions.includes('cherry_trainer');
-  
-  if (isCherryTrainer && options.isAssignedTrainer) {
+
+  if (isCherryTrainer) {
+    if (!options.isAssignedTrainer) {
+      throw new AuthorizationError(
+        'TRAINER_NOT_ASSIGNED_TO_COHORT',
+        'Trainer tidak memiliki penugasan aktif pada cohort ini untuk menandatangani kelulusan.',
+        403
+      );
+    }
     return { assessorType: 'cherry_trainer' };
   }
 
@@ -145,13 +141,13 @@ export function assertSignoffAuthority(
 
   throw new AuthorizationError(
     'UNAUTHORIZED_ASSESSOR',
-    'Hanya Trainer Cherry Edu atau penilai dengan delegasi resmi yang berwenang menandatangani kelulusan kompetensi.',
+    'Hanya Trainer Cherry Edu yang ditugaskan atau penilai dengan delegasi resmi yang berwenang menandatangani kelulusan kompetensi.',
     403
   );
 }
 
 /**
- * Client Head Bar, Client Manager, Owner, or Trainer can conduct observations and submit recommendations.
+ * Client Head Bar, Client Manager, Owner, or Assigned Trainer can conduct observations and submit recommendations.
  */
 export function assertObservationAuthority(
   user: UserAuthContext,

@@ -37,7 +37,7 @@ export interface Outlet {
 }
 
 export type MembershipStatus = 'invited' | 'active' | 'suspended' | 'ended';
-export type RoleCode = 'owner' | 'client_manager' | 'head_bar' | 'learner';
+export type RoleCode = 'owner' | 'client_manager' | 'head_bar' | 'learner' | 'trainer';
 export type StaffPermissionCode = 'platform_admin' | 'program_admin' | 'assessment_quality_reviewer' | 'cherry_trainer';
 
 export interface OrganizationMembership {
@@ -59,6 +59,7 @@ export interface UserAuthContext {
   activeOrganizationId?: string | null;
   activeMembership?: OrganizationMembership | null;
   staffPermissions: StaffPermissionCode[];
+  assignedCohorts?: string[];
 }
 
 export type InvitationStatus = 'pending' | 'accepted' | 'expired' | 'revoked';
