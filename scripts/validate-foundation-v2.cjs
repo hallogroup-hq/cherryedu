@@ -207,7 +207,7 @@ for (const unwanted of [
   if (generator.includes(unwanted)) fail('Internal release copy reintroduced in public metadata: ' + unwanted);
 }
 if (!generator.includes("title: 'Memahami Kopi dari Hulu ke Hilir'")) fail('Foundation V2 public course title has changed without editorial review');
-if (!catalog.includes("isPublicReading || isAuthenticated")) fail('Optional V2 catalogue must allow anonymous entry without login');
+if (!(catalog.includes("isPublicReading || isAuthenticated") || catalog.includes("isPublicReading || process.env.NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW === 'enabled' || isAuthenticated"))) fail('Optional V2 catalogue must allow anonymous entry without login');
 if (!catalog.includes("isPublicReading ? 'KELAS TERBUKA'")) fail('V2 catalog is incorrectly labeled mandatory');
 if (!course.includes("isDraftPreview ? 'Materi Kopi • Akses Bebas'")) fail('V2 course incorrectly inherits mandatory certification label');
 for (const [file, body] of [['course', course], ['reader', reader], ['workspace', workspace], ['interactions', registryText]]) {
