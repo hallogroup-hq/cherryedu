@@ -65,7 +65,7 @@ test('mobile lessons have accessible concept figures without page overflow',asyn
  for(let i=1;i<=10;i++){
   const code=String(i).padStart(2,'0');
   await page.goto('/sensory-v2/sv2-m'+code+'-l01');
-  await expect(page.locator('figure svg[role="img"]')).toHaveCount(1);
+  await expect(page.locator('figure svg[role="img"]')).toHaveCount(['02','04','06','08'].includes(code)?2:1);
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
   expect(overflow,'M'+code+' horizontal overflow').toBeLessThanOrEqual(2);
  }
@@ -76,5 +76,30 @@ test('student reader does not expose editorial status labels',async({page})=>{
   await page.goto(path);
   const body=await page.locator('body').innerText();
   expect(body).not.toMatch(/\bDRAFT\b|\bPREVIEW\b|\bBETA\b|\bTBD\b|COMING SOON|validasi akademik oleh pengelola/i);
+ }
+});
+
+test('learning support tools are reachable and usable without account writes',async({page})=>{
+ await page.goto('/sensory-v2');
+ await expect(page.getByRole('link',{name:'Buka panduan praktik →'})).toBeVisible();
+ await expect(page.getByRole('link',{name:'Buka lembar kerja →'})).toBeVisible();
+ await page.getByRole('link',{name:'Buka panduan praktik →'}).click();
+ await expect(page.getByRole('heading',{name:'Delapan latihan sensori bertahap'})).toBeVisible();
+ await expect(page.getByText(/0 dari 8 panduan/)).toBeVisible();
+ await page.getByRole('checkbox').first().check();
+ await expect(page.getByText(/1 dari 8 panduan/)).toBeVisible();
+ await page.goto('/sensory-v2/notebook');
+ await expect(page.getByRole('heading',{name:'Satu kopi, empat sudut penilaian'})).toBeVisible();
+ await page.getByRole('button',{name:'Isi contoh kasus'}).click();
+ await page.getByRole('button',{name:'Baca laporan'}).click();
+ await expect(page.getByText(/11 dari 11 kolom telah terisi/)).toBeVisible();
+ await expect(page.getByRole('textbox',{name:'Tinjau dan salin catatanmu'})).toContainText('PHYSICAL');
+});
+test('new course tools have no horizontal overflow on narrow screens',async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ for(const route of ['/sensory-v2/notebook','/sensory-v2/practical','/sensory-v2/sv2-m02-l01']){
+  await page.goto(route);
+  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
+  expect(overflow,route).toBeLessThanOrEqual(2);
  }
 });

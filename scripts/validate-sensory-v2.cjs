@@ -87,11 +87,41 @@ for(const l of lessons){
  if(banned.test(addon))fail('Editorial text in '+id);
  if(!addon.includes('Pertanyaan lanjutan'))fail('Worked practice must ask for evidence revision '+id);
 }
-for(const target of ['app/sensory-v2/page.tsx','app/sensory-v2/[lessonId]/page.tsx','app/sensory-v2/practice/[moduleId]/page.tsx']){
+for(const target of ['app/sensory-v2/page.tsx','app/sensory-v2/notebook/page.tsx','app/sensory-v2/practical/page.tsx','app/sensory-v2/[lessonId]/page.tsx','app/sensory-v2/practice/[moduleId]/page.tsx']){
  const content=read(target);
  if(!content.includes("process.env.CHERRYEDU_SENSORY_V2_REVIEW!=='enabled'")||!content.includes('notFound()'))fail('Review env guard missing '+target);
  if(/setUserProgress|issueCertificate|syncTransaction|enrollInPath|recordQuizAttempt/.test(content))fail('Legacy mutation '+target);
 }
+const bridgeSrc=read('lib/data/sensoryV2Bridges.ts');
+const bridgeMatch=bridgeSrc.match(/export const SENSORY_V2_BRIDGES:Record<string,string>=(\{[\s\S]*?\});/);
+let bridges={};
+if(!bridgeMatch)fail('No beginner bridge source');
+else try{bridges=JSON.parse(bridgeMatch[1]);}catch(e){fail('Invalid beginner bridges JSON');}
+if(Object.keys(bridges).length!==10)fail('Expected ten beginner bridges');
+for(const code of codes){
+ const v=bridges[code];
+ if(!v||v.trim().split(/\s+/).length<145)fail('Insufficient novice explanation '+code);
+ if(v&&banned.test(v))fail('Editorial status in beginner bridge '+code);
+}
+const practicalSrc=read('lib/data/sensoryV2Practicals.ts');
+const practicalMatch=practicalSrc.match(/export const SENSORY_V2_PRACTICALS:SensoryPractical\[\]=(\[[\s\S]*?\]);/);
+let practicals=[];
+if(!practicalMatch)fail('No practical sessions source');
+else try{practicals=JSON.parse(practicalMatch[1]);}catch(e){fail('Invalid practical JSON');}
+if(practicals.length!==8)fail('Expected eight practical protocols');
+if(new Set(practicals.map(p=>p.code)).size!==practicals.length)fail('Duplicate practical identifier');
+for(const p of practicals){
+ if(!Array.isArray(p.steps)||p.steps.length<4||p.steps.some(x=>x.length<45))fail('Practical lacks concrete steps '+p.code);
+ if(!p.tools||!p.report||!p.limit||p.limit.length<65)fail('No equipment/evidence/boundary '+p.code);
+ if(banned.test(JSON.stringify(p)))fail('Editorial status in practical '+p.code);
+}
+const notebookUI=read('components/sensory-v2/SensoryCvaNotebook.tsx');
+for(const key of ['sample','physical','descriptive','affective','extrinsic','proof','decision','followup']){
+ if(!notebookUI.includes("'"+key+"'"))fail('Notebook missing four-lens input '+key);
+}
+if(!notebookUI.includes('tidak disimpan ke akun'))fail('Notebook privacy boundary not clear');
+const lessonPage=read('app/sensory-v2/[lessonId]/page.tsx');
+for(const k of ['SENSORY_V2_BRIDGES[m.code]','SensoryEvidenceAtlas','/sensory-v2/notebook','/sensory-v2/practical'])if(!lessonPage.includes(k))fail('Novice support not mounted '+k);
 const catalog=read('app/paths/page.tsx');
 for(const role of ['home_brewer','roaster','q_grader','q_processor','farmer','business','barista']){
  if(!catalog.includes(role+": 'Spesialisasi"))fail('Incorrect specialization labeling '+role);
@@ -107,5 +137,5 @@ const practice=read('components/sensory-v2/SensoryV2Practice.tsx');
 for(const behavior of ['newEvidence','modelReasoning','revealed[c.id]','completed[c.id]','(responses[c.id]||','(revisions[c.id]||'])
  if(!practice.includes(behavior))fail('Incomplete learner decision flow '+behavior);
 if(banned.test(modules.map(x=>x.title+' '+x.description).join(' ')))fail('Learner catalog has editorial copy');
-const report={modules:modules.length,lessons:lessons.length,minLessonWords:Math.min(...lessons.map(l=>l.content.split(/\s+/).length)),conceptFigures:10,conceptLabs:10,fieldInvestigations:Object.keys(dives).length,workedExamples:Object.keys(worked).length,evidenceRevisionCases:cases.length,diagnostics:diag.length,warnings,issues};
+const report={modules:modules.length,lessons:lessons.length,minLessonWords:Math.min(...lessons.map(l=>l.content.split(/\s+/).length)),conceptFigures:10,conceptLabs:10,fieldInvestigations:Object.keys(dives).length,beginnerBridges:Object.keys(bridges).length,practicalSessions:practicals.length,workedExamples:Object.keys(worked).length,evidenceRevisionCases:cases.length,diagnostics:diag.length,warnings,issues};
 console.log(JSON.stringify(report,null,2));if(issues.length)process.exit(1);

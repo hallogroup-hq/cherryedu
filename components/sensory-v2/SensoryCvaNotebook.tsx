@@ -49,7 +49,7 @@ export function SensoryCvaNotebook(){
     <h2 className="mt-2 font-serif text-2xl font-bold text-roast-950">Satu kopi, empat sudut penilaian</h2></div>
    <button type="button" className="rounded border border-paper-400 px-3 py-2 text-xs text-roast-800 hover:border-roast-800" onClick={()=>{setN(EXAMPLE);setStep(0);setSummary(false);setCopied('');}}>Isi contoh kasus</button>
   </div>
-  <p className="mt-4 text-sm leading-7 text-roast-700">Gunakan data sampel nyata atau contoh. Catatan hanya hidup selama halaman ini terbuka—tidak disimpan ke akun. Instrumen ini **untuk latihan cara berpikir**, bukan salinan formulir resmi CVA SCA dan tidak menghasilkan skor, lisensi atau penilaian kompetensi sensorik.</p>
+  <p className="mt-4 text-sm leading-7 text-roast-700">Gunakan data sampel nyata atau contoh. Catatan hanya hidup selama halaman ini terbuka—tidak disimpan ke akun. Instrumen ini untuk latihan cara berpikir, bukan salinan formulir resmi CVA SCA dan tidak menghasilkan skor, lisensi atau penilaian kompetensi sensorik.</p>
   <div aria-label="Urutan asesmen" className="mt-7 flex flex-wrap gap-2">
    {lens.map((item,i)=><button key={item.title} type="button" aria-current={!summary&&i===step?'step':undefined} onClick={()=>{setStep(i);setSummary(false);}}
     className={'rounded border px-3 py-2 text-xs font-semibold '+(!summary&&step===i?'border-roast-950 bg-roast-950 text-white':'border-paper-300 bg-paper-100 text-roast-800 hover:border-roast-600')}>{i+1}. {item.title}</button>)}
