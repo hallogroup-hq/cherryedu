@@ -76,6 +76,7 @@ Severity: **P0** blocks candidate selection/production; **P1** blocks academic s
 | HBV2-016 | P1 | #6 adaptive cases | Learner could edit the initial answer after seeing new evidence, undermining pre-evidence response integrity | Lock initial answer read-only when evidence is shown; verified with 42/42 Playwright at `b70d0df`. Commits `c5bd9bc` + `5de2ecf` | VERIFIED-ENGINEERING |
 | HBV2-017 | P1 | #6 M07-L04, M08-L02, M10-L02, M10-L04 | Novice explanations of sensory preference, bitterness/astringency, failed hypotheses and capstone were too compressed and relied on repeated instructions | Four mechanism-first rewrites: `bb3e2dd`, `76cd53f`, `91a4309`, `616e7ec`; exact page assertions added in `cd625f3`; awaiting same-SHA QA and owner assessment | FIXED-PENDING-QA |
 | HBV2-018 | P1 | #6 M09-L02 cold brew | Safety discussion did not give enough guidance on unknown storage conditions vs taste, and could be misread as universal shelf-life reasoning | Expanded scenario, log, reject/hold decisions and contextual safety caveats in `9a654a7`; see research references below; await same-SHA QA and owner's food-safety review | FIXED-PENDING-QA |
+| HBV2-019 | P0 | #6 M03 RatioLab | UI accepted 15 g coffee + 185 g beverage + 10% TDS and displayed EY 123.33% as an unqualified estimate, violating mass-balance consistency; blank TDS was coerced to zero | Separate missing TDS from measured values, reject EY >100%, disable explanation on inconsistent data, and add boundary tests. Commits `03a6d0c` + `b04fb23`; verify same-SHA CI before closing | FIXED-PENDING-QA |
 
 **Important:** `FIXED-PENDING-OWNER` means the source changed, **not** that the final academic content passed. `VERIFIED-ENGINEERING` means automated behavior was observed on a specific commit, **not** universal absence of bugs.
 
@@ -139,4 +140,15 @@ The editorial word threshold was reduced by **four** warnings through the revise
 - [Cold brew HPP research abstract](https://pubmed.ncbi.nlm.nih.gov/38231670/): context that microbial risk and storage conditions matter; research on specific processing conditions must not be generalized to homemade batches.
 
 The sources above inform wording and uncertainty, but **do not substitute for the owner's scientific, pedagogic and food-safety validation**. No user-facing video production is required.
+
+
+## 9. Scientific calculator integrity regression
+
+**Discovery:** Home Brewer M03 interactive ratio calculator previously allowed the illustrative default 15 g dose and 185 g beverage with an entered 10% TDS, then displayed an estimated **123.33% EY**. This would imply 18.5 g estimated dissolved solids from only 15 g coffee and is **impossible in the simplified mass-balance model**.
+
+**Fix:** distinguish an empty unknown TDS from an actual entered measurement; provide a specific alert when measured TDS and beverage mass imply dissolved solids above initial dose; withhold EY and formative submission on inconsistent data. Zero/invalid dose also remains disabled. Tested in `tests/home-brewer/home-brewer-v2.spec.ts` with values 1.5%, 10%, blank, and zero dose.
+
+**Boundary:** This is a consistency filter, **not** an endorsement of any preferred EY, coffee ratio, TDS target, taste, or validity of an uncalibrated refractometer. A value below 100% is not automatically a trustworthy measurement or good-tasting coffee. Owner scientific review remains outstanding.
+
+**Verification:** CI for the updated exact head must pass before issue becomes `VERIFIED-ENGINEERING`.
 
