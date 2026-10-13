@@ -31,5 +31,3 @@ Jika hanya punya satu kopi, kamu tetap bisa bereksperimen: pertahankan kopi dan 
 ## Tantangan saat kondisi berubah
 
 Besok tamu menyukai kopi lebih kuat tetapi kamu lebih suka ringan. Bagaimana menawarkan dua pilihan dari bahan yang sama tanpa memperlakukan satu preferensi sebagai kesalahan? Jelaskan target dan satu perubahan yang bisa diuji.
-
-**Jurnal pribadi:** Apa hal yang baru kamu pahami, asumsi mana yang masih perlu diperiksa, dan eksperimen paling sederhana apa yang bisa menjawabnya pada sesi berikutnya? Jawaban yang beralasan boleh berbeda dari resep orang lain.
