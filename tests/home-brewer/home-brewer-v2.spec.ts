@@ -1,5 +1,8 @@
 import {expect,test} from '@playwright/test';
 
+// Only learner-visible prose is checked here; engineering route names and internal CI docs are not shown to learners.
+const INTERNAL_LEARNER_LABELS=/\b(?:DRAFT|PREVIEW|BETA|COMING SOON|REVIEW BUILD|TBD)\b|validasi materi|validasi akademik oleh pengelola|review oleh pemilik materi|persetujuan pemilik materi|materi (?:masih )?draft|belum (?:siap )?dipublikasikan/i;
+
 test('40 lessons and 10 module-practice links are present in the course index',async({page})=>{
  await page.goto('/home-brewer-v2',{waitUntil:'domcontentloaded'});
  await expect(page.getByRole('heading',{level:1})).toContainText('Bukan Menghafal Resep');
@@ -7,7 +10,8 @@ test('40 lessons and 10 module-practice links are present in the course index',a
  await expect(page.locator('a[href^="/home-brewer-v2/hbv2-"]')).toHaveCount(40);
  await expect(page.locator('a[href^="/home-brewer-v2/practice/"]')).toHaveCount(10);
  const text=await page.locator('main').innerText();
- expect(text).not.toMatch(/DRAFT REVIEW|Beta Publik|review build|Sertifikasi Profesional Kompetensi/i);
+ expect(text).not.toMatch(INTERNAL_LEARNER_LABELS);
+ expect(text).not.toMatch(/Sertifikasi Profesional Kompetensi/i);
 });
 
 for(let m=1;m<=10;m++){
@@ -20,7 +24,8 @@ for(let m=1;m<=10;m++){
    await expect(page.getByRole('heading',{level:1})).toBeVisible();
    const copy=await page.locator('main').innerText();
    expect(copy,id).toMatch(/eksperimen|percobaan|coba/i);
-   expect(copy,id).not.toMatch(/DRAFT REVIEW|Beta Publik|review build|\[ACTIVITY:|\[VISUAL:|coming soon/i);
+   expect(copy,id).not.toMatch(INTERNAL_LEARNER_LABELS);
+   expect(copy,id).not.toMatch(/\[ACTIVITY:|\[VISUAL:/i);
   }
  });
  test('M'+String(m).padStart(2,'0')+' practice presents two unpublished-before-attempt cases and two diagnostics',async({page})=>{
@@ -32,6 +37,7 @@ for(let m=1;m<=10;m++){
   const quiz=page.getByRole('region',{name:'Diagnostik M'+String(m).padStart(2,'0')});
   await expect(quiz.getByRole('radio')).toHaveCount(4);
   await expect(quiz.getByRole('button',{name:'Periksa alasan'})).toBeDisabled();
+  expect(await page.locator('main').innerText()).not.toMatch(INTERNAL_LEARNER_LABELS);
  });
  test('M'+String(m).padStart(2,'0')+' concept diagram and usable interactive lab',async({page})=>{
   await page.goto('/home-brewer-v2/hbv2-'+code+'-l01',{waitUntil:'domcontentloaded'});
@@ -233,4 +239,18 @@ test('specialization editorial reader is never blocked by an unrelated global re
  for(let i=0;i<4;i++)await cards.nth(i).getByRole('radio',{name:labels[i]}).check();
  await lab.getByRole('button',{name:'Cek pembacaan label'}).click();
  await expect(lab.getByRole('status')).toContainText('4 dari 4 klasifikasi sesuai');
+});
+
+test('M10 lab completion shows learner feedback without internal editorial review language',async({page})=>{
+ await page.goto('/home-brewer-v2/hbv2-m10-l01',{waitUntil:'domcontentloaded'});
+ const lab=page.getByRole('region',{name:'Laboratorium konsep M10'});
+ const fields=lab.getByRole('textbox');
+ await expect(fields).toHaveCount(4);
+ for(let i=0;i<4;i++)await fields.nth(i).fill('Catatan berdasarkan kopi rumahan, dengan satu hipotesis dan pengukuran aman.');
+ await lab.getByRole('button',{name:'Periksa kesiapan proyek'}).click();
+ await expect(lab.getByRole('status')).toContainText('mengevaluasi dan memperbaiki resep berdasarkan pengamatan');
+ expect(await lab.innerText()).not.toMatch(INTERNAL_LEARNER_LABELS);
+ await page.goto('/home-brewer-v2/practice/m10',{waitUntil:'domcontentloaded'});
+ expect(await page.locator('main').innerText()).not.toMatch(INTERNAL_LEARNER_LABELS);
+ await expect(page.locator('main')).toContainText('belum tercatat sebagai nilai atau progres akun');
 });
