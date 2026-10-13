@@ -49,14 +49,62 @@ export interface QuizSubmissionResult {
   server_timestamp: string;
 }
 
+export class LearningSecurityError extends Error {
+  code: string;
+  status: number;
+
+  constructor(code: string, message: string, status: number = 400) {
+    super(message);
+    this.name = 'LearningSecurityError';
+    this.code = code;
+    this.status = status;
+  }
+}
+
+/**
+ * Canonicalizes payload to ensure deterministic hashing across distributed nodes.
+ */
+export function canonicalizePayload(payload: SyncProgressPayload): string {
+  const sortedProgress = (payload.progress || [])
+    .slice()
+    .sort((a, b) => a.lesson_id.localeCompare(b.lesson_id))
+    .map((p) => ({
+      lesson_id: p.lesson_id,
+      status: p.status,
+      time_spent_seconds: p.time_spent_seconds || 0,
+    }));
+
+  const sortedEnrollments = (payload.enrollments || [])
+    .slice()
+    .sort((a, b) => a.learning_path_id.localeCompare(b.learning_path_id))
+    .map((e) => ({
+      learning_path_id: e.learning_path_id,
+      status: e.status,
+    }));
+
+  return JSON.stringify({ progress: sortedProgress, enrollments: sortedEnrollments });
+}
+
 /**
  * Returns canonical lesson IDs belonging to a given learning path.
  */
-function getCanonicalLessonIdsForPath(pathId: string): string[] {
+export function getCanonicalLessonIdsForPath(pathId: string): string[] {
   const moduleIds = new Set(
     SEED_MODULES.filter((m) => m.learning_path_id === pathId).map((m) => m.id)
   );
   return SEED_LESSONS.filter((l) => moduleIds.has(l.module_id)).map((l) => l.id);
+}
+
+/**
+ * Returns canonical quiz IDs (module quizzes + path final exams) belonging to a given learning path.
+ */
+export function getCanonicalQuizzesForPath(pathId: string): string[] {
+  const moduleIds = new Set(
+    SEED_MODULES.filter((m) => m.learning_path_id === pathId).map((m) => m.id)
+  );
+  return SEED_QUIZZES.filter(
+    (q) => q.learning_path_id === pathId || (q.module_id && moduleIds.has(q.module_id))
+  ).map((q) => q.id);
 }
 
 /**
@@ -75,22 +123,42 @@ export class DatabaseLearningService {
     payload: SyncProgressPayload
   ): Promise<SyncProgressResponse> {
     if (!userId) {
-      throw new Error('MISSING_USER_ID: Identitas pengguna wajib disertakan dari sesi otentikasi.');
+      throw new LearningSecurityError('MISSING_USER_ID', 'Identitas pengguna wajib disertakan dari sesi otentikasi.', 401);
     }
 
     const now = new Date().toISOString();
     const eventId = payload.event_id || `evt-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
+    const canonicalPayloadHash = crypto
+      .createHash('sha256')
+      .update(canonicalizePayload(payload))
+      .digest('hex');
 
     return withTransaction(async (client) => {
       // 1. Idempotency Check across multi-instance server deployments (scoped strictly to user_id)
       if (payload.event_id) {
-        const existingReceipt = await client.query(
-          `SELECT event_id, processed_at FROM public.learning_event_receipts WHERE user_id = $1 AND event_id = $2`,
+        const existingReceipt = await client.query<{
+          event_id: string;
+          payload_hash: string;
+          processed_at: string;
+        }>(
+          `SELECT event_id, payload_hash, processed_at::text 
+           FROM public.learning_event_receipts 
+           WHERE user_id = $1 AND event_id = $2 
+           FOR UPDATE`,
           [userId, payload.event_id]
         );
 
         if (existingReceipt.rows.length > 0) {
-          // Event already processed for this user; fetch and return current authoritative state idempotently
+          const rec = existingReceipt.rows[0];
+          if (rec.payload_hash && rec.payload_hash !== canonicalPayloadHash) {
+            throw new LearningSecurityError(
+              'EVENT_ID_PAYLOAD_MISMATCH',
+              `ID event "${payload.event_id}" telah digunakan dengan muatan data yang berbeda. Konflik idempotensi terdeteksi.`,
+              409
+            );
+          }
+
+          // Identical idempotent duplicate -> return current authoritative state
           const userProgress = await this.getUserProgressFromClient(client, userId);
           const userEnrollments = await this.getUserEnrollmentsFromClient(client, userId);
           return {
@@ -98,26 +166,26 @@ export class DatabaseLearningService {
             user_id: userId,
             synced_count: 0,
             receipt_id: payload.event_id,
-            server_timestamp: existingReceipt.rows[0].processed_at,
+            server_timestamp: rec.processed_at,
             progress: userProgress,
             enrollments: userEnrollments,
           };
         }
 
-        // Canonical payload hash
-        const canonicalPayloadHash = crypto
-          .createHash('sha256')
-          .update(JSON.stringify({ progress: payload.progress, enrollments: payload.enrollments }))
-          .digest('hex');
-
         // Record receipt scoped to user_id
         await client.query(
           `INSERT INTO public.learning_event_receipts (event_id, user_id, event_type, payload_hash, processed_at)
-           VALUES ($1, $2, 'progress_sync', $3, NOW())
-           ON CONFLICT (user_id, event_id) DO NOTHING`,
+           VALUES ($1, $2, 'progress_sync', $3, NOW())`,
           [payload.event_id, userId, canonicalPayloadHash]
         );
       }
+
+      // Check User's Pro Status from database
+      const profRes = await client.query<{ is_pro: boolean }>(
+        `SELECT is_pro FROM public.profiles WHERE id = $1`,
+        [userId]
+      );
+      const isProUser = profRes.rows[0]?.is_pro === true;
 
       let syncedCount = 0;
 
@@ -125,12 +193,56 @@ export class DatabaseLearningService {
       for (const item of payload.progress) {
         if (!item.lesson_id) continue;
 
-        // Verify lesson exists in canonical seed curriculum or quizzes
-        const isValidLesson =
-          SEED_LESSONS.some((l) => l.id === item.lesson_id) ||
-          SEED_QUIZZES.some((q) => q.id === item.lesson_id);
-        if (!isValidLesson) {
+        // BANNED: Quizzes cannot be completed via generic lesson sync
+        const isQuiz = SEED_QUIZZES.some((q) => q.id === item.lesson_id);
+        if (isQuiz) {
+          throw new LearningSecurityError(
+            'FORBIDDEN_QUIZ_IN_LESSON_SYNC',
+            `ID "${item.lesson_id}" adalah kuis/evaluasi. Kuis dilarang diselesaikan melalui lesson sync biasa dan wajib diselesaikan melalui submitQuizAttempt.`,
+            403
+          );
+        }
+
+        const lesson = SEED_LESSONS.find((l) => l.id === item.lesson_id);
+        if (!lesson) {
           continue; // Skip unrecognized lesson IDs
+        }
+
+        // Pro entitlement validation
+        if (lesson.is_free === false && !isProUser) {
+          throw new LearningSecurityError(
+            'PRO_SUBSCRIPTION_REQUIRED',
+            `Materi "${lesson.title}" merupakan materi Pro. Anda harus memiliki langganan Pro aktif untuk menyelesaikan materi ini.`,
+            403
+          );
+        }
+
+        // Sequence / prerequisite check within module
+        if (item.status === 'completed') {
+          const moduleLessons = SEED_LESSONS
+            .filter((l) => l.module_id === lesson.module_id)
+            .sort((a, b) => a.order_index - b.order_index);
+          const currentIndex = moduleLessons.findIndex((l) => l.id === lesson.id);
+
+          if (currentIndex > 0) {
+            const prevLesson = moduleLessons[currentIndex - 1];
+            const prevInPayload = payload.progress.some(
+              (p) => p.lesson_id === prevLesson.id && p.status === 'completed'
+            );
+            if (!prevInPayload) {
+              const prevInDb = await client.query<{ status: string }>(
+                `SELECT status FROM public.lesson_progress WHERE user_id = $1 AND lesson_id = $2 AND status = 'completed'`,
+                [userId, prevLesson.id]
+              );
+              if (prevInDb.rows.length === 0) {
+                throw new LearningSecurityError(
+                  'PREREQUISITE_LESSON_INCOMPLETE',
+                  `Materi prasyarat "${prevLesson.title}" belum diselesaikan. Anda harus mempelajari materi secara berurutan.`,
+                  422
+                );
+              }
+            }
+          }
         }
 
         const timeSpent = Math.max(0, item.time_spent_seconds || 0);
@@ -174,8 +286,9 @@ export class DatabaseLearningService {
 
           // Recompute progress percent server-side from canonical curriculum
           const pathLessons = getCanonicalLessonIdsForPath(enr.learning_path_id);
-          let calculatedPercent = 0;
+          const pathQuizzes = getCanonicalQuizzesForPath(enr.learning_path_id);
 
+          let completedLessonsCount = 0;
           if (pathLessons.length > 0) {
             const countRes = await client.query<{ count: string }>(
               `SELECT COUNT(*) as count
@@ -183,11 +296,38 @@ export class DatabaseLearningService {
                WHERE user_id = $1 AND status = 'completed' AND lesson_id = ANY($2::text[])`,
               [userId, pathLessons]
             );
-            const completedCount = parseInt(countRes.rows[0]?.count || '0', 10);
-            calculatedPercent = Math.min(100, Math.round((completedCount / pathLessons.length) * 100));
+            completedLessonsCount = parseInt(countRes.rows[0]?.count || '0', 10);
           }
 
-          const status = calculatedPercent >= 100 ? 'completed' : 'active';
+          let passedQuizzesCount = 0;
+          if (pathQuizzes.length > 0) {
+            const quizRes = await client.query<{ count: string }>(
+              `SELECT COUNT(DISTINCT quiz_id) as count
+               FROM public.quiz_attempts
+               WHERE user_id = $1 AND passed = true AND quiz_id = ANY($2::text[])`,
+              [userId, pathQuizzes]
+            );
+            passedQuizzesCount = parseInt(quizRes.rows[0]?.count || '0', 10);
+          }
+
+          const allLessonsCompleted = pathLessons.length > 0 && completedLessonsCount >= pathLessons.length;
+          const allQuizzesPassed = pathQuizzes.length === 0 || passedQuizzesCount >= pathQuizzes.length;
+
+          const totalRequirements = pathLessons.length + pathQuizzes.length;
+          const fulfilledRequirements = completedLessonsCount + passedQuizzesCount;
+
+          let calculatedPercent = 0;
+          let status: 'active' | 'completed' = 'active';
+
+          if (allLessonsCompleted && allQuizzesPassed) {
+            calculatedPercent = 100;
+            status = 'completed';
+          } else if (totalRequirements > 0) {
+            // Cannot reach 100% or completed without passing all required quizzes and final exam
+            calculatedPercent = Math.min(99, Math.round((fulfilledRequirements / totalRequirements) * 100));
+            status = 'active';
+          }
+
           const completedAt = status === 'completed' ? now : null;
 
           await client.query(

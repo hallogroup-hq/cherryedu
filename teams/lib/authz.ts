@@ -84,14 +84,22 @@ export function assertTenantIsolation(requesterOrgId: string, targetEntityOrgId:
  */
 export function assertOutletScope(
   membership: OrganizationMembership,
-  targetOutletId: string
+  targetOutletId?: string | null
 ): void {
   if (membership.roles.includes('owner')) {
     return; // Org-wide access for owners
   }
 
   const scopes = membership.outlet_scopes || [];
-  if (!scopes.includes(targetOutletId)) {
+  if (scopes.length === 0) {
+    throw new AuthorizationError(
+      'OUTLET_SCOPE_UNASSIGNED',
+      'Pengguna belum ditugaskan pada outlet manapun.',
+      403
+    );
+  }
+
+  if (!targetOutletId || !scopes.includes(targetOutletId)) {
     throw new AuthorizationError(
       'OUTLET_SCOPE_RESTRICTED',
       'Kamu hanya memiliki akses pada outlet yang telah ditugaskan.',

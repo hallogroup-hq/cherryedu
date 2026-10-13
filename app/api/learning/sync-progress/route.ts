@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { serverLearningStore, SyncProgressPayload } from '@/lib/learningPersistenceService';
+import { serverLearningStore, SyncProgressPayload, LearningSecurityError } from '@/lib/learningPersistenceService';
 import { verifyJwtToken } from '@/teams/lib/serverAuth';
 import { AuthorizationError } from '@/teams/lib/authz';
 
@@ -32,10 +32,13 @@ export async function POST(req: NextRequest) {
     if (error instanceof AuthorizationError) {
       return NextResponse.json({ success: false, error: error.message, code: error.code }, { status: error.status });
     }
+    if (error instanceof LearningSecurityError) {
+      return NextResponse.json({ success: false, error: error.message, code: error.code }, { status: error.status });
+    }
     console.error('Error in /api/learning/sync-progress POST:', error);
     return NextResponse.json(
-      { success: false, error: error.message || 'Internal server error', code: 'SERVER_ERROR' },
-      { status: 500 }
+      { success: false, error: error.message || 'Internal server error', code: error.code || 'SERVER_ERROR' },
+      { status: error.status || 500 }
     );
   }
 }

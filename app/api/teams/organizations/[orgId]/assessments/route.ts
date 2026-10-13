@@ -6,6 +6,7 @@ import {
   assertSignoffAuthority,
   assertObservationAuthority,
   assertAdminCorrectionAuthority,
+  assertOutletScope,
   AuthorizationError,
 } from '@/teams/lib/authz';
 import {
@@ -66,10 +67,11 @@ export async function GET(
     } else if (isHeadBar) {
       // Scoped to assigned outlets
       const outletScopes = membership.outlet_scopes || [];
-      if (outletScopes.length > 0) {
-        sqlParams.push(outletScopes);
-        sql += ` AND (e.outlet_id = ANY($${sqlParams.length}::uuid[]) OR e.outlet_id IS NULL)`;
+      if (outletScopes.length === 0) {
+        return NextResponse.json({ success: true, assessments: [] });
       }
+      sqlParams.push(outletScopes);
+      sql += ` AND e.outlet_id = ANY($${sqlParams.length}::uuid[])`;
     } else {
       // Barista/Learner: object-level restriction to own assessments only
       sqlParams.push(user.userId);
@@ -118,8 +120,8 @@ export async function POST(
       }
 
       // Verify enrollment belongs to this organization
-      const enrollRes = await query<{ id: string; cohort_id: string }>(
-        `SELECT id, cohort_id FROM b2b.enrollments WHERE id = $1 AND organization_id = $2`,
+      const enrollRes = await query<{ id: string; cohort_id: string; outlet_id: string | null }>(
+        `SELECT id, cohort_id, outlet_id FROM b2b.enrollments WHERE id = $1 AND organization_id = $2`,
         [body.enrollment_id, orgId]
       );
 
@@ -128,6 +130,13 @@ export async function POST(
           { success: false, error: 'Peserta enrollment tidak ditemukan pada organisasi ini.', code: 'ENROLLMENT_NOT_FOUND' },
           { status: 404 }
         );
+      }
+
+      const enrollment = enrollRes.rows[0];
+
+      // Enforce Head Bar outlet scope strictly
+      if (membership.roles.includes('head_bar') && !membership.roles.includes('owner')) {
+        assertOutletScope(membership, enrollment.outlet_id);
       }
 
       const recommendation = (body.recommendation as ObservationRecommendation) || 'recommend_needs_practice';
@@ -303,7 +312,7 @@ export async function POST(
         is_critical: r.is_critical,
       }));
 
-      // 4.4. Server-Authoritative Required Steps & Prerequisites Validation
+      // 4.4. Server-Authoritative Required Steps & Prerequisites Validation (Fail Closed)
       const requiredStepsRes = await query<{ id: string; title_override: string; step_type: string }>(
         `SELECT id, title_override, step_type
          FROM b2b.program_steps
@@ -311,33 +320,60 @@ export async function POST(
         [enrollment.program_version_id]
       );
 
-      if (requiredStepsRes.rows.length > 0) {
-        const requiredStepIds = requiredStepsRes.rows.map((s) => s.id);
-        const completedStepsRes = await query<{ program_step_id: string }>(
-          `SELECT program_step_id
-           FROM b2b.learning_step_progress
-           WHERE enrollment_id = $1 AND state = 'completed' AND program_step_id = ANY($2::uuid[])`,
-          [enrollmentId, requiredStepIds]
+      if (requiredStepsRes.rows.length === 0) {
+        return NextResponse.json(
+          {
+            success: false,
+            error: 'Konfigurasi kurikulum program versi ini belum memiliki tahapan wajib (0 required steps terkonfigurasi). Asesmen ditolak secara fail-closed.',
+            code: 'PROGRAM_STEPS_UNCONFIGURED',
+          },
+          { status: 422 }
         );
+      }
 
-        const completedSet = new Set(completedStepsRes.rows.map((r) => r.program_step_id));
-        const missingSteps = requiredStepsRes.rows.filter((s) => !completedSet.has(s.id));
+      const requiredStepIds = requiredStepsRes.rows.map((s) => s.id);
+      const completedStepsRes = await query<{ program_step_id: string }>(
+        `SELECT program_step_id
+         FROM b2b.learning_step_progress
+         WHERE enrollment_id = $1 AND state = 'completed' AND program_step_id = ANY($2::uuid[])`,
+        [enrollmentId, requiredStepIds]
+      );
 
-        if (missingSteps.length > 0) {
+      const completedSet = new Set(completedStepsRes.rows.map((r) => r.program_step_id));
+      const missingSteps = requiredStepsRes.rows.filter((s) => !completedSet.has(s.id));
+
+      if (missingSteps.length > 0) {
+        return NextResponse.json(
+          {
+            success: false,
+            error: `Prasyarat pembelajaran teori online belum diselesaikan: ${missingSteps.map((m) => m.title_override || m.id).join(', ')}.`,
+            code: 'PREREQUISITES_NOT_MET',
+            missing_step_ids: missingSteps.map((m) => m.id),
+          },
+          { status: 422 }
+        );
+      }
+
+      // 4.5. Run Authoritative Pedagogical Gate Evaluation
+      const submittedCriterionResults: CriterionResult[] = body.criterion_results || [];
+
+      // Strict validation: Reject unknown rubric criterion IDs
+      const officialCriterionCodes = new Set(officialCriteria.map((c) => c.code));
+      for (const cr of submittedCriterionResults) {
+        if (!officialCriterionCodes.has(cr.criterion_id)) {
           return NextResponse.json(
             {
               success: false,
-              error: `Prasyarat pembelajaran teori online belum diselesaikan: ${missingSteps.map((m) => m.title_override || m.id).join(', ')}.`,
-              code: 'PREREQUISITES_NOT_MET',
-              missing_step_ids: missingSteps.map((m) => m.id),
+              error: `Kriteria asesmen "${cr.criterion_id}" tidak dikenali dalam rubrik resmi versi ini.`,
+              code: 'UNKNOWN_CRITERION_ID',
+              criterion_id: cr.criterion_id,
             },
             { status: 422 }
           );
         }
       }
 
-      // 4.5. Run Authoritative Pedagogical Gate Evaluation
-      const submittedCriterionResults: CriterionResult[] = body.criterion_results || [];
+
 
       const latestAssessment: PracticalAssessment = {
         id: `temp-${Date.now()}`,
@@ -416,6 +452,19 @@ export async function POST(
              FROM b2b.rubric_criteria rc
              WHERE rc.rubric_version_id = $5 AND rc.code = $6`,
             [assessmentId, r.level, r.critical_failure, r.notes || null, rubricVersionId, r.criterion_id]
+          );
+        }
+
+        // Verify persisted criteria count equals official criteria count
+        const countCheck = await client.query<{ count: string }>(
+          `SELECT COUNT(*) as count FROM b2b.criterion_results WHERE assessment_id = $1`,
+          [assessmentId]
+        );
+        const persistedCount = parseInt(countCheck.rows[0]?.count || '0', 10);
+        if (persistedCount !== officialCriteria.length) {
+          throw new CompetencyValidationError(
+            'CRITERION_PERSISTENCE_MISMATCH',
+            `Kegagalan integritas penyimpanan kriteria: ${persistedCount} dari ${officialCriteria.length} kriteria yang berhasil tersimpan.`
           );
         }
 

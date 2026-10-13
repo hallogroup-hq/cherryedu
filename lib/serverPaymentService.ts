@@ -298,7 +298,7 @@ export async function confirmOrderPayment(
       );
     }
 
-    if (settlement.settledAmount !== undefined && settlement.settledAmount !== finalAmount) {
+    if (settlement.settledAmount === undefined || settlement.settledAmount !== finalAmount) {
       throw new PaymentSecurityError(
         'AMOUNT_MISMATCH_AT_GATEWAY',
         'Nominal yang diselesaikan oleh gateway tidak sesuai dengan tagihan order.',

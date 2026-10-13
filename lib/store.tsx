@@ -132,7 +132,17 @@ interface CherryEduContextType {
   applyVoucher: (code: string, amount: number) => { valid: boolean; discountAmount: number; finalAmount: number; message: string; voucher?: Voucher };
   createPaymentTransaction: (cycle: SubscriptionCycle, voucherCode?: string) => Promise<{ success: boolean; transaction?: PaymentTransaction; error?: string }>;
   checkPaymentStatus: (transactionId: string) => Promise<{ paid: boolean; status?: string; transaction?: PaymentTransaction }>;
-  confirmBuyerPayment: (transactionId: string, proofUrl?: string, notes?: string) => Promise<{ success: boolean; transaction?: PaymentTransaction }>;
+  confirmBuyerPayment: (
+    transactionId: string,
+    proofUrl?: string,
+    notes?: string
+  ) => Promise<{
+    success: boolean;
+    awaitingVerification?: boolean;
+    isProActivated?: boolean;
+    transaction?: PaymentTransaction;
+    error?: string;
+  }>;
   cancelTransactionAndRevokePro: (transactionId: string) => void;
   voidTransactionAndRevokePro: (transactionId: string) => void;
   deleteTransaction: (transactionId: string) => void;
@@ -895,150 +905,142 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const createPaymentTransaction = async (cycle: SubscriptionCycle, voucherCode?: string) => {
-    const baseAmount = cycle === 'annual' ? PRICING_PLANS.pro.annual.amount : PRICING_PLANS.pro.monthly.amount;
-    let discount = 0;
-    let finalAmount = baseAmount;
-    let appliedVoucherCode: string | undefined = undefined;
+    try {
+      const sessionRes = await supabase.auth.getSession().catch(() => ({ data: { session: null } }));
+      const token = sessionRes.data?.session?.access_token;
 
-    if (voucherCode) {
-      const vResult = applyVoucher(voucherCode, baseAmount);
-      if (vResult.valid) {
-        discount = vResult.discountAmount;
-        finalAmount = vResult.finalAmount;
-        appliedVoucherCode = vResult.voucher?.code;
+      const res = await fetch('/api/payment/create-order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify({
+          cycle,
+          voucher_code: voucherCode,
+          user_name: currentUser.name,
+          user_email: currentUser.email,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        return { success: false, error: data.error || 'Gagal membuat order transaksi di server.' };
       }
+
+      const tx: PaymentTransaction = {
+        id: data.transaction.id,
+        user_id: data.transaction.user_id,
+        user_name: data.transaction.user_name || currentUser.name || 'Pengguna CherryEdu',
+        user_email: data.transaction.user_email || currentUser.email,
+        plan_tier: data.transaction.plan_tier || 'pro',
+        cycle: data.transaction.cycle,
+        original_amount: data.transaction.original_amount,
+        discount_amount: data.transaction.discount_amount || 0,
+        final_amount: data.transaction.final_amount,
+        voucher_code: data.transaction.voucher_code || undefined,
+        status: data.transaction.status || 'pending',
+        payment_method: data.transaction.payment_method || 'gopay_qris',
+        qris_id: data.transaction.qris_id,
+        trx_id: data.transaction.trx_id,
+        qris_code: data.transaction.qris_code,
+        expires_at: data.transaction.expires_at,
+        created_at: data.transaction.created_at,
+      };
+
+      setTransactions((prev) => [tx, ...prev]);
+
+      if (tx.voucher_code) {
+        setVouchers((prev) =>
+          prev.map((v) =>
+            v.code.toUpperCase() === tx.voucher_code?.toUpperCase()
+              ? { ...v, usage_count: (v.usage_count || 0) + 1 }
+              : v
+          )
+        );
+      }
+
+      return { success: true, transaction: tx };
+    } catch (err: any) {
+      return { success: false, error: err.message || 'Terjadi kesalahan jaringan saat membuat pesanan.' };
     }
-
-    const qrisResult = await requestDynamicQRIS(finalAmount);
-
-    const tx: PaymentTransaction = {
-      id: 'tx_' + Math.random().toString(36).substring(2, 10),
-      user_id: currentUser.id,
-      user_name: currentUser.name || 'Pengguna CherryEdu',
-      user_email: currentUser.email,
-      plan_tier: 'pro',
-      cycle,
-      original_amount: baseAmount,
-      discount_amount: discount,
-      final_amount: finalAmount,
-      voucher_code: appliedVoucherCode,
-      status: 'pending',
-      payment_method: 'gopay_qris',
-      qris_id: qrisResult.qris_id,
-      trx_id: qrisResult.trx_id,
-      qris_code: qrisResult.qris_code,
-      qris_url: qrisResult.qris_image_url,
-      expires_at: qrisResult.expires_at,
-      created_at: new Date().toISOString(),
-    };
-
-    setTransactions((prev) => [tx, ...prev]);
-    syncTransactionToSupabase(tx);
-
-    if (appliedVoucherCode) {
-      setVouchers((prev) =>
-        prev.map((v) =>
-          v.code.toUpperCase() === appliedVoucherCode?.toUpperCase()
-            ? { ...v, usage_count: (v.usage_count || 0) + 1 }
-            : v
-        )
-      );
-    }
-
-    return { success: true, transaction: tx };
   };
 
   const checkPaymentStatus = async (transactionId: string) => {
-    // 1. Fetch latest server truth from Supabase
-    const remoteTx = await fetchTransactionByIdFromSupabase(transactionId);
-    let tx = remoteTx || transactions.find((t) => t.id === transactionId);
+    let tx = transactions.find((t) => t.id === transactionId);
+    if (!tx) {
+      const remoteTx = await fetchTransactionByIdFromSupabase(transactionId);
+      if (remoteTx) tx = remoteTx;
+    }
     if (!tx) return { paid: false };
 
-    // 2. If marked as paid in Supabase or locally, immediately grant Pro access
-    if (tx.status === 'paid') {
-      const durationMonths = tx.cycle === 'annual' ? 12 : 1;
-      grantProAccess(tx.user_id, durationMonths, tx.cycle);
-
-      setTransactions((prev) => {
-        const exists = prev.some((t) => t.id === transactionId);
-        if (exists) {
-          return prev.map((t) => (t.id === transactionId ? tx! : t));
-        }
-        return [tx!, ...prev];
-      });
-
-      return { paid: true, transaction: tx };
-    }
-
-    // 3. Auto-expire transactions when time limit has elapsed ONLY IF still pending remotely and locally
+    // Auto-expire check
     if (tx.status === 'pending' && tx.expires_at && new Date(tx.expires_at) < new Date()) {
       const expiredTx: PaymentTransaction = {
         ...tx,
         status: 'expired',
       };
       setTransactions((prev) => prev.map((t) => (t.id === transactionId ? expiredTx : t)));
-      updateTransactionStatusInSupabase(tx.id, 'expired');
       return { paid: false, status: 'expired', transaction: expiredTx };
     }
 
-    // 4. Poll external GoPay gateway via server API route (so API key remains secure on server)
-    let isPaid = false;
     try {
-      const qrisId = tx.qris_id || tx.id;
-      const queryParams = new URLSearchParams({
-        trx_id: tx.trx_id || '',
-        amount: String(tx.final_amount),
-        start_time: tx.created_at || '',
+      const sessionRes = await supabase.auth.getSession().catch(() => ({ data: { session: null } }));
+      const token = sessionRes.data?.session?.access_token;
+
+      const res = await fetch('/api/payment/confirm', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify({ order_id: transactionId }),
       });
-      const res = await fetch(`/api/payment/status/${encodeURIComponent(qrisId)}?${queryParams.toString()}`);
-      if (res.ok) {
-        const json = await res.json();
-        if (json.paid) {
-          isPaid = true;
+
+      const data = await res.json();
+      if (res.ok && data.success && data.isProActivated) {
+        const durationMonths = tx.cycle === 'annual' ? 12 : 1;
+        grantProAccess(tx.user_id, durationMonths, tx.cycle);
+
+        const updatedTx: PaymentTransaction = {
+          ...tx,
+          status: 'paid',
+          paid_at: new Date().toISOString(),
+        };
+
+        setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
+
+        // Asynchronously trigger confirmation email
+        if (updatedTx.user_email) {
+          const expiresDate = new Date();
+          expiresDate.setDate(expiresDate.getDate() + (updatedTx.cycle === 'annual' ? 365 : 30));
+          fetch('/api/email/subscription', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              toEmail: updatedTx.user_email,
+              userName: updatedTx.user_name,
+              planName: 'CherryEdu Pro',
+              cycle: updatedTx.cycle,
+              amount: updatedTx.final_amount,
+              transactionId: updatedTx.trx_id || updatedTx.id,
+              expiresAt: expiresDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
+              isRenewal: false,
+            }),
+          }).catch((e) => console.debug('Email dispatch skipped:', e));
         }
+
+        return { paid: true, transaction: updatedTx };
       }
     } catch (e) {
-      console.warn('Failed to poll payment status API route:', e);
+      console.warn('Failed to verify payment with server:', e);
     }
 
-    if (isPaid) {
-      const durationMonths = tx.cycle === 'annual' ? 12 : 1;
-      grantProAccess(tx.user_id, durationMonths, tx.cycle);
-
-      const updatedTx: PaymentTransaction = {
-        ...tx,
-        status: 'paid',
-        paid_at: new Date().toISOString(),
-      };
-      setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
-      updateTransactionStatusInSupabase(tx.id, 'paid', updatedTx.paid_at);
-
-      // Asynchronously trigger confirmation email
-      if (updatedTx.user_email) {
-        const expiresDate = new Date();
-        expiresDate.setDate(expiresDate.getDate() + (updatedTx.cycle === 'annual' ? 365 : 30));
-        fetch('/api/email/subscription', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            toEmail: updatedTx.user_email,
-            userName: updatedTx.user_name,
-            planName: 'CherryEdu Pro',
-            cycle: updatedTx.cycle,
-            amount: updatedTx.final_amount,
-            transactionId: updatedTx.trx_id || updatedTx.id,
-            expiresAt: expiresDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
-            isRenewal: false,
-          }),
-        }).catch((e) => console.debug('Email dispatch skipped:', e));
-      }
-
-      return { paid: true, transaction: updatedTx };
-    }
     return { paid: false, transaction: tx };
   };
 
   const simulatePaymentSuccess = (transactionId: string) => {
+    // Only used in isolated offline development preview
     const tx = transactions.find((t) => t.id === transactionId);
     if (!tx) return;
 
@@ -1051,88 +1053,102 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       paid_at: new Date().toISOString(),
     };
     setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
-    updateTransactionStatusInSupabase(tx.id, 'paid', updatedTx.paid_at);
-
-    // Asynchronously dispatch confirmation & receipt email
-    if (tx.user_email) {
-      const expiresDate = new Date();
-      expiresDate.setDate(expiresDate.getDate() + (tx.cycle === 'annual' ? 365 : 30));
-      fetch('/api/email/subscription', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          toEmail: tx.user_email,
-          userName: tx.user_name,
-          planName: 'CherryEdu Pro',
-          cycle: tx.cycle,
-          amount: tx.final_amount,
-          transactionId: tx.trx_id || tx.id,
-          expiresAt: expiresDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
-          isRenewal: false,
-        }),
-      }).catch((e) => console.debug('Failed to send subscription confirmation email:', e));
-    }
   };
 
   /**
-   * Optimistic instant activation: When the buyer confirms they have transferred via QRIS,
-   * immediately activate Pro access so the learner doesn't have to wait.
-   * Admin retains full authority to revoke Pro later if funds didn't clear.
+   * Server-verified payment lifecycle:
+   * - For manual fallback QRIS: Uploads proof to server. Pro access is NOT activated until manual admin review.
+   * - For dynamic QRIS: Verifies settlement through /api/payment/confirm. Activates Pro ONLY on server confirmation.
    */
   const confirmBuyerPayment = async (
     transactionId: string,
     proofUrl?: string,
     notes?: string
-  ): Promise<{ success: boolean; transaction?: PaymentTransaction }> => {
+  ): Promise<{
+    success: boolean;
+    awaitingVerification?: boolean;
+    isProActivated?: boolean;
+    transaction?: PaymentTransaction;
+    error?: string;
+  }> => {
     let tx = transactions.find((t) => t.id === transactionId);
     if (!tx) {
       const remoteTx = await fetchTransactionByIdFromSupabase(transactionId);
       if (remoteTx) tx = remoteTx;
     }
-    if (!tx) return { success: false };
+    if (!tx) return { success: false, error: 'Order transaksi tidak ditemukan.' };
 
-    const durationMonths = tx.cycle === 'annual' ? 12 : 1;
-    grantProAccess(tx.user_id, durationMonths, tx.cycle);
+    const sessionRes = await supabase.auth.getSession().catch(() => ({ data: { session: null } }));
+    const token = sessionRes.data?.session?.access_token;
 
-    const updatedTx: PaymentTransaction = {
-      ...tx,
-      status: 'paid',
-      proof_url: proofUrl || tx.proof_url,
-      proof_notes: notes || tx.proof_notes,
-      paid_at: new Date().toISOString(),
-    };
+    // Case A: Manual Proof Upload (Fallback QRIS) -> submit proof to server, DO NOT grant Pro access!
+    if (proofUrl) {
+      try {
+        const res = await fetch('/api/payment/submit-proof', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            ...(token ? { Authorization: `Bearer ${token}` } : {}),
+          },
+          body: JSON.stringify({
+            order_id: transactionId,
+            proof_url: proofUrl,
+            proof_notes: notes,
+          }),
+        });
 
-    setTransactions((prev) => {
-      const exists = prev.some((t) => t.id === transactionId);
-      if (exists) {
-        return prev.map((t) => (t.id === transactionId ? updatedTx : t));
+        const data = await res.json();
+        if (!res.ok || !data.success) {
+          return { success: false, error: data.error || 'Gagal mengunggah bukti pembayaran.' };
+        }
+
+        const updatedTx: PaymentTransaction = {
+          ...tx,
+          status: 'pending',
+          proof_url: proofUrl,
+          proof_notes: notes || tx.proof_notes,
+        };
+
+        setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
+        return { success: true, awaitingVerification: true, transaction: updatedTx };
+      } catch (err: any) {
+        return { success: false, error: err.message || 'Gagal menghubungi server untuk mengunggah bukti.' };
       }
-      return [updatedTx, ...prev];
-    });
-
-    updateTransactionStatusInSupabase(tx.id, 'paid', updatedTx.paid_at, updatedTx.proof_url);
-
-    // Asynchronously dispatch confirmation email
-    if (updatedTx.user_email) {
-      const expiresDate = new Date();
-      expiresDate.setDate(expiresDate.getDate() + (updatedTx.cycle === 'annual' ? 365 : 30));
-      fetch('/api/email/subscription', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          toEmail: updatedTx.user_email,
-          userName: updatedTx.user_name,
-          planName: 'CherryEdu Pro',
-          cycle: updatedTx.cycle,
-          amount: updatedTx.final_amount,
-          transactionId: updatedTx.trx_id || updatedTx.id,
-          expiresAt: expiresDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
-          isRenewal: false,
-        }),
-      }).catch((e) => console.debug('Failed to send subscription confirmation email:', e));
     }
 
-    return { success: true, transaction: updatedTx };
+    // Case B: Dynamic Gateway Confirmation -> verify with server
+    try {
+      const res = await fetch('/api/payment/confirm', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify({ order_id: transactionId }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success || !data.isProActivated) {
+        return {
+          success: false,
+          error: data.error || 'Pembayaran belum terkonfirmasi oleh sistem settlement gateway.',
+        };
+      }
+
+      const durationMonths = tx.cycle === 'annual' ? 12 : 1;
+      grantProAccess(tx.user_id, durationMonths, tx.cycle);
+
+      const updatedTx: PaymentTransaction = {
+        ...tx,
+        status: 'paid',
+        paid_at: new Date().toISOString(),
+      };
+
+      setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
+      return { success: true, isProActivated: true, transaction: updatedTx };
+    } catch (err: any) {
+      return { success: false, error: err.message || 'Gagal memverifikasi status pembayaran ke server.' };
+    }
   };
 
   /**

@@ -22,9 +22,9 @@ import { POST as postQuizAttempt } from '../../app/api/learning/quiz-attempt/rou
 import fs from 'fs';
 import path from 'path';
 
-process.env.SUPABASE_JWT_SECRET = TEST_JWT_SECRET;
-(process.env as any).NODE_ENV = 'test';
-process.env.ALLOW_DESTRUCTIVE_STAGING_SEED = 'true';
+if (!process.env.SUPABASE_JWT_SECRET) {
+  process.env.SUPABASE_JWT_SECRET = TEST_JWT_SECRET;
+}
 
 const PORT = 3099;
 const BASE_URL = `http://127.0.0.1:${PORT}`;
@@ -32,8 +32,10 @@ const BASE_URL = `http://127.0.0.1:${PORT}`;
 async function assertSafeTestEnvironment() {
   const nodeEnv = process.env.NODE_ENV;
   const allowSeed = process.env.ALLOW_DESTRUCTIVE_STAGING_SEED;
-  if (nodeEnv !== 'test' && allowSeed !== 'true') {
-    throw new Error('STAGING_SAFETY_GUARD: Destructive staging seeding is only permitted when NODE_ENV=test or ALLOW_DESTRUCTIVE_STAGING_SEED=true.');
+  if (nodeEnv !== 'test' || allowSeed !== 'true') {
+    throw new Error(
+      'STAGING_SAFETY_GUARD: Destructive staging seeding is only permitted when NODE_ENV=test AND ALLOW_DESTRUCTIVE_STAGING_SEED=true are explicitly passed by caller.'
+    );
   }
 
   const dbRes = await query<{ current_database: string; host: string }>(

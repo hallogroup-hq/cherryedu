@@ -25,15 +25,17 @@ import fs from 'fs';
 import path from 'path';
 
 // Environment variables for test
-process.env.SUPABASE_JWT_SECRET = TEST_JWT_SECRET;
-(process.env as any).NODE_ENV = 'test';
-process.env.ALLOW_DESTRUCTIVE_STAGING_SEED = 'true';
+if (!process.env.SUPABASE_JWT_SECRET) {
+  process.env.SUPABASE_JWT_SECRET = TEST_JWT_SECRET;
+}
 
 async function assertSafeTestEnvironment() {
   const nodeEnv = process.env.NODE_ENV;
   const allowSeed = process.env.ALLOW_DESTRUCTIVE_STAGING_SEED;
-  if (nodeEnv !== 'test' && allowSeed !== 'true') {
-    throw new Error('STAGING_SAFETY_GUARD: Destructive staging seeding is only permitted when NODE_ENV=test or ALLOW_DESTRUCTIVE_STAGING_SEED=true.');
+  if (nodeEnv !== 'test' || allowSeed !== 'true') {
+    throw new Error(
+      'STAGING_SAFETY_GUARD: Destructive staging seeding is only permitted when NODE_ENV=test AND ALLOW_DESTRUCTIVE_STAGING_SEED=true are explicitly passed by caller.'
+    );
   }
 
   const dbRes = await query<{ current_database: string; host: string }>(
@@ -428,7 +430,7 @@ async function runStagingVerification() {
       headers: { ...tokenFor(USER_BARISTA_B), 'content-type': 'application/json' },
       body: JSON.stringify({
         event_id: sharedEventId,
-        progress: [{ lesson_id: 'les-h4-2', status: 'completed', updated_at: new Date().toISOString() }],
+        progress: [{ lesson_id: 'les-h1-1', status: 'completed', updated_at: new Date().toISOString() }],
       }),
     });
     const resB = await postSyncProgress(reqB);
