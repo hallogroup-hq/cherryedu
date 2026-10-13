@@ -171,3 +171,40 @@ test('AeroPress safety diagram explicitly discourages risky inverted brewing',as
  await expect(fig).toContainText('tidak menganjurkan inverted');
  await expect(fig).toContainText('manual model');
 });
+
+test('sensory preference lesson separates description from liking and renders the example as a table',async({page})=>{
+ await page.goto('/home-brewer-v2/hbv2-m07-l04');
+ await expect(page.getByRole('heading',{name:'Pisahkan apa yang dirasakan dari apa yang disukai'})).toBeVisible();
+ const table=page.locator('.editorial-prose table');
+ await expect(table).toHaveCount(1);
+ await expect(table.getByRole('row')).toHaveCount(3);
+ await expect(page.locator('main')).toContainText('Keduanya konsisten pada deskripsi relatif');
+});
+
+test('bitterness lesson distinguishes bypass dilution from brew-through water and astringency',async({page})=>{
+ await page.goto('/home-brewer-v2/hbv2-m08-l02');
+ const main=page.locator('main');
+ await expect(main).toContainText('Sepat');
+ await expect(main).toContainText('bypass');
+ await expect(main).toContainText('air yang melewati coffee bed');
+ await expect(main).toContainText('tidak menjamin menghilangkan sepat');
+});
+
+test('cold brew safety lesson does not turn a taste observation into a shelf-life guarantee',async({page})=>{
+ await page.goto('/home-brewer-v2/hbv2-m09-l02');
+ const main=page.locator('main');
+ await expect(main).toContainText('tidak menetapkan masa simpan universal');
+ await expect(main).toContainText('tidak memvalidasi keamanan mikrobiologis');
+ await expect(main).toContainText('jangan sajikan atau konsumsi');
+ await expect(page.getByRole('figure',{name:'Cold brew: rasa dan keamanan adalah dua pemeriksaan'})).toBeVisible();
+});
+
+test('V0-V2 lesson keeps prediction separate from observed data and explicitly marks examples simulated',async({page})=>{
+ await page.goto('/home-brewer-v2/hbv2-m10-l02');
+ const main=page.locator('main');
+ await expect(main).toContainText('data simulasi');
+ await expect(main).toContainText('hipotesis saingan');
+ await expect(main).toContainText('Kosongkan kolom tasting');
+ await expect(page.getByRole('figure',{name:'Prediksi yang salah tetap menghasilkan pembelajaran'})).toBeVisible();
+ await expect(page.locator('.editorial-prose table').getByRole('row')).toHaveCount(3);
+});
