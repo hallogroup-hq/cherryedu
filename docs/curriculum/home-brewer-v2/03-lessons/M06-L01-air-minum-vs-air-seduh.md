@@ -31,5 +31,3 @@ Bila kamu pindah rumah dan rasa tiba-tiba berbeda, jangan langsung meracik miner
 ## Pindah ke situasi berbeda
 
 Saat berganti rumah, satu air memberi hasil kurang disukai. Apakah harus langsung membeli air demineralisasi dan garam Epsom? Jelaskan pemeriksaan, alternatif sederhana dan batas klaim yang layak sebelum meracik apa pun.
-
-**Ringkas dengan bahasamu:** jelaskan mengapa hasil berubah, satu dugaan alternatif, dan apa pengujian berikutnya yang mungkin mengubah pikiranmu. Tidak ada kewajiban mengikuti satu brand atau angka resep tertentu.
