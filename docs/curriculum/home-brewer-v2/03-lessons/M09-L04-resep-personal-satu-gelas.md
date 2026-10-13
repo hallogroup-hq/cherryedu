@@ -18,7 +18,15 @@ Kesalahan umum: menulis tasting notes sebelum minuman dibuat, menganggap nama kr
 
 Tulis satu problem statement dan tiga arah resep, bukan tiga nama untuk komposisi sama. Pilih satu versi yang bisa diuji dalam sesi aman. Hitung massa dan biaya bahan jika harganya diketahui. Minta seorang teman membaca resep dan sebutkan pertanyaan yang masih ambigu.
 
-Saat menulis eksperimen, bedakan prediksi, pengamatan nyata, dan data simulasi; jangan mengisi kolom tasting yang belum dilakukan. Periksa kelayakan bahan/air, alat food-safe, penyimpanan dan risiko panas. Nilai kemampuan belajar dari alasan yang bisa diuji dan keputusan saat keadaan berubah, bukan kepatuhan pada satu resep.
+## Uji apakah setiap komponen punya alasan
+
+Buat tiga *arah*, bukan tiga nama. Misalnya arah pertama mengutamakan **aroma kopi yang jelas**, kedua **kesegaran minuman dingin**, dan ketiga **tekstur lebih penuh**. Setiap arah membutuhkan keputusan bahan dan metode yang mungkin berbeda. Jangan mulai dari topping; mulai dari tujuan yang bisa dideskripsikan oleh peminum.
+
+**Contoh rancangan:** untuk iced filter, catat kopi 15 g, air panas 160 g, dan es 65 g sebagai *massa input awal*. Itu tidak membuktikan massa minuman jadi 225 g atau es seluruhnya mencair. Jika ingin menguji jumlah es, pertahankan coffee base dan perubahan bahan lain semirip mungkin. Jika ingin menguji sirup, gunakan base yang sudah dipilih agar efek perubahan tidak bercampur dengan resep kopi yang ikut diubah.
+
+**Catatan V0 → V1:** tulis hipotesis dulu, kemudian jumlah bahan, apa yang dirasakan jika sungguh dicicipi, biaya berdasarkan harga yang diketahui, serta apa yang harus direvisi. Kriteria “original” tidak boleh dijadikan alasan mengarang cerita origin atau klaim keamanan pangan.
+
+**Tamu lebih suka versi yang tidak kamu pilih?** Itu data preferensi orang yang berbeda. Untuk minuman pribadi kamu boleh mempertahankan V0; untuk tamu kamu bisa mengembangkan opsi V1. Resep yang human-centered menyesuaikan tujuan, bukan memaksa semua orang menyukai ide pembuatnya.
 
 ## Tantangan transfer
 
