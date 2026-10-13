@@ -1,27 +1,51 @@
 # Kalibrasi Rasa Tanpa Menghakimi
 
-Dua orang berselisih: yang satu menyebut kopi terlalu asam, yang lain justru menyukai bright acidity. Apakah perlu mencari satu jawaban final yang semua orang wajib setujui?
+Bayangkan kamu membuat kopi untuk dua teman. Keduanya sepakat cangkir A terasa lebih asam daripada B. Tetapi satu teman justru menyukai A, sedangkan yang lain memilih B. Apakah ada yang salah mencicipi? Tidak harus. **Mengenali sifat minuman dan menyukai sifat itu merupakan dua pekerjaan yang berbeda.**
 
-## Pahami pengalaman dan mekanismenya
+## Pisahkan apa yang dirasakan dari apa yang disukai
 
-Kalibrasi membantu menyamakan istilah dan memahami perbedaan sensitivitas, bukan membuat semua orang memiliki preferensi identik. Dalam sensory, intensitas deskriptif dan kesukaan adalah dua dimensi. Aroma fruity dan sensasi acidity juga tidak sama. Kondisi pencicip—makanan sebelumnya, suhu kopi, urutan, ekspektasi—mempengaruhi pengalaman. Seseorang boleh menyukai body tipis tanpa berarti ia tidak mengerti ekstraksi.
+Saat mencicipi kopi, kita bisa membuat **deskripsi sensori**, misalnya “aromanya mengingatkan jeruk”, “tingkat keasaman terasa lebih tinggi”, atau “sensasi di mulut lebih ringan”. Ini adalah laporan tentang pengalaman inderawi pada kondisi tertentu, bukan hasil pengujian kandungan molekul.
 
-## Pelajari data yang benar-benar tersedia
+Kita juga bisa membuat **penilaian preferensi**: “Aku lebih suka A”, “B lebih nyaman diminum tanpa makanan”, atau “Untuk tamu ini, pilih yang kurang asam”. Pernyataan preferensi tidak perlu sama antarpencicip, bahkan ketika deskripsi sensori mereka mirip.
 
-Kasus fiktif: panel A menganggap sampel X lebih intens acidity tetapi tetap lebih menyukainya; panel B menganggap X lebih intens namun memilih Y. Perbedaan ada pada preferensi, bukan selalu ketidakmampuan mendeteksi acidity. Jika A dan B bahkan tidak sepakat intensitasnya, perlu cek bahasa bersama dan metode penyajian.
+Dalam penilaian kopi profesional, pendekatan deskriptif dan penilaian kesukaan memang dibedakan agar satu skor tidak menggantikan seluruh karakter cangkir. Sebagai home brewer, kamu tidak perlu meniru formulir profesional; cukup biasakan mencatat kedua jenis jawaban **di kolom yang terpisah**.
 
-## Jangan mengunci satu sebab terlalu cepat
+## Bahasa yang berbeda belum tentu persepsinya berbeda
 
-Jangan menggunakan flavor wheel untuk memberi nilai tinggi hanya karena deskriptor terdengar rumit; alat itu membantu komunikasi, bukan alat pendeteksi senyawa otomatis. Hindari klaim bahwa satu origin pasti memberikan rasa sama bagi semua pencicip.
+Seorang teman berkata “asam”, yang lain berkata “segar”. Bisa jadi keduanya merasakan karakter acidity serupa tetapi memilih kata berbeda. Sebelum mengoreksi, tanyakan apa yang dimaksud: apakah seperti rasa jeruk, seperti cuka, atau hanya lebih terasa dibanding kopi lain?
 
-## Eksperimenmu sendiri
+**Acidity** adalah salah satu karakter sensori yang dapat terasa menyenangkan atau tidak, bergantung karakter dan preferensi. **Sourness** sering dipakai untuk menekankan rasa asam sebagai sensasi; istilahnya bisa tumpang tindih dalam percakapan. Jangan menyimpulkan “asam berarti under-extracted” hanya dari satu kata.
 
-Praktik bersama satu teman: deskripsikan dua cangkir terpisah sebelum berdiskusi. Bandingkan kata yang kalian gunakan, tanyakan contoh rasa yang dimaksud, lalu catat kesepakatan dan perbedaan yang tetap ada. Jangan memaksa menyamakan preferensi.
+Demikian pula, aroma buah bukan berarti kopi pasti ditambah buah, dan body ringan tidak berarti ekstraksi gagal. Boleh memilih body ringan tanpa perlu membela diri sebagai orang yang “mengerti kopi”.
 
-Pertama tentukan **tujuan percobaan**, lalu tulis **prediksi** dan **apa yang dapat membuat dugaanmu salah**. Tentukan faktor yang tetap dan berubah, lalu catat data secara jujur. Pengukuran fiktif bukan tasting nyata; selera pribadi bukan nilai salah-benar objektif. Biaya dan risiko peralatan juga menjadi bagian dari keputusan.
+## Perbandingan dengan data yang benar-benar ada
 
-## Coba pada situasi baru
+Berikut **data simulasi**, bukan hasil tes peserta:
 
-Kamu membuat resep untuk keluarga yang cenderung menyukai kopi lembut. Bagaimana mendesain opsi minuman yang sesuai tanpa harus mengubah preferensi pribadimu atau mengejek selera keluarga?
+| Peserta | Acidity A dibanding B | Lebih suka |
+| --- | --- | --- |
+| Rani | A lebih terasa | A |
+| Dika | A lebih terasa | B |
 
-**Apa yang kamu pelajari?** Jawab menggunakan bahasa sendiri: apa data yang mendukung, apa yang belum diketahui, dan percobaan aman apa yang akan memberikan informasi paling berguna berikutnya.
+Keduanya konsisten pada deskripsi relatif, tetapi berbeda dalam preferensi. Angka atau pilihan di tabel **tidak membuktikan** siapa yang lidahnya lebih akurat.
+
+Bagaimana kalau Rani justru berkata A lebih asam dan Dika berkata B lebih asam? Jangan langsung memberi nilai salah. Periksa kondisi: apakah cangkir disajikan pada suhu serupa, identitas sampel disembunyikan, urutan mencicipi sama, makanan sebelumnya berpengaruh, dan kata “asam” sudah dimengerti dengan cara sebanding? Semua itu bisa memengaruhi laporan, meski belum cukup membuktikan penyebab perbedaannya.
+
+## Eksperimen kecil bersama teman
+
+Jika ada dua seduhan yang aman diminum, siapkan sampel berkode A dan B. Usahakan suhu penyajian, volume, wadah dan jarak waktu mencicipi sebanding. **Jangan memberi tahu mana kopi yang lebih mahal atau label flavor notes-nya terlebih dahulu.**
+
+Masing-masing mengisi dua catatan tanpa berdiskusi:
+
+1. **Deskriptif:** aroma yang dikenali, acidity relatif, tekstur/body, dan aftertaste. Jika ragu, tulis “belum bisa membedakan”.
+2. **Preferensi:** mana yang dipilih, untuk situasi apa, dan alasannya dalam bahasa sendiri.
+
+Baru setelah itu bandingkan. Ketika berbeda, coba deskripsikan ulang dengan acuan yang dipahami bersama. Tidak perlu memaksa kedua orang memilih minuman yang sama. Jika kondisi tidak bisa dikontrol, catat keterbatasannya. Jika tidak tersedia dua cangkir, gunakan skenario Rani–Dika untuk latihan klasifikasi deskripsi versus preferensi; jangan mengarang hasil tasting.
+
+## Menerapkan pengetahuan ketika membuat minuman untuk orang lain
+
+Sekarang kamu mendapat permintaan: “Aku tidak suka kopi yang terlalu asam, tapi tetap ingin aromanya terasa.” Kamu tidak harus menolak kopi yang kamu sendiri sukai. Tanyakan dulu apa arti “asam” bagi tamu tersebut dan pengalaman apa yang diinginkan.
+
+Buat **hipotesis**, bukan janji: mungkin kopi lain, metode lain atau penyesuaian resep akan lebih sesuai. Pilih satu pembanding yang masuk akal lalu minta umpan balik. Jika tamu tidak suka hasilnya, revisi keputusan berdasarkan pengamatan, bukan dengan menyalahkan lidahnya.
+
+**Periksa pemahamanmu:** buat satu kalimat deskriptif dan satu kalimat preferensi tentang cangkir yang pernah benar-benar kamu minum. Apa informasi yang masih belum diketahui? Apa yang akan kamu tanyakan sebelum membuat kopi untuk orang dengan preferensi berbeda?
