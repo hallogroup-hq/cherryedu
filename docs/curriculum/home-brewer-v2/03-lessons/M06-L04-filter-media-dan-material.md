@@ -31,5 +31,3 @@ Jika ingin cangkir dengan mouthfeel lebih bersih, mula-mula tanyakan apakah kelu
 ## Pindah ke situasi berbeda
 
 Pembeli menginginkan mouthfeel lebih bersih tetapi hanya punya immersion brewer dengan mesh. Bagaimana menawarkan penjelasan realistis serta langkah aman yang bisa dicoba tanpa menyatakan semua metal filter buruk?
-
-**Ringkas dengan bahasamu:** jelaskan mengapa hasil berubah, satu dugaan alternatif, dan apa pengujian berikutnya yang mungkin mengubah pikiranmu. Tidak ada kewajiban mengikuti satu brand atau angka resep tertentu.
