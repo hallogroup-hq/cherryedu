@@ -210,3 +210,17 @@ test('Jakarta to Medan sea freight honors published 100 kg minimum from provider
  await page.getByRole('spinbutton',{name:/Berat green yang dibeli/}).fill('40');
  await expect(page.getByText('Ongkos freight').locator('..')).toContainText('790.000');
 });
+
+
+test('B14 business case does not mistake absorbed HPP after channel fees for contribution',async({page})=>{
+ await page.goto('/business-roastery-v1/practice/b14');
+ await expect(page.getByText(/Dengan full manufacturing HPP, harga dan fee channel/)).toBeVisible();
+ await expect(page.getByText(/Skenario asumsi: HPP manufacturing absorbed/)).toBeVisible();
+ await page.getByRole('textbox',{name:/Tulis keputusan awal/}).fill('Saya harus mengidentifikasi berapa biaya manufaktur yang bersifat variabel dan berapa alokasi overhead tetap sebelum menghitung contribution margin, serta memisahkan biaya channel.');
+ await page.getByRole('button',{name:'Buka bukti baru'}).click();
+ await page.getByRole('textbox',{name:/Revisi keputusanmu/}).fill('Sesudah fee naik dan ukuran pouch berubah saya meminta biaya tiap SKU dan memisahkan biaya manufaktur variabel dari fixed yang diserap dalam HPP.');
+ await page.getByRole('button',{name:'Bandingkan dengan kerangka evaluasi'}).click();
+ await expect(page.getByText(/Ini bukan contribution margin yang sah/)).toBeVisible();
+ await expect(page.getByText(/variable manufacturing cost dipisahkan/)).toBeVisible();
+ await expect(page.getByText('**',{exact:false})).toHaveCount(0);
+});
