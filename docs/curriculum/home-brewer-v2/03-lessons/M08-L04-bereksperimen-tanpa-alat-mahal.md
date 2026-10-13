@@ -33,5 +33,3 @@ Tulis tiga pertanyaan yang ingin kamu jawab. Urutkan menurut **nilai informasi, 
 ## Coba pada situasi baru
 
 Jika teman berkata eksperimenmu tidak valid karena tak punya TDS meter, bagaimana menjelaskan bahwa beberapa pertanyaan bisa dijawab dengan data waktu/ratio/persepsi, sementara klaim EY numerik memang harus ditunda?
-
-**Apa yang kamu pelajari?** Jawab menggunakan bahasa sendiri: apa data yang mendukung, apa yang belum diketahui, dan percobaan aman apa yang akan memberikan informasi paling berguna berikutnya.
