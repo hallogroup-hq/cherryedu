@@ -18,7 +18,13 @@ Kesalahan umum ialah menganggap setiap percobaan harus menghasilkan cangkir yang
 
 Buat rencana lima seduhan selama seminggu yang hemat. Tentukan satu pertanyaan utama, satu variabel, bahan yang cukup, dan kapan perlu berhenti agar tidak membuang banyak kopi. Log cukup dalam bahasa sendiri; jangan mengarang hasil tasting jika belum dilakukan.
 
-Sebelum mencoba, pisahkan **tujuan**, **prediksi**, **apa yang diubah**, **apa yang dijaga**, dan **apa yang benar-benar diamati**. Jika latihan menggunakan angka ilustrasi, tandai hasil sebagai simulasi. Jangan menuliskan hasil rasa seolah kamu sudah mencicipinya. Seduh nyata hanya dengan wadah yang sesuai, air aman dan prosedur peralatan dari produsennya.
+## Dua pertanyaan membutuhkan rancangan berbeda
+
+**Pertanyaan 1: “Apa efek pengaturan grinder?”** Pilih satu lot kopi yang sama agar perubahan karakter biji tidak langsung mengacaukan pengamatan. Tentukan baseline dari kopi, dosis, filter, air, dan pola tuang yang bisa diulang. Setelah itu ganti hanya setting grinder utama. Jika cangkir kedua lebih disukai, kamu tahu versi kedua disukai **pada sesi tersebut**, bukan membuktikan satu klik grinder selalu ideal.
+
+**Pertanyaan 2: “Apa perbedaan dua lot kopi?”** Di sini kamu memang harus mengganti kopi karena itulah faktor yang ingin dibandingkan. Gunakan resep awal serupa dan catat bila salah satu lot ternyata membutuhkan penyesuaian agar menghasilkan hasil yang relevan. Bila hasil berbeda, jangan mengklaim penyebabnya pasti varietas atau proses saja: lot, roast dan penyimpanan juga berubah.
+
+**Rencana hemat lima seduhan** dapat berupa satu baseline, dua percobaan perubahan yang terkontrol, satu pengulangan dari kondisi menarik, dan satu sesi pembuktian ulang. Ini hanya contoh distribusi percobaan, bukan kewajiban membuang lima cangkir. Catat pertanyaan sebelum menyeduh, gunakan porsi kecil yang praktis, dan hentikan jika hasil sudah cukup menjawab keputusanmu. Punya rasa penasaran berarti berani bertanya dengan tepat, bukan mengganti empat variabel sekaligus.
 
 ## Tantangan saat kondisi berubah
 
