@@ -16,7 +16,7 @@ export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
  const toggle=(code:string)=>setExpanded(v=>v.includes(code)?v.filter(x=>x!==code):[...v,code]);
  const prev=lessons[idx-1],next=lessons[idx+1];
  return <div className="min-h-screen bg-paper-50 pb-24 text-roast-950">
-  <div className="sticky top-0 z-20 border-b border-paper-300 bg-paper-50/95 backdrop-blur-sm">
+  <div className="sticky top-16 z-20 border-b border-paper-300 bg-paper-50/95 backdrop-blur-sm">
    <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
     <Link href="/business-roastery-v1" className="flex min-w-0 items-center gap-3"><ArrowLeft size={17} className="shrink-0 text-roast-600"/><span className="min-w-0"><span className="block font-mono text-[10px] font-bold uppercase tracking-widest text-roast-600">Business Roastery</span><span className="block truncate font-serif text-sm font-semibold">{lesson.title}</span></span></Link>
     <button type="button" onClick={()=>setSidebarOpen(v=>!v)} aria-expanded={sidebarOpen} aria-controls="br-reader-sidebar" className="inline-flex items-center gap-2 border border-paper-300 px-3 py-2 text-xs font-bold lg:hidden">{sidebarOpen?<X size={15}/>:<Menu size={15}/>} Daftar materi</button>
@@ -25,7 +25,7 @@ export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
   <div className="mx-auto max-w-5xl px-4 pt-4 sm:px-6">
    <p className="border border-paper-300 bg-paper-100 px-4 py-3 text-xs text-roast-700">Belajar mandiri. Progres membaca dan jawaban latihan pada preview ini tidak disimpan ke akun.</p>
    <div className="mt-7 grid items-start gap-8 lg:grid-cols-[270px_minmax(0,1fr)]">
-    <aside id="br-reader-sidebar" className={`${sidebarOpen?'block':'hidden'} max-h-[calc(100vh-11rem)] overflow-y-auto border border-paper-300 bg-white p-4 lg:sticky lg:top-24 lg:block`} aria-label="Daftar pelajaran silabus">
+    <aside id="br-reader-sidebar" className={`${sidebarOpen?'block':'hidden'} max-h-[calc(100vh-11rem)] overflow-y-auto border border-paper-300 bg-white p-4 lg:sticky lg:top-36 lg:block`} aria-label="Daftar pelajaran silabus">
      <p className="mb-4 border-b border-paper-200 pb-3 font-mono text-[10px] font-bold uppercase tracking-widest text-roast-600">Daftar Materi Silabus</p>
      {modules.map((m,i)=>{const open=expanded.includes(m.code);return <section key={m.code} className="mb-3">
       <button type="button" onClick={()=>toggle(m.code)} aria-expanded={open} className="flex w-full items-start justify-between gap-2 bg-paper-100 px-2 py-2 text-left font-mono text-[10px] font-bold leading-5"><span>{String(i+1).padStart(2,'0')}. {m.title}</span>{open?<ChevronDown size={13}/>:<ChevronRight size={13}/>}</button>
