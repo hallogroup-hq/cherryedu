@@ -31,5 +31,3 @@ Buat tiga *arah*, bukan tiga nama. Misalnya arah pertama mengutamakan **aroma ko
 ## Tantangan transfer
 
 Setelah orang lain mencobanya, ia justru menyukai versi yang tidak kamu favoritkan. Apakah kamu wajib mengganti menu pribadi? Jelaskan perbedaan tujuan untuk diri sendiri versus merancang resep bagi orang lain.
-
-**Penutup pelajaran:** sebutkan satu variabel yang paling ingin kamu pahami, alasan memilihnya, dan kondisi yang akan membuatmu mengubah keputusan. Bila belum memiliki alat, latihan penalaran tetap valid tetapi bukan bukti keahlian praktik fisik.
