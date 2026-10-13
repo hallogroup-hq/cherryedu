@@ -158,7 +158,7 @@ export const BUSINESS_ROASTERY_WORKED_METHODS:Record<string,{title:string;steps:
     "steps": [
       {
         "heading": "Periksa rute sebenarnya",
-        "explanation": "Tuliskan gudang penjemputan, asal/kota, tujuan/kota, alamat terakhir, moda dan cakupan door-to-door atau port-to-port."
+        "explanation": "Tuliskan alamat gudang pemasok sebagai titik awal dan alamat roastery sebagai titik akhir. Periksa arah, moda, berat aktual, dimensi dan apakah layanan mencakup penjemputan serta pengantaran, bukan hanya pelabuhan."
       },
       {
         "heading": "Baca minimum tagihan",
@@ -224,11 +224,11 @@ export const BUSINESS_ROASTERY_WORKED_METHODS:Record<string,{title:string;steps:
     "steps": [
       {
         "heading": "Beri kode incoming lot",
-        "explanation": "Contoh: green lot G-17 diterima 100 kg dengan dokumen supplier dan status QC."
+        "explanation": "Contoh: green lot G-17 diterima 100 kg dan dikaitkan ke invoice, lokasi gudang, tanggal timbang serta hasil pemeriksaan penerimaan. Jika sebagian karung ditahan, statusnya harus terpisah dari stok usable."
       },
       {
         "heading": "Catat batch roasting",
-        "explanation": "Batch R-17A mengonsumsi sebagian G-17; simpan massa input, output, operator dan roast log."
+        "explanation": "Batch R-17A mengonsumsi sebagian G-17; simpan kilogram masuk, hasil roasted, identitas operator, mesin serta roast log. Catatan ini harus bisa dirujuk kembali ketika ada ketidaksesuaian."
       },
       {
         "heading": "Rekam release QC",
@@ -246,7 +246,7 @@ export const BUSINESS_ROASTERY_WORKED_METHODS:Record<string,{title:string;steps:
     "steps": [
       {
         "heading": "Catat jumlah fisik",
-        "explanation": "Contoh: gudang memiliki 500 pouch batch yang sudah diproduksi dan diidentifikasi."
+        "explanation": "Contoh: saat stock count, gudang memiliki 500 pouch dari batch yang diidentifikasi dan sudah dicatat di rak. Pisahkan jumlah fisik tersebut dari status kelulusan QC maupun barang yang sudah direservasi."
       },
       {
         "heading": "Kurangi yang tidak boleh dijual",
@@ -290,7 +290,7 @@ export const BUSINESS_ROASTERY_WORKED_METHODS:Record<string,{title:string;steps:
     "steps": [
       {
         "heading": "Gunakan angka yang sama",
-        "explanation": "Contoh: biaya manufaktur Rp150.000/kg dan harga neto Rp200.000/kg; selisih gross profit Rp50.000/kg."
+        "explanation": "Contoh ilustrasi: biaya manufaktur penuh Rp150.000 per kg dan harga jual neto Rp200.000 per kg. Selisih Rp50.000 adalah gross profit per kilogram pada definisi biaya tersebut."
       },
       {
         "heading": "Hitung markup dan gross margin",
@@ -312,7 +312,7 @@ export const BUSINESS_ROASTERY_WORKED_METHODS:Record<string,{title:string;steps:
     "steps": [
       {
         "heading": "Identifikasi fixed cost periode",
-        "explanation": "Contoh total biaya tetap relevan Rp12.000.000/bulan. Jangan hitung komponen overhead pabrik dua kali."
+        "explanation": "Contoh total biaya tetap relevan Rp12.000.000 per bulan dari sewa, gaji tetap, dan alokasi fasilitas yang belum masuk ke biaya variabel. Pastikan komponen overhead pabrik tidak dihitung dua kali."
       },
       {
         "heading": "Hitung contribution tiap kg",
@@ -356,7 +356,7 @@ export const BUSINESS_ROASTERY_WORKED_METHODS:Record<string,{title:string;steps:
     "steps": [
       {
         "heading": "Pilih 20 prospek yang cocok",
-        "explanation": "Simpan alasannya: lokasi, volume green-equivalent, menu, masalah suplai, pembuat keputusan dan syarat pembayaran."
+        "explanation": "Tentukan 20 usaha yang benar-benar sesuai kemampuan supply: lokasi, kebutuhan espresso, perkiraan kilogram pembelian, pembuat keputusan, metode pembayaran, dan masalah pemasok yang ingin mereka atasi."
       },
       {
         "heading": "Pisahkan tahapan",
@@ -400,7 +400,7 @@ export const BUSINESS_ROASTERY_WORKED_METHODS:Record<string,{title:string;steps:
     "steps": [
       {
         "heading": "Pilih keputusan kritis",
-        "explanation": "Tulis proses pembelian, receiving, roast batch, QC release, penyesuaian harga dan pengeluaran kas."
+        "explanation": "Tulis proses pembelian green, pemeriksaan penerimaan, roast batch, QC release, penyesuaian harga dan pengeluaran kas. Untuk masing-masing, tandai konsekuensi kesalahan dan siapa berwenang menyetujui."
       },
       {
         "heading": "Tetapkan peran",
