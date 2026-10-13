@@ -334,7 +334,10 @@ async function runStagingVerification() {
     // Verify in PostgreSQL that order is settled and user is now pro
     const txCheck = await query(`SELECT status FROM public.transactions WHERE id = 'tx-test-order-01'`);
     const profileCheck = await query(`SELECT is_pro, subscription_tier FROM public.profiles WHERE id = $1`, [USER_BARISTA_A]);
-    assert(txCheck.rows[0].status === 'settled', '3.6.1 Transaction status settled in PostgreSQL');
+    assert(
+      txCheck.rows[0].status === 'verified' || txCheck.rows[0].status === 'settled',
+      '3.6.1 Transaction status verified in PostgreSQL'
+    );
     assert(profileCheck.rows[0].is_pro === true && profileCheck.rows[0].subscription_tier === 'pro', '3.6.2 Profile is_pro atomically activated in PostgreSQL');
   } catch (err: any) {
     assert(false, '3.6 DI payment confirmation', err.message);

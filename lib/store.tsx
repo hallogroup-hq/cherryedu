@@ -138,13 +138,13 @@ interface CherryEduContextType {
     notes?: string
   ) => Promise<{
     success: boolean;
-    awaitingVerification?: boolean;
     isProActivated?: boolean;
     transaction?: PaymentTransaction;
     error?: string;
   }>;
-  cancelTransactionAndRevokePro: (transactionId: string) => void;
-  voidTransactionAndRevokePro: (transactionId: string) => void;
+  verifyTransaction: (transactionId: string, notes?: string) => Promise<any>;
+  cancelTransactionAndRevokePro: (transactionId: string, reason?: string) => Promise<any>;
+  voidTransactionAndRevokePro: (transactionId: string, reason?: string) => Promise<any>;
   deleteTransaction: (transactionId: string) => void;
   simulatePaymentSuccess: (transactionId: string) => void;
   grantProAccess: (userId: string, durationMonths?: number, cycle?: SubscriptionCycle) => void;
@@ -1056,9 +1056,9 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   /**
-   * Server-verified payment lifecycle:
-   * - For manual fallback QRIS: Uploads proof to server. Pro access is NOT activated until manual admin review.
-   * - For dynamic QRIS: Verifies settlement through /api/payment/confirm. Activates Pro ONLY on server confirmation.
+   * Server-authoritative payment claim lifecycle:
+   * When user claims payment (with optional proof), server marks order claimed
+   * and immediately grants provisional Pro access.
    */
   const confirmBuyerPayment = async (
     transactionId: string,
@@ -1066,7 +1066,6 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     notes?: string
   ): Promise<{
     success: boolean;
-    awaitingVerification?: boolean;
     isProActivated?: boolean;
     transaction?: PaymentTransaction;
     error?: string;
@@ -1081,97 +1080,128 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     const sessionRes = await supabase.auth.getSession().catch(() => ({ data: { session: null } }));
     const token = sessionRes.data?.session?.access_token;
 
-    // Case A: Manual Proof Upload (Fallback QRIS) -> submit proof to server, DO NOT grant Pro access!
-    if (proofUrl) {
-      try {
-        const res = await fetch('/api/payment/submit-proof', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            ...(token ? { Authorization: `Bearer ${token}` } : {}),
-          },
-          body: JSON.stringify({
-            order_id: transactionId,
-            proof_url: proofUrl,
-            proof_notes: notes,
-          }),
-        });
-
-        const data = await res.json();
-        if (!res.ok || !data.success) {
-          return { success: false, error: data.error || 'Gagal mengunggah bukti pembayaran.' };
-        }
-
-        const updatedTx: PaymentTransaction = {
-          ...tx,
-          status: 'pending',
-          proof_url: proofUrl,
-          proof_notes: notes || tx.proof_notes,
-        };
-
-        setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
-        return { success: true, awaitingVerification: true, transaction: updatedTx };
-      } catch (err: any) {
-        return { success: false, error: err.message || 'Gagal menghubungi server untuk mengunggah bukti.' };
-      }
-    }
-
-    // Case B: Dynamic Gateway Confirmation -> verify with server
     try {
-      const res = await fetch('/api/payment/confirm', {
+      const res = await fetch('/api/payment/claim', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
-        body: JSON.stringify({ order_id: transactionId }),
+        body: JSON.stringify({
+          order_id: transactionId,
+          proof_url: proofUrl,
+          proof_notes: notes,
+        }),
       });
 
       const data = await res.json();
-      if (!res.ok || !data.success || !data.isProActivated) {
-        return {
-          success: false,
-          error: data.error || 'Pembayaran belum terkonfirmasi oleh sistem settlement gateway.',
-        };
+      if (!res.ok || !data.success) {
+        return { success: false, error: data.error || 'Gagal mengklaim pembayaran.' };
       }
 
+      // Pro entitlement immediately active (Provisional access granted by server)
       const durationMonths = tx.cycle === 'annual' ? 12 : 1;
       grantProAccess(tx.user_id, durationMonths, tx.cycle);
 
       const updatedTx: PaymentTransaction = {
         ...tx,
-        status: 'paid',
-        paid_at: new Date().toISOString(),
+        status: (data.status as PaymentStatus) || 'claimed',
+        claimed_at: new Date().toISOString(),
+        proof_url: proofUrl || tx.proof_url,
+        proof_notes: notes || tx.proof_notes,
       };
 
       setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
       return { success: true, isProActivated: true, transaction: updatedTx };
     } catch (err: any) {
-      return { success: false, error: err.message || 'Gagal memverifikasi status pembayaran ke server.' };
+      return { success: false, error: err.message || 'Gagal menghubungi server untuk mengklaim pembayaran.' };
     }
   };
 
   /**
-   * Admin action: If admin checks mutasi and finds the buyer didn't actually transfer,
-   * admin can revoke Pro access and mark transaction as expired/cancelled with 1 click.
+   * Admin action: Confirm/verify payment via GoPay Merchant.
+   * Authoritatively updates transaction to 'verified' and secures user's Pro subscription.
    */
-  const voidTransactionAndRevokePro = (transactionId: string) => {
+  const verifyTransaction = async (transactionId: string, notes?: string) => {
     const tx = transactions.find((t) => t.id === transactionId);
     if (!tx) return;
 
-    revokeProAccess(tx.user_id);
+    const sessionRes = await supabase.auth.getSession().catch(() => ({ data: { session: null } }));
+    const token = sessionRes.data?.session?.access_token;
+
+    const res = await fetch('/api/admin/transactions/verify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+      body: JSON.stringify({ order_id: transactionId, notes }),
+    });
+
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.error || 'Gagal memverifikasi pembayaran.');
+    }
+
+    const durationMonths = tx.cycle === 'annual' ? 12 : 1;
+    grantProAccess(tx.user_id, durationMonths, tx.cycle);
 
     const updatedTx: PaymentTransaction = {
       ...tx,
-      status: 'void',
-      paid_at: undefined,
+      status: 'verified',
+      verified_at: new Date().toISOString(),
+      paid_at: new Date().toISOString(),
+      admin_notes: notes || tx.admin_notes,
     };
     setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
-    updateTransactionStatusInSupabase(tx.id, 'void');
+    return data;
   };
 
-  const cancelTransactionAndRevokePro = (transactionId: string) => {
-    voidTransactionAndRevokePro(transactionId);
+  /**
+   * Admin action: Reject claim and revoke provisional Pro access
+   * (preserving any other valid verified subscription if present).
+   */
+  const voidTransactionAndRevokePro = async (transactionId: string, reason?: string) => {
+    const tx = transactions.find((t) => t.id === transactionId);
+    if (!tx) return;
+
+    const sessionRes = await supabase.auth.getSession().catch(() => ({ data: { session: null } }));
+    const token = sessionRes.data?.session?.access_token;
+
+    const res = await fetch('/api/admin/transactions/reject', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+      body: JSON.stringify({
+        order_id: transactionId,
+        reason: reason || 'Klaim pembayaran ditolak / dibatalkan oleh admin',
+      }),
+    });
+
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.error || 'Gagal membatalkan transaksi.');
+    }
+
+    // Only revoke local Pro if server indicates user has no remaining active subscription
+    if (!data.isProActive) {
+      revokeProAccess(tx.user_id);
+    }
+
+    const updatedTx: PaymentTransaction = {
+      ...tx,
+      status: 'rejected',
+      rejected_at: new Date().toISOString(),
+      admin_notes: reason || tx.admin_notes,
+    };
+    setTransactions((prev) => prev.map((t) => (t.id === transactionId ? updatedTx : t)));
+    return data;
+  };
+
+  const cancelTransactionAndRevokePro = (transactionId: string, reason?: string) => {
+    return voidTransactionAndRevokePro(transactionId, reason);
   };
 
   const deleteTransaction = (transactionId: string) => {
@@ -1953,6 +1983,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         createPaymentTransaction,
         checkPaymentStatus,
         confirmBuyerPayment,
+        verifyTransaction,
         cancelTransactionAndRevokePro,
         voidTransactionAndRevokePro,
         deleteTransaction,

@@ -18,6 +18,7 @@
     "test:teams:staging": "ALLOW_DESTRUCTIVE_STAGING_SEED=true NODE_ENV=test npx tsx teams/tests/verify_staging_integration.ts",
     "test:teams:http": "ALLOW_DESTRUCTIVE_STAGING_SEED=true NODE_ENV=test npx tsx teams/tests/verify_http_e2e.ts",
     "test:teams:live": "ALLOW_DESTRUCTIVE_STAGING_SEED=true NODE_ENV=test npx tsx teams/tests/verify_nextjs_live.ts",
+    "test:payment:qa": "ALLOW_DESTRUCTIVE_STAGING_SEED=true NODE_ENV=test npx tsx teams/tests/verify_payment_qa.ts",
     "typecheck": "tsc --noEmit",
     "predev": "node scripts/generate-foundation-v2-preview.cjs",
     "prebuild": "node scripts/generate-foundation-v2-preview.cjs",

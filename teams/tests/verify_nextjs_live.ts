@@ -268,20 +268,21 @@ async function runLiveVerification() {
       '2.5 Fallback QRIS proof submitted successfully (200 OK)'
     );
 
-    // Verify order in database: proof is stored, status is STILL pending, is_pro is FALSE
+    // Verify order in database: proof is stored, status is claimed, is_pro is TRUE (provisional entitlement)
     const dbProofCheck = await query<{ status: string; proof_url: string; proof_notes: string }>(
       `SELECT status, proof_url, proof_notes FROM public.transactions WHERE id = $1`,
       [orderIdToProof]
     );
-    const dbProfileCheck = await query<{ is_pro: boolean }>(
-      `SELECT is_pro FROM public.profiles WHERE id = $1`,
+    const dbProfileCheck = await query<{ is_pro: boolean; pro_entitlement_type: string }>(
+      `SELECT is_pro, pro_entitlement_type FROM public.profiles WHERE id = $1`,
       [USER_BARISTA_A]
     );
     assert(
-      dbProofCheck.rows[0].status === 'pending' &&
+      dbProofCheck.rows[0].status === 'claimed' &&
         dbProofCheck.rows[0].proof_url !== null &&
-        dbProfileCheck.rows[0].is_pro === false,
-      '2.5.1 Transaction preserved as pending and Pro access NOT activated merely by buyer claiming payment'
+        dbProfileCheck.rows[0].is_pro === true &&
+        dbProfileCheck.rows[0].pro_entitlement_type === 'provisional',
+      '2.5.1 Transaction marked as claimed and provisional Pro access immediately active upon proof claim'
     );
 
     // =========================================================================
@@ -306,7 +307,7 @@ async function runLiveVerification() {
     // 3.2 Non-Pro learner attempting to complete Pro lesson is BLOCKED (403 PRO_SUBSCRIPTION_REQUIRED)
     const resSyncProLesson = await fetch(`${BASE_URL}/api/learning/sync-progress`, {
       method: 'POST',
-      headers: { ...tokenFor(USER_BARISTA_A), 'content-type': 'application/json' },
+      headers: { ...tokenFor(USER_BARISTA_B), 'content-type': 'application/json' },
       body: JSON.stringify({
         event_id: 'evt-hack-pro-lesson',
         progress: [{ lesson_id: 'les-b1-1', status: 'completed', updated_at: new Date().toISOString() }],

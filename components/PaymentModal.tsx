@@ -255,10 +255,7 @@ export function PaymentModal({
     setIsSubmittingProof(true);
     try {
       const res = await confirmBuyerPayment(activeTx.id, proofImage);
-      if (res.success && res.awaitingVerification) {
-        toast.info('Bukti transfer diterima. Tim admin akan memverifikasi mutasi bank sebelum mengaktifkan paket Pro.');
-        onClose();
-      } else if (res.success && res.isProActivated && res.transaction) {
+      if (res.success && res.transaction) {
         triggerSuccess(res.transaction);
       } else {
         toast.error(res.error || 'Gagal memproses konfirmasi pembayaran. Silakan coba lagi.');

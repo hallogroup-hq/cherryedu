@@ -40,6 +40,7 @@ export async function POST(req: NextRequest) {
       {
         success: true,
         transaction: order,
+        order,
       },
       { status: 201 }
     );

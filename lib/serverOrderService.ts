@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import { query, withTransaction } from './db';
-import { SERVER_SUBSCRIPTION_CATALOG, PaymentSecurityError } from './serverPaymentService';
+import { SERVER_SUBSCRIPTION_CATALOG, PaymentSecurityError, claimOrderPayment } from './serverPaymentService';
 import { INITIAL_VOUCHERS, generateLocalDynamicQRIS } from './paymentGateway';
 import { SubscriptionCycle, SubscriptionTier } from './types';
 
@@ -181,79 +181,35 @@ export async function createAuthoritativeOrder(
 }
 
 /**
- * Server-authoritative Payment Proof Submission for fallback manual QRIS.
- * Strictly verifies ownership, records proof, and leaves status as 'pending' for manual review.
- * NEVER grants Pro access automatically!
+ * Server-authoritative Payment Proof Submission & Claim.
+ * Verifies authenticated ownership, records proof, marks order claimed,
+ * and immediately activates provisional Pro entitlement for the user.
  */
 export async function submitPaymentProof(
   authenticatedUserId: string,
-  params: { orderId: string; proofUrl: string; proofNotes?: string }
-): Promise<{ success: boolean; message: string; orderId: string }> {
-  if (!authenticatedUserId) {
-    throw new PaymentSecurityError('UNAUTHENTICATED', 'Pengguna belum terotentikasi.', 401);
-  }
-
-  if (!params.orderId || typeof params.orderId !== 'string') {
-    throw new PaymentSecurityError('INVALID_ORDER_ID', 'ID Order tidak valid.', 400);
-  }
-
-  if (!params.proofUrl || typeof params.proofUrl !== 'string') {
-    throw new PaymentSecurityError('MISSING_PROOF', 'Bukti pembayaran (foto screenshot) wajib disertakan.', 400);
-  }
-
-  return withTransaction(async (client) => {
-    const txRes = await client.query<{
-      id: string;
-      user_id: string;
-      status: string;
-      expires_at: string | null;
-    }>(
-      `SELECT id, user_id, status, expires_at::text 
-       FROM public.transactions 
-       WHERE id = $1 
-       FOR UPDATE`,
-      [params.orderId]
-    );
-
-    if (txRes.rows.length === 0) {
-      throw new PaymentSecurityError('ORDER_NOT_FOUND', 'Order transaksi tidak ditemukan.', 404);
-    }
-
-    const tx = txRes.rows[0];
-
-    if (tx.user_id !== authenticatedUserId) {
-      throw new PaymentSecurityError('ORDER_OWNERSHIP_MISMATCH', 'Order bukan milik pengguna yang sedang terautentikasi.', 403);
-    }
-
-    if (tx.status === 'settled' || tx.status === 'paid') {
-      return {
-        success: true,
-        message: 'Order ini telah terkonfirmasi lunas sebelumnya.',
-        orderId: tx.id,
-      };
-    }
-
-    if (tx.status === 'expired' || (tx.expires_at && new Date(tx.expires_at) < new Date())) {
-      throw new PaymentSecurityError('ORDER_EXPIRED', 'Waktu pembayaran order ini telah kedaluwarsa.', 400);
-    }
-
-    if (tx.status === 'cancelled') {
-      throw new PaymentSecurityError('ORDER_CANCELLED', 'Order transaksi telah dibatalkan.', 400);
-    }
-
-    // Update proof details while preserving pending status
-    await client.query(
-      `UPDATE public.transactions 
-       SET proof_url = $1, 
-           proof_notes = $2
-       WHERE id = $3`,
-      [params.proofUrl, params.proofNotes || null, params.orderId]
-    );
-
-    return {
-      success: true,
-      message: 'Bukti pembayaran berhasil diunggah. Menunggu verifikasi manual dari admin.',
-      orderId: tx.id,
-    };
+  params: { orderId: string; proofUrl?: string; proofNotes?: string }
+): Promise<{
+  success: boolean;
+  message: string;
+  orderId: string;
+  isProActivated: boolean;
+  status: string;
+  entitlementType: string;
+  expiresAt: string;
+}> {
+  const result = await claimOrderPayment(authenticatedUserId, {
+    orderId: params.orderId,
+    proofUrl: params.proofUrl,
+    proofNotes: params.proofNotes,
   });
+
+  return {
+    success: true,
+    message: result.message,
+    orderId: result.orderId,
+    isProActivated: result.isProActivated,
+    status: result.status,
+    entitlementType: result.entitlementType,
+    expiresAt: result.expiresAt,
+  };
 }

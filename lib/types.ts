@@ -6,7 +6,18 @@ export type CoffeeRole = 'barista' | 'home_brewer' | 'roaster' | 'q_grader' | 'f
 
 export type SubscriptionTier = 'free' | 'pro' | 'enterprise';
 export type SubscriptionCycle = 'monthly' | 'annual';
-export type PaymentStatus = 'pending' | 'paid' | 'expired' | 'failed' | 'void';
+export type PaymentStatus =
+  | 'pending'
+  | 'claimed'
+  | 'verified'
+  | 'rejected'
+  | 'expired'
+  | 'cancelled'
+  | 'paid'
+  | 'failed'
+  | 'void';
+
+export type ProEntitlementType = 'none' | 'provisional' | 'verified';
 
 export interface User {
   id: string;
@@ -21,6 +32,8 @@ export interface User {
   streak_count: number;
   last_active_date: string;
   is_pro?: boolean;
+  pro_entitlement_type?: ProEntitlementType;
+  pro_source_order_id?: string;
   subscription_tier?: SubscriptionTier;
   subscription_expires_at?: string;
   subscription_cycle?: SubscriptionCycle;
@@ -434,6 +447,11 @@ export interface PaymentTransaction {
   expires_at?: string;
   created_at: string;
   paid_at?: string;
+  claimed_at?: string;
+  verified_at?: string;
+  rejected_at?: string;
+  verified_by?: string;
+  admin_notes?: string;
 }
 
 export interface UserNote {

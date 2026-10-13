@@ -1,3 +1,4 @@
+import { PoolClient } from 'pg';
 import { query, withTransaction } from './db';
 import { SubscriptionCycle, SubscriptionTier } from './types';
 import { verifyQRISStatus } from './paymentGateway';
@@ -211,8 +212,8 @@ export async function confirmOrderPayment(
       );
     }
 
-    // 3. Idempotent check: If already settled/paid, verify profile is active and return
-    if (tx.status === 'settled' || tx.status === 'paid') {
+    // 3. Idempotent check: If already settled/paid/verified, verify profile is active and return
+    if (tx.status === 'verified' || tx.status === 'settled' || tx.status === 'paid') {
       const profRes = await client.query<{ is_pro: boolean; subscription_tier: string; subscription_expires_at: string }>(
         `SELECT is_pro, subscription_tier, subscription_expires_at::text FROM public.profiles WHERE id = $1`,
         [authenticatedUserId]
@@ -307,16 +308,15 @@ export async function confirmOrderPayment(
     }
 
     // 7. Atomic Database Transaction: Update Transaction & Activate Pro Subscription
-    const subscriptionDays = catalogItem?.cycle === 'annual' ? 365 : 30;
-    const expiresAt = new Date(Date.now() + subscriptionDays * 24 * 3600 * 1000).toISOString();
     const tier: SubscriptionTier = catalogItem?.tier || 'pro';
     const cycle: SubscriptionCycle = catalogItem?.cycle || 'monthly';
 
     const updateTx = await client.query(
       `UPDATE public.transactions
-       SET status = 'settled',
-           paid_at = NOW()
-       WHERE id = $1 AND status = 'pending'`,
+       SET status = 'verified',
+           paid_at = NOW(),
+           verified_at = NOW()
+       WHERE id = $1 AND status IN ('pending', 'claimed')`,
       [tx.id]
     );
 
@@ -328,48 +328,596 @@ export async function confirmOrderPayment(
       );
     }
 
-    // Activate Pro status on profiles table
-    const updateProfile = await client.query(
-      `UPDATE public.profiles
-       SET is_pro = true,
-           subscription_tier = $1,
-           subscription_cycle = $2,
-           subscription_expires_at = $3,
-           updated_at = NOW()
-       WHERE id = $4`,
-      [tier, cycle, expiresAt, authenticatedUserId]
-    );
+    const ent = await recalculateUserEntitlement(client, authenticatedUserId);
 
-    if (updateProfile.rowCount === 0) {
-      throw new PaymentSecurityError(
-        'PROFILE_UPDATE_FAILED',
-        'Gagal memperbarui status langganan pada profil pengguna.',
-        500
-      );
-    }
-
-    // Double-check profile is active in DB before returning
-    const verifyProfile = await client.query<{ is_pro: boolean }>(
-      `SELECT is_pro FROM public.profiles WHERE id = $1`,
-      [authenticatedUserId]
-    );
-
-    const isProActivated = verifyProfile.rows[0]?.is_pro === true;
-    if (!isProActivated) {
-      throw new PaymentSecurityError(
-        'PROFILE_ACTIVATION_VERIFICATION_FAILED',
-        'Verifikasi aktivasi profil Pro gagal setelah pembaruan database.',
-        500
-      );
-    }
+    await recordPaymentAudit(client, {
+      transactionId: tx.id,
+      userId: authenticatedUserId,
+      actorUserId: authenticatedUserId,
+      action: 'payment_verified',
+      previousStatus: tx.status,
+      newStatus: 'verified',
+      reason: 'Automated settlement gateway confirmation',
+      metadata: { finalAmount },
+    });
 
     return {
       success: true,
       orderId: tx.id,
-      isProActivated: true,
-      tier,
-      expiresAt,
+      isProActivated: ent.isPro,
+      tier: ent.tier,
+      expiresAt: ent.expiresAt || new Date().toISOString(),
       message: 'Pembayaran berhasil diverifikasi. Paket CherryEdu Pro telah aktif.',
+    };
+  });
+}
+
+/**
+ * Record an entry into public.payment_audit_events table
+ */
+export async function recordPaymentAudit(
+  client: PoolClient,
+  data: {
+    transactionId: string;
+    userId: string;
+    actorUserId: string;
+    action: string;
+    previousStatus?: string | null;
+    newStatus: string;
+    reason?: string | null;
+    metadata?: Record<string, any>;
+  }
+): Promise<void> {
+  await client.query(
+    `INSERT INTO public.payment_audit_events (
+       transaction_id, user_id, actor_user_id, action,
+       previous_status, new_status, reason, metadata, occurred_at
+     )
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, NOW())`,
+    [
+      data.transactionId,
+      data.userId,
+      data.actorUserId,
+      data.action,
+      data.previousStatus || null,
+      data.newStatus,
+      data.reason || null,
+      JSON.stringify(data.metadata || {}),
+    ]
+  );
+}
+
+/**
+ * Verify administrative privileges for an actor user.
+ * Allows users with role = 'admin' on public.profiles or platform_admin on internal_staff_permissions.
+ */
+export async function assertAdminPrivilege(client: PoolClient, userId: string): Promise<void> {
+  const profRes = await client.query<{ role: string }>(
+    `SELECT role FROM public.profiles WHERE id = $1`,
+    [userId]
+  );
+  if (profRes.rows[0]?.role === 'admin') {
+    return;
+  }
+
+  const staffRes = await client.query<{ id: string }>(
+    `SELECT id FROM b2b.internal_staff_permissions 
+     WHERE user_id = $1 AND permission_code = 'platform_admin' AND revoked_at IS NULL`,
+    [userId]
+  );
+  if (staffRes.rows.length > 0) {
+    return;
+  }
+
+  throw new PaymentSecurityError('ADMIN_REQUIRED', 'Hanya administrator yang berwenang melakukan tindakan ini.', 403);
+}
+
+/**
+ * Server-authoritative Recalculation of User Entitlements.
+ * Ensures:
+ * 1. Active verified subscriptions are prioritized and protected.
+ * 2. Active claimed orders grant provisional access.
+ * 3. Rejecting a claim only revokes provisional access if no other verified subscription exists.
+ */
+export async function recalculateUserEntitlement(
+  client: PoolClient,
+  userId: string
+): Promise<{
+  isPro: boolean;
+  entitlementType: 'none' | 'provisional' | 'verified';
+  expiresAt: string | null;
+  tier: SubscriptionTier;
+  cycle: SubscriptionCycle | null;
+  sourceOrderId: string | null;
+}> {
+  const txRes = await client.query<{
+    id: string;
+    cycle: string;
+    plan_tier: string;
+    status: string;
+    created_at: string;
+    claimed_at: string | null;
+    verified_at: string | null;
+    paid_at: string | null;
+    expires_at: string | null;
+  }>(
+    `SELECT id, cycle, plan_tier, status,
+            created_at::text, claimed_at::text, verified_at::text, paid_at::text, expires_at::text
+     FROM public.transactions
+     WHERE user_id = $1 AND status IN ('verified', 'paid', 'settled', 'claimed')
+     ORDER BY created_at DESC`,
+    [userId]
+  );
+
+  const now = new Date();
+  const activeVerified: Array<{
+    id: string;
+    cycle: SubscriptionCycle;
+    tier: SubscriptionTier;
+    expiresAt: Date;
+  }> = [];
+
+  const activeClaimed: Array<{
+    id: string;
+    cycle: SubscriptionCycle;
+    tier: SubscriptionTier;
+    expiresAt: Date;
+  }> = [];
+
+  for (const row of txRes.rows) {
+    const cycle: SubscriptionCycle = row.cycle === 'annual' ? 'annual' : 'monthly';
+    const tier: SubscriptionTier = (row.plan_tier as SubscriptionTier) || 'pro';
+    const durationDays = cycle === 'annual' ? 365 : 30;
+
+    if (row.status === 'verified' || row.status === 'paid' || row.status === 'settled') {
+      const baseDate = new Date(row.verified_at || row.paid_at || row.created_at);
+      const expiry = new Date(baseDate.getTime() + durationDays * 24 * 3600 * 1000);
+      if (expiry > now) {
+        activeVerified.push({ id: row.id, cycle, tier, expiresAt: expiry });
+      }
+    } else if (row.status === 'claimed') {
+      const baseDate = new Date(row.claimed_at || row.created_at);
+      const expiry = new Date(baseDate.getTime() + durationDays * 24 * 3600 * 1000);
+      if (expiry > now) {
+        activeClaimed.push({ id: row.id, cycle, tier, expiresAt: expiry });
+      }
+    }
+  }
+
+  if (activeVerified.length > 0) {
+    activeVerified.sort((a, b) => b.expiresAt.getTime() - a.expiresAt.getTime());
+    const primary = activeVerified[0];
+    const expiresAtStr = primary.expiresAt.toISOString();
+
+    await client.query(
+      `UPDATE public.profiles
+       SET is_pro = true,
+           pro_entitlement_type = 'verified',
+           subscription_tier = $1,
+           subscription_cycle = $2,
+           subscription_expires_at = $3,
+           pro_source_order_id = $4,
+           updated_at = NOW()
+       WHERE id = $5`,
+      [primary.tier, primary.cycle, expiresAtStr, primary.id, userId]
+    );
+
+    return {
+      isPro: true,
+      entitlementType: 'verified',
+      expiresAt: expiresAtStr,
+      tier: primary.tier,
+      cycle: primary.cycle,
+      sourceOrderId: primary.id,
+    };
+  }
+
+  if (activeClaimed.length > 0) {
+    activeClaimed.sort((a, b) => b.expiresAt.getTime() - a.expiresAt.getTime());
+    const primary = activeClaimed[0];
+    const expiresAtStr = primary.expiresAt.toISOString();
+
+    await client.query(
+      `UPDATE public.profiles
+       SET is_pro = true,
+           pro_entitlement_type = 'provisional',
+           subscription_tier = $1,
+           subscription_cycle = $2,
+           subscription_expires_at = $3,
+           pro_source_order_id = $4,
+           updated_at = NOW()
+       WHERE id = $5`,
+      [primary.tier, primary.cycle, expiresAtStr, primary.id, userId]
+    );
+
+    return {
+      isPro: true,
+      entitlementType: 'provisional',
+      expiresAt: expiresAtStr,
+      tier: primary.tier,
+      cycle: primary.cycle,
+      sourceOrderId: primary.id,
+    };
+  }
+
+  await client.query(
+    `UPDATE public.profiles
+     SET is_pro = false,
+         pro_entitlement_type = 'none',
+         subscription_tier = 'free',
+         subscription_cycle = NULL,
+         subscription_expires_at = NULL,
+         pro_source_order_id = NULL,
+         updated_at = NOW()
+     WHERE id = $1`,
+    [userId]
+  );
+
+  return {
+    isPro: false,
+    entitlementType: 'none',
+    expiresAt: null,
+    tier: 'free',
+    cycle: null,
+    sourceOrderId: null,
+  };
+}
+
+/**
+ * User claims payment has been made (with optional proof screenshot & notes).
+ * Immediately grants provisional Pro entitlement.
+ */
+export async function claimOrderPayment(
+  authenticatedUserId: string,
+  params: { orderId: string; proofUrl?: string; proofNotes?: string }
+): Promise<{
+  success: boolean;
+  orderId: string;
+  status: string;
+  isProActivated: boolean;
+  entitlementType: 'provisional' | 'verified';
+  tier: SubscriptionTier;
+  expiresAt: string;
+  message: string;
+}> {
+  if (!authenticatedUserId) {
+    throw new PaymentSecurityError('UNAUTHENTICATED', 'Pengguna belum terotentikasi.', 401);
+  }
+
+  if (!params.orderId || typeof params.orderId !== 'string') {
+    throw new PaymentSecurityError('INVALID_ORDER_ID', 'ID Order tidak valid.', 400);
+  }
+
+  return withTransaction(async (client) => {
+    const txRes = await client.query<{
+      id: string;
+      user_id: string;
+      status: string;
+      cycle: string;
+      plan_tier: string;
+      expires_at: string | null;
+      created_at: string;
+      claimed_at: string | null;
+      proof_url: string | null;
+      proof_notes: string | null;
+    }>(
+      `SELECT id, user_id, status, cycle, plan_tier,
+              expires_at::text, created_at::text, claimed_at::text,
+              proof_url, proof_notes
+       FROM public.transactions
+       WHERE id = $1
+       FOR UPDATE`,
+      [params.orderId]
+    );
+
+    if (txRes.rows.length === 0) {
+      throw new PaymentSecurityError('ORDER_NOT_FOUND', 'Order transaksi tidak ditemukan.', 404);
+    }
+
+    const tx = txRes.rows[0];
+
+    if (tx.user_id !== authenticatedUserId) {
+      throw new PaymentSecurityError(
+        'ORDER_OWNERSHIP_MISMATCH',
+        'Akses ditolak: Order transaksi ini bukan milik pengguna yang sedang terautentikasi.',
+        403
+      );
+    }
+
+    if (tx.status === 'verified' || tx.status === 'paid' || tx.status === 'settled') {
+      const ent = await recalculateUserEntitlement(client, authenticatedUserId);
+      return {
+        success: true,
+        orderId: tx.id,
+        status: tx.status,
+        isProActivated: ent.isPro,
+        entitlementType: ent.entitlementType as 'verified',
+        tier: ent.tier,
+        expiresAt: ent.expiresAt || new Date().toISOString(),
+        message: 'Pembayaran order ini telah terverifikasi lunas sebelumnya.',
+      };
+    }
+
+    if (tx.status === 'claimed') {
+      if (params.proofUrl && params.proofUrl !== tx.proof_url) {
+        await client.query(
+          `UPDATE public.transactions SET proof_url = $1, proof_notes = COALESCE($2, proof_notes) WHERE id = $3`,
+          [params.proofUrl, params.proofNotes || null, tx.id]
+        );
+      }
+      const ent = await recalculateUserEntitlement(client, authenticatedUserId);
+      return {
+        success: true,
+        orderId: tx.id,
+        status: 'claimed',
+        isProActivated: ent.isPro,
+        entitlementType: ent.entitlementType as 'provisional',
+        tier: ent.tier,
+        expiresAt: ent.expiresAt || new Date().toISOString(),
+        message: 'Klaim pembayaran telah tercatat sebelumnya. Akses Pro aktif.',
+      };
+    }
+
+    if (tx.status === 'expired' || (tx.expires_at && new Date(tx.expires_at) < new Date())) {
+      throw new PaymentSecurityError('ORDER_EXPIRED', 'Batas waktu klaim untuk transaksi ini telah kedaluwarsa.', 400);
+    }
+
+    if (tx.status === 'cancelled' || tx.status === 'rejected') {
+      throw new PaymentSecurityError('ORDER_NOT_CLAIMABLE', `Order dengan status "${tx.status}" tidak dapat diklaim.`, 400);
+    }
+
+    const proofUrl = params.proofUrl || tx.proof_url || null;
+    const proofNotes = params.proofNotes || tx.proof_notes || null;
+
+    await client.query(
+      `UPDATE public.transactions
+       SET status = 'claimed',
+           claimed_at = NOW(),
+           proof_url = $1,
+           proof_notes = $2
+       WHERE id = $3`,
+      [proofUrl, proofNotes, tx.id]
+    );
+
+    const ent = await recalculateUserEntitlement(client, authenticatedUserId);
+
+    await recordPaymentAudit(client, {
+      transactionId: tx.id,
+      userId: authenticatedUserId,
+      actorUserId: authenticatedUserId,
+      action: 'payment_claimed',
+      previousStatus: tx.status,
+      newStatus: 'claimed',
+      reason: 'User claimed payment via GoPay QRIS',
+      metadata: { hasProofUrl: !!proofUrl },
+    });
+
+    return {
+      success: true,
+      orderId: tx.id,
+      status: 'claimed',
+      isProActivated: ent.isPro,
+      entitlementType: ent.entitlementType as 'provisional',
+      tier: ent.tier,
+      expiresAt: ent.expiresAt || new Date().toISOString(),
+      message: 'Klaim pembayaran berhasil diterima. Akses Pro sementara telah aktif.',
+    };
+  });
+}
+
+/**
+ * Admin manually verifies payment via GoPay Merchant.
+ * Marks transaction verified and sets entitlement to verified.
+ */
+export async function verifyPaymentByAdmin(
+  adminUserId: string,
+  params: { orderId: string; notes?: string }
+): Promise<{
+  success: boolean;
+  orderId: string;
+  status: string;
+  isProActivated: boolean;
+  entitlementType: 'verified';
+  tier: SubscriptionTier;
+  expiresAt: string;
+  message: string;
+}> {
+  if (!adminUserId) {
+    throw new PaymentSecurityError('UNAUTHENTICATED', 'Admin belum terotentikasi.', 401);
+  }
+
+  if (!params.orderId) {
+    throw new PaymentSecurityError('INVALID_ORDER_ID', 'ID Order wajib disertakan.', 400);
+  }
+
+  return withTransaction(async (client) => {
+    await assertAdminPrivilege(client, adminUserId);
+
+    const txRes = await client.query<{
+      id: string;
+      user_id: string;
+      status: string;
+      final_amount: number;
+    }>(
+      `SELECT id, user_id, status, final_amount
+       FROM public.transactions
+       WHERE id = $1
+       FOR UPDATE`,
+      [params.orderId]
+    );
+
+    if (txRes.rows.length === 0) {
+      throw new PaymentSecurityError('ORDER_NOT_FOUND', 'Order transaksi tidak ditemukan.', 404);
+    }
+
+    const tx = txRes.rows[0];
+
+    await client.query(
+      `UPDATE public.transactions
+       SET status = 'verified',
+           verified_at = NOW(),
+           verified_by = $1,
+           paid_at = NOW(),
+           admin_notes = COALESCE($2, admin_notes)
+       WHERE id = $3`,
+      [adminUserId, params.notes || null, tx.id]
+    );
+
+    const ent = await recalculateUserEntitlement(client, tx.user_id);
+
+    await recordPaymentAudit(client, {
+      transactionId: tx.id,
+      userId: tx.user_id,
+      actorUserId: adminUserId,
+      action: 'payment_verified',
+      previousStatus: tx.status,
+      newStatus: 'verified',
+      reason: params.notes || 'Admin manual verification via GoPay Merchant',
+      metadata: { finalAmount: tx.final_amount },
+    });
+
+    return {
+      success: true,
+      orderId: tx.id,
+      status: 'verified',
+      isProActivated: ent.isPro,
+      entitlementType: 'verified',
+      tier: ent.tier,
+      expiresAt: ent.expiresAt || new Date().toISOString(),
+      message: 'Pembayaran berhasil diverifikasi secara resmi. Akses Pro dilanjutkan.',
+    };
+  });
+}
+
+/**
+ * Admin rejects payment claim and revokes provisional access (without harming other valid subscriptions).
+ */
+export async function rejectClaimByAdmin(
+  adminUserId: string,
+  params: { orderId: string; reason: string }
+): Promise<{
+  success: boolean;
+  orderId: string;
+  status: string;
+  isProActive: boolean;
+  entitlementType: 'none' | 'provisional' | 'verified';
+  message: string;
+}> {
+  if (!adminUserId) {
+    throw new PaymentSecurityError('UNAUTHENTICATED', 'Admin belum terotentikasi.', 401);
+  }
+
+  if (!params.orderId) {
+    throw new PaymentSecurityError('INVALID_ORDER_ID', 'ID Order wajib disertakan.', 400);
+  }
+
+  if (!params.reason || params.reason.trim() === '') {
+    throw new PaymentSecurityError('REASON_REQUIRED', 'Alasan penolakan klaim pembayaran wajib disertakan.', 400);
+  }
+
+  return withTransaction(async (client) => {
+    await assertAdminPrivilege(client, adminUserId);
+
+    const txRes = await client.query<{
+      id: string;
+      user_id: string;
+      status: string;
+    }>(
+      `SELECT id, user_id, status
+       FROM public.transactions
+       WHERE id = $1
+       FOR UPDATE`,
+      [params.orderId]
+    );
+
+    if (txRes.rows.length === 0) {
+      throw new PaymentSecurityError('ORDER_NOT_FOUND', 'Order transaksi tidak ditemukan.', 404);
+    }
+
+    const tx = txRes.rows[0];
+
+    await client.query(
+      `UPDATE public.transactions
+       SET status = 'rejected',
+           rejected_at = NOW(),
+           admin_notes = $1
+       WHERE id = $2`,
+      [params.reason, tx.id]
+    );
+
+    const ent = await recalculateUserEntitlement(client, tx.user_id);
+
+    await recordPaymentAudit(client, {
+      transactionId: tx.id,
+      userId: tx.user_id,
+      actorUserId: adminUserId,
+      action: 'claim_rejected',
+      previousStatus: tx.status,
+      newStatus: 'rejected',
+      reason: params.reason,
+      metadata: { remainingEntitlement: ent.entitlementType },
+    });
+
+    return {
+      success: true,
+      orderId: tx.id,
+      status: 'rejected',
+      isProActive: ent.isPro,
+      entitlementType: ent.entitlementType,
+      message: ent.isPro
+        ? 'Klaim pembayaran ditolak, namun akun tetap memiliki akses Pro dari langganan sah lainnya.'
+        : 'Klaim pembayaran ditolak dan akses Pro sementara telah dicabut.',
+    };
+  });
+}
+
+/**
+ * Admin cancels an order.
+ */
+export async function cancelOrderByAdmin(
+  adminUserId: string,
+  params: { orderId: string; reason?: string }
+): Promise<{ success: boolean; orderId: string; status: string; isProActive: boolean }> {
+  if (!adminUserId) {
+    throw new PaymentSecurityError('UNAUTHENTICATED', 'Admin belum terotentikasi.', 401);
+  }
+
+  return withTransaction(async (client) => {
+    await assertAdminPrivilege(client, adminUserId);
+
+    const txRes = await client.query<{ id: string; user_id: string; status: string }>(
+      `SELECT id, user_id, status FROM public.transactions WHERE id = $1 FOR UPDATE`,
+      [params.orderId]
+    );
+
+    if (txRes.rows.length === 0) {
+      throw new PaymentSecurityError('ORDER_NOT_FOUND', 'Order transaksi tidak ditemukan.', 404);
+    }
+
+    const tx = txRes.rows[0];
+
+    await client.query(
+      `UPDATE public.transactions SET status = 'cancelled', admin_notes = COALESCE($1, admin_notes) WHERE id = $2`,
+      [params.reason || null, tx.id]
+    );
+
+    const ent = await recalculateUserEntitlement(client, tx.user_id);
+
+    await recordPaymentAudit(client, {
+      transactionId: tx.id,
+      userId: tx.user_id,
+      actorUserId: adminUserId,
+      action: 'order_cancelled',
+      previousStatus: tx.status,
+      newStatus: 'cancelled',
+      reason: params.reason || 'Admin cancelled transaction',
+    });
+
+    return {
+      success: true,
+      orderId: tx.id,
+      status: 'cancelled',
+      isProActive: ent.isPro,
     };
   });
 }
