@@ -100,7 +100,7 @@ if(Object.keys(deep).length!==10)fail('Expected 10 field investigations');
 for(const id of expectedDives){
  const body=deep[id];
  if(!body)fail('Missing key field investigation '+id);
- else if(body.trim().split(/\\s+/).length<170)fail('Field investigation too shallow '+id);
+ else if(body.trim().split(/\s+/).length<170)fail('Field investigation too shallow '+id);
  if(body&&forbidden.test(body))fail('Editorial status leaked in field investigation '+id);
 }
 const extraVisual=file('components/roaster-v2/RoasterConceptVisualExtra.tsx');
