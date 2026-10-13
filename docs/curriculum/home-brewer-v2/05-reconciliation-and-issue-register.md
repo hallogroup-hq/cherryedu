@@ -218,3 +218,31 @@ This code risk is separated from the Home Brewer candidate curriculum and remain
 
 **Latest validation status:** pending fresh content/typecheck/build, 47+ Playwright tests, and Foundation regression at the final HEAD. The 40 lesson IDs and separate V1 progress remain intact. No new videos and no release permission.
 
+
+## 13. Cross-inventory anti-boilerplate audit and test protection
+
+**Why this extra pass exists:** the earlier editorial depth list was generated using a 370-word review threshold. That did not detect reusable generic experiment paragraphs in lessons already above 370 words. This pass checked those previously unflagged manuscripts and replaced repeated copy where found, rather than calling the entire course finished after the short-lesson list was cleared.
+
+**Additional source-specific rewrites (10 lessons not in the 21-warning list):**
+
+| Lesson | Source commit | Replacement focus |
+| --- | --- | --- |
+| M01-L01 | `969dd61` | Clarifying personal taste rather than copying an internet recipe |
+| M01-L02 | `02fed10` | Dry-run home station safety before handling hot water |
+| M01-L03 | `ce7c3d3` | Measured data vs sensory report vs interpretation |
+| M01-L04 | `ea736a0` | Brewing-water ratio vs output mass vs bypass dilution |
+| M03-L01 | `9c01e6b` | Water-in, beverage-out and why retained water is not extraction yield |
+| M05-L01 | `b5fa980` | Physical contact paths in immersion, percolation and hybrid |
+| M05-L03 | `a6e4ee8` | Model-dependent safe AeroPress, not inverted imitation |
+| M09-L01 | `4e6fe91` | Input hot water, ice initial, beverage yield and unknown ice melt |
+| M09-L03 | `109c481` | Milk/syrup function and individual allergen risk |
+| M09-L04 | `29e4185` | Authentic drink brief, controlled changes and personal preference |
+
+**Also removed:** exact recurring end-of-lesson generic summaries such as “Jurnal pribadi”, “Apa yang kamu pelajari?”, and “Penutup pelajaran” where a topic-specific transfer task had already been written. These changes preserve the existing numbered modules, learning questions, case banks, visual resources, and legacy V1 course IDs.
+
+**Engineering regression added:** the content validator `scripts/validate-home-brewer-v2.cjs` now **fails** on the exact long duplicated learner checklists and closings that were removed, in addition to inventory/scaffolding checks. It must pass on the resulting source **at a matching commit SHA**, not merely because an older CI run was green.
+
+**Release interpretation:** passing the validator and browser tests establishes source hygiene, rendering and checked interactions, **not** that every beginner will understand every lesson. Formal scientific/pedagogic sign-off is still owner-owned; real novice testing is pending. The competing independent PR #7 remains a separate draft and must not be mechanically merged. Videos remain deferred by owner's explicit decision.
+
+**Close criteria for HBV2-023:** 0 content-validator errors; 0 under-370 editorial word warnings; 40 lesson IDs; 10 module labs, 20 adapting-evidence cases and 20 diagnostics; browser QA includes new delayed-modal regression and pass on the exact head; no changed existing V1 records. Until those are checked, issue stays `FIXED-PENDING-QA`.
+
