@@ -31,5 +31,3 @@ Coba dua pengguna fiktif. Dita membuat satu gelas sebelum berangkat kerja, ruang
 ## Pindah ke situasi berbeda
 
 Kamu pindah dari kopi panas ke kebutuhan cold drinks. Bagaimana metode pilihanmu berubah kalau ruang kulkas dan penyimpanan makanan sangat terbatas? Pertimbangkan keamanan lebih dahulu daripada tren resep.
-
-**Ringkas dengan bahasamu:** jelaskan mengapa hasil berubah, satu dugaan alternatif, dan apa pengujian berikutnya yang mungkin mengubah pikiranmu. Tidak ada kewajiban mengikuti satu brand atau angka resep tertentu.
