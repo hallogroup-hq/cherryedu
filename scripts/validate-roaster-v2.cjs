@@ -91,7 +91,7 @@ for(const required of ['role="img"','<title','<desc','M03','M04','M05','M09']){
  if(!visual.includes(required))fail('Concept diagram missing accessibility or topic '+required);
 }
 const deepSource=file('lib/data/roasterV2DeepDives.ts');
-const deepMatch=deepSource.match(/export const ROASTER_V2_DEEP_DIVES:Record<string,string>=(\\{[\\s\\S]*?\\});/);
+const deepMatch=deepSource.match(/export const ROASTER_V2_DEEP_DIVES:Record<string,string>=(\{[\s\S]*?\});/);
 if(!deepMatch)fail('Cannot parse field investigation inventory');
 let deep={};
 if(deepMatch)try{deep=JSON.parse(deepMatch[1]);}catch(e){fail('Invalid field investigation source');}
