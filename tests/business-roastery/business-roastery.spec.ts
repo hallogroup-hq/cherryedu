@@ -132,9 +132,14 @@ test('three models compare downside and physical capacity without placeholder co
  await form.getByRole('spinbutton',{name:/Konversi variabel/}).fill('20000');
  await form.getByRole('spinbutton',{name:/Fixed conversion/}).fill('1000000');
  await form.getByRole('spinbutton',{name:/Kapasitas saleable/}).fill('90');
- await expect(form.getByText(/Gap kapasitas:/)).toContainText('10 kg');
- await expect(form.getByText(/Biaya konversi bulanan:/)).toContainText('3.000.000');
+ await expect(form.getByText(/Gap kapasitas rencana:/)).toContainText('10 kg');
+ await expect(form.getByText(/Gap kapasitas saat permintaan 60%:/)).toContainText('0 kg');
+ await expect(form.getByText(/Biaya konversi bulanan pada target:/)).toContainText('Tidak layak kapasitas');
+ await expect(form.getByText(/Biaya per kg di rencana:/)).toContainText('Tidak layak kapasitas');
  await expect(form.getByText(/Biaya per kg jika demand 60%:/)).toContainText('36.667');
+ await form.getByRole('spinbutton',{name:/Kapasitas saleable/}).fill('150');
+ await expect(form.getByText(/Biaya konversi bulanan pada target:/)).toContainText('3.000.000');
+ await expect(form.getByText(/Biaya per kg di rencana:/)).toContainText('30.000');
  await expect(form.getByRole('alert')).toContainText('belum sanggup');
 });
 test('13-week ledger places supplier cash out before buyer cash in and can delete entries',async({page})=>{
@@ -147,4 +152,36 @@ test('13-week ledger places supplier cash out before buyer cash in and can delet
  await expect(page.getByText(/Defisit kas pada jadwal ini/)).toBeVisible();
  await page.getByRole('button',{name:'Hapus transaksi DP green'}).click();
  await expect(page.getByText(/Belum ada transaksi/)).toBeVisible();
+});
+
+test('flat freight does not mislabel a kilogram charge',async({page})=>{
+ await page.goto('/business-roastery-v1/calculator');
+ await page.getByRole('radio',{name:'Quotation flat/truk'}).check();
+ await page.getByRole('spinbutton',{name:/Berat green yang dibeli/}).fill('40');
+ await page.getByRole('spinbutton',{name:/Total biaya freight sesuai quotation flat/}).fill('350000');
+ await expect(page.getByText('Berat ditagih untuk freight').locator('..')).toContainText('Tidak berlaku (tarif flat)');
+ await expect(page.getByText('Ongkos freight').locator('..')).toContainText('350.000');
+});
+
+test('13-week liquidity shows intraweek deficit despite positive closing cash',async({page})=>{
+ await page.goto('/business-roastery-v1/working-capital');
+ await page.getByRole('spinbutton',{name:/Kas yang tersedia pada awal/}).fill('1000000');
+ await page.getByRole('spinbutton',{name:/Nominal/}).fill('1500000');
+ await page.getByRole('textbox',{name:/Keterangan transaksi/}).fill('Bayar supplier pagi');
+ await page.getByRole('button',{name:'Tambahkan transaksi'}).click();
+ await page.getByRole('combobox',{name:/Kas masuk\/keluar/}).selectOption('in');
+ await page.getByRole('spinbutton',{name:/Nominal/}).fill('2000000');
+ await page.getByRole('textbox',{name:/Keterangan transaksi/}).fill('Pembayaran buyer sore');
+ await page.getByRole('button',{name:'Tambahkan transaksi'}).click();
+ await expect(page.getByText(/Titik kas terendah/)).toContainText('-500.000');
+ await expect(page.getByText(/Defisit kas terjadi pada urutan transaksi/)).toBeVisible();
+ const firstWeek=page.locator('tbody tr').first();
+ await expect(firstWeek).toContainText('1.500.000');
+});
+
+test('business model text emphasizes key guidance without raw markdown',async({page})=>{
+ await page.goto('/business-roastery-v1/models');
+ await expect(page.locator('strong').filter({hasText:'hanya biaya mengubah green menjadi roasted saleable'})).toBeVisible();
+ await expect(page.locator('strong').filter({hasText:'Cara memutuskan:'})).toBeVisible();
+ await expect(page.getByText('**',{exact:false})).toHaveCount(0);
 });
