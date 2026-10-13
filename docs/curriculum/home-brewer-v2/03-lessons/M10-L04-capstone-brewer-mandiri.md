@@ -1,27 +1,62 @@
-# Capstone: Kamu Bisa Berpikir seperti Home Brewer
+# Capstone: Merancang Kopi yang Bisa Dijelaskan dan Direvisi
 
-Sebuah tantangan akhir menggabungkan semuanya. Kamu punya kopi lot baru, alat yang sama, dan tamu yang meminta iced coffee lebih berasa kopi tetapi tidak terlalu manis. Sesi pertama berbeda dari resep yang biasa kamu pakai. Apa yang kamu lakukan?
+Kamu baru menerima kopi dari lot yang belum pernah dicoba. Seorang teman meminta **iced coffee yang rasa kopinya terasa jelas, tidak terlalu manis, dan nyaman diminum setelah makan**. Resep lamamu dibuat untuk kopi berbeda. Apa langkahmu?
 
-## Tujuan dan mekanisme
+Tantangan akhir ini tidak meminta satu resep sempurna. Kamu diminta menunjukkan bahwa kamu bisa **mendengar kebutuhan, menjelaskan keputusan, merancang percobaan aman, mencatat hasil, dan menyesuaikan ketika fakta berubah**.
 
-Keputusan home brewer yang baik harus memulai dengan memeriksa keamanan bahan dan alat, mendengarkan tujuan, memahami rasio input/output, menilai kemungkinan pengaruh kopi/grind/air/metode, lalu memilih percobaan yang memberi data paling berguna. Jangan mengubah empat variabel sekaligus hanya agar hasil cepat berbeda. Tasting nyata membantu jika aman dan peserta mau, tetapi satu hasil tidak membuktikan resep universal.
+## Tentukan target tanpa mengunci satu angka resep
 
-## Data latihan untuk dianalisis
+Mulailah dari percakapan dengan orang yang akan minum. “Rasa kopi terasa jelas” bisa berarti aroma kopi dominan, body lebih tebal, atau minuman tidak tertutup rasa susu dan sirup. “Tidak terlalu manis” juga perlu dijelaskan: apakah tanpa pemanis, sedikit pemanis, atau hanya menghindari minuman yang seperti dessert?
 
-Dataset latihan: sebelumnya 15g/225g air through-bed, output 190g, 3:00, kopi Lot P. Kini Lot Q dengan input sama menghasilkan 185g, 3:40, tidak ada tasting. Ada perubahan lot dan waktu/output; kamu tidak tahu apakah grind, filter atau alat tetap identik secara nyata. Jika tamu ingin iced brew, total air yang dituang dan es tambahan harus dibedakan.
+Tanyakan batasan yang relevan: bahan apa yang boleh dan tidak boleh digunakan, preferensi terhadap susu atau plant-based drink, alergi, dan kondisi penyajian. **Jangan memakai preferensimu sendiri sebagai pengganti tujuan tamu.**
 
-## Batas keselamatan dan inferensi
+Pilih target yang bisa dievaluasi pada sesi itu. Contoh: “Tamu dapat mengenali karakter kopi dan memilih varian A atau B setelah mencicipi keduanya dengan informasi bahan yang jelas.” Target ini bukan angka ekstraksi universal dan tidak menjamin setiap orang memilih hal sama.
 
-Kamu juga mendengar teman menyarankan AeroPress inverted untuk mempercepat adaptasi. Itu bukan solusi yang tepat karena panduan pabrikan secara tegas memperingatkan risiko tumpahan dan luka bakar. Pilih metode standar yang aman atau alat lain yang tersedia. Kreativitas tidak perlu meningkatkan risiko fisik.
+## Pelajari bukti yang tersedia sebelum menyeduh lagi
 
-## Tugas mandiri dan eksperimen
+Dataset berikut adalah **simulasi**, bukan hasil percobaan yang sudah dilakukan:
 
-Tulis laporan akhir: tujuan pelanggan, bukti yang ada, dua hipotesis, pilihan minuman aman, rancangan A/B, data yang belum tersedia, cara menerima kritik, dan perubahan SOP jika resep perlu direplikasi. Lakukan hanya bagian fisik yang aman sesuai perangkatmu.
+- **V0, kopi Lot P:** 15 g bubuk, 225 g air masuk, 190 g minuman keluar, waktu total 3:00.
+- **Kondisi baru, Lot Q:** 15 g bubuk, 225 g air masuk, 185 g minuman keluar, waktu total 3:40.
+- Tidak ada data tasting, TDS minuman, detail grinder, maupun catatan filter pada sesi kedua.
 
-Saat menulis eksperimen, bedakan prediksi, pengamatan nyata, dan data simulasi; jangan mengisi kolom tasting yang belum dilakukan. Periksa kelayakan bahan/air, alat food-safe, penyimpanan dan risiko panas. Nilai kemampuan belajar dari alasan yang bisa diuji dan keputusan saat keadaan berubah, bukan kepatuhan pada satu resep.
+Berdasarkan data ini, kamu boleh mengatakan **lot yang dipakai berbeda**, waktu tercatat berbeda, dan output minuman berbeda. Tetapi kamu belum tahu apakah grind, filter atau cara menuang memang tetap sama. Kamu juga **tidak boleh menyimpulkan** bahwa Lot Q lebih pahit, lebih pekat, atau memiliki extraction yield tertentu hanya dari waktu dan output.
 
-## Tantangan transfer
+Jika hendak membuat iced coffee, bedakan lagi **air yang melewati coffee bed**, **massa minuman keluar**, **es yang ditambahkan**, dan **es yang benar-benar sudah mencair**. Angka air masuk 225 g pada resep panas tidak dapat begitu saja diperlakukan sebagai massa minuman dingin akhir.
 
-Setelah semua selesai, adakah satu resep terbaik yang harus dipakai semua orang? Jelaskan mengapa kualitas belajar lebih terlihat dari cara membangun pertanyaan dan menanggapi bukti baru daripada satu angka ratio atau pola tuang.
+## Bangun satu eksperimen yang memiliki alasan
 
-**Penutup pelajaran:** sebutkan satu variabel yang paling ingin kamu pahami, alasan memilihnya, dan kondisi yang akan membuatmu mengubah keputusan. Bila belum memiliki alat, latihan penalaran tetap valid tetapi bukan bukti keahlian praktik fisik.
+Rancang dua varian berdasarkan **satu pertanyaan utama**. Misalnya, kamu ingin mengetahui apakah penyesuaian jumlah es yang benar-benar digunakan membuat pengalaman minuman lebih sesuai tujuan. Catat terlebih dahulu apa yang ingin dipertahankan sama dan apa yang sengaja diubah.
+
+Tulis rencana sebelum mencoba:
+
+1. **Target dan alasan:** pengalaman apa yang diinginkan tamu, dan mengapa dua varian layak dibandingkan?
+2. **Baseline V0:** kopi, dosis, massa air seduh, metode, jenis filter, alat, bentuk penyajian dan pengamatan nyata.
+3. **Hipotesis V1:** satu perubahan utama yang ingin diperiksa beserta prediksi yang bisa salah.
+4. **Perbandingan adil:** faktor yang dijaga tetap serta pengaruh yang belum bisa dikontrol.
+5. **Catatan evaluasi:** jumlah bahan, hasil minuman jika ditimbang, suhu penyajian bila diketahui, hasil sensori aktual dan preferensi tamu.
+6. **Langkah V2:** apa yang akan direvisi jika hasil tidak sesuai harapan atau tamu meminta karakter berbeda?
+
+Jika data hanya simulasi, beri label simulasi dan **jangan mengarang** hasil cicip. Tidak perlu membeli refraktometer untuk menyelesaikan proyek ini.
+
+## Keselamatan dan keputusan untuk berhenti
+
+Sebelum membuat minuman untuk orang lain, gunakan air yang layak minum, alat serta wadah yang sesuai, dan bahan yang diketahui keamanannya. Hindari improvisasi berisiko dengan air panas, listrik atau perangkat bertekanan. AeroPress digunakan sesuai manual metode standar, bukan eksperimen inverted yang berisiko tumpahan air panas.
+
+Untuk cold brew atau bahan tambahan yang disimpan, informasi proses dan penyimpanan harus memadai. Jangan menjanjikan shelf-life hanya dari bau, rasa, atau warna. Bila kelayakan batch diragukan, hentikan rencana penyajian.
+
+**Berhenti karena risiko tidak berarti gagal capstone.** Itu justru bukti kamu menempatkan keselamatan di atas angka atau keinginan menghasilkan minuman tertentu.
+
+## Saat informasi baru membantah rencana
+
+Setelah satu perbandingan, temanmu berkata, “Varian B lebih enak, tapi ternyata aku juga sensitif terhadap susu.” Kamu juga menyadari bahwa Lot Q mungkin disangrai berbeda dari Lot P. Bagaimana revisi formulamu?
+
+Pertama, periksa bahan dan informasi alergen dengan benar—jangan hanya mengganti ke plant-based drink lalu menganggap semua risiko alergi hilang. Kedua, nyatakan bahwa preferensi B pada sesi tersebut **tidak membuktikan** satu faktor tertentu menjadi penyebabnya. Ketiga, pilih eksperimen baru yang aman dan memisahkan perubahan minuman dari perubahan lot sebanyak mungkin.
+
+## Bentuk akhir laporan dan cara menilainya
+
+Laporanmu mencakup brief tamu, daftar fakta dan asumsi, resep awal (sebagai hipotesis), rencana A/B, risiko, hasil nyata **jika dilakukan**, revisi V2, serta cara orang lain mengulang resep dengan alat yang tersedia. Cantumkan keputusan jika alat atau bahan berubah.
+
+Penilaian difokuskan pada **alasan**, **kejelasan pencatatan**, **keamanan**, dan **kemampuan memperbaiki keputusan setelah informasi baru datang**. Kamu tidak dinilai dari kesesuaian terhadap rasio atau menit tunggal. Catatan tertulis ini merupakan latihan konseptual; keberhasilan di halaman belajar tidak otomatis menjadi sertifikasi keterampilan praktik fisik.
+
+**Pertanyaan terakhir:** jika ada satu data baru besok yang bisa mengubah keputusanmu, data apa yang paling ingin kamu dapatkan? Jelaskan alasannya dan bagaimana kamu akan memeriksanya.
