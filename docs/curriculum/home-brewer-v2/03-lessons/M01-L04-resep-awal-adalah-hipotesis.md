@@ -31,5 +31,3 @@ Jika B memakai 15 g kopi dan 240 g air masuk, input-nya 1:16. **Perubahan 225 ke
 ## Tantangan saat kondisi berubah
 
 Jika setelah berpindah dari 1:15 ke 1:16 kopi menjadi kurang sesuai selera, apakah sebaiknya kembali, mengubah grind, atau mengganti metode? Pilih satu langkah yang memberi informasi paling berguna dan jelaskan mengapa tidak semuanya diubah sekaligus.
-
-**Jurnal pribadi:** Apa hal yang baru kamu pahami, asumsi mana yang masih perlu diperiksa, dan eksperimen paling sederhana apa yang bisa menjawabnya pada sesi berikutnya? Jawaban yang beralasan boleh berbeda dari resep orang lain.
