@@ -31,17 +31,17 @@ export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
       {open&&<ol className="mt-1 space-y-1">{lessons.filter(l=>l.moduleId===m.code).map(l=><li key={l.id}><Link aria-current={l.id===lessonId?'page':undefined} href={'/business-roastery-v1/'+l.id} className={`block rounded-sm px-3 py-2 text-xs leading-5 ${l.id===lessonId?'bg-roast-950 font-semibold text-white':'text-roast-700 hover:bg-paper-100'}`}>{l.title}</Link></li>)}</ol>}
      </section>})}
     </aside>
-    <main className="min-w-0 border border-paper-300 bg-white px-5 pb-10 pt-7 shadow-xs sm:px-9 sm:pt-9">
+    <div className="min-w-0 border border-paper-300 bg-white px-5 pb-10 pt-7 shadow-xs sm:px-9 sm:pt-9">
      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-b border-paper-200 pb-4 font-mono text-[10px] uppercase tracking-wider text-roast-600"><span className="flex items-center gap-1"><Clock size={13}/>{Math.max(12,Math.round(lesson.content.split(/\s+/).length/75))} menit baca</span><span>•</span><span>Materi belajar</span><span>•</span><span>{mod?.title}</span></div>
      <AudioNarrationPlayer title={lesson.title} rawMarkdown={lesson.content}/>
      <article className="mt-6"><h1 className="mb-6 border-b border-paper-300 pb-5 font-serif text-3xl font-black leading-tight tracking-tight sm:text-4xl">{lesson.title}</h1><MarkdownRenderer content={lesson.content}/></article>
-     {lesson.order===3&&guides[lesson.moduleId]&&<section className="mt-10 border-t border-paper-300 pt-8"><h2 className="font-serif text-xl font-bold">{guides[lesson.moduleId].title}</h2><p className="mb-4 mt-2 text-sm text-roast-700">Sekarang terapkan prinsip yang baru dipelajari pada satu rangkaian kasus.</p><MarkdownRenderer content={guides[lesson.moduleId].content}/></section>}
+     {lesson.order===4&&guides[lesson.moduleId]&&<section className="mt-10 border-t border-paper-300 pt-8"><h2 className="font-serif text-xl font-bold">{guides[lesson.moduleId].title}</h2><p className="mb-4 mt-2 text-sm text-roast-700">Sekarang terapkan prinsip yang baru dipelajari pada satu rangkaian kasus.</p><MarkdownRenderer content={guides[lesson.moduleId].content}/></section>}
      {lesson.order===4&&<section className="mt-10 border-t border-paper-300 pt-8"><h2 className="font-serif text-xl font-bold">Latihan setelah memahami modul</h2><p className="mt-2 text-sm leading-6 text-roast-700">Terapkan materi modul dalam kasus yang kondisinya berubah. Alasan keputusan lebih penting daripada menebak jawaban.</p><Link className="mt-4 inline-flex border border-roast-950 bg-roast-950 px-4 py-3 text-xs font-bold text-white hover:bg-cherry-800" href={'/business-roastery-v1/practice/'+lesson.moduleId.toLowerCase()}>Mulai latihan modul →</Link></section>}
      <nav aria-label="Pindah pelajaran" className="mt-12 grid gap-3 border-t border-paper-300 pt-5 sm:grid-cols-2">
       {prev?<Link className="border border-paper-300 px-3 py-3 text-xs font-semibold hover:bg-paper-100" href={'/business-roastery-v1/'+prev.id}>← {prev.title}</Link>:<Link className="border border-paper-300 px-3 py-3 text-xs font-semibold" href="/business-roastery-v1">Daftar modul</Link>}
       {next?<Link className="border border-paper-300 px-3 py-3 text-right text-xs font-semibold hover:bg-paper-100" href={'/business-roastery-v1/'+next.id}>{next.title} →</Link>:<Link className="border border-paper-300 px-3 py-3 text-right text-xs font-semibold" href="/business-roastery-v1">Kembali ke silabus</Link>}
      </nav>
-    </main>
+    </div>
    </div>
   </div>
  </div>;
