@@ -18,7 +18,15 @@ Jangan mencicipi minuman yang terlalu panas sehingga berisiko luka bakar; biarka
 
 Susun eksperimen dua sampel dengan kode acak dan tiga pertanyaan netral: aroma paling dominan, perasaan tekstur dan preferensi. Catat jumlah partisipan serta apa yang belum dikontrol. Tanpa partner, lakukan perbandingan berurutan dan jujur tentang keterbatasan blind.
 
-Pertama tentukan **tujuan percobaan**, lalu tulis **prediksi** dan **apa yang dapat membuat dugaanmu salah**. Tentukan faktor yang tetap dan berubah, lalu catat data secara jujur. Pengukuran fiktif bukan tasting nyata; selera pribadi bukan nilai salah-benar objektif. Biaya dan risiko peralatan juga menjadi bagian dari keputusan.
+## Blind tasting mengurangi satu bias, bukan semua bias
+
+Saat label ditutup, kamu tidak tahu harga dan origin sampel. Itu bisa mengurangi **ekspektasi terhadap merek**, tetapi suhu, urutan, volume, waktu sejak seduh, dan bentuk gelas masih bisa memberi petunjuk. Karena itu **blind** tidak otomatis berarti perbandingan sudah adil atau ilmiah.
+
+Bayangkan A disajikan saat masih panas, sedangkan B sudah cukup dingin. Kamu memilih B. Apakah B pasti kopi lebih cocok? Belum. Suhu penyajian berbeda dan bisa memengaruhi persepsi aroma maupun rasa. Jika jenis kopi juga berbeda, faktor yang mungkin berpengaruh semakin banyak.
+
+**Rancangan A/B sederhana:** satu orang menyiapkan dua porsi dengan kode yang tidak mengungkap identitas. Jaga wadah, volume, kisaran suhu aman untuk diminum serta jeda waktu sebanding. Sebelum membuka kode, setiap peserta menulis deskripsi dan preferensi **terpisah**. Setelah label dibuka, jangan mengubah jawaban yang sudah dicatat agar cocok dengan ekspektasi.
+
+**Jika percobaan memberi pilihan berbeda pada tiga kesempatan**, itu bukan alasan memalsukan pemenang. Bisa jadi perbedaan antarvarian kecil, kondisi cicip berubah, atau preferensi bervariasi. Rancang pengulangan yang lebih konsisten dan sebutkan keterbatasan jumlah peserta. Dua porsi rumahan tidak membuktikan kualitas produk bagi seluruh konsumen.
 
 ## Coba pada situasi baru
 
