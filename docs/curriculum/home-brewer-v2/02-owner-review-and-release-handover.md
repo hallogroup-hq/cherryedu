@@ -6,6 +6,7 @@
 **Pull request:** #6 (draft, **do not merge/publish without owner approval**).  
 **Approval:** The CherryEdu project owner explicitly requested to perform the **academic validation personally**.  
 **Media decision:** **No video is required for this edition**; videos can be added much later. Failure to produce videos **cannot block this release**. Ensure safety is not overstated and online theory is not presented as certified hands-on competence.
+**Reconciliation / issue register:** [05-reconciliation-and-issue-register.md](./05-reconciliation-and-issue-register.md) records the competing 50-lesson Draft PR #7, provisional choice of this 40-lesson branch as editorial baseline, stable issue IDs, unresolved depth/security/product gates, and owner-review ledger. **Do not infer that either candidate has been approved or that their datasets can be merged.**
 
 ## What is implemented
 
