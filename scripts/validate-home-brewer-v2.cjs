@@ -88,6 +88,24 @@ for(const m of Object.keys(counts))if(!visual.includes(m+':{'))fail('Missing ori
 for(const requirement of ['note.answer.trim().length<35','note.revision.trim().length<35','newEvidence','modelReasoning','ans.submitted&&ans.selected!==null','getHomeBrewerDiagnostics']){
  if(!ui.includes(requirement))fail('Missing attempt-before-explanation flow: '+requirement);
 }
+// Guard *learner source* as well as rendered JSX and case/quiz banks.
+ // A valid academic-review marker belongs in docs or CI, not in student-facing copy.
+const learnerSourcePaths=[
+ ...all.map(f=>path.join(lessonDir,f)),
+ path.resolve(__dirname,'../app/home-brewer-v2/page.tsx'),
+ path.resolve(__dirname,'../app/home-brewer-v2/[lessonId]/page.tsx'),
+ path.resolve(__dirname,'../app/home-brewer-v2/practice/[moduleId]/page.tsx'),
+ ...['HomeBrewerPractice.tsx','HomeBrewerLab.tsx','HomeBrewerConceptVisual.tsx','HomeBrewerDeepVisual.tsx']
+    .map(f=>path.resolve(__dirname,'../components/home-brewer-v2/'+f)),
+ ...['homeBrewerV2Cases.ts','homeBrewerV2Diagnostics.ts']
+    .map(f=>path.resolve(__dirname,'../lib/data/'+f))
+];
+const internalLearnerCopy=/\bDRAFT\b|\bPREVIEW\b|\bBETA\b|\bCOMING SOON\b|\bREVIEW BUILD\b|\bTBD\b|validasi materi dilakukan oleh pengelola|validasi akademik oleh pengelola|review oleh pemilik materi|persetujuan (?:akademik|pemilik materi)|untuk (?:editor|reviewer) internal|materi (?:masih )?draft|belum (?:siap )?dipublikasikan/i;
+for(const file of learnerSourcePaths){
+ const source=fs.readFileSync(file,'utf8');
+ if(internalLearnerCopy.test(source))fail('Internal editorial/release copy in learner surface: '+path.relative(path.resolve(__dirname,'..'),file));
+}
+
 const compiler=fs.readFileSync(path.resolve(__dirname,'generate-home-brewer-v2.cjs'),'utf8');
 if(!compiler.includes('files.length!==40'))fail('Content compiler not checking full inventory');
 const result={modules:10,lessons:all.length,changingEvidenceCases:20,formativeDiagnostics:20,conceptLabs:10,conceptDiagrams:10,issues,warnings,releaseBlockers:[
