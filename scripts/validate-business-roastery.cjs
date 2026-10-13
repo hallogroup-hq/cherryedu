@@ -52,7 +52,7 @@ for(const lesson of lessons){
  const explanation=lecture.trim().split(/\s+/).length;
  if(explanation<115)fail('Insufficient concept-first teaching depth '+lesson.id+': '+explanation+' words');
  if(remaining+explanation<300)fail('Lesson still too brief after conceptual teaching '+lesson.id+' total '+(remaining+explanation));
- if(!lecture.startsWith('### ')||lecture.split(/\\n\\n/).length<3)fail('Lecture missing meaningful heading/paragraphs '+lesson.id);
+ if(!lecture.startsWith('### ')||lecture.split(/\n\n/).length<3)fail('Lecture missing meaningful heading/paragraphs '+lesson.id);
  if(/sok ahli|keren banget|\bDRAFT\b|Lorem ipsum|TBD/i.test(lecture))fail('Unprofessional writing in concept lecture '+lesson.id);
  if(lecture.includes('Apa dampaknya bagi tiga jenis roastery?'))fail('Case-first teaching repeated in '+lesson.id);
 }
