@@ -79,6 +79,8 @@ Severity: **P0** blocks candidate selection/production; **P1** blocks academic s
 | HBV2-019 | P0 | #6 M03 RatioLab | UI accepted 15 g coffee + 185 g beverage + 10% TDS and displayed EY 123.33% as an unqualified estimate, violating mass-balance consistency; blank TDS was coerced to zero | Separate missing TDS from measured values, reject EY >100%, disable explanation on inconsistent data, and add boundary tests. Commits `03a6d0c` + `b04fb23`; verify same-SHA CI before closing | FIXED-PENDING-QA |
 | HBV2-020 | P0 | platform / transactional email | `app/api/email/subscription/route.ts` accepts client-supplied `toEmail`, `transactionId`, amount and plan, then calls `sendSubscriptionEmail` without server-side payment verification shown in the handler; resulting HTML says payment verified and subscription activated | Isolate real checkout/email callers; require trusted payment confirmation, authenticated intended recipient, server-side priced plan/expiration, idempotency and rate limits. Never send arbitrary success receipts from direct client data. **Do not disable production receipts without migration/testing** | OPEN |
 | HBV2-021 | P1 | platform / credential claims | `lib/emailService.ts` contains claims of an official signed certification and access rights; this audit cannot verify external accreditation or that the claims match product entitlements | Owner must verify credential claims and actual offers; remove unsupported marketing/credential assertions before release and add copy regression | OPEN |
+| HBV2-022 | P1 | global WhatsNewModal / editorial preview | At head `4ac04a0` a second run of 46 Home Brewer tests failed 1/46 because the global v1.2 announcement modal appeared after 700ms and intercepted interaction with the M02 label lab; the first run passed, exposing a race | Suppress the unrelated marketing modal on `/home-brewer-v2` and `/barista-v2` review routes; add real interaction regression after its prior delay. Commits `7448a56`, `38e90c4`; await final same-SHA CI | FIXED-PENDING-QA |
+| HBV2-023 | P1 | #6 lesson depth audit | 21 remaining manuscripts were flagged below editorial 370-word review threshold and contained duplicated generic experiment paragraphs | Individual topic-specific rewrites for all 21; recorded in ledger below. Validate 40/40 lessons, maintain concept→evidence→test→transfer, rerun browser tests. Word count alone is not approval | FIXED-PENDING-QA |
 
 **Important:** `FIXED-PENDING-OWNER` means the source changed, **not** that the final academic content passed. `VERIFIED-ENGINEERING` means automated behavior was observed on a specific commit, **not** universal absence of bugs.
 
@@ -181,4 +183,38 @@ The sources above inform wording and uncertainty, but **do not substitute for th
 **Safe follow-up:** inspect exact caller flows and payment webhook/verification, add a server-side authorization and payment state record, sign/idempotently process trusted payment success, generate recipient and subscription details only from verified server data, escape strings embedded into HTML, and run refund/duplicate-event/failed-payment/legitimate-renewal scenarios. Do not directly modify live payment or email delivery as a side effect of Home Brewer content QA. Verify all credential and access claims independently with the owner.
 
 This code risk is separated from the Home Brewer candidate curriculum and remains a release/security gate, not an assertion of an observed attack.
+
+## 12. Third audit batch — 21 targeted lesson reviews and modal regression
+
+**Baseline:** PR #6 at `4ac04a0` had 21 of 40 manuscripts below its 370-word editorial review threshold. They were not automatically incorrect scientifically, but the short repeated checklist often lacked concept-specific experimental detail. **Each of the 21 was re-opened and edited.**
+
+| Lesson | Original words | Edited words | Source commit | Improvement |
+| --- | ---: | ---: | --- | --- |
+| M02-L02 | 361 | 493 | `197d9b7` | Explain oxygen/degassing, daily use vs portions, condensation/novel storage case |
+| M02-L03 | 368 | 511 | `96e788d` | Distribution/fines analogy, grinder retention, specific comparative test |
+| M02-L04 | 353 | 490 | `f953012` | Separate testing a grinder vs comparing coffee lots; low-waste plan |
+| M03-L03 | 353 | 491 | `71fa0fa` | Interacting variables, time as process output, competing hypotheses |
+| M03-L04 | 352 | 502 | `1be8775` | Calculate input ratios without falsely deriving EY; two-layer journal |
+| M04-L01 | 359 | 523 | `5369c89` | Wetting/bloom observation vs universal bubble claims |
+| M04-L02 | 360 | 514 | `bd5be46` | Pulse vs continuous pouring, output flow vs pour-rate distinction |
+| M04-L04 | 362 | 530 | `9e99ef0` | Recipe cumulative vs additional gram clarity, paper walkthrough |
+| M05-L02 | 342 | 465 | `3ea5876` | Immersion continues through separation, sediment preference and plunger safety |
+| M05-L04 | 340 | 486 | `e4f22b4` | Different buyer needs, comparative method decision without gear shaming |
+| M06-L01 | 361 | 527 | `b5ab90a` | Drinking safety vs brewing water quality; limits of conductivity TDS |
+| M06-L03 | 342 | 488 | `9df9f0a` | Measured kettle vs bed temperature, serving temp vs extraction temp |
+| M06-L04 | 337 | 488 | `7814d79` | Filter porosity/material, mouthfeel vs health, cleaning safety |
+| M07-L01 | 350 | 494 | `4b31a76` | Beginner three-layer aroma/taste/mouthfeel practice |
+| M07-L02 | 342 | 482 | `7157681` | Blind A/B bias, temperature/sequence confounders, replication |
+| M07-L03 | 339 | 487 | `55dfe3e` | A one-screen, four-part sensory log and transfer to new beans |
+| M08-L01 | 347 | 495 | `3f53da7` | Two hypotheses for sourness: preference vs extraction conditions |
+| M08-L03 | 335 | 476 | `8f65a21` | Explicit variable/confounder/outcome contrast and falsifiable predictions |
+| M08-L04 | 339 | 498 | `1c9b3b1` | Appropriate tests by actual equipment, no fabricated precision |
+| M10-L01 | 351 | 505 | `faa75b0` | Specific, testable capstone brief and stop conditions |
+| M10-L03 | 338 | 498 | `e22ce2c` | SOP paper walkthrough and transfer across grinders/filters |
+
+**Expected result:** zero *word-count-based* depth warnings for the rewritten batch at the latest source, subject to the same-commit validator output. **That does not prove zero pedagogical defects or owner validation.** Every edited text needs owner check of actual beginner comprehension and science.
+
+**Flaky UI evidence:** at commit `4ac04a0`, Home Brewer QA [run 38348616288](https://github.com/hallogroup-hq/cherryedu/actions/runs/38348616288) passed 46/46; parallel [run 38348621201](https://github.com/hallogroup-hq/cherryedu/actions/runs/38348621201) failed 1/46 when the global v1.2 announcement dialog blocked a button after its delayed appearance. **Do not conceal the failure because another run passed.** An isolated preview-specific suppression and time-based regression were committed.
+
+**Latest validation status:** pending fresh content/typecheck/build, 47+ Playwright tests, and Foundation regression at the final HEAD. The 40 lesson IDs and separate V1 progress remain intact. No new videos and no release permission.
 
