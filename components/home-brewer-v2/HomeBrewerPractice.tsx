@@ -90,6 +90,6 @@ function Diagnostic({moduleCode}:{moduleCode:string}){
 export function HomeBrewerPractice({moduleCode}:{moduleCode:string}){
  return <div className="space-y-16">
    <ChangingCase moduleCode={moduleCode}/><Diagnostic moduleCode={moduleCode}/>
-   <p className="border-t border-paper-300 pt-6 text-xs leading-6 text-roast-700">Jawaban pada halaman ini hanya tersimpan sementara selama sesi halaman aktif. Belum disimpan sebagai nilai atau progres akun. Validasi materi dilakukan oleh pengelola CherryEdu.</p>
+   <p className="border-t border-paper-300 pt-6 text-xs leading-6 text-roast-700">Jawaban latihan ini hanya tersimpan selama halaman aktif dan belum tercatat sebagai nilai atau progres akun.</p>
  </div>;
 }
