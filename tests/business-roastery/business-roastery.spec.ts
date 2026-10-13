@@ -295,3 +295,19 @@ test('each module begins with explanatory fundamentals, useful terminology, and 
  expect(lesson.indexOf('Memahami apa yang sebenarnya dijual roastery')).toBeLessThan(lesson.indexOf('Pelajari konsep dan cara kerjanya'));
  await expect(page.getByRole('heading',{name:'Lihat contoh penerapan'})).toHaveCount(0);
 });
+
+
+test('selected beginner, logistics, manufacturing, finance and export chapters teach a complete guided method on mobile',async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ for(const id of ['b01','b02','b08','b10','b13','b16','b21']){
+  const url='/business-roastery-v1/br-'+id+'-l01';
+  const response=await page.goto(url);
+  expect(response?.status(),url).toBe(200);
+  const guide=page.getByRole('region',{name:'Panduan kerja langkah demi langkah'});
+  await expect(guide,url).toBeVisible();
+  await expect(guide.locator('ol > li'),url).toHaveCount(4);
+  await expect(page.getByRole('heading',{name:'Istilah yang perlu kamu kenali'}),url).toBeVisible();
+  const diff=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
+  expect(diff,'horizontal overflow in '+url).toBeLessThanOrEqual(2);
+ }
+});
