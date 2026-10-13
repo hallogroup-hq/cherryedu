@@ -18,7 +18,15 @@ Kekeliruan umum ialah menyebut metode immersion selalu tinggi body dan percolati
 
 Buat matriks pilihan metode dengan bobot versimu: biaya 20%, keamanan 25%, waktu 20%, kontrol variabel 20%, cleaning 15% sebagai **contoh bobot fiktif**, bukan aturan. Beri alasan skor berdasarkan spesifikasi nyata, bukan rating internet semata. Setelah memilih, tulis satu eksperimen yang layak dilakukan tanpa membeli alat tambahan.
 
-Sebelum mengubah resep, tulis **pertanyaan**, **prediksi**, **variabel utama**, **faktor pembanding** dan **batas keselamatan**. Jika hasil belum benar-benar dicicipi, biarkan kolom rasa kosong. Jangan menggunakan data fiktif sebagai bukti suatu metode lebih unggul. Jika menggunakan air panas, kaca, alat tekanan atau listrik, ikuti panduan resmi produsennya.
+## Keputusan berbeda untuk kebutuhan berbeda
+
+Ketika memilih alat, pisahkan **mekanisme** dari **kemudahan pemakaian**. V60 memerlukan aliran melewati bed/filter; French press mengandalkan immersion kemudian penyaringan; perangkat hybrid dapat menggabungkan perendaman dan pelepasan cairan. Tidak satu pun menjamin rasa selalu lebih manis atau body tertentu.
+
+Coba dua pengguna fiktif. Dita membuat satu gelas sebelum berangkat kerja, ruang cuci sempit dan hanya punya waktu singkat. Fajar biasa menyeduh untuk empat tamu dan menikmati membandingkan berbagai kopi. Mereka boleh memilih alat berbeda karena kapasitas, waktu, filtrasi dan pemeliharaan menjadi kriteria nyata, bukan karena satu orang lebih ahli.
+
+**Matriks bukan mesin kebenaran.** Jika kamu memberi nilai 1–5 untuk waktu, harga, keselamatan dan proses bersih-bersih, tulis dari mana penilaiannya datang. Apakah berdasarkan alat yang sungguh dicoba atau perkiraan? Bobot yang diusulkan lesson ini adalah contoh, bukan standar. Ketika kebutuhan berubah menjadi membawa kopi saat bepergian, penilaian boleh berubah pula.
+
+**Eksperimen tanpa belanja:** sebelum membeli alat baru, pilih satu kendala pada perangkat yang sudah ada—misalnya sedimen, pembersihan, atau kapasitas. Tentukan apa yang bisa diperbaiki aman dengan cara penyajian, pengaturan metode, atau penggunaan filter yang memang didukung pabrikan. Jika tidak cukup, barulah jelaskan kebutuhan spesifik yang tidak terpenuhi.
 
 ## Pindah ke situasi berbeda
 
