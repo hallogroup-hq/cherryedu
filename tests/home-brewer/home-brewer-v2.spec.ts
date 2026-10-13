@@ -221,3 +221,16 @@ test('V0-V2 lesson keeps prediction separate from observed data and explicitly m
  await expect(page.getByRole('figure',{name:'Prediksi yang salah tetap menghasilkan pembelajaran'})).toBeVisible();
  await expect(page.locator('.editorial-prose table').getByRole('row')).toHaveCount(3);
 });
+
+test('specialization editorial reader is never blocked by an unrelated global release announcement',async({page})=>{
+ await page.goto('/home-brewer-v2/hbv2-m02-l01',{waitUntil:'domcontentloaded'});
+ // Previously the global v1.2 modal appeared after 700 ms and intercepted quiz interaction.
+ await page.waitForTimeout(950);
+ await expect(page.getByRole('dialog',{name:/Apa yang Baru di Cherry Edu/})).toHaveCount(0);
+ const lab=page.getByRole('region',{name:'Laboratorium konsep M02'});
+ const cards=lab.locator('fieldset');
+ const labels=['Informasi tercantum','Deskripsi sensori','Informasi tercantum','Belum bisa disimpulkan'];
+ for(let i=0;i<4;i++)await cards.nth(i).getByRole('radio',{name:labels[i]}).check();
+ await lab.getByRole('button',{name:'Cek pembacaan label'}).click();
+ await expect(lab.getByRole('status')).toContainText('4 dari 4 klasifikasi sesuai');
+});
