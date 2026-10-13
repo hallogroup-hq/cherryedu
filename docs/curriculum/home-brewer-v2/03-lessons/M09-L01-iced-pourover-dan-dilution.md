@@ -24,6 +24,8 @@ Misalnya **15 g kopi**, **150 g air panas melewati bed**, dan **75 g es awal**. 
 
 Sekarang bandingkan dengan versi kedua: **175 g air panas melalui bed + 50 g es awal**. Kedua versi memiliki total air awal sama, tetapi **jumlah air yang terlibat langsung dalam ekstraksi berbeda**. Karena es berperan pada pendinginan dan pengenceran setelah minuman keluar, hasil kedua proses tidak dapat disamakan dengan satu label rasio.
 
+**Hipotesis yang layak diuji:** memperbesar porsi air yang melewati coffee bed sambil mengurangi porsi es awal, dengan total input air tetap, mungkin menghasilkan pengalaman intensitas berbeda. Prediksi ini belum membuktikan arah perubahan rasa; pengamatan nyata dan tingkat pencairan es dibutuhkan untuk membedakan sebab.
+
 **Jurnal iced brew:** catat dosis, air panas yang dituang, massa minuman sebelum mengenai es bila bisa diukur, es awal, dan apakah es masih tersisa saat disajikan. Jangan mengisi “es meleleh 100%” hanya karena waktu sudah lewat beberapa menit. Beri label “belum diketahui” saat tidak ada pengukuran.
 
 **Eksperimen aman:** gunakan gelas tahan perubahan suhu sesuai petunjuk produsen, air dan es layak konsumsi, dan desain dua versi dengan satu perubahan utama yang jelas. Jika tamu menginginkan kopi lebih tegas, tanyakan apakah intensitas, volume atau sweetness yang ingin diubah. Menambah es bukan selalu jawaban terbaik.
