@@ -22,7 +22,7 @@ for(const p of paths){
   expect(res?.status()).toBe(200);
   await expect(page.getByRole('heading',{level:1})).toHaveText(p.name);
   await expect(page.getByRole('heading',{name:'Modul pembelajaran'})).toBeVisible();
-  await expect(page.locator('section[aria-labelledby^="course-"]')).toHaveCount(p.modules);
+  await expect(page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])')).toHaveCount(p.modules);
   await expect(page.locator('a[href^="'+p.url+'/"]').filter({has:page.locator('span.font-medium')})).toHaveCount(p.lessons);
   expect(await page.locator('main').evaluate(el=>el.scrollWidth<=window.innerWidth+2)).toBe(true);
   const body=await page.locator('main').innerText();
