@@ -1,6 +1,20 @@
 export type BusinessReference={key:string;category:string;title:string;url:string;verified:string;status:string;scope:string;value?:number;unit?:string;minimumKg?:number;leadTime?:string;exclusions?:string};
 export const BUSINESS_REFERENCES:BusinessReference[]=[
   {
+    "key": "freight-makassar-jabodetabek-sea",
+    "category": "freight",
+    "title": "Mandala Cargo laut Makassar → Jakarta (Jabodetabek)",
+    "url": "https://mandalacargo.id/jasa-pengiriman-cargo-makassar-ke-jabodetabek/",
+    "verified": "2026-10-13",
+    "status": "tarif publik indikatif mulai dari harga dasar, bukan penawaran final",
+    "scope": "Makassar ke Jakarta (Jabodetabek); bukan tujuan Sukabumi",
+    "value": 3500,
+    "unit": "IDR/kg",
+    "minimumKg": 50,
+    "leadTime": "5–7 hari ke area Jakarta sesuai publikasi penyedia; definisi transit perlu konfirmasi",
+    "exclusions": "Perlu konfirmasi pickup asal, jenis green coffee, batas layanan door-to-door, pajak, asuransi, packing, dan last mile"
+  },
+  {
     "key": "freight-jkt-mks-sea",
     "category": "freight",
     "title": "IndoExpress cargo laut Jakarta → Makassar",

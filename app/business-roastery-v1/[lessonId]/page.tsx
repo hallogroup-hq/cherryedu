@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {MarkdownRenderer} from '@/components/MarkdownRenderer';
+import {BUSINESS_ROASTERY_FIELD_GUIDES} from '@/lib/data/businessRoasteryFieldGuides';
 import {BUSINESS_ROASTERY_MODULES,BUSINESS_ROASTERY_LESSONS} from '@/lib/data/businessRoasteryCourse';
 export function generateStaticParams(){return BUSINESS_ROASTERY_LESSONS.map(l=>({lessonId:l.id}));}
 export default function BusinessRoasteryLesson({params}:{params:{lessonId:string}}){
@@ -15,6 +16,7 @@ export default function BusinessRoasteryLesson({params}:{params:{lessonId:string
   <p className="mt-14 font-mono text-xs font-semibold uppercase tracking-widest text-cherry-800">{mod.title} · Pelajaran {lesson.order} dari 4</p>
   <h1 className="mt-3 font-serif text-3xl font-bold leading-tight text-roast-950 sm:text-5xl">{lesson.title}</h1>
   <div className="mt-8 border-t border-paper-300 pt-8"><MarkdownRenderer content={lesson.content}/></div>
+  {lesson.order===3&&<section aria-label="Studi kasus dan perhitungan" className="my-10 border-y border-paper-300 bg-paper-100 px-5 py-7"><h2 className="font-serif text-2xl font-bold text-roast-950">{BUSINESS_ROASTERY_FIELD_GUIDES[mod.code].title}</h2><MarkdownRenderer content={BUSINESS_ROASTERY_FIELD_GUIDES[mod.code].content}/></section>}
   {(lesson.moduleId==='B08'||lesson.moduleId==='B13'||lesson.moduleId==='B14'||lesson.moduleId==='B15')&&<aside className="my-10 border-l-2 border-cherry-700 bg-paper-100 p-5">
    <h2 className="font-serif text-xl font-semibold text-roast-950">Periksa dampak biaya pada angka</h2>
    <p className="mt-2 text-sm leading-7 text-roast-800">Masukkan penawaran sesuai rute dan asumsi yang bisa diuji. Biarkan harga belum tersedia tetap kosong, jangan mengarangnya.</p>
