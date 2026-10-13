@@ -24,6 +24,21 @@ for(const f of all){
  if(/review build|DRAFT REVIEW|Beta Publik|video coming soon|Sertifikasi Profesional/i.test(c))fail('Release/credential copy leaked '+f);
  if(!/Eksperimen|percobaan|coba|latihan/i.test(c))fail('No learner action '+f);
  if(!/berubah|hipotesis|informasi|kesimpulan|dugaan/i.test(c))fail('Missing mechanism/transfer thinking '+f);
+ // The previous manuscript batch copied the same long experiment checklist into most lessons.
+ // Require topic-specific practice and challenge wording instead of green-lighting AI-like filler.
+ const genericPatterns=[
+  /Sebelum mencoba, pisahkan \\*\\*tujuan\\*\\*, \\*\\*prediksi\\*\\*/,
+  /Tulis catatan percobaan \\*\\*sebelum\\*\\* melakukan perubahan/,
+  /Pertama tentukan \\*\\*tujuan percobaan\\*\\*/,
+  /Sebelum mengubah resep, tulis \\*\\*pertanyaan\\*\\*/,
+  /Saat menulis eksperimen, bedakan prediksi, pengamatan nyata, dan data simulasi/,
+  /\\*\\*Jurnal pribadi:\\*\\* Apa hal yang baru/,
+  /\\*\\*Apa yang kamu pelajari\\?\\*\\* Jawab menggunakan bahasa sendiri/,
+  /\\*\\*Periksa pemahamanmu:\\*\\* sebutkan satu informasi/,
+  /\\*\\*Ringkas dengan bahasamu:\\*\\* jelaskan mengapa hasil berubah/,
+  /\\*\\*Penutup pelajaran:\\*\\* sebutkan satu variabel/
+ ];
+ for(const pattern of genericPatterns)if(pattern.test(c))fail('Repeated generic learner checklist/closing: '+f);
 }
 for(const m of Object.keys(counts))for(let i=1;i<=counts[m];i++){
  const id=m+'.'+String(i).padStart(2,'0');if(!seen.has(id))fail('Missing '+id);
