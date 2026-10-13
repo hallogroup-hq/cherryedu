@@ -1,5 +1,5 @@
 ---
-course: "Kopi dari Hulu ke Hilir — Foundation 2.0"
+course: "Kopi dari Hulu ke Hilir: Foundation 2.0"
 module: M02
 lesson: M02.L03
 title: "Mengapa varietas dan lokasi saling berinteraksi?"
@@ -155,9 +155,9 @@ D. Semua varietas dengan label tahan rust bebas penyakit sepanjang umur.
 
 ## Sumber dan batasan
 
-- **G01** — WCR, *About the Coffee Varieties Catalog*: https://varieties.worldcoffeeresearch.org/about-the-catalog — details on adaptation, agronomy and G×E×management context.
-- **G02** — *Shaded Coffee: A Nature-Based Strategy for Coffee Production Under Climate Change?* Frontiers, 2022: https://www.frontiersin.org/journals/sustainable-food-systems/articles/10.3389/fsufs.2022.877476/full — risks and tradeoffs.
-- **G03** — *Biophysical drivers of yield gaps and ecosystem services across coffee-based agroforestry management types*, 2022: https://www.sciencedirect.com/science/article/pii/S0167880922001736 — global meta-analysis with regional limits.
-- **G04** — WCR varieties per traits: https://varieties.worldcoffeeresearch.org/arabica/varieties .
+- **G01**: WCR, *About the Coffee Varieties Catalog*: https://varieties.worldcoffeeresearch.org/about-the-catalog: details on adaptation, agronomy and G×E×management context.
+- **G02**: *Shaded Coffee: A Nature-Based Strategy for Coffee Production Under Climate Change?* Frontiers, 2022: https://www.frontiersin.org/journals/sustainable-food-systems/articles/10.3389/fsufs.2022.877476/full: risks and tradeoffs.
+- **G03**: *Biophysical drivers of yield gaps and ecosystem services across coffee-based agroforestry management types*, 2022: https://www.sciencedirect.com/science/article/pii/S0167880922001736: global meta-analysis with regional limits.
+- **G04**: WCR varieties per traits: https://varieties.worldcoffeeresearch.org/arabica/varieties .
 - **Review pending:** Indonesian field agronomist to examine local altitude/soil nuance; human novice comprehension testing.
 - **No agronomy SOP:** No pesticide dosage, shade % recommendation or fixed harvest target prescribed.

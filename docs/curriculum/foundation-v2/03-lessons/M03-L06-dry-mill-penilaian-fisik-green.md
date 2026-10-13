@@ -116,7 +116,7 @@ Dry mill bukan sekadar “menghilangkan kulit sebelum roast”. Ia mempersiapkan
 **Selanjutnya:** Kamu akan menjadi anggota tim QC dan memutuskan apa yang boleh diteruskan, ditahan, atau harus diminta datanya pada satu rangkaian kasus.
 
 ### Referensi dan QA
-- [R1] SCA, Coffee Value Assessment – Physical Assessment: https://sca.coffee/value-assessment .
+- [R1] SCA, Coffee Value Assessment: Physical Assessment: https://sca.coffee/value-assessment .
 - [R2] SCA, Published vs In Development Standards; SCA-110 status checked 2026-10-12: https://sca.coffee/research/coffee-standards .
 - [R3] ISO 4149:2025, official public abstract: https://www.iso.org/standard/87699.html .
 - [R4] SCA Q Grader preparation, green grading and defect guide: https://sca.coffee/education/how-to-prepare .

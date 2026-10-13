@@ -67,7 +67,7 @@ Selain processing, ada pengaruh varietas, daerah, cara penyimpanan, perkembangan
 
 ## 5. Simulasi handoff dagang
 
-**Semua angka fiktif.** Kelompok tani menyerahkan 80 kg parchment yang baru dikeringkan sebagian kepada pengolah. Nota hanya menyebut “kopi basah, asal Sumatra”. Satu pekan kemudian pembeli green bean melaporkan beberapa biji pecah dan lot bercampur.
+Semua angka fiktif. Kelompok tani menyerahkan 80 kg parchment yang baru dikeringkan sebagian kepada pengolah. Nota hanya menyebut “kopi basah, asal Sumatra”. Satu pekan kemudian pembeli green bean melaporkan beberapa biji pecah dan lot bercampur.
 
 Apa yang harus diinvestigasi?
 1. Identitas batch, berat, dan kondisi pada saat diterima.

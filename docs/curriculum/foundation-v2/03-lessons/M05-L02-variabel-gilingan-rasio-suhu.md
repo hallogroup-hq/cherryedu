@@ -77,7 +77,7 @@ Di lesson berikutnya kita akan membedah TDS air, hardness, alkalinitas dan pH.
 
 ## 6. Eksperimen kecil: jangan semua tombol diubah
 
-**Skenario fiktif.** Barista melakukan dua seduhan:
+Skenario fiktif. Barista melakukan dua seduhan:
 
 | Catatan | A | B |
 |---|---|---|

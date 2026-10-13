@@ -2,7 +2,7 @@
 course: CherryEdu Foundation 2.0
 module: M07
 lesson: M07.L05
-title: Final Case — satu kopi, enam jenis bukti, satu keputusan yang bertanggung jawab
+title: Final Case: satu kopi, enam jenis bukti, satu keputusan yang bertanggung jawab
 status: internal-review-only
 capstone: true
 prerequisite: [M01,M02,M03,M04,M05,M06,M07.L01,M07.L02,M07.L03,M07.L04]
@@ -21,15 +21,15 @@ Tidak ada jawaban yang akan mengubahmu menjadi Q Grader, ahli keamanan pangan at
 
 Sebelum mulai, satu aturan utama:
 
-> **Seluruh dossier, nama pihak, angka transaksi, roast log dan catatan sensori di bawah adalah SIMULASI FIKTIF.** Tidak ada sampel yang benar-benar diuji, petani yang diwawancarai, atau kopi yang dipasarkan oleh CherryEdu melalui latihan ini.
+> Seluruh dossier, nama pihak, angka transaksi, roast log dan catatan sensori di bawah adalah SIMULASI FIKTIF. Tidak ada sampel yang benar-benar diuji, petani yang diwawancarai, atau kopi yang dipasarkan oleh CherryEdu melalui latihan ini.
 
-## Bagian 1 — Dossier Kopi P-17
+## Bagian 1: Dossier Kopi P-17 (kode satu lot kopi contoh)
 
 Sebuah kelompok pengolah hipotetis di Jawa Barat bernama **Koperasi Lereng Contoh** menerima ceri kopi. Sebuah brand hipotetis, **Ruang Seduh**, ingin membeli green coffee serta membuat kemasan yang mengangkat cerita petani.
 
 Ada enam lembar bukti.
 
-### Bukti A — Kebun dan panen
+### Bukti A: Kebun dan panen
 
 - **Identitas bahan:** diklaim Arabika kultivar X dari dua petak yang berdekatan, belum ada dokumen verifikasi bahan tanam.
 - **Lokasi:** elevasi perkiraan 1.450–1.550 mdpl, belum dicantumkan referensi geolokasi untuk masing-masing petak.
@@ -41,9 +41,9 @@ Ada enam lembar bukti.
 
 **Apa yang tidak boleh dikatakan?** “Kopi ini pasti floral karena 1.500 mdpl” atau “semua ceri 100% matang optimal” tanpa inspeksi pendukung.
 
-### Bukti B — Processing dan QC hijau
+### Bukti B: Processing dan QC hijau
 
-- **Label proses:** “Washed — controlled fermentation”.
+- **Label proses:** “Washed: controlled fermentation”.
 - **Catatan pengolahan:** depulping dan penghilangan mucilage tercatat; tanggal pembukaan/penutupan wadah ada, tetapi kondisi fermentasi dan identitas sublot tidak lengkap.
 - **Pengeringan:** moisture pada pemeriksaan awal tertulis 11,2%, dengan alat dan tanggal; **water activity tidak tercatat**.
 - **Pengemasan:** ada insiden rembesan air di area gudang; staf belum dapat memastikan karung mana yang terdampak.
@@ -53,9 +53,9 @@ Ada enam lembar bukti.
 
 **Tidak.** Kadar air dan aktivitas air berbeda. Insiden gudang serta data sampling yang belum lengkap perlu ditinjau secara khusus. Tidak adanya hasil uji bukan bukti adanya toksin, tetapi juga bukan bukti bebas risiko. Bila identitas barang terdampak tidak jelas, pihak QC berwenang perlu menerapkan pemeriksaan dan keputusan menurut SOP.
 
-**Catatan:** Rasio 100 kg ceri → 17,5 kg green **hanya data fiktif yang diasumsikan dalam kasus**; bukan angka rendemen industri yang dijanjikan berlaku universal.
+**Catatan:** Rasio 100 kg ceri → 17,5 kg green hanya data fiktif yang diasumsikan dalam kasus; bukan angka rendemen industri yang dijanjikan berlaku universal.
 
-### Bukti C — Roasting
+### Bukti C: Roasting
 
 Sebuah laporan *trial roast* menunjukkan:
 - green yang tertulis “P-17” dibagi menjadi batch roast R-09;
@@ -68,9 +68,9 @@ Seorang staf sales menyatakan: “Grafiknya mulus dan DTR-nya pas, berarti kopi 
 
 **Evaluasi:** Tidak didukung. Roast log memberi informasi proses dan kemungkinan masalah pengukuran, bukan bukti skor sensori atau legalitas hubungan lot. Ingat Modul 04: probe temperature dan DTR tidak cukup untuk memprediksi rasa universal.
 
-### Bukti D — Brewing
+### Bukti D: Brewing
 
-Barista melakukan contoh seduh yang dicatat sebagai berikut (**semua angka simulasi**):
+Barista melakukan contoh seduh yang dicatat sebagai berikut (semua angka simulasi):
 
 | Parameter | Catatan |
 |---|---:|
@@ -88,7 +88,7 @@ Massa zat terlarut = 210 g × 0,0135 = **2,835 g**. Perkiraan EY = 2,835 / 15 ×
 
 Jangan memakai **240 g air masuk** untuk menggantikan 210 g minuman yang keluar. Dan jangan mengubah angka 18,9% menjadi vonis bahwa seluruh pencicip pasti menyukai cangkirnya. Ini pendekatan berbasis minuman terkumpul; keterbatasan pengukuran dan retensi cairan harus diakui.
 
-### Bukti E — Sensory dan preferensi
+### Bukti E: Sensory dan preferensi
 
 Dua catatan pencicipan simulasi dikumpulkan; prosedur cupping formal tidak dilakukan.
 
@@ -104,7 +104,7 @@ Dua catatan pencicipan simulasi dikumpulkan; prosedur cupping formal tidak dilak
 
 **Apa yang belum dapat diklaim?** Cupping 90+, satu rasa yang disepakati secara formal, kesukaan seluruh konsumen, atau penyebab tepat aroma buah. Perbedaan label sebelum tes adalah faktor yang layak dikendalikan pada pengujian berikutnya.
 
-### Bukti F — Ekonomi, pekerja, dan klaim pemasaran
+### Bukti F: Ekonomi, pekerja, dan klaim pemasaran
 
 Kartu transaksi fiktif pada satu periode:
 
@@ -132,15 +132,15 @@ Manajer brand mengusulkan copy:
 Kamu harus **memutuskan mana yang boleh dipakai, mana perlu dihapus sementara, dan bukti apa yang dibutuhkan**. Tidak ada satu pun dari tujuh klaim mutlak tersebut yang boleh lolos sebagaimana tertulis berdasar bukti simulasi.
 
 
-**Ini kasus latihan fiktif lintas modul, bukan rekomendasi dagang nyata.** Coba susun penilaian sendiri dari bukti A–F terlebih dahulu. Jawaban tidak dikirim ke sistem atau dipakai untuk sertifikat pada preview.
+Ini kasus latihan fiktif lintas modul, bukan rekomendasi dagang nyata. Coba susun penilaian sendiri dari bukti A–F terlebih dahulu. Jawaban tidak dikirim ke sistem atau dipakai untuk sertifikat pada preview.
 
 [ACTIVITY:foundation-dossier]
 
-## Bagian 2 — Analisis empat keputusan
+## Bagian 2: Analisis empat keputusan
 
 Gunakan **lembar dossier interaktif tepat sebelum bagian ini** untuk menjawab isu mutu fisik, roasting/brewing/sensory, ekonomi produsen, dan klaim label. Jawaban kasus tidak ditampilkan lebih dahulu; setiap kesimpulan perlu menautkan bukti dan menyebut hal yang belum diketahui.
 
-## Bagian 3 — Tugas peserta: memo empat bagian
+## Bagian 3: Tugas peserta: memo empat bagian
 
 Tuliskan empat bagian **dengan total 350–500 kata** atau empat formulir ringkas dengan substansi setara. Tidak wajib memiliki kopi, alat cupping, refraktometer, atau fasilitas roastery.
 
@@ -156,7 +156,7 @@ Tuliskan empat bagian **dengan total 350–500 kata** atau empat formulir ringka
 
 Baca contoh pendek dari lembar dossier dan gunakan rubrik berikut untuk memeriksa alasan, bukan menilai diri berdasarkan gaya menulis semata.
 
-## Bagian 4 — Rubrik integratif (16 poin)
+## Bagian 4: Rubrik integratif (16 poin)
 
 | Dimensi | 0 | 1 | 2 | 3 | 4 |
 |---|---|---|---|---|---|
@@ -167,28 +167,28 @@ Baca contoh pendek dari lembar dossier dan gunakan rubrik berikut untuk memeriks
 
 **Gunakan rubrik untuk meninjau pekerjaanmu:** Periksa apakah kesimpulanmu didukung bukti, perhitungan memakai satuan yang benar, dan keputusanmu tidak melampaui data. Tinjau khusus empat kesalahan penting: menyatakan keamanan dari satu pengukuran, mengarang sertifikasi atau skor, menyamakan harga premium dengan pendapatan bersih, dan memperlakukan data simulasi sebagai kejadian nyata.
 
-## Bagian 5 — Tiga jebakan yang sengaja ada dalam dossier
+## Bagian 5: Tiga jebakan yang sengaja ada dalam dossier
 
-**Jebakan 1 — grafik bagus → rasa bagus.** Log roasting belum cukup untuk klaim sensorik. Modul 04 dan 06 membantu memeriksanya.
+**Jebakan 1: grafik bagus → rasa bagus.** Log roasting belum cukup untuk klaim sensorik. Modul 04 dan 06 membantu memeriksanya.
 
-**Jebakan 2 — satu angka bagus → seluruh sistem aman.** Moisture 11,2% bukan hasil uji seluruh parameter; ada insiden gudang. Modul 03 dan 05 melatih batas interpretasi pengukuran.
+**Jebakan 2: satu angka bagus → seluruh sistem aman.** Moisture 11,2% bukan hasil uji seluruh parameter; ada insiden gudang. Modul 03 dan 05 melatih batas interpretasi pengukuran.
 
-**Jebakan 3 — harga lebih tinggi → orang lebih sejahtera.** Komponen biaya bertambah; transaksi, tenaga dan kondisi rumah tangga perlu diperiksa. Modul 07 dan sejarahnya menunjukkan mengapa pihak yang menerima manfaat serta menanggung beban harus diperhatikan.
+**Jebakan 3: harga lebih tinggi → orang lebih sejahtera.** Komponen biaya bertambah; transaksi, tenaga dan kondisi rumah tangga perlu diperiksa. Modul 07 dan sejarahnya menunjukkan mengapa pihak yang menerima manfaat serta menanggung beban harus diperhatikan.
 
 Jika peserta menemukan jebakan baru, jawaban tersebut juga bisa bernilai selama mempunyai bukti dan alasan yang tepat. Contohnya, ketidakcocokan identitas dua petak dalam satu farm code merupakan masalah keterlacakan yang tidak boleh luput.
 
-## Bagian 6 — Pemeriksaan lintas modul
+## Bagian 6: Pemeriksaan lintas modul
 
 | Kompetensi Foundation | Bukti di kasus |
 |---|---|
-| M01 — Pengamatan vs kesukaan | Dua panelis dengan catatan/preferensi tidak sama |
-| M02 — Genetika, lokasi, kematangan | Bahan tanam/ketinggian belum diverifikasi; panen tidak lengkap |
-| M03 — Processing dan green QC | Washed, drying, moisture vs a_w, wet incident, sampling/lot mismatch |
-| M04 — Roasting | DTR/probe bukan sensory grade |
-| M05 — Brewing | 15 g dose, 210 g beverage, 1,35% TDS → EY 18,9% |
-| M06 — Sensory & CVA | Descriptive ≠ affective ≠ physical ≠ extrinsic; label expectation confound |
-| M07.L01 — Sejarah | Bagaimana warisan rantai perdagangan memengaruhi pertanyaan kekuasaan/pembagian nilai |
-| M07.L02–L04 — Ekonomi, traceability, sustainability | Perhitungan margin, pekerja, klaim label, kredibilitas pemasaran |
+| M01: Pengamatan vs kesukaan | Dua panelis dengan catatan/preferensi tidak sama |
+| M02: Genetika, lokasi, kematangan | Bahan tanam/ketinggian belum diverifikasi; panen tidak lengkap |
+| M03: Processing dan green QC | Washed, drying, moisture vs a_w, wet incident, sampling/lot mismatch |
+| M04: Roasting | DTR/probe bukan sensory grade |
+| M05: Brewing | 15 g dose, 210 g beverage, 1,35% TDS → EY 18,9% |
+| M06: Sensory & CVA | Descriptive ≠ affective ≠ physical ≠ extrinsic; label expectation confound |
+| M07.L01: Sejarah | Bagaimana warisan rantai perdagangan memengaruhi pertanyaan kekuasaan/pembagian nilai |
+| M07.L02–L04: Ekonomi, traceability, sustainability | Perhitungan margin, pekerja, klaim label, kredibilitas pemasaran |
 
 ### Refleksi sejarah yang wajib, bukan tempelan
 
@@ -224,7 +224,7 @@ Kursus ini **tidak memberikan sertifikasi profesional SCA, Q Grader, audit panga
 
 **Teaching exemplar 1:**
 
-**Bagian 2 — Empat keputusan yang harus dibuat
+**Bagian 2: Empat keputusan yang harus dibuat
 
 **Keputusan 1: Apakah green coffee P-17 boleh dinyatakan lolos QC?
 
@@ -250,7 +250,7 @@ Tetapi jangan langsung menyimpulkan premium selalu merugikan: volume, tingkat pe
 
 **Teaching exemplar 2:**
 
-**Contoh copy yang masih mungkin digunakan — setelah hal yang tertulis diverifikasi
+**Contoh copy yang masih mungkin digunakan: setelah hal yang tertulis diverifikasi
 
 “Batch P-17 sedang melalui pemeriksaan ketertelusuran dan mutu lebih lanjut. Kami belum membuka pemesanan karena penilaian belum selesai. Informasi proses dan sampel akan tersedia setelah dokumen lot serta pemeriksaan selesai.”
 

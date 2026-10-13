@@ -1,5 +1,5 @@
 ---
-course: "Kopi dari Hulu ke Hilir — Foundation 2.0"
+course: "Kopi dari Hulu ke Hilir: Foundation 2.0"
 module: M02
 lesson: M02.L02
 title: "Arabika, Robusta, Liberika, Excelsa: apa nama tanaman yang kita minum?"
@@ -19,9 +19,9 @@ Tanaman kopi menghasilkan buah yang sering disebut *coffee cherry*. Di balik kul
 
 Ada banyak spesies dalam genus *Coffea*. Untuk mulai belajar, kenali tiga yang sering muncul dalam pembicaraan kopi di Indonesia:
 
-- **Arabika — *Coffea arabica*.** Tanaman kopi yang sangat luas dibudidayakan untuk minuman, dengan banyak varietas seperti Bourbon dan Typica. Tanamannya dapat tumbuh sebagai pohon kecil dan sering dipangkas agar mudah dirawat atau dipanen.
-- **Robusta — kelompok kopi yang lazim diperdagangkan dari spesies *Coffea canephora*.** Dikenal luas di produksi dan konsumsi kopi Indonesia. Ia bukan Arabika versi buruk: bahan, pengolahan dan tujuan seduh tetap menentukan pengalaman di cangkir.
-- **Liberika — *Coffea liberica*.** Spesies tanaman kopi lain, berasal dari wilayah Afrika tropis dan kemudian ditanam di sejumlah wilayah Asia, termasuk Indonesia. Tanamannya dapat membentuk pohon besar; daun, buah dan bijinya pada beberapa bahan tanam tampak relatif besar dibanding Arabika yang biasa dijumpai. **Ukuran saja bukan uji identitas spesies**—tanaman, varietas dan kondisi kebun tetap dapat berbeda.
+- **Arabika: *Coffea arabica*.** Tanaman kopi yang sangat luas dibudidayakan untuk minuman, dengan banyak varietas seperti Bourbon dan Typica. Tanamannya dapat tumbuh sebagai pohon kecil dan sering dipangkas agar mudah dirawat atau dipanen.
+- **Robusta: kelompok kopi yang lazim diperdagangkan dari spesies *Coffea canephora*.** Dikenal luas di produksi dan konsumsi kopi Indonesia. Ia bukan Arabika versi buruk: bahan, pengolahan dan tujuan seduh tetap menentukan pengalaman di cangkir.
+- **Liberika: *Coffea liberica*.** Spesies tanaman kopi lain, berasal dari wilayah Afrika tropis dan kemudian ditanam di sejumlah wilayah Asia, termasuk Indonesia. Tanamannya dapat membentuk pohon besar; daun, buah dan bijinya pada beberapa bahan tanam tampak relatif besar dibanding Arabika yang biasa dijumpai. **Ukuran saja bukan uji identitas spesies**—tanaman, varietas dan kondisi kebun tetap dapat berbeda.
 
 Bayangkan kamu berdiri di kebun: melihat tanaman dan buahnya memberi gambaran wujudnya; melihat kemasan kopi di kedai memberi petunjuk nama dagangnya. Keduanya saling berhubungan, tetapi foto buah **tidak cukup** untuk memverifikasi nama ilmiah tanpa informasi sumber tanaman.
 
@@ -39,7 +39,7 @@ Kalau kamu belum pernah melihat Liberika, empat hal berikut adalah titik awal ya
 
 **Keempat, bagaimana menjelaskannya ke orang baru?** “Liberika adalah kopi dari spesies tanaman *Coffea liberica*. Ia bukan varietas Arabika dan bukan proses seduh. Kalau ingin tahu bagaimana rasa suatu Liberika, kita perlu mengenali kopinya dan mencicipi sampel yang jelas.”
 
-## 3. Arabika, Robusta, Liberika — apa yang perlu dibandingkan?
+## 3. Arabika, Robusta, Liberika: apa yang perlu dibandingkan?
 
 | Yang dibandingkan | Arabika | Robusta | Liberika |
 |---|---|---|---|
@@ -84,7 +84,7 @@ Di Indonesia, istilah seperti **Sigarar Utang**, **Ateng**, **Tim-Tim**, dan **S
 
 Pada Module 02 Lesson 05, kita akan membaca contoh data kebun Indonesia untuk melihat mengapa identitas dan kondisi penanaman harus dipertimbangkan bersama.
 
-## 6. Latihan — Satu nama, satu kategori
+## 6. Latihan: Satu nama, satu kategori
 
 Di bawah ini ada lima kartu yang perlu kamu klasifikasikan. Jawabannya tidak langsung ditampilkan; coba tentukan kategorinya lebih dahulu.
 
@@ -94,7 +94,7 @@ Di bawah ini ada lima kartu yang perlu kamu klasifikasikan. Jawabannya tidak lan
 
 ## 7. Kasus pengecekan label
 
-**Kemasan ilustratif (fiktif):** “Excelsa / Jawa Barat / Aroma mangga / 1.200 mdpl / Berasal dari spesies Liberika yang tidak pernah berubah klasifikasinya.”
+Kemasan ilustratif (fiktif): “Excelsa / Jawa Barat / Aroma mangga / 1.200 mdpl / Berasal dari spesies Liberika yang tidak pernah berubah klasifikasinya.”
 
 Sebelum melihat contoh analisis, **pilih sendiri dua klaim yang paling perlu diperiksa** dan jelaskan bukti apa yang dibutuhkan. Kamu tidak perlu memiliki alat atau sampel untuk mengerjakan latihan membaca label ini.
 
@@ -124,10 +124,10 @@ Sebelum melihat contoh analisis, **pilih sendiri dua klaim yang paling perlu dip
 
 ## Sources, provenance and review
 
-- **B01 — World Coffee Research Varieties Catalog**: https://varieties.worldcoffeeresearch.org/
-- **B02 — WCR catalog scope** (primarily commercial Arabica/Robusta, not all known Coffea species): https://varieties.worldcoffeeresearch.org/about-the-catalog/whats-included
-- **B03 — Kew POWO accepted Coffea dewevrei**: https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A747092-1 ; checked 2026-10-12
-- **B04 — Kew POWO Coffea excelsa as synonym**: https://powo.science.kew.org/taxon/747110-1 ; checked 2026-10-12
-- **B05 — Kew Coffea genus**: https://powo.science.kew.org/taxon/325985-2
+- **B01: World Coffee Research Varieties Catalog**: https://varieties.worldcoffeeresearch.org/
+- **B02: WCR catalog scope** (primarily commercial Arabica/Robusta, not all known Coffea species): https://varieties.worldcoffeeresearch.org/about-the-catalog/whats-included
+- **B03: Kew POWO accepted Coffea dewevrei**: https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A747092-1 ; checked 2026-10-12
+- **B04: Kew POWO Coffea excelsa as synonym**: https://powo.science.kew.org/taxon/747110-1 ; checked 2026-10-12
+- **B05: Kew Coffea genus**: https://powo.science.kew.org/taxon/325985-2
 - **Scope limit:** Broad comparison only. No universal caffeine percentages, molecular taste mapping, altitude conditions, yields, or unverified lineage names.
 - **SME gate:** Local varietal naming, botanical nomenclature, precise attribution of Sigarar Utang/Ateng/Tim-Tim identity requires Indonesian agronomy specialist review.

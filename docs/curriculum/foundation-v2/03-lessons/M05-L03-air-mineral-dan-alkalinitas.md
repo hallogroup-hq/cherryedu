@@ -92,7 +92,7 @@ Ada pedoman air SCAA historis dan sumber SCA seperti *Water Quality Handbook*, t
 
 ## 5. Kasus simulasi: dua air dengan TDS serupa
 
-Angka di bawah **fiktif dan disederhanakan** untuk latihan. Satuan hardness dan alkalinity dilaporkan **mg/L sebagai CaCO₃**, bukan massa Ca²⁺ atau HCO₃⁻ secara langsung.
+Angka di bawah fiktif dan disederhanakan untuk latihan. Satuan hardness dan alkalinity dilaporkan **mg/L sebagai CaCO₃**, bukan massa Ca²⁺ atau HCO₃⁻ secara langsung.
 
 | Parameter | Air A | Air B |
 |---|---:|---:|

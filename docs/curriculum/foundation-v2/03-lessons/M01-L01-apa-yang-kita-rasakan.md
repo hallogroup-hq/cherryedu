@@ -1,9 +1,9 @@
 ---
-course: "Kopi dari Hulu ke Hilir — Foundation 2.0"
+course: "Kopi dari Hulu ke Hilir: Foundation 2.0"
 module: M01
 lesson: M01.L01
 title: "Apa yang sebenarnya kita rasakan saat minum kopi?"
-stage: "03 — authored draft"
+stage: "03: authored draft"
 status: "internal-review; not live"
 learning_outcome: "Peserta mampu membedakan taste, aroma, mouthfeel, deskripsi, dan preferensi melalui contoh kopi."
 prerequisite: "Tidak ada"
@@ -103,11 +103,11 @@ Kita mulai dari kata umum, lalu menjadi lebih spesifik setelah punya pengalaman 
 | “Kental” | Terasa lebih berat, tebal, berminyak, atau justru kasar/kesat? |
 | “Enak” | Bagian mana yang kamu sukai? Aroma, keseimbangan, aftertaste, atau semuanya? |
 
-Kata “seperti jeruk” bukan jawaban yang lebih pintar daripada “aroma buah segar” jika kamu tidak yakin. Lebih baik mulai dengan deskripsi yang benar-benar bisa kamu pertanggungjawabkan.
+Kata “seperti jeruk” bukan jawaban yang lebih tepat daripada “aroma buah segar” jika kamu tidak yakin. Lebih baik mulai dengan deskripsi yang benar-benar bisa kamu pertanggungjawabkan.
 
 World Coffee Research mengembangkan *Sensory Lexicon* untuk membantu peneliti dan panel terlatih memakai kosakata yang konsisten dan dapat dikalibrasi. Daftarnya memiliki 110 atribut; kita **tidak** perlu menghafal 110 istilah itu dalam pelajaran pertama. [S05]
 
-## 6. Latihan — Bedakan pengamatan dan kesukaan
+## 6. Latihan: Bedakan pengamatan dan kesukaan
 
 Baca satu pernyataan pada setiap kartu. Pilih kategori **sebelum** melihat pembahasannya.
 
@@ -115,9 +115,9 @@ Baca satu pernyataan pada setiap kartu. Pilih kategori **sebelum** melihat pemba
 
 Setelah selesai, coba buat satu kalimat deskriptif dan satu kalimat kesukaan dari pengalamanmu sendiri. Tidak perlu kopi atau alat khusus.
 
-## 7. Latihan pendek — Kamu bisa mulai tanpa alat kopi
+## 7. Latihan pendek: Kamu bisa mulai tanpa alat kopi
 
-Baca catatan dua panelis berikut. Semua contoh ini **simulasi, bukan hasil uji laboratorium**.
+Baca dua catatan panelis berikut. *(Data contoh.)*
 
 > **Panelis N:** “Cangkir A aromanya mengingatkan cokelat bubuk, keasamannya tidak menonjol, teksturnya terasa agak berat. Aku suka.”
 >
@@ -145,11 +145,11 @@ Sebelum melanjutkan, kamu semestinya mampu mengatakan:
 
 ## Catatan editorial dan referensi (bukan konten yang mengganggu pembaca)
 
-- **S01 — SCA, Coffee Decoded: The Challenge of Flavor Chemistry.** Dasar taste + smell sebagai bagian flavor. https://sca.coffee/sca-news/coffee-decoded-5-flavor-chemistry
-- **S02 — Goldberg et al., Factors affecting the ortho- and retronasal perception of flavors (2017).** Peran penciuman dan variasi individu. https://pubmed.ncbi.nlm.nih.gov/27646486/
-- **S03 — Paravisini et al., Impact of bitter tastant sub-qualities on retronasal coffee aroma perception (2019).** Interaksi lintasindra, bukan identifikasi senyawa dari rasa. https://pubmed.ncbi.nlm.nih.gov/31581213/
-- **S04 — SCA, Coffee Value Assessment; Descriptive vs Affective.** https://sca.coffee/value-assessment/ dan https://sca.coffee/sca-news/cva-in-action-affective-9mt5m
-- **S05 — World Coffee Research Sensory Lexicon, edisi 2.0 (2017); Chambers et al., Journal of Sensory Studies (2016).** Kosakata terkalibrasi. https://worldcoffeeresearch.org/read-more/news/174-world-coffee-research-sensory-lexicon dan https://doi.org/10.1111/joss.12237
+- **S01: SCA, Coffee Decoded: The Challenge of Flavor Chemistry.** Dasar taste + smell sebagai bagian flavor. https://sca.coffee/sca-news/coffee-decoded-5-flavor-chemistry
+- **S02: Goldberg et al., Factors affecting the ortho- and retronasal perception of flavors (2017).** Peran penciuman dan variasi individu. https://pubmed.ncbi.nlm.nih.gov/27646486/
+- **S03: Paravisini et al., Impact of bitter tastant sub-qualities on retronasal coffee aroma perception (2019).** Interaksi lintasindra, bukan identifikasi senyawa dari rasa. https://pubmed.ncbi.nlm.nih.gov/31581213/
+- **S04: SCA, Coffee Value Assessment; Descriptive vs Affective.** https://sca.coffee/value-assessment/ dan https://sca.coffee/sca-news/cva-in-action-affective-9mt5m
+- **S05: World Coffee Research Sensory Lexicon, edisi 2.0 (2017); Chambers et al., Journal of Sensory Studies (2016).** Kosakata terkalibrasi. https://worldcoffeeresearch.org/read-more/news/174-world-coffee-research-sensory-lexicon dan https://doi.org/10.1111/joss.12237
 - **License note:** Tidak mereproduksi Flavor Wheel maupun tabel WCR. Tautan sumber hanya sebagai rujukan.
 - **SME review pending:** Terminologi sweetness vs aroma-associated sweetness, dan wording pengalaman taste/flavor bagi pemula.
 - **Human learner test pending:** Uji apakah peserta tanpa latar kopi bisa membedakan deskripsi, preferensi, dan klaim kausal setelah membaca.

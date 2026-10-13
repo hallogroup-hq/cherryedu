@@ -113,7 +113,7 @@ Tanpa jawaban itu, **kata carbon neutral bukan angka yang dapat diaudit**. Sebal
 
 ## 7. Tiga kemasan fiktif: jadi detektif label
 
-**Semua merek dan data di sini fiktif. Bukan penilaian produk nyata.**
+Semua merek dan data di sini fiktif. Bukan penilaian produk nyata.
 
 | Kartu | Klaim yang terlihat | Apa yang perlu diperiksa |
 |---|---|---|
@@ -149,7 +149,7 @@ Revisi itu tetap membutuhkan bukti minimal bahwa kebun memang menerapkan sistem 
 
 **Contoh revisi jika transaksi benar ada:** “Kami membeli dari [pihak yang tercatat] dengan kontrak [jenis] dan sedang menyusun ringkasan harga per [satuan] yang dapat dibagikan secara bertanggung jawab. Informasi keuntungan bersih petani belum kami ukur.”
 
-## Pendalaman opsional — EUDR dan peraturan yang bisa berubah
+## Pendalaman opsional: EUDR dan peraturan yang bisa berubah
 
 Uni Eropa memiliki **EU Deforestation Regulation (EUDR)** yang mencakup komoditas serta produk tertentu, termasuk kopi menurut kode barang yang ditetapkan. **Menurut halaman resmi Komisi Eropa dan regulasi perubahan yang berlaku saat diperiksa 12 Oktober 2026**, jadwal penerapannya harus dibedakan berdasarkan **kategori produk sekaligus kategori pelaku**:
 
@@ -200,14 +200,14 @@ Di final case, kamu akan memeriksa satu lot dari buah hingga cangkir, menghitung
 
 ---
 ### Sumber dan editorial limits
-- **CLAIM-01** — Fairtrade Living Income Reference Price & pass-through FAQ: https://reference-prices.fairtrade.net/faq
-- **CLAIM-02** — Shaded coffee review, Frontiers in Sustainable Food Systems (2022): https://www.frontiersin.org/journals/sustainable-food-systems/articles/10.3389/fsufs.2022.877476/full
-- **CLAIM-03** — Systematic review sustainability indicators in coffee agroforestry (2022): https://link.springer.com/article/10.1007/s13593-022-00785-5
-- **CLAIM-04** — European Commission EUDR July 13 2026 official guidance: https://environment.ec.europa.eu/news/commission-updates-product-scope-and-tools-support-eudr-2026-07-13_en
-- **CLAIM-05** — EU official Journal EUDR interpretation and transition dates (2026): https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ%3AC_202603896
-- **CLAIM-06** — SCA Coffee Value Assessment official four lenses: https://sca.coffee/value-assessment
-- **CLAIM-07** — European Commission, *Roles and responsibilities*, including different dates for newly added products: https://green-forum.ec.europa.eu/nature-and-biodiversity/deforestation-regulation-implementation/roles-and-responsibilities_en
-- **CLAIM-08** — Commission Delegated Regulation (EU) 2026/2102, published 17 September 2026, Annex I code **2101 11 00** applies from 30 December 2027: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX%3A32026R2102
+- **CLAIM-01**: Fairtrade Living Income Reference Price & pass-through FAQ: https://reference-prices.fairtrade.net/faq
+- **CLAIM-02**: Shaded coffee review, Frontiers in Sustainable Food Systems (2022): https://www.frontiersin.org/journals/sustainable-food-systems/articles/10.3389/fsufs.2022.877476/full
+- **CLAIM-03**: Systematic review sustainability indicators in coffee agroforestry (2022): https://link.springer.com/article/10.1007/s13593-022-00785-5
+- **CLAIM-04**: European Commission EUDR July 13 2026 official guidance: https://environment.ec.europa.eu/news/commission-updates-product-scope-and-tools-support-eudr-2026-07-13_en
+- **CLAIM-05**: EU official Journal EUDR interpretation and transition dates (2026): https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ%3AC_202603896
+- **CLAIM-06**: SCA Coffee Value Assessment official four lenses: https://sca.coffee/value-assessment
+- **CLAIM-07**: European Commission, *Roles and responsibilities*, including different dates for newly added products: https://green-forum.ec.europa.eu/nature-and-biodiversity/deforestation-regulation-implementation/roles-and-responsibilities_en
+- **CLAIM-08**: Commission Delegated Regulation (EU) 2026/2102, published 17 September 2026, Annex I code **2101 11 00** applies from 30 December 2027: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX%3A32026R2102
 - **Regulatory watch:** EUDR dates, commodities, operator categories and implementations can change; recheck before live release. This is **educational context**, NOT a compliance determination.
 - **Rights:** No official SCA diagrams, proprietary scheme logos, labels or certification marks reproduced.
 - **Reviewer gates:** Indonesian producer/ESG specialist, environmental methodology reviewer and trade compliance legal reviewer pending. All three product labels and stories are fiction.

@@ -68,7 +68,7 @@ Studi 2016–2018 menunjukkan beberapa penanda kimia/sensorik dalam pengaturan e
 
 ## 5. Studi kasus—kopi yang sama, tiga pendekatan
 
-**Simulasi edukasi, bukan hasil uji cupping.**
+Simulasi edukasi, bukan hasil uji cupping.
 
 | Catatan | Batch A | Batch B | Batch C |
 |---|---|---|---|

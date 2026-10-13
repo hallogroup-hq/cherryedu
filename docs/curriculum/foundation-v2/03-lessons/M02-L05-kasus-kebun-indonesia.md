@@ -1,5 +1,5 @@
 ---
-course: "Kopi dari Hulu ke Hilir — Foundation 2.0"
+course: "Kopi dari Hulu ke Hilir: Foundation 2.0"
 module: M02
 lesson: M02.L05
 title: "Kasus kebun Indonesia: ketika kualitas, produktivitas, dan risiko bertemu"
@@ -73,15 +73,15 @@ Di Foundation, tujuan kita adalah:
 3. Tahu kapan masalah perlu ditangani pendamping agronomi.
 4. Tidak membuat resep pestisida atau tindakan berisiko tanpa diagnosis.
 
-Seorang petani berpengalaman bisa menggunakan teknik pengelolaan terpadu yang sesuai kebun. Materi digital untuk pemula tidak boleh berpura-pura menggantikan pemeriksaan lapangan.
+Seorang petani berpengalaman bisa menggunakan teknik pengelolaan terpadu yang sesuai kebun. Materi digital untuk pemula tidak dapat menggantikan pemeriksaan lapangan.
 
-### Jejak P-17 — kebun yang sama belum tentu satu pemilik
+### Jejak P-17 (kode satu lot kopi contoh): kebun yang sama belum tentu satu pemilik
 
-Pada studi kasus lintas modul P-17, **100 kg ceri** diterima dari dua petak yang berdekatan di Jawa Barat; nama kultivar Arabika “X” belum terverifikasi, dan catatan mandor menyebut **dua pemilik**, walaupun formulir penerimaan memakai satu farm code. Angka ini **fiktif**. Keterlacakan dimulai dengan mengakui data yang belum lengkap, bukan langsung menulis “single farmer”.
+Pada studi kasus lintas modul P-17, **100 kg ceri** diterima dari dua petak yang berdekatan di Jawa Barat; nama kultivar Arabika “X” belum terverifikasi, dan catatan mandor menyebut **dua pemilik**, walaupun formulir penerimaan memakai satu farm code. Angka ini fiktif. Keterlacakan dimulai dengan mengakui data yang belum lengkap, bukan langsung menulis “single farmer”.
 
 ## 5. Kasus utuh: tiga pilihan, satu anggaran terbatas
 
-**Seluruh data kasus berikut fiktif untuk latihan. Tidak mengacu pada kebun atau petani tertentu.**
+Seluruh data kasus berikut fiktif untuk latihan. Tidak mengacu pada kebun atau petani tertentu.
 
 Kelompok tani “Bukit Contoh” mengelola kebun kopi dengan karakter berikut:
 
@@ -186,11 +186,11 @@ Dari lima pelajaran, kamu telah mempelajari:
 
 ## Sumber dan QA
 
-- **I01** — WCR Varieties Catalog: https://varieties.worldcoffeeresearch.org/about-the-catalog .
-- **I02** — Shaded coffee review, Frontiers 2022: https://www.frontiersin.org/journals/sustainable-food-systems/articles/10.3389/fsufs.2022.877476/full .
-- **I03** — Global meta-analysis of coffee agroforestry management, 2022: https://www.sciencedirect.com/science/article/pii/S0167880922001736 .
-- **I04** — WCR Arabica variety information: https://varieties.worldcoffeeresearch.org/arabica/varieties .
-- **I05** — WCR regional research: https://worldcoffeeresearch.org/ .
+- **I01**: WCR Varieties Catalog: https://varieties.worldcoffeeresearch.org/about-the-catalog .
+- **I02**: Shaded coffee review, Frontiers 2022: https://www.frontiersin.org/journals/sustainable-food-systems/articles/10.3389/fsufs.2022.877476/full .
+- **I03**: Global meta-analysis of coffee agroforestry management, 2022: https://www.sciencedirect.com/science/article/pii/S0167880922001736 .
+- **I04**: WCR Arabica variety information: https://varieties.worldcoffeeresearch.org/arabica/varieties .
+- **I05**: WCR regional research: https://worldcoffeeresearch.org/ .
 - **Safety boundary:** No diagnosis, chemical treatment instruction, farmer-specific cultivation recipe or claim of validated disease intervention. Consult appropriate local agricultural specialists.
 - **Data integrity:** “Bukit Contoh” and all case attributes are fictional for assessment. No real farmer outcomes or interviews are represented.
 - **Pending:** Indonesian coffee agronomy/extension SME review and field-case realism review.

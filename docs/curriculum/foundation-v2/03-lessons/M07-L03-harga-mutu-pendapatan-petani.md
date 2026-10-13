@@ -34,13 +34,13 @@ Lesson ini mengajarkan konsep dasar ekonomi kopi, bukan agar kamu menjadi akunta
 
 [ACTIVITY:farm-income-sandbox]
 
-### Jejak P-17 — uang yang benar-benar masuk hitungan
+### Jejak P-17 (kode satu lot kopi contoh): uang yang benar-benar masuk hitungan
 
-Dalam kasus akhir P-17, bandingkan dua skenario **fiktif dengan satuan yang sama**, yaitu kg ceri segar. Skenario standar: 100 kg terjual × Rp12.000/kg dengan biaya tercatat Rp900.000 → sisa **Rp300.000**. Skenario premium: 90 kg terjual × Rp15.000/kg dengan biaya tercatat Rp1.130.000 → sisa **Rp220.000**. Ada 10 kg yang status penjualannya belum diketahui. Ini **bukan living income** atau bukti pendapatan satu keluarga; gunakan kalkulator di bawah untuk menguji sendiri.
+Dalam kasus akhir P-17, bandingkan dua skenario fiktif dengan satuan yang sama, yaitu kg ceri segar. Skenario standar: 100 kg terjual × Rp12.000/kg dengan biaya tercatat Rp900.000 → sisa **Rp300.000**. Skenario premium: 90 kg terjual × Rp15.000/kg dengan biaya tercatat Rp1.130.000 → sisa **Rp220.000**. Ada 10 kg yang status penjualannya belum diketahui. Ini **bukan living income** atau bukti pendapatan satu keluarga; gunakan kalkulator di bawah untuk menguji sendiri.
 
 ## 2. Kasus pertama: harga jual naik, pendapatan bersih turun
 
-**SEMUA ANGKA DI BAWAH FIKTIF, bukan harga aktual Jawa Barat atau pendapatan nyata petani.** Keduanya membandingkan **100 kg ceri segar dari satu periode penjualan** agar unit tetap konsisten.
+SEMUA ANGKA DI BAWAH FIKTIF, bukan harga aktual Jawa Barat atau pendapatan nyata petani. Keduanya membandingkan **100 kg ceri segar dari satu periode penjualan** agar unit tetap konsisten.
 
 | Komponen | Cara A | Cara B (sortasi premium) |
 |---|---:|---:|
@@ -54,7 +54,7 @@ Dalam kasus akhir P-17, bandingkan dua skenario **fiktif dengan satuan yang sama
 
 Apa kesimpulannya?
 
-**Yang dapat disimpulkan dari simulasi:** Dalam data dan cakupan biaya tersebut, harga per kg lebih tinggi tidak berarti margin periode lebih besar.
+Yang dapat disimpulkan dari simulasi: Dalam data dan cakupan biaya tersebut, harga per kg lebih tinggi tidak berarti margin periode lebih besar.
 
 **Yang belum dapat disimpulkan:** Bahwa sortasi premium selalu buruk, atau petani yang menggunakan Cara B pasti lebih miskin. Angka ini hanya satu skenario. Efek pada kontrak jangka panjang, risiko penolakan, pekerjaan anggota keluarga dan manfaat yang lain belum dihitung.
 
@@ -147,7 +147,7 @@ Jika tidak punya data, **tulis bahwa belum ada data**. Kejujuran jauh lebih kuat
 
 **Q1.** Apakah harga lebih tinggi pasti berarti margin lebih tinggi? **Tidak.**
 
-**Q2.** Dalam simulasi Cara B, penerimaan berapa? **Rp1.350.000.** Sisa setelah biaya tercatat? **Rp270.000.**
+**Q2. Dalam simulasi Cara B, penerimaan berapa? Rp1.350.000.** Sisa setelah biaya tercatat? **Rp270.000.**
 
 **Q3.** Apakah angka sisa Cara B merupakan living income? **Tidak.** Hanya satu periode dengan cakupan biaya tertentu.
 

@@ -54,9 +54,9 @@ FAO telah lama menekankan pengeringan, rewetting, dan penyimpanan sebagai titik 
 
 Setelah hulling, green bean pun belum “lulus” hanya karena tampak hijau. Masih perlu inspeksi fisik, identitas lot, dan pengujian yang sesuai tujuan jual-beli.
 
-### Jejak P-17 — dari 100 kg buah ke identitas produk
+### Jejak P-17 (kode satu lot kopi contoh): dari 100 kg buah ke identitas produk
 
-Dalam satu dossier yang akan kamu jumpai lagi di akhir kursus, **100 kg ceri fiktif berkode P-17** masuk stasiun pengolahan di Jawa Barat. Angka akhir green pada kasus adalah sekitar **17,5 kg**, tetapi catatan sortasi, hubungan dua petak dan sebagian dokumen belum lengkap. Angka ini *bukan* rendemen yang harus terjadi pada semua kopi; yang perlu diikuti adalah **produk berubah bentuk sementara kode dan bukti asal seharusnya tetap jelas**.
+Dalam satu dossier yang akan kamu jumpai lagi di akhir kursus, 100 kg ceri fiktif berkode P-17 masuk stasiun pengolahan di Jawa Barat. Angka akhir green pada kasus adalah sekitar **17,5 kg**, tetapi catatan sortasi, hubungan dua petak dan sebagian dokumen belum lengkap. Angka ini *bukan* rendemen yang harus terjadi pada semua kopi; yang perlu diikuti adalah **produk berubah bentuk sementara kode dan bukti asal seharusnya tetap jelas**.
 
 ## 4. Peta data yang harus ikut bergerak
 
@@ -72,7 +72,7 @@ Label konsumen mungkin hanya menampilkan sedikit informasi. Tetapi informasi len
 
 ## 5. Studi kasus: tiga karung satu nomor
 
-**Simulasi:** Nomor C-01 muncul di tiga dokumen: penerimaan ceri 400 kg, penjualan parchment 75 kg, dan sampel green 10 kg. Seorang staf menyimpulkan “85% kopi hilang karena proses pasti gagal”.
+Simulasi: Nomor C-01 muncul di tiga dokumen: penerimaan ceri 400 kg, penjualan parchment 75 kg, dan sampel green 10 kg. Seorang staf menyimpulkan “85% kopi hilang karena proses pasti gagal”.
 
 Apa yang keliru? Pertama, berat pada tahap berbeda tidak bisa dibandingkan tanpa **rendemen dan jalur material**. Kedua, 10 kg mungkin sampel atau transaksi sebagian, bukan keseluruhan lot akhir. Ketiga, belum ada catatan pengolahan, bagian limbah, susut air, hasil hulling dan volume yang belum dijual.
 
@@ -83,11 +83,11 @@ Jangan memakai persentase susut tunggal sebagai ukuran kualitas tanpa memahami b
 
 [ACTIVITY:green-lot-order]
 
-### Latihan 1 — susun alur
+### Latihan 1: susun alur
 
 Gunakan kartu urutan interaktif yang muncul sebelum bagian ini. Urutkan tahapan contoh washed sebelum meminta pembahasan; cara belajar ini bukan SOP pengolahan.
 
-### Latihan 2 — kenali informasi yang hilang
+### Latihan 2: kenali informasi yang hilang
 
 Seorang roaster menerima karung bertuliskan “Natural Sumatra, excellent”. Kapan kopi dikeringkan, berapa kadar air saat inspeksi, nomor lot, dan kondisi kemasannya tidak disebut.
 

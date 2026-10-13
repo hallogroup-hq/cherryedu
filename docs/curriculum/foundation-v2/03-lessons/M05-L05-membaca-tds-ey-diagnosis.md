@@ -33,23 +33,23 @@ Persamaan ini menggunakan TDS sebagai angka persen, bukan pecahan desimal. Jika 
 
 **Catatan metodologi:** Ini *perkiraan* jumlah zat kopi di **minuman yang dikumpulkan**, bukan selalu seluruh zat yang keluar dari partikel bubuk selama proses. Dalam immersion, sebagian cairan yang mengandung zat kopi masih tertahan bersama ampas; publikasi UC Davis secara khusus membahas kekeliruan metode neraca massa bila fraksi cairan tertahan diabaikan. [M01]
 
-### Jejak P-17 — hitungan yang akan kamu pakai lagi
+### Jejak P-17 (kode satu lot kopi contoh): hitungan yang akan kamu pakai lagi
 
 Dalam kasus integratif P-17 nanti, barista menggunakan **15 g** kopi, **240 g air masuk**, mengumpulkan **210 g minuman**, dan membaca **TDS 1,35%**. Pada model sederhana berbasis minuman terkumpul, zat kopi terlarut ≈ 210 × 0,0135 = **2,835 g**, sehingga EY ≈ **18,9%**. Angka simulasi ini membantu memisahkan *air masuk* dari *massa minuman*, bukan menilai rasa kopi sebagai “pasti enak”.
 
 ## 2. Hitung satu contoh langkah demi langkah
 
-**Data simulasi:**
+Data simulasi:
 - Dosis bubuk kering: 15 g
 - Air masuk ke brewer: 250 g
 - Minuman yang terkumpul: 225 g
 - TDS minuman: 1,30%
 
-**Langkah A — berapa gram zat terlarut berada di cangkir?**
+**Langkah A: berapa gram zat terlarut berada di cangkir?**
 
 225 g × 1,30 / 100 = **2,925 g**.
 
-**Langkah B — berapa persennya dari dosis?**
+**Langkah B: berapa persennya dari dosis?**
 
 2,925 g / 15 g × 100 = **19,5%**.
 
@@ -71,7 +71,7 @@ Angka tersebut berbeda dari 19,5%. Kita bisa melihat bagaimana kelalaian satu ko
 
 ## 3. Dua seduhan, TDS sama, EY tidak sama
 
-Semua angka berikut **simulasi**.
+Semua angka berikut simulasi.
 
 | Parameter | Gelas A | Gelas B |
 |---|---:|---:|
@@ -105,13 +105,13 @@ Kita tidak menyalin gambar berlisensi dari chart tersebut ke materi. Konsep bisa
 Tidak. Refraktometer dan skala berguna untuk latihan analisis profesional, tetapi tidak semua pembelajar memilikinya. Pada Foundation:
 - Peserta **tanpa alat** cukup belajar menginterpretasikan data yang diberi label simulasi.
 - Peserta yang punya alat boleh membaca manual serta mengikuti prosedur perawatan, kalibrasi, dan penanganan sampel produsen.
-- **Kelulusan melalui simulasi** tidak berarti peserta kompeten melakukan pengukuran laboratorium secara fisik.
+- Kelulusan melalui simulasi tidak berarti peserta kompeten melakukan pengukuran laboratorium secara fisik.
 
 Faktor seperti homogenitas sampel, partikel tersuspensi, penanganan suhu, jenis instrumen, dan prosedur kalibrasi dapat memengaruhi hasil. Bila tersedia data yang tampak aneh, langkah pertama bukan langsung mengganti resep, tetapi **memeriksa kembali kualitas pengukuran**.
 
 ## 6. Diagnosis seduh tanpa “semua rasa asam = underextracted”
 
-**Kasus simulasi:** Seorang pelanggan menilai kopi A lebih asam dan kurang menyukainya. Staf menemukan TDS 1,15% dan estimated EY 20,0%, tetapi tidak punya informasi roasting, pengukuran water chemistry atau suhu saat pencicipan.
+Kasus simulasi: Seorang pelanggan menilai kopi A lebih asam dan kurang menyukainya. Staf menemukan TDS 1,15% dan estimated EY 20,0%, tetapi tidak punya informasi roasting, pengukuran water chemistry atau suhu saat pencicipan.
 
 Apakah EY 20% membuktikan kopi tidak mungkin terasa asam? **Tidak.** Sensori acidity tidak dihapus oleh nilai EY; kondisi bahan, roast, air dan preferensi dapat berperan. Begitu pula catatan “sour” belum membuktikan alat brewing salah.
 

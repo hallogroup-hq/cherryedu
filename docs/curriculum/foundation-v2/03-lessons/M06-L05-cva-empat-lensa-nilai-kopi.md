@@ -9,7 +9,7 @@ legacy: F1-3,F7-4
 source_ids: [CVA-01,CVA-02,CVA-03,CVA-04]
 ---
 
-# Kopi yang dinilai “88 poin” — apakah otomatis paling berharga?
+# Kopi yang dinilai “88 poin”: apakah otomatis paling berharga?
 
 Bayangkan kamu sedang membeli kopi untuk sebuah kedai. Ada dua lot:
 
@@ -23,7 +23,7 @@ Pertanyaannya tidak bisa dijawab hanya dengan **satu angka**. Yang dianggap pent
 
 Di sinilah **Coffee Value Assessment (CVA)** menjadi kerangka yang berguna. Tujuannya memperluas gambaran tentang atribut kopi, bukan menghapus seluruh keputusan manusia dan menggantinya dengan rumus nilai yang mutlak. [CVA-01]
 
-## 1. Empat lensa — mulai dari pertanyaan sederhana
+## 1. Empat lensa: mulai dari pertanyaan sederhana
 
 SCA menyusun CVA melalui **Physical, Descriptive, Affective, dan Extrinsic Assessment**. Evaluator dapat menggunakan satu atau beberapa komponen sesuai kebutuhan, meskipun gambaran yang lebih luas diperoleh ketika informasi dari beberapa sudut pandang tersedia. [CVA-01]
 
@@ -62,7 +62,7 @@ Kita **tidak menghapus sejarah angka 80**. Kamu masih akan menjumpainya dalam ma
 
 SCA kini mendefinisikan specialty coffee berdasarkan atribut khas dan **nilai tambahan signifikan yang diakui pasar**, termasuk hal intrinsik (terkait produk) dan ekstrinsik (informasi, hubungan, asal serta praktik produksi). Apa yang dihargai bisa berbeda antarorang dan pasar.
 
-Perubahan ini bukan berarti penilaian rasa atau scoring tidak diperlukan lagi. Artinya **sebuah skor sensori tidak seharusnya berpura-pura mewakili keseluruhan alasan kopi bernilai**.
+Perubahan ini bukan berarti penilaian rasa atau scoring tidak diperlukan lagi. Artinya **sebuah skor sensori tidak dapat mewakili keseluruhan alasan kopi bernilai**.
 
 ### Apa yang boleh kita katakan secara historis?
 
@@ -79,10 +79,10 @@ Perubahan ini bukan berarti penilaian rasa atau scoring tidak diperlukan lagi. A
 
 Pada pemeriksaan registri resmi SCA tanggal **12 Oktober 2026**, standar terkait CVA yang tercantum sebagai **published** adalah:
 
-- **SCA-102:** Coffee Value Assessment — Sample Preparation and Tasting Mechanics.
-- **SCA-103:** Coffee Value Assessment — Descriptive Assessment.
-- **SCA-104:** Coffee Value Assessment — Affective Assessment.
-- **SCA-105:** Coffee Value Assessment — Extrinsic Assessment. [CVA-03]
+- **SCA-102:** Coffee Value Assessment: Sample Preparation and Tasting Mechanics.
+- **SCA-103:** Coffee Value Assessment: Descriptive Assessment.
+- **SCA-104:** Coffee Value Assessment: Affective Assessment.
+- **SCA-105:** Coffee Value Assessment: Extrinsic Assessment. [CVA-03]
 
 SCA juga menerbitkan **SCA-710 Coffee Evaluator: Professional Competencies**, yang menguraikan kompetensi profesional. Hal ini penting untuk membedakan **belajar konsep CVA** dari **menjalankan penilaian profesional yang mengikuti standar**.
 
@@ -140,7 +140,7 @@ Pertanyaan extrinsic juga berhubungan dengan sejarah Modul 07: siapa pemilik inf
 
 [ACTIVITY:cva-four-lenses]
 
-## 7. Latihan empat lensa — klasifikasikan dulu
+## 7. Latihan empat lensa: klasifikasikan dulu
 
 Pilih kategori untuk empat jenis bukti pada aktivitas di atas. Setelah mengerjakannya, coba jelaskan mengapa skor kesukaan tidak menggantikan informasi asal lot atau hasil pemeriksaan fisik.
 

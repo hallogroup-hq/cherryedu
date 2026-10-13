@@ -81,7 +81,7 @@ Program transparansi pasar International Coffee Organization (ICO) menekankan ke
 
 ### Kartu handoff
 
-**Data fiktif:**
+Data fiktif:
 
 | Serah-terima | Produk | Ada catatan? | Risiko |
 |---|---|---|---|
@@ -132,8 +132,8 @@ Ketika nanti membahas sustainability, ingat: kondisi pekerja juga bagian dari ke
 
 ---
 ### Referensi & QA
-- **VC-01** — ICO, Market Transparency workstream, costs of production and income methodology: https://ico.thecosa.org/works/data-transparency/
-- **VC-02** — ILO Indonesia, training on labour rights Tanggamus Lampung (3 Aug 2026): https://www.ilo.org/id/resource/news/dari-kesepakatan-lisan-menuju-perjanjian-tertulis-komunitas-kopi-indonesia
-- **VC-03** — Fairtrade Living Income Reference Prices FAQ, distinctions farm gate vs FOB: https://reference-prices.fairtrade.net/faq
-- **VC-04** — SCA CVA extrinsic vs intrinsic evidence: https://sca.coffee/value-assessment
+- **VC-01**: ICO, Market Transparency workstream, costs of production and income methodology: https://ico.thecosa.org/works/data-transparency/
+- **VC-02**: ILO Indonesia, training on labour rights Tanggamus Lampung (3 Aug 2026): https://www.ilo.org/id/resource/news/dari-kesepakatan-lisan-menuju-perjanjian-tertulis-komunitas-kopi-indonesia
+- **VC-03**: Fairtrade Living Income Reference Prices FAQ, distinctions farm gate vs FOB: https://reference-prices.fairtrade.net/faq
+- **VC-04**: SCA CVA extrinsic vs intrinsic evidence: https://sca.coffee/value-assessment
 - **Review pending:** Indonesian coffee agribusiness/producer/cooperative experts, labour context review and farmer-facing clarity. Figures are fictional, no claims of actual labour violations or transactions.

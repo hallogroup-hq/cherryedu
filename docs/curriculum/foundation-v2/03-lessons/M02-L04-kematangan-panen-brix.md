@@ -1,5 +1,5 @@
 ---
-course: "Kopi dari Hulu ke Hilir — Foundation 2.0"
+course: "Kopi dari Hulu ke Hilir: Foundation 2.0"
 module: M02
 lesson: M02.L04
 title: "Kapan buah kopi siap dipanen?"
@@ -53,7 +53,7 @@ Sebuah penelitian yang diterbitkan di jurnal IPB pada 2026 untuk sampel Sigararu
 
 ## 4. Bagaimana membaca hasil Brix secara lebih benar?
 
-Bayangkan kamu punya catatan berikut. Semuanya merupakan **data simulasi latihan**, bukan data produksi petani nyata.
+Bayangkan kamu punya catatan berikut. Semuanya merupakan data simulasi latihan, bukan data produksi petani nyata.
 
 | Sampel | Penampakan | Brix terbaca | Catatan |
 |---|---|---:|---|
@@ -82,7 +82,7 @@ Kita belum menulis SOP industri di Foundation. Namun peserta perlu mengerti bahw
 
 ## 6. Studi kasus: target lot harus dikumpulkan hari ini
 
-**Skenario simulasi:** Kelompok tani hendak mengirim ceri ke stasiun pengolahan. Ada dua kelompok buah.
+Skenario simulasi: Kelompok tani hendak mengirim ceri ke stasiun pengolahan. Ada dua kelompok buah.
 
 Kelompok A terdiri atas ceri dengan warna seragam menurut petani, tetapi tidak ada catatan kultivar.
 
@@ -143,9 +143,9 @@ Panen yang baik memerlukan **informasi dan keputusan yang sesuai bahan serta kon
 
 ## Sources & QA
 
-- **P01** — *Flowering and Fruiting of Coffea arabica: A Comprehensive Perspective from Phenology* (2025): https://pmc.ncbi.nlm.nih.gov/articles/PMC12608170/ .
-- **P02** — Saefudin & Wardiana (2013), *Effect of varieties and fruit maturation stages on germinations and physical of Arabica coffee seeds*, Indonesian agricultural research repository: https://repository.pertanian.go.id/handle/123456789/2480 — **do not imply measured sensory attributes**.
-- **P03** — *Optimization of Cibunar Linggarjati Arabica Coffee Quality: Brix Level Analysis and Postharvest Techniques* (2026), IPB journal: https://journal.ipb.ac.id/mapace/article/view/72032 — small, context-dependent observational study; not international Brix threshold.
-- **P04** — WCR coffee varieties catalog: https://varieties.worldcoffeeresearch.org/ .
+- **P01**: *Flowering and Fruiting of Coffea arabica: A Comprehensive Perspective from Phenology* (2025): https://pmc.ncbi.nlm.nih.gov/articles/PMC12608170/ .
+- **P02**: Saefudin & Wardiana (2013), *Effect of varieties and fruit maturation stages on germinations and physical of Arabica coffee seeds*, Indonesian agricultural research repository: https://repository.pertanian.go.id/handle/123456789/2480: **do not imply measured sensory attributes**.
+- **P03**: *Optimization of Cibunar Linggarjati Arabica Coffee Quality: Brix Level Analysis and Postharvest Techniques* (2026), IPB journal: https://journal.ipb.ac.id/mapace/article/view/72032: small, context-dependent observational study; not international Brix threshold.
+- **P04**: WCR coffee varieties catalog: https://varieties.worldcoffeeresearch.org/ .
 - **Technical review needed:** Refractometer language for non-sucrose juice, maturity indicators for local yellow-fruited cultivars and any operational advice by agricultural practitioner.
 - **No fixed Brix targets or commercial acceptance SOP supplied.**
