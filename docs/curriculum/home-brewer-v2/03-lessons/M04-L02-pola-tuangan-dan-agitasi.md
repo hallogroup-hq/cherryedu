@@ -31,5 +31,3 @@ Jika peserta ingin membandingkan **rasa**, pastikan hasil benar-benar dicicipi d
 ## Saat situasinya berbeda
 
 Kamu hanya punya teko biasa dan kesulitan membuat aliran sangat tipis. Bagaimana merancang metode yang aman dan konsisten sesuai alat, dibanding mengejar flow g/detik dari tutorial kompetisi?
-
-**Periksa pemahamanmu:** sebutkan satu informasi yang masih belum diketahui, dua kemungkinan sebab yang berbeda, dan satu eksperimen aman yang paling berpeluang membedakannya. Tidak ada angka resep universal yang menggantikan keputusan berdasarkan bukti.
