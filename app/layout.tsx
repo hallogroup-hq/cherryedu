@@ -216,6 +216,8 @@ const jsonLd = {
   ],
 };
 
+const isCuratedPreview = process.env.NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW === 'enabled';
+
 export default function RootLayout({
   children,
 }: {
@@ -266,7 +268,7 @@ export default function RootLayout({
             <Navbar />
             <main className="flex-1 pb-16 md:pb-0">{children}</main>
             <Footer />
-            <WhatsNewModal />
+            {!isCuratedPreview && <WhatsNewModal />}
             <Toaster position="bottom-right" richColors closeButton />
             <PWAInstallPrompt />
             <FloatingActionButton />
