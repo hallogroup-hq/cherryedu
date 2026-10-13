@@ -20,10 +20,15 @@ for(const p of paths){
   await page.setViewportSize({width:390,height:844});
   const res=await page.goto(p.url);
   expect(res?.status()).toBe(200);
-  await expect(page.getByRole('heading',{level:1})).toHaveText(p.name);
-  await expect(page.getByRole('heading',{name:'Modul pembelajaran'})).toBeVisible();
-  await expect(page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])')).toHaveCount(p.modules);
-  await expect(page.locator('a[href^="'+p.url+'/"]').filter({has:page.locator('span.font-medium')})).toHaveCount(p.lessons);
+  await expect(page.getByRole('heading',{level:1})).toHaveText(p.url==='/business-roastery-v1'?'Merancang sampai Menjalankan Bisnis Roastery':p.name);
+  await expect(page.getByRole('heading',{name:p.url==='/business-roastery-v1'?'Daftar Modul dan Pelajaran':'Modul pembelajaran'})).toBeVisible();
+  if(p.url==='/business-roastery-v1'){
+   const controls=page.locator('section > button[aria-controls^="br-module-"]');
+   await expect(controls).toHaveCount(21);
+   for(let i=1;i<21;i++)await controls.nth(i).click();
+  }else await expect(page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])')).toHaveCount(p.modules);
+  if(p.url==='/business-roastery-v1')await expect(page.locator('a[href^="/business-roastery-v1/br-b"]')).toHaveCount(p.lessons);
+  else await expect(page.locator('a[href^="'+p.url+'/"]').filter({has:page.locator('span.font-medium')})).toHaveCount(p.lessons);
   expect(await page.locator('main').evaluate(el=>el.scrollWidth<=window.innerWidth+2)).toBe(true);
   const body=await page.locator('main').innerText();
   expect(body).not.toMatch(/\b(?:DRAFT REVIEW|Beta Publik|QA internal|Review build)\b/i);

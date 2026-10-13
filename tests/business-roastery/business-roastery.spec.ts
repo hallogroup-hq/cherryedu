@@ -2,13 +2,17 @@ import {test,expect} from '@playwright/test';
 test.beforeEach(async({page})=>{await page.addInitScript(()=>{localStorage.setItem('cherry_seen_version_v1_2','true');});});
 test('new independent roastery path exposes 21 modules and 84 lessons',async({page})=>{
  await page.goto('/business-roastery-v1');
- await expect(page.getByRole('heading',{name:'Business Roastery'})).toBeVisible();
- await expect(page.getByRole('heading',{level:2}).filter({hasText:'Tiga jalur membangun roastery'})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Merancang sampai Menjalankan Bisnis Roastery'})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Daftar Modul dan Pelajaran'})).toBeVisible();
+ const controls=page.locator('section > button[aria-controls^="br-module-"]');
+ await expect(controls).toHaveCount(21);
+ for(let i=1;i<21;i++)await controls.nth(i).click();
  await expect(page.locator('a[href^="/business-roastery-v1/br-b"][href$="-l01"]')).toHaveCount(21);
  await expect(page.locator('a[href^="/business-roastery-v1/br-b"]')).toHaveCount(84);
- await expect(page.getByText('Asset-light',{exact:true})).toBeVisible();
- await expect(page.getByText('Roastery kecil',{exact:true})).toBeVisible();
- await expect(page.getByText('Roastery berkembang',{exact:true})).toBeVisible();
+ await page.getByRole('link',{name:/Baca Materi Pertama/}).click();
+ await expect(page.getByRole('heading',{name:'Peta aktor dari petani hingga pelanggan'})).toBeVisible();
+ await expect(page.getByRole('navigation',{name:'Pindah pelajaran'})).toBeVisible();
+ await expect(page.getByRole('complementary',{name:'Daftar pelajaran silabus'})).toBeVisible();
 });
 test('real freight reference preserves Jakarta to Makassar direction and minimum charge',async({page})=>{
  await page.goto('/business-roastery-v1/calculator');
@@ -112,9 +116,9 @@ test('fixed factory overhead enters absorbed HPP but not variable contribution d
  await expect(page.getByText('Contribution/kg',{exact:true}).locator('..')).toContainText('84.531');
 });
 test('every module field guide is accessible and decision evidence differs by chapter',async({page})=>{
- await page.goto('/business-roastery-v1/br-b08-l03');
+ await page.goto('/business-roastery-v1/br-b08-l04');
  await expect(page.getByRole('heading',{name:'Dua arah kapal tidak berarti dua tarif yang sama'})).toBeVisible();
- await page.goto('/business-roastery-v1/br-b13-l03');
+ await page.goto('/business-roastery-v1/br-b13-l04');
  await expect(page.getByRole('heading',{name:'Landed cost, full HPP, dan contribution punya fungsi berbeda'})).toBeVisible();
  await page.goto('/business-roastery-v1/practice/b13');
  await expect(page.getByText(/Satu kg roasted memakai green/)).toBeVisible();
