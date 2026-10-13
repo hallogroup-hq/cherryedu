@@ -28,6 +28,20 @@ for(const l of lessons){
  for(const phrase of ['informasi terverifikasi','asumsi belum terverifikasi','Checkpoint pemahaman'])if(!l.content.includes(phrase))fail('Missing evidence structure '+l.id+' '+phrase);
  if(forbidden.test(l.title+' '+l.content))fail('Internal/editorial copy '+l.id);
 }
+// Pedagogical anti-boilerplate gate: prevent recurring 139-word scenario block
+// and one-size-fits-all checkpoint from silently passing word-count checks.
+const extractLessonSection=(value,heading,nextHeading)=>{
+ const start=value.indexOf(heading);
+ if(start<0)return '';
+ const end=nextHeading?value.indexOf(nextHeading,start+heading.length):-1;
+ return value.slice(start+heading.length,end<0?undefined:end).trim().replace(/\s+/g,' ');
+};
+const teachingBlocks=lessons.map(l=>extractLessonSection(l.content,'### Apa dampaknya bagi tiga jenis roastery?','### Tugas yang bisa kamu kerjakan'));
+const diagnosticBlocks=lessons.map(l=>extractLessonSection(l.content,'### Checkpoint pemahaman'));
+if(teachingBlocks.some(x=>!x))fail('Missing scenario-specific teaching section');
+if(diagnosticBlocks.some(x=>!x))fail('Missing diagnostic checkpoint');
+if(new Set(teachingBlocks).size!==lessons.length)fail('Duplicated three-model boilerplate across lessons');
+if(new Set(diagnosticBlocks).size!==lessons.length)fail('Duplicated generic diagnostic checkpoint across lessons');
 if(cases.length!==modules.length)fail('Need one evolving case per module');
 for(const c of cases){if(!modules.find(m=>m.code===c.moduleId)||!c.newEvidence||!c.revise||!c.reason)fail('Invalid evolving case '+c.moduleId);}
 if(new Set(cases.map(x=>x.moduleId)).size!==cases.length)fail('Duplicate case');
@@ -58,5 +72,5 @@ const publishedCafe=read('lib/data/paths/coffeeBusinessData.ts');
 if(!publishedCafe.includes('path-coffee-business'))fail('Published cafe path moved');
 const docs=read('docs/curriculum/business-roastery-v1/01-blueprint-evidence-policy.md');
 for(const phrase of ['PP 20/2026','2026','100 kg','minimum','IndoExpress'])if(!docs.includes(phrase))fail('Evidence policy incomplete '+phrase);
-const summary={modules:modules.length,lessons:lessons.length,minWords:Math.min(...lessons.map(l=>l.content.split(/\s+/).length)),cases:cases.length,threeModelComparison:scenarios.map(s=>s.name),fieldManuals:Object.keys(fieldManual).length,freightEvidence:refs.filter(x=>x.category==='freight').map(x=>({lane:x.scope,rate:x.value,minimumKg:x.minimumKg})),issues};
+const summary={modules:modules.length,lessons:lessons.length,minWords:Math.min(...lessons.map(l=>l.content.split(/\s+/).length)),cases:cases.length,threeModelComparison:scenarios.map(s=>s.name),fieldManuals:Object.keys(fieldManual).length,uniqueTeachingBlocks:new Set(teachingBlocks).size,uniqueDiagnosticBlocks:new Set(diagnosticBlocks).size,freightEvidence:refs.filter(x=>x.category==='freight').map(x=>({lane:x.scope,rate:x.value,minimumKg:x.minimumKg})),issues};
 console.log(JSON.stringify(summary,null,2));if(issues.length)process.exitCode=1;
