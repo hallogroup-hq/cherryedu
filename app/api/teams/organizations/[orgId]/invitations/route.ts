@@ -1,29 +1,37 @@
 import { NextRequest, NextResponse } from 'next/server';
+import crypto from 'crypto';
 import { resolveTeamsUser } from '@/teams/lib/serverAuth';
-import { assertMembership, assertTenantIsolation, AuthorizationError } from '@/teams/lib/authz';
+import { assertMembership, AuthorizationError } from '@/teams/lib/authz';
+import { query } from '@/lib/db';
 import { Invitation, RoleCode } from '@/teams/types';
-
-// In-memory persistent invitations for dev/test
-const invitationsStore: Map<string, Invitation[]> = new Map();
 
 export async function GET(
   req: NextRequest,
   { params }: { params: { orgId: string } }
 ) {
   try {
-    const user = await resolveTeamsUser(req);
     const orgId = params.orgId;
+    const user = await resolveTeamsUser(req, orgId);
 
     // Must be member of orgId with owner or client_manager role
     assertMembership(user, orgId, ['owner', 'client_manager']);
 
-    const invitations = invitationsStore.get(orgId) || [];
-    return NextResponse.json({ success: true, invitations });
+    const res = await query<Invitation>(
+      `SELECT id, organization_id, email_normalized, intended_role, outlet_id,
+              token_hash, expires_at, status, invited_by, accepted_user_id, accepted_at, created_at
+       FROM b2b.invitations
+       WHERE organization_id = $1
+       ORDER BY created_at DESC`,
+      [orgId]
+    );
+
+    return NextResponse.json({ success: true, invitations: res.rows });
   } catch (err: any) {
     if (err instanceof AuthorizationError) {
       return NextResponse.json({ success: false, error: err.message, code: err.code }, { status: err.status });
     }
-    return NextResponse.json({ success: false, error: err.message || 'Server error' }, { status: 500 });
+    console.error('Error in invitations GET:', err);
+    return NextResponse.json({ success: false, error: err.message || 'Server error', code: 'SERVER_ERROR' }, { status: 500 });
   }
 }
 
@@ -32,13 +40,12 @@ export async function POST(
   { params }: { params: { orgId: string } }
 ) {
   try {
-    const user = await resolveTeamsUser(req);
     const orgId = params.orgId;
+    const user = await resolveTeamsUser(req, orgId);
 
-    // Must be member of orgId with owner or client_manager role
     const membership = assertMembership(user, orgId, ['owner', 'client_manager']);
 
-    const body = await req.json();
+    const body = await req.json().catch(() => ({}));
     if (!body.email || !body.role) {
       return NextResponse.json(
         { success: false, error: 'Email dan role wajib diisi.', code: 'VALIDATION_FAILED' },
@@ -47,7 +54,6 @@ export async function POST(
     }
 
     const role = body.role as RoleCode;
-    // Only owner can invite another owner
     if (role === 'owner' && !membership.roles.includes('owner')) {
       return NextResponse.json(
         { success: false, error: 'Hanya Owner yang dapat mengundang anggota dengan peran Owner.', code: 'FORBIDDEN' },
@@ -55,29 +61,29 @@ export async function POST(
       );
     }
 
-    const newInvitation: Invitation = {
-      id: `inv-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
-      organization_id: orgId,
-      email_normalized: body.email.toLowerCase().trim(),
-      intended_role: role,
-      outlet_id: body.outlet_id || null,
-      invited_by: user.userId,
-      token_hash: `tok-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`,
-      status: 'pending',
-      expires_at: new Date(Date.now() + 7 * 24 * 3600 * 1000).toISOString(),
-      created_at: new Date().toISOString(),
-    };
+    const token = crypto.randomBytes(32).toString('hex');
+    const tokenHash = crypto.createHash('sha256').update(token).digest('hex');
+    const emailNormalized = body.email.toLowerCase().trim();
+    const expiresAt = new Date(Date.now() + 7 * 24 * 3600 * 1000).toISOString();
 
-    const currentList = invitationsStore.get(orgId) || [];
-    currentList.push(newInvitation);
-    invitationsStore.set(orgId, currentList);
+    const insertRes = await query<Invitation>(
+      `INSERT INTO b2b.invitations (
+         organization_id, email_normalized, intended_role, outlet_id,
+         token_hash, expires_at, status, invited_by
+       )
+       VALUES ($1, $2, $3, $4, $5, $6, 'pending', $7)
+       RETURNING id, organization_id, email_normalized, intended_role, outlet_id,
+                 token_hash, expires_at, status, invited_by, created_at`,
+      [orgId, emailNormalized, role, body.outlet_id || null, tokenHash, expiresAt, user.userId]
+    );
 
-    return NextResponse.json({ success: true, invitation: newInvitation }, { status: 201 });
+    return NextResponse.json({ success: true, invitation: insertRes.rows[0] }, { status: 201 });
   } catch (err: any) {
     if (err instanceof AuthorizationError) {
       return NextResponse.json({ success: false, error: err.message, code: err.code }, { status: err.status });
     }
-    return NextResponse.json({ success: false, error: err.message || 'Server error' }, { status: 500 });
+    console.error('Error in invitations POST:', err);
+    return NextResponse.json({ success: false, error: err.message || 'Server error', code: 'SERVER_ERROR' }, { status: 500 });
   }
 }
 
@@ -86,10 +92,9 @@ export async function DELETE(
   { params }: { params: { orgId: string } }
 ) {
   try {
-    const user = await resolveTeamsUser(req);
     const orgId = params.orgId;
+    const user = await resolveTeamsUser(req, orgId);
 
-    // Must be member of orgId with owner or client_manager role
     assertMembership(user, orgId, ['owner', 'client_manager']);
 
     const { searchParams } = new URL(req.url);
@@ -102,15 +107,26 @@ export async function DELETE(
       );
     }
 
-    const currentList = invitationsStore.get(orgId) || [];
-    const updated = currentList.filter((inv) => inv.id !== invitationId);
-    invitationsStore.set(orgId, updated);
+    const delRes = await query(
+      `UPDATE b2b.invitations
+       SET status = 'revoked'
+       WHERE id = $1 AND organization_id = $2`,
+      [invitationId, orgId]
+    );
+
+    if (delRes.rowCount === 0) {
+      return NextResponse.json(
+        { success: false, error: 'Undangan tidak ditemukan atau berada di luar organisasi.', code: 'NOT_FOUND' },
+        { status: 404 }
+      );
+    }
 
     return NextResponse.json({ success: true, message: 'Undangan berhasil dibatalkan.' });
   } catch (err: any) {
     if (err instanceof AuthorizationError) {
       return NextResponse.json({ success: false, error: err.message, code: err.code }, { status: err.status });
     }
-    return NextResponse.json({ success: false, error: err.message || 'Server error' }, { status: 500 });
+    console.error('Error in invitations DELETE:', err);
+    return NextResponse.json({ success: false, error: err.message || 'Server error', code: 'SERVER_ERROR' }, { status: 500 });
   }
 }

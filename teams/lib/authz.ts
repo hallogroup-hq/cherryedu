@@ -26,14 +26,14 @@ export function assertMembership(
   targetOrgId: string,
   allowedRoles?: RoleCode[]
 ): OrganizationMembership {
-  // 1. Platform superadmins bypass tenant checks if operating in admin mode
-  if (user.staffPermissions.includes('platform_admin')) {
+  // 1. Platform superadmins and Cherry Edu Trainers bypass tenant membership checks
+  if (user.staffPermissions.includes('platform_admin') || user.staffPermissions.includes('cherry_trainer')) {
     if (user.activeMembership && user.activeMembership.organization_id === targetOrgId) {
       return user.activeMembership;
     }
-    // Synthetic membership for platform admin audit
+    // Synthetic membership for internal staff audit
     return {
-      id: `admin-${user.userId}`,
+      id: `staff-${user.userId}`,
       organization_id: targetOrgId,
       user_id: user.userId,
       status: 'active',

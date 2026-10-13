@@ -1,58 +1,81 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { serverLearningStore, SyncProgressRequest } from '@/lib/learningPersistenceService';
+import { serverLearningStore, SyncProgressPayload } from '@/lib/learningPersistenceService';
+import { verifyJwtToken } from '@/teams/lib/serverAuth';
+import { AuthorizationError } from '@/teams/lib/authz';
 
 export async function POST(req: NextRequest) {
   try {
-    const body: SyncProgressRequest = await req.json();
-
-    if (!body || !body.user_id) {
+    const authHeader = req.headers.get('authorization');
+    if (!authHeader || !authHeader.toLowerCase().startsWith('bearer ')) {
       return NextResponse.json(
-        { success: false, error: 'VALIDATION_FAILED: user_id is required' },
+        { success: false, error: 'UNAUTHENTICATED: Bearer token otentikasi wajib disertakan.', code: 'UNAUTHENTICATED' },
+        { status: 401 }
+      );
+    }
+
+    const token = authHeader.substring(7).trim();
+    const decoded = verifyJwtToken(token);
+    const userId = decoded.sub; // Authoritative user ID from validated JWT
+
+    const body: SyncProgressPayload = await req.json();
+
+    if (!body || !Array.isArray(body.progress)) {
+      return NextResponse.json(
+        { success: false, error: 'VALIDATION_FAILED: array progress wajib disertakan.', code: 'VALIDATION_FAILED' },
         { status: 400 }
       );
     }
 
-    if (!Array.isArray(body.progress)) {
-      return NextResponse.json(
-        { success: false, error: 'VALIDATION_FAILED: progress array is required' },
-        { status: 400 }
-      );
-    }
-
-    const result = serverLearningStore.syncProgress(body);
+    const result = await serverLearningStore.syncProgress(userId, body);
     return NextResponse.json(result, { status: 200 });
   } catch (error: any) {
-    console.error('Error in /api/learning/sync-progress:', error);
+    if (error instanceof AuthorizationError) {
+      return NextResponse.json({ success: false, error: error.message, code: error.code }, { status: error.status });
+    }
+    console.error('Error in /api/learning/sync-progress POST:', error);
     return NextResponse.json(
-      { success: false, error: error.message || 'Internal server error' },
+      { success: false, error: error.message || 'Internal server error', code: 'SERVER_ERROR' },
       { status: 500 }
     );
   }
 }
 
 export async function GET(req: NextRequest) {
-  const { searchParams } = new URL(req.url);
-  const userId = searchParams.get('user_id');
+  try {
+    const authHeader = req.headers.get('authorization');
+    if (!authHeader || !authHeader.toLowerCase().startsWith('bearer ')) {
+      return NextResponse.json(
+        { success: false, error: 'UNAUTHENTICATED: Bearer token otentikasi wajib disertakan.', code: 'UNAUTHENTICATED' },
+        { status: 401 }
+      );
+    }
 
-  if (!userId) {
+    const token = authHeader.substring(7).trim();
+    const decoded = verifyJwtToken(token);
+    const userId = decoded.sub; // Authoritative user ID
+
+    const progress = await serverLearningStore.getUserProgress(userId);
+    const enrollments = await serverLearningStore.getUserEnrollments(userId);
+    const attempts = await serverLearningStore.getUserQuizAttempts(userId);
+
     return NextResponse.json(
-      { success: false, error: 'VALIDATION_FAILED: user_id query parameter is required' },
-      { status: 400 }
+      {
+        success: true,
+        user_id: userId,
+        progress,
+        enrollments,
+        quiz_attempts: attempts,
+      },
+      { status: 200 }
+    );
+  } catch (error: any) {
+    if (error instanceof AuthorizationError) {
+      return NextResponse.json({ success: false, error: error.message, code: error.code }, { status: error.status });
+    }
+    console.error('Error in /api/learning/sync-progress GET:', error);
+    return NextResponse.json(
+      { success: false, error: error.message || 'Internal server error', code: 'SERVER_ERROR' },
+      { status: 500 }
     );
   }
-
-  const progress = serverLearningStore.getUserProgress(userId);
-  const enrollments = serverLearningStore.getUserEnrollments(userId);
-  const attempts = serverLearningStore.getUserQuizAttempts(userId);
-
-  return NextResponse.json(
-    {
-      success: true,
-      user_id: userId,
-      progress,
-      enrollments,
-      quiz_attempts: attempts,
-    },
-    { status: 200 }
-  );
 }
