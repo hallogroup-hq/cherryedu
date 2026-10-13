@@ -48,6 +48,6 @@ for(const path of ['app/business-roastery-v1/page.tsx','app/business-roastery-v1
 const publishedCafe=read('lib/data/paths/coffeeBusinessData.ts');
 if(!publishedCafe.includes('path-coffee-business'))fail('Published cafe path moved');
 const docs=read('docs/curriculum/business-roastery-v1/01-blueprint-evidence-policy.md');
-for(const phrase of ['PP 20/2026','2026','100 kg','minimum','NOT'])if(!docs.includes(phrase))fail('Evidence policy incomplete '+phrase);
+for(const phrase of ['PP 20/2026','2026','100 kg','minimum','IndoExpress'])if(!docs.includes(phrase))fail('Evidence policy incomplete '+phrase);
 const summary={modules:modules.length,lessons:lessons.length,minWords:Math.min(...lessons.map(l=>l.content.split(/\s+/).length)),cases:cases.length,threeModelComparison:scenarios.map(s=>s.name),freightEvidence:refs.filter(x=>x.category==='freight').map(x=>({lane:x.scope,rate:x.value,minimumKg:x.minimumKg})),issues};
 console.log(JSON.stringify(summary,null,2));if(issues.length)process.exitCode=1;

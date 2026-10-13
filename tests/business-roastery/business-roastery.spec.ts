@@ -4,7 +4,6 @@ test('new independent roastery path exposes 21 modules and 84 lessons',async({pa
  await page.goto('/business-roastery-v1');
  await expect(page.getByRole('heading',{name:'Merancang sampai Menjalankan Bisnis Roastery'})).toBeVisible();
  await expect(page.getByRole('heading',{level:2}).filter({hasText:'Tiga jalur membangun roastery'})).toBeVisible();
- await expect(page.locator('section[id]')).toHaveCount(0).catch(()=>{}); // structural sections checked below
  await expect(page.locator('a[href^="/business-roastery-v1/br-b"][href$="-l01"]')).toHaveCount(21);
  await expect(page.locator('a[href^="/business-roastery-v1/br-b"]')).toHaveCount(84);
  await expect(page.getByText('Asset-light',{exact:true})).toBeVisible();
