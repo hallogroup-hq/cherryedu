@@ -1,66 +1,29 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import {NextResponse} from 'next/server';
+import type {NextRequest} from 'next/server';
 
-const BLOCKED_PATTERNS = [
-  /\/\.env/i,
-  /\/\.git/i,
-  /\/\.aws/i,
-  /\/wp-(admin|login|config|includes)/i,
-  /\/xmlrpc\.php/i,
-  /\/phpmyadmin/i,
-  /\/actuator/i,
-  /\/\.vscode/i,
-];
-
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-
-  // 1. Path Traversal & Null Byte Protection
-  const rawUrl = request.url;
-  if (
-    pathname.includes('..') ||
-    rawUrl.includes('%2e%2e') ||
-    rawUrl.includes('%2E%2E') ||
-    rawUrl.includes('%00') ||
-    rawUrl.includes('\\')
-  ) {
-    return new NextResponse('Bad Request: Malformed URI path', { status: 400 });
-  }
-
-  // 2. Automated Vulnerability Scanner & Sensitive File Probing Defense
-  for (const pattern of BLOCKED_PATTERNS) {
-    if (pattern.test(pathname)) {
-      return new NextResponse('Not Found', { status: 404 });
-    }
-  }
-
-  // 3. API Route Guarding (Ensure JSON body requests have valid Content-Type if POST/PUT)
-  if (pathname.startsWith('/api/')) {
-    const method = request.method;
-    if (['POST', 'PUT', 'PATCH'].includes(method)) {
-      const contentType = request.headers.get('content-type') || '';
-      // Require application/json for our POST routes
-      if (!contentType.includes('application/json')) {
-        return NextResponse.json(
-          { error: 'Invalid Content-Type. Expected application/json.' },
-          { status: 415 }
-        );
-      }
-    }
-  }
-
-  return NextResponse.next();
-}
-
-export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - public files with common extensions (.svg, .png, .jpg, .jpeg, .webp, .ico)
-     */
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
-  ],
+// Only activated on the dedicated curator preview branch. Legacy content remains
+// in the repository and production; review visitors see only its successor.
+const replacements: Record<string,string> = {
+ 'kopi-dari-hulu-ke-hilir':'/paths/memahami-kopi-dari-hulu-ke-hilir',
+ 'foundation-kopi':'/paths/memahami-kopi-dari-hulu-ke-hilir',
+ 'barista-specialization':'/barista-v2',
+ 'home-brewer-specialization':'/home-brewer-v2',
+ 'roaster-path':'/roaster-v2',
+ 'q-grader-path':'/sensory-v2',
+ // Curated catalog entry slugs (not duplicate learning paths).
+ 'barista-v2':'/barista-v2',
+ 'home-brewer-v2':'/home-brewer-v2',
+ 'roaster-v2':'/roaster-v2',
+ 'sensory-v2':'/sensory-v2',
+ 'business-roastery-v1':'/business-roastery-v1',
 };
+export function middleware(request: NextRequest) {
+ if(process.env.NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW!=='enabled')return NextResponse.next();
+ const parts=request.nextUrl.pathname.split('/').filter(Boolean);
+ if(parts[0]!=='paths'||parts.length<2)return NextResponse.next();
+ const target=replacements[parts[1]];
+ if(!target)return NextResponse.next();
+ const url=new URL(target,request.url);
+ return NextResponse.redirect(url,307);
+}
+export const config={matcher:['/paths/:path*']};
