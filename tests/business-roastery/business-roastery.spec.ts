@@ -41,7 +41,7 @@ test('roastery calculations wait for real costs and compute gross/variable margi
  await page.getByRole('spinbutton',{name:/Biaya tetap NONPRODUKSI/}).fill('1000000');
  await expect(page.getByText('HPP manufaktur serapan/kg roasted').locator('..')).toContainText('174.063');
  await expect(page.getByText('Gross margin').locator('..')).toContainText('13.0%');
- await expect(page.getByText('Contribution/kg').locator('..')).toContainText('20.938');
+ await expect(page.getByText('Contribution/kg',{exact:true}).locator('..')).toContainText('20.938');
  await expect(page.getByText('BEP kontribusi (kg/bulan)').locator('..')).toContainText('47,8 kg');
 });
 test('cash flow catches liquidity gap before customer pays',async({page})=>{
@@ -105,11 +105,11 @@ test('fixed factory overhead enters absorbed HPP but not variable contribution d
  await page.getByRole('spinbutton',{name:/Biaya tetap NONPRODUKSI/}).fill('1000000');
  await expect(page.getByText('Biaya manufaktur variabel/kg').locator('..')).toContainText('160.469');
  await expect(page.getByText('HPP manufaktur serapan/kg roasted').locator('..')).toContainText('180.469');
- await expect(page.getByText('Contribution/kg').locator('..')).toContainText('84.531');
+ await expect(page.getByText('Contribution/kg',{exact:true}).locator('..')).toContainText('84.531');
  await expect(page.getByText('BEP kontribusi (kg/bulan)').locator('..')).toContainText('35,5 kg');
  await page.getByRole('spinbutton',{name:/Output roasted saleable RENCANA/}).fill('200');
  await expect(page.getByText('HPP manufaktur serapan/kg roasted').locator('..')).toContainText('170.469');
- await expect(page.getByText('Contribution/kg').locator('..')).toContainText('84.531');
+ await expect(page.getByText('Contribution/kg',{exact:true}).locator('..')).toContainText('84.531');
 });
 test('every module field guide is accessible and decision evidence differs by chapter',async({page})=>{
  await page.goto('/business-roastery-v1/br-b08-l03');
@@ -117,5 +117,34 @@ test('every module field guide is accessible and decision evidence differs by ch
  await page.goto('/business-roastery-v1/br-b13-l03');
  await expect(page.getByRole('heading',{name:'Landed cost, full HPP, dan contribution punya fungsi berbeda'})).toBeVisible();
  await page.goto('/business-roastery-v1/practice/b13');
+ await expect(page.getByText(/Satu kg roasted memakai green/)).toBeVisible();
+ await page.getByRole('textbox',{name:/Tulis keputusan awal/}).fill('Saya perlu membedakan fixed overhead dan variable cost karena volume output bisa berubah sehingga absorbed HPP berubah walaupun contribution berbeda.');
+ await page.getByRole('button',{name:'Buka bukti baru'}).click();
  await expect(page.getByText(/biaya alokasi overhead\/kg menjadi dua kali lipat/)).toBeVisible();
+});
+
+test('three models compare downside and physical capacity without placeholder costs',async({page})=>{
+ await page.goto('/business-roastery-v1/models');
+ await expect(page.getByRole('heading',{name:'Tiga model, satu permintaan yang sama'})).toBeVisible();
+ await expect(page.getByText('Perlu input',{exact:true}).first()).toBeVisible();
+ const form=page.getByRole('article').filter({hasText:'SKENARIO A'});
+ await page.getByRole('spinbutton',{name:/Volume roasted saleable yang benar-benar/}).fill('100');
+ await form.getByRole('spinbutton',{name:/Konversi variabel/}).fill('20000');
+ await form.getByRole('spinbutton',{name:/Fixed conversion/}).fill('1000000');
+ await form.getByRole('spinbutton',{name:/Kapasitas saleable/}).fill('90');
+ await expect(form.getByText(/Gap kapasitas:/)).toContainText('10 kg');
+ await expect(form.getByText(/Biaya konversi bulanan:/)).toContainText('3.000.000');
+ await expect(form.getByText(/Biaya per kg jika demand 60%:/)).toContainText('36.667');
+ await expect(form.getByRole('alert')).toContainText('belum sanggup');
+});
+test('13-week ledger places supplier cash out before buyer cash in and can delete entries',async({page})=>{
+ await page.goto('/business-roastery-v1/working-capital');
+ await page.getByRole('spinbutton',{name:/Kas yang tersedia pada awal/}).fill('1000000');
+ await page.getByRole('spinbutton',{name:/Nominal/}).fill('1500000');
+ await page.getByRole('textbox',{name:/Keterangan transaksi/}).fill('DP green');
+ await page.getByRole('button',{name:'Tambahkan transaksi'}).click();
+ await expect(page.getByText(/Titik kas terendah/)).toContainText('-');
+ await expect(page.getByRole('alert')).toBeVisible();
+ await page.getByRole('button',{name:'Hapus transaksi DP green'}).click();
+ await expect(page.getByText(/Belum ada transaksi/)).toBeVisible();
 });

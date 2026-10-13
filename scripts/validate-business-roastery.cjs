@@ -42,10 +42,14 @@ if(Object.keys(fieldManual).length!==21)fail('Need 21 topic-specific field manua
 for(const mod of modules){const field=fieldManual[mod.code];if(!field||field.content.split(/\s+/).length<140||!field.content.includes('Bukti kerja'))fail('Shallow applied study '+mod.code);}
 if(!read('app/business-roastery-v1/[lessonId]/page.tsx').includes('BUSINESS_ROASTERY_FIELD_GUIDES[mod.code]'))fail('Applied cases not mounted');
 if(new Set(cases.map(c=>c.newEvidence)).size!==21)fail('Repeated evidence change across all cases');
+const model=read('components/business-roastery/BusinessModelComparator.tsx');
+const thirteen=read('components/business-roastery/BusinessThirteenWeekCash.tsx');
+for(const flag of ["demand*0.6","capacity","variable","fixed"])if(!model.includes(flag))fail('Model comparison math missing '+flag);
+for(const flag of ["length:13","balance","worst","entries.filter","Hapus"])if(!thirteen.includes(flag))fail('13-week cash logic missing '+flag);
 const calc=read('components/business-roastery/BusinessRoasteryCalculator.tsx');
 for(const flag of ['Math.max(quoteKg,volKg??0,minCharge)','greenUsable','roasted','landedTotal','rawPerRoast','variableHpp','absorption','factoryFixed','plannedMonthly','totalFixed','cm','bepkg','freightMode','Referensi publik','BEP','source.url'])if(!calc.toLowerCase().includes(flag.toLowerCase()))fail('Cost provenance/math missing '+flag);
 if(!calc.includes('inbound lagi')||!calc.includes('bukan penawaran final')&&!calc.includes('quotation final'))fail('Unsafe quote interpretation');
-for(const path of ['app/business-roastery-v1/page.tsx','app/business-roastery-v1/[lessonId]/page.tsx','app/business-roastery-v1/practice/[moduleId]/page.tsx','app/business-roastery-v1/calculator/page.tsx','app/business-roastery-v1/cashflow/page.tsx','app/business-roastery-v1/plan/page.tsx']){
+for(const path of ['app/business-roastery-v1/page.tsx','app/business-roastery-v1/[lessonId]/page.tsx','app/business-roastery-v1/practice/[moduleId]/page.tsx','app/business-roastery-v1/calculator/page.tsx','app/business-roastery-v1/cashflow/page.tsx','app/business-roastery-v1/plan/page.tsx','app/business-roastery-v1/models/page.tsx','app/business-roastery-v1/working-capital/page.tsx']){
  const src=read(path);
  if(!src.includes("process.env.CHERRYEDU_BUSINESS_ROASTERY_REVIEW!=='enabled'")||!src.includes('notFound()'))fail('Missing protected route '+path);
  if(/setUserProgress|issueCertificate|syncTransaction|enrollInPath|recordQuizAttempt/.test(src))fail('No published-student mutation allowed '+path);

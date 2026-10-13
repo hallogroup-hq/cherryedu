@@ -26,6 +26,17 @@ export default function BusinessRoasteryHome(){
     <Link href="/business-roastery-v1/plan" className="rounded border border-paper-300 bg-paper-100 p-4 hover:border-roast-800"><h3 className="font-semibold text-roast-950">Business plan berbasis bukti →</h3><p className="mt-2 text-xs leading-6 text-roast-700">Lembar kerja keputusan, sumber angka, risiko dan validasi.</p></Link>
    </div>
   </section>
+
+  <section aria-labelledby="operations-tools" className="mt-4 grid gap-3 sm:grid-cols-2">
+   <Link href="/business-roastery-v1/models" className="rounded border border-paper-300 bg-paper-100 p-5 hover:border-roast-800">
+    <h2 id="operations-tools" className="font-serif text-xl font-semibold text-roast-950">Bandingkan tiga model bisnis →</h2>
+    <p className="mt-2 text-sm leading-7 text-roast-700">Jasa roasting pihak ketiga, mesin sendiri dan perusahaan bertumbuh dengan biaya tetap, kapasitas serta kebutuhan CAPEX berbeda.</p>
+   </Link>
+   <Link href="/business-roastery-v1/working-capital" className="rounded border border-paper-300 bg-paper-100 p-5 hover:border-roast-800">
+    <h2 className="font-serif text-xl font-semibold text-roast-950">Arus kas 13 minggu →</h2>
+    <p className="mt-2 text-sm leading-7 text-roast-700">Jadwalkan invoice pelanggan, DP green, freight, upah, sewa dan komitmen pembayaran minggu demi minggu.</p>
+   </Link>
+  </section>
   <div className="mt-5">{BUSINESS_ROASTERY_MODULES.map((m,i)=><section key={m.code} aria-labelledby={'br-'+m.code} className="grid gap-4 border-b border-paper-300 py-8 md:grid-cols-[minmax(0,310px)_1fr] md:gap-10">
    <div><p className="font-mono text-xs text-roast-600">{String(i+1).padStart(2,'0')} / {BUSINESS_ROASTERY_MODULES.length}</p>
     <h2 id={'br-'+m.code} className="mt-2 font-serif text-2xl font-bold text-roast-950">{m.title}</h2>

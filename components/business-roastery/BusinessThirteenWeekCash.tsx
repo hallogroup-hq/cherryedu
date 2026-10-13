@@ -1,6 +1,6 @@
 'use client';
 import {useState} from 'react';
-const format=n=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n);
+const format=(n:number)=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n);
 const parse=(s:string)=>{if(!s.trim())return null;const v=Number(s);return Number.isFinite(v)&&v>=0?v:null;};
 type Entry={id:number;week:number;kind:'in'|'out';amount:number;label:string};
 export function BusinessThirteenWeekCash(){
