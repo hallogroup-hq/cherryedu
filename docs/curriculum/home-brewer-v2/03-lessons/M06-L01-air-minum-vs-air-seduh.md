@@ -18,7 +18,15 @@ Jangan mencampur mineral atau bahan kimia pangan rumahan dengan dosis dari inter
 
 Buat daftar dua air minum yang biasa kamu gunakan: informasi label, harga, sumber, dan apa yang *belum diketahui*. Rancang A/B pada kopi, dose dan metode sama, lalu catat sensorik jika benar-benar diuji. Jangan mengira perubahan rasa menunjukkan air lain tidak aman secara medis.
 
-Sebelum mengubah resep, tulis **pertanyaan**, **prediksi**, **variabel utama**, **faktor pembanding** dan **batas keselamatan**. Jika hasil belum benar-benar dicicipi, biarkan kolom rasa kosong. Jangan menggunakan data fiktif sebagai bukti suatu metode lebih unggul. Jika menggunakan air panas, kaca, alat tekanan atau listrik, ikuti panduan resmi produsennya.
+## Baca label dan alat ukur tanpa menjadikan angka sebagai jaminan
+
+Kalau sebuah meter menunjukkan TDS 100 ppm, itu biasanya **estimasi jumlah zat terlarut dari pengukuran konduktivitas**, bukan daftar zat maupun laporan uji mikrobiologi. Dua air dengan angka serupa bisa mempunyai komposisi kalsium, magnesium, bikarbonat atau ion lain yang berbeda. Karena itu **air dengan TDS rendah tidak otomatis lebih aman atau lebih cocok untuk kopi**.
+
+Pisahkan keputusan menjadi dua lapis. **Lapis keamanan:** apakah air memang layak diminum menurut sumber dan penanganannya, tanpa mengandalkan angka TDS? **Lapis seduhan:** setelah dipastikan layak, apakah karakter air itu mendukung hasil yang kamu inginkan? Keduanya memerlukan jenis bukti berbeda.
+
+**Contoh praktis:** kamu membeli dua air minum kemasan dengan label yang tersedia. Catat informasi yang tercantum, harga, dan parameter yang tidak tersedia. Gunakan satu kopi, grinder, dosis, filter, dan suhu penyajian sebanding; ganti sumber air sebagai variabel utama bila aman. Tuliskan prediksi dan hasil cicip **hanya jika dilakukan nyata**. Jika salah satu air terasa lebih cocok, itu masih bukti preferensi sesi tersebut, bukan bukti air lain tidak aman dikonsumsi.
+
+Bila kamu pindah rumah dan rasa tiba-tiba berbeda, jangan langsung meracik mineral sendiri. Periksa dulu asal air dan kondisi alat, lalu pilih pembanding air minum layak yang relevan. Ketika data tidak ada, catat “belum diketahui” daripada mengarang komposisi.
 
 ## Pindah ke situasi berbeda
 
