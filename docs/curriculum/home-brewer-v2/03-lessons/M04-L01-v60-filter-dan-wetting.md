@@ -18,7 +18,15 @@ Jangan menuangkan air panas ke atas dripper atau server yang tidak stabil, janga
 
 Rancang dua observasi pembasahan dengan biji dan grind sama, hanya pola tuang awal yang berubah. Tulis dugaan mekanisme, apa yang akan difoto atau dicatat, dan hasil yang dapat membantahnya. Jika tidak membuat seduhan nyata, analisis diagram aliran sebagai simulasi.
 
-Tulis catatan percobaan **sebelum** melakukan perubahan: tujuan, hipotesis, prediksi, faktor yang diubah, keadaan yang dijaga, pengamatan, dan risiko alat. Peralatan nyata harus dipakai sesuai petunjuk pabrikan. Jika hasil dari ilustrasi, labeli sebagai simulasi; jika benar-benar mencicipi, tulis observasi tanpa mengeditnya supaya cocok dengan hipotesis.
+## Dari pembasahan ke aliran yang bisa diamati
+
+**Wetting** berarti air mulai membasahi permukaan dan ruang di sekitar partikel kopi. Bagian bed yang masih relatif kering pada awal proses belum tentu berinteraksi dengan air dengan cara sama seperti bagian yang sudah terbasahi. Tujuan pengamatan awal adalah mengenali perbedaan itu, **bukan membuat permukaan bed tampak sempurna untuk foto**.
+
+**Bloom** sering dipakai sebagai tahap penuangan awal. Biji sangrai yang masih melepas gas dapat menampilkan gelembung, tetapi gelembung juga dipengaruhi gerakan air dan kondisi bubuk. Jadi banyak gelembung tidak sama dengan kualitas lebih tinggi, dan sedikit gelembung tidak membuktikan kopi gagal.
+
+Coba bandingkan dua pola pembasahan awal **pada satu kopi, satu filter, dan massa total air yang sama**. Dokumentasikan berapa air yang masuk di tahap awal dan apa yang tampak, tanpa perlu mengejar angka bloom tertentu. Tanyakan sebelum mencoba: “Apakah perubahan cara awal membasahi kopi menghasilkan bagian kering yang lebih sedikit pada kondisi ini?” Jika foto tidak memperlihatkan perbedaan, akui batas pengamatan dari permukaan; kamu belum melihat distribusi aliran di dalam bed.
+
+Jika mengubah filter, perbedaan ketebalan, tekstur, kecocokan bentuk, atau metode pemasangan mungkin berperan pada aliran. **Jangan** mengasumsikan satu filter lebih bagus dari waktu seduh saja. Letakkan dripper dan server stabil, lalu ikuti panduan bahan dan suhu penggunaan masing-masing alat.
 
 ## Saat situasinya berbeda
 
