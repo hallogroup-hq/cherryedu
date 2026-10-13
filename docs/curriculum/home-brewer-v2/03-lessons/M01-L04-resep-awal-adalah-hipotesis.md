@@ -18,7 +18,15 @@ Mengubah air yang melewati bed bukan sekadar menambahkan air setelah minuman jad
 
 Buat tabel A/B dan ubah satu hal yang sengaja diteliti. Tulis prediksi sebelum membuat seduhan dan rekam hasil sebenarnya: berapa air masuk, minuman keluar jika bisa, lama seduh, suhu awal bila terukur dan komentar rasamu. Kamu tidak perlu menunggu punya refraktometer.
 
-Sebelum mencoba, pisahkan **tujuan**, **prediksi**, **apa yang diubah**, **apa yang dijaga**, dan **apa yang benar-benar diamati**. Jika latihan menggunakan angka ilustrasi, tandai hasil sebagai simulasi. Jangan menuliskan hasil rasa seolah kamu sudah mencicipinya. Seduh nyata hanya dengan wadah yang sesuai, air aman dan prosedur peralatan dari produsennya.
+## Membedakan rasio, output, dan tujuan rasa
+
+Dalam resep contoh 15 g kopi dan 225 g air seduh, angka **1:15 merujuk pada input**. Jika minuman keluar hanya 190 g, bukan berarti resepmu “berubah” menjadi 1:12,7. Kamu hanya memiliki metrik lain: massa minuman jadi. Sebagian air tertahan pada kopi/filter; jumlahnya bisa bervariasi.
+
+Jika B memakai 15 g kopi dan 240 g air masuk, input-nya 1:16. **Perubahan 225 ke 240 g yang melewati kopi** dapat memengaruhi kontak dan ekstraksi. Ini berbeda dari menyeduh dengan 225 g lebih dulu lalu menambahkan 15 g air bersih ke cangkir setelah proses selesai. Cara kedua adalah pengenceran setelah seduh, bukan perubahan rasio through-bed yang identik.
+
+**Eksperimen yang benar-benar menjawab pertanyaan:** pertama tentukan apakah kamu ingin menguji input water atau pengenceran setelah seduh. Jangan mencampur dua rancangan ini dalam satu perbandingan lalu menyebut penyebab rasa sudah terbukti. Catat dosis, air masuk, output bila ditimbang, dan deskripsi rasa yang benar-benar dicicipi.
+
+**Tantangan:** jika 1:16 tidak kamu sukai, itu alasan meninjau tujuan dan bukti. Kembali ke baseline yang kamu sukai boleh jadi keputusan yang tepat; tidak ada kewajiban terus “meningkatkan” angka.
 
 ## Tantangan saat kondisi berubah
 
