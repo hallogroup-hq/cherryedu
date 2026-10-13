@@ -2,7 +2,7 @@
 import {BUSINESS_ROASTERY_DEEP_DIVES_A} from './businessRoasteryDeepDivesA';
 import {BUSINESS_ROASTERY_DEEP_DIVES_B} from './businessRoasteryDeepDivesB';
 export type BusinessModule={code:string;title:string;description:string;scenario:string};
-export type BusinessLesson={id:string;moduleId:string;order:number;title:string;content:string;task:string;trap:string};
+export type BusinessLesson={id:string;moduleId:string;order:number;title:string;content:string;task:string;trap:string;optionalModels?:string};
 export const BUSINESS_ROASTERY_MODULES:BusinessModule[]=[
   {
     "code": "B01",
@@ -897,6 +897,8 @@ const deepDives:Record<string,string> = {...BUSINESS_ROASTERY_DEEP_DIVES_A,...BU
 for (const lesson of BUSINESS_ROASTERY_LESSONS) {
   const lecture=deepDives[lesson.id];
   if(!lecture) throw new Error('Missing explanatory teaching section for '+lesson.id);
+  const modelSection=lesson.content.match(/### Apa dampaknya bagi tiga jenis roastery\?\n\n((?:- [^\n]+\n){3})\n/);
+  lesson.optionalModels=modelSection?.[1]?.trim();
   const removed=lesson.content.replace(/### Apa dampaknya bagi tiga jenis roastery\?\n\n(?:- [^\n]+\n){3}\n/,'');
   if(removed===lesson.content)throw new Error('Scenario section did not separate from instructional content: '+lesson.id);
   const concept=removed.replace(/^## Pertanyaan bisnis yang ingin kita jawab\n\n/,'');
