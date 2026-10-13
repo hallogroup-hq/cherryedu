@@ -31,5 +31,3 @@ Saat menulis log, bedakan massa air masuk, posisi alat, cara pemisahan, dan kapa
 ## Pindah ke situasi berbeda
 
 Seorang teman mengklaim AeroPress inverted wajib agar kopi kompetisi sempurna. Bagaimana kamu menjelaskan mekanisme drip-through, alternatif yang dianjurkan pabrikan dan kenapa memilih keselamatan tidak berarti mengorbankan rasa?
-
-**Ringkas dengan bahasamu:** jelaskan mengapa hasil berubah, satu dugaan alternatif, dan apa pengujian berikutnya yang mungkin mengubah pikiranmu. Tidak ada kewajiban mengikuti satu brand atau angka resep tertentu.
