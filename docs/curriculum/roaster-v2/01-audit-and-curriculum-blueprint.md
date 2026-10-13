@@ -58,11 +58,11 @@ By completion, a learner should be able to (1) write a sensory/product roast bri
 3. SCA standards registry; SCA-110 and SCA-131 **in development**, not adopted numeric rules: https://sca.coffee/research/coffee-standards
 4. SCA Q-grader prep for roast problems and matched cupping samples: https://sca.coffee/education/how-to-prepare
 5. Alstrup et al. (2020), roast development and sensory/chemical outcomes, one bounded experimental design: https://www.mdpi.com/2306-5710/6/4/70
-6. Giacalone et al. (2019), researched roast fault sensory distinctions: https://www.sciencedirect.com/science/article/pii/S0950329318302015
-7. Münchow et al., cross-study influence of color vs roast time: https://researchprofiles.ku.dk/en/publications/roasting-conditions-and-coffee-flavor-a-multi-study-empirical-inv
+6. Giacalone et al. (2019), researched roast fault sensory distinctions: https://www.sciencedirect.com/science/article/pii/S0950-3293%2818%2930201-5
+7. Münchow et al., cross-study influence of color vs roast time: https://www.mdpi.com/2306-5710/6/2/29
 8. Anokye-Bempah et al. (2025), roast color research, 5-kg drum-roaster experiments: https://pmc.ncbi.nlm.nih.gov/articles/PMC12234775/
 9. Artisan official curve and RoR delta span documentation: https://artisan-scope.org/docs/curves/
-10. Cropster official RoR definition: https://help.cropster.com/en_US/using-roasting-intelligence/about-rate-of-rise-ror
+10. Cropster official RoR definition: https://help.cropster.com/en_US/faqs/about-rate-of-rise-ror
 11. Rao, first-hand correction of interpretation of DTR: https://www.scottrao.com/blog/2020/3/29/coffee-roasting-fundamentals
 12. Giesen W6A manual: cleaning and fire prevention are equipment-specific: https://www.webstaurantstore.com/documents/pdf/w6a_installation_and_operation_manual_v1.0_-_en.pdf
 
