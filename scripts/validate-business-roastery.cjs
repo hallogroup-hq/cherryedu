@@ -49,6 +49,13 @@ if(new Set(lessons.map(l=>l.trap)).size!==lessons.length)fail('Duplicated mistak
 if(cases.length!==modules.length)fail('Need one evolving case per module');
 for(const c of cases){if(!modules.find(m=>m.code===c.moduleId)||!c.newEvidence||!c.revise||!c.reason)fail('Invalid evolving case '+c.moduleId);}
 if(new Set(cases.map(x=>x.moduleId)).size!==cases.length)fail('Duplicate case');
+if(new Set(cases.map(c=>c.prompt)).size!==cases.length)fail('Repeated one-size-fits-all case instruction across 21 chapters');
+for(const c of cases){
+ if(!c.prompt||c.prompt.split(/\s+/).length<12)fail('Case without meaningful chapter prompt '+c.moduleId);
+ for(const key of ['decision','prompt','newEvidence','revise','reason'])if(/\*\*/.test(c[key]||''))fail('Raw Markdown in case JSX text '+c.moduleId+' '+key);
+}
+const pricingCase=cases.find(c=>c.moduleId==='B14');
+if(!pricingCase||!pricingCase.reason.includes('bukan contribution margin')||!pricingCase.reason.includes('variable manufacturing cost'))fail('B14 case incorrectly conflates absorbed HPP and contribution');
 for(const ref of refs){if(!/^https:\/\//.test(ref.url)||!ref.verified||!ref.status||!ref.scope)fail('Undocumented source '+ref.key);}
 for(const f of refs.filter(x=>x.category==='freight')){
  if(!f.value||!f.minimumKg||!f.exclusions||!f.scope.includes(' ke '))fail('Unreliable freight source '+f.key);
