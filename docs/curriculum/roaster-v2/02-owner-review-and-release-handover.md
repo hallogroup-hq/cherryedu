@@ -12,14 +12,16 @@ Scope: New isolated `/roaster-v2` route. **Existing `path-roaster` stays publish
 - 10 coherently sequenced modules with **40 distinct Indonesian lesson manuscripts** under `lib/data/roaster-v2/m*.ts`. Each has five substantive explanatory subsections, concrete examples, uncertainty and at least one practical inquiry. Contents explicitly distinguish actual observation from simulated data. Lessons are *real learner copy*, not “draft” or editorial instructions.
 - Dedicated read-only course assembly and catalog: `lib/data/roasterV2Course.ts`, `app/roaster-v2/`.
 - 10 concept labs, spanning goal brief creation, machine reasoning, traceability and calibrated calculations: `RoasterV2Lab.tsx`.
-- Four original accessible mechanism figures for heat transfer, sensor interval, mass balance, and production traceability: `RoasterConceptVisual.tsx`.
+- Ten original accessible concept figures, one per module, including heat transfer, moisture-vs-aw, experiment controls, CVA lenses, mass balance, problem triage and production traceability: `RoasterConceptVisual.tsx`.
+- 10 additional research-informed, topic-specific field investigations embedded at the points where technical concepts need deeper worked examples.
 - 20 two-stage cases with new information revealed only after the learner writes an initial decision. 20 four-option misconception diagnostics with each-choice rationale: `lib/data/roasterV2Practice.ts` and `RoasterV2Practice.tsx`.
 - Deterministic authoring gate `scripts/validate-roaster-v2.cjs`; Playwright checks `tests/roaster/roaster-v2.spec.ts`, custom `playwright.roaster.config.ts` and isolated GitHub Actions workflow `roaster-v2-authoring-qa.yml`.
 
 ## What was inspected already
 
 - Read original legacy Roaster path (`lib/data/paths/roasterData.ts`) and compared against available academic and technical sources. Identified unsupported universal prescriptions for DTR, charge temp, processing method and food-safety measurement.
-- Live GitHub branch-source inspection after code writes: 10 modules, 40 lessons, 40 unique IDs, minimum 248 whitespace-separated words per lesson, all with at least five subheadings.
+- Live GitHub branch-source inspection after code writes: 10 modules, 40 lessons, 40 unique IDs, each with five conceptual subsections; additionally ten targeted deep-dive manuscripts (~196–231 words) mounted on high-concept lessons.
+- First full CI passed typecheck/build and five e2e tests. Any later revisions require a fresh CI rerun before signoff.
 - Two issues found and **corrected** during preflight: one too-short diagnostic stem (`rvq-08`), one lesson missing an explicit learner-activity label (`m05-l02`). Re-run authoring gate and browser tests through CI before signoff.
 - In all three new learner routes, server checks `CHERRYEDU_ROASTER_V2_REVIEW === 'enabled'` and otherwise responds with `notFound()`. No writes to legacy progress, enrolment, payment or credentials. The environment variable is a **private deployment setting**, not a learner-facing status label.
 - Synthetic numerical examples are explicitly marked as such. Sources cited in internal audit; not SCA endorsement.
