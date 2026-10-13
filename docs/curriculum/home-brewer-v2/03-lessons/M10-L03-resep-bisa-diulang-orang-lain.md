@@ -18,7 +18,15 @@ Kesalahan lain adalah mencampur angka input dan yield di kolom sama, atau mengan
 
 Tulis SOP satu halaman dalam bahasa sendiri lalu minta teman melakukan **paper walkthrough** sebelum praktik: di bagian mana ia akan bingung? Jika mencoba fisik, lakukan aman, dengan izin, dan catat apa yang benar-benar dilakukan oleh teman, bukan yang kamu bayangkan.
 
-Saat menulis eksperimen, bedakan prediksi, pengamatan nyata, dan data simulasi; jangan mengisi kolom tasting yang belum dilakukan. Periksa kelayakan bahan/air, alat food-safe, penyimpanan dan risiko panas. Nilai kemampuan belajar dari alasan yang bisa diuji dan keputusan saat keadaan berubah, bukan kepatuhan pada satu resep.
+## Uji SOP-mu dengan pembaca yang belum melihat kamu menyeduh
+
+Instruksi “tuang sampai 225 g” masih bisa ambigu: apakah 225 g **total air yang masuk**, atau 225 g tambahan setelah bloom? Tuliskan target angka kumulatif atau tambahan secara tegas. Bedakan pula air seduh masuk dari massa minuman keluar; keduanya bukan variabel yang identik.
+
+**Contoh catatan operasional:** “Gunakan kopi Lot A, 15 g bubuk, filter sesuai dripper X, air layak minum. Mulai timer ketika air pertama menyentuh bed. Tuang total air masuk 225 g menurut tahapan yang ditulis; timbang massa minuman setelah selesai jika tersedia.” Ini masih contoh simulasi yang **harus dilengkapi tahapan penuangan** untuk menjadi SOP operasional penuh.
+
+Mintalah teman melakukan **paper walkthrough**: menunjuk kalimat mana yang tidak bisa ia kerjakan tanpa bertanya. Jika ia tidak tahu versi grind yang dimaksud, jelaskan bahwa angka pada satu grinder tidak dapat ditransfer otomatis ke merek lain. Berikan kriteria adaptasi seperti tujuan aliran atau pengalaman minuman, lalu catat perubahan yang dibuat orang tersebut.
+
+**Tes transfer:** seorang teman memakai alat berbeda. Mana yang tetap? Tujuan, keamanan, dan prinsip pencatatan. Mana yang harus diuji lagi? Respons grinder/filter, pola aliran, dan hasil rasa. SOP yang baik tidak menjanjikan rasa persis identik; ia membuat alasan dan perubahan bisa ditelusuri serta direvisi.
 
 ## Tantangan transfer
 
