@@ -106,7 +106,7 @@ export const SENSORY_V2_CASES:SensoryCase[]=[
     "moduleId": "M06",
     "title": "Sampling satu sisi karung",
     "brief": "Sampling hanya dari permukaan satu karung berisi lot besar yang diberi label sama.",
-    "prompt": "Apa risiko kesimpulan fisik?",
+    "prompt": "Apa risiko kesimpulan fisik bila hanya mengambil sampel dari satu sisi?",
     "newEvidence": "Bagian bawah karung kedua ternyata mempunyai warna dan kondisi berbeda.",
     "revisionPrompt": "Revisi prosedur dan status lot.",
     "modelReasoning": "Tahan kesimpulan umum; gunakan rencana sampling representatif serta dokumentasi sublot. Pemeriksaan senyawa sensori tak menggantikan inspeksi."
