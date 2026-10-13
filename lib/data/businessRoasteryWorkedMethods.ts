@@ -162,7 +162,7 @@ export const BUSINESS_ROASTERY_WORKED_METHODS:Record<string,{title:string;steps:
       },
       {
         "heading": "Baca minimum tagihan",
-        "explanation": "Contoh ilustrasi: 18 kg actual, tarif Rp8.000/kg dan minimum 30 kg menghasilkan freight dasar 30 × 8.000 = Rp240.000, sebelum biaya yang dikecualikan."
+        "explanation": "Pada publikasi Mandala Cargo untuk Makassar menuju Jabodetabek via laut, tarif mulai Rp3.500/kg dengan minimum 50 kg. Jika 35 kg dikirim dan tarif itu berlaku, komponen dasar indikatifnya 50 × Rp3.500 = Rp175.000, bukan 35 × Rp3.500. Periksa kembali jenis muatan dan quotation aktual."
       },
       {
         "heading": "Tambahkan biaya masuk",
@@ -173,7 +173,7 @@ export const BUSINESS_ROASTERY_WORKED_METHODS:Record<string,{title:string;steps:
         "explanation": "Jika total landed invoice plus freight Rp3.200.000 untuk 20 kg usable, bahan masuk Rp160.000/kg usable. Ini belum HPP roasted."
       }
     ],
-    "caution": "Harga Rp8.000/kg dan batas 30 kg adalah ilustrasi hitung, bukan quotation pasar. Minta penawaran tertulis rute spesifik."
+    "caution": "Sumber tarif indikatif: Mandala Cargo Indonesia, rute Makassar ke Jabodetabek (2026). Harga bukan quotation untuk green coffee tertentu dan belum otomatis mencakup pengiriman lanjutan ke Sukabumi, packing khusus, asuransi dan biaya lain."
   },
   "B09": {
     "title": "Membuat rancangan alur lokasi sebelum sewa",

@@ -86,7 +86,7 @@ for(const mod of modules){
 if(!read('components/business-roastery/BusinessRoasteryReader.tsx').includes('workedMethods[lesson.moduleId]'))fail('Guided worked examples not integrated in reader');
 const mathChecks=[
  ['asset-light equal unit costs',6000000/(20000-8000),500],
- ['shipment minimum charge',Math.max(18,30)*8000,240000],
+ ['sourced Makassar to Jabodetabek shipping minimum',Math.max(35,50)*3500,175000],
  ['usable landed per kg',3200000/20,160000],
  ['effective roasting output',540*.84*.97,439.992],
  ['available to promise',500-20-50,430],
