@@ -29,5 +29,3 @@ Gunakan diagram pikiran sederhana: gambar jalur air **masuk → bertemu partikel
 ## Pindah ke situasi berbeda
 
 Tamu meminta kopi lebih bersih dari segi mouthfeel, tetapi kamu hanya punya French press. Apa alternatif dalam cara pemisahan atau penyajian yang aman, dan kapan perlu menjelaskan keterbatasan perangkat?
-
-**Ringkas dengan bahasamu:** jelaskan mengapa hasil berubah, satu dugaan alternatif, dan apa pengujian berikutnya yang mungkin mengubah pikiranmu. Tidak ada kewajiban mengikuti satu brand atau angka resep tertentu.
