@@ -117,8 +117,12 @@ test('fixed factory overhead enters absorbed HPP but not variable contribution d
 });
 test('every module field guide is accessible and decision evidence differs by chapter',async({page})=>{
  await page.goto('/business-roastery-v1/br-b08-l04');
+ await expect(page.getByRole('heading',{name:'Dua arah kapal tidak berarti dua tarif yang sama'})).not.toBeVisible();
+ await page.getByText('Lihat contoh penerapan',{exact:true}).click();
  await expect(page.getByRole('heading',{name:'Dua arah kapal tidak berarti dua tarif yang sama'})).toBeVisible();
  await page.goto('/business-roastery-v1/br-b13-l04');
+ await expect(page.getByRole('heading',{name:'Landed cost, full HPP, dan contribution punya fungsi berbeda'})).not.toBeVisible();
+ await page.getByText('Lihat contoh penerapan',{exact:true}).click();
  await expect(page.getByRole('heading',{name:'Landed cost, full HPP, dan contribution punya fungsi berbeda'})).toBeVisible();
  await page.goto('/business-roastery-v1/practice/b13');
  await expect(page.getByText(/Satu kg roasted memakai green/)).toBeVisible();
@@ -245,4 +249,37 @@ test('capstone can copy business plan on mobile without claiming the answers are
  const copied=await page.evaluate(()=>(window as any).__roasteryCopied);
  expect(copied).toContain('Ada PO 5kg dari satu kafe');
  expect(copied).toContain('Belum diverifikasi');
+});
+
+test('Business curriculum route from main catalog goes to the only study path with 84 lessons',async({page})=>{
+ await page.goto('/paths/business-roastery-v1');
+ await expect(page).toHaveURL(/\/business-roastery-v1\/?$/);
+ await expect(page.getByRole('heading',{name:'Merancang sampai Menjalankan Bisnis Roastery'})).toBeVisible();
+ await expect(page.locator('section > button[aria-controls^="br-module-"]')).toHaveCount(21);
+});
+test('student sees real concepts before optional business-model comparison; reader matches course layout',async({page})=>{
+ await page.goto('/business-roastery-v1/br-b13-l01');
+ await expect(page.getByRole('heading',{name:'Landed cost sampai produk jadi'})).toBeVisible();
+ const body=await page.locator('article').innerText();
+ expect(body).toContain('Pelajari konsep dan cara kerjanya');
+ expect(body).toContain('Landed green cost');
+ expect(body.indexOf('Pelajari konsep dan cara kerjanya')).toBeLessThan(body.indexOf('Penerapan dalam operasi roastery'));
+ const extra=page.getByText('Lihat penerapan pada tiga skala bisnis');
+ await expect(extra).toBeVisible();
+ await expect(page.getByText('A · Brand asset-light')).not.toBeVisible();
+ await extra.click();
+ await expect(page.getByText('A · Brand asset-light')).toBeVisible();
+});
+test('mobile syllabus can be opened and chapter remains readable without horizontal overflow',async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ await page.goto('/business-roastery-v1/br-b16-l01');
+ const open=page.getByRole('button',{name:/Daftar materi/});
+ await expect(open).toHaveAttribute('aria-expanded','false');
+ await open.click();
+ await expect(open).toHaveAttribute('aria-expanded','true');
+ await expect(page.getByRole('complementary',{name:'Daftar pelajaran silabus'})).toBeVisible();
+ await page.getByRole('link',{name:/Siklus modal kerja dan CCC/}).click();
+ await expect(page.getByRole('heading',{name:'Siklus modal kerja dan CCC'})).toBeVisible();
+ const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
+ expect(overflow).toBeLessThanOrEqual(2);
 });
