@@ -29,5 +29,3 @@ Dalam data A–C di atas, C lebih cepat daripada A tetapi bukan berarti lebih se
 ## Saat situasinya berbeda
 
 Jika pindah dari beans baru dengan roast berbeda, apakah penyesuaian metode sebelumnya dapat diterapkan persis? Jelaskan data mana yang perlu diperoleh ulang dan bagaimana melakukan trial tanpa pemborosan berlebihan.
-
-**Periksa pemahamanmu:** sebutkan satu informasi yang masih belum diketahui, dua kemungkinan sebab yang berbeda, dan satu eksperimen aman yang paling berpeluang membedakannya. Tidak ada angka resep universal yang menggantikan keputusan berdasarkan bukti.
