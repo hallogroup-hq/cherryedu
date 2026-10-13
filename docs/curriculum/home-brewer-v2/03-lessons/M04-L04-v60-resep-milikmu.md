@@ -18,7 +18,15 @@ Catatan rasa sebaiknya bukan hanya bintang lima. Nyatakan apa yang kamu cari: af
 
 Tulis resep rumahmu dengan takaran gram dan urutan sederhana yang bisa diikuti teman tanpa bantuan lisan. Buat dua versi dengan satu perubahan utama. Tentukan hasil yang ingin diukur dan bagaimana akan membandingkan dengan jujur. Bila gagal, dokumentasikan alasannya sebelum mencoba resep viral lain.
 
-Tulis catatan percobaan **sebelum** melakukan perubahan: tujuan, hipotesis, prediksi, faktor yang diubah, keadaan yang dijaga, pengamatan, dan risiko alat. Peralatan nyata harus dipakai sesuai petunjuk pabrikan. Jika hasil dari ilustrasi, labeli sebagai simulasi; jika benar-benar mencicipi, tulis observasi tanpa mengeditnya supaya cocok dengan hipotesis.
+## Tulislah resep yang dapat diulang tanpa videomu
+
+Resep yang dapat diulang menjawab pertanyaan **apa yang dilakukan, kapan, dan dengan apa**. Catat lot kopi, alat dan filter, dosis, massa air **masuk**, urutan tuang, titik mulai timer, serta apa yang dilakukan ketika flow berubah. Jika suhu hanya dikira-kira, tulis “tidak diukur”. Jangan menulis satu angka sebagai standar wajib.
+
+**Contoh ilustratif** dengan total air 225 g: Versi A menggunakan 40 g pada pembasahan awal dan **185 g sisanya** untuk tahapan lanjutan. Versi B menggunakan 50 g awal dan **175 g sisanya**. Dua versi itu memiliki dosis serta jumlah air masuk yang sama. Karena pembagian tahap berubah, prediksikan dampak yang ingin diuji—misalnya pola aliran—namun jangan mengarang profil rasa sebelum tasting.
+
+Mintalah teman membaca SOP tanpa penjelasan lisan. Apakah ia tahu kapan menyalakan timer, apakah “tuang 60 g” berarti total akumulasi 60 g atau tambahan 60 g, dan kapan menghentikan proses? Ketidakjelasan yang ia temukan adalah masalah dokumentasi **meski kopimu terasa enak**.
+
+**Uji kondisi baru:** jika berganti dari V60 ke dripper flat-bottom, kamu boleh membawa tujuan rasa, dosis awal, dan disiplin catatan. Namun bed, filter, aliran serta respons terhadap pola tuang dapat berubah. Gunakan resep lama sebagai baseline sementara, bukan jaminan hasil identik. Setiap revisi mempunyai alasan dan catatan hasil, bukan hanya angka yang tampak rapi.
 
 ## Saat situasinya berbeda
 
