@@ -29,5 +29,3 @@ Buat rencana lima seduhan selama seminggu yang hemat. Tentukan satu pertanyaan u
 ## Tantangan saat kondisi berubah
 
 Setelah dua percobaan, hasil berbeda padahal setting tampak sama. Apa informasi tambahan tentang dosis, filter, suhu, jeda sejak giling dan arah tuang yang perlu dicari sebelum membeli grinder baru?
-
-**Jurnal pribadi:** Apa hal yang baru kamu pahami, asumsi mana yang masih perlu diperiksa, dan eksperimen paling sederhana apa yang bisa menjawabnya pada sesi berikutnya? Jawaban yang beralasan boleh berbeda dari resep orang lain.
