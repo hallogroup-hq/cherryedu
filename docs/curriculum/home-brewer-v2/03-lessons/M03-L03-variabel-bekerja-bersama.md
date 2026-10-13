@@ -18,7 +18,13 @@ Suhu air terukur saat akan dituang belum tentu sama dengan suhu dalam coffee bed
 
 Buat peta sebab-akibat. Pilih satu target seperti 'mengurangi variasi drawdown'. Usulkan eksperimen A/B yang mengubah satu variabel utama dan jelaskan faktor yang sulit dikontrol 100%. Tulis hasil yang akan membuat hipotesismu salah, bukan hanya hasil yang kamu harapkan.
 
-Tulis catatan percobaan **sebelum** melakukan perubahan: tujuan, hipotesis, prediksi, faktor yang diubah, keadaan yang dijaga, pengamatan, dan risiko alat. Peralatan nyata harus dipakai sesuai petunjuk pabrikan. Jika hasil dari ilustrasi, labeli sebagai simulasi; jika benar-benar mencicipi, tulis observasi tanpa mengeditnya supaya cocok dengan hipotesis.
+## Cara membaca hubungan antarvariabel
+
+**Suhu** memengaruhi kondisi pelarutan, sementara **gilingan** memengaruhi luas kontak dan hambatan air. Namun pada V60, mengubah gilingan juga dapat mengubah durasi kontak; mengubah pola tuang dapat mengubah temperatur bed dan aliran. Dengan kata lain, efek sebuah perubahan **tidak selalu bisa dijumlahkan sederhana** dengan efek perubahan lain.
+
+Dalam data A–C di atas, C lebih cepat daripada A tetapi bukan berarti lebih sedikit senyawa terlarut yang masuk minuman. Ketika hanya punya waktu, kamu tahu proses berlangsung berbeda; kamu belum tahu konsentrasi, ekstraksi atau preferensinya. Bedakan **apa yang diubah** dari **apa yang dihasilkan oleh perubahan itu**: waktu total sering menjadi *output proses*, bukan knob yang dapat disetel secara mandiri.
+
+**Rancang tes terarah:** kalau pertanyaannya pengaruh grind, pilih dua setelan yang aman dan jaga filter, kopi, massa air, dosis serta cara tuang sedekat mungkin. Jika dua percobaan berbeda 20 detik, jangan langsung melompat ke kata “over-extracted”. Ulangi pada kondisi mirip untuk melihat konsistensinya. Jika pertanyaannya pengaruh suhu, pertahankan grinder lebih dulu dan catat suhu yang benar-benar terukur, termasuk apakah alat sudah dipanaskan. Jelaskan satu hasil yang dapat membuatmu membuang hipotesis awal.
 
 ## Saat situasinya berbeda
 
