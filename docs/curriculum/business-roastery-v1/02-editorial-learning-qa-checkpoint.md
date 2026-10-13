@@ -33,7 +33,16 @@ Initial inspection identified substantial copying: all 84 lessons contained an i
 3. Flat-quote freight no longer displays a misleading weight-based freight bill.
 4. JSX text emphasis is rendered as proper tags rather than raw Markdown asterisks.
 5. Finance model defines absorbed full HPP for gross margin, variable manufacturing and channel costs for contribution, and fixed factory plus nonproduction overhead once for BEP.
-6. Sixteen Playwright checks are now authored, including tests for capacity, intraweek cash and flat freight. **Read current CI run status before claiming they pass.**
+6. Eighteen Playwright checks are now authored, including tests for capacity, intraweek cash and flat freight. **Read current CI run status before claiming they pass.**
+
+## Independent academic + mobile-preparation follow-up, 2026-10-13
+
+- A second independent source cross-check reversed an erroneous prior 10 kg minimum for **IndoExpress Jakarta → Medan**: two available provider pages instead confirm **100 kg minimum at published Rp7,900/kg**, still indicative and not a green-specific quote. The 16th browser case checks this exact minimum, direction and estimated base charge. No inference is made for Aceh → Sukabumi.
+- **27 separate arithmetic fixtures** now execute before build in `scripts/validate-business-roastery-numbers.cjs`. They check taught examples from conversion capacity and roast yield through raw-landed cost, full/variable HPP, weighted contribution, BEP, CCC, credit exposure and invoice/packing mismatches; they also lock two sourced directional freight examples.
+- Removed all 21 repetitive decision-case instructions and corrected confusing supplier A/B labels. Fixed B13's fixed-overhead wording and B14's materially misleading labeling of **absorbed HPP minus channel** as contribution margin; actual variable manufacturing cost is required before claiming a contribution.
+- Business plan capstone now distinguishes **section filled** from **answer approved** and offers a phone-friendly copy action, without writing student records. A Playwright mobile test checks the copied text. **18 browser tests** cover the learning path and tools; results must be verified for the current HEAD.
+- Author-facing [novice/industry expert pilot protocol](03-pilot-expert-release-gate.md) and [real supplier/carrier RFQ evidence pack](04-rfq-evidence-pack.md) were written. Neither human reviews nor requests to suppliers have been performed. Real usability and authentic quotations remain release blockers.
+- Primary regulator/provider links appear inside B06/B08/B21 learner content. A green compilation/build does not equal academic signoff or human phone comprehension.
 
 ## Still required for academic release
 
