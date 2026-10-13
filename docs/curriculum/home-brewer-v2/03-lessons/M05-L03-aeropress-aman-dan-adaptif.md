@@ -18,7 +18,15 @@ Jangan menekan plunger pada alat yang tidak stabil, jangan melakukan inverted br
 
 Gunakan kartu langkah aman: kondisi perangkat, filter kompatibel, dukungan cangkir stabil, penanganan air panas, prosedur seduh standar, pelepasan tekanan/cleaning sesuai manual. Tentukan parameter mana yang kamu ingin uji pada sesi berikutnya tanpa mengubah aspek keselamatan.
 
-Sebelum mengubah resep, tulis **pertanyaan**, **prediksi**, **variabel utama**, **faktor pembanding** dan **batas keselamatan**. Jika hasil belum benar-benar dicicipi, biarkan kolom rasa kosong. Jangan menggunakan data fiktif sebagai bukti suatu metode lebih unggul. Jika menggunakan air panas, kaca, alat tekanan atau listrik, ikuti panduan resmi produsennya.
+## Bedakan variabel resep dari syarat keamanan alat
+
+Pada AeroPress, **komponen harus dipasang sesuai petunjuk model yang digunakan**, wadah penyangga harus stabil, dan air panas tidak boleh dibiarkan dalam konfigurasi yang mudah terbalik. Pabrikan menyarankan metode penggunaan yang aman; mengubah waktu kontak atau ukuran gilingan dalam rentang operasi normal bukan izin untuk mengganti posisi alat menjadi inverted yang berisiko.
+
+**Contoh dua ide:** Ide A adalah membandingkan dua waktu kontak dengan metode standar, kopi dan dosis sama, dan mengikuti instruksi tekanan tangan pabrikan. Ide B adalah membalik alat berisi air panas agar tetesan tidak keluar. Ide B **tidak layak dijadikan eksperimen wajib** karena masalah keselamatannya tidak sebanding dengan tujuan rasa. Perangkat atau aksesori pengendali tetesan hanya boleh digunakan bila didukung untuk model tertentu.
+
+Saat menulis log, bedakan massa air masuk, posisi alat, cara pemisahan, dan kapan minuman mulai keluar. Jangan menyamakan tekanan manual AeroPress dengan tekanan mesin espresso komersial. Bila plunger terasa tidak normal atau penyangga goyah, hentikan prosedur dan periksa setelah kondisi aman.
+
+**Tantangan:** temanmu menuntut inverted karena tutorial kompetisi. Jawaban yang baik menjelaskan risiko air panas, metode standar yang tersedia, dan cara menguji variabel rasa tanpa mengganti syarat keselamatan. Kemampuan beradaptasi bukan kemampuan mengambil risiko lebih besar.
 
 ## Pindah ke situasi berbeda
 
