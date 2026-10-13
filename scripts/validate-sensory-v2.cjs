@@ -74,7 +74,7 @@ for(const [k,v] of Object.entries(dives)){
  if(banned.test(v))fail('Leaked status in investigation '+k);
 }
 const worksTxt=read('lib/data/sensoryV2WorkedExamples.ts');
-const workMatch=worksTxt.match(/export const SENSORY_V2_WORKED_EXAMPLES:Record<string,string>=(\\{[\\s\\S]*?\\});/);
+const workMatch=worksTxt.match(/export const SENSORY_V2_WORKED_EXAMPLES:Record<string,string>=(\{[\s\S]*?\});/);
 let worked={};
 if(!workMatch)fail('Cannot read 40 worked lesson examples');
 else try{worked=JSON.parse(workMatch[1]);}catch(e){fail('Invalid worked examples JSON');}
@@ -82,7 +82,7 @@ if(Object.keys(worked).length!==40)fail('Need 40 worked examples: '+Object.keys(
 for(const l of lessons){
  const id='sv2-'+l.id,addon=worked[id];
  if(!addon){fail('Missing worked practice '+id);continue;}
- const total=(l.content+' '+addon).trim().split(/\\s+/).length;
+ const total=(l.content+' '+addon).trim().split(/\s+/).length;
  if(total<235)fail('Thin combined lesson '+id+' '+total);
  if(banned.test(addon))fail('Editorial text in '+id);
  if(!addon.includes('Pertanyaan lanjutan'))fail('Worked practice must ask for evidence revision '+id);
