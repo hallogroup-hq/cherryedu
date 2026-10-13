@@ -53,6 +53,8 @@ test('case revelation comes after independent answer; revisions are not replaced
  await expect(region).not.toContainText('Persentase keluaran air bukan extraction yield');
  await region.getByRole('textbox',{name:'Keputusan dan alasan awalmu'}).fill('Rasio input 15 banding 225 dan hasil keluar tidak cukup untuk menghitung extraction yield karena tidak ada TDS.');
  await region.getByRole('button',{name:'Lihat informasi baru'}).click();
+ await expect(region.getByRole('textbox',{name:'Keputusan dan alasan awalmu'})).toHaveJSProperty('readOnly',true);
+ await expect(region).toContainText('Jawaban awal dikunci setelah informasi baru dibuka');
  await expect(region).toContainText('Teman mengatakan extraction yield pasti 83%');
  await region.getByRole('textbox',{name:'Keputusan setelah tahu bukti baru'}).fill('Rasio air masuk berbeda dengan extraction yield; perlu mengetahui berapa zat terlarut yang berpindah dari kopi melalui pengukuran TDS.');
  await region.getByRole('button',{name:'Bandingkan dengan alasan contoh'}).click();
