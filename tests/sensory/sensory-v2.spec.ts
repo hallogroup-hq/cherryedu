@@ -86,6 +86,14 @@ test('learning support tools are reachable and usable without account writes',as
  await page.getByRole('link',{name:'Buka panduan praktik →'}).click();
  await expect(page.getByRole('heading',{name:'Delapan latihan sensori bertahap'})).toBeVisible();
  await expect(page.getByText(/0 dari 8 panduan/)).toBeVisible();
+ // New visitors get CherryEdu's genuine release-announcement dialog.
+ // Dismiss it through its accessible close button, rather than forcing clicks through the overlay.
+ const announcement=page.getByRole('dialog',{name:/Apa yang Baru di Cherry Edu/});
+ await announcement.waitFor({state:'visible',timeout:2500}).catch(()=>{});
+ if(await announcement.isVisible()) {
+  await announcement.getByRole('button',{name:'Tutup modal'}).click();
+  await expect(announcement).toHaveCount(0);
+ }
  await page.getByRole('checkbox').first().check();
  await expect(page.getByText(/1 dari 8 panduan/)).toBeVisible();
  await page.goto('/sensory-v2/notebook');
@@ -93,7 +101,7 @@ test('learning support tools are reachable and usable without account writes',as
  await page.getByRole('button',{name:'Isi contoh kasus'}).click();
  await page.getByRole('button',{name:'Baca laporan'}).click();
  await expect(page.getByText(/11 dari 11 kolom telah terisi/)).toBeVisible();
- await expect(page.getByRole('textbox',{name:'Tinjau dan salin catatanmu'})).toContainText('PHYSICAL');
+ await expect(page.getByRole('textbox',{name:'Tinjau dan salin catatanmu'})).toHaveValue(/PHYSICAL/);
 });
 test('new course tools have no horizontal overflow on narrow screens',async({page})=>{
  await page.setViewportSize({width:390,height:844});
