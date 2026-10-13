@@ -191,7 +191,7 @@ function RecipeLab(){
   <h3 className="font-serif text-xl font-semibold text-roast-950">Rancangan resep milikmu</h3><p className="text-sm leading-7">Kreativitas dimulai dari tujuan, lalu pengujian yang bisa diulang. Catatan ini hanya aktif pada sesi halaman dan belum dinilai oleh instruktur.</p>
   {fields.map(([label,v,set])=><label key={label} className="block text-sm font-semibold">{label}<textarea rows={2} maxLength={800} value={v} className={field} onChange={e=>{set(e.target.value);setShow(false);}}/></label>)}
   <button type="button" className={action} disabled={fields.some(([,v])=>v.trim().length<15)} onClick={()=>setShow(true)}>Periksa kesiapan proyek</button>
-  {show&&<p role="status" className="bg-paper-100 p-4 text-sm leading-7">Rancanganmu punya tujuan, baseline dan uji lanjut. Belum berarti resep sudah dibuat, dicicipi, aman disimpan, atau dapat direproduksi. Tahap berikutnya: percobaan nyata yang aman, log hasil, evaluasi, dan review oleh pemilik materi.</p>}
+  {show&&<p role="status" className="bg-paper-100 p-4 text-sm leading-7">Rancanganmu punya tujuan, baseline dan uji lanjut. Belum berarti resep sudah dibuat, dicicipi, aman disimpan, atau dapat direproduksi. Langkah berikutnya adalah melakukan percobaan nyata secara aman, mencatat hasilnya, lalu mengevaluasi dan memperbaiki resep berdasarkan pengamatan.</p>}
  </div>;
 }
 export function HomeBrewerLab({moduleCode}:{moduleCode:string}){
