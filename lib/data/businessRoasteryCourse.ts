@@ -1,6 +1,7 @@
 // Roastery-business candidate content. Distinct from the published cafe/coffee-business course.
 import {BUSINESS_ROASTERY_DEEP_DIVES_A} from './businessRoasteryDeepDivesA';
 import {BUSINESS_ROASTERY_DEEP_DIVES_B} from './businessRoasteryDeepDivesB';
+import {BUSINESS_ROASTERY_MODULE_LECTURES} from './businessRoasteryModuleLectures';
 export type BusinessModule={code:string;title:string;description:string;scenario:string};
 export type BusinessLesson={id:string;moduleId:string;order:number;title:string;content:string;task:string;trap:string;optionalModels?:string};
 export const BUSINESS_ROASTERY_MODULES:BusinessModule[]=[
@@ -902,7 +903,7 @@ for (const lesson of BUSINESS_ROASTERY_LESSONS) {
   const removed=lesson.content.replace(/### Apa dampaknya bagi tiga jenis roastery\?\n\n(?:- [^\n]+\n){3}\n/,'');
   if(removed===lesson.content)throw new Error('Scenario section did not separate from instructional content: '+lesson.id);
   const concept=removed.replace(/^## Pertanyaan bisnis yang ingin kita jawab\n\n/,'');
-  lesson.content='## Pelajari konsep dan cara kerjanya\n\n'+lecture+'\n\n## Penerapan dalam operasi roastery\n\n'+concept
+  lesson.content=(lesson.order===1 ? BUSINESS_ROASTERY_MODULE_LECTURES[lesson.moduleId]+'\n\n' : '')+'## Pelajari konsep dan cara kerjanya\n\n'+lecture+'\n\n## Penerapan dalam operasi roastery\n\n'+concept
     .replace(/### Tugas yang bisa kamu kerjakan/g,'### Coba terapkan setelah membaca')
     .replace(/### Kesalahan yang harus dicegah/g,'### Hal penting yang perlu diperhatikan')
     .replace(/### Checkpoint pemahaman/g,'### Periksa pemahamanmu');
