@@ -31,5 +31,3 @@ Bedakan tiga hal saat menulis log: **suhu target ketel**, **angka yang benar-ben
 ## Pindah ke situasi berbeda
 
 Kamu ingin kopi panas yang enak diminum lebih cepat. Apakah menurunkan suhu air seduh satu-satunya opsi? Bandingkan perubahan suhu penyajian dengan perubahan suhu ekstraksi, serta apa yang masih perlu diuji.
-
-**Ringkas dengan bahasamu:** jelaskan mengapa hasil berubah, satu dugaan alternatif, dan apa pengujian berikutnya yang mungkin mengubah pikiranmu. Tidak ada kewajiban mengikuti satu brand atau angka resep tertentu.
