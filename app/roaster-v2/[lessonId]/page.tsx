@@ -3,6 +3,7 @@ import {notFound} from 'next/navigation';
 import {ROASTER_V2_LESSONS,ROASTER_V2_MODULES} from '@/lib/data/roasterV2Course';
 import {MarkdownRenderer} from '@/components/MarkdownRenderer';
 import {RoasterV2Lab} from '@/components/roaster-v2/RoasterV2Lab';
+import {RoasterConceptVisual} from '@/components/roaster-v2/RoasterConceptVisual';
 
 export function generateStaticParams(){return ROASTER_V2_LESSONS.map(l=>({lessonId:l.id}));}
 export default function RoasterLessonPage({params}:{params:{lessonId:string}}){
@@ -21,6 +22,7 @@ export default function RoasterLessonPage({params}:{params:{lessonId:string}}){
   <p className="mt-14 font-mono text-xs font-semibold uppercase tracking-widest text-cherry-700">{m.title} · Pelajaran {l.order} dari 4</p>
   <h1 className="mt-3 font-serif text-3xl font-bold leading-tight text-roast-950 sm:text-5xl">{l.title}</h1>
   <div className="mt-8 border-t border-paper-300 pt-8"><MarkdownRenderer content={l.content}/></div>
+  {l.order===1&&<RoasterConceptVisual moduleCode={m.code}/>}
   {l.order===2&&<RoasterV2Lab moduleCode={m.code}/>}
   {l.order===4&&<section className="mt-10 border-y border-paper-300 py-8">
    <h2 className="font-serif text-2xl font-semibold text-roast-950">Siap mengambil keputusan saat kondisinya berubah?</h2>
