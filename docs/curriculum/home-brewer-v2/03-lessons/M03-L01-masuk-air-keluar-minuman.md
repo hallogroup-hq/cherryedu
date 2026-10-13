@@ -24,6 +24,8 @@ Dari 15 g kopi dan 225 g air seduh, kamu dapat menghitung **225 ÷ 15 = 15**, se
 
 Mengapa? Sebagian cairan dapat tertahan pada bubuk dan filter; seduhan juga memindahkan zat terlarut dari kopi ke minuman. Neraca massa sederhana membantu melihat ada komponen berbeda, tetapi tanpa pengukuran konsentrasi kita belum tahu jumlah zat kopi yang terlarut secara sah.
 
+**Hipotesis yang bisa diuji:** bila output minuman berkurang sementara kopi dan massa air masuk tetap sama, satu kemungkinan adalah lebih banyak cairan tertahan pada bed atau filter. Alternatifnya, cara menimbang atau waktu pemisahan berbeda. Catat kondisi sebelum mengklaim penyebab; tidak satu pun dari dua kemungkinan itu otomatis menunjukkan extraction yield.
+
 **Tes interpretasi:** jika teman menulis “15/225” tanpa memberi label, minta ia menjelaskan apakah 225 g adalah air yang dituang, minuman jadi, atau jumlah cairan akhir setelah bypass. Dua orang bisa tampak tidak sepakat padahal memakai metrik berbeda.
 
 **Perbandingan terarah:** catat input, output dan jenis metode pada dua sesi yang sama-sama aman. Bila output tak diukur, tulis “tidak ada data” dan lanjutkan tujuan belajar lainnya. Jangan memasukkan angka default sebagai observasi nyata. Rasio memandu pencatatan; **rasa dan EY tidak dapat diputuskan dari angka input saja**.
