@@ -74,7 +74,7 @@ test('capstone, lesson and narrow-screen tools render and retain local inputs',a
   expect(difference,path).toBeLessThanOrEqual(2);
  }
  await page.getByRole('textbox',{name:/1. Pasar dan pesanan/}).fill('Sudah ada tiga pelanggan yang menandatangani PO dan membayar DP serta tanggal pengiriman tercatat.');
- await expect(page.getByText('1 / 10 bagian diisi cukup terperinci')).toBeVisible();
+ await expect(page.getByText('1 / 10 bagian terisi (belum diperiksa)')).toBeVisible();
  await expect(page.getByRole('textbox',{name:'Ringkasan rencana yang bisa disalin'})).toHaveValue(/Sudah ada tiga pelanggan/);
 });
 
@@ -223,4 +223,22 @@ test('B14 business case does not mistake absorbed HPP after channel fees for con
  await expect(page.getByText(/Ini bukan contribution margin yang sah/)).toBeVisible();
  await expect(page.getByText(/variable manufacturing cost dipisahkan/)).toBeVisible();
  await expect(page.getByText('**',{exact:false})).toHaveCount(0);
+});
+
+test('capstone can copy business plan on mobile without claiming the answers are graded',async({page})=>{
+ await page.addInitScript(()=>{
+  Object.defineProperty(navigator,'clipboard',{
+   configurable:true,
+   value:{writeText:async(text:string)=>{(window as any).__roasteryCopied=text;}}
+  });
+ });
+ await page.setViewportSize({width:390,height:844});
+ await page.goto('/business-roastery-v1/plan');
+ await page.getByRole('textbox',{name:/1. Pasar dan pesanan/}).fill('Ada PO 5kg dari satu kafe; tanggal, volume dan DP sudah dikonfirmasi.');
+ await expect(page.getByText('1 / 10 bagian terisi (belum diperiksa)')).toBeVisible();
+ await page.getByRole('button',{name:'Salin rencana bisnis'}).click();
+ await expect(page.getByRole('status')).toContainText('Teks rencana bisnis tersalin');
+ const copied=await page.evaluate(()=>(window as any).__roasteryCopied);
+ expect(copied).toContain('Ada PO 5kg dari satu kafe');
+ expect(copied).toContain('Belum diverifikasi');
 });
