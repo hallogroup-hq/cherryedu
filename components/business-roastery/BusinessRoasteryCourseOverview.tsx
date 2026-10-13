@@ -27,7 +27,7 @@ export function BusinessRoasteryCourseOverview(){
      <div className="border border-paper-300 bg-paper-50 p-5 shadow-xs md:col-span-4">
       <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=900&auto=format&fit=crop&q=80" className="h-36 w-full object-cover" alt="Biji kopi sangrai untuk pembelajaran usaha roastery"/>
       <h2 className="mt-4 text-sm font-bold">Belajar sesuai urutan</h2>
-      <p className="mt-2 text-xs leading-6 text-roast-700">Mulai dari memahami bisnisnya. Peralatan hitung dan studi kasus dibuka saat konsep dasarnya sudah dijelaskan. Progres latihan tidak disimpan pada preview.</p>
+      <p className="mt-2 text-xs leading-6 text-roast-700">Mulai dari memahami bisnisnya. Peralatan hitung dan studi kasus dibuka saat konsep dasarnya sudah dijelaskan. Catatan latihan dan progres pada kelas ini belum tersimpan ke akun.</p>
       <Link href={first} className="mt-4 flex items-center justify-center gap-2 bg-roast-950 px-4 py-3 text-xs font-bold text-white hover:bg-cherry-800">Baca Materi Pertama <ArrowRight size={15}/></Link>
      </div>
     </div>

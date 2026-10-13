@@ -24,7 +24,7 @@ export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
    </div>
   </div>
   <div className="mx-auto max-w-5xl px-4 pt-4 sm:px-6">
-   <p className="border border-paper-300 bg-paper-100 px-4 py-3 text-xs text-roast-700">Belajar mandiri. Progres membaca dan jawaban latihan pada preview ini tidak disimpan ke akun.</p>
+   <p className="border border-paper-300 bg-paper-100 px-4 py-3 text-xs text-roast-700">Belajar mandiri. Catatan latihan dan progres pada kelas ini belum tersimpan ke akun.</p>
    <div className="mt-7 grid items-start gap-8 lg:grid-cols-[270px_minmax(0,1fr)]">
     <aside id="br-reader-sidebar" className={`${sidebarOpen?'block':'hidden'} max-h-[calc(100vh-11rem)] overflow-y-auto border border-paper-300 bg-white p-4 lg:sticky lg:top-36 lg:block`} aria-label="Daftar pelajaran silabus">
      <p className="mb-4 border-b border-paper-200 pb-3 font-mono text-[10px] font-bold uppercase tracking-widest text-roast-600">Daftar Materi Silabus</p>
