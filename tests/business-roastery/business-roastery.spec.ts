@@ -198,15 +198,15 @@ test('lesson tasks stay topic-specific without repeated generic evidence templat
  await expect(page.getByText(/Bila hasil kasus berbeda dari ekspektasi/)).toHaveCount(0);
 });
 
-test('published Jakarta to Medan sea freight minimum uses active canonical 10kg listing',async({page})=>{
+test('Jakarta to Medan sea freight honors published 100 kg minimum from provider',async({page})=>{
  await page.goto('/business-roastery-v1/calculator');
  await page.getByRole('combobox',{name:'Rute dan moda persis sesuai referensi'}).selectOption('freight-jkt-medan-sea');
  await expect(page.getByText(/Tarif tercantum/)).toContainText('7.900');
- await expect(page.getByText(/Tarif tercantum/)).toContainText('minimum 10 kg');
- await expect(page.getByRole('link',{name:/Lihat tarif sumber/})).toHaveAttribute('href','https://www.indoexpress.co.id/tarif/cargo-jakarta-ke-medan.html');
+ await expect(page.getByText(/Tarif tercantum/)).toContainText('minimum 100 kg');
+ await expect(page.getByRole('link',{name:/Lihat tarif sumber/})).toHaveAttribute('href','https://www.indoexpress.co.id/tarif/cargo-jakarta-ke-medan-2.html');
  await page.getByRole('spinbutton',{name:/Berat green yang dibeli/}).fill('5');
- await expect(page.getByText('Berat ditagih untuk freight').locator('..')).toContainText('10 kg');
- await expect(page.getByText('Ongkos freight').locator('..')).toContainText('79.000');
+ await expect(page.getByText('Berat ditagih untuk freight').locator('..')).toContainText('100 kg');
+ await expect(page.getByText('Ongkos freight').locator('..')).toContainText('790.000');
  await page.getByRole('spinbutton',{name:/Berat green yang dibeli/}).fill('40');
- await expect(page.getByText('Ongkos freight').locator('..')).toContainText('316.000');
+ await expect(page.getByText('Ongkos freight').locator('..')).toContainText('790.000');
 });
