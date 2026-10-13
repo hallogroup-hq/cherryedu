@@ -38,11 +38,30 @@ const extractLessonSection=(value,heading,nextHeading)=>{
  const end=nextHeading?value.indexOf(nextHeading,start+heading.length):-1;
  return value.slice(start+heading.length,end<0?undefined:end).trim().replace(/\s+/g,' ');
 };
-const teachingBlocks=lessons.map(l=>extractLessonSection(l.content,'### Apa dampaknya bagi tiga jenis roastery?','### Tugas yang bisa kamu kerjakan'));
+const divesA=extract('lib/data/businessRoasteryDeepDivesA.ts',/BUSINESS_ROASTERY_DEEP_DIVES_A:Record<string,string> = (\\{[\\s\\S]*?\\});/);
+const divesB=extract('lib/data/businessRoasteryDeepDivesB.ts',/BUSINESS_ROASTERY_DEEP_DIVES_B:Record<string,string> = (\\{[\\s\\S]*?\\});/);
+const deepDives={...divesA,...divesB};
+const teachingBlocks=lessons.map(l=>deepDives[l.id]||'');
+if(Object.keys(deepDives).length!==84)fail('84 distinct pedagogical explanations required, got '+Object.keys(deepDives).length);
+for(const lesson of lessons){
+ const lecture=deepDives[lesson.id]||'';
+ const original=lesson.content;
+ const pattern=/### Apa dampaknya bagi tiga jenis roastery\\?\\n\\n(?:- [^\\n]+\\n){3}\\n/;
+ if(!pattern.test(original))fail('Original scenario separation impossible: '+lesson.id);
+ const remaining=original.replace(pattern,'').trim().split(/\\s+/).length;
+ const explanation=lecture.trim().split(/\\s+/).length;
+ if(explanation<115)fail('Insufficient concept-first teaching depth '+lesson.id+': '+explanation+' words');
+ if(remaining+explanation<330)fail('Lesson still too brief after conceptual teaching '+lesson.id+' total '+(remaining+explanation));
+ for(const key of ['###','**'])if(!lecture.includes(key))fail('Lecture missing learning structure '+lesson.id+' '+key);
+ if(/sok ahli|keren banget|\bDRAFT\b|Lorem ipsum|TBD/i.test(lecture))fail('Unprofessional writing in concept lecture '+lesson.id);
+ if(lecture.includes('Apa dampaknya bagi tiga jenis roastery?'))fail('Case-first teaching repeated in '+lesson.id);
+}
+if(!read(course).includes('for (const lesson of BUSINESS_ROASTERY_LESSONS)')||!read(course).includes('## Pelajari konsep dan cara kerjanya'))fail('Concept-first content not mounted on every lesson');
+
 const diagnosticBlocks=lessons.map(l=>extractLessonSection(l.content,'### Checkpoint pemahaman'));
-if(teachingBlocks.some(x=>!x))fail('Missing scenario-specific teaching section');
+if(teachingBlocks.some(x=>!x))fail('Missing original instructional concept section');
 if(diagnosticBlocks.some(x=>!x))fail('Missing diagnostic checkpoint');
-if(new Set(teachingBlocks).size!==lessons.length)fail('Duplicated three-model boilerplate across lessons');
+if(new Set(teachingBlocks).size!==lessons.length)fail('Duplicated concept-first teaching across lessons');
 if(new Set(diagnosticBlocks).size!==lessons.length)fail('Duplicated generic diagnostic checkpoint across lessons');
 if(new Set(lessons.map(l=>l.task)).size!==lessons.length)fail('Duplicated tasks across lessons');
 if(new Set(lessons.map(l=>l.trap)).size!==lessons.length)fail('Duplicated mistake warnings across lessons');
@@ -65,7 +84,7 @@ if(refs.filter(x=>x.category==='freight').length!==4)fail('Expected four directi
 const fieldManual=extract('lib/data/businessRoasteryFieldGuides.ts',/BUSINESS_ROASTERY_FIELD_GUIDES:Record<string,BusinessModuleGuide>=(\{[\s\S]*?\});/);
 if(Object.keys(fieldManual).length!==21)fail('Need 21 topic-specific field manuals');
 for(const mod of modules){const field=fieldManual[mod.code];if(!field||field.content.split(/\s+/).length<140||!field.content.includes('Bukti kerja'))fail('Shallow applied study '+mod.code);}
-if(!read('app/business-roastery-v1/[lessonId]/page.tsx').includes('BUSINESS_ROASTERY_FIELD_GUIDES[mod.code]'))fail('Applied cases not mounted');
+if(!read('components/business-roastery/BusinessRoasteryReader.tsx').includes('guides[lesson.moduleId]'))fail('Applied cases not mounted after lessons');
 if(new Set(cases.map(c=>c.newEvidence)).size!==21)fail('Repeated evidence change across all cases');
 const model=read('components/business-roastery/BusinessModelComparator.tsx');
 const thirteen=read('components/business-roastery/BusinessThirteenWeekCash.tsx');
