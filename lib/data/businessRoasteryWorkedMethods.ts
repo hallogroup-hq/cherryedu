@@ -8,7 +8,7 @@ export const BUSINESS_ROASTERY_WORKED_METHODS:Record<string,{title:string;steps:
       },
       {
         "heading": "Catat perubahan massa",
-        "explanation": "Jika 100 kg green masuk mesin dan 83 kg roasted dihasilkan, rendemen roasting 83%. Jangan pakai rasio itu untuk mengonversi ceri menjadi green karena proses dan denomsinasinya berbeda."
+        "explanation": "Jika 100 kg green masuk mesin dan 83 kg roasted dihasilkan, rendemen roasting 83%. Jangan pakai rasio itu untuk mengonversi ceri menjadi green karena proses dan penyebutnya berbeda."
       },
       {
         "heading": "Pisahkan biaya dan pembayaran",

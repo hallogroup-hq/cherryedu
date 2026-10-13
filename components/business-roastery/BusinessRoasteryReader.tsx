@@ -8,6 +8,7 @@ import {BusinessConceptFigure} from '@/components/business-roastery/BusinessConc
 import {BUSINESS_ROASTERY_MODULES as modules,BUSINESS_ROASTERY_LESSONS as lessons} from '@/lib/data/businessRoasteryCourse';
 import {BUSINESS_ROASTERY_FIELD_GUIDES as guides} from '@/lib/data/businessRoasteryFieldGuides';
 import {BUSINESS_ROASTERY_GLOSSARY as glossary} from '@/lib/data/businessRoasteryGlossary';
+import {BUSINESS_ROASTERY_WORKED_METHODS as workedMethods} from '@/lib/data/businessRoasteryWorkedMethods';
 
 export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
  const idx=lessons.findIndex(l=>l.id===lessonId);
@@ -38,7 +39,19 @@ export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
      <AudioNarrationPlayer title={lesson.title} rawMarkdown={lesson.content}/>
      <article className="mt-6"><h1 className="mb-6 border-b border-paper-300 pb-5 font-serif text-3xl font-black leading-tight tracking-tight sm:text-4xl">{lesson.title}</h1>{lesson.order===1&&<BusinessConceptFigure moduleId={lesson.moduleId}/>}
       {lesson.order===1&&<section className="my-7 border-y border-paper-300 py-5" aria-label="Istilah dasar modul"><h2 className="mb-3 font-serif text-xl font-bold">Istilah yang perlu kamu kenali</h2><dl className="space-y-3">{glossary[lesson.moduleId]?.map(x=><div key={x.term} className="grid gap-1 sm:grid-cols-[140px_1fr] sm:gap-4"><dt className="text-sm font-bold text-roast-950">{x.term}</dt><dd className="text-sm leading-6 text-roast-700">{x.meaning}</dd></div>)}</dl></section>}
-      <MarkdownRenderer content={lesson.content}/></article>
+      <MarkdownRenderer content={lesson.content}/>
+      {lesson.order===1&&workedMethods[lesson.moduleId]&&<section className="mt-9 border-t border-paper-300 pt-7" aria-label="Panduan kerja langkah demi langkah">
+        <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cherry-800">Praktik Terpandu</p>
+        <h2 className="mt-2 font-serif text-2xl font-bold">{workedMethods[lesson.moduleId].title}</h2>
+        <p className="mt-2 text-sm leading-7 text-roast-700">Ikuti urutan pengerjaannya untuk memahami proses. Latihan keputusan mandiri tersedia setelah pelajaran keempat modul ini.</p>
+        <ol className="mt-5 space-y-3">
+         {workedMethods[lesson.moduleId].steps.map((step,n)=><li key={n} className="flex gap-4 border border-paper-300 bg-paper-100/60 px-4 py-4">
+          <span aria-hidden="true" className="shrink-0 font-mono text-xs font-bold text-cherry-800">{String(n+1).padStart(2,'0')}</span>
+          <div><h3 className="font-sans text-sm font-bold text-roast-950">{step.heading}</h3><p className="mt-1 text-sm leading-7 text-roast-700">{step.explanation}</p></div>
+         </li>)}
+        </ol>
+        <p className="mt-4 text-xs leading-6 text-roast-600">{workedMethods[lesson.moduleId].caution}</p>
+      </section>}</article>
      {lesson.optionalModels&&<details className="mt-9 border-y border-paper-300 bg-paper-100/40 px-4 py-4">
        <summary className="cursor-pointer text-sm font-semibold text-cherry-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cherry-800">Lihat penerapan pada tiga skala bisnis</summary>
        <p className="mt-3 text-xs leading-6 text-roast-700">Perbandingan berikut bersifat penerapan tambahan. Pahami konsep dan contoh hitungan pada materi utama terlebih dahulu.</p>
