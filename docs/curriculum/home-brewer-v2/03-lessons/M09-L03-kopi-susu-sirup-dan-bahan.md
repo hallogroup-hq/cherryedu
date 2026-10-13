@@ -31,5 +31,3 @@ Ketika susu diganti, persoalannya bukan hanya rasa. **Lactose-free** bukan berar
 ## Tantangan transfer
 
 Kamu kehabisan susu yang biasa digunakan dan hanya memiliki formula baru dengan komposisi tidak dikenal. Apakah layak langsung disebut resep yang sama? Jelaskan pertimbangan rasa, alergi, biaya dan keamanan.
-
-**Penutup pelajaran:** sebutkan satu variabel yang paling ingin kamu pahami, alasan memilihnya, dan kondisi yang akan membuatmu mengubah keputusan. Bila belum memiliki alat, latihan penalaran tetap valid tetapi bukan bukti keahlian praktik fisik.
