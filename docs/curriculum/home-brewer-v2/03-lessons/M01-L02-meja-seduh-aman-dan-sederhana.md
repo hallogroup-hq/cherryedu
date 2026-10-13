@@ -18,7 +18,15 @@ Air sangat panas dapat menyebabkan luka bakar. Jangan mencontoh gerakan memindah
 
 Gambar meja rumahmu: tempat air panas, timbangan, dripper, area gelas, posisi tangan, jalur listrik dan titik pembuangan ampas. Tandai dua risiko sebelum melakukan percobaan. Uji kesiapan tanpa menyeduh: apakah semua barang stabil dan kamu bisa menjangkau alat tanpa melintasi sumber panas?
 
-Sebelum mencoba, pisahkan **tujuan**, **prediksi**, **apa yang diubah**, **apa yang dijaga**, dan **apa yang benar-benar diamati**. Jika latihan menggunakan angka ilustrasi, tandai hasil sebagai simulasi. Jangan menuliskan hasil rasa seolah kamu sudah mencicipinya. Seduh nyata hanya dengan wadah yang sesuai, air aman dan prosedur peralatan dari produsennya.
+## Audit keamanan sebelum menyalakan ketel
+
+Bayangkan meja dapur kecil: stopkontak berada di sebelah wastafel, server di ujung permukaan, sementara tanganmu harus melewati kabel untuk mengambil timbangan. Walaupun setup tersebut terlihat rapi dalam foto, **alur gerak dan stabilitas** lebih penting daripada penampilan.
+
+Coba lakukan **dry run tanpa air panas**. Letakkan alat seperti saat akan menyeduh, lalu berpura-puralah mengambil kopi, menggerakkan ketel dan memindahkan server. Apakah ketel dapat diletakkan stabil? Apakah kabel menjauh dari air? Apakah gelas, dripper dan wadah memang sesuai untuk suhu yang akan dipakai? Jika tidak, ubah letak alat atau tunda praktik. Jangan pernah menguji tumpahan dengan air panas hanya demi latihan.
+
+**Alat sederhana bukan data palsu.** Jika tak punya timbangan, sendok dapat menjadi takaran kasar, tetapi jangan tulis “15 g” tanpa menimbang. Jika tidak memiliki ketel gooseneck, pilih metode yang bisa kamu jalankan aman tanpa memaksa gerakan menuang tipis ala kompetisi.
+
+**Tantangan pindah tempat:** ruang kos baru terlalu sempit untuk prosedurmu. Kriteria yang dapat dipertahankan ialah keamanan, air layak minum, dan kemampuan mencatat observasi; pilihan alat atau tahapan kerja bisa berubah secara sah.
 
 ## Tantangan saat kondisi berubah
 
