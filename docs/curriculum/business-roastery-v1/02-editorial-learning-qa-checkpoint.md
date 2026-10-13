@@ -33,7 +33,7 @@ Initial inspection identified substantial copying: all 84 lessons contained an i
 3. Flat-quote freight no longer displays a misleading weight-based freight bill.
 4. JSX text emphasis is rendered as proper tags rather than raw Markdown asterisks.
 5. Finance model defines absorbed full HPP for gross margin, variable manufacturing and channel costs for contribution, and fixed factory plus nonproduction overhead once for BEP.
-6. Fourteen Playwright checks are now authored, including tests for capacity, intraweek cash and flat freight. **Read current CI run status before claiming they pass.**
+6. Fifteen Playwright checks are now authored, including tests for capacity, intraweek cash and flat freight. **Read current CI run status before claiming they pass.**
 
 ## Still required for academic release
 
@@ -43,6 +43,12 @@ Initial inspection identified substantial copying: all 84 lessons contained an i
 - Have a practicing roastery operator and Indonesian SME accountant validate teaching correctness and assumptions.
 - Run novice comprehension pilot: Can a student justify three-model selection, trace yields, calculate full HPP/gross/contribution/BEP, identify cash shortfall, and respond to new QC/supplier evidence without memorizing a recipe?
 - Owner academic signoff before publication. No demonstration videos in this release. No student progress writes in authoring path. No merge or deploy under this checkpoint.
+
+## Evidence-source verification update
+
+- The referenced directional Mandala Cargo and IndoExpress public listing prices and minimum billable kilograms were independently checked again on October 13, 2026. These are listed *starting estimates*; neither provider has issued a commodity- and address-specific binding quotation for the learner case.
+- The official DJP policy explanation and PP 20/2026 regulation record are preferred over the JDIH `/summary` narrative, which labels itself AI-generated and says to check the original legal document. Specialist compliance and tax review remains mandatory.
+- The teaching validator now rejects repeated generic evidence checklist and identical caution paragraphs, while checking actual unique operational tasks and pitfalls in all 84 lessons.
 
 ## Evidence boundaries
 
