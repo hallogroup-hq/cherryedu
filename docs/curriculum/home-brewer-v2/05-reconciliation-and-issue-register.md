@@ -59,7 +59,7 @@ Severity: **P0** blocks candidate selection/production; **P1** blocks academic s
 | ID | Priority | Affected | Observation / risk | Required evidence or action | Status |
 | --- | --- | --- | --- | --- | --- |
 | HBV2-001 | P0 | #6 + #7 | Two incompatible candidates write same route/compiler/component paths; student IDs differ | Select **one** source of truth and freeze an exact commit; don't combine Git histories or publish both | DECISION-REQUIRED |
-| HBV2-002 | P1 | #6 | 27/40 lessons previously below editorial 370-word review threshold; 2 have been substantively expanded in this reconciliation | Re-check warning inventory on latest SHA, then novice-read and revise by outcome, not word count | OPEN |
+| HBV2-002 | P1 | #6 | 27/40 lessons at the original baseline were below the editorial 370-word review threshold; subsequent substantive rewrites reduce that count, with the current count to be confirmed from same-SHA CI | Re-check warning inventory on latest SHA, then novice-read and revise by outcome, not word count | OPEN |
 | HBV2-003 | P1 | #7 | 49/50 lessons below its own review threshold; 318-word mean | Review depth with evidence; do not call QA green academic readiness | OPEN |
 | HBV2-004 | P1 | #7 | Section-count validator checks the same `'## '` twice | Replace with genuine structural/instructional quality checks if #7 is retained | OPEN |
 | HBV2-005 | P1 | #7 | EY/ratio lab placement not aligned to their best instructional chapters | Remap by concept and test exact lab on exact lesson, if #7 retained | OPEN |
@@ -71,9 +71,11 @@ Severity: **P0** blocks candidate selection/production; **P1** blocks academic s
 | HBV2-011 | P0 | production/legacy | Foundation production commit and `main` were observed out of sync; V1 course data must be preserved | Fresh Vercel + GitHub verification before rollout; stage/version and rollback test with real legacy data snapshot | OPEN |
 | HBV2-012 | P1 | #6 visual | M02 label diagram did not render and grinder diagram was attached to wrong lesson | Exact-title E2E + corresponding M02 reader; verified at `40f2aa6` | VERIFIED-ENGINEERING |
 | HBV2-013 | P1 | #6 core teaching | M02-L01 label and M03-L02 TDS/EY explanations lacked novice-first depth | Rewritten and browser/content QA green at `40f2aa6`; owner must assess comprehension | FIXED-PENDING-OWNER |
-| HBV2-014 | P1 | #6 core teaching | M04-L03 drawdown and M06-L02 water concepts were overly compressed | Expanded in commits `a68c737` and `d2e7e2f`; **recheck CI at final HEAD and request owner review** | FIXED-PENDING-OWNER |
+| HBV2-014 | P1 | #6 core teaching | M04-L03 drawdown and M06-L02 water concepts were overly compressed | Expanded in commits `a68c737` and `d2e7e2f`; Home Brewer 42/42 and Foundation 28/28 passed at `b70d0df`; owner review remains required | FIXED-PENDING-OWNER |
 | HBV2-015 | OOS | current V2 | Video demonstrations postponed by explicit owner instruction | Do not add to release blockers | OOS |
-| HBV2-016 | P1 | #6 adaptive cases | Learner could edit the initial answer after seeing new evidence, undermining pre-evidence response integrity | Lock initial answer read-only when evidence is shown; verify via Playwright. Commits `c5bd9bc` + `5de2ecf` | FIXED-PENDING-QA |
+| HBV2-016 | P1 | #6 adaptive cases | Learner could edit the initial answer after seeing new evidence, undermining pre-evidence response integrity | Lock initial answer read-only when evidence is shown; verified with 42/42 Playwright at `b70d0df`. Commits `c5bd9bc` + `5de2ecf` | VERIFIED-ENGINEERING |
+| HBV2-017 | P1 | #6 M07-L04, M08-L02, M10-L02, M10-L04 | Novice explanations of sensory preference, bitterness/astringency, failed hypotheses and capstone were too compressed and relied on repeated instructions | Four mechanism-first rewrites: `bb3e2dd`, `76cd53f`, `91a4309`, `616e7ec`; exact page assertions added in `cd625f3`; awaiting same-SHA QA and owner assessment | FIXED-PENDING-QA |
+| HBV2-018 | P1 | #6 M09-L02 cold brew | Safety discussion did not give enough guidance on unknown storage conditions vs taste, and could be misread as universal shelf-life reasoning | Expanded scenario, log, reject/hold decisions and contextual safety caveats in `9a654a7`; see research references below; await same-SHA QA and owner's food-safety review | FIXED-PENDING-QA |
 
 **Important:** `FIXED-PENDING-OWNER` means the source changed, **not** that the final academic content passed. `VERIFIED-ENGINEERING` means automated behavior was observed on a specific commit, **not** universal absence of bugs.
 
@@ -113,3 +115,28 @@ For each owner review: record lesson ID(s), actual change request, why a beginne
 - Prepare owner screenshots or authorized preview without fake visuals. Owner review and integration remain pending.
 
 **Do not close an issue merely because CI is green.** A clean test run is evidence for exactly the assertions that test suite checks.
+
+
+## 8. Current editorial change log — second audit batch
+
+| Lesson / verification | Prior words | Revised words | Commit | Academic verdict |
+| --- | ---: | ---: | --- | --- |
+| M07-L04 separating descriptive sensory vs preferences | 318 | 659 | `bb3e2dd` | Owner review pending |
+| M08-L02 bitterness, astringency, strength, bypass vs extraction | 324 | 698 | `76cd53f` | Owner review pending |
+| M10-L02 V0/V1/V2 controlled experiments and predictions | 322 | 705 | `91a4309` | Owner review pending |
+| M09-L02 cold brew food-safety reasoning | 373 | 686 | `9a654a7` | Owner review pending |
+| M10-L04 practical capstone brief, evidence and rubric | 368 | 828 | `616e7ec` | Owner review pending |
+| Four Playwright content/figure verification cases | n/a | n/a | `cd625f3` | Same-SHA browser QA pending at time of writing |
+
+The editorial word threshold was reduced by **four** warnings through the revised lessons M07-L04, M08-L02, M10-L02 and M10-L04; M09-L02 was already above 370 words but required a substantive safety rewrite. Expected count on untouched validator: **21** warnings, subject to confirmation on the current SHA. **A word count is not evidence of understanding or owner sign-off.**
+
+**Evidence register for this batch (external research, not claiming CherryEdu endorsement/certification):**
+
+- Specialty Coffee Association [Coffee Value Assessment](https://sca.coffee/value-assessment): descriptive and affective/preference approaches should be handled separately; used as conceptual support for M07-L04.
+- [World Coffee Research sensory lexicon](https://worldcoffeeresearch.org/read-more/news/174-world-coffee-research-sensory-lexicon): vocabulary for sensory attributes, including bitter and astringent, informs M08-L02. Do not pretend a consumer tasting log is a trained panel.
+- National Coffee Association [Cold Brew Challenge Study](https://www.ncausa.org/Industry-Resources/Cold-Brew-Resources/Cold-Brew-White-Paper): conditional results for studied black cold brew, **not universal proof of shelf-life** for each household batch or beverages with added ingredients.
+- US FDA [Food Code](https://www.fda.gov/food/retail-food-protection/fda-food-code): food service risk-control framework, **not automatically binding Indonesian regulation** and not a CherryEdu operating SOP. Always verify local requirements separately.
+- [Cold brew HPP research abstract](https://pubmed.ncbi.nlm.nih.gov/38231670/): context that microbial risk and storage conditions matter; research on specific processing conditions must not be generalized to homemade batches.
+
+The sources above inform wording and uncertainty, but **do not substitute for the owner's scientific, pedagogic and food-safety validation**. No user-facing video production is required.
+
