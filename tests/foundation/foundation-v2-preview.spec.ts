@@ -96,7 +96,7 @@ test('taxonomy exercise is five interactive cards, not a table showing answers',
   await activity.getByRole('button', { name: 'Genus', exact: true }).click();
   await expect(activity).toContainText('Tepat.');
   await expect(activity).toContainText('Coffea adalah genus');
-  await activity.getByRole('button', { name: /Kartu berikutnya/i }).click();
+  await activity.getByRole('button', { name: /Pernyataan berikutnya/i }).click();
   await expect(activity).toContainText('Coffea arabica');
 });
 
