@@ -4,6 +4,7 @@ import Link from 'next/link';
 import {ChevronDown,ChevronRight,ArrowLeft,Clock,Menu,X} from 'lucide-react';
 import {MarkdownRenderer} from '@/components/MarkdownRenderer';
 import {AudioNarrationPlayer} from '@/components/AudioNarrationPlayer';
+import {BusinessConceptFigure} from '@/components/business-roastery/BusinessConceptFigure';
 import {BUSINESS_ROASTERY_MODULES as modules,BUSINESS_ROASTERY_LESSONS as lessons} from '@/lib/data/businessRoasteryCourse';
 import {BUSINESS_ROASTERY_FIELD_GUIDES as guides} from '@/lib/data/businessRoasteryFieldGuides';
 
@@ -34,7 +35,7 @@ export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
     <div className="min-w-0 border border-paper-300 bg-white px-5 pb-10 pt-7 shadow-xs sm:px-9 sm:pt-9">
      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-b border-paper-200 pb-4 font-mono text-[10px] uppercase tracking-wider text-roast-600"><span className="flex items-center gap-1"><Clock size={13}/>{Math.max(12,Math.round(lesson.content.split(/\s+/).length/75))} menit baca</span><span>•</span><span>Materi belajar</span><span>•</span><span>{mod?.title}</span></div>
      <AudioNarrationPlayer title={lesson.title} rawMarkdown={lesson.content}/>
-     <article className="mt-6"><h1 className="mb-6 border-b border-paper-300 pb-5 font-serif text-3xl font-black leading-tight tracking-tight sm:text-4xl">{lesson.title}</h1><MarkdownRenderer content={lesson.content}/></article>
+     <article className="mt-6"><h1 className="mb-6 border-b border-paper-300 pb-5 font-serif text-3xl font-black leading-tight tracking-tight sm:text-4xl">{lesson.title}</h1>{lesson.order===1&&<BusinessConceptFigure moduleId={lesson.moduleId}/>}<MarkdownRenderer content={lesson.content}/></article>
      {lesson.optionalModels&&<details className="mt-9 border-y border-paper-300 bg-paper-100/40 px-4 py-4">
        <summary className="cursor-pointer text-sm font-semibold text-cherry-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cherry-800">Lihat penerapan pada tiga skala bisnis</summary>
        <p className="mt-3 text-xs leading-6 text-roast-700">Perbandingan berikut bersifat penerapan tambahan. Pahami konsep dan contoh hitungan pada materi utama terlebih dahulu.</p>
