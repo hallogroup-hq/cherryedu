@@ -12,6 +12,52 @@ interface MarkdownRendererProps {
   content: string;
 }
 
+function editorialLearningGuard(markdown:string):string {
+ const out:string[]=[];
+ const lines=markdown.split('\n');
+ let fenced=false;
+ for(let i=0;i<lines.length;i++){
+  let line=lines[i];
+  if(/^\s*```/.test(line)){fenced=!fenced;out.push(line);continue;}
+  if(fenced){out.push(line);continue;}
+  // Heading punctuation and exaggerated self-referential copy have no instructional purpose.
+  line=line.replace(/(^#{1,6}[^\n]*?)\s+[—–]\s+/g,'$1: ')
+   .replace(/\s+[—–]\s+/g,': ')
+   .replace(/tanpa terdengar sok ahli/gi,'dengan catatan yang jelas')
+   .replace(/tanpa harus sok ahli/gi,'dengan bahasa yang jelas')
+   .replace(/tidak berpura-pura mencium atau mencicipi sesuatu dari layar/gi,'menggunakan data tertulis untuk berlatih analisis')
+   .replace(/\*\*Semua nama dan angkanya simulasi; bukan data petani atau produk CherryEdu\.\*\*/gi,'*(Ilustrasi pembelajaran.)*')
+   .replace(/\*\*P-17, lot fiktif untuk latihan\*\*/gi,'P-17 (kode satu lot kopi contoh)');
+  // Model responses are not instructional text to be visible before students try the prompt.
+  const heading=/^#{2,5}\s+(?:Contoh (?:respons|respon|jawaban|pembahasan)|Jawaban|Pembahasan)[^\n]*$/i.test(line);
+  const label=/^\s*(?:\*\*)?(?:Contoh (?:respons|respon|jawaban|lulus)(?:[^:\n]{0,75})?|Jawaban|Kunci|Pembahasan|Contoh perbaikan)(?:\*\*)?\s*:\s*/i;
+  const answer=line.match(label);
+  if(heading){
+    const block:string[]=[line.replace(/^#{2,5}\s+/,''),];
+    while(i+1<lines.length&&!/^#{1,5}\s+/.test(lines[i+1])&&!/^---\s*$/.test(lines[i+1])){
+      block.push(lines[++i]);
+    }
+    out.push('','```example',...block,'```','');continue;
+  }
+  if(answer){
+    const example=/Contoh/i.test(line);
+    const block=[line];
+    if(!line.slice(answer[0].length).trim()){
+      let j=i+1;
+      while(j<lines.length&&!lines[j].trim())j++;
+      if(j<lines.length&&/^[-*]\s+|^>|^“|^"/.test(lines[j])){
+        while(j<lines.length&&lines[j].trim()&&!/^#{1,5}\s+/.test(lines[j])){block.push(lines[j]);j++;}
+        i=j-1;
+      }
+    }
+    out.push('','```'+(example?'example':'solution'),...block,'```','');continue;
+  }
+  // Keep contextual example calculations in normal teaching content; hide only answer keys.
+  out.push(line);
+ }
+ return out.join('\n');
+}
+
 function sanitizeMarkdownContent(raw: string): string {
   if (!raw) return '';
   // Typed educational blocks. Markdown alone cannot render interactive activities.
@@ -82,7 +128,7 @@ function sanitizeMarkdownContent(raw: string): string {
     .replace(/\\times/g, '×')
     .replace(/\\rightarrow/g, '→');
 
-  return processed.replace(/(^#{1,6}[^\n]*?)\s+[—–]\s+/gm, '$1: ').replace(/\s+[—–]\s+/g, ': ');
+  return editorialLearningGuard(processed);
 }
 
 export const MarkdownRenderer: React.FC<MarkdownRendererProps> = React.memo(function MarkdownRenderer({ content }) {
