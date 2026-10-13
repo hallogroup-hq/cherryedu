@@ -18,7 +18,15 @@ Kesalahan ekstrem adalah memperlakukan semua acidity sebagai defect. Karakter or
 
 Pilih dua hipotesis berbeda: misalnya preferensi terhadap karakter kopi dan pengaruh brew ratio. Rancang uji yang membedakan keduanya tanpa mengubah seluruh proses. Tulis pertanyaan yang akan kamu tanyakan ke pencicip lain dengan bahasa netral.
 
-Pertama tentukan **tujuan percobaan**, lalu tulis **prediksi** dan **apa yang dapat membuat dugaanmu salah**. Tentukan faktor yang tetap dan berubah, lalu catat data secara jujur. Pengukuran fiktif bukan tasting nyata; selera pribadi bukan nilai salah-benar objektif. Biaya dan risiko peralatan juga menjadi bagian dari keputusan.
+## Dari keluhan “asam” ke dua hipotesis yang masuk akal
+
+Jika kopi terasa tajam, mulailah dari **apa yang dirasakan**, bukan setting grinder. Tanyakan apakah sensasinya mirip buah segar, kecut yang mengganggu, atau justru kesan tipis pada minuman. Catat pula suhu saat mencicipi dan apakah keluhan tersebut muncul konsisten pada pengulangan. Istilah “asam” bukan ukuran EY maupun diagnosis otomatis.
+
+**Hipotesis A — karakter dan preferensi:** kopi yang digunakan memang menghadirkan acidity yang menonjol dan orang ini menginginkan profil lain. **Hipotesis B — kondisi seduh:** proses yang dilakukan mungkin menghasilkan keseimbangan yang berbeda dari target, sehingga penyesuaian perlu diuji. Keduanya masuk akal, tetapi memerlukan bukti berbeda.
+
+Jika ingin menguji pengaruh grind, pakai kopi, filter, air dan pola tuang sedekat mungkin sama. Ubah setting grinder satu langkah yang masuk akal dan **prediksikan lebih dahulu** aspek apa yang diharapkan berubah. Hasil rasa perlu dicicipi secara nyata untuk dibandingkan. Jika hanya waktu yang berubah tanpa tasting, kamu belum tahu apakah cangkir berikutnya lebih sesuai tujuan.
+
+**Keputusan berbeda juga sah:** kalau berkali-kali upaya yang aman dan terukur tidak sesuai selera, mencoba lot kopi lain bukan kegagalan. Itu bisa menjadi penyesuaian pilihan bahan berdasarkan kebutuhan, bukan klaim kopi pertama buruk.
 
 ## Coba pada situasi baru
 
