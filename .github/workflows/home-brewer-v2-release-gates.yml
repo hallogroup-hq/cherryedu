@@ -1,0 +1,60 @@
+name: Home Brewer V2 Review QA (No Deploy)
+on:
+  push:
+    branches:
+      - feat/home-brewer-v2-learning-path
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'docs/curriculum/home-brewer-v2/**'
+      - 'scripts/*home-brewer-v2*'
+      - 'app/home-brewer-v2/**'
+      - 'lib/data/homeBrewerV2*'
+      - 'components/home-brewer-v2/**'
+      - 'tests/home-brewer/**'
+      - 'playwright.home-brewer.config.ts'
+      - 'package.json'
+      - '.github/workflows/home-brewer-v2-release-gates.yml'
+permissions:
+  contents: read
+jobs:
+  content-typecheck-build:
+    name: Content Inventory / Typecheck / Build (No Deploy)
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Verify 40 lessons and 40 formative assessments
+        run: npm run test:home-brewer
+      - name: Compile isolated lessons and typecheck
+        run: npm run typecheck
+      - name: Production-style build, no publishing
+        run: npm run build
+        env:
+          CHERRYEDU_HOME_BREWER_V2_REVIEW: enabled
+          NEXT_TELEMETRY_DISABLED: '1'
+          CI: 'true'
+  home-brewer-browser:
+    name: Learner Browser QA (No Deploy)
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Test all modules, exercises and reader on local gated site
+        run: npx playwright test -c playwright.home-brewer.config.ts
+        env:
+          CI: 'true'
+          CHERRYEDU_HOME_BREWER_V2_REVIEW: enabled
+          NEXT_TELEMETRY_DISABLED: '1'
