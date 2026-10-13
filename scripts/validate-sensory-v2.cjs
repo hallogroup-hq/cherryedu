@@ -73,6 +73,20 @@ for(const [k,v] of Object.entries(dives)){
  if(v.trim().split(/\s+/).length<140)fail('Weak investigation '+k);
  if(banned.test(v))fail('Leaked status in investigation '+k);
 }
+const worksTxt=read('lib/data/sensoryV2WorkedExamples.ts');
+const workMatch=worksTxt.match(/export const SENSORY_V2_WORKED_EXAMPLES:Record<string,string>=(\\{[\\s\\S]*?\\});/);
+let worked={};
+if(!workMatch)fail('Cannot read 40 worked lesson examples');
+else try{worked=JSON.parse(workMatch[1]);}catch(e){fail('Invalid worked examples JSON');}
+if(Object.keys(worked).length!==40)fail('Need 40 worked examples: '+Object.keys(worked).length);
+for(const l of lessons){
+ const id='sv2-'+l.id,addon=worked[id];
+ if(!addon){fail('Missing worked practice '+id);continue;}
+ const total=(l.content+' '+addon).trim().split(/\\s+/).length;
+ if(total<235)fail('Thin combined lesson '+id+' '+total);
+ if(banned.test(addon))fail('Editorial text in '+id);
+ if(!addon.includes('Pertanyaan lanjutan'))fail('Worked practice must ask for evidence revision '+id);
+}
 for(const target of ['app/sensory-v2/page.tsx','app/sensory-v2/[lessonId]/page.tsx','app/sensory-v2/practice/[moduleId]/page.tsx']){
  const content=read(target);
  if(!content.includes("process.env.CHERRYEDU_SENSORY_V2_REVIEW!=='enabled'")||!content.includes('notFound()'))fail('Review env guard missing '+target);
@@ -83,7 +97,7 @@ for(const role of ['home_brewer','roaster','q_grader','q_processor','farmer','bu
  if(!catalog.includes(role+": 'Spesialisasi"))fail('Incorrect specialization labeling '+role);
 }
 const reader=read('app/sensory-v2/[lessonId]/page.tsx');
-if(!reader.includes('SENSORY_V2_DEEP_DIVES[l.id]')||!reader.includes('<SensoryConceptVisual')||!reader.includes('<SensoryV2Lab'))fail('Missing learner experience embeds');
+if(!reader.includes('SENSORY_V2_WORKED_EXAMPLES[l.id]')||!reader.includes('SENSORY_V2_DEEP_DIVES[l.id]')||!reader.includes('<SensoryConceptVisual')||!reader.includes('<SensoryV2Lab'))fail('Missing learner experience embeds');
 const visual=read('components/sensory-v2/SensoryConceptVisual.tsx');
 if(!visual.includes('role="img"'))fail('Inaccessible diagram');
 for(const code of codes)if(!visual.includes(code+':{title:'))fail('Missing concept diagram '+code);
@@ -93,5 +107,5 @@ const practice=read('components/sensory-v2/SensoryV2Practice.tsx');
 for(const behavior of ['newEvidence','modelReasoning','revealed[c.id]','completed[c.id]','(responses[c.id]||','(revisions[c.id]||'])
  if(!practice.includes(behavior))fail('Incomplete learner decision flow '+behavior);
 if(banned.test(modules.map(x=>x.title+' '+x.description).join(' ')))fail('Learner catalog has editorial copy');
-const report={modules:modules.length,lessons:lessons.length,minLessonWords:Math.min(...lessons.map(l=>l.content.split(/\s+/).length)),conceptFigures:10,conceptLabs:10,fieldInvestigations:Object.keys(dives).length,evidenceRevisionCases:cases.length,diagnostics:diag.length,warnings,issues};
+const report={modules:modules.length,lessons:lessons.length,minLessonWords:Math.min(...lessons.map(l=>l.content.split(/\s+/).length)),conceptFigures:10,conceptLabs:10,fieldInvestigations:Object.keys(dives).length,workedExamples:Object.keys(worked).length,evidenceRevisionCases:cases.length,diagnostics:diag.length,warnings,issues};
 console.log(JSON.stringify(report,null,2));if(issues.length)process.exit(1);
