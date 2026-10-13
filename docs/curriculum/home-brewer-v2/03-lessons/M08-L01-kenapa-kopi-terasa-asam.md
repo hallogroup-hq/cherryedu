@@ -31,5 +31,3 @@ Jika ingin menguji pengaruh grind, pakai kopi, filter, air dan pola tuang sedeka
 ## Coba pada situasi baru
 
 Jika rasa asam masih mengganggu meskipun flow sudah stabil, kapan lebih masuk akal memilih kopi lain daripada mengejar satu tweak tanpa akhir? Jelaskan tradeoff dan apa yang dapat dipelajari dari hasil itu.
-
-**Apa yang kamu pelajari?** Jawab menggunakan bahasa sendiri: apa data yang mendukung, apa yang belum diketahui, dan percobaan aman apa yang akan memberikan informasi paling berguna berikutnya.
