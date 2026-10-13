@@ -18,7 +18,15 @@ Jangan mengukur temperatur dengan jari, jangan menambahkan air mendidih ke wadah
 
 Rancang percobaan suhu dengan kopi, dose, air, grind, dan pola seduh serupa. Bila punya termometer, catat kapan pengukuran dilakukan. Bila tidak, bandingkan prosedur yang bisa diulang dan labeli perbedaan sebagai kondisi, bukan angka suhu pasti.
 
-Sebelum mengubah resep, tulis **pertanyaan**, **prediksi**, **variabel utama**, **faktor pembanding** dan **batas keselamatan**. Jika hasil belum benar-benar dicicipi, biarkan kolom rasa kosong. Jangan menggunakan data fiktif sebagai bukti suatu metode lebih unggul. Jika menggunakan air panas, kaca, alat tekanan atau listrik, ikuti panduan resmi produsennya.
+## Baca angka ketel dalam konteks
+
+**94°C di ketel** berarti sensor menampilkan kondisi pada lokasi/metode ukur tertentu. Itu bukan bukti semua partikel kopi kemudian selalu berada pada 94°C. Air melewati udara, dripper, filter dan bubuk yang dapat menyerap panas; bentuk alat serta laju tuang turut memengaruhi riwayat suhunya.
+
+Bedakan tiga hal saat menulis log: **suhu target ketel**, **angka yang benar-benar terbaca sebelum tuang**, dan **suhu coffee bed** (yang mungkin tidak diukur). Mengisi ketiganya dengan satu angka yang sama menghasilkan catatan rapi tetapi menyesatkan.
+
+**Percobaan terfokus:** bandingkan prosedur dripper yang dipersiapkan sesuai petunjuk versus yang tidak dipanaskan sebelumnya, tetapi jaga dosis, kopi, grind, filter dan total air masuk. Jika kamu menggunakan termometer, catat posisi dan waktu pengukurannya. Jangan memasukkan sensor ke air yang sedang mengalir dengan cara berbahaya. Jika hasil seduhan berbeda, kamu punya petunjuk bahwa kondisi awal alat mungkin berperan; belum membuktikan suhu bed tertentu.
+
+**Kondisi baru:** teman meminta kopi lebih cepat nyaman diminum. Menurunkan suhu air seduh dan **mendinginkan minuman setelah selesai** adalah intervensi pada tahap berbeda. Yang pertama dapat mengubah ekstraksi; yang kedua terutama memengaruhi penyajian dan persepsi. Pilih sesuai tujuan, bukan karena satu angka dipromosikan sebagai paling baik.
 
 ## Pindah ke situasi berbeda
 
