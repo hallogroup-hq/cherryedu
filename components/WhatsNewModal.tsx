@@ -1,14 +1,22 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { Sparkles, Flame, Droplets, Coffee, Layers, X, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const CURRENT_VERSION_KEY = 'cherry_seen_version_v1_2';
 
 export const WhatsNewModal: React.FC = () => {
+  const pathname = usePathname();
+  // Editorial review routes must stay distraction-free; their pages are not product release announcements.
+  const isEditorialPreview = pathname?.startsWith('/home-brewer-v2') || pathname?.startsWith('/barista-v2');
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    if (isEditorialPreview) {
+      setIsOpen(false);
+      return;
+    }
     // Check if user has already seen v1.2 announcement
     try {
       const seen = localStorage.getItem(CURRENT_VERSION_KEY);
@@ -22,7 +30,7 @@ export const WhatsNewModal: React.FC = () => {
     } catch {
       // LocalStorage access fallback
     }
-  }, []);
+  }, [isEditorialPreview]);
 
   const handleClose = () => {
     try {
@@ -43,7 +51,7 @@ export const WhatsNewModal: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
 
-  if (!isOpen) return null;
+  if (!isOpen || isEditorialPreview) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-roast-950/70 backdrop-blur-xs animate-in fade-in duration-200">
