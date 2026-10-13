@@ -18,7 +18,15 @@ Kesalahan yang harus dihindari: 'lebih banyak air pasti lebih encer'. Bila air t
 
 Ambil satu data resep rumahan dan beri warna berbeda untuk dose kopi, air dituangkan, cairan di cangkir, dan air bypass. Jika tidak punya timbangan server, tetap tulis 'output tidak diketahui'. Buat dua skenario perubahan air masuk dan jelaskan pengukuran tambahan yang dibutuhkan sebelum menyimpulkan rasa.
 
-Tulis catatan percobaan **sebelum** melakukan perubahan: tujuan, hipotesis, prediksi, faktor yang diubah, keadaan yang dijaga, pengamatan, dan risiko alat. Peralatan nyata harus dipakai sesuai petunjuk pabrikan. Jika hasil dari ilustrasi, labeli sebagai simulasi; jika benar-benar mencicipi, tulis observasi tanpa mengeditnya supaya cocok dengan hipotesis.
+## Hitung apa yang diketahui; hentikan perhitungan saat data habis
+
+Dari 15 g kopi dan 225 g air seduh, kamu dapat menghitung **225 ÷ 15 = 15**, sehingga rasio input adalah 1:15. Jika minuman keluar 184 g, selisih 41 g merupakan perbedaan massa air masuk dengan minuman yang ditimbang dalam contoh tersebut. Selisih ini **bukan** extraction yield 41/225 ataupun persentase zat kopi yang larut.
+
+Mengapa? Sebagian cairan dapat tertahan pada bubuk dan filter; seduhan juga memindahkan zat terlarut dari kopi ke minuman. Neraca massa sederhana membantu melihat ada komponen berbeda, tetapi tanpa pengukuran konsentrasi kita belum tahu jumlah zat kopi yang terlarut secara sah.
+
+**Tes interpretasi:** jika teman menulis “15/225” tanpa memberi label, minta ia menjelaskan apakah 225 g adalah air yang dituang, minuman jadi, atau jumlah cairan akhir setelah bypass. Dua orang bisa tampak tidak sepakat padahal memakai metrik berbeda.
+
+**Perbandingan terarah:** catat input, output dan jenis metode pada dua sesi yang sama-sama aman. Bila output tak diukur, tulis “tidak ada data” dan lanjutkan tujuan belajar lainnya. Jangan memasukkan angka default sebagai observasi nyata. Rasio memandu pencatatan; **rasa dan EY tidak dapat diputuskan dari angka input saja**.
 
 ## Saat situasinya berbeda
 
