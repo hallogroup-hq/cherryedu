@@ -29,5 +29,3 @@ Bila menemukan banyak sedimen, jangan buru-buru menyebut kopi gagal. Mesh, ukura
 ## Pindah ke situasi berbeda
 
 Teman ingin seduhan yang sangat jernih tetapi tidak mempunyai dripper kertas. Bisakah kamu menjelaskan perbedaan target mouthfeel dan keterbatasan alat tanpa mengatakan French press selalu 'kurang bersih' secara mutu?
-
-**Ringkas dengan bahasamu:** jelaskan mengapa hasil berubah, satu dugaan alternatif, dan apa pengujian berikutnya yang mungkin mengubah pikiranmu. Tidak ada kewajiban mengikuti satu brand atau angka resep tertentu.
