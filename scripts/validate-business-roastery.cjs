@@ -58,7 +58,7 @@ for(const lesson of lessons){
 }
 if(!read(course).includes('for (const lesson of BUSINESS_ROASTERY_LESSONS)')||!read(course).includes('## Pelajari konsep dan cara kerjanya'))fail('Concept-first content not mounted on every lesson');
 
-const moduleLectures=extract('lib/data/businessRoasteryModuleLectures.ts',/BUSINESS_ROASTERY_MODULE_LECTURES:Record<string,string> = (\{[\s\S]*?\\});/);
+const moduleLectures=extract('lib/data/businessRoasteryModuleLectures.ts',/BUSINESS_ROASTERY_MODULE_LECTURES:Record<string,string> = (\{[\s\S]*?\});/);
 if(Object.keys(moduleLectures).length!==21)fail('21 introductory module lectures required');
 for(const mod of modules){
  const introduction=moduleLectures[mod.code]||'';
