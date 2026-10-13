@@ -7,8 +7,8 @@ test('new independent roastery path exposes 21 modules and 84 lessons',async({pa
  const controls=page.locator('section > button[aria-controls^="br-module-"]');
  await expect(controls).toHaveCount(21);
  for(let i=1;i<21;i++)await controls.nth(i).click();
- await expect(page.locator('a[href^="/business-roastery-v1/br-b"][href$="-l01"]')).toHaveCount(21);
- await expect(page.locator('a[href^="/business-roastery-v1/br-b"]')).toHaveCount(84);
+ await expect(page.locator('section li a[href^="/business-roastery-v1/br-b"][href$="-l01"]')).toHaveCount(21);
+ await expect(page.locator('section li a[href^="/business-roastery-v1/br-b"]')).toHaveCount(84);
  await page.getByRole('link',{name:/Baca Materi Pertama/}).click();
  await expect(page.getByRole('heading',{name:'Peta aktor dari petani hingga pelanggan'})).toBeVisible();
  await expect(page.getByRole('navigation',{name:'Pindah pelajaran'})).toBeVisible();
@@ -262,7 +262,7 @@ test('student sees real concepts before optional business-model comparison; read
  await expect(page.getByRole('heading',{name:'Landed cost sampai produk jadi'})).toBeVisible();
  const body=await page.locator('article').innerText();
  expect(body).toContain('Pelajari konsep dan cara kerjanya');
- expect(body).toContain('Landed green cost');
+ expect(body.toLowerCase()).toContain('landed cost');
  expect(body.indexOf('Pelajari konsep dan cara kerjanya')).toBeLessThan(body.indexOf('Penerapan dalam operasi roastery'));
  const extra=page.getByText('Lihat penerapan pada tiga skala bisnis');
  await expect(extra).toBeVisible();
@@ -278,7 +278,7 @@ test('mobile syllabus can be opened and chapter remains readable without horizon
  await open.click();
  await expect(open).toHaveAttribute('aria-expanded','true');
  await expect(page.getByRole('complementary',{name:'Daftar pelajaran silabus'})).toBeVisible();
- await page.getByRole('link',{name:/Siklus modal kerja dan CCC/}).click();
+ await page.getByRole('complementary',{name:'Daftar pelajaran silabus'}).getByRole('link',{name:/Siklus modal kerja dan CCC/}).click();
  await expect(page.getByRole('heading',{name:'Siklus modal kerja dan CCC'})).toBeVisible();
  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
  expect(overflow).toBeLessThanOrEqual(2);

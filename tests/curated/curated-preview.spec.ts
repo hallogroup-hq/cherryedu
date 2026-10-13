@@ -27,7 +27,7 @@ for(const p of paths){
    await expect(controls).toHaveCount(21);
    for(let i=1;i<21;i++)await controls.nth(i).click();
   }else await expect(page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])')).toHaveCount(p.modules);
-  if(p.url==='/business-roastery-v1')await expect(page.locator('a[href^="/business-roastery-v1/br-b"]')).toHaveCount(p.lessons);
+  if(p.url==='/business-roastery-v1')await expect(page.locator('section li a[href^="/business-roastery-v1/br-b"]')).toHaveCount(p.lessons);
   else await expect(page.locator('a[href^="'+p.url+'/"]').filter({has:page.locator('span.font-medium')})).toHaveCount(p.lessons);
   expect(await page.locator('main').evaluate(el=>el.scrollWidth<=window.innerWidth+2)).toBe(true);
   const body=await page.locator('main').innerText();
