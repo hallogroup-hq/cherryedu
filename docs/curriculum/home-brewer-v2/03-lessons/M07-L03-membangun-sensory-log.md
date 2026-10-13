@@ -36,5 +36,3 @@ Ketika melihat dua catatan 15 g/225 g dan 15 g/240 g, kamu dapat menghitung rasi
 ## Coba pada situasi baru
 
 Setelah tiga bulan, kamu ingin mengulang resep favorit tetapi kopi yang sama tidak tersedia. Informasi log apa yang masih bisa digunakan dan apa yang perlu dipelajari lagi pada beans pengganti?
-
-**Apa yang kamu pelajari?** Jawab menggunakan bahasa sendiri: apa data yang mendukung, apa yang belum diketahui, dan percobaan aman apa yang akan memberikan informasi paling berguna berikutnya.
