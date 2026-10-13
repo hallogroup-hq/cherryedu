@@ -24,6 +24,6 @@ Sebelum mengubah alat atau kopi, buat catatan yang menyebut: tujuan eksperimen, 
 
 ## Transfer ke situasi lain
 
-Kamu pindah dari kettle termometer ke kettle biasa. Bagaimana mempertahankan jurnal yang jujur tanpa berpura-pura mengetahui suhu persis?
+Kamu pindah dari kettle termometer ke kettle biasa. Bagaimana mencatat kondisi seduh ketika suhu tidak diukur langsung?
 
 **Catatan pembelajar:** satu jawaban bisa berubah ketika kopi, grinder, air atau kebutuhan minuman berubah. Nilai keputusanmu bukan dari angka yang terdengar paling ahli, tetapi dari alasan yang bisa diperiksa, pengukuran yang tepat, risiko yang dikelola, serta rasa penasaran untuk membuat percobaan berikutnya.

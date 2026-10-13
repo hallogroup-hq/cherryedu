@@ -20,7 +20,7 @@ Jangan menyamakan TDS meter air minum (konduktivitas) dengan coffee refractomete
 
 Hitung dua contoh dan tulis sumber ketidakpastiannya. Jika alat tidak tersedia, pilih variabel yang masih dapat diukur dan hasil yang tidak boleh diklaim.
 
-Tuliskan satu pertanyaan eksperimen, prediksi sebelum melihat hasil, apa yang kamu ubah secara sengaja, apa yang tetap, dan satu hasil yang akan membuatmu mengubah pikiran. Tidak punya alat? Gunakan data ilustratif dan beri label **simulasi**, bukan hasil seduh atau tasting asli. Gunakan air minum aman, permukaan stabil, alat sesuai manual, serta hindari risiko air panas atau bahan tidak dikenal.
+Tuliskan satu pertanyaan eksperimen, prediksi sebelum melihat hasil, apa yang kamu ubah secara sengaja, apa yang tetap, dan satu hasil yang akan membuatmu mengubah pikiran. Tidak punya alat? Gunakan data ilustratif dan beri label simulasi, bukan hasil seduh atau tasting asli. Gunakan air minum aman, permukaan stabil, alat sesuai manual, serta hindari risiko air panas atau bahan tidak dikenal.
 
 ## Coba pada kondisi berbeda
 

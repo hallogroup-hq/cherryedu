@@ -20,7 +20,7 @@ Alat mahal tidak diperlukan untuk mulai belajar dasar. Timbangan sederhana yang 
 
 Rancang 7 hari: satu sesi mencatat baseline, dua sesi menguji satu variabel, satu blind comparison sederhana, refleksi dan perbaikan resep. Tidak wajib seduh setiap hari; jadwal boleh menyesuaikan konsumsi dan budget.
 
-Tuliskan satu pertanyaan eksperimen, prediksi sebelum melihat hasil, apa yang kamu ubah secara sengaja, apa yang tetap, dan satu hasil yang akan membuatmu mengubah pikiran. Tidak punya alat? Gunakan data ilustratif dan beri label **simulasi**, bukan hasil seduh atau tasting asli. Gunakan air minum aman, permukaan stabil, alat sesuai manual, serta hindari risiko air panas atau bahan tidak dikenal.
+Tuliskan satu pertanyaan eksperimen, prediksi sebelum melihat hasil, apa yang kamu ubah secara sengaja, apa yang tetap, dan satu hasil yang akan membuatmu mengubah pikiran. Tidak punya alat? Gunakan data ilustratif dan beri label simulasi, bukan hasil seduh atau tasting asli. Gunakan air minum aman, permukaan stabil, alat sesuai manual, serta hindari risiko air panas atau bahan tidak dikenal.
 
 ## Coba pada kondisi berbeda
 

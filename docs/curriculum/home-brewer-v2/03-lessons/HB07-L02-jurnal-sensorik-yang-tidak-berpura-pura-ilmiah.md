@@ -1,4 +1,4 @@
-# Jurnal Sensorik yang Tidak Berpura-pura Ilmiah
+# Jurnal Sensorik: Pengamatan, Preferensi, dan Ketidakpastian
 
 Tasting note berbunyi stroberi, tapi kamu merasakan kacang. Haruskah menuliskan stroberi?
 

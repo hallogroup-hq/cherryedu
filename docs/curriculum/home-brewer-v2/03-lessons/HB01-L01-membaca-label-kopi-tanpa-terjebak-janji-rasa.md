@@ -20,7 +20,7 @@ Jangan menganggap label 1.800 mdpl selalu berarti kopi lebih asam atau padat. Ja
 
 Pilih dua label kopi yang ada di rumah atau dua contoh fiktif. Pisahkan informasi faktual, klaim pemasaran dan hipotesis rasa. Prediksi apa yang ingin dibandingkan jika diseduh dengan air dan metode sama.
 
-Tuliskan satu pertanyaan eksperimen, prediksi sebelum melihat hasil, apa yang kamu ubah secara sengaja, apa yang tetap, dan satu hasil yang akan membuatmu mengubah pikiran. Tidak punya alat? Gunakan data ilustratif dan beri label **simulasi**, bukan hasil seduh atau tasting asli. Gunakan air minum aman, permukaan stabil, alat sesuai manual, serta hindari risiko air panas atau bahan tidak dikenal.
+Tuliskan satu pertanyaan eksperimen, prediksi sebelum melihat hasil, apa yang kamu ubah secara sengaja, apa yang tetap, dan satu hasil yang akan membuatmu mengubah pikiran. Tidak punya alat? Gunakan data ilustratif dan beri label simulasi, bukan hasil seduh atau tasting asli. Gunakan air minum aman, permukaan stabil, alat sesuai manual, serta hindari risiko air panas atau bahan tidak dikenal.
 
 ## Coba pada kondisi berbeda
 

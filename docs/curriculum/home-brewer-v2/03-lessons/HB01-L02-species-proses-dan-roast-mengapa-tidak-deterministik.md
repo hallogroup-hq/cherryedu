@@ -30,7 +30,7 @@ Jangan menyamakan Liberica dengan Excelsa dalam pengajaran tanpa menjelaskan hub
 
 Susun peta 3 variabel: jenis kopi, proses, roast. Tulis satu dugaan dampak tiap variabel, kemudian tiga faktor lain yang bisa mengaburkan perbandingan. Buat pertanyaan untuk produsen yang sopan.
 
-Tuliskan satu pertanyaan eksperimen, prediksi sebelum melihat hasil, apa yang kamu ubah secara sengaja, apa yang tetap, dan satu hasil yang akan membuatmu mengubah pikiran. Tidak punya alat? Gunakan data ilustratif dan beri label **simulasi**, bukan hasil seduh atau tasting asli. Gunakan air minum aman, permukaan stabil, alat sesuai manual, serta hindari risiko air panas atau bahan tidak dikenal.
+Tuliskan satu pertanyaan eksperimen, prediksi sebelum melihat hasil, apa yang kamu ubah secara sengaja, apa yang tetap, dan satu hasil yang akan membuatmu mengubah pikiran. Tidak punya alat? Gunakan data ilustratif dan beri label simulasi, bukan hasil seduh atau tasting asli. Gunakan air minum aman, permukaan stabil, alat sesuai manual, serta hindari risiko air panas atau bahan tidak dikenal.
 
 ## Coba pada kondisi berbeda
 

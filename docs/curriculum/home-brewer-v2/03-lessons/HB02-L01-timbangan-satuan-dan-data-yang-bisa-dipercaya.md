@@ -20,7 +20,7 @@ Jangan membaca angka kelebihan desimal sebagai bukti instrumen sangat presisi. J
 
 Dengan alat yang tersedia, buat tabel data yang mencantumkan dose, air masuk, output jika diukur, durasi dengan definisi start, kopi, grinder dan kondisi bahan.
 
-Tuliskan satu pertanyaan eksperimen, prediksi sebelum melihat hasil, apa yang kamu ubah secara sengaja, apa yang tetap, dan satu hasil yang akan membuatmu mengubah pikiran. Tidak punya alat? Gunakan data ilustratif dan beri label **simulasi**, bukan hasil seduh atau tasting asli. Gunakan air minum aman, permukaan stabil, alat sesuai manual, serta hindari risiko air panas atau bahan tidak dikenal.
+Tuliskan satu pertanyaan eksperimen, prediksi sebelum melihat hasil, apa yang kamu ubah secara sengaja, apa yang tetap, dan satu hasil yang akan membuatmu mengubah pikiran. Tidak punya alat? Gunakan data ilustratif dan beri label simulasi, bukan hasil seduh atau tasting asli. Gunakan air minum aman, permukaan stabil, alat sesuai manual, serta hindari risiko air panas atau bahan tidak dikenal.
 
 ## Coba pada kondisi berbeda
 
