@@ -17,7 +17,7 @@ export function BusinessModelComparator(){
  return <section className="mt-9" aria-label="Perbandingan model bisnis roastery">
   <div className="border-b border-paper-300 pb-5">
    <h2 className="font-serif text-2xl font-bold text-roast-950">Tiga model, satu permintaan yang sama</h2>
-   <p className="mt-3 text-sm leading-7 text-roast-700">Semua harga dimasukkan dari quotation nyata atau asumsi berlabel milikmu. Kalkulasi ini **hanya biaya mengubah green menjadi roasted saleable**, belum green bean, inbound/outbound freight, packaging, pajak dan biaya modal. Buka kalkulator HPP untuk total lengkap.</p>
+   <p className="mt-3 text-sm leading-7 text-roast-700">Semua harga dimasukkan dari quotation nyata atau asumsi berlabel milikmu. Kalkulasi ini <strong>hanya biaya mengubah green menjadi roasted saleable</strong>, belum green bean, inbound/outbound freight, packaging, pajak dan biaya modal. Buka kalkulator HPP untuk total lengkap.</p>
   </div>
   <label className="mt-6 block max-w-sm text-sm font-semibold text-roast-950">Volume roasted saleable yang benar-benar diperkirakan terjual per bulan (kg)
    <input type="number" min="0" value={monthly} onChange={e=>setMonthly(e.target.value)} placeholder="Masukkan rencana berbasis PO/pilot" className="mt-3 w-full rounded border border-paper-400 bg-white p-3 text-sm text-roast-950"/>
@@ -28,6 +28,9 @@ export function BusinessModelComparator(){
    const normal=valid?fixed!+variable!*demand!:null;
    const downside=valid?fixed!+variable!*(demand!*0.6):null;
    const gap=valid&&capacity!==null&&demand!==null?Math.max(0,demand-capacity):null;
+   const downsideGap=valid&&capacity!==null&&demand!==null?Math.max(0,demand*0.6-capacity):null;
+   const normalFeasible=valid&&gap===0;
+   const downsideFeasible=valid&&downsideGap===0;
    return <article key={s.key} className="border-t-2 border-roast-900 bg-paper-100 p-4">
     <p className="font-mono text-xs font-semibold text-cherry-800">SKENARIO {s.key}</p>
     <h3 className="mt-2 font-serif text-xl font-bold text-roast-950">{s.title}</h3>
@@ -44,15 +47,16 @@ export function BusinessModelComparator(){
      </label>)}
     </div>
     <div className="mt-5 border-t border-paper-300 pt-4 text-sm leading-7 text-roast-800">
-     <p>Biaya konversi bulanan: <strong>{normal===null?'Perlu input':rupiah(normal)}</strong></p>
-     <p>Biaya per kg di rencana: <strong>{normal===null||!demand?'Perlu input':rupiah(normal/demand)}</strong></p>
-     <p>Biaya per kg jika demand 60%: <strong>{downside===null||!demand?'Perlu input':rupiah(downside/(demand*0.6))}</strong></p>
-     <p>Gap kapasitas: <strong>{gap===null?'Perlu input':gap.toLocaleString('id-ID')+' kg'}</strong></p>
+     <p>Biaya konversi bulanan pada target: <strong>{normal===null?'Perlu input':normalFeasible?rupiah(normal):'Tidak layak kapasitas'}</strong></p>
+     <p>Biaya per kg di rencana: <strong>{normal===null||!demand?'Perlu input':normalFeasible?rupiah(normal/demand):'Tidak layak kapasitas'}</strong></p>
+     <p>Biaya per kg jika demand 60%: <strong>{downside===null||!demand?'Perlu input':downsideFeasible?rupiah(downside/(demand*0.6)):'Tidak layak kapasitas'}</strong></p>
+     <p>Gap kapasitas rencana: <strong>{gap===null?'Perlu input':gap.toLocaleString('id-ID')+' kg'}</strong></p>
+     <p>Gap kapasitas saat permintaan 60%: <strong>{downsideGap===null?'Perlu input':downsideGap.toLocaleString('id-ID',{maximumFractionDigits:2})+' kg'}</strong></p>
      <p>CAPEX: <strong>{capex===null?'Belum ada quotation':rupiah(capex)}</strong></p>
-     {gap!==null&&gap>0&&<p role="alert" className="mt-2 border-l-2 border-red-800 pl-3 text-roast-900">Skenario belum sanggup memenuhi demand ini tanpa tambahan kapasitas.</p>}
+     {gap!==null&&gap>0&&<p role="alert" className="mt-2 border-l-2 border-red-800 pl-3 text-roast-900">Biaya pada target di atas tidak dapat dianggap layak: kapasitas tidak cukup untuk memenuhi permintaan. Perbesar kapasitas atau turunkan volume, lalu hitung ulang.</p>}
     </div>
    </article>;
   })}</div>
-  <p className="mt-6 text-sm leading-7 text-roast-700">**Cara memutuskan:** jangan pilih hanya biaya per kg terkecil. Bandingkan cash-out investasi, kualitas, izin, downtime, service level, kapasitas cadangan dan ketergantungan pemasok. Jika harga mesin belum dikutip, jangan menyebut model mesin sendiri lebih ekonomis secara total.</p>
+  <p className="mt-6 text-sm leading-7 text-roast-700"><strong>Cara memutuskan:</strong> jangan pilih hanya biaya per kg terkecil. Bandingkan cash-out investasi, kualitas, izin, downtime, service level, kapasitas cadangan dan ketergantungan pemasok. Jika target melebihi kapasitas, biaya yang tampak murah tidak boleh dibandingkan sebagai model yang mampu memenuhi target. Jika harga mesin belum dikutip, jangan menyebut model mesin sendiri lebih ekonomis secara total.</p>
  </section>;
 }
