@@ -218,7 +218,7 @@ Saat kamu bertemu kopi Indonesia yang dinarasikan sebagai warisan ratusan tahun,
 
 ---
 
-## Catatan pengajar: sumber dan batasan
+## Catatan pengajar — sumber dan batasan
 
 - **H01: Michel Tuchscherer (2024)**, *The Ethiopian and Yemeni Roots of Coffee*, Oxford Research Encyclopedia of Food Studies. https://academic.oup.com/edited-volume/61795/chapter-abstract/546047404  
   Batas: bukti awal Ethiopia/Yaman fragmentaris, tidak membuktikan tanggal legenda Kaldi.
