@@ -31,7 +31,7 @@ Bahan susu, puree buah dan minuman siap saji dapat mempunyai aturan simpan berbe
 
 **Kesalahan umum:** menggunakan bahan karena “masih enak dicicip” meski riwayat suhu dan penanganannya tidak jelas. Rasa tidak membuktikan produk aman terhadap mikroorganisme atau kontaminan lain. Jika catatan kritis tidak tersedia, lakukan hold sesuai SOP dan tanyakan penanggung jawab.
 
-**Eksperimen simulasi:** buat empat kartu bahan dengan kombinasi log lengkap, label hilang, produk kedaluwarsa, dan kemasan rusak. Susun tindakan serve/verify/hold/dispatch. Uji ulang setelah salah satu kartu mendapat data baru. Yang dinilai adalah kemampuan mengubah keputusan ketika kelayakan dapat atau tidak dapat dibuktikan.
+Eksperimen simulasi: buat empat kartu bahan dengan kombinasi log lengkap, label hilang, produk kedaluwarsa, dan kemasan rusak. Susun tindakan serve/verify/hold/dispatch. Uji ulang setelah salah satu kartu mendapat data baru. Yang dinilai adalah kemampuan mengubah keputusan ketika kelayakan dapat atau tidak dapat dibuktikan.
 
 **Transfer:** pelanggan ingin minuman yang sudah tidak bisa dibuat dari stok layak. Tawarkan alternatif yang jujur, bukan memakai bahan berisiko demi mengurangi waste.
 

@@ -33,7 +33,7 @@ Bayangkan mesin X menunjukkan angka tekanan pada sebuah gauge, sementara mesin Y
 
 Jangan menulis “9 bar pasti ideal untuk semua espresso”. Di beberapa venue angka itu dipakai sebagai referensi teknis, tetapi resep yang layak tetap bergantung pada mesin, kopi, metode, dan target mutu kedai. **Tidak perlu bereksperimen mengubah pressure valve atau kelistrikan untuk memahami bahwa tekanan adalah variabel.** Itu wilayah servis yang hanya boleh dilakukan oleh pihak berwenang.
 
-**Simulasi:** dua log menunjukkan shot 30 detik dari tombol pada mesin X dan 25 detik dari tetesan pertama pada Y. Apa yang bisa dibandingkan secara langsung? Belum banyak. Tulis informasi tambahan yang dibutuhkan, lalu usulkan pelatihan observasi tanpa menyentuh konfigurasi berisiko. Jika ada gejala kebocoran panas atau bunyi listrik, pilih eskalasi terlebih dahulu.
+Simulasi: dua log menunjukkan shot 30 detik dari tombol pada mesin X dan 25 detik dari tetesan pertama pada Y. Apa yang bisa dibandingkan secara langsung? Belum banyak. Tulis informasi tambahan yang dibutuhkan, lalu usulkan pelatihan observasi tanpa menyentuh konfigurasi berisiko. Jika ada gejala kebocoran panas atau bunyi listrik, pilih eskalasi terlebih dahulu.
 
 ## Tantangan transfer: kondisi berubah
 

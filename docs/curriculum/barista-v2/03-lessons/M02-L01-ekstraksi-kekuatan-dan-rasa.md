@@ -30,7 +30,7 @@ Hindari rumus instan seperti “asam pasti under-extracted”, “pahit pasti ov
 
 ## Skenario pembanding
 
-**Angka di bawah adalah data latihan fiktif** yang digunakan untuk menjelaskan pengukuran, bukan pernyataan rasanya:
+Angka di bawah adalah data latihan fiktif yang digunakan untuk menjelaskan pengukuran, bukan pernyataan rasanya:
 
 | Seduhan | Kopi kering | Massa minuman | TDS | Perkiraan EY |
 |---|---:|---:|---:|---:|

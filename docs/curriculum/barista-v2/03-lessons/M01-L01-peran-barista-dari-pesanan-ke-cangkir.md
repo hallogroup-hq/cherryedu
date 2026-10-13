@@ -37,7 +37,7 @@ Satu kalimat klarifikasi yang baik: “Maksudnya lebih terasa rasa kopinya, atau
 
 ## Latihan: Membaca tujuan di balik tiket
 
-**Data kasus fiktif.** Kedai menawarkan espresso, americano, latte, dan satu filter coffee. Tidak ada informasi ukuran, jenis biji, atau kandungan kafein yang terukur.
+Data kasus fiktif. Kedai menawarkan espresso, americano, latte, dan satu filter coffee. Tidak ada informasi ukuran, jenis biji, atau kandungan kafein yang terukur.
 
 1. Pelanggan meminta “kopi yang ringan tapi jangan encer.” Tulis **dua kemungkinan arti** kata “ringan”.
 2. Pertanyaan apa yang paling membantu membedakan kedua arti itu tanpa mengintimidasi pelanggan?

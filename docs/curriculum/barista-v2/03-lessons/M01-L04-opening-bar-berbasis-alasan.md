@@ -46,7 +46,7 @@ Di bawah ini adalah struktur pemeriksaan, bukan izin otomatis untuk mengoperasik
 
 ## Latihan: Prioritaskan opening yang berubah
 
-**Kondisi fiktif:** Dua pegawai, 12 menit sebelum buka. Ada (A) 20 cangkir belum dipoles, (B) blender baru tidak diketahui status kebersihannya, (C) papan menu belum memuat minuman yang habis, dan (D) bau listrik tak lazim dari salah satu soket.
+Kondisi fiktif: Dua pegawai, 12 menit sebelum buka. Ada (A) 20 cangkir belum dipoles, (B) blender baru tidak diketahui status kebersihannya, (C) papan menu belum memuat minuman yang habis, dan (D) bau listrik tak lazim dari salah satu soket.
 
 Susun tindakan berikutnya, jelaskan apa yang harus dihentikan, siapa perlu diberi tahu, dan pekerjaan mana yang bisa menunggu. **Jangan menggunakan durasi 12 menit untuk membenarkan tindakan berisiko.**
 

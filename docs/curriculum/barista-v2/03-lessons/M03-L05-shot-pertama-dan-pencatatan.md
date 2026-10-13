@@ -22,7 +22,7 @@ Buat shot log dengan kolom sumber angka (timbangan/timer/pengamatan), lalu isila
 
 ## Log yang baik memisahkan nilai ukur, asumsi, dan pengamatan
 
-Log pendek “grinder 6, 28 detik, enak” sulit ditindaklanjuti oleh orang lain. Coba format berikut pada data **fiktif**:
+Log pendek “grinder 6, 28 detik, enak” sulit ditindaklanjuti oleh orang lain. Coba format berikut pada data fiktif:
 
 | Komponen | Catatan |
 |---|---|

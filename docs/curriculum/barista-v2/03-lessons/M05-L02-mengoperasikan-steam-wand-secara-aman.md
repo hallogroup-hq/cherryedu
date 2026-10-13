@@ -18,7 +18,7 @@ Metode mengukur suhu yang tepat bergantung alat, produk dan SOP. Menyentuh bagia
 
 Latihan gambar: pilih posisi tangan yang berada di luar jalur steam, lihat arah nozzle dan tempat pitcher. Susun urutan aman dari verifikasi alat, persiapan bahan, texturing, pembersihan dan penyerahan. Ini latihan keputusan; penggunaan steam nyata memerlukan demonstrasi dan pengawasan.
 
-**Sebelum membaca contoh jawaban dari pengajar:** tulis hipotesis, prediksi, pengamatan yang dibutuhkan, variabel kontrol, keamanan, dan alasan kenapa satu uji lebih informatif daripada tebakan. Kesalahan hipotesis tidak otomatis berarti kegagalan belajar jika proses dan keselamatan dijaga.
+Sebelum melihat pembahasan, susun pemeriksaan praoperasi steam wand: petunjuk produsen, kondisi fisik dan titik risiko panas atau tekanan. Jelaskan batas yang mengharuskan berhenti, data yang bisa dicatat selama training, dan siapa yang berwenang memperbaiki alat bermasalah.
 
 ## Kenali titik risiko sebelum belajar gerakan
 

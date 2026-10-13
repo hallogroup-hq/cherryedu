@@ -18,7 +18,7 @@ Jangan mengejar suara 'psst' atau suhu dengan menempelkan tangan ke logam panas.
 
 Prediksikan hasil aeration lebih panjang dibanding lebih singkat pada kondisi yang didokumentasikan. Tulis variabel independen, variabel yang dijaga, apa yang akan diamati (ukuran gelembung, integrasi tekstur), serta batas keselamatan. Dengan alat hanya lakukan bersama pelatih; tanpa alat amati dua video nyata yang telah diverifikasi.
 
-**Sebelum membaca contoh jawaban dari pengajar:** tulis hipotesis, prediksi, pengamatan yang dibutuhkan, variabel kontrol, keamanan, dan alasan kenapa satu uji lebih informatif daripada tebakan. Kesalahan hipotesis tidak otomatis berarti kegagalan belajar jika proses dan keselamatan dijaga.
+Sebelum melihat pembahasan, buat prediksi terpisah untuk aerasi dan integrasi foam. Tentukan satu teknik yang akan diubah, karakter gelembung serta tekstur yang diamati, suhu aman, dan apa yang membuat dua percobaan susu dapat dibandingkan secara adil.
 
 ## Dua fase, dua pertanyaan
 

@@ -18,7 +18,7 @@ Desain tiga percobaan yang purposeful, pilih variabel pertama, prediksi efek sen
 
 Tuliskan pertanyaan yang kamu pilih, prediksi, variabel yang dikendalikan, risiko, pengamatan yang akan dibutuhkan dan satu hasil yang akan membuatmu merevisi keputusan. Bekerja dengan bahan/alat nyata memerlukan kondisi aman, penanganan higienis, SOP dan pengawasan yang sesuai.
 
-## V0–V3: setiap revisi harus menjawab satu pertanyaan
+## V0 sampai V3: setiap revisi harus menjawab satu pertanyaan
 
 Kamu merancang minuman coffee-forward untuk pelanggan yang menyukai aroma lokal dan sweetness rendah. Contoh ini adalah **rancangan**, bukan hasil tasting.
 

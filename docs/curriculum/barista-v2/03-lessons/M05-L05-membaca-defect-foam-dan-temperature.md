@@ -18,7 +18,7 @@ Jangan memperbaiki foam dengan tindakan yang meningkatkan risiko luka bakar atau
 
 Latihan diagnosis: tuliskan tiga observasi yang benar-benar dapat dilihat pada footage, dua hipotesis, dan satu tes aman yang memisahkannya. Dokumentasikan kapan harus remake dan kapan perlu eskalasi alat. Jika ada alergi, keselamatan mengalahkan target foam.
 
-**Sebelum membaca contoh jawaban dari pengajar:** tulis hipotesis, prediksi, pengamatan yang dibutuhkan, variabel kontrol, keamanan, dan alasan kenapa satu uji lebih informatif daripada tebakan. Kesalahan hipotesis tidak otomatis berarti kegagalan belajar jika proses dan keselamatan dijaga.
+Sebelum melihat pembahasan, bedakan busa kasar, terlalu cair, dan terlalu panas lewat bukti yang bisa diamati. Tuliskan satu pemeriksaan teknik steaming dan satu kemungkinan terkait bahan, lalu jelaskan mengapa sebuah gejala tidak membuktikan penyebab tunggal.
 
 ## Diagnosis membutuhkan pengamatan yang tepat
 

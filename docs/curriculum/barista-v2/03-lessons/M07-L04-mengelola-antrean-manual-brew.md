@@ -29,7 +29,7 @@ Tiket A membutuhkan 15 g kopi dan 225 g air; tiket B 18 g kopi dan 270 g air. Ke
 | Menyeduh | Pola air, waktu, gelas |
 | Menyerahkan | Tiket, nama pelanggan, suhu, catatan bahan |
 
-**Simulasi alur:** terdapat tiga tiket, satu timbangan dan satu grinder. Urutkan pekerjaan dengan mempertimbangkan proses yang memakai alat bersama. Tambahkan gangguan: pelanggan ketiga mengubah pesanannya saat bubuk baru selesai digiling. Bahan tersebut tidak boleh diam-diam disajikan sebagai kopi lain. Catat kebijakan bahan/waste dan komunikasi yang diperlukan.
+Simulasi alur: terdapat tiga tiket, satu timbangan dan satu grinder. Urutkan pekerjaan dengan mempertimbangkan proses yang memakai alat bersama. Tambahkan gangguan: pelanggan ketiga mengubah pesanannya saat bubuk baru selesai digiling. Bahan tersebut tidak boleh diam-diam disajikan sebagai kopi lain. Catat kebijakan bahan/waste dan komunikasi yang diperlukan.
 
 Kecepatan pelayanan bukan satu angka; salah serah atau minuman yang harus dibuat ulang justru dapat memperlambat antrean.
 

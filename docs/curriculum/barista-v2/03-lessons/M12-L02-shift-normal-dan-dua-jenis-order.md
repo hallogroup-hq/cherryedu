@@ -29,7 +29,7 @@ Tiket A: americano hangat tanpa gula dengan rasa kopi yang masih jelas. Tiket B:
 | Ukuran yang dicatat | Dose/yield, massa air, suhu sajian | Espresso, susu, es, volume |
 | Keamanan | Bahan/alat layak | Label, penanganan susu, kemungkinan alergen |
 
-**Simulasi:** rancang proses persiapan, urutan dan label dua tiket dengan satu grinder dan satu staf yang membantu. Tentukan titik cek sebelum penyerahan. Lalu informasi berubah: tiket B ternyata mengandung permintaan alergi protein susu sapi. Apa yang harus diulang atau ditahan hingga alat dan proses terverifikasi?
+Simulasi: rancang proses persiapan, urutan dan label dua tiket dengan satu grinder dan satu staf yang membantu. Tentukan titik cek sebelum penyerahan. Lalu informasi berubah: tiket B ternyata mengandung permintaan alergi protein susu sapi. Apa yang harus diulang atau ditahan hingga alat dan proses terverifikasi?
 
 **Eksperimen layanan:** bandingkan dua gaya handoff—verbal “dua kopi siap” versus label yang menunjukkan identitas, suhu, susu, dan status khusus. Apa kemungkinan salah serah atau kehilangan informasi pada tiap cara? Uji lewat skenario kartu, bukan bahan nyata.
 

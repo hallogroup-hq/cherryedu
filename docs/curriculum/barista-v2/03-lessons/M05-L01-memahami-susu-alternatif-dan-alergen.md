@@ -18,7 +18,7 @@ Jangan mengandalkan suhu atau busa yang tampak saja untuk mengklaim susu aman di
 
 Eksperimen hanya bila ada sesi training yang aman: bandingkan dua jenis susu pada volume dan alat yang setara serta lakukan prosedur steam sesuai petunjuk. Catat tekstur secara observasional, tanpa mengklaim nutrisi atau keamanan alergi berubah. Tanpa alat, bandingkan label dan prediksi risiko.
 
-**Sebelum membaca contoh jawaban dari pengajar:** tulis hipotesis, prediksi, pengamatan yang dibutuhkan, variabel kontrol, keamanan, dan alasan kenapa satu uji lebih informatif daripada tebakan. Kesalahan hipotesis tidak otomatis berarti kegagalan belajar jika proses dan keselamatan dijaga.
+Sebelum melihat pembahasan, bandingkan dua pesanan oat latte: preferensi rasa dan alergi protein susu. Tulis risiko kontak silang, apa yang dapat dipastikan dari label serta prosedur alat, dan kapan pesanan perlu ditunda. Jangan menebak keamanan berdasarkan nama bahan saja.
 
 ## Jenis bahan dan alasan permintaan pelanggan tidak selalu sama
 

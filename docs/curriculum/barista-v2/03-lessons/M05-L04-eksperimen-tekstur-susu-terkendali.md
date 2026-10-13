@@ -18,7 +18,7 @@ Jika percobaan gagal, bedakan kegagalan teknik, kegagalan desain eksperimen dan 
 
 Buat trial plan dua kondisi dengan SOP terverifikasi, catat bahan/label, massa, suhu awal, metode, hasil tekstur nyata jika dilakukan, dan siapa mengamati. Tuliskan hasil yang akan menolak hipotesismu. Tidak punya mesin? Bandingkan dua laporan contoh dan jelaskan desain uji yang lebih kuat.
 
-**Sebelum membaca contoh jawaban dari pengajar:** tulis hipotesis, prediksi, pengamatan yang dibutuhkan, variabel kontrol, keamanan, dan alasan kenapa satu uji lebih informatif daripada tebakan. Kesalahan hipotesis tidak otomatis berarti kegagalan belajar jika proses dan keselamatan dijaga.
+Sebelum melihat pembahasan, rancang dua kali uji tekstur memakai susu, volume, wadah, dan alat yang sama. Tulis perubahan durasi aerasi yang diuji, cara mengamati hasil, batas keselamatan dan alasan kapan percobaan perlu dihentikan.
 
 ## Cara membandingkan bahan tanpa menyalahkan barista
 

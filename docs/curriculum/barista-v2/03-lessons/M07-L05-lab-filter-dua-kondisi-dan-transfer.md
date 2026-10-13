@@ -20,7 +20,7 @@ Catat pertanyaanmu, hipotesis, prediksi, satu kondisi yang diubah, variabel kont
 
 ## Data akhir yang memaksa kamu bertanya lagi
 
-Percobaan A memakai 15 g kopi, 225 g brew water dan menghasilkan 180 g minuman dalam 3 menit. Percobaan B memakai 15 g kopi, 240 g brew water dan menghasilkan 194 g minuman dalam 3 menit 25 detik. **Ini dataset fiktif tanpa TDS dan hasil cicip.**
+Percobaan A memakai 15 g kopi, 225 g brew water dan menghasilkan 180 g minuman dalam 3 menit. Percobaan B memakai 15 g kopi, 240 g brew water dan menghasilkan 194 g minuman dalam 3 menit 25 detik. Ini dataset fiktif tanpa TDS dan hasil cicip.
 
 Kamu dapat menghitung A 1:15, B 1:16 untuk rasio input. Tetapi perbedaan massa output dan waktu tidak cukup membuktikan B lebih encer ataupun lebih terekstraksi. Penambahan air melalui bed dapat mengubah flow, kontak dan total senyawa terlarut.
 

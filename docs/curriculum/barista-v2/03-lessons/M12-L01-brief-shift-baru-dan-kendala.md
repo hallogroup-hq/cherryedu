@@ -18,7 +18,7 @@ Rancang peta keputusan 30 menit pertama: pemeriksaan aman, konfirmasi recipe bas
 
 Tuliskan pertanyaan yang kamu pilih, prediksi, variabel yang dikendalikan, risiko, pengamatan yang akan dibutuhkan dan satu hasil yang akan membuatmu merevisi keputusan. Bekerja dengan bahan/alat nyata memerlukan kondisi aman, penanganan higienis, SOP dan pengawasan yang sesuai.
 
-## Hari pertama bukan ajang berpura-pura sudah tahu semua
+## Hari pertama: pahami kondisi dan prioritas shift
 
 Saat ditempatkan di bar yang belum dikenal, barista perlu memetakan risiko, alat, SOP, produk dan batas wewenang. Mesin atau grinder dengan model berbeda tidak berarti resep lama dapat dipindahkan mentah-mentah.
 

@@ -8,7 +8,7 @@ Ilmu yang baik bukan tentang selalu benar di percobaan pertama. Ilmu yang baik m
 
 Lihat dua catatan di bawah.
 
-**Semua angka adalah dataset latihan fiktif. Tidak ada rasa yang diukur atau dicicipi.**
+Semua angka adalah dataset latihan fiktif. Tidak ada rasa yang diukur atau dicicipi.
 
 | Data | Seduhan A | Seduhan B |
 |---|---:|---:|

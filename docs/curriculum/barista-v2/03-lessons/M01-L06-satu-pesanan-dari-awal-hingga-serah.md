@@ -38,7 +38,7 @@ Seseorang yang hanya menghafal urutan bisa melakukan semua baris saat kondisi id
 
 ## Tantangan utama: Kamu yang menentukan
 
-**Kasus simulasi fiktif.** Kamu sendirian sementara rekan mengambil bahan. Masuk dua tiket:
+Kasus simulasi fiktif. Kamu sendirian sementara rekan mengambil bahan. Masuk dua tiket:
 
 - Tiket A: iced americano, pelanggan ingin rasa kopi lebih dominan daripada versi biasa.
 - Tiket B: latte susu alternatif; pelanggan menyebut alergi susu sapi. Alat terpisah dan SOP alergi belum dipastikan.

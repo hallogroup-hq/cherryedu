@@ -35,7 +35,7 @@ Jangan mengklaim bahwa membersihkan alat secara sekilas membuat minuman sepenuhn
 
 ## Latihan: Putuskan serve, cek, atau hold
 
-**Skenario fiktif untuk belajar keputusan; bukan penetapan keamanan produk nyata.**
+Skenario fiktif untuk belajar keputusan; bukan penetapan keamanan produk nyata.
 
 **Situasi A.** Susu alternatif masih berlabel jelas, tetapi pelanggan menyebut alergi berat dan barista belum mengetahui prosedur alat terpisah. Apa informasi yang diperlukan sebelum menawarkan pesanan?
 

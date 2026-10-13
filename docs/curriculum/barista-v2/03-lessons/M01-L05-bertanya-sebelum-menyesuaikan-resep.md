@@ -36,7 +36,7 @@ Yang terlihat seperti “inisiatif” belum tentu benar bila dilakukan diam-diam
 
 ## Latihan kasus pelanggan: Tidak ada jawaban tunggal
 
-**Skenario fiktif.** Customer berkata, “Saya suka aroma buah, tapi biasanya nggak suka kopi yang asam. Punya saran?”
+Skenario fiktif. Customer berkata, “Saya suka aroma buah, tapi biasanya nggak suka kopi yang asam. Punya saran?”
 
 Pilihan menu tersedia: espresso house blend, satu filter coffee yang dideskripsikan fruity, dan minuman susu dingin. Kamu belum mencicipi batch hari ini.
 
@@ -48,6 +48,6 @@ Pilihan menu tersedia: espresso house blend, satu filter coffee yang dideskripsi
 
 Buat dua versi kalimat rekomendasi: versi pertama menggunakan jargon seperti *acidity, extraction, body*; versi kedua menggunakan bahasa sehari-hari yang sesuai pelanggan. Prediksikan mana yang lebih mudah dimengerti oleh pemula dan alasannya.
 
-Bila melakukan role-play, minta pasangan **mengulang kembali apa yang mereka pahami**, bukan sekadar menilai mana kalimat yang “terdengar keren”. Catat apakah hipotesismu terbukti atau perlu direvisi. Reaksi lawan bicara hanya bisa disebut data nyata bila benar-benar diamati.
+Bila melakukan role-play, minta pasangan **mengulang kembali apa yang mereka pahami**, bukan sekadar menilai mana kalimat yang “mudah dipahami pelanggan”. Catat apakah hipotesismu terbukti atau perlu direvisi. Reaksi lawan bicara hanya bisa disebut data nyata bila benar-benar diamati.
 
 Target akhir lesson: kamu bisa menanggapi permintaan tidak biasa **dengan pertanyaan yang tepat, alasan yang dapat dipahami, dan keputusan aman**, bukan sekadar mencari tombol preset.

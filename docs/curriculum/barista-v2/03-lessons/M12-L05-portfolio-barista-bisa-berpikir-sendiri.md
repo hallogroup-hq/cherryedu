@@ -28,7 +28,7 @@ Dossier akhir sebaiknya menunjukkan *bagaimana kamu berubah pikiran ketika data 
 | Kasus pelanggan ambigu | Klarifikasi dan opsi layanan |
 | Kasus alergen/alat fault | Keputusan hold/eskalasi |
 | Notebook eksperimen | Hipotesis, prediksi, kontrol, hasil, revisi |
-| Signature V0–V3 | Pengembangan resep yang bertujuan |
+| Signature V0 sampai V3 | Pengembangan resep yang bertujuan |
 | SOP + costing + trial operator kedua | Potensi replikasi dan operasional |
 
 Jika siswa hanya mengikuti simulasi daring, setiap tabel wajib diberi label *latihan*, bukan *pengukuran nyata*. Jika ada tasting betulan, catat metode, peserta yang bersedia, kondisi dan keterbatasan. Tidak dibenarkan mengarang feedback agar karya terlihat selesai.
