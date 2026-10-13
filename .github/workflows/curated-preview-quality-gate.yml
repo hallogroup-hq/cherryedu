@@ -1,0 +1,57 @@
+name: CherryEdu Curated Preview Quality Gate
+on:
+  push:
+    branches:
+      - preview/cherryedu-curated-2026-10
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  curriculum-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    env:
+      NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW: enabled
+      NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW: review-only
+      CHERRYEDU_BARISTA_V2_REVIEW: enabled
+      CHERRYEDU_HOME_BREWER_V2_REVIEW: enabled
+      CHERRYEDU_ROASTER_V2_REVIEW: enabled
+      CHERRYEDU_SENSORY_V2_REVIEW: enabled
+      CHERRYEDU_BUSINESS_ROASTERY_REVIEW: enabled
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Foundation content integrity
+        run: node scripts/validate-foundation-v2.cjs
+      - name: Barista content integrity
+        run: node scripts/validate-barista-v2-drafts.cjs
+      - name: Home Brewer content integrity
+        run: node scripts/validate-home-brewer-v2.cjs
+      - name: Roaster content integrity
+        run: node scripts/validate-roaster-v2.cjs
+      - name: Sensory content integrity
+        run: node scripts/validate-sensory-v2.cjs
+      - name: Business Roastery content and arithmetic integrity
+        run: |
+          node scripts/validate-business-roastery.cjs
+          node scripts/validate-business-roastery-numbers.cjs
+      - name: Six-path editorial readability gate
+        run: node scripts/validate-curated-editorial.cjs
+      - name: TypeScript
+        run: npm run typecheck
+      - name: Build complete preview
+        run: npm run build
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run cross-path UI and learning interaction regression
+        run: npx playwright test --config=playwright.curated.config.ts

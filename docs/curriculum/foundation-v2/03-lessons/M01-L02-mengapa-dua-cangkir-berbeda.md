@@ -1,9 +1,9 @@
 ---
-course: "Kopi dari Hulu ke Hilir — Foundation 2.0"
+course: "Kopi dari Hulu ke Hilir: Foundation 2.0"
 module: M01
 lesson: M01.L02
 title: "Mengapa dua cangkir kopi bisa berbeda?"
-stage: "03 — authored draft"
+stage: "03: authored draft"
 status: "internal-review; not live"
 learning_outcome: "Peserta menghasilkan minimal tiga hipotesis berbeda untuk perbedaan dua kopi, mengidentifikasi dua faktor perancu, dan memilih bukti yang dibutuhkan."
 prerequisite: "M01.L01"
@@ -57,15 +57,15 @@ Nanti kita akan mendalami masing-masing tahap. Untuk sekarang, cukup tahu bagaim
 
 Perhatikan contoh berikut.
 
-**Kalimat A — Pengamatan:** “Ketika kucicipi, cangkir kedua terasa lebih pahit.”
+**Kalimat A: Pengamatan:** “Ketika kucicipi, cangkir kedua terasa lebih pahit.”
 
 Ini laporan pengalaman. Orang lain bisa mengulang pembandingan dalam kondisi serupa untuk melihat apakah ia merasakan hal yang sama.
 
-**Kalimat B — Hipotesis:** “Mungkin gilingan pada cangkir kedua lebih halus.”
+**Kalimat B: Hipotesis:** “Mungkin gilingan pada cangkir kedua lebih halus.”
 
 Ini ide tentang penyebab yang mungkin dapat diuji. Ia belum terbukti benar.
 
-**Kalimat C — Kesimpulan:** “Perbedaan gilingan menjelaskan perbedaan rasa pada dua cangkir tadi.”
+**Kalimat C: Kesimpulan:** “Perbedaan gilingan menjelaskan perbedaan rasa pada dua cangkir tadi.”
 
 Kalimat terakhir baru layak dipakai setelah bukti cukup kuat untuk mendukungnya dan alternatif yang relevan telah dipertimbangkan.
 
@@ -157,9 +157,9 @@ Semua data di bawah **dibuat untuk latihan**. Angka dan komentar ini bukan hasil
 
 **Contoh jawaban:** Ulangi dua setelan beberapa kali, acak urutan penyajian, samakan kondisi pencicipan, lalu catat perbedaan yang berulang. Jika tersedia dua orang pencicip, bandingkan catatan keduanya sebelum membuka kode sampel.
 
-### Jejak P-17: satu kopi yang akan kita ikuti
+### Mengenal P-17: satu lot kopi contoh
 
-Sepanjang kelas, kita akan mengikuti **P-17, lot fiktif untuk latihan**. Di suatu bagian kamu melihat ceri dari kebun, pada bagian lain log processing, roast, brewing, sensori dan catatan pembayaran. **Semua nama dan angkanya simulasi; bukan data petani atau produk CherryEdu.** Kita sengaja belum tahu hasil rasanya agar tidak menebak karakter cangkir dari asal atau label.
+P-17 adalah kode untuk satu lot kopi contoh yang dipakai sepanjang kelas. Kita akan membaca informasi panen, processing, roasting, seduh, sensori, dan transaksi dari lot yang sama. Rasa kopi tidak dapat disimpulkan hanya dari asal atau label. *(Data contoh.)*
 
 ## 7. Bagaimana mencari penyebab ketika datanya sangat sedikit?
 
@@ -217,17 +217,17 @@ Contoh: “... identitas lot, tanggal/profil roasting, dan resep yang digunakan.
 - Perbedaan persepsi dapat timbul bahkan dari minuman serupa akibat suhu, konteks dan ekspektasi.
 - Kesimpulan yang baik lebih kuat ketika kita memisahkan **pengamatan → hipotesis → pengujian → kesimpulan sementara**.
 
-**Berikutnya:** Kita akan melakukan latihan A/B pertama. Tidak harus punya dua jenis kopi atau alat mahal: tersedia jalur praktik langsung dan jalur analisis kasus. Kita akan mencoba membuat catatan yang bisa dibandingkan tanpa terdengar sok ahli.
+**Berikutnya:** Kita akan melakukan latihan A/B pertama. Tidak harus punya dua jenis kopi atau alat mahal: tersedia jalur praktik langsung dan jalur analisis kasus. Kita akan mencoba membuat catatan yang bisa dibandingkan dengan alasan yang dapat diperiksa.
 
 ---
 
 ## Editorial evidence
 
-- **C01** — Chapko & Seo, *Characterizing product temperature-dependent sensory perception of brewed coffee beverages* (2019); tiga sampel kopi, empat temperatur, panelis terlatih; tidak mewakili semua populasi. https://pubmed.ncbi.nlm.nih.gov/31108788/
-- **C02** — Adhikari, Chambers & Koppel, *Impact of consumption temperature on sensory properties of hot brewed coffee* (2019). https://pubmed.ncbi.nlm.nih.gov/30599987/
-- **C03** — Artêncio et al., *The impact of coffee origin information on sensory and hedonic judgment of fine Amazonian robusta coffee* (2023); konteks spesifik, hindari generalisasi global. https://doi.org/10.1111/joss.12827
-- **C04** — SCA Coffee Value Assessment, descriptive vs affective distinction. https://sca.coffee/value-assessment/
-- **C05** — World Coffee Research Sensory Lexicon and Chambers et al. 2016. https://doi.org/10.1111/joss.12237
+- **C01**: Chapko & Seo, *Characterizing product temperature-dependent sensory perception of brewed coffee beverages* (2019); tiga sampel kopi, empat temperatur, panelis terlatih; tidak mewakili semua populasi. https://pubmed.ncbi.nlm.nih.gov/31108788/
+- **C02**: Adhikari, Chambers & Koppel, *Impact of consumption temperature on sensory properties of hot brewed coffee* (2019). https://pubmed.ncbi.nlm.nih.gov/30599987/
+- **C03**: Artêncio et al., *The impact of coffee origin information on sensory and hedonic judgment of fine Amazonian robusta coffee* (2023); konteks spesifik, hindari generalisasi global. https://doi.org/10.1111/joss.12827
+- **C04**: SCA Coffee Value Assessment, descriptive vs affective distinction. https://sca.coffee/value-assessment/
+- **C05**: World Coffee Research Sensory Lexicon and Chambers et al. 2016. https://doi.org/10.1111/joss.12237
 - **Pedagogical design:** Comparison, self-explanation and retrieval practice follow evidence-based learning principles, not claimed to be externally validated in this exact CherryEdu unit. Dunlosky et al. 2013: https://doi.org/10.1177/1529100612453266
 - **Expert review pending:** Precision of causal language and framing of a brew parameter that mediates other variables; adaptation for novice language.
 - **Learner testing pending:** Measure whether learners identify 2+ alternatives without prompting and avoid altitude/taste stereotypes.

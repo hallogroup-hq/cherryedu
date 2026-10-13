@@ -9,7 +9,7 @@ legacy: F7-3
 source_ids: [LEX-01,LEX-02,LEX-03]
 ---
 
-# “Fruity” itu seperti apa? Belajar bahasa rasa tanpa harus sok ahli
+# Memahami deskriptor “fruity” dalam bahasa sensori
 
 Pernah mencicipi kopi lalu membaca tasting notes pada bungkusnya: *red currant, bergamot, jasmine*. Kamu tidak menemukan ketiganya. Lalu muncul pikiran: “Berarti lidahku belum cukup bagus.”
 
@@ -113,17 +113,17 @@ Saat pemula diberi tugas “cari lima flavor notes”, ia bisa terdorong mengara
 
 ## 7. Tantangan deskriptor: dari luas ke jujur
 
-**Semuanya simulasi tertulis, bukan hasil pencicipan.**
+Semuanya simulasi tertulis, bukan hasil pencicipan.
 
 Panelis menulis “A enak, seger, kaya rasa buah-buahan. B pahit dan jelek.”
 
-**Tugas 1 — ubah menjadi catatan yang lebih presisi.**
+**Tugas 1: ubah menjadi catatan yang lebih presisi.**
 
 **Contoh jawaban:** “Menurut panelis, A memiliki keasaman yang terasa jelas dengan kesan aroma buah segar. Panelis lebih menyukai A. Pada B, rasa pahit lebih dominan dan panelis tidak menyukainya. Kita tidak tahu aroma, tekstur, atau metode seduh B.”
 
-**Tugas 2 — apa yang masih tidak diketahui?** Contoh: suhu minum, metode seduh, sampel terkode atau tidak, kesepakatan panelis lain, dan penjelasan apa yang dimaksud “buah”.
+**Tugas 2: apa yang masih tidak diketahui?** Contoh: suhu minum, metode seduh, sampel terkode atau tidak, kesepakatan panelis lain, dan penjelasan apa yang dimaksud “buah”.
 
-**Tugas 3 — pilih tingkat keyakinan yang tepat.**
+**Tugas 3: pilih tingkat keyakinan yang tepat.**
 
 [ACTIVITY:lexicon-confidence]
 
@@ -147,8 +147,8 @@ Panelis menulis “A enak, seger, kaya rasa buah-buahan. B pahit dan jelek.”
 
 ---
 ### Editorial source register
-- **LEX-01** — World Coffee Research, *Sensory Lexicon*, 110 attributes, version 2.0 October 2017: https://worldcoffeeresearch.org/read-more/news/174-world-coffee-research-sensory-lexicon
-- **LEX-02** — SCA official Flavor Wheel store/licensing (©2016, CC BY-NC-ND 4.0): https://sca.coffee/store/flavor-wheel
-- **LEX-03** — SCA CVA Descriptive and Affective distinction, SCA-103/104: https://sca.coffee/value-assessment ; https://sca.coffee/research/coffee-standards
+- **LEX-01**: World Coffee Research, *Sensory Lexicon*, 110 attributes, version 2.0 October 2017: https://worldcoffeeresearch.org/read-more/news/174-world-coffee-research-sensory-lexicon
+- **LEX-02**: SCA official Flavor Wheel store/licensing (©2016, CC BY-NC-ND 4.0): https://sca.coffee/store/flavor-wheel
+- **LEX-03**: SCA CVA Descriptive and Affective distinction, SCA-103/104: https://sca.coffee/value-assessment ; https://sca.coffee/research/coffee-standards
 - **Rights block:** Do not reproduce copyrighted charts, full lexicon text or copy official forms as CherryEdu graphic assets without verified license/permissions. The original table in this lesson is independently written for teaching concept, not an SCA standard.
 - **Review pending:** Coffee sensory linguist, cultural/context reviewer and legal rights review for product design.

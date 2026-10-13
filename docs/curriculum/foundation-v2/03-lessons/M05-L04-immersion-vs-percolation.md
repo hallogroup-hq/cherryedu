@@ -74,17 +74,17 @@ Perhatikan pula istilah **TDS**: refraktometer coffee brew menaksir zat terlarut
 
 Bayangkan tiga orang:
 
-**A — Pemula tanpa alat khusus.** Ia ingin belajar bagaimana kopi dan air berinteraksi. Latihan immersion sederhana dengan alat pangan yang aman bisa dipakai apabila tersedia. Jika tidak, analisis kasus tertulis tetap memadai untuk mempelajari konsep.
+**A: Pemula tanpa alat khusus.** Ia ingin belajar bagaimana kopi dan air berinteraksi. Latihan immersion sederhana dengan alat pangan yang aman bisa dipakai apabila tersedia. Jika tidak, analisis kasus tertulis tetap memadai untuk mempelajari konsep.
 
-**B — Penikmat yang menginginkan hasil bersih dari fines.** Filter kertas bisa menjadi salah satu pilihan, sambil mempertimbangkan workflow dan jenis biji.
+**B: Penikmat yang menginginkan hasil bersih dari fines.** Filter kertas bisa menjadi salah satu pilihan, sambil mempertimbangkan workflow dan jenis biji.
 
-**C — Kedai yang membutuhkan volume dan konsistensi.** Batch brewer mungkin praktis, tetapi kalibrasi, kebersihan, dan kapasitas staf harus dipikirkan.
+**C: Kedai yang membutuhkan volume dan konsistensi.** Batch brewer mungkin praktis, tetapi kalibrasi, kebersihan, dan kapasitas staf harus dipikirkan.
 
 Tidak satu pun pilihan membuktikan “metode lain buruk”. Pemilihan alat merupakan keputusan **tujuan, sumber daya, dan kompromi yang diinginkan**.
 
 ## 6. Simulasi: dua metode, satu kopi
 
-Data ini **fiktif**, dibuat untuk menguji penalaran:
+Data ini fiktif, dibuat untuk menguji penalaran:
 
 | Aspek | Gelas A | Gelas B |
 |---|---|---|

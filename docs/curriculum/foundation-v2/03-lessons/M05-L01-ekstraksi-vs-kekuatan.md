@@ -43,7 +43,7 @@ Penting: **TDS minuman (% kopi terlarut)** berbeda dari **TDS air seduh (biasany
 
 **Extraction yield (EY)** mengacu persentase massa awal bubuk kopi kering yang diperkirakan telah pindah sebagai zat terlarut dalam minuman. Contohnya: dari 20 gram bubuk, andaikan 4 gram zat kopi mencapai minuman, perkiraan EY adalah 20%.
 
-Bayangkan dua kasus **fiktif**:
+Bayangkan dua kasus fiktif:
 
 | Faktor | Minuman A | Minuman B |
 |---|---:|---:|

@@ -36,7 +36,7 @@ Sebuah perbandingan punya empat bagian:
 
 ## 2. Dua jalur yang sama-sama sah untuk Foundation
 
-### Jalur A — Jika kamu punya alat seduh
+### Jalur A: Jika kamu punya alat seduh
 
 Pilih dua setelan gilingan yang cukup berbeda pada **grinder yang sama**, gunakan kopi dan alat yang sudah dimiliki. Ikuti petunjuk keselamatan peralatan dan gunakan minuman pada suhu yang aman untuk dicicipi.
 
@@ -46,7 +46,7 @@ Bila satu batch seduhan sudah selesai, ulangi perbandingan di kesempatan lain ap
 
 **Hindari membuat minuman panas secara ceroboh demi menyelesaikan tes.** Tidak ada keharusan mencicipi suhu terlalu panas, membuat espresso bertekanan, atau mengubah setting mesin dengan cara tidak aman.
 
-### Jalur B — Tanpa alat, gunakan data simulasi
+### Jalur B: Tanpa alat, gunakan data simulasi
 
 Berikut data **sintetis untuk belajar**, bukan hasil eksperimen CherryEdu.
 
@@ -87,7 +87,7 @@ Kita gunakan rumus EY sederhana dari lesson sebelumnya.
 - A: 215 g × 1,25 / 15 = sekitar **17,92%**.
 - B: 210 g × 1,30 / 15 = **18,20%**.
 
-**Ini hasil perhitungan dari angka fiktif, bukan hasil lab.** Selisih sekitar 0,28 poin persentase bisa dipengaruhi pengukuran, pemilihan sampel, serta kondisi ekstraksi. Tidak cukup untuk menjanjikan semua pencicip akan menemukan perbedaan rasa tertentu.
+Ini hasil perhitungan dari angka fiktif, bukan hasil lab. Selisih sekitar 0,28 poin persentase bisa dipengaruhi pengukuran, pemilihan sampel, serta kondisi ekstraksi. Tidak cukup untuk menjanjikan semua pencicip akan menemukan perbedaan rasa tertentu.
 
 Keduanya juga mempunyai berat minuman berbeda; karena itu penting mencatat hasil yang muncul bersamaan dengan perubahan gilingan.
 
@@ -109,12 +109,12 @@ Contoh: ulangi eksperimen beberapa kali, acak kode A/B, gunakan protokol pencici
 
 Kita sudah belajar dari Modul 02–04 bahwa spesies, lokasi, processing, dan roasting memengaruhi bahan sebelum brewing. Namun jika seduhan A terasa asam, **kita tidak boleh langsung menyalahkan panen petani** dari satu cangkir.
 
-Kebiasaan dasar yang paling bermanfaat adalah mulai dari variabel yang dapat diamati, lalu memperluas hipotesis bila perlu. Tidak perlu berpura-pura punya alat uji laboratorium untuk membuat catatan jujur.
+Kebiasaan dasar yang paling bermanfaat adalah mulai dari variabel yang dapat diamati, lalu memperluas hipotesis bila perlu. Tidak perlu memiliki alat yang tidak tersedia uji laboratorium untuk membuat catatan jujur.
 
 
 [ACTIVITY:brew-investigation-note]
 
-## 6. Tugas akhir — Brew Investigation Note
+## 6. Tugas akhir: Brew Investigation Note
 
 Buat laporan pendek. Kamu bisa memilih jalur nyata atau menggunakan data simulasi di lesson ini.
 

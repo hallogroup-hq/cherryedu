@@ -61,7 +61,7 @@ Jika ingin meneliti dampak honey, tanyakan cara produsen menentukan kategori, ju
 
 ## 5. Kasus: tiga lot, hasil tidak sesuai dugaan
 
-**Semua data berikut simulasi** dan tidak berasal dari uji sensorik.
+Semua data berikut simulasi dan tidak berasal dari uji sensorik.
 
 | Lot | Proses pada dokumen | Catatan panelis | Informasi yang belum ada |
 |---|---|---|---|

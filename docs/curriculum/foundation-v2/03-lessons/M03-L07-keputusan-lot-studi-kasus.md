@@ -17,7 +17,7 @@ Itu bukan cara berpikir yang kita ingin latih.
 
 **Kamu tidak berperan sebagai inspektur sertifikasi**. Tugasmu menggunakan informasi yang ada untuk menentukan apakah dokumen dan kondisi lot cukup jelas untuk *review berikutnya*, atau perlu ditahan dan dievaluasi oleh operator yang berwenang.
 
-## 1. Cerita kasus — semua data fiktif
+## 1. Cerita kasus: semua data fiktif
 
 Lokasi: stasiun pengolahan di Jawa Barat yang sedang menghadapi musim hujan. Nama, tanggal, dan angka pada simulasi **bukan data kebun nyata**.
 
@@ -39,13 +39,13 @@ Dua sublot berasal dari kiriman ceri kebun yang sama, tetapi dipisahkan berdasar
 
 ## 2. Tiga keputusan yang boleh kamu gunakan
 
-**PROCEED FOR REVIEW** — catatan sementara memadai untuk meneruskan ke tahap pemeriksaan lebih lanjut sesuai prosedur, **bukan** izin langsung menjual sebagai memenuhi seluruh spesifikasi.
+**PROCEED FOR REVIEW**: catatan sementara memadai untuk meneruskan ke tahap pemeriksaan lebih lanjut sesuai prosedur, **bukan** izin langsung menjual sebagai memenuhi seluruh spesifikasi.
 
-**REQUEST INFORMATION** — ada informasi yang dibutuhkan untuk mengambil keputusan, namun belum cukup bukti adanya insiden spesifik yang harus ditahan.
+**REQUEST INFORMATION**: ada informasi yang dibutuhkan untuk mengambil keputusan, namun belum cukup bukti adanya insiden spesifik yang harus ditahan.
 
-**HOLD & ESCALATE** — ada red flag mutu/keamanan/identitas yang memerlukan penanganan oleh orang berwenang sebelum barang dicampur, dipasarkan atau diteruskan tanpa kontrol.
+**HOLD & ESCALATE**: ada red flag mutu/keamanan/identitas yang memerlukan penanganan oleh orang berwenang sebelum barang dicampur, dipasarkan atau diteruskan tanpa kontrol.
 
-Kata-kata ini adalah **kategori pendidikan dalam simulasi**, bukan prosedur resmi SCA, ISO, HACCP, atau kebijakan ekspor.
+Kata-kata ini adalah kategori pendidikan dalam simulasi, bukan prosedur resmi SCA, ISO, HACCP, atau kebijakan ekspor.
 
 
 [ACTIVITY:lot-qc-note]
@@ -102,7 +102,7 @@ Model penalaran tersedia melalui tombol pembahasan pada lembar kerja. Bandingkan
 
 ## 8. Rubrik penilaian (bukan sertifikasi)
 
-| Dimensi | 0 — salah/tiada | 1 — parsial | 2 — memadai | 3 — baik |
+| Dimensi | 0: salah/tiada | 1: parsial | 2: memadai | 3: baik |
 |---|---|---|---|---|
 | Rantai proses | Tidak mengenal tahap | Urutan parsial | Mengerti 5+ titik proses | Menjelaskan alternatif jalur dan handoff |
 | Penalaran bukti | Mengklaim dari asumsi | Beberapa alasan tak berdasar | Keputusan ditautkan bukti | Menyatakan ketidakpastian dan risiko konflik data |

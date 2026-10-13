@@ -102,7 +102,7 @@ Itulah mengapa penilaian sensori profesional berusaha menata sampel, kontrol lin
 
 Jika seorang peserta memiliki keterbatasan penciuman, ia tetap bisa mempelajari konsep, menafsirkan catatan, atau menggunakan pembelajaran alternatif. Modul ini **tidak menilai atau mendiagnosis kesehatan indra seseorang**.
 
-## 6. Sepuluh kartu pengalaman — coba klasifikasikan
+## 6. Sepuluh kartu pengalaman: coba klasifikasikan
 
 Gunakan latihan interaktif di awal lesson untuk mengelompokkan sepuluh deskripsi. Kategorinya tidak ditunjukkan sebelum kamu menjawab. Jika ada pernyataan terasa ambigu, perhatikan konteks dan alasan dalam pembahasan setelah jawaban.
 
@@ -137,8 +137,8 @@ Ada perbedaan antara **apa yang dicium, dirasakan sebagai taste, terasa sebagai 
 
 ---
 ### Editorial sources & limitations
-- **SEN-01** — Goldberg et al. (2017), factors affecting orthonasal and retronasal flavor perception: https://pubmed.ncbi.nlm.nih.gov/27646486/
-- **SEN-02** — Paravisini et al. (2019), bitter-tastant subqualities and retronasal coffee aroma perception: https://pubmed.ncbi.nlm.nih.gov/31581213/
-- **SEN-03** — WCR Sensory Lexicon project (110 sensory attributes and reference orientation): https://worldcoffeeresearch.org/read-more/news/174-world-coffee-research-sensory-lexicon
-- **SEN-04** — SCA Coffee Value Assessment descriptive/affective distinction: https://sca.coffee/value-assessment
+- **SEN-01**: Goldberg et al. (2017), factors affecting orthonasal and retronasal flavor perception: https://pubmed.ncbi.nlm.nih.gov/27646486/
+- **SEN-02**: Paravisini et al. (2019), bitter-tastant subqualities and retronasal coffee aroma perception: https://pubmed.ncbi.nlm.nih.gov/31581213/
+- **SEN-03**: WCR Sensory Lexicon project (110 sensory attributes and reference orientation): https://worldcoffeeresearch.org/read-more/news/174-world-coffee-research-sensory-lexicon
+- **SEN-04**: SCA Coffee Value Assessment descriptive/affective distinction: https://sca.coffee/value-assessment
 - **Review gates:** Sensory specialist and accessibility reviewer must check terminology and example ambiguity. Cards are conceptual examples, not real tasting results or clinical tests. All copyright-protected references linked only.

@@ -1,9 +1,9 @@
 ---
-course: "Kopi dari Hulu ke Hilir — Foundation 2.0"
+course: "Kopi dari Hulu ke Hilir: Foundation 2.0"
 module: M01
 lesson: M01.L03
 title: "Eksperimen rasa pertama: amati sebelum menyimpulkan"
-stage: "03 — authored draft"
+stage: "03: authored draft"
 status: "internal-review; not live"
 learning_outcome: "Peserta mengisi log dua sampel, membedakan deskripsi/preferensi, menyebutkan dua keterbatasan pembandingan, dan memilih tindak lanjut yang masuk akal."
 prerequisite: "M01.L01; M01.L02"
@@ -36,7 +36,7 @@ Sekarang tiga hal itu dipakai dalam sebuah latihan.
 
 Ada dua jalur. Kamu hanya perlu mengerjakan salah satunya untuk memahami konsep awal.
 
-### Jalur A — Aku punya dua sampel kopi
+### Jalur A: Aku punya dua sampel kopi
 
 Cocok jika di rumah atau kedai tersedia dua kopi hitam yang aman untuk diminum. **Tidak perlu kopi mahal, tidak perlu origin tertentu.** Bisa kopi dari dua kemasan, atau dua seduhan dari biji yang sama dengan perbedaan proses penyeduhan yang kamu ketahui.
 
@@ -51,9 +51,9 @@ Untuk membuat perbandingan lebih berguna:
 
 Jika kedua sampel benar-benar berbeda origin, roast atau proses, itu sah untuk belajar membandingkan. Namun hasilnya belum memungkinkan kamu mengisolasi satu penyebab rasa.
 
-### Jalur B — Aku belum punya kopi atau perlengkapan
+### Jalur B: Aku belum punya kopi atau perlengkapan
 
-Gunakan **kasus simulasi** di bawah. Kita menyediakan deskripsi dua sampel fiktif dari panelis contoh. Kamu akan menganalisisnya, tidak berpura-pura mencium atau mencicipi sesuatu dari layar.
+Gunakan kasus simulasi di bawah. Kita menyediakan deskripsi dua sampel fiktif dari panelis contoh. Kamu akan menganalisisnya, menggunakan catatan tertulis tanpa melakukan pencicipan langsung.
 
 > **Batas penting:** Jalur B membuktikan kemampuan membaca dan mengevaluasi catatan sensori. Ia **tidak** membuktikan kemampuan indra penciuman/pengecapan peserta dan tidak boleh dipakai sebagai kredensial tasting profesional.
 
@@ -61,7 +61,7 @@ Keduanya membantu mencapai target awal Foundation: memisahkan pengamatan, prefer
 
 ## 2. Empat hal yang akan kita catat
 
-**Aroma sebelum mencicipi.** Dekatkan cangkir ke hidung pada jarak yang nyaman. Apa kesan paling mudah disebutkan? Mulailah dari kelompok umum seperti panggang, kacang, buah, bunga atau rempah. Jika tidak menemukan aroma tertentu, tulis “belum bisa mengidentifikasi” — itu catatan yang sah.
+**Aroma sebelum mencicipi.** Dekatkan cangkir ke hidung pada jarak yang nyaman. Apa kesan paling mudah disebutkan? Mulailah dari kelompok umum seperti panggang, kacang, buah, bunga atau rempah. Jika tidak menemukan aroma tertentu, tulis “belum bisa mengidentifikasi”: itu catatan yang sah.
 
 **Taste dan flavor ketika diminum.** Apakah ada kesan pahit, asam, atau asosiasi aroma tertentu? Hindari kalimat “ini pasti lemon dari tanahnya”. Lebih tepat: “ada keasaman yang bagiku mengingatkan buah sitrus.”
 
@@ -75,13 +75,13 @@ Pada tahap Foundation, kita tidak akan memaksakan pengukuran intensitas yang tam
 
 **Untuk jalur A (mencicipi langsung):** buat catatan tentang aroma, taste, mouthfeel, preferensi, dan kondisi penyajian. Gunakan kata sederhana; kamu tidak perlu mengidentifikasi varietas atau metode processing dari satu tegukan.
 
-**Untuk jalur B (tanpa kopi):** baca catatan simulasi panelis di bagian 5, lalu gunakan **lembar kerja yang sama** untuk membandingkan pernyataan mereka. Kamu sedang menilai laporan tertulis, bukan menjalani tes indra penciuman.
+**Untuk jalur B (tanpa kopi): baca catatan simulasi panelis di bagian 5, lalu gunakan lembar kerja yang sama** untuk membandingkan pernyataan mereka. Kamu sedang menilai laporan tertulis, bukan menjalani tes indra penciuman.
 
 Keduanya bisa memakai lembar kerja yang muncul **setelah contoh dan dataset di bawah**. Jika ingin membuat catatan di buku sendiri, cukup tulis informasi untuk sampel A, B, kesukaan yang dinyatakan, serta apa yang belum dapat dipastikan.
 
 ## 4. Contoh pengisian: seperti apa catatan yang jujur?
 
-Semua informasi pada tabel berikut **fiktif** dan hanya memperagakan cara mencatat.
+Semua informasi pada tabel berikut fiktif dan hanya memperagakan cara mencatat.
 
 | Aspek | Cangkir A | Cangkir B |
 |---|---|---|
@@ -105,7 +105,7 @@ Struktur ini sederhana, tetapi nantinya berguna untuk semua modul Foundation.
 
 ## 5. Kasus latihan tanpa alat: dua panelis, dua kopi
 
-Kamu mendapat catatan dari tim CherryEdu berikut. **Kasus sepenuhnya simulasi.**
+Kamu mendapat catatan dari tim CherryEdu berikut. Kasus sepenuhnya simulasi.
 
 Panelis 1 mengatakan:
 > “A aromanya mengingatkan jeruk, terasa agak tajam, teksturnya ringan. B beraroma panggang dan terasa lebih tebal. Aku lebih suka A.”
@@ -118,25 +118,25 @@ Di bawah tabel penilaian, salah seorang staf menambahkan:
 
 ### Sekarang isi catatanmu
 
-Pilih satu jalur: hasil pengamatan pribadimu (A), atau pernyataan panelis dari **data simulasi di atas** (B). Isi empat bagian terlebih dulu. Contoh pembahasan baru tersedia setelah kamu menulis jawaban. Review ini belum menyimpan catatan ke akun, jadi salin bila ingin menyimpannya.
+Pilih satu jalur: hasil pengamatan pribadimu (A), atau pernyataan panelis dari data simulasi di atas (B). Isi empat bagian terlebih dulu. Contoh pembahasan baru tersedia setelah kamu menulis jawaban. Review ini belum menyimpan catatan ke akun, jadi salin bila ingin menyimpannya.
 
 [ACTIVITY:cup-compare-notes]
 
-### Tugas 1 — Temukan dua pengamatan yang relatif sejalan
+### Tugas 1: Temukan dua pengamatan yang relatif sejalan
 
 **Jawaban contoh:** Kedua panelis melihat A memiliki kesan aroma buah. Catatan mengenai B sama-sama mengarah pada karakter panggang/pahit, walaupun pengamatan mereka tidak identik.
 
 **Kenapa bukan “keduanya sepakat bahwa A jeruk”?** Panelis kedua hanya menulis “buah”, tanpa yakin pada jenis buah tertentu. Menambahkan kepastian yang tidak tercatat mengurangi kualitas laporan.
 
-### Tugas 2 — Temukan satu perbedaan preferensi
+### Tugas 2: Temukan satu perbedaan preferensi
 
 **Jawaban contoh:** Panelis 1 lebih menyukai A, sedangkan Panelis 2 memilih B. Preferensi yang berbeda tidak membatalkan pengamatan keduanya.
 
-### Tugas 3 — Ada berapa klaim tak terbukti dalam catatan staf?
+### Tugas 3: Ada berapa klaim tak terbukti dalam catatan staf?
 
 **Jawaban contoh:** Setidaknya tiga klaim kausal/identitas: proses A anaerobik, A berasal dari elevasi tinggi, dan B pasti Robusta dengan dark roast. Informasi tersebut **tidak tersedia** di catatan sensori. Beberapa dugaan bisa relevan untuk diperiksa, tetapi belum merupakan fakta.
 
-### Tugas 4 — Informasi apa yang harus diminta?
+### Tugas 4: Informasi apa yang harus diminta?
 
 **Jawaban contoh:** Kode lot dan varietas, informasi asal/ketinggian terverifikasi, metode processing, roast batch/tingkat sangrai, resep seduh, air serta temperatur saat dinilai.
 
@@ -207,7 +207,7 @@ Lengkapi empat kalimat berikut untuk menjadi catatan penutup Modul 01:
 3. “Satu dugaan penyebabnya adalah ..., tetapi itu belum pasti karena ...”
 4. “Jika ingin memeriksanya, data atau pembandingan yang kubutuhkan adalah ...”
 
-**Contoh lengkap (simulasi):**
+Contoh lengkap (simulasi):
 
 “Aku membaca bahwa panelis A menggambarkan cangkir 1 lebih fruity. Aku pribadi mungkin akan memilih cangkir 2 jika aromanya lebih panggang, tapi belum mencicipi keduanya. Salah satu kemungkinan perbedaannya adalah roasting; itu belum pasti karena tidak ada roast data. Untuk memeriksa, aku perlu informasi roasting dan cara kedua kopi diseduh.”
 
@@ -227,11 +227,11 @@ Kita siap melangkah ke kebun kopi. Pada **Modul 02**, kita akan membedah buah, s
 
 ## Editorial references and evidence (not intended for beginner-facing uninterrupted narrative)
 
-- **P01** — World Coffee Research Sensory Lexicon, calibrated descriptive terms; sample scripts in this lesson are authored independently, not copied from the lexicon. https://worldcoffeeresearch.org/read-more/news/174-world-coffee-research-sensory-lexicon
-- **P02** — SCA Coffee Value Assessment, descriptive vs affective separation. https://sca.coffee/value-assessment/
-- **P03** — Chapko & Seo, temperature-dependent sensory perception of brewed coffee (2019). https://pubmed.ncbi.nlm.nih.gov/31108788/
-- **P04** — Artêncio et al., coffee origin information and sensory/hedonic judgment (2023). https://doi.org/10.1111/joss.12827
-- **Pedagogy** — Dunlosky et al., *Improving Students’ Learning with Effective Learning Techniques* (2013): https://doi.org/10.1177/1529100612453266
+- **P01**: World Coffee Research Sensory Lexicon, calibrated descriptive terms; sample scripts in this lesson are authored independently, not copied from the lexicon. https://worldcoffeeresearch.org/read-more/news/174-world-coffee-research-sensory-lexicon
+- **P02**: SCA Coffee Value Assessment, descriptive vs affective separation. https://sca.coffee/value-assessment/
+- **P03**: Chapko & Seo, temperature-dependent sensory perception of brewed coffee (2019). https://pubmed.ncbi.nlm.nih.gov/31108788/
+- **P04**: Artêncio et al., coffee origin information and sensory/hedonic judgment (2023). https://doi.org/10.1111/joss.12827
+- **Pedagogy**: Dunlosky et al., *Improving Students’ Learning with Effective Learning Techniques* (2013): https://doi.org/10.1177/1529100612453266
 - **Simulation integrity:** All A/B tasting examples, panelist dialogue and journal data are fictional. No actual cupping, observer ratings, field samples, product measurements or learner trial have been performed.
 - **No-equipment validity:** Track B measures inference from records, not the learner's sensory acuity. Any platform completion report must reflect that distinction.
 - **Expert review pending:** Safety/completeness of novice tasting guidance and appropriateness of informal intensity categories.

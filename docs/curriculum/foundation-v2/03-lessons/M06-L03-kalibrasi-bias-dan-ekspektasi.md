@@ -115,7 +115,7 @@ Jangan melakukan eksperimen yang **mengelabui peserta sungguhan tanpa persetujua
 
 ## 6. Simulasi: tiga panelis dan satu informasi tersembunyi
 
-**Kasus fiktif, bukan data penelitian.**
+Kasus fiktif, bukan data penelitian.
 
 | Panelis | Catatan sebelum tahu label | Setelah membaca informasi |
 |---|---|---|
@@ -170,7 +170,7 @@ Kelebihan utama catatan tersebut adalah ia menghargai informasi yang **ada** tan
 
 ---
 ### Referensi dan batas generalisasi
-- **BIAS-01** — *Label Information About Fermentation Processing Affects Consumers’ Sensory and Hedonic Judgements of Specialty Coffee* (2026), 180 specialty consumers, same coffee/different labels: https://pubmed.ncbi.nlm.nih.gov/42073175/
-- **BIAS-02** — *Cup colour influences consumers’ expectations and experience on tasting specialty coffee* (2019): https://www.sciencedirect.com/science/article/pii/S0950329318310012
-- **BIAS-03** — WCR Sensory Lexicon, reference-based descriptive panel: https://worldcoffeeresearch.org/read-more/news/174-world-coffee-research-sensory-lexicon
+- **BIAS-01**: *Label Information About Fermentation Processing Affects Consumers’ Sensory and Hedonic Judgements of Specialty Coffee* (2026), 180 specialty consumers, same coffee/different labels: https://pubmed.ncbi.nlm.nih.gov/42073175/
+- **BIAS-02**: *Cup colour influences consumers’ expectations and experience on tasting specialty coffee* (2019): https://www.sciencedirect.com/science/article/pii/S0950329318310012
+- **BIAS-03**: WCR Sensory Lexicon, reference-based descriptive panel: https://worldcoffeeresearch.org/read-more/news/174-world-coffee-research-sensory-lexicon
 - **Ethics:** No covert experiments on CherryEdu students. All case data fictional. Professional calibration, human-research consent, independent review and actual samples not available.

@@ -40,7 +40,7 @@ const APPENDIX_HEADINGS = Object.freeze({
   'M06.L03': 'Referensi dan batas generalisasi',
   'M06.L04': 'Referensi dan batasan',
   'M06.L05': 'Referensi dan batas penggunaan',
-  'M07.L01': 'Catatan pengajar — sumber dan batasan',
+  'M07.L01': 'Catatan pengajar: sumber dan batasan',
   'M07.L02': 'Referensi & QA',
   'M07.L03': 'Referensi, basis dan keterbatasan',
   'M07.L04': 'Sumber dan editorial limits',
@@ -55,30 +55,69 @@ const APPENDIX_HEADINGS = Object.freeze({
  * block. This is *not* a grading engine, and it never runs on legacy V1.
  */
 function hideImmediateAnswers(markdown) {
-  const label=/\*\*(?:Jawab(?:an)?|Kunci|Contoh jawaban|Contoh lulus|Contoh perbaikan|Pembahasan|Pilihan terbaik|Respons terbaik|Versi lebih baik|Respons yang baik)[^*:]{0,90}:[^*]*\*\*/i;
-  let codeBlock=false;
-  const output=[];
-  for(const line of markdown.split('\n')){
-    if(/^\s*```/.test(line)){codeBlock=!codeBlock;output.push(line);continue;}
-    if(codeBlock){output.push(line);continue;}
-    const m=label.exec(line);
-    if(!m){output.push(line);continue;}
-    const start=m.index;
-    // Standalone answers, or answers paired with a "Q..." question on
-    // the same line. Do not hide a worked example inside normal prose.
-    const prefix=line.slice(0,start);
-    const rest=line.slice(start).trim();
-    const standalone=prefix.trim().length===0;
-    const onQuestion=/\*\*(?:Q\d+|Soal|Pertanyaan|A\.|B\.|C\.|D\.)/.test(prefix);
-    if(!standalone&&!onQuestion){output.push(line);continue;}
-    if(!standalone)output.push(prefix.trimEnd());
-    output.push('');
-    output.push('```solution');
-    output.push(rest);
-    output.push('```');
-    output.push('');
+  const lines=markdown.split('\n'),output=[];
+  const answerLabel=/^\s*(?:\*\*)?(?:Contoh (?:respons|respon|jawaban|lulus|lengkap)(?:[^:\n]{0,70})?|Jawaban|Kunci|Pembahasan|Pilihan terbaik|Respons terbaik|Versi lebih baik)(?::\*\*|\*\*:|:)\s*(?:\*\*)?/i;
+  const exampleLabel=/^\s*(?:\*\*)?Contoh (?:respons|respon|jawaban|lulus|lengkap)/i;
+  const genericLabel=/\*\*(?:Jawab(?:an)?|Kunci|Pembahasan)[^*:\n]{0,55}:\*\*/i;
+  let code=false;
+  for(let i=0;i<lines.length;i++){
+    const line=lines[i];
+    if(/^\s*```/.test(line)){code=!code;output.push(line);continue;}
+    if(code){output.push(line);continue;}
+    const heading=/^#{2,4}\s+(?:Contoh (?:respons|jawaban|pembahasan)|Pembahasan|Jawaban)[^\n]*$/i.test(line);
+    const label=line.match(answerLabel);
+    const index=genericLabel.exec(line);
+    // Bare answer headings remain hidden until students request them.
+    if(heading){
+      const block=[];
+      i++;
+      while(i<lines.length&&!/^#{1,4}\s+/.test(lines[i])&&!/^---\s*$/.test(lines[i])){
+        block.push(lines[i]);i++;
+      }
+      i--;
+      output.push('','```example',line.replace(/^#{2,4}\s+/,'').trim(),...block,'```','');
+      continue;
+    }
+    if(label){
+      const example=exampleLabel.test(line);
+      const block=[line];
+      if(line.slice(label[0].length).replace(/[*\s]/g,'').length===0){
+        let j=i+1;
+        while(j<lines.length&&lines[j].trim()==='')j++;
+        if(j<lines.length && (/^[-*]\s+|^>|^[“"']|^[A-Z]/.test(lines[j]))){
+          while(j<lines.length&&lines[j].trim()!==''&&!/^#{1,4}\s+/.test(lines[j]))block.push(lines[j++]);
+          i=j-1;
+        }
+      }
+      output.push('','```'+(example?'example':'solution'),...block,'```','');continue;
+    }
+    if(index){
+      const prefix=line.slice(0,index.index),answer=line.slice(index.index);
+      if(!prefix.trim()||/\*\*(?:Q\d+|Soal|Pertanyaan|A\.|B\.|C\.|D\.)/.test(prefix)){
+        if(prefix.trim())output.push(prefix.trimEnd());
+        output.push('','```solution',answer.trim(),'```','');continue;
+      }
+    }
+    output.push(line);
   }
   return output.join('\n');
+}
+function cleanLearnerPhrasing(markdown) {
+  let text=markdown
+    .replace(/(^#{1,6}\s+[^\n]*?)\s+[—–]\s+/gm,'$1: ')
+    .replace(/\s+[—–]\s+/g,': ')
+    .replace(/tanpa terdengar sok ahli/gi,'dengan bahasa yang jelas')
+    .replace(/tanpa harus sok ahli/gi,'secara jelas dan terarah')
+    .replace(/tidak berpura-pura mencium atau mencicipi sesuatu dari layar/gi,'menganalisis laporan tertulis tanpa melakukan pencicipan langsung')
+    .replace(/\*\*Semua nama dan angkanya simulasi; bukan data petani atau produk CherryEdu\.\*\*/gi,'*(Ilustrasi.)*')
+    .replace(/\*\*P-17, lot fiktif untuk latihan\*\*/gi,'P-17 (kode untuk satu lot kopi contoh)')
+    .replace(/Semua contoh ini \*\*simulasi, bukan hasil uji laboratorium\*\*/gi,'Data ini berupa contoh')
+    .replace(/\*\*Kasus sepenuhnya simulasi\.\*\*/gi,'*(Data contoh.)*');
+  // A reader can enter a lesson directly, so the first lot code must be explained locally.
+  if(/\bP-17\b/.test(text)&&!text.includes('P-17 (kode untuk satu lot kopi contoh)')){
+    text=text.replace(/\bP-17\b/,'P-17 (kode satu lot kopi contoh)');
+  }
+  return text;
 }
 
 function toLearnerMarkdown(lessonId, markdown) {
@@ -120,7 +159,7 @@ function toLearnerMarkdown(lessonId, markdown) {
   if (/\[(?:CLAIM|CAP|CVA|SEN|LEX|BIAS)-\d{1,3}\]/.test(lesson)) {
     throw new Error(lessonId + ': unstripped claim annotations');
   }
-  return hideImmediateAnswers(lesson);
+  return hideImmediateAnswers(cleanLearnerPhrasing(lesson));
 }
 
 module.exports = { APPENDIX_HEADINGS, toLearnerMarkdown };

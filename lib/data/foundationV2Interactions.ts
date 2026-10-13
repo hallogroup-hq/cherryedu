@@ -174,7 +174,7 @@ export const foundationV2Interactions: Record<string, Activity> = {
   },
   'foundation-dossier':{
     kind:'workspace',title:'Satu dossier, empat keputusan terpisah',
-    intro:'Kerjakan kasus P-17 bertahap. Gunakan data contoh untuk melatih penalaran, bukan untuk membuat klaim dagang. Salin jawabanmu jika ingin menyimpannya.',
+    intro:'Kerjakan kasus satu lot kopi contoh, berkode P-17, secara bertahap. Gunakan data contoh untuk melatih penalaran, bukan untuk membuat klaim dagang. Salin jawabanmu jika ingin menyimpannya.',
     prompts:[
       {label:'1. Rantai lot dan risiko green QC',hint:'Bukti apa yang tersedia, apa yang hilang, apa yang harus ditahan?'},
       {label:'2. Roasting, brewing dan sensory',hint:'Hitung hanya angka yang tersedia; pisahkan log, kesan dan klaim skor.'},

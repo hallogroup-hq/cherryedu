@@ -1,5 +1,5 @@
 ---
-course: "Kopi dari Hulu ke Hilir — Foundation 2.0"
+course: "Kopi dari Hulu ke Hilir: Foundation 2.0"
 module: M02
 lesson: M02.L01
 title: "Di dalam buah kopi ada apa saja?"
@@ -135,8 +135,8 @@ Apa yang keliru?
 
 ## Sumber dan QA (editor-only)
 
-- **A01 — Esquivel & Jiménez / coffee cherry by-products review (2020)**, anatomy and by-products context: https://pmc.ncbi.nlm.nih.gov/articles/PMC7564712/ — use description of parts, not all study composition percentages as universal.
-- **A02 — *Flowering and Fruiting of Coffea arabica: A Comprehensive Perspective from Phenology* (2025)**: https://pmc.ncbi.nlm.nih.gov/articles/PMC12608170/ — endocarp and developmental details; review limited to Arabica studies.
-- **A03 — WCR varieties:** https://varieties.worldcoffeeresearch.org/ — species/genetic context; not an authoritative processing SOP.
+- **A01: Esquivel & Jiménez / coffee cherry by-products review (2020)**, anatomy and by-products context: https://pmc.ncbi.nlm.nih.gov/articles/PMC7564712/: use description of parts, not all study composition percentages as universal.
+- **A02: *Flowering and Fruiting of Coffea arabica: A Comprehensive Perspective from Phenology* (2025)**: https://pmc.ncbi.nlm.nih.gov/articles/PMC12608170/: endocarp and developmental details; review limited to Arabica studies.
+- **A03: WCR varieties:** https://varieties.worldcoffeeresearch.org/: species/genetic context; not an authoritative processing SOP.
 - **Claim guardrails:** No sweetness-by-osmosis law, no flavor predictions, no unvalidated food safety recipe.
 - **Status:** Full author draft; not botanist- or processor-signed; simulated case not sensory training.

@@ -73,7 +73,24 @@ import { supabase, isSupabaseConfigured } from './supabase';
 const FOUNDATION_V2_PUBLIC_READER_ENABLED = ['review-only', 'public-readonly'].includes(
   process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW || ''
 );
-const SEED_PATHS: LearningPath[] = FOUNDATION_V2_PUBLIC_READER_ENABLED
+// The curated preview is a separate Vercel branch, not a modification of published paths.
+// One visible version per replaced specialty; other legacy specialties remain unchanged.
+const CURATED_PREVIEW = process.env.NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW === 'enabled';
+const REPLACED_COURSE_IDS = new Set(['path-foundation', 'path-barista', 'path-home-brewer', 'path-roaster', 'path-qgrader']);
+const previewSpecialties: LearningPath[] = CURATED_PREVIEW ? [
+  ['path-barista','path-barista-curated','barista-v2','Barista Specialization','Pahami ekstraksi dan pelayanan melalui eksperimen, pemecahan masalah espresso, dan pengembangan minuman sendiri.',12,38],
+  ['path-home-brewer','path-home-brewer-curated','home-brewer-v2','Home Brewer Specialization','Belajar merancang resep berdasarkan mekanisme seduh dan eksperimen, bukan menghafal takaran.',10,28],
+  ['path-roaster','path-roaster-curated','roaster-v2','Roaster Specialization','Belajar membaca proses roasting, menguji hipotesis, menjaga mutu, dan menyesuaikan keputusan.',10,32],
+  ['path-qgrader','path-qgrader-curated','sensory-v2','Q Grader & Sensory Specialist','Bangun kemampuan menilai sensori dan kualitas kopi melalui kerangka CVA dan praktik terarah.',10,32],
+  ['path-coffee-business','path-business-roastery-curated','business-roastery-v1','Business Roastery','Pahami perencanaan dan operasional bisnis roastery Indonesia, dari pembelian green bean hingga kas dan penjualan.',21,52]
+].map(([legacyId,id,slug,title,description,totalModules,estimatedHours]) => {
+  const base = BASE_SEED_PATHS.find(p=>p.id===legacyId);
+  if(!base) throw new Error('Missing preview source: '+legacyId);
+  return {...base,id:String(id),slug:String(slug),title:String(title),description:String(description),total_modules:Number(totalModules),estimated_hours:Number(estimatedHours),prerequisite_path_id:null,is_published:true,is_free:true};
+}) : [];
+const SEED_PATHS: LearningPath[] = CURATED_PREVIEW
+  ? [...BASE_SEED_PATHS.filter(p=>!REPLACED_COURSE_IDS.has(p.id)), FOUNDATION_V2_PREVIEW_PATH, ...previewSpecialties]
+  : FOUNDATION_V2_PUBLIC_READER_ENABLED
   ? [...BASE_SEED_PATHS, FOUNDATION_V2_PREVIEW_PATH] : BASE_SEED_PATHS;
 const SEED_MODULES: Module[] = FOUNDATION_V2_PUBLIC_READER_ENABLED
   ? [...BASE_SEED_MODULES, ...FOUNDATION_V2_PREVIEW_MODULES] : BASE_SEED_MODULES;
@@ -452,7 +469,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
         // Smart merge learning paths: ensure official paths stay synced with latest curriculum structure
         if (parsed.learningPaths) {
-          const customPaths = parsed.learningPaths.filter((p: LearningPath) => !SEED_PATHS.some((sp) => sp.id === p.id));
+          const customPaths = parsed.learningPaths.filter((p: LearningPath) => !SEED_PATHS.some((sp) => sp.id === p.id) && !(CURATED_PREVIEW && REPLACED_COURSE_IDS.has(p.id)));
           setLearningPaths([...SEED_PATHS, ...customPaths]);
         } else {
           setLearningPaths(SEED_PATHS);

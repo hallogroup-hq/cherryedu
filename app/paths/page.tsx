@@ -80,6 +80,7 @@ export default function PathsPage() {
         {filteredPaths.map((path, idx) => {
           const isPublicReading = path.slug === 'memahami-kopi-dari-hulu-ke-hilir';
           const isFoundation = path.layer_type === 'foundation' && !isPublicReading;
+          const isCurated = path.id.endsWith('-curated');
           const enrollment = enrollments.find(
             (e) => e.user_id === currentUser.id && e.learning_path_id === path.id
           );
@@ -134,11 +135,15 @@ export default function PathsPage() {
                 <div className="p-6 space-y-3">
                   <div className="flex items-center gap-2">
                     <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold block">
-                      {path.target_role === 'all'
-                        ? 'Fondasi Hulu ke Hilir'
-                        : path.target_role === 'barista'
-                        ? 'Spesialisasi Barista'
-                        : 'Spesialisasi Home Brewer'}
+                      {path.target_role === 'all' ? 'Fondasi Hulu ke Hilir' : ({
+                        barista: 'Spesialisasi Barista',
+                        home_brewer: 'Spesialisasi Home Brewer',
+                        roaster: 'Spesialisasi Roaster',
+                        q_grader: 'Spesialisasi Q Grader & Sensori',
+                        q_processor: 'Spesialisasi Q Processor',
+                        farmer: 'Spesialisasi Pascapanen & Petani',
+                        business: 'Spesialisasi Bisnis Kopi',
+                      } as Record<string, string>)[path.target_role] ?? 'Spesialisasi Kopi'}
                     </span>
                   </div>
 
@@ -182,7 +187,7 @@ export default function PathsPage() {
               <div className="p-6 pt-0">
                 {path.is_published ? (
                   <Link
-                    href={isPublicReading || isAuthenticated ? `/paths/${path.slug}` : `/login?redirect=/paths/${path.slug}`}
+                    href={isPublicReading || process.env.NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW === 'enabled' || isAuthenticated ? `/paths/${path.slug}` : `/login?redirect=/paths/${path.slug}`}
                     className={`w-full py-2.5 font-mono text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 transition-all border shadow-xs ${
                       isEnrolled
                         ? 'bg-roast-950 hover:bg-cherry-800 text-paper-50 border-roast-950'
@@ -191,7 +196,7 @@ export default function PathsPage() {
                         : 'bg-roast-950 hover:bg-cherry-800 text-paper-50 border-roast-950'
                     }`}
                   >
-                    <span>{isPublicReading ? 'Mulai Belajar' : isEnrolled ? 'Lanjutkan Pembelajaran' : (isAuthenticated ? 'Buka Silabus Lengkap' : 'Masuk untuk Buka Silabus')}</span>
+                    <span>{isPublicReading ? 'Mulai Belajar' : isEnrolled ? 'Lanjutkan Pembelajaran' : (process.env.NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW === 'enabled' ? 'Lihat Materi' : isAuthenticated ? 'Buka Silabus Lengkap' : 'Masuk untuk Buka Silabus')}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 ) : (

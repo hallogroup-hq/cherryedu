@@ -72,27 +72,27 @@ Ini **panduan perbandingan rumah tangga**, bukan reproduksi angka rasio, durasi 
 
 Untuk membandingkan dua kopi, perhatikan aroma, taste, tekstur dan preferensi secara terpisah. Tidak perlu memberi skor presisi atau meniru lembar resmi SCA. Kamu dapat menggunakan **dua kopi nyata dengan penyajian yang cukup sebanding**, atau membaca data simulasi di bawah. Catatan tentang variabel yang belum setara juga penting.
 
-### Jejak P-17 — kesepakatan atribut tidak sama dengan kesepakatan selera
+### Jejak P-17 (kode satu lot kopi contoh): kesepakatan atribut tidak sama dengan kesepakatan selera
 
 Pada dossier P-17, dua panelis simulasi mencatat kesan aroma buah, tetapi satu lebih menyukai cangkirnya daripada yang lain. Salah satu panelis juga telah melihat informasi fermentasi, sedangkan yang lain hanya mengenal kode sampel. Itu berarti mereka tidak berada pada kondisi blind comparison yang identik. **Keduanya bukan pengujian SCA resmi** dan tidak mendukung klaim “90+”.
 
 ## 5. Tidak punya kopi? Gunakan rekaman fiktif
 
-**Kasus ini simulasi pendidikan, bukan data cupping sungguhan.** Dua panelis menerima kopi berkode A dan B dengan metode penyajian yang dinyatakan mirip, tetapi pencatatan temperatur minum tidak lengkap.
+Kasus ini simulasi pendidikan, bukan data cupping sungguhan. Dua panelis menerima kopi berkode A dan B dengan metode penyajian yang dinyatakan mirip, tetapi pencatatan temperatur minum tidak lengkap.
 
 | Catatan | Panelis N | Panelis R |
 |---|---|---|
-| A — aroma | Buah segar, belum yakin jenisnya | Buah dan sedikit bunga |
-| A — taste | Keasaman cukup jelas | Keasaman menonjol |
-| A — tekstur | Ringan | Ringan |
-| B — aroma | Panggang, kacang | Panggang |
-| B — taste | Pahit lebih dominan | Pahit lebih terasa dari A |
-| B — tekstur | Sedikit lebih tebal | Agak tebal |
+| A: aroma | Buah segar, belum yakin jenisnya | Buah dan sedikit bunga |
+| A: taste | Keasaman cukup jelas | Keasaman menonjol |
+| A: tekstur | Ringan | Ringan |
+| B: aroma | Panggang, kacang | Panggang |
+| B: taste | Pahit lebih dominan | Pahit lebih terasa dari A |
+| B: tekstur | Sedikit lebih tebal | Agak tebal |
 | Preferensi | Memilih A | Memilih B |
 
 ### Sekarang giliranmu membandingkan
 
-Gunakan pengalaman nyata atau **catatan simulasi di atas**. Tulis dulu apa yang benar-benar didukung data, dan bedakan kesukaan dari deskripsi. Pembahasan baru terbuka setelah mengisi lembar kerja.
+Gunakan pengalaman nyata atau catatan simulasi di atas. Tulis dulu apa yang benar-benar didukung data, dan bedakan kesukaan dari deskripsi. Pembahasan baru terbuka setelah mengisi lembar kerja.
 
 [ACTIVITY:cupping-comparison-note]
 

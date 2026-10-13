@@ -77,7 +77,7 @@ Roaster sering mencatat beberapa titik:
 
 **Development time** sering didefinisikan sebagai waktu dari awal first crack sampai akhir roast dalam metode pencatatan tertentu. **DTR** adalah waktu tersebut dibagi waktu total, dinyatakan sebagai persentase.
 
-Misalnya pada **simulasi** dua batch 10 menit:
+Misalnya pada simulasi dua batch 10 menit:
 - Batch A first crack dimulai 8:00, selesai 10:00 → 2 menit development → DTR 20%.
 - Batch B first crack dimulai 8:00, selesai 10:00 → DTR 20% juga.
 
@@ -87,7 +87,7 @@ Tidak ada bukti bahwa **12–18% DTR adalah “sweet spot” wajib untuk semua k
 
 ## 7. Studi kasus: grafik rapi yang ternyata menyesatkan
 
-**Kasus simulasi:** Ada dua roast log dengan DTR sama 20%. Batch A dicatat mengalami perubahan warna bertahap, sedangkan Batch B menunjukkan jeda panjang pada peningkatan temperatur sensor. Keduanya belum diuji cupping.
+Kasus simulasi: Ada dua roast log dengan DTR sama 20%. Batch A dicatat mengalami perubahan warna bertahap, sedangkan Batch B menunjukkan jeda panjang pada peningkatan temperatur sensor. Keduanya belum diuji cupping.
 
 Manajer berkata, “DTR sama berarti kedua rasa sama dan lulus QC.”
 

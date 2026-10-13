@@ -53,7 +53,7 @@ Artinya, kurva tetap membantu mendeteksi kondisi yang perlu ditelusuri—tetapi 
 
 [VISUAL:roast-curve]
 
-### Jejak P-17 — log batch R-09
+### Jejak P-17 (kode satu lot kopi contoh): log batch R-09
 
 Pada dossier final, percobaan roast dari lot **P-17** diberi kode **R-09**. Ada log waktu, pembacaan probe dan first crack, tetapi ukuran warna akhir belum konsisten dan cupping formal belum dilakukan. Walaupun grafik tampak mulus, **itu belum memberi bukti skor sensori**. Data tersebut simulasi, bukan rekomendasi menjalankan mesin roasting.
 

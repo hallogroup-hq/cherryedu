@@ -56,11 +56,10 @@ export default function LessonPlayerPage() {
   }, [authLoading, isAuthenticated, slug, lessonId, router, isDraftPreview]);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeSpent((prev) => prev + 1);
-    }, 1000);
+    if (isDraftPreview) return;
+    const timer = setInterval(() => setTimeSpent(prev => prev + 1), 1000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isDraftPreview]);
 
   if (authLoading && !isDraftPreview) {
     return (
