@@ -50,6 +50,10 @@ function translateAuthError(message: string): string {
 
 const TEST_USER_KEY = 'cherryedu_testuser_session';
 
+const IS_DEMO_ALLOWED =
+  process.env.NODE_ENV !== 'production' &&
+  (process.env.NEXT_PUBLIC_ENABLE_DEMO_ACCOUNTS === 'true' || process.env.ENABLE_DEMO_ACCOUNTS === 'true');
+
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<SupabaseUser | null>(null);
   const [session, setSession] = useState<Session | null>(null);
@@ -59,28 +63,33 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // Proactively purge any leftover demo auth user
     try {
       localStorage.removeItem('cherryedu_local_auth_user');
+      if (!IS_DEMO_ALLOWED) {
+        localStorage.removeItem(TEST_USER_KEY);
+      }
     } catch {}
 
     const loadInitialSession = async () => {
-      // Check for dedicated test user session first
-      try {
-        const savedTestSession = localStorage.getItem(TEST_USER_KEY);
-        if (savedTestSession) {
-          const parsed = JSON.parse(savedTestSession);
-          if (
-            parsed?.user?.id === 'user-testuser-cherry' ||
-            parsed?.user?.id === 'usr-admin-01' ||
-            parsed?.user?.email === 'testuser@cherrycoffeeroastery.com' ||
-            parsed?.user?.email === 'testuser@cherryedu.id' ||
-            parsed?.user?.email === 'admin@cherryedu.id'
-          ) {
-            setSession(parsed);
-            setUser(parsed.user);
-            setLoading(false);
-            return;
+      // Check for dedicated test user session only if demo accounts are explicitly allowed in non-production
+      if (IS_DEMO_ALLOWED) {
+        try {
+          const savedTestSession = localStorage.getItem(TEST_USER_KEY);
+          if (savedTestSession) {
+            const parsed = JSON.parse(savedTestSession);
+            if (
+              parsed?.user?.id === 'user-testuser-cherry' ||
+              parsed?.user?.id === 'usr-admin-01' ||
+              parsed?.user?.email === 'testuser@cherrycoffeeroastery.com' ||
+              parsed?.user?.email === 'testuser@cherryedu.id' ||
+              parsed?.user?.email === 'admin@cherryedu.id'
+            ) {
+              setSession(parsed);
+              setUser(parsed.user);
+              setLoading(false);
+              return;
+            }
           }
-        }
-      } catch {}
+        } catch {}
+      }
 
       if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
         setLoading(false);
@@ -129,104 +138,106 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const signIn = async (email: string, password: string): Promise<{ error: string | null }> => {
-    const cleanInput = email.trim().toLowerCase();
-    const isTestUserIdentifier =
-      cleanInput === 'testuser' ||
-      cleanInput === 'testuser@cherryedu.id' ||
-      cleanInput === 'testuser@cherrycoffeeroastery.com';
-    const isTestUserPassword =
-      password === 'cherrycoffeeroastery' ||
-      password === 'cherry2026!' ||
-      password === 'testuser' ||
-      password === 'testuser123' ||
-      password === 'testuser2026';
-    const isDedicatedTestUser = isTestUserIdentifier && isTestUserPassword;
+    if (IS_DEMO_ALLOWED) {
+      const cleanInput = email.trim().toLowerCase();
+      const isTestUserIdentifier =
+        cleanInput === 'testuser' ||
+        cleanInput === 'testuser@cherryedu.id' ||
+        cleanInput === 'testuser@cherrycoffeeroastery.com';
+      const isTestUserPassword =
+        password === 'cherrycoffeeroastery' ||
+        password === 'cherry2026!' ||
+        password === 'testuser' ||
+        password === 'testuser123' ||
+        password === 'testuser2026';
+      const isDedicatedTestUser = isTestUserIdentifier && isTestUserPassword;
 
-    const isAdminIdentifier = cleanInput === 'admin@cherryedu.id' || cleanInput === 'admin';
-    const isAdminPassword = password === 'cherryadmin2026' || password === 'cherry2026!' || password === 'admin';
-    const isDedicatedAdmin = isAdminIdentifier && isAdminPassword;
+      const isAdminIdentifier = cleanInput === 'admin@cherryedu.id' || cleanInput === 'admin';
+      const isAdminPassword = password === 'cherryadmin2026' || password === 'cherry2026!' || password === 'admin';
+      const isDedicatedAdmin = isAdminIdentifier && isAdminPassword;
 
-    if (isDedicatedAdmin) {
-      const adminUserObj: SupabaseUser = {
-        id: 'usr-admin-01',
-        app_metadata: { provider: 'email', providers: ['email'], role: 'admin' },
-        user_metadata: {
-          name: 'Administrator CherryEdu',
-          full_name: 'Administrator CherryEdu',
-          coffee_role: 'roaster',
-          role: 'admin',
-          is_pro: true,
-        },
-        aud: 'authenticated',
-        confirmation_sent_at: new Date().toISOString(),
-        confirmed_at: new Date().toISOString(),
-        created_at: new Date().toISOString(),
-        email: 'admin@cherryedu.id',
-        email_confirmed_at: new Date().toISOString(),
-        last_sign_in_at: new Date().toISOString(),
-        phone: '',
-        role: 'authenticated',
-        updated_at: new Date().toISOString(),
-      };
+      if (isDedicatedAdmin) {
+        const adminUserObj: SupabaseUser = {
+          id: 'usr-admin-01',
+          app_metadata: { provider: 'email', providers: ['email'], role: 'admin' },
+          user_metadata: {
+            name: 'Administrator CherryEdu',
+            full_name: 'Administrator CherryEdu',
+            coffee_role: 'roaster',
+            role: 'admin',
+            is_pro: true,
+          },
+          aud: 'authenticated',
+          confirmation_sent_at: new Date().toISOString(),
+          confirmed_at: new Date().toISOString(),
+          created_at: new Date().toISOString(),
+          email: 'admin@cherryedu.id',
+          email_confirmed_at: new Date().toISOString(),
+          last_sign_in_at: new Date().toISOString(),
+          phone: '',
+          role: 'authenticated',
+          updated_at: new Date().toISOString(),
+        };
 
-      const adminSessionObj: Session = {
-        access_token: 'admin-token-' + Date.now(),
-        token_type: 'bearer',
-        expires_in: 3600 * 24 * 7,
-        refresh_token: 'admin-refresh-token',
-        user: adminUserObj,
-      };
+        const adminSessionObj: Session = {
+          access_token: 'admin-token-' + Date.now(),
+          token_type: 'bearer',
+          expires_in: 3600 * 24 * 7,
+          refresh_token: 'admin-refresh-token',
+          user: adminUserObj,
+        };
 
-      try {
-        localStorage.setItem(TEST_USER_KEY, JSON.stringify(adminSessionObj));
-      } catch {}
+        try {
+          localStorage.setItem(TEST_USER_KEY, JSON.stringify(adminSessionObj));
+        } catch {}
 
-      setSession(adminSessionObj);
-      setUser(adminUserObj);
-      return { error: null };
-    }
+        setSession(adminSessionObj);
+        setUser(adminUserObj);
+        return { error: null };
+      }
 
-    if (isDedicatedTestUser) {
-      const testUserObj: SupabaseUser = {
-        id: 'user-testuser-cherry',
-        app_metadata: { provider: 'email', providers: ['email'] },
-        user_metadata: {
-          name: 'Test User (All Access)',
-          full_name: 'Test User (All Access)',
-          coffee_role: 'barista',
-          role: 'learner',
-          is_pro: true,
-          subscription_tier: 'pro',
-          subscription_cycle: 'annual',
-          subscription_expires_at: '2099-12-31T23:59:59Z',
-        },
-        aud: 'authenticated',
-        confirmation_sent_at: new Date().toISOString(),
-        confirmed_at: new Date().toISOString(),
-        created_at: new Date().toISOString(),
-        email: 'testuser@cherrycoffeeroastery.com',
-        email_confirmed_at: new Date().toISOString(),
-        last_sign_in_at: new Date().toISOString(),
-        phone: '',
-        role: 'authenticated',
-        updated_at: new Date().toISOString(),
-      };
+      if (isDedicatedTestUser) {
+        const testUserObj: SupabaseUser = {
+          id: 'user-testuser-cherry',
+          app_metadata: { provider: 'email', providers: ['email'] },
+          user_metadata: {
+            name: 'Test User (All Access)',
+            full_name: 'Test User (All Access)',
+            coffee_role: 'barista',
+            role: 'learner',
+            is_pro: true,
+            subscription_tier: 'pro',
+            subscription_cycle: 'annual',
+            subscription_expires_at: '2099-12-31T23:59:59Z',
+          },
+          aud: 'authenticated',
+          confirmation_sent_at: new Date().toISOString(),
+          confirmed_at: new Date().toISOString(),
+          created_at: new Date().toISOString(),
+          email: 'testuser@cherrycoffeeroastery.com',
+          email_confirmed_at: new Date().toISOString(),
+          last_sign_in_at: new Date().toISOString(),
+          phone: '',
+          role: 'authenticated',
+          updated_at: new Date().toISOString(),
+        };
 
-      const testSessionObj: Session = {
-        access_token: 'testuser-token-' + Date.now(),
-        token_type: 'bearer',
-        expires_in: 3600 * 24 * 7,
-        refresh_token: 'testuser-refresh-token',
-        user: testUserObj,
-      };
+        const testSessionObj: Session = {
+          access_token: 'testuser-token-' + Date.now(),
+          token_type: 'bearer',
+          expires_in: 3600 * 24 * 7,
+          refresh_token: 'testuser-refresh-token',
+          user: testUserObj,
+        };
 
-      try {
-        localStorage.setItem(TEST_USER_KEY, JSON.stringify(testSessionObj));
-      } catch {}
+        try {
+          localStorage.setItem(TEST_USER_KEY, JSON.stringify(testSessionObj));
+        } catch {}
 
-      setSession(testSessionObj);
-      setUser(testUserObj);
-      return { error: null };
+        setSession(testSessionObj);
+        setUser(testUserObj);
+        return { error: null };
+      }
     }
 
     // Authenticate with Supabase
@@ -335,6 +346,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const signInAsDemo = async (role: 'admin' | 'barista' | 'home_brewer' | 'q_grader') => {
+    if (!IS_DEMO_ALLOWED) {
+      throw new Error('Fitur login demo instan dinonaktifkan di environment production demi keamanan. Silakan login menggunakan email & kata sandi resmi Anda.');
+    }
     const configuredDemoSecret = process.env.NEXT_PUBLIC_DEMO_ADMIN_PASSWORD;
     if (role === 'admin' && configuredDemoSecret) {
       const { data, error } = await supabase.auth.signInWithPassword({

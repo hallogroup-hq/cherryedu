@@ -39,3 +39,6 @@ playwright-report/
 supabase/staging/backups/
 *.dump
 *.sql.bak
+
+# Generated preview and data files
+lib/data/*.generated.ts
