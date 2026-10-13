@@ -18,7 +18,15 @@ Jangan menulis 'astringent dari overextraction' hanya dari satu sensasi. Astring
 
 Cicipi tiga kali pada suhu yang secara alami menurun tanpa membiarkan minuman berisiko disimpan lama. Catat kata sederhana: aroma, rasa dominan, tekstur, kesan akhir, apakah kamu menyukainya. Tidak punya kopi? Gunakan tabel contoh dan tandai jawaban sebagai prediksi, bukan pengamatan.
 
-Sebelum mencoba, pisahkan **tujuan**, **prediksi**, **apa yang diubah**, **apa yang dijaga**, dan **apa yang benar-benar diamati**. Jika latihan menggunakan angka ilustrasi, tandai hasil sebagai simulasi. Jangan menuliskan hasil rasa seolah kamu sudah mencicipinya. Seduh nyata hanya dengan wadah yang sesuai, air aman dan prosedur peralatan dari produsennya.
+## Pisahkan data, kesan, dan penjelasan
+
+Kalau catatanmu berbunyi “3:10, harum, asam, gagal”, sebenarnya ada tiga tingkat informasi. **3:10** adalah data waktu jika awal/akhir timer jelas. **Harum dan asam** adalah kesan sensori yang dirasakan. **Gagal** adalah penilaian yang perlu dikaitkan dengan targetmu; bukan sifat fisik yang otomatis keluar dari dua catatan tadi.
+
+Buat tiga kolom: **terukur**, **dirasakan**, dan **dugaan**. Letakkan dosis, air masuk dan waktu yang benar-benar diukur pada kolom pertama; deskripsi aroma/mouthfeel serta suka-tidak suka pada kolom kedua; dugaan penyebab di kolom ketiga. Catat “belum diketahui” ketika output, TDS, atau suhu bed tidak tersedia.
+
+Jika ingin mencicipi seduhan yang sama saat hangat dan lebih dingin, tunggu hingga suhu aman, beri jarak waktu yang tercatat, lalu tulis **apakah persepsimu berubah**. Kamu tidak sedang mengekstraksi kopi kedua kali dalam cangkir yang sudah terpisah dari bubuk; perubahan pengalaman tidak boleh otomatis dinyatakan sebagai perubahan EY.
+
+**Latihan dua pencicip:** jika teman menyebut “lebih asam” dan kamu tidak setuju, bandingkan kondisi suhu, urutan, dan bahasa yang dipakai. Kesepakatan tidak wajib; kejelasan pengamatan lebih berharga daripada skor pemenang.
 
 ## Tantangan saat kondisi berubah
 
