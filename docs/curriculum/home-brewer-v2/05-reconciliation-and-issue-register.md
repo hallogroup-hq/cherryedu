@@ -246,3 +246,14 @@ This code risk is separated from the Home Brewer candidate curriculum and remain
 
 **Close criteria for HBV2-023:** 0 content-validator errors; 0 under-370 editorial word warnings; 40 lesson IDs; 10 module labs, 20 adapting-evidence cases and 20 diagnostics; browser QA includes new delayed-modal regression and pass on the exact head; no changed existing V1 records. Until those are checked, issue stays `FIXED-PENDING-QA`.
 
+## 14. Post-audit QA finding — false-negative transfer wording
+
+A read-only recheck of the exact candidate `d0272e9` found an important failure that was **not visible while the last handover was written**:
+
+- [Home Brewer QA run 38352617691](https://github.com/hallogroup-hq/cherryedu/actions/runs/38352617691) and [38352613585](https://github.com/hallogroup-hq/cherryedu/actions/runs/38352613585): all **47 browser interaction tests passed** on both runs, but the **content validation gate failed**, so neither overall run passed.
+- Content inventory reported **40 lessons, 20 cases, 20 diagnostics, 10 concept labs, zero word-depth warnings**, but 4 explicit **mechanism/transfer terminology** errors in: `M03-L01`, `M04-L02`, `M09-L01`, `M10-L03`. The narrowed term check `/berubah|hipotesis|informasi|kesimpulan|dugaan/i` could not find those words even though the topical learning tasks existed.
+- Instead of weakening the guardrail, each lesson was enriched with an explicit falsifiable **hipotesis** and grounded competing explanations or paper-walkthrough method. Commits: M03-L01 `ccfe5ed`, M04-L02 `b37e093`, M09-L01 `f987536`, M10-L03 `55b9eae`.
+- **Status:** FIXED-PENDING-QA until the content inventory/typecheck/build and full Home Brewer browser suite pass on matching new head; Foundation regression and owner sign-off are independent requirements. Do not cite 47/47 browser passing to mask the content job failure.
+
+No V1 IDs, enrollment records, certificates, progress or deployed production assets were modified. No new video gate was added.
+
