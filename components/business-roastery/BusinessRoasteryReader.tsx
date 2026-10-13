@@ -17,6 +17,15 @@ export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
  const [sidebarOpen,setSidebarOpen]=useState(false);
  const toggle=(code:string)=>setExpanded(v=>v.includes(code)?v.filter(x=>x!==code):[...v,code]);
  const prev=lessons[idx-1],next=lessons[idx+1];
+ const method=lesson.order===1?workedMethods[lesson.moduleId]:undefined;
+ const narratedTerms=lesson.order===1
+   ? (glossary[lesson.moduleId]||[]).map(x=>x.term+': '+x.meaning).join('\n\n')
+   : '';
+ const narratedMethod=method
+   ? method.title+'\n\n'+method.steps.map((step,n)=>(n+1)+'. '+step.heading+'. '+step.explanation).join('\n\n')+'\n\n'+method.caution
+   : '';
+ const narrationSource=[lesson.content,narratedTerms,narratedMethod].filter(Boolean).join('\n\n');
+
  return <div className="min-h-screen bg-paper-50 pb-24 text-roast-950">
   <div className="sticky top-16 z-20 border-b border-paper-300 bg-paper-50/95 backdrop-blur-sm">
    <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
@@ -36,7 +45,7 @@ export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
     </aside>
     <div className="min-w-0 border border-paper-300 bg-white px-5 pb-10 pt-7 shadow-xs sm:px-9 sm:pt-9">
      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-b border-paper-200 pb-4 font-mono text-[10px] uppercase tracking-wider text-roast-600"><span className="flex items-center gap-1"><Clock size={13}/>{Math.max(12,Math.round(lesson.content.split(/\s+/).length/75))} menit baca</span><span>•</span><span>Materi belajar</span><span>•</span><span>{mod?.title}</span></div>
-     <AudioNarrationPlayer title={lesson.title} rawMarkdown={lesson.content}/>
+     <AudioNarrationPlayer title={lesson.title} rawMarkdown={narrationSource}/>
      <article className="mt-6"><h1 className="mb-6 border-b border-paper-300 pb-5 font-serif text-3xl font-black leading-tight tracking-tight sm:text-4xl">{lesson.title}</h1>{lesson.order===1&&<BusinessConceptFigure moduleId={lesson.moduleId}/>}
       {lesson.order===1&&<section className="my-7 border-y border-paper-300 py-5" aria-label="Istilah dasar modul"><h2 className="mb-3 font-serif text-xl font-bold">Istilah yang perlu kamu kenali</h2><dl className="space-y-3">{glossary[lesson.moduleId]?.map(x=><div key={x.term} className="grid gap-1 sm:grid-cols-[140px_1fr] sm:gap-4"><dt className="text-sm font-bold text-roast-950">{x.term}</dt><dd className="text-sm leading-6 text-roast-700">{x.meaning}</dd></div>)}</dl></section>}
       <MarkdownRenderer content={lesson.content}/>
