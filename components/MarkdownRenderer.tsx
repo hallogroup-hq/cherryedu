@@ -82,7 +82,7 @@ function sanitizeMarkdownContent(raw: string): string {
     .replace(/\\times/g, '×')
     .replace(/\\rightarrow/g, '→');
 
-  return processed;
+  return processed.replace(/(^#{1,6}[^\n]*?)\s+[—–]\s+/gm, '$1: ').replace(/\s+[—–]\s+/g, ': ');
 }
 
 export const MarkdownRenderer: React.FC<MarkdownRendererProps> = React.memo(function MarkdownRenderer({ content }) {
@@ -191,6 +191,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = React.memo(func
             const visual = /language-visual:([a-z0-9-]+)/.exec(className || '');
             if (visual) return <FoundationConceptVisual id={visual[1]} />;
             if (className === 'language-solution') return <FoundationRevealAnswer text={String(children).trim()} />;
+            if (className === 'language-example') return <FoundationRevealAnswer text={String(children).trim()} label="Lihat contoh respons" />;
             return (
               <code className="font-mono text-xs bg-paper-200 text-roast-950 px-1.5 py-0.5 rounded border border-paper-300 font-semibold" {...props}>
                 {children}
@@ -200,7 +201,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = React.memo(func
           pre: ({ children }: { children?: React.ReactNode }) => {
             if (React.isValidElement<{ className?: string }>(children)) {
               const childProps = children.props;
-              if (childProps?.className && (String(childProps.className).startsWith('language-diagram:') || String(childProps.className).startsWith('language-activity:') || String(childProps.className).startsWith('language-visual:') || String(childProps.className) === 'language-solution')) {
+              if (childProps?.className && (String(childProps.className).startsWith('language-diagram:') || String(childProps.className).startsWith('language-activity:') || String(childProps.className).startsWith('language-visual:') || ['language-solution', 'language-example'].includes(String(childProps.className)))) {
                 return <div className="not-prose my-6">{children}</div>;
               }
             }
