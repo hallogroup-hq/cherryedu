@@ -105,8 +105,8 @@ export const BUSINESS_REFERENCES:BusinessReference[]=[
 export const BUSINESS_DECISION_CASES=[
   {
     "moduleId": "B01",
-    "decision": "A punya surat penawaran langsung Rp105.000/kg green dari kelompok tani; B punya harga Rp114.000/kg sudah tiba gudang. Angka bersifat **asumsi latihan**, belum quotation pasar. Jalur A belum menyertakan sortasi dan angkut.",
-    "prompt": "Kasus Rantai nilai. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "decision": "Pemasok X memberi surat penawaran langsung Rp105.000/kg green dari kelompok tani; Pemasok Y memberi harga Rp114.000/kg sudah tiba gudang. Angka bersifat asumsi latihan, belum quotation pasar. Jalur pemasok X belum menyertakan sortasi dan angkut.",
+    "prompt": "Dua penawaran menggunakan satuan berbeda: apa yang harus kamu periksa sebelum membuat PO, dan bagaimana perubahan bentuk komoditas memengaruhi landed cost?",
     "newEvidence": "Setelah investigasi, kelompok tani hanya menyediakan gabah kopi belum hulling, dan biaya mengubahnya menjadi green bean serta QC belum tertera. Harga produk ternyata tidak setara.",
     "revisionPrompt": "Perbaiki peta kepemilikan barang dan jangan bandingkan Rp105.000/kg gabah dengan Rp114.000/kg green ready to roast.",
     "revise": "Perbaiki peta kepemilikan barang dan jangan bandingkan Rp105.000/kg gabah dengan Rp114.000/kg green ready to roast.",
@@ -115,7 +115,7 @@ export const BUSINESS_DECISION_CASES=[
   {
     "moduleId": "B02",
     "decision": "Skenario asumsi: brand A mendapat fee contract roast Rp23.000/kg roasted, kapasitas mitra dibatasi 70kg/minggu. B mempertimbangkan mesin sendiri dengan biaya tetap tambahan Rp9 juta/bulan yang belum termasuk depresiasi dan financing.",
-    "prompt": "Kasus Make-or-buy. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Saat permintaan dan minimum booking vendor berubah, apakah biaya tetap mesin bisa dibenarkan? Tentukan data volume, kapasitas, kontrak dan kas yang dibutuhkan.",
     "newEvidence": "Prediksi permintaan terjual turun dari 200kg menjadi 95kg/bulan; partner juga mengubah minimum booking produksi.",
     "revisionPrompt": "Evaluasi ulang biaya per kg, bukan hanya penghematan biaya mesin. Bandingkan dengan downtime, operator, jaminan kualitas dan kewajiban kontrak.",
     "revise": "Evaluasi ulang biaya per kg, bukan hanya penghematan biaya mesin. Bandingkan dengan downtime, operator, jaminan kualitas dan kewajiban kontrak.",
@@ -123,8 +123,8 @@ export const BUSINESS_DECISION_CASES=[
   },
   {
     "moduleId": "B03",
-    "decision": "Ada 24 prospek kafe, enam meminta sampel, dua membayar pilot masing-masing 12kg. Ini **asumsi latihan**, bukan ukuran konversi industri.",
-    "prompt": "Kasus Validasi pasar. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "decision": "Ada 24 prospek kafe, enam meminta sampel, dua membayar pilot masing-masing 12kg. Ini asumsi latihan, bukan ukuran konversi industri.",
+    "prompt": "Dari 24 prospek hanya dua yang membayar pilot. Berapa permintaan yang benar-benar terbukti, dan bukti apa yang diperlukan sebelum menambah kapasitas?",
     "newEvidence": "Satu dari dua pilot tidak reorder setelah tim QA mengubah profil rasa, sementara prospek lain belum mengajukan PO.",
     "revisionPrompt": "Bangun forecast konservatif dari order berbayar, pisahkan trial dengan repeat order dan rancang tindak lanjut QC.",
     "revise": "Bangun forecast konservatif dari order berbayar, pisahkan trial dengan repeat order dan rancang tindak lanjut QC.",
@@ -133,7 +133,7 @@ export const BUSINESS_DECISION_CASES=[
   {
     "moduleId": "B04",
     "decision": "Tiga SKU direncanakan. MOQ pouch custom 3.000 pcs per SKU; tiap SKU hanya diperkirakan menjual 150 pack per bulan—angka simulasi vendor.",
-    "prompt": "Kasus SKU dan stok. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Bagaimana keputusan SKU berubah ketika MOQ pouch sangat besar dibanding penjualan bulanan? Hitung stok yang akan mengendap dan alternatif kemasannya.",
     "newEvidence": "Produksi pouch memerlukan pembayaran 100% sebelum cetak; satu SKU ternyata hanya diminati 50 pack per bulan.",
     "revisionPrompt": "Kurangi jumlah varian atau pilih kemasan generik berlabel fleksibel, hitung umur persediaan dan cash tied-up.",
     "revise": "Kurangi jumlah varian atau pilih kemasan generik berlabel fleksibel, hitung umur persediaan dan cash tied-up.",
@@ -142,7 +142,7 @@ export const BUSINESS_DECISION_CASES=[
   {
     "moduleId": "B05",
     "decision": "Rencana bisnis menyebut investasi Rp180 juta, demand 350kg/bulan dan kas awal Rp40 juta. Ini asumsi untuk latihan go/no-go.",
-    "prompt": "Kasus Studi kelayakan. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Dengan investasi besar tetapi PO masih kecil, apa syarat go/no-go yang kamu tetapkan? Urutkan bukti pasar, fasilitas, modal kerja dan keselamatan.",
     "newEvidence": "Ternyata pelanggan yang sudah PO hanya 90kg/bulan, renovasi ventilasi belum dikutip dan pemasok meminta DP 70%.",
     "revisionPrompt": "Revisi keputusan investasi dengan downside, cash runway dan kebutuhan belanja fasilitas sebelum membeli mesin.",
     "revise": "Revisi keputusan investasi dengan downside, cash runway dan kebutuhan belanja fasilitas sebelum membeli mesin.",
@@ -151,7 +151,7 @@ export const BUSINESS_DECISION_CASES=[
   {
     "moduleId": "B06",
     "decision": "A hanya mengelola merek dengan contract roaster, sedangkan B mengoperasikan produksi pada tempat sewanya. Keduanya sama-sama menjual kopi kemasan tetapi pihak pelaku usaha dan tanggung jawabnya berbeda.",
-    "prompt": "Kasus Perizinan dan entitas. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Siapa penanggung jawab produk, fasilitas dan pajak ketika brand outsource tetapi mitranya memiliki lokasi berbeda? Susun pertanyaan ke instansi yang tepat.",
     "newEvidence": "B berencana memakai izin milik mitra A, dan pengelola menganggap semua CV otomatis memakai PPh final 0,5%.",
     "revisionPrompt": "Pisahkan entitas, lokasi fasilitas, kegiatan KBLI, kategori pangan, penanggung jawab label dan klasifikasi pajak terbaru.",
     "revise": "Pisahkan entitas, lokasi fasilitas, kegiatan KBLI, kategori pangan, penanggung jawab label dan klasifikasi pajak terbaru.",
@@ -160,7 +160,7 @@ export const BUSINESS_DECISION_CASES=[
   {
     "moduleId": "B07",
     "decision": "Supplier X memberi contoh 1kg lot Gayo; supplier Y mengajukan penawaran 250kg lot lain. Keduanya sama-sama tertulis 'Gayo washed', namun belum ada identitas lot dan parameter QC yang identik.",
-    "prompt": "Kasus Kontrak supplier. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Sampel dua pemasok berbeda lot meskipun origin dan prosesnya sama. Bukti QC apa yang wajib ada sebelum menerima pengiriman massal?",
     "newEvidence": "Sampel produksi massal Y berbeda sensori, serta dokumen moisture hanya untuk sampel awal, bukan karung datang.",
     "revisionPrompt": "Susun acceptance protocol per lot dan klausul klaim berdasarkan sampling yang representatif.",
     "revise": "Susun acceptance protocol per lot dan klausul klaim berdasarkan sampling yang representatif.",
@@ -168,17 +168,17 @@ export const BUSINESS_DECISION_CASES=[
   },
   {
     "moduleId": "B08",
-    "decision": "Untuk latihan terpisah: publikasi **Makassar → Jabodetabek** menawarkan 'mulai Rp3.500/kg' dengan minimum 50kg; sumber carrier harus diverifikasi lagi dan bukan quotation green bean khusus. Kamu membeli 35kg dari Sulawesi.",
-    "prompt": "Kasus Ongkos inbound antarpulau. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "decision": "Untuk latihan terpisah: publikasi Makassar → Jabodetabek menawarkan 'mulai Rp3.500/kg' dengan minimum 50kg; sumber carrier harus diverifikasi lagi dan bukan quotation green bean khusus. Kamu membeli 35kg dari Sulawesi.",
+    "prompt": "Kamu punya tarif laut Makassar ke Jabodetabek, namun gudang ada di Sukabumi. Hitung batas bawah ongkir dan identifikasi biaya rute yang belum tercakup.",
     "newEvidence": "Setelah menghubungi operator, alamat roastery ternyata Sukabumi dan tidak termasuk cakupan Jabodetabek; pickup origin, packing dan barang green bean membutuhkan klarifikasi.",
     "revisionPrompt": "Pisahkan leg Makassar → area Jabodetabek dari last mile ke Sukabumi; minta quotation door-to-door sesuai berat, lokasi dan tanggal.",
     "revise": "Pisahkan leg Makassar → area Jabodetabek dari last mile ke Sukabumi; minta quotation door-to-door sesuai berat, lokasi dan tanggal.",
-    "reason": "35kg dikenai minimum 50kg apabila ketentuan itu benar berlaku; 50×3.500 = Rp175.000 **hanya komponen dasar indikatif**, bukan total tiba gudang."
+    "reason": "35kg dikenai minimum 50kg apabila ketentuan itu benar berlaku; 50×3.500 = Rp175.000 hanya komponen dasar indikatif, bukan total tiba gudang."
   },
   {
     "moduleId": "B09",
     "decision": "Pemilik menemukan sewa murah tetapi bangunan berlantai dua dengan akses loading kecil, exhaust belum ada dan utilitas listrik belum dievaluasi.",
-    "prompt": "Kasus Keselamatan fasilitas. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Lokasi murah ternyata belum layak secara instalasi. Kapan kamu harus menunda sewa, dan data keselamatan serta total cash-out apa yang perlu disetujui?",
     "newEvidence": "Kontraktor memberikan dua kebutuhan tambahan: upgrade elektrikal dan tata udara yang perlu persetujuan pemilik bangunan. Biaya belum ada quotation.",
     "revisionPrompt": "Tahan komitmen sewa sampai penilaian instalasi dan biaya retrofit tersedia; bandingkan alternatif ruang.",
     "revise": "Tahan komitmen sewa sampai penilaian instalasi dan biaya retrofit tersedia; bandingkan alternatif ruang.",
@@ -187,7 +187,7 @@ export const BUSINESS_DECISION_CASES=[
   {
     "moduleId": "B10",
     "decision": "Contoh perhitungan: satu batch menerima 5kg green, roasting loss terukur 15%, tiga batch per jam saat mesin tersedia, dan lima jam roasting efektif sehari.",
-    "prompt": "Kasus Kapasitas roasting. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Bagaimana mengubah kapasitas input 5 kg per batch menjadi roasted saleable per hari setelah downtime dan quality hold? Pisahkan hasil teknis dan hasil siap jual.",
     "newEvidence": "Quality hold satu jam serta perubahan SKU memakan 45 menit dan output saleable beberapa batch ditahan QA.",
     "revisionPrompt": "Revisi target output dengan jam tersedia, batch aktual, QC release dan kemasan; jangan memakai kapasitas brosur.",
     "revise": "Revisi target output dengan jam tersedia, batch aktual, QC release dan kemasan; jangan memakai kapasitas brosur.",
@@ -196,7 +196,7 @@ export const BUSINESS_DECISION_CASES=[
   {
     "moduleId": "B11",
     "decision": "Invoice supplier lot G22 dipakai untuk tiga batch roasting yang dikemas pada dua hari; log mencatat operator dan yield tiap batch.",
-    "prompt": "Kasus Traceability dan release. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Saat satu dari tiga roast batch mengalami off-flavour setelah sebagian packing, bagaimana membatasi HOLD secara traceable tanpa melepas produk berisiko?",
     "newEvidence": "Satu batch mendapat hasil QC off-flavor, tetapi 20 pack sudah masuk kardus untuk satu pelanggan.",
     "revisionPrompt": "Lakukan hold unit yang dapat dilacak, hentikan dispatch, telusuri seluruh kemasan terdampak sebelum putuskan tindak lanjut.",
     "revise": "Lakukan hold unit yang dapat dilacak, hentikan dispatch, telusuri seluruh kemasan terdampak sebelum putuskan tindak lanjut.",
@@ -205,7 +205,7 @@ export const BUSINESS_DECISION_CASES=[
   {
     "moduleId": "B12",
     "decision": "Untuk order 1kg, pilihan pertama satu pouch 1kg, pilihan kedua empat pouch 250g. Bahan pouch simulasi Rp5.000 untuk 1kg atau Rp2.000 per pouch 250g, belum label/tenaga.",
-    "prompt": "Kasus Packing dan fulfilment. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Mengapa empat pouch 250g bisa lebih mahal daripada satu pouch 1kg? Tambahkan dampak label dan pemisahan alamat sebelum menetapkan harga.",
     "newEvidence": "Pelanggan ternyata meminta empat label berbeda dengan pemisahan alamat, sehingga kebutuhan packing dan fulfilment bertambah.",
     "revisionPrompt": "Bandingkan biaya per kg dan waktu packing serta periksa apakah SKU 250g memerlukan harga berbeda.",
     "revise": "Bandingkan biaya per kg dan waktu packing serta periksa apakah SKU 250g memerlukan harga berbeda.",
@@ -214,25 +214,25 @@ export const BUSINESS_DECISION_CASES=[
   {
     "moduleId": "B13",
     "decision": "Satu kg roasted memakai green + freight Rp151.000, conversion variable Rp14.000, packaging Rp6.000. Biaya pabrik tetap Rp6 juta/bulan dan output terjual direncanakan 300kg.",
-    "prompt": "Kasus Pemisahan biaya tetap. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Tentukan HPP manufaktur serapan pada volume rencana dan aktual, lalu jelaskan mengapa fixed overhead tidak dikurangi lagi saat menghitung contribution.",
     "newEvidence": "Output aktual hanya 150kg. Biaya pabrik tetap tidak ikut turun; biaya alokasi overhead/kg menjadi dua kali lipat.",
     "revisionPrompt": "Hitung ulang HPP serapan untuk laporan dan contribution untuk keputusan BEP dengan denominator berbeda.",
     "revise": "Hitung ulang HPP serapan untuk laporan dan contribution untuk keputusan BEP dengan denominator berbeda.",
-    "reason": "Variable cost/kg Rp171.000. Overhead pada rencana 300kg = Rp20.000/kg; aktual 150kg = Rp40.000/kg. Jangan kurangi overhead variabel dua kali dalam contribution."
+    "reason": "Variable cost/kg Rp171.000. Overhead pada rencana 300kg = Rp20.000/kg; aktual 150kg = Rp40.000/kg. Jangan kurangi overhead pabrik tetap dua kali dalam contribution; fixed overhead sudah dialokasikan ke HPP serapan tetapi dikeluarkan dari biaya variabel per kg untuk BEP."
   },
   {
     "moduleId": "B14",
     "decision": "Skenario asumsi: HPP manufacturing absorbed Rp180.000/kg, harga D2C neto Rp250.000/kg, dan biaya channel variabel Rp32.000/kg.",
-    "prompt": "Kasus Margin per channel. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Dengan full manufacturing HPP, harga dan fee channel yang diketahui, apa yang sudah bisa dihitung? Data apa yang masih hilang untuk menghitung contribution margin?",
     "newEvidence": "Platform menaikkan fee dan pelanggan ritel beralih ke paket 250g yang punya biaya pouch/kg lebih tinggi.",
     "revisionPrompt": "Hitung waterfall harga per SKU, validasi margin gross versus contribution, dan evaluasi ketahanan harga promo.",
     "revise": "Hitung waterfall harga per SKU, validasi margin gross versus contribution, dan evaluasi ketahanan harga promo.",
-    "reason": "Gross margin awal (250-180)/250=28%; setelah biaya channel, contribution sebelum penyesuaian fixed ≈ Rp38.000/kg. Margin gross tidak sama dengan margin bersih."
+    "reason": "Gross margin awal (250-180)/250 = 28%. Setelah biaya channel, selisih harga dikurangi HPP serapan dan biaya channel adalah Rp38.000/kg. Ini bukan contribution margin yang sah karena HPP Rp180.000 sudah mengandung fixed factory overhead; kontribusi sebenarnya baru bisa dihitung bila variable manufacturing cost dipisahkan dari fixed yang dialokasikan."
   },
   {
     "moduleId": "B15",
     "decision": "Dalam latihan, fixed relevant Rp12 juta/bulan, harga neto Rp220.000/kg dan variable cost termasuk channel Rp160.000/kg.",
-    "prompt": "Kasus BEP dan kapasitas. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Hitung BEP dari harga, biaya variabel dan fixed bulanan. Apa keputusan yang rasional jika kapasitas saleable lebih kecil daripada volume BEP?",
     "newEvidence": "Mesin dan packing yang tersedia secara realistis hanya mampu fulfil 180kg/bulan; target sales sudah 240kg.",
     "revisionPrompt": "Tentukan apakah BEP 200kg/bulan dapat dicapai dari kapasitas saat ini, lalu cari tindakan di sisi harga, biaya atau bottleneck.",
     "revise": "Tentukan apakah BEP 200kg/bulan dapat dicapai dari kapasitas saat ini, lalu cari tindakan di sisi harga, biaya atau bottleneck.",
@@ -241,7 +241,7 @@ export const BUSINESS_DECISION_CASES=[
   {
     "moduleId": "B16",
     "decision": "Roastery menerima PO Rp60 juta, pemasok meminta pembayaran green Rp40 juta saat pesan, ongkir tambahan belum dibayar, dan buyer baru membayar 45 hari setelah delivery.",
-    "prompt": "Kasus Cash conversion. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "PO baru Rp60 juta tampak menarik, tetapi green dibayar sebelum customer membayar. Bagaimana kamu menutup defisit modal kerja tanpa mengarang tanggal pembayaran?",
     "newEvidence": "Roastery hanya punya kas Rp30 juta, buyer menginginkan tempo tetapi pemasok menolak DP kecil.",
     "revisionPrompt": "Negosiasikan DP buyer, milestone pembayaran, termin pemasok atau volume split sebelum menerima kewajiban pembelian.",
     "revise": "Negosiasikan DP buyer, milestone pembayaran, termin pemasok atau volume split sebelum menerima kewajiban pembelian.",
@@ -250,7 +250,7 @@ export const BUSINESS_DECISION_CASES=[
   {
     "moduleId": "B17",
     "decision": "Sebuah hotel menawarkan 100kg/bulan dengan harga di bawah retail, meminta training staf dua kali sebulan dan pembayaran H+45.",
-    "prompt": "Kasus Kontrak B2B. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Untuk kontrak hotel, jabarkan batas kunjungan training, freight pengiriman mingguan, retur, dan termin agar volume besar tidak memakan seluruh contribution.",
     "newEvidence": "Hotel meminta pengiriman mingguan dalam 10kg pack serta hak retur barang yang tidak terjual.",
     "revisionPrompt": "Hitung cost-to-serve, working capital dan skema retur sebelum menyetujui harga kontrak dan layanan.",
     "revise": "Hitung cost-to-serve, working capital dan skema retur sebelum menyetujui harga kontrak dan layanan.",
@@ -259,7 +259,7 @@ export const BUSINESS_DECISION_CASES=[
   {
     "moduleId": "B18",
     "decision": "Tim ingin memperluas reseller ke empat kota. Harga transfer menguntungkan saat semua barang dibayar sebelum dikirim.",
-    "prompt": "Kasus Channel distribusi. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Reseller meminta eksklusivitas dan hak retur penuh. Klausul minimum sell-through, wilayah, risiko stok dan tanggal kas apa yang harus disepakati?",
     "newEvidence": "Distributor meminta retur semua stok yang lambat dan eksklusivitas daerah tanpa minimum sell-through.",
     "revisionPrompt": "Batasi hak retur, wilayah dan target pembelian; perhitungkan stock consignment dan waktu kas nyata.",
     "revise": "Batasi hak retur, wilayah dan target pembelian; perhitungkan stock consignment dan waktu kas nyata.",
@@ -268,7 +268,7 @@ export const BUSINESS_DECISION_CASES=[
   {
     "moduleId": "B19",
     "decision": "Owner kecil memegang pembelian bahan, penerimaan gudang, QC release, dan pembayaran pemasok. Pada A hal ini sering terjadi karena tim baru dua orang.",
-    "prompt": "Kasus SDM dan segregation. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Satu orang memegang pembelian, gudang, QC dan pembayaran. Rancang kontrol murah yang tetap memberi jejak penerimaan serta otorisasi dua pihak.",
     "newEvidence": "Audit menemukan nota supplier dapat diedit orang yang sekaligus mengotorisasi pembayaran, dan stok opname tidak pernah dilakukan silang.",
     "revisionPrompt": "Terapkan kontrol dua pihak, bukti penerimaan, approval pembayaran dan review berkala walaupun tim kecil.",
     "revise": "Terapkan kontrol dua pihak, bukti penerimaan, approval pembayaran dan review berkala walaupun tim kecil.",
@@ -277,7 +277,7 @@ export const BUSINESS_DECISION_CASES=[
   {
     "moduleId": "B20",
     "decision": "Penjualan naik 40% dalam tiga bulan, tetapi order fulfilment turun dan packaging overtime melonjak; mesin roasting masih punya jam kosong.",
-    "prompt": "Kasus KPI dan pertumbuhan. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Omzet meningkat tetapi packing overtime dan customer terlambat menerima stok. Bottleneck mana harus diuji sebelum membeli mesin roasting baru?",
     "newEvidence": "Dua pelanggan prioritas mulai komplain telat kirim meskipun roaster mengusulkan mesin roasting lebih besar.",
     "revisionPrompt": "Periksa bottleneck packing, jadwal release QC, picking dan armada sebelum menyetujui CAPEX mesin.",
     "revise": "Periksa bottleneck packing, jadwal release QC, picking dan armada sebelum menyetujui CAPEX mesin.",
@@ -286,7 +286,7 @@ export const BUSINESS_DECISION_CASES=[
   {
     "moduleId": "B21",
     "decision": "Buyer asing meminta 100kg roasted coffee untuk satu negara tujuan yang belum diperiksa perizinan pangan dan import requirements-nya.",
-    "prompt": "Kasus Pengantar ekspor. Pilih tindakan A (asset-light), B (mesin kecil), atau C (komersial) lalu tulis bukti yang perlu diperiksa. Semua angka tanpa bukti penawaran ditandai sebagai simulasi, bukan harga pasar.",
+    "prompt": "Buyer asing menganggap harga delivered, forwarder hanya mengutip port. Data Incoterm, rute, dokumen dan metode pembayaran mana yang harus dikonfirmasi?",
     "newEvidence": "Forwarder mengutip biaya hanya sampai pelabuhan, sementara buyer mengira harga sudah termasuk pengantaran ke gudangnya.",
     "revisionPrompt": "Tahan harga final, verifikasi HS dan dokumen, negara tujuan, shelf-life, Incoterms, kurs dan tanggung jawab import clearance.",
     "revise": "Tahan harga final, verifikasi HS dan dokumen, negara tujuan, shelf-life, Incoterms, kurs dan tanggung jawab import clearance.",
