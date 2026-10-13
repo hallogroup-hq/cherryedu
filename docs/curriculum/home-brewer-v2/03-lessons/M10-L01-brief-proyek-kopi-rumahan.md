@@ -18,7 +18,20 @@ Kesalahan rancangan adalah target yang mustahil dinilai: 'buat kopi paling sempu
 
 Tulis brief satu halaman: masalah, kriteria rasa, alat, kopi, risiko, faktor yang berubah dan catatan yang dibutuhkan. Jika alat tidak tersedia, buat simulasi dan tanda jelas bahwa kemampuan praktik belum didemonstrasikan.
 
-Saat menulis eksperimen, bedakan prediksi, pengamatan nyata, dan data simulasi; jangan mengisi kolom tasting yang belum dilakukan. Periksa kelayakan bahan/air, alat food-safe, penyimpanan dan risiko panas. Nilai kemampuan belajar dari alasan yang bisa diuji dan keputusan saat keadaan berubah, bukan kepatuhan pada satu resep.
+## Ubah ide besar menjadi brief yang dapat diuji
+
+Misalnya tujuan awalmu adalah “iced coffee enak untuk semua orang”. Itu terlalu kabur: **siapa orangnya, seperti apa minumannya, dan bagaimana kamu tahu sudah mendekati tujuan?** Ubah menjadi “membandingkan dua cara mengatur es agar minuman terasa cukup intens bagi satu tamu yang menyukai aroma kopi dan tidak ingin rasa terlalu manis”.
+
+**Contoh struktur brief singkat:**
+
+1. **Untuk siapa?** Satu peminum dengan preferensi yang dinyatakan; catat batasan bahan dan alergen.
+2. **Tujuan:** pengalaman sensori atau kemudahan yang ingin diubah, tanpa menetapkan satu rasio universal.
+3. **Sumber daya:** kopi, brewer, filter, timbangan atau metode pencatatan yang benar-benar ada, serta batas biaya dan waktu.
+4. **Pertanyaan dan prediksi:** perubahan utama apa yang akan diuji dan hasil apa yang dapat membantah dugaanmu?
+5. **Bukti keberhasilan:** perbandingan yang dilakukan dengan aman, catatan sensorik nyata jika ada, dan umpan balik yang tidak dipaksa menjadi positif.
+6. **Batas berhenti:** risiko panas, kualitas air/bahan yang diragukan, atau percobaan yang tidak memberi informasi cukup.
+
+**Jika lot kopi habis**, tujuan rasa dan kemampuan dokumentasi tetap berguna. Namun parameter grind, sifat aliran, dan preferensi yang semula diuji pada lot lama perlu dianggap sebagai baseline sementara, bukan jaminan sama pada lot pengganti.
 
 ## Tantangan transfer
 
