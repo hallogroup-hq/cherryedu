@@ -31,5 +31,3 @@ Jika mengubah filter, perbedaan ketebalan, tekstur, kecocokan bentuk, atau metod
 ## Saat situasinya berbeda
 
 Ketika memakai kopi baru yang terlihat banyak melepaskan gelembung, apakah kamu harus otomatis menggandakan blooming time? Sebutkan faktor yang ingin dicek dan satu percobaan yang memberi bukti.
-
-**Periksa pemahamanmu:** sebutkan satu informasi yang masih belum diketahui, dua kemungkinan sebab yang berbeda, dan satu eksperimen aman yang paling berpeluang membedakannya. Tidak ada angka resep universal yang menggantikan keputusan berdasarkan bukti.
