@@ -36,5 +36,3 @@ Misalnya tujuan awalmu adalah “iced coffee enak untuk semua orang”. Itu terl
 ## Tantangan transfer
 
 Kamu mendapat informasi kopi yang biasa dipakai habis. Apa bagian brief yang masih berlaku dan variabel apa yang harus ditinjau ulang saat mengganti lot?
-
-**Penutup pelajaran:** sebutkan satu variabel yang paling ingin kamu pahami, alasan memilihnya, dan kondisi yang akan membuatmu mengubah keputusan. Bila belum memiliki alat, latihan penalaran tetap valid tetapi bukan bukti keahlian praktik fisik.
