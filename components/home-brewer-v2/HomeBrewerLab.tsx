@@ -65,34 +65,47 @@ function LabelReadingLab(){
  </div>;
 }
 function RatioLab(){
- const [dose,setDose]=useState(15),[water,setWater]=useState(225),[beverage,setBeverage]=useState(185),[tds,setTds]=useState(0),[answer,setAnswer]=useState(''),[show,setShow]=useState(false);
- const valid=good(dose,100)&&good(water)&&good(beverage)&&beverage<=water&&Number.isFinite(tds)&&tds>=0&&tds<=30;
+ const [dose,setDose]=useState(15),[water,setWater]=useState(225),[beverage,setBeverage]=useState(185);
+ const [tdsInput,setTdsInput]=useState(''),[answer,setAnswer]=useState(''),[show,setShow]=useState(false);
+ const tds=tdsInput.trim()===''?null:Number(tdsInput);
+ const massValid=good(dose,100)&&good(water)&&good(beverage)&&beverage<=water;
+ const tdsValid=tds===null||(Number.isFinite(tds)&&tds>0&&tds<=30);
+ const dissolved=tds===null?null:beverage*tds/100;
+ const impossibleEy=massValid&&tdsValid&&dissolved!==null&&dissolved>dose;
+ const valid=massValid&&tdsValid&&!impossibleEy;
  const ratio=water/dose;
  return <div className="space-y-5">
   <h3 className="font-serif text-xl font-semibold text-roast-950">Air masuk, minuman keluar, dan EY</h3>
-  <p className="text-sm leading-7 text-roast-800">Gunakan dataset ilustratif. Ubah nilai untuk menghitung rasio input. EY hanya muncul jika kamu memasukkan TDS **yang benar-benar diketahui**; kosongkan 0 jika tidak punya instrumen.</p>
+  <p className="text-sm leading-7 text-roast-800">Angka awal adalah dataset ilustratif, bukan hasil pengukuran nyata. Ubah nilainya untuk memahami rasio air masuk. TDS sengaja kosong: hanya isi jika memiliki hasil pengukuran minuman kopi yang dapat dipertanggungjawabkan.</p>
   <div className="grid grid-cols-2 gap-3">
    {[
     ['Kopi kering (g)',dose,setDose],
     ['Air masuk (g)',water,setWater],
-    ['Beverage keluar (g)',beverage,setBeverage],
-    ['TDS, jika diketahui (%)',tds,setTds]
+    ['Beverage keluar (g)',beverage,setBeverage]
    ].map(([label,v,setter])=><label key={String(label)} className="text-xs font-semibold text-roast-900">{String(label)}
     <input type="number" step="any" min="0" className={field} value={Number(v)} onChange={e=>{(setter as (n:number)=>void)(Number(e.target.value));setShow(false);}}/>
    </label>)}
+   <label className="text-xs font-semibold text-roast-900">TDS, jika diketahui (%)
+    <input type="number" step="any" min="0" max="30" placeholder="Belum diukur" className={field} value={tdsInput}
+     onChange={e=>{setTdsInput(e.target.value);setShow(false);}}/>
+   </label>
   </div>
-  {valid?<div className="border-y border-paper-300 py-5">
+  {massValid&&tdsValid&&!impossibleEy?<div className="border-y border-paper-300 py-5">
    <p className="font-mono text-2xl font-bold text-roast-950">Rasio air masuk 1 : {fmt(ratio)}</p>
    <div className="mt-4 space-y-2 text-sm text-roast-800">
     <p>Contoh massa input air: {fmt(water)} g</p>
     <p>Output yang ditimbang: {fmt(beverage)} g</p>
     <p>Selisih massa air: {fmt(water-beverage)} g. <strong>Ini bukan EY.</strong></p>
-    <p>{tds>0?'Estimasi EY (model sederhana): '+fmt(beverage*(tds/100)/dose*100)+'%.':'EY tidak dapat dihitung tanpa pengukuran TDS.'}</p>
+    <p>{tds===null?'EY tidak dapat dihitung tanpa pengukuran TDS.':'Estimasi EY (model sederhana): '+fmt((dissolved as number)/dose*100)+'%.'}</p>
    </div>
-  </div>:<p role="alert" className="text-sm text-rose-800">Periksa massa positif: output contoh tidak boleh melebihi air masuk dalam model sederhana ini.</p>}
-  <label className="block text-sm font-semibold text-roast-950">Mengapa ratio dan waktu saja tidak membuktikan rasanya?<textarea className={field} rows={3} value={answer} onChange={e=>{setAnswer(e.target.value);setShow(false);}} maxLength={800}/></label>
+  </div>:<p role="alert" className="text-sm leading-6 text-rose-800">
+   {!massValid?'Periksa massa: dosis dan air harus positif, dan output contoh tidak boleh melebihi air masuk pada model ini.':
+    !tdsValid?'TDS harus berupa persen positif hingga 30%, atau biarkan kosong jika belum diukur.':
+    'Data tidak konsisten: perkiraan massa zat terlarut melebihi seluruh dosis kopi awal, sehingga EY di atas 100%. Periksa TDS, satuan, dosis, dan massa minuman sebelum menarik kesimpulan.'}
+  </p>}
+  <label className="block text-sm font-semibold text-roast-950">Mengapa rasio, waktu, dan angka TDS saja tidak membuktikan rasa?<textarea className={field} rows={3} value={answer} onChange={e=>{setAnswer(e.target.value);setShow(false);}} maxLength={800}/></label>
   <button type="button" className={action} disabled={!valid||answer.trim().length<20} onClick={()=>setShow(true)}>Periksa penjelasan</button>
-  {show&&<p role="status" className="bg-paper-100 p-4 text-sm leading-7">Rasio hanya hubungan massa, sedangkan rasa dipengaruhi komposisi zat terlarut, kopi, metode dan pencicip. EY numerik perlu instrumen dan prosedur sah; model ini bukan prediksi rasa.</p>}
+  {show&&<p role="status" className="bg-paper-100 p-4 text-sm leading-7">Rasio hanya hubungan massa, sedangkan rasa dipengaruhi komposisi zat terlarut, kopi, metode dan pencicip. EY numerik memerlukan instrumen serta prosedur sah; model ini bukan prediksi rasa.</p>}
  </div>;
 }
 function PourLab(){
