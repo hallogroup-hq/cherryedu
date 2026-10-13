@@ -31,5 +31,3 @@ Mintalah teman membaca SOP tanpa penjelasan lisan. Apakah ia tahu kapan menyalak
 ## Saat situasinya berbeda
 
 Kamu mengganti dripper dengan flat-bottom karena pindah rumah. Mana parameter yang layak dibawa sebagai awal dan mana yang wajib diuji ulang? Jelaskan alasan tanpa menganggap desain V60 cocok otomatis di alat lain.
-
-**Periksa pemahamanmu:** sebutkan satu informasi yang masih belum diketahui, dua kemungkinan sebab yang berbeda, dan satu eksperimen aman yang paling berpeluang membedakannya. Tidak ada angka resep universal yang menggantikan keputusan berdasarkan bukti.
