@@ -1,0 +1,38 @@
+name: Sensory V2 authoring and compatibility gates
+on:
+  pull_request:
+    paths:
+      - 'docs/curriculum/sensory-v2/**'
+      - 'lib/data/sensory-v2/**'
+      - 'lib/data/sensoryV2Course.ts'
+      - 'lib/data/sensoryV2DeepDives.ts'
+      - 'lib/data/sensoryV2Practice.ts'
+      - 'app/sensory-v2/**'
+      - 'app/paths/page.tsx'
+      - 'components/sensory-v2/**'
+      - 'scripts/validate-sensory-v2.cjs'
+      - 'tests/sensory/**'
+      - 'playwright.sensory.config.ts'
+      - '.github/workflows/sensory-v2-authoring-qa.yml'
+  workflow_dispatch:
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: node scripts/validate-sensory-v2.cjs
+      - run: npm run typecheck
+      - run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
+          CHERRYEDU_SENSORY_V2_REVIEW: enabled
+          CHERRYEDU_ROASTER_V2_REVIEW: enabled
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test --config=playwright.sensory.config.ts
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
