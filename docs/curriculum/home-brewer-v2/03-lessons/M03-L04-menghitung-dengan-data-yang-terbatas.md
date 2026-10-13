@@ -18,7 +18,15 @@ Jangan mencatat suhu '95°C' hanya karena kettle tampak mendidih beberapa menit 
 
 Isi ulang log dua seduhan terakhir yang pernah kamu lakukan. Tandai hal yang kamu ingat, hal yang sebenarnya diukur, dan hal yang tidak diketahui. Pilih satu pertanyaan untuk sesi berikutnya. Jika belum pernah menyeduh, gunakan dataset simulasi dan beri label jelas.
 
-Tulis catatan percobaan **sebelum** melakukan perubahan: tujuan, hipotesis, prediksi, faktor yang diubah, keadaan yang dijaga, pengamatan, dan risiko alat. Peralatan nyata harus dipakai sesuai petunjuk pabrikan. Jika hasil dari ilustrasi, labeli sebagai simulasi; jika benar-benar mencicipi, tulis observasi tanpa mengeditnya supaya cocok dengan hipotesis.
+## Apa yang bisa dihitung tanpa alat mahal?
+
+Dengan 15 g kopi dan 225 g air seduh, rasio **input** adalah 225 ÷ 15 = 15, biasa ditulis 1:15. Jika jumlah air dinaikkan menjadi 240 g dengan dosis tetap, rasio input menjadi 1:16. Dua hasil hitung ini **tidak memberi nilai konsentrasi maupun extraction yield** karena data jumlah zat terlarut tidak tersedia.
+
+Jika kamu sempat menimbang minuman yang keluar, angkanya juga tidak otomatis sama dengan massa air masuk. Sebagian cairan bisa tertahan dalam kopi/filter atau hilang dari wadah; selisih massa **bukan persentase ekstraksi kopi**. Refraktometer yang sesuai, prosedur pengambilan sampel, dan perhitungan lebih lengkap diperlukan untuk estimasi EY.
+
+**Buat log dua lapis:** lapis pertama berisi data yang sungguh tersedia—dosis, air, waktu, identitas kopi, filter, dan observasi. Lapis kedua adalah interpretasi: dugaan sebab, ketidakpastian, serta pengujian yang dapat memisahkannya. Kolom suhu diisi “tidak diukur” jika demikian, bukan angka yang tampak ilmiah.
+
+**Uji transfer:** jika dua kopi memiliki rasio input sama tetapi hasil terasa berbeda, data apa yang paling murah bisa kamu kumpulkan berikutnya? Misalnya catat lot, grind relatif pada alatmu, kondisi filter serta suhu penyajian yang serupa. Buat prediksi yang bisa salah, bukan merekayasa EY dari timer.
 
 ## Saat situasinya berbeda
 
