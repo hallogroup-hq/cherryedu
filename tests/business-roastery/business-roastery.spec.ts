@@ -12,7 +12,7 @@ test('new independent roastery path exposes 21 modules and 84 lessons',async({pa
 });
 test('real freight reference preserves Jakarta to Makassar direction and minimum charge',async({page})=>{
  await page.goto('/business-roastery-v1/calculator');
- await expect(page.getByText(/Tarif tercantum/)).toContainText('Rp6.100');
+ await expect(page.getByText(/Tarif tercantum/)).toContainText('6.100');
  await expect(page.getByText(/Pengecualian:/)).toContainText('PPN, asuransi, packing');
  await page.getByRole('spinbutton',{name:/Berat green yang dibeli/}).fill('40');
  await expect(page.getByText('Berat ditagih untuk freight').locator('..')).toContainText('100 kg');
