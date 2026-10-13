@@ -27,4 +27,3 @@ Tuliskan satu pertanyaan eksperimen, prediksi sebelum melihat hasil, apa yang ka
 Jika dua pencicip memilih hasil berbeda meskipun EY sama, bagaimana kamu menyimpan catatan yang informatif tanpa menyalahkan mereka?
 
 **Cek diri:** apakah jawabanmu tetap bisa dijelaskan kepada orang yang memakai kopi, grinder atau brewer berbeda? Jika tidak, informasi apa yang harus ditambahkan? Eksperimen dinilai dari pertanyaan yang tepat dan kejujuran pada bukti, bukan dari selalu berhasil memperoleh rasa yang diharapkan.
- No newline at end of file

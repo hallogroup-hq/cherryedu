@@ -27,4 +27,3 @@ Sebelum mengubah alat atau kopi, buat catatan yang menyebut: tujuan eksperimen, 
 Ternyata kettle penguji B berbeda kapasitas dan flow. Bagaimana mengubah interpretasi uji agar tetap jujur?
 
 **Catatan pembelajar:** satu jawaban bisa berubah ketika kopi, grinder, air atau kebutuhan minuman berubah. Nilai keputusanmu bukan dari angka yang terdengar paling ahli, tetapi dari alasan yang bisa diperiksa, pengukuran yang tepat, risiko yang dikelola, serta rasa penasaran untuk membuat percobaan berikutnya.
- No newline at end of file

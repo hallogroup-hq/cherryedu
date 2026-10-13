@@ -27,4 +27,3 @@ Sebelum trial, tulis pertanyaan, hipotesis, prediksi, satu faktor yang diubah da
 Jika kamu cuma punya French Press tetapi ingin clarity lebih tinggi, opsi apa yang bisa diuji secara aman sebelum membeli alat lain?
 
 **Refleksi:** berikan alasan yang bisa diperiksa rekan, bukan jawaban yang paling mirip resep internet. Kegagalan prediksi bisa menjadi pembelajaran ketika catatan dan keselamatan tetap dijaga. Hal yang belum diketahui harus disebut sebagai hal yang belum diketahui.
- No newline at end of file

@@ -27,4 +27,3 @@ Tuliskan satu pertanyaan eksperimen, prediksi sebelum melihat hasil, apa yang ka
 Alat berubah karena kamu meminjam brewer tetangga. Bagaimana merancang eksperimen agar catatan lama tetap berguna?
 
 **Cek diri:** apakah jawabanmu tetap bisa dijelaskan kepada orang yang memakai kopi, grinder atau brewer berbeda? Jika tidak, informasi apa yang harus ditambahkan? Eksperimen dinilai dari pertanyaan yang tepat dan kejujuran pada bukti, bukan dari selalu berhasil memperoleh rasa yang diharapkan.
- No newline at end of file

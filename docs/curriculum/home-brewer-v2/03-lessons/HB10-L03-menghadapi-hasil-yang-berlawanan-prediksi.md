@@ -27,4 +27,3 @@ Tuliskan tujuan, hipotesis, prediksi yang dapat gagal, satu variabel utama, kond
 Jika teman lebih suka B walaupun kamu lebih suka A, bagaimana menentukan resep untuknya tanpa mengklaim seleranya salah?
 
 **Inti belajar:** orang yang memahami prinsip dapat memilih resep berbeda untuk tujuan berbeda tanpa merasa melanggar angka 'standar'. Ketika datanya bertentangan dengan dugaan, ulangi pertanyaan dengan lebih baik daripada memaksa cangkir mengikuti hipotesis.
- No newline at end of file

@@ -27,4 +27,3 @@ Sebelum mengubah alat atau kopi, buat catatan yang menyebut: tujuan eksperimen, 
 Ketika coffee bean tinggal 30 g, bagaimana membuat eksperimen yang tetap berguna dan tidak menghabiskan bahan tanpa alasan?
 
 **Catatan pembelajar:** satu jawaban bisa berubah ketika kopi, grinder, air atau kebutuhan minuman berubah. Nilai keputusanmu bukan dari angka yang terdengar paling ahli, tetapi dari alasan yang bisa diperiksa, pengukuran yang tepat, risiko yang dikelola, serta rasa penasaran untuk membuat percobaan berikutnya.
- No newline at end of file

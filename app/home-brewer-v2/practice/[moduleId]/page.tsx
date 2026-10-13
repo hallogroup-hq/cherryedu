@@ -22,4 +22,3 @@ export default function HomeBrewerV2Practice({params}:{params:{moduleId:string}}
   </div>
  </div>;
 }
- No newline at end of file

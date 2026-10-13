@@ -37,4 +37,3 @@ export default function HomeBrewerV2Lesson({params}:{params:{lessonId:string}}){
   </article>
  </div>;
 }
- No newline at end of file

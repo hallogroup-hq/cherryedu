@@ -27,4 +27,3 @@ Tuliskan satu pertanyaan eksperimen, prediksi sebelum melihat hasil, apa yang ka
 Tamu meminta porsi lebih besar tetapi konsentrasi serupa. Opsi apa selain menambah air begitu saja?
 
 **Cek diri:** apakah jawabanmu tetap bisa dijelaskan kepada orang yang memakai kopi, grinder atau brewer berbeda? Jika tidak, informasi apa yang harus ditambahkan? Eksperimen dinilai dari pertanyaan yang tepat dan kejujuran pada bukti, bukan dari selalu berhasil memperoleh rasa yang diharapkan.
- No newline at end of file

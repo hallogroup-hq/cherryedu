@@ -17,4 +17,3 @@ export default defineConfig({
   env:{CHERRYEDU_HOME_BREWER_V2_REVIEW:'enabled',NEXT_TELEMETRY_DISABLED:'1'}
  }
 });
- No newline at end of file

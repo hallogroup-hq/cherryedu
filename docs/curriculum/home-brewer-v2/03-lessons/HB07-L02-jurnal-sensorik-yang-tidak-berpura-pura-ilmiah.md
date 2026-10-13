@@ -27,4 +27,3 @@ Lengkapi sendiri: *tujuan, hipotesis, prediksi yang bisa salah, kondisi yang dik
 Kamu mencicipi kopi saat pilek dan merasa tidak ada aroma. Apakah perlu mengubah setting grinder berdasarkan sesi itu?
 
 **Cek belajar:** jelaskan satu alasan mengapa resep standar atau preferensi orang lain mungkin tidak berlaku dalam konteks ini. Home brewer yang kuat bukan yang paling banyak hafal nama senyawa, tetapi yang dapat menjawab *apa yang diketahui, bagaimana mengetahuinya, dan apa yang masih perlu diuji*.
- No newline at end of file

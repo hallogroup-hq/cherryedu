@@ -89,4 +89,3 @@ export function HomeBrewerMechanismVisual({lessonId}:{lessonId:string}){
   <figcaption className="mt-2 text-xs leading-6 text-roast-700">{d.caption}</figcaption>
  </figure>;
 }
- No newline at end of file

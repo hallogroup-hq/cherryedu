@@ -32,4 +32,3 @@ export default function HomeBrewerV2Index(){
   </div>
  </div>;
 }
- No newline at end of file

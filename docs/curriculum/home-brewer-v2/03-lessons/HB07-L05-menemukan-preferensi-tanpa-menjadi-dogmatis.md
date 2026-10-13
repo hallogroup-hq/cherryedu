@@ -27,4 +27,3 @@ Lengkapi sendiri: *tujuan, hipotesis, prediksi yang bisa salah, kondisi yang dik
 Bagaimana memilih kopi hadiah untuk orang yang tidak memakai istilah specialty dan hanya ingin kopi mudah diminum?
 
 **Cek belajar:** jelaskan satu alasan mengapa resep standar atau preferensi orang lain mungkin tidak berlaku dalam konteks ini. Home brewer yang kuat bukan yang paling banyak hafal nama senyawa, tetapi yang dapat menjawab *apa yang diketahui, bagaimana mengetahuinya, dan apa yang masih perlu diuji*.
- No newline at end of file
