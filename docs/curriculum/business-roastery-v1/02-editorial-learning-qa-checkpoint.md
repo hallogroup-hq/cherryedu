@@ -12,8 +12,8 @@ Initial inspection identified substantial copying: all 84 lessons contained an i
 - **84/84** lessons have been rewritten where the boilerplate A/B/C model description once appeared: every lesson now connects the three possible roastery operating models to its actual topic, trade-offs, and consequences.
 - **84/84** lesson checkpoints now have topic-specific diagnostic questions rather than the copied 49-word template.
 - Every one of the 84 revised sections includes an operational worked illustration or decision case, usually quantitative; examples use explicitly hypothetical numbers unless a published, directional carrier reference is named and qualified.
-- Independent parse/inspection on 2026-10-13 found **84 distinct A/B/C teaching blocks**, **84 distinct checkpoints**, **minimum 339 words** among lessons, and **zero** learner-facing matches for DRAFT/PREVIEW/BETA/TBD/COMING SOON/LOREM IPSUM after final removal of editorial language.
-- The existing topic-centered introductory paragraph, evidence categorization scaffold, some assignment patterns, and one unique field guide per module remain. Teaching comprehension and page design still require human review; **unique copy alone is not proof of learning**.
+- Independent parse/inspection on 2026-10-13 found **84 distinct A/B/C teaching blocks**, **84 distinct checkpoints**, **minimum 261 substantive words after filler removal** among lessons, and **zero** learner-facing matches for DRAFT/PREVIEW/BETA/TBD/COMING SOON/LOREM IPSUM after final removal of editorial language.
+- The topic-centered introductory paragraph, evidence-provenance policy and one unique field guide per module remain. A follow-up audit detected identical three-column evidence instructions and generic pitfall warnings in 84/84 lessons; those paragraphs have now been removed. Each lesson retains its unique applied task and pitfall. Less padding is preferable to an arbitrary 300-word minimum. Teaching comprehension and page design still require human review; **unique copy alone is not proof of learning**.
 
 ## Covered modules
 
@@ -49,5 +49,7 @@ Initial inspection identified substantial copying: all 84 lessons contained an i
 - [Mandala Cargo](https://mandalacargo.id/jasa-pengiriman-cargo-makassar-ke-jabodetabek/), Makassar **to** Jabodetabek, advertised starting Rp3,500/kg, minimum 50 kg; **not** Makassar-to-Sukabumi delivery.
 - [IndoExpress](https://www.indoexpress.co.id/tarif/cargo-jakarta-ke-makassar.html), Jakarta **to** Makassar, published Rp6,100/kg, minimum 100 kg, exclusions; **cannot** reverse rate direction.
 - Localized prices for beans, labor, energy, packaging, machine and channel are learner-entered quote inputs or marked educational assumptions. Currency, origin, quality, weight, timing and liability must be normalized before comparison.
+
+**Follow-up independent check (2026-10-13):** 84/84 lessons retain unique applied teaching/checkpoints; repeated task/checklist scaffolding and copied caution paragraphs were removed. Validator now rejects that filler, checks each unique task/pitfall and requires a minimum of 250 words of core instruction. Review evidence capture and comprehension through a novice pilot; lesson content is intentionally tighter.
 
 **Status:** Distinct subject-matter teaching pass COMPLETE 84/84. Automated tests must be confirmed on latest HEAD; human academic, financial, food compliance, real carrier quotations, user pilot and final release approval remain OPEN.
