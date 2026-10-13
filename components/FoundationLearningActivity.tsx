@@ -26,7 +26,7 @@ function Classification({ activity }: { activity: ClassificationActivity }) {
   if (index === activity.prompts.length) {
     return <div role="status" className="space-y-3">
       <p className="text-2xl font-serif font-bold text-roast-950">{score} dari {activity.prompts.length} tepat</p>
-      <p className="text-sm text-roast-700">Kamu sudah mencoba seluruh kartu. Jika ada yang kurang tepat, coba baca kembali penjelasan lesson.</p>
+      <p className="text-sm text-roast-700">Kamu sudah mencoba seluruh pernyataan. Jika ada yang kurang tepat, coba baca kembali penjelasan lesson.</p>
       <button className={btn + ' bg-roast-950 text-white'} type="button" onClick={() => { setIndex(0); setChoice(null); setScore(0); }}>
         <RotateCcw size={14} className="inline mr-2" aria-hidden="true"/> Ulangi latihan
       </button>
@@ -35,13 +35,13 @@ function Classification({ activity }: { activity: ClassificationActivity }) {
   const current = activity.prompts[index];
   const correct = choice === current.correct;
   return <div className="space-y-4">
-    <p className="font-mono text-xs text-roast-600">Kartu {index + 1} dari {activity.prompts.length}</p>
+    <p className="font-mono text-xs text-roast-600">Pernyataan {index + 1} dari {activity.prompts.length}</p>
     <div className="rounded-xl border border-paper-300 bg-paper-100 p-6">
       <p className="font-serif text-xl sm:text-2xl text-roast-950 font-bold">{current.name}</p>
     </div>
-    <fieldset disabled={choice !== null} className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+    <fieldset className="grid grid-cols-1 sm:grid-cols-2 gap-2">
       <legend className="sr-only">Pilih kategori untuk {current.name}</legend>
-      {activity.categories.map((cat) => <button type="button" key={cat.id} onClick={() => setChoice(cat.id)}
+      {activity.categories.map((cat) => <button type="button" key={cat.id} disabled={choice !== null} onClick={() => setChoice(cat.id)}
         aria-pressed={choice === cat.id}
         className={option + (choice === cat.id ? ' border-cherry-700 bg-cherry-50 text-roast-950' : ' border-paper-300 bg-white text-roast-800 hover:bg-paper-100')}>
         {cat.label}
@@ -55,7 +55,7 @@ function Classification({ activity }: { activity: ClassificationActivity }) {
         if (correct) setScore(n => n + 1);
         setChoice(null);
         setIndex(n => n + 1);
-      }}>{index === activity.prompts.length - 1 ? 'Lihat hasil' : 'Kartu berikutnya →'}</button>
+      }}>{index === activity.prompts.length - 1 ? 'Lihat hasil' : 'Pernyataan berikutnya →'}</button>
     </div>}
   </div>;
 }

@@ -85,7 +85,7 @@ function sanitizeMarkdownContent(raw: string): string {
   return processed;
 }
 
-export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
+export const MarkdownRenderer: React.FC<MarkdownRendererProps> = React.memo(function MarkdownRenderer({ content }) {
   const cleanContent = sanitizeMarkdownContent(content);
 
   return (
@@ -255,4 +255,4 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
       </ReactMarkdown>
     </div>
   );
-};
+});
