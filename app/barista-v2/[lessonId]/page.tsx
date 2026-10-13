@@ -1,3 +1,4 @@
+import {learnerTitle} from '@/lib/curated/learnerTitle';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BARISTA_V2_LESSONS, BARISTA_V2_MODULES } from '@/lib/data/baristaV2.generated';
@@ -30,7 +31,7 @@ export default function BaristaV2Lesson({params}:{params:{lessonId:string}}) {
         <span>{mod.code.replace('M','Modul ')}</span>
       </nav>
       <p className="mt-12 text-xs font-semibold uppercase tracking-widest text-cherry-700">{mod.title} · Pelajaran {lesson.order}</p>
-      <h1 className="mt-3 font-serif text-3xl font-bold leading-tight text-roast-950 sm:text-5xl">{lesson.title}</h1>
+      <h1 className="mt-3 font-serif text-3xl font-bold leading-tight text-roast-950 sm:text-5xl">{learnerTitle(lesson.title)}</h1>
       <div className="mt-8 border-t border-paper-300 pt-7">
         {showConceptVisual ? <>
           <MarkdownRenderer content={lesson.content.slice(0,firstSection).trim()}/>

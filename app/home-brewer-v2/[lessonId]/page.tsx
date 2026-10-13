@@ -1,3 +1,4 @@
+import {learnerTitle} from '@/lib/curated/learnerTitle';
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {MarkdownRenderer} from '@/components/MarkdownRenderer';
@@ -20,7 +21,7 @@ export default function HomeBrewerV2Lesson({params}:{params:{lessonId:string}}){
   <article className="mx-auto max-w-3xl">
    <nav aria-label="Breadcrumb" className="text-sm text-roast-700"><Link href="/home-brewer-v2" className="underline underline-offset-4">Home Brewer Specialization</Link><span className="px-2" aria-hidden="true">/</span>{mod.code.replace('HB','Modul ')}</nav>
    <p className="mt-12 font-mono text-xs uppercase font-semibold tracking-widest text-cherry-700">{mod.title} · Pelajaran {lesson.order}</p>
-   <h1 className="mt-3 font-serif text-3xl font-bold leading-tight sm:text-5xl">{lesson.title}</h1>
+   <h1 className="mt-3 font-serif text-3xl font-bold leading-tight sm:text-5xl">{learnerTitle(lesson.title)}</h1>
    <div className="mt-8 border-t border-paper-300 pt-7">
     {hasDiagram&&firstSection>=0?<><MarkdownRenderer content={lesson.markdown.slice(0,firstSection)}/><HomeBrewerMechanismVisual lessonId={lesson.id}/><MarkdownRenderer content={lesson.markdown.slice(firstSection+1)}/></>:<MarkdownRenderer content={lesson.markdown}/>}
    </div>

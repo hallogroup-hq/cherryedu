@@ -1,3 +1,4 @@
+import {learnerTitle} from '@/lib/curated/learnerTitle';
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {MarkdownRenderer} from '@/components/MarkdownRenderer';

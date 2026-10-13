@@ -1,3 +1,4 @@
+import {learnerTitle} from '@/lib/curated/learnerTitle';
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {MarkdownRenderer} from '@/components/MarkdownRenderer';
@@ -14,7 +15,7 @@ export default function BusinessRoasteryLesson({params}:{params:{lessonId:string
  return <main className="min-h-screen bg-paper-50 pb-24"><article className="mx-auto max-w-3xl px-5 pt-12">
   <nav aria-label="Navigasi belajar" className="text-sm text-roast-700"><Link href="/business-roastery-v1" className="underline underline-offset-4">Business Roastery</Link> <span aria-hidden="true">/</span> {mod.code}</nav>
   <p className="mt-14 font-mono text-xs font-semibold uppercase tracking-widest text-cherry-800">{mod.title} · Pelajaran {lesson.order} dari 4</p>
-  <h1 className="mt-3 font-serif text-3xl font-bold leading-tight text-roast-950 sm:text-5xl">{lesson.title}</h1>
+  <h1 className="mt-3 font-serif text-3xl font-bold leading-tight text-roast-950 sm:text-5xl">{learnerTitle(lesson.title)}</h1>
   <div className="mt-8 border-t border-paper-300 pt-8"><MarkdownRenderer content={lesson.content}/></div>
   {lesson.order===3&&<section aria-label="Studi kasus dan perhitungan" className="my-10 border-y border-paper-300 bg-paper-100 px-5 py-7"><h2 className="font-serif text-2xl font-bold text-roast-950">{BUSINESS_ROASTERY_FIELD_GUIDES[mod.code].title}</h2><MarkdownRenderer content={BUSINESS_ROASTERY_FIELD_GUIDES[mod.code].content}/></section>}
   {(lesson.moduleId==='B08'||lesson.moduleId==='B13'||lesson.moduleId==='B14'||lesson.moduleId==='B15')&&<aside className="my-10 border-l-2 border-cherry-700 bg-paper-100 p-5">

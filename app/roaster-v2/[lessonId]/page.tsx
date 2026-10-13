@@ -1,3 +1,4 @@
+import {learnerTitle} from '@/lib/curated/learnerTitle';
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {ROASTER_V2_LESSONS,ROASTER_V2_MODULES} from '@/lib/data/roasterV2Course';
