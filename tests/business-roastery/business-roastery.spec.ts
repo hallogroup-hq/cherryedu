@@ -12,28 +12,34 @@ test('new independent roastery path exposes 21 modules and 84 lessons',async({pa
 });
 test('real freight reference preserves Jakarta to Makassar direction and minimum charge',async({page})=>{
  await page.goto('/business-roastery-v1/calculator');
+ await page.getByRole('combobox',{name:'Rute dan moda persis sesuai referensi'}).selectOption('freight-jkt-mks-sea');
  await expect(page.getByText(/Tarif tercantum/)).toContainText('6.100');
  await expect(page.getByText(/Pengecualian:/)).toContainText('PPN, asuransi, packing');
  await page.getByRole('spinbutton',{name:/Berat green yang dibeli/}).fill('40');
  await expect(page.getByText('Berat ditagih untuk freight').locator('..')).toContainText('100 kg');
  await expect(page.getByText('Ongkos freight').locator('..')).toContainText('610.000');
- await expect(page.getByText('HPP manufaktur/kg roasted').locator('..')).toContainText('Belum bisa dihitung');
+ await expect(page.getByText('HPP manufaktur serapan/kg roasted').locator('..')).toContainText('Belum bisa dihitung');
  await page.getByRole('combobox',{name:'Rute dan moda persis sesuai referensi'}).selectOption('freight-jkt-ende-sea');
  await expect(page.getByText('Ongkos freight').locator('..')).toContainText('725.000');
 });
 test('roastery calculations wait for real costs and compute gross/variable margin distinctly',async({page})=>{
  await page.goto('/business-roastery-v1/calculator');
+ await page.getByRole('combobox',{name:'Rute dan moda persis sesuai referensi'}).selectOption('freight-jkt-mks-sea');
  await page.getByRole('spinbutton',{name:/Berat green yang dibeli/}).fill('40');
+ await page.getByRole('spinbutton',{name:/Green yang benar-benar diterima/}).fill('40');
  await page.getByRole('spinbutton',{name:/Harga beli green/}).fill('100000');
  await page.getByRole('spinbutton',{name:/Biaya inbound tambahan/}).fill('0');
  await page.getByRole('spinbutton',{name:/Green ditolak/}).fill('0');
  await page.getByRole('spinbutton',{name:/Roast loss/}).fill('20');
+ await page.getByRole('spinbutton',{name:/Kehilangan QC\/packing/}).fill('0');
  await page.getByRole('spinbutton',{name:/Biaya konversi/}).fill('20000');
  await page.getByRole('spinbutton',{name:/Kemasan dan packing/}).fill('10000');
  await page.getByRole('spinbutton',{name:/Harga jual neto/}).fill('200000');
  await page.getByRole('spinbutton',{name:/Biaya variabel channel/}).fill('5000');
- await page.getByRole('spinbutton',{name:/Biaya tetap bulanan/}).fill('1000000');
- await expect(page.getByText('HPP manufaktur/kg roasted').locator('..')).toContainText('174.063');
+ await page.getByRole('spinbutton',{name:/Biaya overhead PABRIK tetap/}).fill('0');
+ await page.getByRole('spinbutton',{name:/Output roasted saleable RENCANA/}).fill('100');
+ await page.getByRole('spinbutton',{name:/Biaya tetap NONPRODUKSI/}).fill('1000000');
+ await expect(page.getByText('HPP manufaktur serapan/kg roasted').locator('..')).toContainText('174.063');
  await expect(page.getByText('Gross margin').locator('..')).toContainText('13.0%');
  await expect(page.getByText('Contribution/kg').locator('..')).toContainText('20.938');
  await expect(page.getByText('BEP kontribusi (kg/bulan)').locator('..')).toContainText('47,8 kg');
@@ -70,4 +76,46 @@ test('capstone, lesson and narrow-screen tools render and retain local inputs',a
  await page.getByRole('textbox',{name:/1. Pasar dan pesanan/}).fill('Sudah ada tiga pelanggan yang menandatangani PO dan membayar DP serta tanggal pengiriman tercatat.');
  await expect(page.getByText('1 / 10 bagian diisi cukup terperinci')).toBeVisible();
  await expect(page.getByRole('textbox',{name:'Ringkasan rencana yang bisa disalin'})).toHaveValue(/Sudah ada tiga pelanggan/);
+});
+
+test('inbound Sulawesi rate charges public minimum, not reverse Jakarta lane',async({page})=>{
+ await page.goto('/business-roastery-v1/calculator');
+ await expect(page.getByRole('combobox',{name:'Rute dan moda persis sesuai referensi'})).toHaveValue('freight-makassar-jabodetabek-sea');
+ await expect(page.getByText(/Tarif tercantum/)).toContainText('3.500');
+ await page.getByRole('spinbutton',{name:/Berat green yang dibeli/}).fill('35');
+ await expect(page.getByText('Berat ditagih untuk freight').locator('..')).toContainText('50 kg');
+ await expect(page.getByText('Ongkos freight').locator('..')).toContainText('175.000');
+ await expect(page.getByText(/Rute terpilih adalah arah/)).toContainText('bukan tujuan Sukabumi');
+});
+test('fixed factory overhead enters absorbed HPP but not variable contribution denominator',async({page})=>{
+ await page.goto('/business-roastery-v1/calculator');
+ await page.getByRole('spinbutton',{name:/Berat green yang dibeli/}).fill('40');
+ await page.getByRole('spinbutton',{name:/Green yang benar-benar diterima/}).fill('40');
+ await page.getByRole('spinbutton',{name:/Harga beli green/}).fill('100000');
+ await page.getByRole('spinbutton',{name:/Biaya inbound tambahan/}).fill('0');
+ await page.getByRole('spinbutton',{name:/Green ditolak/}).fill('0');
+ await page.getByRole('spinbutton',{name:/Roast loss/}).fill('20');
+ await page.getByRole('spinbutton',{name:/Kehilangan QC\/packing/}).fill('0');
+ await page.getByRole('spinbutton',{name:/Biaya konversi/}).fill('20000');
+ await page.getByRole('spinbutton',{name:/Kemasan dan packing/}).fill('10000');
+ await page.getByRole('spinbutton',{name:/Harga jual neto/}).fill('250000');
+ await page.getByRole('spinbutton',{name:/Biaya variabel channel/}).fill('5000');
+ await page.getByRole('spinbutton',{name:/Biaya overhead PABRIK tetap/}).fill('2000000');
+ await page.getByRole('spinbutton',{name:/Output roasted saleable RENCANA/}).fill('100');
+ await page.getByRole('spinbutton',{name:/Biaya tetap NONPRODUKSI/}).fill('1000000');
+ await expect(page.getByText('Biaya manufaktur variabel/kg').locator('..')).toContainText('160.469');
+ await expect(page.getByText('HPP manufaktur serapan/kg roasted').locator('..')).toContainText('180.469');
+ await expect(page.getByText('Contribution/kg').locator('..')).toContainText('84.531');
+ await expect(page.getByText('BEP kontribusi (kg/bulan)').locator('..')).toContainText('35,5 kg');
+ await page.getByRole('spinbutton',{name:/Output roasted saleable RENCANA/}).fill('200');
+ await expect(page.getByText('HPP manufaktur serapan/kg roasted').locator('..')).toContainText('170.469');
+ await expect(page.getByText('Contribution/kg').locator('..')).toContainText('84.531');
+});
+test('every module field guide is accessible and decision evidence differs by chapter',async({page})=>{
+ await page.goto('/business-roastery-v1/br-b08-l03');
+ await expect(page.getByRole('heading',{name:'Dua arah kapal tidak berarti dua tarif yang sama'})).toBeVisible();
+ await page.goto('/business-roastery-v1/br-b13-l03');
+ await expect(page.getByRole('heading',{name:'Landed cost, full HPP, dan contribution punya fungsi berbeda'})).toBeVisible();
+ await page.goto('/business-roastery-v1/practice/b13');
+ await expect(page.getByText(/biaya alokasi overhead\/kg menjadi dua kali lipat/)).toBeVisible();
 });

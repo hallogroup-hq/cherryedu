@@ -17,9 +17,10 @@ There are **21 modules × 4 unique topic-centered lessons = 84 lessons**, 21 mul
 2. **Learner-entered quotation:** actual supplier invoice, price list, courier/carrier offer and date. Must capture origin/destination, weight/dimensions, tax inclusions, handling, payment and goods owner.
 3. **Educational assumption:** explicitly labeled and editable, never presented as current market rate. The calculator starts with **empty price inputs**, so learners cannot confuse an arbitrary hard-coded green bean, machine or distribution price with a documented quote.
 
-Rates checked on October 13, 2026:
+Rates checked on October 13, 2026. A supplier's *starting price* is not a guaranteed quotation for green coffee and the final street address must be confirmed.
 | Provider | Direction | Mode | Published starting/indicative rate | Minimum | Exceptions |
 |---|---|---|---:|---:|---|
+| Mandala Cargo | **Makassar → Jakarta/Jabodetabek** | sea cargo | **starting** Rp3,500/kg | 50 kg | Check pickup, destination, exclusions and additional freight to roastery outside Jabodetabek |
 | IndoExpress | Jakarta → Makassar | sea cargo | Rp6,100/kg | 100 kg | Excludes PPN, insurance, packing |
 | IndoExpress | Jakarta → Medan | sea cargo | Rp7,900/kg | 100 kg | Excludes PPN, insurance, packing |
 | IndoExpress | Jakarta → Ende | sea cargo | Rp14,500/kg | 50 kg | Excludes PPN, insurance, packing |
@@ -71,3 +72,13 @@ Supplier URLs are embedded in `lib/data/businessRoasteryReferences.ts`. **NEVER 
 - [ ] Live carrier and supplier RFQs for target city/route; currently only published directional estimates.
 - [ ] Indonesian industry expert review; user academic approval and learner pilot.
 - [ ] Explicit owner-authorized integration/migration and production release.
+
+## Academic QA follow-up 2026-10-13
+
+We identified repeated evidence across all 21 staged exercises and added **21 distinct evolving cases** with industry-specific factual changes. We also authored **21 topic-specific applied field guides** (one in the third lesson of every module). These are supporting worked cases, not a substitute for original lesson depth or external subject-matter validation.
+
+**Accounting correction:** full absorbed manufacturing HPP equals variable manufacturing cost plus allocated fixed factory overhead per unit. Gross margin uses absorbed HPP, whereas contribution/kg for unit BEP uses variable manufacturing cost and variable selling/channel costs. BEP numerator includes fixed factory overhead **once**, plus other fixed operating expenses. This avoids double counting factory fixed cost in both numerator and denominator. A received-quantity field and explicit post-roast QC/packing losses now prevent treating shipped kg as automatically saleable.
+
+**Directional inbound cargo**: Mandala Cargo published Makassar → Jabodetabek from Rp3,500/kg minimum 50kg (indicative carrier listing; https://mandalacargo.id/jasa-pengiriman-cargo-makassar-ke-jabodetabek/). The route is **not** Makassar → Sukabumi and commodity restrictions, all taxes and last-mile must be confirmed by written RFQ. The three pre-existing IndoExpress outbound references remain useful only for their literal direction.
+
+All prices in worked field guides other than explicitly referenced carrier postings are **hypothetical exercises**. Do not present them as supplier/machine market prices.

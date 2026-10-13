@@ -33,12 +33,17 @@ for(const c of cases){if(!modules.find(m=>m.code===c.moduleId)||!c.newEvidence||
 if(new Set(cases.map(x=>x.moduleId)).size!==cases.length)fail('Duplicate case');
 for(const ref of refs){if(!/^https:\/\//.test(ref.url)||!ref.verified||!ref.status||!ref.scope)fail('Undocumented source '+ref.key);}
 for(const f of refs.filter(x=>x.category==='freight')){
- if(!f.value||!f.minimumKg||!f.exclusions||!f.scope.includes('Jakarta ke'))fail('Unreliable freight source '+f.key);
+ if(!f.value||!f.minimumKg||!f.exclusions||!f.scope.includes(' ke '))fail('Unreliable freight source '+f.key);
  if(!f.status.includes('indikatif'))fail('Freight cannot be presented as live quote '+f.key);
 }
-if(refs.filter(x=>x.category==='freight').length!==3)fail('No three directional reference lanes');
+if(refs.filter(x=>x.category==='freight').length!==4)fail('Expected four directional freight references, including real inbound lane');
+const fieldManual=extract('lib/data/businessRoasteryFieldGuides.ts',/BUSINESS_ROASTERY_FIELD_GUIDES:Record<string,BusinessModuleGuide>=(\{[\s\S]*?\});/);
+if(Object.keys(fieldManual).length!==21)fail('Need 21 topic-specific field manuals');
+for(const mod of modules){const field=fieldManual[mod.code];if(!field||field.content.split(/\s+/).length<140||!field.content.includes('Bukti kerja'))fail('Shallow applied study '+mod.code);}
+if(!read('app/business-roastery-v1/[lessonId]/page.tsx').includes('BUSINESS_ROASTERY_FIELD_GUIDES[mod.code]'))fail('Applied cases not mounted');
+if(new Set(cases.map(c=>c.newEvidence)).size!==21)fail('Repeated evidence change across all cases');
 const calc=read('components/business-roastery/BusinessRoasteryCalculator.tsx');
-for(const flag of ['Math.max(quoteKg,volKg??0,minCharge)','greenUsable','roasted','landedTotal','rawPerRoast','cm','bepkg','freightMode','Referensi publik','BEP','source.url'])if(!calc.toLowerCase().includes(flag.toLowerCase()))fail('Cost provenance/math missing '+flag);
+for(const flag of ['Math.max(quoteKg,volKg??0,minCharge)','greenUsable','roasted','landedTotal','rawPerRoast','variableHpp','absorption','factoryFixed','plannedMonthly','totalFixed','cm','bepkg','freightMode','Referensi publik','BEP','source.url'])if(!calc.toLowerCase().includes(flag.toLowerCase()))fail('Cost provenance/math missing '+flag);
 if(!calc.includes('inbound lagi')||!calc.includes('bukan penawaran final')&&!calc.includes('quotation final'))fail('Unsafe quote interpretation');
 for(const path of ['app/business-roastery-v1/page.tsx','app/business-roastery-v1/[lessonId]/page.tsx','app/business-roastery-v1/practice/[moduleId]/page.tsx','app/business-roastery-v1/calculator/page.tsx','app/business-roastery-v1/cashflow/page.tsx','app/business-roastery-v1/plan/page.tsx']){
  const src=read(path);
@@ -49,5 +54,5 @@ const publishedCafe=read('lib/data/paths/coffeeBusinessData.ts');
 if(!publishedCafe.includes('path-coffee-business'))fail('Published cafe path moved');
 const docs=read('docs/curriculum/business-roastery-v1/01-blueprint-evidence-policy.md');
 for(const phrase of ['PP 20/2026','2026','100 kg','minimum','IndoExpress'])if(!docs.includes(phrase))fail('Evidence policy incomplete '+phrase);
-const summary={modules:modules.length,lessons:lessons.length,minWords:Math.min(...lessons.map(l=>l.content.split(/\s+/).length)),cases:cases.length,threeModelComparison:scenarios.map(s=>s.name),freightEvidence:refs.filter(x=>x.category==='freight').map(x=>({lane:x.scope,rate:x.value,minimumKg:x.minimumKg})),issues};
+const summary={modules:modules.length,lessons:lessons.length,minWords:Math.min(...lessons.map(l=>l.content.split(/\s+/).length)),cases:cases.length,threeModelComparison:scenarios.map(s=>s.name),fieldManuals:Object.keys(fieldManual).length,freightEvidence:refs.filter(x=>x.category==='freight').map(x=>({lane:x.scope,rate:x.value,minimumKg:x.minimumKg})),issues};
 console.log(JSON.stringify(summary,null,2));if(issues.length)process.exitCode=1;
