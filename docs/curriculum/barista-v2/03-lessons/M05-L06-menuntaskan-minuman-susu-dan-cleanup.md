@@ -18,7 +18,7 @@ Hal yang tidak boleh dilakukan: menganggap alat tampak bersih sama dengan bebas 
 
 Buat urutan produksi dan bersih-bersih untuk kasus dua tiket yang satu mengandung alergi. Tanda titik kritis dan apa yang perlu diverifikasi. Rancang eksperimen komunikasi: bandingkan handoff tertulis lengkap dengan handoff 'latte oat aja' pada simulasi kertas, lalu hitung informasi yang hilang.
 
-Sebelum melihat pembahasan, urutkan layanan minuman susu sejak verifikasi pesanan, persiapan pitcher, tekstur, penyajian hingga cleaning wand. Identifikasi titik yang menimbulkan risiko alergen atau keterlambatan, serta pemeriksaan yang layak dilakukan sebelum pesanan diserahkan.
+Sebelum melihat pembahasan, urutkan layanan minuman susu sejak verifikasi pesanan, persiapan pitcher, tekstur, penyajian hingga cleaning wand. Buat prediksi dampak jika cleaning diabaikan, identifikasi risiko alergen atau keterlambatan, serta pemeriksaan yang layak dilakukan sebelum pesanan diserahkan.
 
 ## Kualitas minuman bergantung pada titik handoff
 
