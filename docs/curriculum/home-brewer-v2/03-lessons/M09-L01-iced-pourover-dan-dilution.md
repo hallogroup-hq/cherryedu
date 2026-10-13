@@ -31,5 +31,3 @@ Sekarang bandingkan dengan versi kedua: **175 g air panas melalui bed + 50 g es 
 ## Tantangan transfer
 
 Kamu diminta membuat porsi lebih besar tanpa rasa yang terlalu hilang. Apakah memperbesar jumlah es satu-satunya pilihan? Jelaskan efek air-through-bed, bypass, ukuran gelas dan pilihan kopi.
-
-**Penutup pelajaran:** sebutkan satu variabel yang paling ingin kamu pahami, alasan memilihnya, dan kondisi yang akan membuatmu mengubah keputusan. Bila belum memiliki alat, latihan penalaran tetap valid tetapi bukan bukti keahlian praktik fisik.
