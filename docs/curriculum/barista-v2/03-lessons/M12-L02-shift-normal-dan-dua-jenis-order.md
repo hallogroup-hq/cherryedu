@@ -40,4 +40,3 @@ Tiket A: americano hangat tanpa gula dengan rasa kopi yang masih jelas. Tiket B:
 Rekan shift baru salah mendengar ukuran pesanan. Bagaimana mencegah remake berulang tanpa menyalahkan orang?
 
 **Refleksi:** Jelaskan tindakan yang akan kamu lakukan, alasan dan tradeoff-nya, informasi yang belum ada, serta eksperimen atau keputusan berhenti berikutnya. Tujuan proyek bukan hanya minuman unik; hasilnya harus bisa dibuat ulang, aman dan sesuai kebutuhan nyata.
- No newline at end of file

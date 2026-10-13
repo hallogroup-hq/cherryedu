@@ -43,4 +43,3 @@ Kategori ini harus dicocokkan dengan model peralatan nyata. Tidak semua mesin me
 Mesin otomatis menawarkan setting preinfusion baru. Kapan itu eksperimen resep yang diizinkan dan kapan perlu persetujuan headbar?
 
 **Refleksi:** Bila jawabanmu tidak berhasil, jelaskan mengapa bukti yang kamu punya mungkin belum cukup. Seorang barista tidak harus menebak benar setiap kali; ia harus mampu membuat keputusan yang aman, rasional dan bisa diteruskan ke rekan kerja.
- No newline at end of file

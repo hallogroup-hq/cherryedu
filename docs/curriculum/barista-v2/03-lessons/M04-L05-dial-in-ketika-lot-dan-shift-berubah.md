@@ -47,4 +47,3 @@ Buat dua catatan terpisah: **resep yang disetujui** (target saat ini) dan **hasi
 Pada tengah hari suhu ruangan berubah dan hasil shot tampak tidak konsisten. Data tambahan apa yang ingin kamu cek sebelum mengubah grind lagi? Berikan dua hipotesis tanpa menyalahkan rekan shift.
 
 **Refleksi:** Jika hasil tidak sesuai prediksi, tentukan informasi baru yang kamu pelajari dan satu percobaan lanjutan. Bila tidak benar-benar mencicipi minuman atau mengukur alat, tandai interpretasi sebagai hipotesis; jangan menulis data rekaan sebagai pengamatan nyata.
- No newline at end of file

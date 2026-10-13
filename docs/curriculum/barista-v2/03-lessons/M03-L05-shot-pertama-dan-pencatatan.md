@@ -46,4 +46,3 @@ Saat melakukan dial-in, catatan harus memungkinkan barista lain **mereplikasi ko
 Rekan shift hanya meninggalkan pesan 'grinder 8, enak'. Apa yang perlu kamu tanyakan sebelum menggunakan nilai itu? Buat format handoff satu menit yang lebih bisa diaudit.
 
 **Uji pemahaman:** Berikan dua kemungkinan jawaban yang dapat dipertanggungjawabkan, pilih data yang paling membantu membedakannya, dan jelaskan batas kesimpulanmu. Kamu tidak dinilai dari kepatuhan pada satu rasio, melainkan dari alasan, observasi, dan keputusan aman.
- No newline at end of file

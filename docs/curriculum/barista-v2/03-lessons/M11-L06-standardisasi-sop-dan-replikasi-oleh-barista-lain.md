@@ -46,4 +46,3 @@ Untuk tes replikasi, *pembuat minuman pertama tidak boleh membimbing langkah sec
 Pesanan signature datang saat stok garnish habis. Apa yang boleh dihilangkan tanpa mengubah janji menu, apa yang wajib ditahan, dan siapa yang berwenang memutuskan?
 
 **Refleksi:** Jelaskan tindakan yang akan kamu lakukan, alasan dan tradeoff-nya, informasi yang belum ada, serta eksperimen atau keputusan berhenti berikutnya. Tujuan proyek bukan hanya minuman unik; hasilnya harus bisa dibuat ulang, aman dan sesuai kebutuhan nyata.
- No newline at end of file

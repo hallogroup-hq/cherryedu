@@ -43,4 +43,3 @@ Susun jawaban akhir dalam empat bagian: (1) fakta, (2) dua hipotesis yang bersai
 Setelah satu kali uji, pelanggan meminta iced latte lebih kuat tanpa penambahan gula. Apa yang perlu diklarifikasi, pilihan aman apa yang mungkin ditawarkan, dan bagaimana kamu menjaga koordinasi dengan barista lain?
 
 **Refleksi:** Jika hasil tidak sesuai prediksi, tentukan informasi baru yang kamu pelajari dan satu percobaan lanjutan. Bila tidak benar-benar mencicipi minuman atau mengukur alat, tandai interpretasi sebagai hipotesis; jangan menulis data rekaan sebagai pengamatan nyata.
- No newline at end of file

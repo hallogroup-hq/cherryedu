@@ -39,4 +39,3 @@ Jangan menanyakan lima belas hal ketika satu pertanyaan bisa memperjelas tujuan.
 Pelanggan tidak nyaman dengan istilah kopi spesialti dan hanya bilang 'yang biasa aja'. Bagaimana membangun kepercayaan tanpa membuatnya merasa tidak paham?
 
 **Refleksi:** Bila jawabanmu tidak berhasil, jelaskan mengapa bukti yang kamu punya mungkin belum cukup. Seorang barista tidak harus menebak benar setiap kali; ia harus mampu membuat keputusan yang aman, rasional dan bisa diteruskan ke rekan kerja.
- No newline at end of file

@@ -40,4 +40,3 @@ Buat **dua rancangan uji terpisah**. Rancangan 1 mempertahankan dose dan bahan s
 Satu shift kemudian bijinya berganti. Semua angka resep sama tetapi hasil rasa berbeda. Susun daftar faktor yang perlu dicek dan tulis pertanyaan percobaan berikutnya. Jangan langsung menyalahkan orang yang menyiapkan shot.
 
 **Uji pemahaman:** Berikan dua kemungkinan jawaban yang dapat dipertanggungjawabkan, pilih data yang paling membantu membedakannya, dan jelaskan batas kesimpulanmu. Kamu tidak dinilai dari kepatuhan pada satu rasio, melainkan dari alasan, observasi, dan keputusan aman.
- No newline at end of file

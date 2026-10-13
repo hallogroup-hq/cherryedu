@@ -40,4 +40,3 @@ Jangan menulis “9 bar pasti ideal untuk semua espresso”. Di beberapa venue a
 Head bar meminta pindah dari mesin manual ke otomatis saat ramai. Bagaimana kamu memastikan standar minuman tetap dapat diverifikasi? Bedakan pengaturan yang boleh dioperasikan, kalibrasi yang perlu dilakukan dan kondisi wajib eskalasi.
 
 **Uji pemahaman:** Berikan dua kemungkinan jawaban yang dapat dipertanggungjawabkan, pilih data yang paling membantu membedakannya, dan jelaskan batas kesimpulanmu. Kamu tidak dinilai dari kepatuhan pada satu rasio, melainkan dari alasan, observasi, dan keputusan aman.
- No newline at end of file

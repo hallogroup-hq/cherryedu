@@ -42,4 +42,3 @@ Saat pindah mesin, jangan mulai dengan menyalin angka setelan lalu menilai orang
 Kafe mengganti grinder sementara karena servis. Apakah angka lama boleh disalin? Tuliskan kalibrasi awal yang aman, data apa yang menjadi pembanding, dan cara menjelaskan penyesuaian kepada rekan shift.
 
 **Uji pemahaman:** Berikan dua kemungkinan jawaban yang dapat dipertanggungjawabkan, pilih data yang paling membantu membedakannya, dan jelaskan batas kesimpulanmu. Kamu tidak dinilai dari kepatuhan pada satu rasio, melainkan dari alasan, observasi, dan keputusan aman.
- No newline at end of file

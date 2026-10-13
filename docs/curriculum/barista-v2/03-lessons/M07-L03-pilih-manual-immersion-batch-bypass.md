@@ -40,4 +40,3 @@ Ada delapan order filter dalam sepuluh menit, satu barista, satu manual brewer d
 Batch brew dibiarkan terlalu lama tanpa ketentuan holding yang diketahui. Bolehkah ditawarkan demi menghindari waste? Jelaskan keputusan dan verifikasi yang diperlukan.
 
 **Refleksi:** Berikan alasan, tradeoff yang kamu pertimbangkan, dan percobaan berikutnya ketika kondisi berubah. Menghafal angka resep bukan bukti memahami mekanismenya.
- No newline at end of file

@@ -43,4 +43,3 @@ Pelanggan berkata “kopinya kemarin terasa lebih jelas, tetapi aku tidak mau uk
 Customer minta tetap porsi besar tetapi lebih terasa kopi. Apa opsi yang layak dipertimbangkan tanpa otomatis memperkecil rasio?
 
 **Refleksi:** Berikan alasan, tradeoff yang kamu pertimbangkan, dan percobaan berikutnya ketika kondisi berubah. Menghafal angka resep bukan bukti memahami mekanismenya.
- No newline at end of file

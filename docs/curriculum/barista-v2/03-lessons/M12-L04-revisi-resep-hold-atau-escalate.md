@@ -40,4 +40,3 @@ Ketika pelanggan memberi umpan balik, barista tidak wajib selalu punya solusi re
 Jika pemilik ingin meluncurkan menu segera tetapi second-barista reproduction belum dilakukan, apa konsekuensi terhadap standardisasi dan cara menyampaikan keputusan secara profesional?
 
 **Refleksi:** Jelaskan tindakan yang akan kamu lakukan, alasan dan tradeoff-nya, informasi yang belum ada, serta eksperimen atau keputusan berhenti berikutnya. Tujuan proyek bukan hanya minuman unik; hasilnya harus bisa dibuat ulang, aman dan sesuai kebutuhan nyata.
- No newline at end of file

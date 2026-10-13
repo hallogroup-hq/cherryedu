@@ -41,4 +41,3 @@ Nama kreatif boleh digunakan, tetapi sebaiknya dilengkapi penjelasan ringkas ten
 Pelanggan ingin minuman signature tetapi menghindari satu bahan. Bagaimana menjelaskan bahwa versi modifikasi akan punya karakter berbeda atau tidak bisa disajikan?
 
 **Refleksi:** Jelaskan tindakan yang akan kamu lakukan, alasan dan tradeoff-nya, informasi yang belum ada, serta eksperimen atau keputusan berhenti berikutnya. Tujuan proyek bukan hanya minuman unik; hasilnya harus bisa dibuat ulang, aman dan sesuai kebutuhan nyata.
- No newline at end of file

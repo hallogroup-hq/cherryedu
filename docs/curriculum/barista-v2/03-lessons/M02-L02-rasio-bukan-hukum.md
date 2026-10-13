@@ -51,4 +51,3 @@ Pertanyaan berbeda: bagaimana kamu menguji **efek bypass**? Buat rencana baru. J
 Pelanggan meminta filter “sedikit lebih terasa kopinya”, tetapi tidak ingin minuman terlalu kecil. Kamu tidak otomatis harus mengganti 1:15 menjadi 1:14. Mulailah dengan klarifikasi dan kondisi yang terukur. Jelaskan dua opsi eksperimen atau penyajian yang masuk akal, termasuk **konsekuensi pada konsentrasi, ekstraksi, dan waktu layanan yang belum diketahui**.
 
 Lesson ini berhasil jika kamu dapat menjelaskan **rasio apa yang digunakan, apa yang mungkin berubah, dan bukti apa yang diperlukan sebelum memilih resep baru**.
- No newline at end of file

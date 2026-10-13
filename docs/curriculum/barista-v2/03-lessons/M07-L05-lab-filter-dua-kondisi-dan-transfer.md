@@ -35,4 +35,3 @@ Untuk membedakan pengaruh **bypass**, buat percobaan C: seduh seperti A, kemudia
 Pelanggan menyukai kopi kemarin, hari ini lot baru memiliki acidity berbeda. Rancang percakapan dan uji adjustment yang tidak melanggar SOP. Bagaimana menyampaikan bahwa rasa mungkin tidak identik?
 
 **Refleksi:** Berikan alasan, tradeoff yang kamu pertimbangkan, dan percobaan berikutnya ketika kondisi berubah. Menghafal angka resep bukan bukti memahami mekanismenya.
- No newline at end of file

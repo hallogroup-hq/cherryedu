@@ -43,4 +43,3 @@ Dari brief ini, buat **minimal tiga arah konsep yang benar-benar berbeda**: misa
 Kafe keluarga dan kedai specialty minimalist meminta signature 'unik'. Bagaimana perbedaan posisi brand, operasional dan pelanggan mengubah creative brief?
 
 **Refleksi:** Jelaskan tindakan yang akan kamu lakukan, alasan dan tradeoff-nya, informasi yang belum ada, serta eksperimen atau keputusan berhenti berikutnya. Tujuan proyek bukan hanya minuman unik; hasilnya harus bisa dibuat ulang, aman dan sesuai kebutuhan nyata.
- No newline at end of file

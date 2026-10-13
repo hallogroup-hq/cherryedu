@@ -40,4 +40,3 @@ Sebelum uji pelanggan, pastikan bahan layak, alergen terkelola, SOP stabil, pros
 Jika minuman trending di media sosial tetapi pelanggan kedai jarang membelinya, bagaimana menentukan apakah perlu revisi, promosi, atau penghentian menu?
 
 **Refleksi:** Jelaskan tindakan yang akan kamu lakukan, alasan dan tradeoff-nya, informasi yang belum ada, serta eksperimen atau keputusan berhenti berikutnya. Tujuan proyek bukan hanya minuman unik; hasilnya harus bisa dibuat ulang, aman dan sesuai kebutuhan nyata.
- No newline at end of file

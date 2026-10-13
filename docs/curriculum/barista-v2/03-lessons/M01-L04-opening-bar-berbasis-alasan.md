@@ -57,4 +57,3 @@ Susun tindakan berikutnya, jelaskan apa yang harus dihentikan, siapa perlu diber
 Bandingkan dua **rencana urutan opening di atas kertas**. Prediksi mana yang mengurangi perpindahan silang zona kotor-bersih tanpa menunda safety checks. Hitung jumlah perpindahan atau titik silang; catat keterbatasan simulasinya. Bila punya akses ke bar sungguhan, perubahan SOP hanya dilakukan dengan persetujuan penanggung jawab.
 
 Setelah lesson ini, seharusnya kamu bisa membuat alasan di balik setiap checklist, dan tahu kapan harus **menahan layanan**, bukan hanya menyelesaikan pekerjaan secepat mungkin.
- No newline at end of file

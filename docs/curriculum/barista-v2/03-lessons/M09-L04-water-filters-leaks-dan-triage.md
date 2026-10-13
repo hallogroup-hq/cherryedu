@@ -40,4 +40,3 @@ Air membawa mineral dan sifat kimia yang dapat memengaruhi ekstraksi, persepsi r
 Customer mengeluh pahit setelah penggantian cartridge. Bagaimana menjaga SOP pelayanan sambil meminta pengujian relevan, bukan menyalahkan merek air secara otomatis?
 
 **Refleksi:** Bila jawabanmu tidak berhasil, jelaskan mengapa bukti yang kamu punya mungkin belum cukup. Seorang barista tidak harus menebak benar setiap kali; ia harus mampu membuat keputusan yang aman, rasional dan bisa diteruskan ke rekan kerja.
- No newline at end of file

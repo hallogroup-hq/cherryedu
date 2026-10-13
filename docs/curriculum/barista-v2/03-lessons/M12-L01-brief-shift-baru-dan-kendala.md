@@ -41,4 +41,3 @@ Saat ditempatkan di bar yang belum dikenal, barista perlu memetakan risiko, alat
 Jika supervisor mendorong bypass tahap higienis demi antrean, bagaimana kamu menanggapi dan mengeskalasi tanpa konflik yang tidak perlu?
 
 **Refleksi:** Jelaskan tindakan yang akan kamu lakukan, alasan dan tradeoff-nya, informasi yang belum ada, serta eksperimen atau keputusan berhenti berikutnya. Tujuan proyek bukan hanya minuman unik; hasilnya harus bisa dibuat ulang, aman dan sesuai kebutuhan nyata.
- No newline at end of file

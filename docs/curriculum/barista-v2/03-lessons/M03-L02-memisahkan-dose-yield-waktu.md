@@ -41,4 +41,3 @@ Bayangkan headbar meminta espresso lebih padat untuk diminum straight, sementara
 Customer meminta espresso lebih pendek namun volumenya tidak penting. Sebutkan dua opsi yang boleh dipertimbangkan menurut menu, perbedaan dengan sekadar mengurangi cairan sesudah espresso dibuat, dan kebutuhan uji rasa.
 
 **Uji pemahaman:** Berikan dua kemungkinan jawaban yang dapat dipertanggungjawabkan, pilih data yang paling membantu membedakannya, dan jelaskan batas kesimpulanmu. Kamu tidak dinilai dari kepatuhan pada satu rasio, melainkan dari alasan, observasi, dan keputusan aman.
- No newline at end of file

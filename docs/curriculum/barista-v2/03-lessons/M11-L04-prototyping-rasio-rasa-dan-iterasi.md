@@ -40,4 +40,3 @@ Untuk tasting yang diizinkan, catat jenis kopi, lot, bahan, satuan, suhu, urutan
 Taster pertama menyukai V1 sementara kedua memilih V0. Apa yang dapat dipelajari, data apa yang belum cukup, dan bagaimana memilih eksperimen berikutnya tanpa menyebut salah satu tidak mengerti kopi?
 
 **Refleksi:** Jelaskan tindakan yang akan kamu lakukan, alasan dan tradeoff-nya, informasi yang belum ada, serta eksperimen atau keputusan berhenti berikutnya. Tujuan proyek bukan hanya minuman unik; hasilnya harus bisa dibuat ulang, aman dan sesuai kebutuhan nyata.
- No newline at end of file

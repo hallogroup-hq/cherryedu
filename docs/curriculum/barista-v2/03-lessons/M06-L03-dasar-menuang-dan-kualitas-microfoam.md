@@ -42,4 +42,3 @@ Saat susu dituang, sebagian bisa terintegrasi dengan espresso; dalam kondisi lai
 Saat pelanggan terburu-buru dan pola tidak sempurna tetapi minuman sesuai spesifikasi, apakah kamu harus remake? Pertimbangkan mutu, kebijakan kedai dan pelanggan.
 
 **Refleksi:** Berikan alasan, tradeoff yang kamu pertimbangkan, dan percobaan berikutnya ketika kondisi berubah. Menghafal angka resep bukan bukti memahami mekanismenya.
- No newline at end of file

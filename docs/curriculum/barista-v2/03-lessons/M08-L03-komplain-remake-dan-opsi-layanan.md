@@ -40,4 +40,3 @@ Jika tiket keliru, jangan menyembunyikan kesalahan di balik uraian ekstraksi. Ve
 Bagaimana jika pelanggan meminta improvisasi berbahan yang tidak tersedia atau berisiko alergi? Apakah keramahan berarti selalu mengatakan iya?
 
 **Refleksi:** Bila jawabanmu tidak berhasil, jelaskan mengapa bukti yang kamu punya mungkin belum cukup. Seorang barista tidak harus menebak benar setiap kali; ia harus mampu membuat keputusan yang aman, rasional dan bisa diteruskan ke rekan kerja.
- No newline at end of file

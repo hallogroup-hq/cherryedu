@@ -51,4 +51,3 @@ Buat dua versi kalimat rekomendasi: versi pertama menggunakan jargon seperti *ac
 Bila melakukan role-play, minta pasangan **mengulang kembali apa yang mereka pahami**, bukan sekadar menilai mana kalimat yang “terdengar keren”. Catat apakah hipotesismu terbukti atau perlu direvisi. Reaksi lawan bicara hanya bisa disebut data nyata bila benar-benar diamati.
 
 Target akhir lesson: kamu bisa menanggapi permintaan tidak biasa **dengan pertanyaan yang tepat, alasan yang dapat dipahami, dan keputusan aman**, bukan sekadar mencari tombol preset.
- No newline at end of file

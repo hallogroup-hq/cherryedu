@@ -42,4 +42,3 @@ Jika dijual Rp32.000, selisih Rp21.700 adalah **harga dikurangi komponen yang di
 Supplier buah berhenti beroperasi saat signature menu ramai. Kapan strategi seasonal lebih masuk akal daripada penggantian bahan yang belum diuji?
 
 **Refleksi:** Jelaskan tindakan yang akan kamu lakukan, alasan dan tradeoff-nya, informasi yang belum ada, serta eksperimen atau keputusan berhenti berikutnya. Tujuan proyek bukan hanya minuman unik; hasilnya harus bisa dibuat ulang, aman dan sesuai kebutuhan nyata.
- No newline at end of file

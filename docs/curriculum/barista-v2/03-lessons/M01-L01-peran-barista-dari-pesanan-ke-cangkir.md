@@ -51,4 +51,3 @@ Jangan mencari satu “jawaban resep” saja. Catat tujuan, asumsi, risiko, dan 
 Tanpa perlu mesin, tulis dua versi respons untuk permintaan “nggak terlalu asam”. Versi pertama langsung menawarkan minuman; versi kedua mulai dengan satu pertanyaan klarifikasi. Prediksikan bagaimana perbedaan respons itu mengubah informasi yang barista dapat. Uji dalam **role-play yang disetujui**, bukan dengan mengarang reaksi pelanggan.
 
 Setelah lesson ini, kamu seharusnya bisa menjelaskan: **resep yang konsisten penting, tetapi keputusan barista dimulai dari memahami kebutuhan manusia dan batas operasionalnya.**
- No newline at end of file

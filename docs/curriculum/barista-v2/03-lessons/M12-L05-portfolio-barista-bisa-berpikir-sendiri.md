@@ -44,4 +44,3 @@ Jika siswa hanya mengikuti simulasi daring, setiap tabel wajib diberi label *lat
 Jika kamu ditempatkan pada mesin dan menu asing minggu depan, bagaimana kamu memulai pembelajaran dengan aman tanpa menunggu setiap instruksi headbar?
 
 **Refleksi:** Jelaskan tindakan yang akan kamu lakukan, alasan dan tradeoff-nya, informasi yang belum ada, serta eksperimen atau keputusan berhenti berikutnya. Tujuan proyek bukan hanya minuman unik; hasilnya harus bisa dibuat ulang, aman dan sesuai kebutuhan nyata.
- No newline at end of file

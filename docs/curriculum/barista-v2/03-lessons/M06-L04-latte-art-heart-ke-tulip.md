@@ -41,4 +41,3 @@ Jangan memakai hasil C untuk membuktikan satu variabel pada A karena target pola
 Coffee shop lebih menekankan kualitas rasa dan cepat saji. Bagaimana mengatur target belajar latte art tanpa mengorbankan keselamatan atau pelayanan?
 
 **Refleksi:** Berikan alasan, tradeoff yang kamu pertimbangkan, dan percobaan berikutnya ketika kondisi berubah. Menghafal angka resep bukan bukti memahami mekanismenya.
- No newline at end of file

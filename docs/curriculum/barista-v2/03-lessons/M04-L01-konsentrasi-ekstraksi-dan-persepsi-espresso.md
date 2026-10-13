@@ -40,4 +40,3 @@ Ketika seseorang mengatakan espresso “tipis”, pisahkan tiga pertanyaan: apak
 Seorang pelanggan berkata espresso 'terlalu asam' tetapi alat baca TDS menunjukkan angka lazim. Apa dua alasan berbeda yang masih mungkin, dan langkah aman untuk membedakan keduanya?
 
 **Refleksi:** Jika hasil tidak sesuai prediksi, tentukan informasi baru yang kamu pelajari dan satu percobaan lanjutan. Bila tidak benar-benar mencicipi minuman atau mengukur alat, tandai interpretasi sebagai hipotesis; jangan menulis data rekaan sebagai pengamatan nyata.
- No newline at end of file

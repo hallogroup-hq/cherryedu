@@ -40,4 +40,3 @@ Simulasikan tiga tiket: iced latte, americano dan minuman dengan alergen yang be
 Rekan kerja pergi saat setengah pesanan selesai. Informasi apa yang wajib dipindahkan agar minuman tidak dibuat ulang atau salah bahan?
 
 **Refleksi:** Bila jawabanmu tidak berhasil, jelaskan mengapa bukti yang kamu punya mungkin belum cukup. Seorang barista tidak harus menebak benar setiap kali; ia harus mampu membuat keputusan yang aman, rasional dan bisa diteruskan ke rekan kerja.
- No newline at end of file

@@ -44,4 +44,3 @@ Buat eksperimen komunikasi di atas kertas dengan dua versi handoff: “oat latte
 Pesanan kedua memiliki bahan yang sama tetapi suhu berbeda. Apa yang dapat kamu sesuaikan dengan aman sesuai SOP, bagaimana mencatatnya dan apa yang perlu dijelaskan kepada pelanggan?
 
 Gunakan beberapa pilihan yang defensibel dan sebutkan informasi yang belum ada. Jangan menganggap data fiktif sebagai hasil sensorik nyata atau kesiapan praktik yang terverifikasi.
- No newline at end of file

@@ -40,4 +40,3 @@ Tidak ada kewajiban menebak kandungan kafein dari tingkat pahit. Jika bar memint
 Bagaimana jika pelanggan berubah pikiran setelah minuman dibuat dan menyebut alergi? Apa yang tidak boleh diatasi dengan sekadar memindahkan minuman ke gelas baru?
 
 **Refleksi:** Bila jawabanmu tidak berhasil, jelaskan mengapa bukti yang kamu punya mungkin belum cukup. Seorang barista tidak harus menebak benar setiap kali; ia harus mampu membuat keputusan yang aman, rasional dan bisa diteruskan ke rekan kerja.
- No newline at end of file

@@ -40,4 +40,3 @@ Bahan susu, puree buah dan minuman siap saji dapat mempunyai aturan simpan berbe
 Kalau pelanggan meminta bahan segar yang hari itu habis, bagaimana menawarkan alternatif tanpa menggunakan batch yang tidak terverifikasi?
 
 **Refleksi:** Bila jawabanmu tidak berhasil, jelaskan mengapa bukti yang kamu punya mungkin belum cukup. Seorang barista tidak harus menebak benar setiap kali; ia harus mampu membuat keputusan yang aman, rasional dan bisa diteruskan ke rekan kerja.
- No newline at end of file

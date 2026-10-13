@@ -61,4 +61,3 @@ Buat dua rencana urutan kerja untuk kasus di atas, masing-masing dengan catatan 
 Kamu siap melanjutkan ke fundamental ekstraksi bila bisa menjelaskan **mengapa resep perlu tujuan, data dan observasi**. Di modul berikutnya kita akan mulai membongkar cara kerja seduhan: rasio, gilingan, waktu, air dan bagaimana bereksperimen dengan satu perubahan yang bermakna.
 
 Pahami prosesnya, bukan hafal nomor langkahnya.
- No newline at end of file

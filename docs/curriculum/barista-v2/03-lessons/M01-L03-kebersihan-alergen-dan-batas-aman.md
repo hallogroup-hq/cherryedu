@@ -50,4 +50,3 @@ Untuk masing-masing, tentukan satu dari: **lanjut sesuai SOP yang terverifikasi 
 Gambarkan jalur satu minuman dari penyimpanan hingga gelas. Tandai semua titik sentuh alat dan bahan. Prediksikan satu titik di mana bahan bisa tertukar atau bersentuhan silang. Bandingkan dua desain alur **di atas kertas**, bukan dengan mencoba kontaminasi sungguhan.
 
 Kemampuan barista tidak hanya terlihat dari apa yang bisa dibuat, tetapi juga dari **apa yang diputuskan untuk tidak disajikan ketika bukti keselamatan belum cukup**.
- No newline at end of file

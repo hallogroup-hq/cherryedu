@@ -51,4 +51,3 @@ A lebih terkonsentrasi daripada B berdasarkan TDS, tetapi estimasi zat terlarutn
 Ambil satu data fiktif baru: dose 18 g, massa minuman 45 g, TDS 8%. Hitung estimasi EY dan tulis setiap langkah beserta satuan. Setelah itu, **ubah hanya TDS dalam perhitungan**, lalu amati perubahan EY pada model matematis. Jelaskan mengapa mengubah angka di tabel **bukan bukti bahwa kamu sudah mencicipi rasa berbeda**.
 
 Setelah mempelajari ini, kamu bisa membedakan **ekstraksi, konsentrasi, dan persepsi rasa** sebelum mencoba memilih penyesuaian resep.
- No newline at end of file

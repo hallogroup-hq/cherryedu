@@ -39,4 +39,3 @@ Jangan menebak kadar kafein hanya dari ukuran gelas; konsentrasi minuman dan jum
 Pelanggan meminta versi tanpa dairy karena alergi. Bagaimana memastikan bahan dan alat, bukannya sekadar mengganti nama susu?
 
 **Refleksi:** Berikan alasan, tradeoff yang kamu pertimbangkan, dan percobaan berikutnya ketika kondisi berubah. Menghafal angka resep bukan bukti memahami mekanismenya.
- No newline at end of file

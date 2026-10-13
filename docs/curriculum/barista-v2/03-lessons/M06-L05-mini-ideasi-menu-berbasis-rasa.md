@@ -41,4 +41,3 @@ Tidak ada versi yang otomatis paling lezat. Perbedaan extraction, dilution, baha
 Jika bahan utama habis saat servis, bolehkah improvisasi satu-to-one? Apa yang perlu dicek dan kapan mengatakan menu sementara tidak tersedia?
 
 **Refleksi:** Berikan alasan, tradeoff yang kamu pertimbangkan, dan percobaan berikutnya ketika kondisi berubah. Menghafal angka resep bukan bukti memahami mekanismenya.
- No newline at end of file

@@ -43,4 +43,3 @@ Bahkan plant-based milk punya variasi formula, bahan tambahan, dan kemungkinan a
 Bagaimana merespons permintaan 'tanpa laktosa' yang lalu diketahui sebenarnya alergi protein susu? Jelaskan apa yang harus ditanyakan, diverifikasi, dan kapan memilih tidak melayani.
 
 Gunakan beberapa pilihan yang defensibel dan sebutkan informasi yang belum ada. Jangan menganggap data fiktif sebagai hasil sensorik nyata atau kesiapan praktik yang terverifikasi.
- No newline at end of file

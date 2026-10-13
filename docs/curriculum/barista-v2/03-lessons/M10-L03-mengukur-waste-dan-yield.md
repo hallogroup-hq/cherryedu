@@ -40,4 +40,3 @@ Tidak semua bahan untuk calibration adalah “mubazir”. Dial-in terencana bisa
 Coffee shop ingin memangkas 100% waste, termasuk calibration shots. Apa risiko pada kualitas dan bagaimana kamu menjelaskan tradeoff?
 
 **Refleksi:** Bila jawabanmu tidak berhasil, jelaskan mengapa bukti yang kamu punya mungkin belum cukup. Seorang barista tidak harus menebak benar setiap kali; ia harus mampu membuat keputusan yang aman, rasional dan bisa diteruskan ke rekan kerja.
- No newline at end of file

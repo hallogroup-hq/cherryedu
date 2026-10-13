@@ -41,4 +41,3 @@ A tidak selalu lebih “autentik” daripada C, dan B tidak pasti lebih asam han
 Pelanggan ingin 'fruity tapi tidak asam'. Bagaimana kamu membedakan aroma buah dari persepsi acidity dan merancang uji tanpa menjanjikan hasil tertentu?
 
 **Refleksi:** Jelaskan tindakan yang akan kamu lakukan, alasan dan tradeoff-nya, informasi yang belum ada, serta eksperimen atau keputusan berhenti berikutnya. Tujuan proyek bukan hanya minuman unik; hasilnya harus bisa dibuat ulang, aman dan sesuai kebutuhan nyata.
- No newline at end of file

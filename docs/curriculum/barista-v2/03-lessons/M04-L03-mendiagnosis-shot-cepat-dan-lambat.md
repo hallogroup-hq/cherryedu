@@ -43,4 +43,3 @@ Jika kamu bisa melakukan satu percobaan aman, pertimbangkan mereplikasi prosedur
 Pada mesin lain shot tetap 22 detik tetapi rasanya dinilai sesuai standar kedai setelah tasting. Apakah waktu saja cukup untuk memaksa perubahan? Jelaskan posisi sensorik dan SOP.
 
 **Refleksi:** Jika hasil tidak sesuai prediksi, tentukan informasi baru yang kamu pelajari dan satu percobaan lanjutan. Bila tidak benar-benar mencicipi minuman atau mengukur alat, tandai interpretasi sebagai hipotesis; jangan menulis data rekaan sebagai pengamatan nyata.
- No newline at end of file

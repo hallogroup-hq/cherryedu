@@ -41,4 +41,3 @@ C **tidak boleh dipilih hanya karena tanggal masih panjang** jika aturan setelah
 Saat opening ditemukan susu baru dekat batas penggunaan tetapi suhunya tidak tercatat. Apakah stok itu otomatis boleh dipakai?
 
 **Refleksi:** Bila jawabanmu tidak berhasil, jelaskan mengapa bukti yang kamu punya mungkin belum cukup. Seorang barista tidak harus menebak benar setiap kali; ia harus mampu membuat keputusan yang aman, rasional dan bisa diteruskan ke rekan kerja.
- No newline at end of file

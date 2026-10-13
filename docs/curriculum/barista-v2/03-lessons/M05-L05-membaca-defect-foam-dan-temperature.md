@@ -42,4 +42,3 @@ Dari tabel itu, kamu tidak boleh langsung menentukan jumlah detik steam yang “
 Mesin menghasilkan foam bagus pada susu sapi tetapi buruk pada formula nabati baru. Apa yang mungkin berasal dari bahan dan apa dari teknik? Bagaimana kamu menyusun eksperimen yang layak?
 
 Gunakan beberapa pilihan yang defensibel dan sebutkan informasi yang belum ada. Jangan menganggap data fiktif sebagai hasil sensorik nyata atau kesiapan praktik yang terverifikasi.
- No newline at end of file

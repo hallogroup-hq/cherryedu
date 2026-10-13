@@ -64,4 +64,3 @@ Langkah kedua sangat penting. Jika tidak ada hasil apa pun yang dapat membuatmu 
 Di modul berikutnya kamu akan bertemu grinder, basket, dose, yield, dan shot time. Jangan memulai dengan menghafal “18 gram masuk, 36 gram keluar, 30 detik” sebagai hukum. Anggap angka sebagai **resep referensi**, kemudian cari tahu bagaimana variabel, hasil ukur, karakter kopi dan tujuan rasa saling berhubungan.
 
 Setelah lesson ini, kamu siap bertanya secara lebih matang: *apa yang saya tahu, apa yang belum saya tahu, dan percobaan aman apa yang paling masuk akal berikutnya?*
- No newline at end of file

@@ -35,4 +35,3 @@ Sekarang muncul informasi baru: grinder baru dibersihkan kemarin dan operator me
 Customer tidak mau menunggu penyesuaian kopi dan meminta 'pokoknya yang aman'. Bagaimana menjelaskan pilihan tanpa menyamakan preferensi rasa dengan keamanan bahan?
 
 **Refleksi:** Jelaskan tindakan yang akan kamu lakukan, alasan dan tradeoff-nya, informasi yang belum ada, serta eksperimen atau keputusan berhenti berikutnya. Tujuan proyek bukan hanya minuman unik; hasilnya harus bisa dibuat ulang, aman dan sesuai kebutuhan nyata.
- No newline at end of file

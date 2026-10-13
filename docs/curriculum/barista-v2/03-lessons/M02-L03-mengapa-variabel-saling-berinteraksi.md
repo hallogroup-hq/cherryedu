@@ -57,4 +57,3 @@ Buat perbandingan A/B dengan satu perubahan yang jelas, misalnya jenis filter be
 Jika tanpa alat, gunakan tabel di atas dan **rancang uji berikutnya saja**. Jangan mengarang hasil cicip.
 
 Pelajaran ini menyiapkan kebiasaan penting: **setiap perubahan resep adalah hipotesis tentang mekanisme, bukan tombol ajaib untuk memperbaiki semua rasa**.
- No newline at end of file

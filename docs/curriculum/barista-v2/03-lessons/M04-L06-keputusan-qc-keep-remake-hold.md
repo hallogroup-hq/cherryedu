@@ -44,4 +44,3 @@ Buat alasan keputusan dengan pola sederhana: **fakta → risiko → opsi yang di
 Seorang supervisor meminta tetap menyajikan minuman dari bahan yang tanggal atau labelnya tidak jelas. Bagaimana kamu merespons secara profesional, terdokumentasi, dan selamat?
 
 **Refleksi:** Jika hasil tidak sesuai prediksi, tentukan informasi baru yang kamu pelajari dan satu percobaan lanjutan. Bila tidak benar-benar mencicipi minuman atau mengukur alat, tandai interpretasi sebagai hipotesis; jangan menulis data rekaan sebagai pengamatan nyata.
- No newline at end of file

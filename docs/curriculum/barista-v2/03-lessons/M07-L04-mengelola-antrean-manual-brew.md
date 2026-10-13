@@ -40,4 +40,3 @@ Kecepatan pelayanan bukan satu angka; salah serah atau minuman yang harus dibuat
 Customer A mengubah ukuran setelah brewing dimulai. Bagaimana kamu berkomunikasi, memutuskan remake atau alternatif, dan mengelola antrean?
 
 **Refleksi:** Berikan alasan, tradeoff yang kamu pertimbangkan, dan percobaan berikutnya ketika kondisi berubah. Menghafal angka resep bukan bukti memahami mekanismenya.
- No newline at end of file

@@ -41,4 +41,3 @@ Dalam eksperimen pelatihan, seorang barista dapat menyiapkan tiga puck dengan pr
 Pada shift lain, basket diganti dengan ukuran berbeda. Apa yang perlu dicek sebelum menyalin dose 18 g? Jelaskan hubungan antara kapasitas basket, headspace, risiko mesin dan konsistensi prosedur.
 
 **Uji pemahaman:** Berikan dua kemungkinan jawaban yang dapat dipertanggungjawabkan, pilih data yang paling membantu membedakannya, dan jelaskan batas kesimpulanmu. Kamu tidak dinilai dari kepatuhan pada satu rasio, melainkan dari alasan, observasi, dan keputusan aman.
- No newline at end of file

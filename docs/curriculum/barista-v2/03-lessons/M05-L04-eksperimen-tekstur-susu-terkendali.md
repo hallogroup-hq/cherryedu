@@ -43,4 +43,3 @@ Untuk data sensorik, cicipi hanya bahan yang disiapkan secara aman dan memang di
 Jika pelanggan ingin susu alternatif tertentu sementara mesin bersama belum memiliki SOP alergen, apakah pelajaran eksperimen membenarkan untuk langsung mencoba? Jelaskan batasnya.
 
 Gunakan beberapa pilihan yang defensibel dan sebutkan informasi yang belum ada. Jangan menganggap data fiktif sebagai hasil sensorik nyata atau kesiapan praktik yang terverifikasi.
- No newline at end of file

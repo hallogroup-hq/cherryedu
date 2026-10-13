@@ -44,4 +44,3 @@ Dalam observasi video yang telah diverifikasi, arahkan perhatian pada *apa yang 
 Mesin berbeda memiliki tombol otomatis dan steam wand lain. Apa yang perlu diperiksa pada manual sebelum mengadopsi teknik senior? Bagaimana jika ada suara atau panas yang tidak biasa?
 
 Gunakan beberapa pilihan yang defensibel dan sebutkan informasi yang belum ada. Jangan menganggap data fiktif sebagai hasil sensorik nyata atau kesiapan praktik yang terverifikasi.
- No newline at end of file

@@ -37,4 +37,3 @@ Minuman A memakai 36 g espresso, 140 g susu dan 80 g es. Minuman B memakai 36 g 
 Customer ingin rasa kopi lebih dominan tetapi mempertahankan ukuran. Jelaskan opsi yang diizinkan venue dan konsekuensinya, tanpa menjanjikan jumlah kafein.
 
 **Refleksi:** Berikan alasan, tradeoff yang kamu pertimbangkan, dan percobaan berikutnya ketika kondisi berubah. Menghafal angka resep bukan bukti memahami mekanismenya.
- No newline at end of file

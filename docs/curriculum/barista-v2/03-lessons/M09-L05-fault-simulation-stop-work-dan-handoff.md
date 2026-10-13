@@ -41,4 +41,3 @@ Kamu sedang melayani lima tiket saat mesin mengeluarkan bau listrik panas dan pe
 Rekan meminta memindahkan minuman yang sudah dibuat saat mesin rusak. Informasi apa tentang kontaminasi, suhu, identitas dan kualitas yang harus diketahui sebelum disajikan?
 
 **Refleksi:** Bila jawabanmu tidak berhasil, jelaskan mengapa bukti yang kamu punya mungkin belum cukup. Seorang barista tidak harus menebak benar setiap kali; ia harus mampu membuat keputusan yang aman, rasional dan bisa diteruskan ke rekan kerja.
- No newline at end of file

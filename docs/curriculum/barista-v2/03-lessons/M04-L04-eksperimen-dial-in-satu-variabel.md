@@ -42,4 +42,3 @@ Ketika biaya kopi terbatas, eksperimen yang dirancang baik sering **lebih hemat*
 Catatan eksperimen menunjukkan shot B lebih disukai dua penguji tetapi variabel suhu juga berubah. Klaim apa yang boleh dibuat, klaim apa yang harus ditunda, dan uji berikutnya apa?
 
 **Refleksi:** Jika hasil tidak sesuai prediksi, tentukan informasi baru yang kamu pelajari dan satu percobaan lanjutan. Bila tidak benar-benar mencicipi minuman atau mengukur alat, tandai interpretasi sebagai hipotesis; jangan menulis data rekaan sebagai pengamatan nyata.
- No newline at end of file

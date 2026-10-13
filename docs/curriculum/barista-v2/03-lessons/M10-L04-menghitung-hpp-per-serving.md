@@ -41,4 +41,3 @@ Jika harga jual Rp32.000, selisihnya Rp21.380 **sebelum** biaya lain: waste, ten
 Ketika pelanggan meminta extra espresso, bagaimana mengomunikasikan opsi menu dan implikasi biaya tanpa menjanjikan caffeination atau perubahan rasa tertentu?
 
 **Refleksi:** Bila jawabanmu tidak berhasil, jelaskan mengapa bukti yang kamu punya mungkin belum cukup. Seorang barista tidak harus menebak benar setiap kali; ia harus mampu membuat keputusan yang aman, rasional dan bisa diteruskan ke rekan kerja.
- No newline at end of file

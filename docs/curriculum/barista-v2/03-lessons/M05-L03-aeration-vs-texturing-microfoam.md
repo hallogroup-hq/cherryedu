@@ -41,4 +41,3 @@ Ketika memiliki kesempatan mencoba di bar, ikuti instruksi supervisor, manual me
 Seorang pelanggan memesan cappuccino dengan tekstur lebih airy daripada latte. Bagaimana kamu menjelaskan perbedaan target tanpa memaksakan satu durasi steam untuk semua pitcher?
 
 Gunakan beberapa pilihan yang defensibel dan sebutkan informasi yang belum ada. Jangan menganggap data fiktif sebagai hasil sensorik nyata atau kesiapan praktik yang terverifikasi.
- No newline at end of file

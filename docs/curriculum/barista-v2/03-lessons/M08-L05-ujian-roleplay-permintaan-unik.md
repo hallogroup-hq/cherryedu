@@ -39,4 +39,3 @@ Kasus baru: pelanggan meminta kopi dingin dengan aroma buah tetapi tidak suka sw
 Pelanggan kemudian menyebut alergi protein susu yang tidak tercatat pada tiket. Bagaimana seluruh rekomendasimu harus dievaluasi ulang?
 
 **Refleksi:** Bila jawabanmu tidak berhasil, jelaskan mengapa bukti yang kamu punya mungkin belum cukup. Seorang barista tidak harus menebak benar setiap kali; ia harus mampu membuat keputusan yang aman, rasional dan bisa diteruskan ke rekan kerja.
- No newline at end of file

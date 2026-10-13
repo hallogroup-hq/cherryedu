@@ -61,4 +61,3 @@ Kamu boleh memilih pertanyaan lain: grind, bypass, suhu air, lama kontak, jenis 
 **Jika tanpa alat:** gunakan rancangan di atas untuk memilih kondisi, memprediksi serta menilai contoh data fiktif yang diberi label. Kamu tetap belajar desain eksperimen, tetapi **belum membuktikan kemampuan membuat seduhan secara fisik**.
 
 Yang membuatmu berkembang bukan sering mengganti resep, melainkan bisa menjawab **apa yang ingin diuji, apa yang dipelajari, dan apa yang akan dicoba secara lebih baik berikutnya**.
- No newline at end of file

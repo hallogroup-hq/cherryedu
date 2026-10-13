@@ -39,4 +39,3 @@ Semuanya melakukan ekstraksi tetapi distribusi waktu kontak, hambatan dan cara p
 Pelangan biasa minum espresso lalu meminta filter lebih ringan. Apa yang perlu ditanyakan dan mengapa tidak cukup memakai angka espresso?
 
 **Refleksi:** Berikan alasan, tradeoff yang kamu pertimbangkan, dan percobaan berikutnya ketika kondisi berubah. Menghafal angka resep bukan bukti memahami mekanismenya.
- No newline at end of file

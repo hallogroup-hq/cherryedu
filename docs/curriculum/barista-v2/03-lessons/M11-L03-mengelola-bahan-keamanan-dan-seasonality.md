@@ -43,4 +43,3 @@ Bayangkan mangga musiman tidak tersedia dan pemasok menawarkan puree baru. Pilih
 Sebuah bahan signature habis dan alternatif berlabel berbeda tersedia. Bagaimana kamu menentukan apakah substitusi boleh dicoba di sesi R&D dan apakah boleh langsung disajikan?
 
 **Refleksi:** Jelaskan tindakan yang akan kamu lakukan, alasan dan tradeoff-nya, informasi yang belum ada, serta eksperimen atau keputusan berhenti berikutnya. Tujuan proyek bukan hanya minuman unik; hasilnya harus bisa dibuat ulang, aman dan sesuai kebutuhan nyata.
- No newline at end of file

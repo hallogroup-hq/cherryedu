@@ -54,4 +54,3 @@ Di atas kertas, gambar empat zona. Tempatkan grinder, timbangan, mesin, knock bo
 **Kasus transfer:** Kedai lain hanya punya satu meja panjang; dua barista bekerja bersamaan. Apa yang berubah pada rancangannya? Jangan terpaku pada sketsa pertamamu.
 
 Pada akhir lesson, kamu bisa mengenali stasiun baru berdasarkan fungsinya dan mengusulkan perbaikan kerja **tanpa mengorbankan kebersihan atau keselamatan**.
- No newline at end of file
