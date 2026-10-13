@@ -30,7 +30,7 @@ function editorialLearningGuard(markdown:string):string {
    .replace(/\*\*P-17, lot fiktif untuk latihan\*\*/gi,'P-17 (kode satu lot kopi contoh)');
   // Model responses are not instructional text to be visible before students try the prompt.
   const heading=/^#{2,5}\s+(?:Contoh (?:respons|respon|jawaban|pembahasan)|Jawaban|Pembahasan)[^\n]*$/i.test(line);
-  const label=/^\s*(?:\*\*)?(?:Contoh (?:respons|respon|jawaban|lulus)(?:[^:\n]{0,75})?|Jawaban|Kunci|Pembahasan|Contoh perbaikan)(?:\*\*)?\s*:\s*/i;
+  const label=/^\s*(?:\*\*)?(?:Contoh (?:respons|respon|jawaban|lulus)(?:[^:\n]{0,75})?|Jawaban|Kunci|Pembahasan|Contoh perbaikan)(?::\*\*|\*\*:|:)\s*/i;
   const answer=line.match(label);
   if(heading){
     const block:string[]=[line.replace(/^#{2,5}\s+/,''),];

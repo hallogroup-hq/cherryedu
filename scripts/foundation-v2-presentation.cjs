@@ -56,7 +56,7 @@ const APPENDIX_HEADINGS = Object.freeze({
  */
 function hideImmediateAnswers(markdown) {
   const lines=markdown.split('\n'),output=[];
-  const answerLabel=/^\s*(?:\*\*)?(?:Contoh (?:respons|respon|jawaban|lulus|lengkap)(?:[^:\n]{0,70})?|Jawaban|Kunci|Pembahasan|Pilihan terbaik|Respons terbaik|Versi lebih baik)(?:\*\*)?\s*:\s*(?:\*\*)?/i;
+  const answerLabel=/^\s*(?:\*\*)?(?:Contoh (?:respons|respon|jawaban|lulus|lengkap)(?:[^:\n]{0,70})?|Jawaban|Kunci|Pembahasan|Pilihan terbaik|Respons terbaik|Versi lebih baik)(?::\*\*|\*\*:|:)\s*(?:\*\*)?/i;
   const exampleLabel=/^\s*(?:\*\*)?Contoh (?:respons|respon|jawaban|lulus|lengkap)/i;
   const genericLabel=/\*\*(?:Jawab(?:an)?|Kunci|Pembahasan)[^*:\n]{0,55}:\*\*/i;
   let code=false;
