@@ -81,6 +81,7 @@ Severity: **P0** blocks candidate selection/production; **P1** blocks academic s
 | HBV2-021 | P1 | platform / credential claims | `lib/emailService.ts` contains claims of an official signed certification and access rights; this audit cannot verify external accreditation or that the claims match product entitlements | Owner must verify credential claims and actual offers; remove unsupported marketing/credential assertions before release and add copy regression | OPEN |
 | HBV2-022 | P1 | global WhatsNewModal / editorial preview | At head `4ac04a0` a second run of 46 Home Brewer tests failed 1/46 because the global v1.2 announcement modal appeared after 700ms and intercepted interaction with the M02 label lab; the first run passed, exposing a race | Suppress the unrelated marketing modal on `/home-brewer-v2` and `/barista-v2` review routes; add real interaction regression after its prior delay. Commits `7448a56`, `38e90c4`; await final same-SHA CI | FIXED-PENDING-QA |
 | HBV2-023 | P1 | #6 lesson depth audit | 21 remaining manuscripts were flagged below editorial 370-word review threshold and contained duplicated generic experiment paragraphs | Individual topic-specific rewrites for all 21; recorded in ledger below. Validate 40/40 lessons, maintain concept→evidence→test→transfer, rerun browser tests. Word count alone is not approval | FIXED-PENDING-QA |
+| HBV2-024 | P1 | #6 rendered learner language | Forty lesson manuscripts had no draft/review/beta markers, but global practice footer and M10 lab revealed `Validasi materi dilakukan oleh pengelola CherryEdu` and `review oleh pemilik materi` in actual student-facing UI | Removed editorial approval language from `HomeBrewerPractice.tsx` and `HomeBrewerLab.tsx`; preserved truthful notice that responses are not account progress; added 40-lesson/10-practice browser copy assertions, M10 completion feedback test, and a full student-surface source guard. Commits `81c0b94`, `5c66f1d`, `4580a95`, `e998612`; final matching SHA CI required | FIXED-PENDING-QA |
 
 **Important:** `FIXED-PENDING-OWNER` means the source changed, **not** that the final academic content passed. `VERIFIED-ENGINEERING` means automated behavior was observed on a specific commit, **not** universal absence of bugs.
 
@@ -257,3 +258,16 @@ A read-only recheck of the exact candidate `d0272e9` found an important failure 
 
 No V1 IDs, enrollment records, certificates, progress or deployed production assets were modified. No new video gate was added.
 
+
+
+## 15. Learner-visible editorial-marker cleanup
+
+Audited `docs/curriculum/home-brewer-v2/03-lessons` (all 40 source Markdown manuscripts), actual overview, lesson and module-practice route components, four Home Brewer learner components including both visuals, and the case/diagnostic datasets. No forbidden `Draft`, `Preview`, `Beta`, `Coming Soon`, `Review Build` or unfinished-editorial placeholder markers were found in the 40 manuscripts.
+
+**Two user-facing editorial approval phrases were discovered outside lesson Markdown**, in the interactive practice footer and the M10 recipe-lab reveal. Both were removed. Disclosure of ephemeral form answers remains appropriate because the V2 isolated draft intentionally does not write learner progress or account grades.
+
+Prevent regression through:
+1. `scripts/validate-home-brewer-v2.cjs` checking all source manuscripts and learner UI/data files for internal-release wording.
+2. `tests/home-brewer/home-brewer-v2.spec.ts` checking rendered overview, all 40 lesson bodies, all ten practice bodies, and M10 feedback after a completed lab.
+
+**Separation:** Internal release tracking documents, Git branch names, code comments and GitHub's draft PR status are *not* automatically shown inside lesson material. This scan applies to the isolated PR #6 candidate, **not** a claim that V2 has been merged or is currently displayed in production. Final browser/content QA and owner academic signoff are separate gates.
