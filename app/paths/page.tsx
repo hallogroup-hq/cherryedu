@@ -134,11 +134,15 @@ export default function PathsPage() {
                 <div className="p-6 space-y-3">
                   <div className="flex items-center gap-2">
                     <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold block">
-                      {path.target_role === 'all'
-                        ? 'Fondasi Hulu ke Hilir'
-                        : path.target_role === 'barista'
-                        ? 'Spesialisasi Barista'
-                        : 'Spesialisasi Home Brewer'}
+                      {path.target_role === 'all' ? 'Fondasi Hulu ke Hilir' : ({
+                        barista: 'Spesialisasi Barista',
+                        home_brewer: 'Spesialisasi Home Brewer',
+                        roaster: 'Spesialisasi Roaster',
+                        q_grader: 'Spesialisasi Q Grader & Sensori',
+                        q_processor: 'Spesialisasi Q Processor',
+                        farmer: 'Spesialisasi Pascapanen & Petani',
+                        business: 'Spesialisasi Bisnis Kopi',
+                      } as Record<string, string>)[path.target_role] ?? 'Spesialisasi Kopi'}
                     </span>
                   </div>
 
