@@ -9,7 +9,7 @@ Learners can research, plan, assess economic feasibility, legally prepare, sourc
 - **B — Small in-house roastery:** buy equipment only after demand test; learn facility permissions, utilities, maintenance, production, yield, local distribution.
 - **C — Commercial growing roastery:** multi-SKU, multiple customer segments, quality controls, working capital, longer logistics chain, commercial contracts and organization design.
 
-There are **21 modules × 4 unique topic-centered lessons = 84 lessons**, 21 multi-stage decision cases, one audit-ready business-plan worksheet, and two financial simulators (landed-cost/HPP/pricing/BEP and cash timing).
+There are **21 modules × 4 unique topic-centered lessons = 84 lessons**, 21 multi-stage decision cases, one audit-ready business-plan worksheet, and four independent decision tools (landed-cost/HPP/pricing/BEP, introductory cash timing, three-model cost comparison, and a 13-week cash ledger).
 
 ## Boundary conditions for all numbers
 **Three categories only.**
@@ -82,3 +82,12 @@ We identified repeated evidence across all 21 staged exercises and added **21 di
 **Directional inbound cargo**: Mandala Cargo published Makassar → Jabodetabek from Rp3,500/kg minimum 50kg (indicative carrier listing; https://mandalacargo.id/jasa-pengiriman-cargo-makassar-ke-jabodetabek/). The route is **not** Makassar → Sukabumi and commodity restrictions, all taxes and last-mile must be confirmed by written RFQ. The three pre-existing IndoExpress outbound references remain useful only for their literal direction.
 
 All prices in worked field guides other than explicitly referenced carrier postings are **hypothetical exercises**. Do not present them as supplier/machine market prices.
+
+## Additional 13-week planning and three-model comparison — 2026-10-13
+
+The authoring interface also includes two interactive, non-persistent labs available from the learner catalog and linked from modules B02/B16:
+
+- **Three-model make-or-buy:** user-defined saleable kg/month, variable conversion cost, fixed monthly conversion, capacity and machine CAPEX, compared across outsourced, owner-operated small, and commercial facility. A 60% downside tests sensitivity; machine CAPEX is shown as investment cash rather than silently included in operating cost per kg. This tool compares **conversion cost**, not all-in HPP, and cannot replace the complete landed-cost calculator or financing analysis.
+- **13-week cash ledger:** user-defined initial cash and an editable set of individual cash receipts/payments by week, with an ending-balance schedule and negative-cash warning. Blank weeks are unentered obligations, not an affirmative zero. No learner account state is written.
+
+Academic owner signoff and verified carrier quotes remain necessary. Browser validation tests are separate from claims that these numbers constitute a real commercial quotation.
