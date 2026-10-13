@@ -24,6 +24,8 @@ Pada **continuous pour**, air ditambah relatif berkelanjutan. Pada **pulse pour*
 
 Misalnya satu tuangan memasukkan 225 g air selama proses, sedangkan strategi lain tetap memasukkan **225 g** namun dibagi ke beberapa pulsa. Ketika membaca catatan, pisahkan **massa air yang dituangkan**, **durasi menuang**, dan **laju minuman keluar**. Angka 4 g/detik yang dituangkan bukan berarti selalu 4 g/detik keluar ke server; sebagian air sedang tertahan dalam bed.
 
+**Hipotesis yang dapat dibantah:** dalam alat dan kopi yang sama, jeda antartuang mungkin mengubah tinggi air pada bed dan durasi aliran. Dugaan itu dapat salah bila data pengulangan tidak menunjukkan perbedaan; karena itu catat pola tuang, massa air kumulatif dan waktu sebelum menilai sebab.
+
 **Eksperimen yang bisa dijalankan dengan ketel biasa:** pilih dua pola sederhana yang mampu kamu ulang tanpa menggoyang wadah atau memaksa aliran supertipis. Jaga kopi, gilingan, air, filter dan total massa seduhan. Tandai tiap waktu mulai/berhenti. Tulis prediksi, misalnya pola dengan jeda lebih panjang mungkin mengubah total drawdown pada setup ini. Jika tidak terbukti, catat kenyataan itu.
 
 Jika peserta ingin membandingkan **rasa**, pastikan hasil benar-benar dicicipi dalam kondisi sebanding. Waktu lebih lama hanyalah petunjuk; bukan bukti otomatis minuman lebih pahit. Gunakan sarung atau pegangan aman jika ketel panas dan utamakan kontrol tangan daripada gaya kompetisi.
