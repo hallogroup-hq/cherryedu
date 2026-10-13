@@ -76,6 +76,8 @@ for(const rel of learnerRoutes){
 const list=file('lib/data/roasterV2Course.ts');
 if(!list.includes('ROASTER_V2_LESSONS.length!==40')||!list.includes('new Set(ROASTER_V2_LESSONS.map(x=>x.id)).size!==40'))fail('No runtime inventory assertion');
 const reader=file('app/roaster-v2/[lessonId]/page.tsx');
+if(!reader.includes('ROASTER_V2_DEEP_DIVES[l.id]'))fail('Field investigations not mounted in learner reader');
+if(!reader.includes('RoasterConceptVisualExtra'))fail('Extra concept diagrams not mounted');
 const work=file('components/roaster-v2/RoasterV2Practice.tsx');
 const lab=file('components/roaster-v2/RoasterV2Lab.tsx');
 const visual=file('components/roaster-v2/RoasterConceptVisual.tsx');
@@ -88,12 +90,32 @@ for(const required of ['n.answer.trim().length<40','n.revision.trim().length>=40
 for(const required of ['role="img"','<title','<desc','M03','M04','M05','M09']){
  if(!visual.includes(required))fail('Concept diagram missing accessibility or topic '+required);
 }
+const deepSource=file('lib/data/roasterV2DeepDives.ts');
+const deepMatch=deepSource.match(/export const ROASTER_V2_DEEP_DIVES:Record<string,string>=(\\{[\\s\\S]*?\\});/);
+if(!deepMatch)fail('Cannot parse field investigation inventory');
+let deep={};
+if(deepMatch)try{deep=JSON.parse(deepMatch[1]);}catch(e){fail('Invalid field investigation source');}
+const expectedDives=['M01-L01','M02-L02','M03-L01','M04-L03','M05-L02','M06-L02','M07-L02','M08-L02','M09-L04','M10-L04'].map(x=>'rv2-'+x.toLowerCase());
+if(Object.keys(deep).length!==10)fail('Expected 10 field investigations');
+for(const id of expectedDives){
+ const body=deep[id];
+ if(!body)fail('Missing key field investigation '+id);
+ else if(body.trim().split(/\\s+/).length<170)fail('Field investigation too shallow '+id);
+ if(body&&forbidden.test(body))fail('Editorial status leaked in field investigation '+id);
+}
+const extraVisual=file('components/roaster-v2/RoasterConceptVisualExtra.tsx');
+for(const code of ['M01','M02','M06','M07','M08','M10']){
+ if(!extraVisual.includes(code+':{title:'))fail('Missing additional science diagram '+code);
+}
+for(const required of ['role="img"','<title','description']){
+ if(!extraVisual.includes(required))fail('Additional diagram accessibility incomplete '+required);
+}
 for(const required of ['Math.round(words/70)','moduleId','ROASTER_V2_M09_10'])if(!list.includes(required))fail('Course assembly '+required+' missing');
 if(/\b(DRAFT|PREVIEW|BETA|TBD|COMING SOON)\b/i.test(
  modules.map(x=>x.title+' '+x.description).join(' ')+lessons.map(x=>x.title+' '+x.content).join(' ')||
  ''))fail('Editorial tag in learner content');
 const result={moduleCount:modules.length,lessonCount:lessons.length,caseCount:cases.length,
- diagnosticCount:diagnostics.length,conceptLabs:10,originalDiagrams:4,
+ diagnosticCount:diagnostics.length,conceptLabs:10,originalDiagrams:10,fieldInvestigations:Object.keys(deep).length,
  minLessonWords:Math.min(...lessons.map(x=>x.content.trim().split(/\s+/).length)),
  warningCount:warnings.length,warnings,issues,
  releaseGates:['CherryEdu owner must academically validate','Novice and working-roaster comprehension pilot not executed',
