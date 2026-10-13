@@ -81,9 +81,9 @@ test('student reader does not expose editorial status labels',async({page})=>{
 
 test('learning support tools are reachable and usable without account writes',async({page})=>{
  await page.goto('/sensory-v2');
- await expect(page.getByRole('link',{name:'Buka panduan praktik →'})).toBeVisible();
- await expect(page.getByRole('link',{name:'Buka lembar kerja →'})).toBeVisible();
- await page.getByRole('link',{name:'Buka panduan praktik →'}).click();
+ await expect(page.getByRole('link',{name:'Panduan praktik sensori'})).toBeVisible();
+ await expect(page.getByRole('link',{name:'Notebook CVA'})).toBeVisible();
+ await page.getByRole('link',{name:'Panduan praktik sensori'}).click();
  await expect(page.getByRole('heading',{name:'Delapan latihan sensori bertahap'})).toBeVisible();
  await expect(page.getByText(/0 dari 8 panduan/)).toBeVisible();
  // New visitors get CherryEdu's genuine release-announcement dialog.
