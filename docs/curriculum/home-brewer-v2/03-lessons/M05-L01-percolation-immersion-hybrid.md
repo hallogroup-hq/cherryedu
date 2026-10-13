@@ -18,7 +18,13 @@ Jangan memaksakan waktu satu metode sebagai target metode lain. Immersion dapat 
 
 Buat tabel rencana untuk satu kopi di dua metode. Pertahankan dose, jenis air dan target awal sedekat mungkin sama. Catat bagian metode yang memang tidak bisa dikontrol identik—filter dan cara pemisahan—sebelum mengklaim perbandingan kausal. Jika hanya punya satu brewer, analisis skema air sebagai latihan konsep.
 
-Sebelum mengubah resep, tulis **pertanyaan**, **prediksi**, **variabel utama**, **faktor pembanding** dan **batas keselamatan**. Jika hasil belum benar-benar dicicipi, biarkan kolom rasa kosong. Jangan menggunakan data fiktif sebagai bukti suatu metode lebih unggul. Jika menggunakan air panas, kaca, alat tekanan atau listrik, ikuti panduan resmi produsennya.
+## Pahami jalur air sebelum menebak profil rasa
+
+Dalam **percolation**, air segar biasanya ditambahkan lalu bergerak melewati bed kopi menuju server. Dalam **immersion**, bubuk direndam bersama air sebelum cairan dipisahkan. Pada perangkat **hybrid**, aliran keluar dapat ditahan lalu dilepas menggunakan mekanisme alat tertentu. Bentuk kontak itu berbeda, tetapi tidak satu pun secara otomatis membuat seluruh kopi menjadi lebih manis, lebih terang, atau lebih pekat.
+
+Gunakan diagram pikiran sederhana: gambar jalur air **masuk → bertemu partikel kopi → keluar** pada V60 dan French press. Tandai kapan minuman dipisahkan dari bubuk. Dengan cara itu kamu melihat mengapa dua metode dengan 15 g kopi dan 225 g air masuk tidak harus menghasilkan massa output serupa. Ingat bahwa massa output juga bukan EY.
+
+**Percobaan perbandingan** dengan kopi sama dan air layak minum dapat membantu menilai metode, tetapi jelaskan keterbatasannya: jenis filter, geometri wadah, dinamika aliran dan cara pemisahan ikut berubah. Jika satu metode lebih disukai olehmu, catat preferensi tersebut tanpa mengklaim mekanisme tunggal sebagai penyebab. Bila seorang tamu menginginkan minuman lebih jernih tetapi hanya ada French press, komunikasikan keterbatasan mesh dan cari pilihan penyaringan yang benar-benar kompatibel, aman serta tersedia.
 
 ## Pindah ke situasi berbeda
 
