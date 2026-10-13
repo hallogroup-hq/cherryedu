@@ -16,7 +16,7 @@ Kamu mencoba resep baru. Kamu berharap rasanya lebih cocok, tetapi ternyata tida
 
 V0 adalah **baseline**, kondisi awal yang dicatat lengkap. V1 adalah percobaan pertama setelah kamu menetapkan pertanyaan dan perubahan utama. V2 merupakan perbaikan rancangan setelah melihat hasil atau muncul hipotesis saingan. Nama versi membantu pencatatan; tidak berarti V2 wajib terasa lebih enak.
 
-Perhatikan **simulasi** berikut. Belum ada kopi sungguhan yang dibuat atau dicicipi untuk materi ini.
+Perhatikan **data simulasi** berikut. Belum ada kopi sungguhan yang dibuat atau dicicipi untuk materi ini.
 
 | Versi | Kopi | Air masuk | Waktu total | Catatan preferensi simulasi |
 | --- | --- | --- | --- | --- |
