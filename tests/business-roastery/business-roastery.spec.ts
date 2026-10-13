@@ -137,10 +137,11 @@ test('three models compare downside and physical capacity without placeholder co
  await expect(form.getByText(/Biaya konversi bulanan pada target:/)).toContainText('Tidak layak kapasitas');
  await expect(form.getByText(/Biaya per kg di rencana:/)).toContainText('Tidak layak kapasitas');
  await expect(form.getByText(/Biaya per kg jika demand 60%:/)).toContainText('36.667');
+ await expect(form.getByRole('alert')).toContainText('kapasitas tidak cukup');
  await form.getByRole('spinbutton',{name:/Kapasitas saleable/}).fill('150');
+ await expect(form.getByRole('alert')).toHaveCount(0);
  await expect(form.getByText(/Biaya konversi bulanan pada target:/)).toContainText('3.000.000');
  await expect(form.getByText(/Biaya per kg di rencana:/)).toContainText('30.000');
- await expect(form.getByRole('alert')).toContainText('belum sanggup');
 });
 test('13-week ledger places supplier cash out before buyer cash in and can delete entries',async({page})=>{
  await page.goto('/business-roastery-v1/working-capital');
@@ -149,7 +150,7 @@ test('13-week ledger places supplier cash out before buyer cash in and can delet
  await page.getByRole('textbox',{name:/Keterangan transaksi/}).fill('DP green');
  await page.getByRole('button',{name:'Tambahkan transaksi'}).click();
  await expect(page.getByText(/Titik kas terendah/)).toContainText('-');
- await expect(page.getByText(/Defisit kas pada jadwal ini/)).toBeVisible();
+ await expect(page.getByText(/Defisit kas terjadi pada urutan transaksi/)).toBeVisible();
  await page.getByRole('button',{name:'Hapus transaksi DP green'}).click();
  await expect(page.getByText(/Belum ada transaksi/)).toBeVisible();
 });
@@ -173,7 +174,7 @@ test('13-week liquidity shows intraweek deficit despite positive closing cash',a
  await page.getByRole('spinbutton',{name:/Nominal/}).fill('2000000');
  await page.getByRole('textbox',{name:/Keterangan transaksi/}).fill('Pembayaran buyer sore');
  await page.getByRole('button',{name:'Tambahkan transaksi'}).click();
- await expect(page.getByText(/Titik kas terendah/)).toContainText('-500.000');
+ await expect(page.getByText(/Titik kas terendah/)).toContainText(/-Rp\s*500\.000/);
  await expect(page.getByText(/Defisit kas terjadi pada urutan transaksi/)).toBeVisible();
  const firstWeek=page.locator('tbody tr').first();
  await expect(firstWeek).toContainText('1.500.000');
