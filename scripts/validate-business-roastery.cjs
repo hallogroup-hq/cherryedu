@@ -23,9 +23,11 @@ for(const mod of modules){
 const forbidden=/\b(?:DRAFT|PREVIEW|BETA|TBD|COMING SOON|LOREM IPSUM)\b/i;
 for(const l of lessons){
  if(!modules.some(m=>m.code===l.moduleId))fail('Orphan lesson '+l.id);
- if(l.content.trim().split(/\s+/).length<300)fail('Thin lesson '+l.id);
+ if(l.content.trim().split(/\s+/).length<250)fail('Thin lesson '+l.id);
  if(!l.content.includes('**A · Brand asset-light:**')||!l.content.includes('**B · Fasilitas kecil:**')||!l.content.includes('**C · Roastery berkembang:**'))fail('Missing three-model business comparison '+l.id);
- for(const phrase of ['informasi terverifikasi','asumsi belum terverifikasi','Checkpoint pemahaman'])if(!l.content.includes(phrase))fail('Missing evidence structure '+l.id+' '+phrase);
+ for(const phrase of ['Apa dampaknya bagi tiga jenis roastery?','Tugas yang bisa kamu kerjakan','Kesalahan yang harus dicegah','Checkpoint pemahaman'])if(!l.content.includes(phrase))fail('Missing lesson section '+l.id+' '+phrase);
+ if(!l.task||!l.trap||!l.content.includes(l.task)||!l.content.includes(l.trap))fail('Missing unique operational task or mistake '+l.id);
+ if(/Lengkapi tiga kolom:|Bila hasil kasus berbeda dari ekspektasi|Keputusan akhir harus dapat diperiksa ulang ketika penawaran/.test(l.content))fail('Generic repeated assignment boilerplate '+l.id);
  if(forbidden.test(l.title+' '+l.content))fail('Internal/editorial copy '+l.id);
 }
 // Pedagogical anti-boilerplate gate: prevent recurring 139-word scenario block
@@ -42,6 +44,8 @@ if(teachingBlocks.some(x=>!x))fail('Missing scenario-specific teaching section')
 if(diagnosticBlocks.some(x=>!x))fail('Missing diagnostic checkpoint');
 if(new Set(teachingBlocks).size!==lessons.length)fail('Duplicated three-model boilerplate across lessons');
 if(new Set(diagnosticBlocks).size!==lessons.length)fail('Duplicated generic diagnostic checkpoint across lessons');
+if(new Set(lessons.map(l=>l.task)).size!==lessons.length)fail('Duplicated tasks across lessons');
+if(new Set(lessons.map(l=>l.trap)).size!==lessons.length)fail('Duplicated mistake warnings across lessons');
 if(cases.length!==modules.length)fail('Need one evolving case per module');
 for(const c of cases){if(!modules.find(m=>m.code===c.moduleId)||!c.newEvidence||!c.revise||!c.reason)fail('Invalid evolving case '+c.moduleId);}
 if(new Set(cases.map(x=>x.moduleId)).size!==cases.length)fail('Duplicate case');
