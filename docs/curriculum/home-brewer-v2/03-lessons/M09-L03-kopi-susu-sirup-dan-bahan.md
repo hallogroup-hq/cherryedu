@@ -18,7 +18,15 @@ Jangan memakai minuman rumah sebagai uji alergen bagi orang lain atau mengganti 
 
 Buat dua resep satu-serving dengan kopi dasar sama dan satu bahan tambahan berbeda. Tentukan fungsi bahan itu, risiko, data tasting yang diharapkan dan cara menjelaskan minuman kepada teman. Jika belum melakukan tasting, labeli versi sebagai hipotesis kreatif.
 
-Saat menulis eksperimen, bedakan prediksi, pengamatan nyata, dan data simulasi; jangan mengisi kolom tasting yang belum dilakukan. Periksa kelayakan bahan/air, alat food-safe, penyimpanan dan risiko panas. Nilai kemampuan belajar dari alasan yang bisa diuji dan keputusan saat keadaan berubah, bukan kepatuhan pada satu resep.
+## Fungsi bahan dan keamanan harus dijelaskan secara terpisah
+
+Dalam contoh A/B di atas, kenaikan sirup dari 12 g ke 18 g bisa menjadi perubahan utama yang diuji. **Prediksinya** mungkin minuman lebih manis menurut pencicip tertentu. Namun tanpa tasting nyata kamu belum tahu apakah aroma kopi semakin tertutup atau justru kombinasi lebih disukai.
+
+Ketika susu diganti, persoalannya bukan hanya rasa. **Lactose-free** bukan berarti bebas protein susu; minuman nabati bisa mengandung alergen sendiri, dan komposisi tiap produk berbeda. Untuk tamu dengan alergi, jangan melakukan “uji coba sedikit” untuk menebak keamanan. Periksa label, risiko kontak silang dan kebutuhan individual; jika tidak bisa diverifikasi, jangan sajikan pengganti itu sebagai aman.
+
+**Rancangan satu-serving:** catat jenis coffee base, massa tiap bahan dan suhu penyajian yang aman. Buat V0 dari kombinasi yang jelas, lalu V1 dengan satu perubahan—misalnya penambahan sirup, bukan serentak mengganti susu dan kopi. Pisahkan kolom **fungsi bahan**, **perubahan yang diharapkan**, **observasi sensori nyata**, dan **informasi keselamatan**.
+
+**Kondisi baru:** susu biasa habis. Kamu boleh mencoba komposisi alternatif untuk dirimu jika aman, tetapi harus memberi nama bahan yang sebenarnya kepada tamu, memeriksa alergen, dan mengulang evaluasi rasa. Komposisi baru tidak otomatis memenuhi janji resep lama.
 
 ## Tantangan transfer
 
