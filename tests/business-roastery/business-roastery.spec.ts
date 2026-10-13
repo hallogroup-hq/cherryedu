@@ -144,7 +144,7 @@ test('13-week ledger places supplier cash out before buyer cash in and can delet
  await page.getByRole('textbox',{name:/Keterangan transaksi/}).fill('DP green');
  await page.getByRole('button',{name:'Tambahkan transaksi'}).click();
  await expect(page.getByText(/Titik kas terendah/)).toContainText('-');
- await expect(page.getByRole('alert')).toBeVisible();
+ await expect(page.getByText(/Defisit kas pada jadwal ini/)).toBeVisible();
  await page.getByRole('button',{name:'Hapus transaksi DP green'}).click();
  await expect(page.getByText(/Belum ada transaksi/)).toBeVisible();
 });
