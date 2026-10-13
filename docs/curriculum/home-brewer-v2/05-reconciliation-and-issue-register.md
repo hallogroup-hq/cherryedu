@@ -73,6 +73,7 @@ Severity: **P0** blocks candidate selection/production; **P1** blocks academic s
 | HBV2-013 | P1 | #6 core teaching | M02-L01 label and M03-L02 TDS/EY explanations lacked novice-first depth | Rewritten and browser/content QA green at `40f2aa6`; owner must assess comprehension | FIXED-PENDING-OWNER |
 | HBV2-014 | P1 | #6 core teaching | M04-L03 drawdown and M06-L02 water concepts were overly compressed | Expanded in commits `a68c737` and `d2e7e2f`; **recheck CI at final HEAD and request owner review** | FIXED-PENDING-OWNER |
 | HBV2-015 | OOS | current V2 | Video demonstrations postponed by explicit owner instruction | Do not add to release blockers | OOS |
+| HBV2-016 | P1 | #6 adaptive cases | Learner could edit the initial answer after seeing new evidence, undermining pre-evidence response integrity | Lock initial answer read-only when evidence is shown; verify via Playwright. Commits `c5bd9bc` + `5de2ecf` | FIXED-PENDING-QA |
 
 **Important:** `FIXED-PENDING-OWNER` means the source changed, **not** that the final academic content passed. `VERIFIED-ENGINEERING` means automated behavior was observed on a specific commit, **not** universal absence of bugs.
 
