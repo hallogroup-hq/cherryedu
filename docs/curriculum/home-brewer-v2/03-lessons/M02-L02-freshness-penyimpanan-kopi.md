@@ -18,7 +18,13 @@ Jangan menggunakan bau sedap sebagai bukti tidak ada kontaminasi atau menganggap
 
 Rancang eksperimen sederhana yang aman: bagi satu kopi menjadi dua bagian dengan kondisi penyimpanan terkontrol, catat kapan dibuka, apa yang berubah, serta observasi sensorik nyata bila dicicipi pada resep yang sebanding. Hindari menyajikan bahan yang penyimpanannya diragukan.
 
-Sebelum mencoba, pisahkan **tujuan**, **prediksi**, **apa yang diubah**, **apa yang dijaga**, dan **apa yang benar-benar diamati**. Jika latihan menggunakan angka ilustrasi, tandai hasil sebagai simulasi. Jangan menuliskan hasil rasa seolah kamu sudah mencicipinya. Seduh nyata hanya dengan wadah yang sesuai, air aman dan prosedur peralatan dari produsennya.
+## Cara memilih strategi simpan dari kebiasaanmu
+
+Kalau kamu menyeduh setiap pagi, menyimpan seluruh biji di satu kemasan yang ditutup rapat setelah dipakai mungkin cukup praktis. Kalau hanya membuat dua cangkir per minggu, membuka kantong besar berulang kali berarti kopi lebih sering berinteraksi dengan udara lingkungan. Membagi ke porsi-porsi kecil **bisa mengurangi frekuensi membuka stok utama**. Itu alasan mekanistiknya, bukan garansi rasa lebih baik.
+
+Apa bedanya “degassing” dengan membiarkan kemasan terbuka? Gas dari biji sangrai dapat lepas lewat katup satu arah pada kemasan tertentu, sementara udara dan kelembapan tidak perlu sengaja dibiarkan masuk. Tanggal sangrai hanya satu data; metode proses, kondisi sangrai dan kemasan juga memengaruhi perubahan biji.
+
+**Rancangan perbandingan:** ambil satu lot yang layak dipakai, bagi ke wadah yang aman dan kering. Catat metode penyimpanan, frekuensi pembukaan dan waktu sejak dibuka. Kalau benar-benar menyeduh, gunakan alat, dosis dan metode serupa untuk dua sampel, serta nilai rasa secara buta jika memungkinkan. Jika hasil tidak berbeda atau justru kebalikannya dari prediksi, catat tanpa mengoreksi kenyataan. Jangan memindahkan biji dingin berkondensasi ke grinder dan jangan membuat klaim keamanan hanya dari aroma.
 
 ## Tantangan saat kondisi berubah
 
