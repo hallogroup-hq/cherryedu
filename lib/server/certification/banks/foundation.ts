@@ -457,30 +457,30 @@ export const FOUNDATION_FINAL_EXAM_BANK = {
     {
       "id": "CHE-FND-M06-02",
       "module": "M06",
-      "lesson": "M06.L04",
-      "objective": "Mengevaluasi kualitas bukti sensori",
+      "lesson": "M06.L05",
+      "objective": "Mengintegrasikan empat lensa CVA tanpa menyatukan klaim",
       "cognitive": "analysis",
-      "stem": "Dalam triangle test sederhana, panelis menerima tiga cangkir berkode acak, dua sama dan satu berbeda. Staf menggunakan hasil satu orang yang memilih cangkir berbeda untuk mengklaim 100% kemampuan diskriminasi. Mengapa kesimpulannya tidak kuat?",
+      "stem": "Satu lot dinilai lewat inspeksi green, cupping blind, pilihan buyer, serta dokumen asal. Catatan menunjukkan sejumlah defect fisik, deskriptor sensori relatif bersih, sebagian buyer sangat suka, tetapi informasi asal belum dapat diverifikasi. Manajer hendak memublikasikan satu angka 'nilai kopi 92' berdasarkan kesukaan. Apa keputusan terbaik?",
       "options": [
         {
           "id": "A",
-          "text": "Triangle test selalu memerlukan kopi dari tiga origin."
+          "text": "Mengganti hasil inspeksi green dengan angka kesukaan buyer."
         },
         {
           "id": "B",
-          "text": "Pada satu tebakan, peluang benar secara acak adalah 1/3; bukti kemampuan perlu replikasi serta interpretasi statistik yang sesuai."
+          "text": "Melaporkan data physical, descriptive, affective, dan extrinsic secara terpisah; tidak mengubahnya menjadi satu skor tanpa metode sah."
         },
         {
           "id": "C",
-          "text": "Urutan gelas tidak pernah menimbulkan bias."
+          "text": "Menyimpulkan informasi asal benar karena panel menyebut rasa bersih."
         },
         {
           "id": "D",
-          "text": "Satu jawaban benar membuktikan panelis mampu memberi skor kualitas final."
+          "text": "Menyatakan seluruh lot gagal karena seorang buyer kurang suka."
         }
       ],
       "correct": "B",
-      "explanation": "Dengan tiga posisi dan satu sampel ganjil, probabilitas berhasil menebak secara acak adalah sekitar 33,3% per trial. Satu trial tidak membuktikan kemampuan diskriminasi stabil; perlu desain, replikasi dan evaluasi chance yang sesuai."
+      "explanation": "Empat lensa CVA menjawab pertanyaan yang berbeda: kondisi fisik, atribut deskriptif, tingkat kesukaan, dan fakta ekstrinsik. Preferensi tidak menghapus defect fisik maupun membuktikan asal lot. Angka agregat tidak boleh dikarang tanpa metode dan tujuan penilaian yang jelas."
     },
     {
       "id": "CHE-FND-M06-03",
