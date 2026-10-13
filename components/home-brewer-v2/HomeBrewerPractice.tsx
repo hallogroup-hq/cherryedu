@@ -30,7 +30,9 @@ function ChangingCase({moduleCode}:{moduleCode:string}){
    <p className="text-sm font-semibold leading-7 text-roast-950">{item.prompt}</p>
    <label className="block text-sm font-semibold text-roast-900">Keputusan dan alasan awalmu
     <textarea aria-label="Keputusan dan alasan awalmu" rows={4} maxLength={1800} value={note.answer}
+     readOnly={note.stage>=2} aria-readonly={note.stage>=2}
      onChange={e=>update({answer:e.target.value,stage:1})} className={textarea}/>
+    {note.stage>=2&&<span className="mt-1 block text-xs font-normal leading-6 text-roast-700">Jawaban awal dikunci setelah informasi baru dibuka, agar catatan keputusan sebelum dan sesudah bukti tidak tertukar.</span>}
    </label>
    {note.stage===1&&<button type="button" className={btn} disabled={note.answer.trim().length<35} onClick={()=>update({stage:2})}>Lihat informasi baru</button>}
    {note.stage>=2&&<div className="space-y-4 border-l-2 border-cherry-700 bg-paper-100 p-5">
