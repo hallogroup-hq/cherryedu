@@ -31,5 +31,3 @@ Mengapa? Sebagian cairan dapat tertahan pada bubuk dan filter; seduhan juga memi
 ## Saat situasinya berbeda
 
 Seorang teman menyebut 1:15 tetapi berarti 15 g kopi : 225 g beverage keluar. Bagaimana kamu menghindari debat angka dengan meminta definisi metrik terlebih dahulu?
-
-**Periksa pemahamanmu:** sebutkan satu informasi yang masih belum diketahui, dua kemungkinan sebab yang berbeda, dan satu eksperimen aman yang paling berpeluang membedakannya. Tidak ada angka resep universal yang menggantikan keputusan berdasarkan bukti.
