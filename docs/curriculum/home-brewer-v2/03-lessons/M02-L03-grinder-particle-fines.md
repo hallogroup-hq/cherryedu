@@ -29,5 +29,3 @@ Perhatikan juga **retensi**: sebagian bubuk mungkin tertinggal di ruang grinder 
 ## Tantangan saat kondisi berubah
 
 Kamu pindah dari V60 ke French press. Apakah kamu harus selalu menggiling lebih kasar? Jelaskan bagaimana metode dan filter berbeda memengaruhi keputusan, lalu rancang uji tanpa menjanjikan satu ukuran tertentu terbaik.
-
-**Jurnal pribadi:** Apa hal yang baru kamu pahami, asumsi mana yang masih perlu diperiksa, dan eksperimen paling sederhana apa yang bisa menjawabnya pada sesi berikutnya? Jawaban yang beralasan boleh berbeda dari resep orang lain.
