@@ -65,7 +65,7 @@ Severity: **P0** blocks candidate selection/production; **P1** blocks academic s
 | HBV2-005 | P1 | #7 | EY/ratio lab placement not aligned to their best instructional chapters | Remap by concept and test exact lab on exact lesson, if #7 retained | OPEN |
 | HBV2-006 | P1 | #6 + #7 | Course responses and practice attempts remain page-local; no authorized learner progress integration | Version-safe enrollment/completion/quiz strategy; verify old V1 records in staging | OPEN |
 | HBV2-007 | P1 | #6 + #7 | Real novice comprehension, 375px keyboard/screen-reader manual UX and safety have no owner sign-off | Owner review rubric and real novice observation, record module-by-module verdict | OPEN |
-| HBV2-008 | P2 | repo | `npm ci` previously reported 11 vulnerabilities (3 moderate, 7 high, 1 critical) | Triage package, reachability, fix path and regression. **No blind `npm audit fix --force`** | OPEN |
+| HBV2-008 | P0 | repo / release security | `npm ci` reported 11 vulnerabilities (3 moderate, 7 high, 1 critical); lockfile pins Next.js 14.2.35, a 14.x release line affected by 2026 Next.js advisories | Inventory each advisory with `npm audit --json`; assess Vercel/App Router reachability; migrate framework in separately tested compatibility branch to a currently patched supported line, then run full regressions. **No blind `npm audit fix --force`** | OPEN |
 | HBV2-009 | P1 | #6 + #7 | Repetitive experiment boilerplate reduces teaching specificity | Replace repeated paragraphs with mechanistic steps and context-specific transfer tasks as manuscripts are revised | OPEN |
 | HBV2-010 | P0 | course release | Owner has **not** approved either candidate | Record owner `approved/revise/blocked` per module; don't infer approval from “gas” | OPEN |
 | HBV2-011 | P0 | production/legacy | Foundation production commit and `main` were observed out of sync; V1 course data must be preserved | Fresh Vercel + GitHub verification before rollout; stage/version and rollback test with real legacy data snapshot | OPEN |
@@ -151,4 +151,19 @@ The sources above inform wording and uncertainty, but **do not substitute for th
 **Boundary:** This is a consistency filter, **not** an endorsement of any preferred EY, coffee ratio, TDS target, taste, or validity of an uncalibrated refractometer. A value below 100% is not automatically a trustworthy measurement or good-tasting coffee. Owner scientific review remains outstanding.
 
 **Verification:** CI for the updated exact head must pass before issue becomes `VERIFIED-ENGINEERING`.
+
+
+## 10. Release-critical dependency risk (independent of curriculum correctness)
+
+**Observed in version-controlled data:** `package-lock.json` on this candidate pins `next@14.2.35`; the app uses Next.js App Router. Install jobs have reported **11 npm advisory findings: 1 critical, 7 high, 3 moderate**. These counts are an npm install summary, **not a per-vulnerability reachability or exploitability assessment**.
+
+**Independent vendor confirmation:**
+
+- Vercel's [May 2026 security release](https://vercel.com/changelog/next-js-may-2026-security-release) explicitly lists Next.js 13.x/14.x among affected versions and recommends migrating to patched supported branches. The patch versions on that page were current for **May 2026** and must **not** be presumed latest as of October 2026.
+- [Next.js security advisories](https://github.com/vercel/next.js/security/advisories) include subsequent 2026 advisories. Platform-specific variants (e.g. Windows-hosted server) must be differentiated from issues that may apply to a Vercel-hosted App Router deployment.
+- The repository's own `npm ci` warning counts do not identify which advisory maps to which package without `npm audit --json`.
+
+**Required security track before any production approval:** inventory the full dependency advisory report; map severity, affected version, exact patched alternative, production/dev scope and architecture-specific reachability; migrate to a currently supported/patched Next.js line on a dedicated branch; review changes to Next.js request APIs, middleware, routes, auth, and deployment; rerun end-to-end authentication, legacy progress, Foundation, Barista/Home Brewer and production-adjacent smoke tests. Do **not** weaken the CI suite or call vulnerabilities remediated based only on successful build.
+
+**Owner boundary:** No framework upgrade or deployment was carried out by this content audit; the issue remains **P0 OPEN**. An audit finding does not itself mean the production app was exploited.
 
