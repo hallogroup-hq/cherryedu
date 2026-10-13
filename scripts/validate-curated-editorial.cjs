@@ -40,8 +40,8 @@ else{
  for(const lesson of lessons){check('business:'+lesson.id,lesson.content);inspected++;}
 }
 for(const [name,expected,paths] of [
- ['roaster',40,['lib/data/roasterV2Course.ts','lib/data/roasterV2DeepDives.ts']],
- ['sensory',40,['lib/data/sensoryV2Course.ts','lib/data/sensoryV2DeepDives.ts','lib/data/sensoryV2Bridges.ts']]
+ ['roaster',40,['lib/data/roasterV2Course.ts','lib/data/roasterV2DeepDives.ts',...['m01-02','m03-04','m05-06','m07-08','m09-10'].map(s=>'lib/data/roaster-v2/'+s+'.ts')]],
+ ['sensory',40,['lib/data/sensoryV2Course.ts','lib/data/sensoryV2DeepDives.ts','lib/data/sensoryV2Bridges.ts',...['m01-02','m03-04','m05-06','m07-08','m09-10'].map(s=>'lib/data/sensory-v2/'+s+'.ts')]]
 ]){
  counts[name]=expected;
  for(const file of paths){if(fs.existsSync(path.join(root,file)))check(file,fs.readFileSync(path.join(root,file),'utf8'));}
