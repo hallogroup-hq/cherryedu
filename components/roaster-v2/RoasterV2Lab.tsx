@@ -77,7 +77,12 @@ export function RoasterV2Lab({moduleCode}:{moduleCode:string}){
    <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
     {num(a,setA,'BT awal ('+unit+' )',1)}{num(b,setB,'BT akhir ('+unit+' )',1)}{num(c,setC,'Jarak waktu (detik)',1)}
    </div>
-   <button onClick={()=>setUnit(unit==='C'?'F':'C')} type="button" className="text-sm underline text-roast-800">Ganti unit {unit==='C'?'ke °F':'ke °C'}</button>
+   <button onClick={()=>{
+     const convert=(v:number)=>v===0?0:Number((unit==='C'?v*9/5+32:(v-32)*5/9).toFixed(2));
+     setA(current=>convert(current));
+     setB(current=>convert(current));
+     setUnit(current=>current==='C'?'F':'C');
+    }} type="button" className="text-sm underline text-roast-800">Konversi pembacaan {unit==='C'?'ke °F':'ke °C'}</button>
    <div aria-live="polite" className="border-l-2 border-cherry-700 bg-paper-100 p-4 text-sm text-roast-800">
      {c>0&&Number.isFinite((b-a)/c)?<><strong>RoR rata-rata: {((b-a)*60/c).toFixed(2)}°{unit}/menit.</strong> Ini selisih sensor dalam interval {c} detik, bukan suhu inti seluruh biji. Pilihan interval dan smoothing mengubah tampilan.</>:'Masukkan dua pembacaan dan selang waktu positif; hasil adalah contoh perhitungan, bukan rekomendasi kontrol mesin.'}
    </div>
