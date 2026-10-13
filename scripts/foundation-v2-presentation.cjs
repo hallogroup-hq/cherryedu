@@ -40,7 +40,7 @@ const APPENDIX_HEADINGS = Object.freeze({
   'M06.L03': 'Referensi dan batas generalisasi',
   'M06.L04': 'Referensi dan batasan',
   'M06.L05': 'Referensi dan batas penggunaan',
-  'M07.L01': 'Catatan pengajar — sumber dan batasan',
+  'M07.L01': 'Catatan pengajar: sumber dan batasan',
   'M07.L02': 'Referensi & QA',
   'M07.L03': 'Referensi, basis dan keterbatasan',
   'M07.L04': 'Sumber dan editorial limits',
