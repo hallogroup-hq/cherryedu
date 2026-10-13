@@ -18,7 +18,15 @@ Kekeliruan umum ialah mengatakan kopi yang terasa asam pasti dibuat salah atau k
 
 Tulis tujuan secangkir kopi dengan tiga kalimat: apa yang kamu suka, apa yang ingin kamu kurangi, dan apa yang ingin kamu pelajari. Jika ada dua biji, bandingkan pada kondisi seduh yang kamu dokumentasikan. Jika hanya satu biji, bandingkan aroma sebelum dan sesudah air ditambahkan, tanpa menuliskan rasa yang tidak sungguh kamu cicipi.
 
-Sebelum mencoba, pisahkan **tujuan**, **prediksi**, **apa yang diubah**, **apa yang dijaga**, dan **apa yang benar-benar diamati**. Jika latihan menggunakan angka ilustrasi, tandai hasil sebagai simulasi. Jangan menuliskan hasil rasa seolah kamu sudah mencicipinya. Seduh nyata hanya dengan wadah yang sesuai, air aman dan prosedur peralatan dari produsennya.
+## Mulai dari pertanyaan tentang pengalamanmu
+
+Saat resep internet terasa “terlalu terang”, tanyakan dulu apakah yang mengganggu adalah acidity yang menonjol, aroma yang berbeda dari harapan, atau minuman yang terasa terlalu ringan. Kata-kata itu menunjuk kemungkinan pengalaman yang berbeda; jangan semua langsung dikoreksi dengan grind lebih halus.
+
+**Latihan tujuan:** tulis “Aku ingin kopi yang … karena …” dan “Aku ingin mengurangi … tanpa kehilangan …”. Contoh: “Aku suka aroma buah, tetapi ingin sensasi asam yang tidak terlalu menonjol setelah makan.” Itu preferensi pribadi yang sah, bukan standar universal.
+
+Jika hanya punya satu kopi, kamu tetap bisa bereksperimen: pertahankan kopi dan alat, pilih satu perubahan aman yang relevan. Catat kondisi sebelum dan sesudah, serta **apa yang benar-benar kamu cicipi**, bukan rasa yang diprediksi internet. Jika punya dua kopi berbeda, bandingkan dalam kondisi serupa tetapi ingat ada banyak atribut lot yang mungkin berbeda.
+
+**Permintaan baru:** teman ingin cangkir lebih kuat daripada yang kamu sukai. Daripada memberi angka rasio otomatis, tanyakan apakah ia menginginkan konsentrasi lebih tinggi, aroma lebih tegas, atau tambahan porsi. Pilih satu opsi yang bisa diuji dan jelaskan ketidakpastiannya.
 
 ## Tantangan saat kondisi berubah
 
