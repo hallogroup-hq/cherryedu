@@ -29,5 +29,3 @@ Apa bedanya “degassing” dengan membiarkan kemasan terbuka? Gas dari biji san
 ## Tantangan saat kondisi berubah
 
 Kamu baru bisa membeli kopi ukuran besar tetapi hanya minum dua kali seminggu. Apa strategi pembagian porsi yang realistis dengan alat rumahmu, dan data apa yang menunjukkan strategi itu membantu setelah beberapa sesi?
-
-**Jurnal pribadi:** Apa hal yang baru kamu pahami, asumsi mana yang masih perlu diperiksa, dan eksperimen paling sederhana apa yang bisa menjawabnya pada sesi berikutnya? Jawaban yang beralasan boleh berbeda dari resep orang lain.
