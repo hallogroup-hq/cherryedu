@@ -361,7 +361,7 @@ export const ROASTER_V2_DIAGNOSTICS:RoasterV2Diagnostic[]=[
   {
     "id": "rvq-08",
     "module": "M04",
-    "scenario": "DTR 20% menyatakan...",
+    "scenario": "Dalam log roasting, angka DTR 20% menyatakan apa?",
     "options": [
       {
         "text": "Kualitas rasa sudah 20%",
