@@ -1,0 +1,367 @@
+{
+  "path": "business-roastery",
+  "version": "2026-10-14.1",
+  "items": [
+    {
+      "id": "business-roastery-01",
+      "module_ids": [
+        "B01"
+      ],
+      "objective": "B01-transfer-1",
+      "type": "single_choice",
+      "prompt": "Penjual green menawarkan harga cherry Rp12.000/kg dan green siap roast Rp85.000/kg. Mengapa margin keduanya tidak bisa dihitung dari selisih sederhana?",
+      "choices": [
+        "Harga cherry selalu sama dengan harga roasted.",
+        "Bentuk dan hasil konversi barang berbeda; biaya proses dan susut perlu diketahui.",
+        "Seluruh cherry berubah satu banding satu menjadi green.",
+        "Petani pasti menjual lebih mahal daripada trader."
+      ],
+      "correct_index": 1,
+      "explanation": "Cherry dan green memiliki basis massa dan proses berbeda; perbandingan harus menyesuaikan yield serta biaya.",
+      "case": false
+    },
+    {
+      "id": "business-roastery-02",
+      "module_ids": [
+        "B02"
+      ],
+      "objective": "B02-transfer-2",
+      "type": "single_choice",
+      "prompt": "Merek baru belum punya pelanggan pasti dan sedang membandingkan contract roasting dengan mesin sendiri. Kriteria awal terbaik?",
+      "choices": [
+        "Bandingkan permintaan teruji, biaya penuh, mutu mitra, kapasitas dan modal kerja.",
+        "Beli mesin terbesar karena selalu lebih murah per kg.",
+        "Pilih asset-light karena pasti tanpa risiko.",
+        "Pilih modal paling mahal agar pelanggan percaya."
+      ],
+      "correct_index": 0,
+      "explanation": "Pilihan model bergantung risiko permintaan, kontrol dan ekonomi total, bukan satu keunggulan tunggal.",
+      "case": false
+    },
+    {
+      "id": "business-roastery-03",
+      "module_ids": [
+        "B03"
+      ],
+      "objective": "B03-transfer-3",
+      "type": "single_choice",
+      "prompt": "Dari 20 kafe yang diwawancarai, 15 tertarik, tetapi tidak ada yang menandatangani PO. Apa kesimpulan yang layak?",
+      "choices": [
+        "15 pelanggan pasti membeli tiap bulan.",
+        "Estimasi volume harus langsung 15 kali stok maksimum.",
+        "Minat wawancara setara kontrak pembelian.",
+        "Ada sinyal minat, namun permintaan berbayar belum tervalidasi."
+      ],
+      "correct_index": 3,
+      "explanation": "Ketertarikan tidak sama dengan komitmen pembelian; uji PO, deposit, atau trial berbayar.",
+      "case": false
+    },
+    {
+      "id": "business-roastery-04",
+      "module_ids": [
+        "B04"
+      ],
+      "objective": "B04-transfer-4",
+      "type": "single_choice",
+      "prompt": "Roastery baru mengusulkan delapan SKU sebelum memiliki data penjualan. Risiko yang harus diuji?",
+      "choices": [
+        "Semakin banyak SKU selalu menurunkan biaya gudang.",
+        "SKU tidak memengaruhi penjadwalan roasting.",
+        "Stok terbagi, forecast tidak pasti, dan risiko lot menua meningkat.",
+        "Seluruh SKU pasti memiliki kontribusi sama."
+      ],
+      "correct_index": 2,
+      "explanation": "Banyak SKU memperbesar kompleksitas stok dan produksi; portofolio harus didukung permintaan dan kapasitas.",
+      "case": true
+    },
+    {
+      "id": "business-roastery-05",
+      "module_ids": [
+        "B05",
+        "B06"
+      ],
+      "objective": "B05+B06-transfer-5",
+      "type": "single_choice",
+      "prompt": "Business plan tampak untung, tetapi fasilitas, penanggung jawab produk dan kewajiban izin belum dipastikan. Keputusan yang bertanggung jawab?",
+      "choices": [
+        "Nyatakan siap jual nasional karena EBITDA positif.",
+        "Tandai kelayakan bersyarat dan verifikasi kegiatan, izin, fasilitas, serta biaya kepatuhannya.",
+        "Gunakan izin kedai kopi otomatis untuk pabrik.",
+        "Tunda memeriksa persyaratan hingga volume besar."
+      ],
+      "correct_index": 1,
+      "explanation": "Studi kelayakan harus mencakup legalitas berdasarkan kegiatan dan skala; proyeksi laba tidak menggantikan kepatuhan.",
+      "case": false
+    },
+    {
+      "id": "business-roastery-06",
+      "module_ids": [
+        "B07"
+      ],
+      "objective": "B07-transfer-6",
+      "type": "single_choice",
+      "prompt": "Pemasok mengirim 100 kg green, tetapi barang diterima hanya 98 kg dan spesifikasi kontrak 100 kg netto. Apa langkah pertama?",
+      "choices": [
+        "Catat selisih penerimaan dan lakukan klaim/rekonsiliasi menurut bukti serta kontrak.",
+        "Masukkan 2 kg sebagai roasting mass loss.",
+        "Ubah jurnal roasting agar terlihat normal.",
+        "Bayar penuh tanpa dokumentasi apa pun."
+      ],
+      "correct_index": 0,
+      "explanation": "Receiving shortage berbeda dengan roast loss; perlu bukti timbang dan persyaratan serah-terima.",
+      "case": false
+    },
+    {
+      "id": "business-roastery-07",
+      "module_ids": [
+        "B08"
+      ],
+      "objective": "B08-transfer-7",
+      "type": "single_choice",
+      "prompt": "Penawaran kargo contoh: Rp4.000/kg, minimum tagihan 50 kg, kiriman aktual 30 kg tanpa biaya tambahan. Berapa ongkir dasar ditagih?",
+      "choices": [
+        "Rp120.000",
+        "Rp80.000",
+        "Rp4.000",
+        "Rp200.000"
+      ],
+      "correct_index": 3,
+      "explanation": "Billable weight = max(30,50)=50 kg. Dasar 50×4.000=Rp200.000; verifikasi syarat volumetrik dan rute nyata.",
+      "case": false
+    },
+    {
+      "id": "business-roastery-08",
+      "module_ids": [
+        "B09"
+      ],
+      "objective": "B09-transfer-8",
+      "type": "single_choice",
+      "prompt": "Ruangan roasting memiliki ventilasi tidak diperiksa dan alarm bahaya tidak berfungsi. Manajer sedang dikejar PO. Langkah tepat?",
+      "choices": [
+        "Lanjutkan seluruh batch selama pelanggan menunggu.",
+        "Buka jendela dan anggap seluruh bahaya selesai.",
+        "Tunda operasi berisiko sampai penanggung jawab memverifikasi keselamatan fasilitas.",
+        "Delegasikan kepada staf baru tanpa pelatihan."
+      ],
+      "correct_index": 2,
+      "explanation": "Risiko kebakaran/asap dan utilitas memerlukan inspeksi sesuai SOP sebelum proses berlangsung.",
+      "case": true
+    },
+    {
+      "id": "business-roastery-09",
+      "module_ids": [
+        "B10"
+      ],
+      "objective": "B10-transfer-9",
+      "type": "single_choice",
+      "prompt": "Mesin berkapasitas nominal 5 kg per batch, tetapi batch aktual hanya 4 kg dan butuh waktu cleaning/setup. Mengapa angka katalog tak cukup untuk forecast?",
+      "choices": [
+        "Kapasitas katalog adalah output saleable pasti.",
+        "Kapasitas efektif bergantung waktu siklus, utilisasi, yield, operator dan downtime.",
+        "Mesin dapat memanggang tanpa downtime selama 24 jam.",
+        "Semua batch akan selalu terisi 5 kg."
+      ],
+      "correct_index": 1,
+      "explanation": "Forecast produksi perlu jadwal nyata dan hasil saleable, bukan hanya kapasitas nominal mesin.",
+      "case": false
+    },
+    {
+      "id": "business-roastery-10",
+      "module_ids": [
+        "B11"
+      ],
+      "objective": "B11-transfer-10",
+      "type": "single_choice",
+      "prompt": "Batch roasted menunjukkan aroma asing pada sampel QC sementara pengiriman harus hari ini. Apa tindakan awal?",
+      "choices": [
+        "Beri status HOLD dan investigasi sesuai SOP sebelum release.",
+        "Kirim batch lalu hapus catatan QC.",
+        "Campurkan dengan stok bagus tanpa traceability.",
+        "Tingkatkan harga agar risikonya tertutup."
+      ],
+      "correct_index": 0,
+      "explanation": "Lot menyimpang tidak boleh dilepas hanya karena deadline; perlu QC dan keputusan terdokumentasi.",
+      "case": false
+    },
+    {
+      "id": "business-roastery-11",
+      "module_ids": [
+        "B12"
+      ],
+      "objective": "B12-transfer-11",
+      "type": "single_choice",
+      "prompt": "Dua karton roasted memiliki batch berbeda dan tanggal evaluasi masa simpan berbeda. Metode rotasi apa paling relevan?",
+      "choices": [
+        "Kirim stok dengan kemasan paling menarik dahulu.",
+        "Semua stok dianggap identik selama origin sama.",
+        "Abaikan tanggal bila warna roasted serupa.",
+        "Gunakan aturan FEFO berdasarkan batas pakai/evaluasi yang valid sambil menjaga traceability."
+      ],
+      "correct_index": 3,
+      "explanation": "Rotasi efektif mengikuti batas kualitas/masa simpan dan pelacakan lot, bukan penampilan kemasan.",
+      "case": false
+    },
+    {
+      "id": "business-roastery-12",
+      "module_ids": [
+        "B13"
+      ],
+      "objective": "B13-transfer-12",
+      "type": "single_choice",
+      "prompt": "Contoh: 100 kg green usable dengan landed total Rp12.000.000 menghasilkan 80 kg roasted saleable. Biaya bahan green per kg saleable?",
+      "choices": [
+        "Rp120.000/kg",
+        "Rp96.000/kg",
+        "Rp150.000/kg",
+        "Rp200.000/kg"
+      ],
+      "correct_index": 2,
+      "explanation": "Biaya bahan per roasted saleable = 12.000.000/80 = Rp150.000/kg; belum termasuk tenaga, kemasan, overhead.",
+      "case": false
+    },
+    {
+      "id": "business-roastery-13",
+      "module_ids": [
+        "B14"
+      ],
+      "objective": "B14-transfer-13",
+      "type": "single_choice",
+      "prompt": "HPP penuh Rp150.000/kg, harga jual Rp200.000/kg. Berapa gross margin terhadap penjualan, abaikan pajak dan diskon?",
+      "choices": [
+        "33,3%",
+        "25%",
+        "50%",
+        "75%"
+      ],
+      "correct_index": 1,
+      "explanation": "Gross margin=(200.000−150.000)/200.000=25%; markup terhadap biaya adalah 33,3%, bukan gross margin.",
+      "case": false
+    },
+    {
+      "id": "business-roastery-14",
+      "module_ids": [
+        "B15"
+      ],
+      "objective": "B15-transfer-14",
+      "type": "single_choice",
+      "prompt": "Biaya tetap relevan Rp9.000.000/bulan dan contribution margin Rp30.000 per kg. Berapa volume BEP sederhana jika kapasitas mencukupi?",
+      "choices": [
+        "300 kg",
+        "270 kg",
+        "30 kg",
+        "900 kg"
+      ],
+      "correct_index": 0,
+      "explanation": "BEP sederhana = 9.000.000/30.000 = 300 kg; gunakan contribution, bukan gross profit setelah overhead yang sudah diserap.",
+      "case": false
+    },
+    {
+      "id": "business-roastery-15",
+      "module_ids": [
+        "B16"
+      ],
+      "objective": "B16-transfer-15",
+      "type": "single_choice",
+      "prompt": "Roastery mencatat penjualan kredit Rp20 juta hari ini, pembayaran buyer baru bulan depan, tetapi supplier harus dibayar pekan ini. Apa risiko kuncinya?",
+      "choices": [
+        "Piutang adalah uang tunai yang langsung tersedia.",
+        "Kontrak kredit selalu lebih aman daripada penjualan tunai.",
+        "Pembelian stok tidak pernah mengurangi arus kas.",
+        "Laba akuntansi tidak menjamin kas tersedia ketika pembayaran jatuh tempo."
+      ],
+      "correct_index": 3,
+      "explanation": "Perubahan piutang dan stok menciptakan kebutuhan modal kerja; jadwal kas harus mempertimbangkan tanggal.",
+      "case": true
+    },
+    {
+      "id": "business-roastery-16",
+      "module_ids": [
+        "B17"
+      ],
+      "objective": "B17-transfer-16",
+      "type": "single_choice",
+      "prompt": "Buyer B2B meminta potongan besar, free training, dan tempo 45 hari. Bagaimana menilai tawarannya?",
+      "choices": [
+        "Lihat omzet kotor saja tanpa biaya layanan.",
+        "Terima jika nama buyer dikenal.",
+        "Hitung net revenue, cost-to-serve, kontribusi serta risiko kredit sebelum menandatangani.",
+        "Pilih pelanggan dengan volume terbesar tanpa analisis."
+      ],
+      "correct_index": 2,
+      "explanation": "Kontrak dengan layanan dan termin dapat mengikis kontribusi serta meningkatkan kebutuhan kas.",
+      "case": false
+    },
+    {
+      "id": "business-roastery-17",
+      "module_ids": [
+        "B18"
+      ],
+      "objective": "B18-transfer-17",
+      "type": "single_choice",
+      "prompt": "Harga marketplace Rp220.000/kg tetapi platform memotong komisi, subsidi ongkir dan biaya pembayaran. Angka mana tepat untuk menilai channel?",
+      "choices": [
+        "Harga listing sebelum semua biaya.",
+        "Penerimaan neto setelah potongan dan biaya variabel terkait.",
+        "Harga paling tinggi dari kompetitor.",
+        "Jumlah tayangan produk tanpa konversi."
+      ],
+      "correct_index": 1,
+      "explanation": "Unit economics ditentukan pendapatan terealisasi dan biaya layanan/channel, bukan angka listing.",
+      "case": false
+    },
+    {
+      "id": "business-roastery-18",
+      "module_ids": [
+        "B19"
+      ],
+      "objective": "B19-transfer-18",
+      "type": "single_choice",
+      "prompt": "Usaha kecil membiarkan operator sekaligus menyetujui batch reject sendiri dan mengubah invoice supplier. Risiko yang harus ditangani?",
+      "choices": [
+        "Konflik tugas kritis; tetapkan review, persetujuan dan audit trail meski tim kecil.",
+        "Hapus seluruh otorisasi agar semua cepat.",
+        "Tentukan kualitas dengan jumlah pelanggan saja.",
+        "Gunakan satu password bersama untuk semua staf."
+      ],
+      "correct_index": 0,
+      "explanation": "Pemisahan tanggung jawab atau kontrol pengganti perlu untuk mutu dan keuangan.",
+      "case": false
+    },
+    {
+      "id": "business-roastery-19",
+      "module_ids": [
+        "B20"
+      ],
+      "objective": "B20-transfer-19",
+      "type": "single_choice",
+      "prompt": "Produksi naik 20% tetapi QC reject dan komplain pelanggan juga naik. KPI apa yang harus dibaca bersama?",
+      "choices": [
+        "Berat green masuk mesin saja.",
+        "Jumlah batch per shift saja.",
+        "Omzet bruto tanpa kontribusi.",
+        "Output saleable, yield, reject, komplain dan ketepatan pengiriman."
+      ],
+      "correct_index": 3,
+      "explanation": "Pertumbuhan harus diukur terhadap mutu, volume terjual dan kemampuan memenuhi pesanan.",
+      "case": false
+    },
+    {
+      "id": "business-roastery-20",
+      "module_ids": [
+        "B21"
+      ],
+      "objective": "B21-transfer-20",
+      "type": "single_choice",
+      "prompt": "Buyer luar negeri meminta harga CIF tetapi tim baru menghitung harga ex-works. Tindakan yang tepat?",
+      "choices": [
+        "Samakan CIF dengan ex-works tanpa biaya lain.",
+        "Anggap seluruh dokumen selalu disiapkan pembeli.",
+        "Perjelas lokasi dan biaya/tanggung jawab masing-masing Incoterm sebelum mengirim quote.",
+        "Berikan harga final tanpa mengecek negara tujuan."
+      ],
+      "correct_index": 2,
+      "explanation": "CIF dan EXW memuat lingkup biaya serta tanggung jawab berbeda; kontrak ekspor perlu rincian dan konfirmasi kepatuhan.",
+      "case": true
+    }
+  ]
+}
