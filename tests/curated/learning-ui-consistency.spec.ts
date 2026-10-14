@@ -1,4 +1,5 @@
 import {test,expect} from '@playwright/test';
+test.beforeEach(async({page})=>{await page.addInitScript(()=>localStorage.setItem('cherry_seen_version_v1_2','true'));});
 
 /** Visual-structure regression anchored to the approved Foundation learning reader. */
 const courseLessons=[
