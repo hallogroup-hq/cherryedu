@@ -17,6 +17,11 @@ export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
  const [sidebarOpen,setSidebarOpen]=useState(false);
  const toggle=(code:string)=>setExpanded(v=>v.includes(code)?v.filter(x=>x!==code):[...v,code]);
  const prev=lessons[idx-1],next=lessons[idx+1];
+ const independentPracticeMarker='### Coba terapkan setelah membaca';
+ const independentPracticeAt=lesson.content.indexOf(independentPracticeMarker);
+ const explanatoryContent=independentPracticeAt<0?lesson.content:lesson.content.slice(0,independentPracticeAt).trim();
+ const independentPracticeContent=independentPracticeAt<0?'':lesson.content.slice(independentPracticeAt);
+
  const method=lesson.order===1?workedMethods[lesson.moduleId]:undefined;
  const narratedTerms=lesson.order===1
    ? (glossary[lesson.moduleId]||[]).map(x=>x.term+': '+x.meaning).join('\n\n')
@@ -24,7 +29,7 @@ export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
  const narratedMethod=method
    ? method.title+'\n\n'+method.steps.map((step,n)=>(n+1)+'. '+step.heading+'. '+step.explanation).join('\n\n')+'\n\n'+method.caution
    : '';
- const narrationSource=[lesson.content,narratedTerms,narratedMethod].filter(Boolean).join('\n\n');
+ const narrationSource=[narratedTerms,explanatoryContent,narratedMethod,independentPracticeContent].filter(Boolean).join('\n\n');
 
  return <div className="min-h-screen bg-paper-50 pb-24 text-roast-950">
   <div className="sticky top-16 z-20 border-b border-paper-300 bg-paper-50/95 backdrop-blur-sm">
@@ -48,7 +53,7 @@ export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
      <AudioNarrationPlayer title={lesson.title} rawMarkdown={narrationSource}/>
      <article className="mt-6"><h1 className="mb-6 border-b border-paper-300 pb-5 font-serif text-3xl font-black leading-tight tracking-tight sm:text-4xl">{lesson.title}</h1>{lesson.order===1&&<BusinessConceptFigure moduleId={lesson.moduleId}/>}
       {lesson.order===1&&<section className="my-7 border-y border-paper-300 py-5" aria-label="Istilah dasar modul"><h2 className="mb-3 font-serif text-xl font-bold">Istilah yang perlu kamu kenali</h2><dl className="space-y-3">{glossary[lesson.moduleId]?.map(x=><div key={x.term} className="grid gap-1 sm:grid-cols-[140px_1fr] sm:gap-4"><dt className="text-sm font-bold text-roast-950">{x.term}</dt><dd className="text-sm leading-6 text-roast-700">{x.meaning}</dd></div>)}</dl></section>}
-      <MarkdownRenderer content={lesson.content}/>
+      <MarkdownRenderer content={explanatoryContent}/>
       {lesson.order===1&&workedMethods[lesson.moduleId]&&<section className="mt-9 border-t border-paper-300 pt-7" aria-label="Panduan kerja langkah demi langkah">
         <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cherry-800">Praktik Terpandu</p>
         <h2 className="mt-2 font-serif text-2xl font-bold">{workedMethods[lesson.moduleId].title}</h2>
@@ -60,6 +65,9 @@ export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
          </li>)}
         </ol>
         <p className="mt-4 text-xs leading-6 text-roast-600">{workedMethods[lesson.moduleId].caution}</p>
+      </section>}
+      {independentPracticeContent&&<section className="mt-9 border-t border-paper-300 pt-7" aria-label="Tugas dan pemeriksaan pemahaman">
+        <MarkdownRenderer content={independentPracticeContent}/>
       </section>}</article>
      {lesson.optionalModels&&<details className="mt-9 border-y border-paper-300 bg-paper-100/40 px-4 py-4">
        <summary className="cursor-pointer text-sm font-semibold text-cherry-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cherry-800">Lihat penerapan pada tiga skala bisnis</summary>
