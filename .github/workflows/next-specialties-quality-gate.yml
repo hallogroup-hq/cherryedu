@@ -9,6 +9,7 @@ on:
       - 'lib/data/greenCoffeeScenarios.ts'
       - 'lib/data/nextSpecialtyScenarios.ts'
       - 'lib/server/final-exams/**'
+      - 'components/Footer.tsx'
       - 'components/curated/CuratedScenarioLab.tsx'
       - 'components/curated/NextSpecialtyCalculators.tsx'
       - 'app/green-coffee-v2/**'
