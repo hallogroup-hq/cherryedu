@@ -19,7 +19,7 @@ export default function BaristaV2Lesson({params}:{params:{lessonId:string}}){
  const visualLessons=['bv2-m01-l01','bv2-m02-l01','bv2-m02-l02','bv2-m03-l03','bv2-m05-l03','bv2-m07-l01','bv2-m11-l04'];
  const firstSection=lesson.content.indexOf('\n## ');
  const useVisual=visualLessons.includes(lesson.id)&&firstSection>=0;
- return <CuratedLessonFrame courseTitle="Barista Specialization" courseHref="/barista-v2" modules={BARISTA_V2_MODULES} lessons={BARISTA_V2_LESSONS} currentId={lesson.id} rawMarkdown={lesson.content}>
+ return <CuratedLessonFrame courseTitle="Barista Specialization" courseHref="/barista-v2" modules={BARISTA_V2_MODULES} lessons={BARISTA_V2_LESSONS} currentId={lesson.id} rawMarkdown={lesson.content} examHref={process.env.CHERRYEDU_FINAL_EXAMS_REVIEW==='enabled'?'/ujian-akhir/barista':undefined}>
   {useVisual?<><MarkdownRenderer content={lesson.content.slice(0,firstSection).trim()}/><LearningMechanismVisual lessonId={lesson.id}/><MarkdownRenderer content={lesson.content.slice(firstSection+1)}/></>:<MarkdownRenderer content={lesson.content}/>}
   {lesson.order===1&&<BaristaConceptLab moduleCode={lesson.moduleId}/>}
   {lesson.order===mod.count&&<BaristaModuleCheckpoint moduleCode={lesson.moduleId}/>}
