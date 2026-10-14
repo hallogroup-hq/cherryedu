@@ -13,7 +13,7 @@ export default function HomeBrewerV2Lesson({params}:{params:{lessonId:string}}){
  if(!lesson)notFound();
  const firstSection=lesson.markdown.indexOf('\n## ');
  const useDiagram=['hbv2-hb02-l02','hbv2-hb02-l03','hbv2-hb04-l03','hbv2-hb05-l01','hbv2-hb09-l01','hbv2-hb10-l02'].includes(lesson.id)&&firstSection>=0;
- return <CuratedLessonFrame courseTitle="Home Brewer Specialization" courseHref="/home-brewer-v2" modules={HOME_BREWER_V2_MODULES} lessons={HOME_BREWER_V2_LESSONS} currentId={lesson.id} rawMarkdown={lesson.markdown}>
+ return <CuratedLessonFrame courseTitle="Home Brewer Specialization" courseHref="/home-brewer-v2" modules={HOME_BREWER_V2_MODULES} lessons={HOME_BREWER_V2_LESSONS} currentId={lesson.id} rawMarkdown={lesson.markdown} examHref={process.env.CHERRYEDU_FINAL_EXAMS_REVIEW==='enabled'?'/ujian-akhir/home-brewer':undefined}>
   {useDiagram?<><MarkdownRenderer content={lesson.markdown.slice(0,firstSection)}/><HomeBrewerMechanismVisual lessonId={lesson.id}/><MarkdownRenderer content={lesson.markdown.slice(firstSection+1)}/></>:<MarkdownRenderer content={lesson.markdown}/>}
   {lesson.order===1&&<HomeBrewerConceptLab moduleCode={lesson.moduleId}/>}
   {lesson.order===5&&<section className="my-10 border-t border-paper-300 pt-7">
