@@ -68,7 +68,7 @@ export function CuratedLessonFrame({courseTitle,courseHref,modules,lessons,curre
      <span aria-hidden="true">•</span>
      <span className="truncate">{learnerTitle(courseTitle)}</span>
     </div>
-    {rawMarkdown&&<div className="mt-5"><AudioNarrationPlayer title={learnerTitle(lesson.title)} rawMarkdown={rawMarkdown}/></div>}
+    {rawMarkdown&&<div className="mt-5"><AudioNarrationPlayer title={learnerTitle(lesson.title)} rawMarkdown={rawMarkdown} description="Dengarkan narasi materi sambil mengikuti contoh, diagram, dan latihan yang tersedia."/></div>}
     <div className="mt-7">
      <p className="font-mono text-xs font-semibold uppercase tracking-widest text-cherry-800">{module?learnerTitle(module.title):courseTitle} · Pelajaran {lesson.order} dari {lessons.filter(x=>x.moduleId===lesson.moduleId).length}</p>
      <h2 className="mt-3 border-b border-paper-300 pb-5 font-serif text-3xl font-bold leading-tight text-roast-950 sm:text-4xl">{learnerTitle(lesson.title)}</h2>
