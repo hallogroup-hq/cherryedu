@@ -63,7 +63,7 @@
       ],
       "objective": "M04-transfer-4",
       "type": "single_choice",
-      "prompt": "Dalam tes segitiga, satu dari tiga cangkir berbeda tetapi peserta memilih benar sekali. Kesimpulan tepat?",
+      "prompt": "Peserta mengaku selalu bisa membedakan dua lot. Namun saat tes segitiga pertama, ia hanya memilih cangkir berbeda dengan benar satu kali. Kesimpulan yang tepat?",
       "choices": [
         "Satu pilihan benar membuktikan seluruh sampel dapat dibedakan pada setiap situasi dan panelis.",
         "Tingkatkan hasil satu percobaan menjadi sertifikasi resmi karena peluang menebak tidak relevan.",
@@ -171,7 +171,7 @@
       ],
       "objective": "M10-transfer-10",
       "type": "single_choice",
-      "prompt": "Peserta menyelesaikan semua latihan digital sensori. Klaim apa yang tepat?",
+      "prompt": "Peserta telah menyelesaikan seluruh latihan sensori digital. Setelah itu ia bertanya apakah hasil tersebut otomatis memberinya gelar Q Grader resmi. Jawaban apa yang tepat?",
       "choices": [
         "Nyatakan lulus latihan daring sebagai pengganti uji praktik karena semua kompetensi sensori setara.",
         "Ia telah berlatih konsep, tetapi kompetensi Q Grader resmi butuh asesmen resmi yang berbeda.",
