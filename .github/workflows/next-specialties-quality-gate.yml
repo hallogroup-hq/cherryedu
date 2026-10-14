@@ -78,3 +78,11 @@ jobs:
         run: npx playwright test --config=playwright.curated.config.ts
       - name: Closed-specialty preview access and POST grading regression
         run: npx playwright test --config=playwright.specialty-gate.config.ts
+      - name: Upload learner screenshots for visual sign-off
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: next-specialties-visual-evidence
+          path: audit-screenshots/
+          if-no-files-found: ignore
+          retention-days: 14
