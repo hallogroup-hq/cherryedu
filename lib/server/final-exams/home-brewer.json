@@ -29,9 +29,9 @@
       "type": "single_choice",
       "prompt": "Sebuah resep mencatat dose 15 g, brew water 240 g, dan minuman yang tertampung 205 g. Rasio brew water:dose?",
       "choices": [
-        "13,7:1 karena 205 gram output dibagi 15 gram dosis untuk menghitung brew-water ratio.",
-        "15:1 karena dosis 15 gram dipasangkan langsung dengan total air masuk 240 gram.",
-        "1:16,7 karena air awal harus ditambah lagi dengan air tertahan pada ampas sebelum dibagi dosis.",
+        "13,7:1",
+        "15:1",
+        "1:16,7",
         "16:1"
       ],
       "correct_index": 3,
@@ -47,9 +47,9 @@
       "type": "single_choice",
       "prompt": "Dua seduhan V60 ingin dibandingkan untuk pengaruh grind size. Desain eksperimen mana paling bersih?",
       "choices": [
-        "Ubah biji dan tipe filter sekaligus selama dosis dijaga, lalu simpulkan efek gilingan.",
+        "Ubah jenis kopi dan filter sekaligus.",
         "Tetapkan dosis, air, metode tuang, dan kopi; ubah ukuran gilingan saja.",
-        "Ubah gilingan dan suhu bersama-sama untuk memperoleh perubahan rasa lebih besar dalam satu trial.",
+        "Ubah gilingan dan suhu secara bersamaan.",
         "Uji dengan tiga sampel tanpa mencatat volume air karena tiap brewer akan menyerap sama."
       ],
       "correct_index": 1,
@@ -66,8 +66,8 @@
       "prompt": "Awalnya V60 mengalir normal. Setelah pola tuang diubah, drawdown jauh lebih lambat sementara catatan lain belum lengkap. Pemeriksaan berikut apa yang paling bertanggung jawab?",
       "choices": [
         "Periksa distribusi fines, bed, filter, dan pola tuang; jangan menetapkan satu sebab tanpa uji.",
-        "Tetapkan fines sebagai satu-satunya penyebab sumbatan tanpa membandingkan kondisi filter.",
-        "Anggap penggantian pola tuang selalu menaikkan ekstraksi, sehingga tidak perlu cek gilingan.",
+        "Perubahan rasa pasti akibat fines saja.",
+        "Pola tuang baru selalu mempercepat ekstraksi.",
         "Simpulkan kopi berketinggian tertentu pasti menyebabkan drawdown lambat pada semua metode."
       ],
       "correct_index": 0,
@@ -101,7 +101,7 @@
       "type": "single_choice",
       "prompt": "Cangkir terasa 'asam' tetapi data suhu, dosis dan air tidak lengkap. Langkah diagnosis yang baik?",
       "choices": [
-        "Tentukan ekstraksi kurang sebagai penyebab pasti hanya karena cangkir menunjukkan sensasi asam.",
+        "Asam pasti karena ekstraksinya kurang.",
         "Naikkan suhu, turunkan rasio dan ubah grind dalam satu kali seduh tanpa catatan kondisi awal.",
         "Catat persepsi dan parameter yang ada, lalu rancang perbandingan terkontrol.",
         "Ganti kopi sebelum membandingkan data karena rasa asam tidak mungkin berkaitan dengan teknik seduh."
@@ -119,7 +119,7 @@
       "type": "single_choice",
       "prompt": "Dua orang tidak sepakat apakah sampel terasa seperti apel. Cara latihan sensori yang efektif?",
       "choices": [
-        "Pilih deskriptor yang paling sering disebut tanpa memastikan kedua panelis mencicipi pada kondisi sama.",
+        "Pilih deskriptor yang paling sering disebut.",
         "Gunakan referensi deskriptor dan penyajian serupa, lalu diskusikan perbedaan.",
         "Nilai panelis yang tidak menyebut apel sebagai salah tanpa membandingkan referensi aroma.",
         "Ganti nama origin pada botol karena informasi label menentukan apakah dua panelis setuju."
@@ -138,8 +138,8 @@
       "prompt": "Kamu hendak memakai air sumur yang kebersihannya belum teruji. Langkah yang benar?",
       "choices": [
         "Pastikan keamanan air minum lebih dahulu, baru uji efek mineral terhadap seduhan.",
-        "Anggap TDS rendah membuktikan air sumur bebas dari kontaminasi biologis dan logam berbahaya.",
-        "Gunakan langsung air yang tampak jernih, lalu tambahkan mineral agar rasa kopi lebih manis.",
+        "TDS rendah membuktikan air sumur aman.",
+        "Air yang jernih pasti sudah layak diminum.",
         "Memanaskan air sekali dianggap menyelesaikan seluruh risiko kimia tanpa pengujian awal."
       ],
       "correct_index": 0,
@@ -173,7 +173,7 @@
       "type": "single_choice",
       "prompt": "Awalnya uji A/B menunjukkan cangkir B lebih disukai. Setelah catatan diperiksa, B ternyata disajikan lebih panas daripada A. Interpretasi mana yang dapat dipertanggungjawabkan?",
       "choices": [
-        "Nyatakan resep B sebagai pemenang karena perubahan suhu saji tidak mungkin memengaruhi preferensi.",
+        "Cangkir B pasti unggul tanpa pengulangan.",
         "Preferensi tercatat, namun suhu saji adalah faktor pengganggu yang perlu dikendalikan.",
         "Simpulkan perbedaan berasal hanya dari ukuran gilingan meski faktor suhu saji tidak distandarkan.",
         "Hentikan pengujian lebih lanjut karena satu penilaian preferensi sudah membuktikan kausalitas."
@@ -191,9 +191,9 @@
       "type": "single_choice",
       "prompt": "TDS suatu minuman 1,25% dengan output 200 g dan dose 15 g. Berapa extraction yield estimasi sederhana, bila pengukuran valid?",
       "choices": [
-        "Sekitar 1,25% karena angka TDS dapat dipakai langsung sebagai extraction yield tanpa memperhitungkan output.",
-        "Sekitar 12,0% karena 200 gram minuman harus dibagi dosis kopi lalu dikurangi persentase TDS.",
-        "Sekitar 25,0% karena setiap 200 gram minuman dianggap mengandung seperempat massa zat terlarut.",
+        "Sekitar 1,25%",
+        "Sekitar 12,0%",
+        "Sekitar 25,0%",
         "Sekitar 16,7%"
       ],
       "correct_index": 3,
@@ -210,8 +210,8 @@
       "prompt": "Kamu membuat recipe card untuk teman yang memakai grinder berbeda. Informasi mana paling membantu transfer?",
       "choices": [
         "Tujuan rasa, dose, air, metode, indikator aliran, dan cara menyesuaikan berdasarkan observasi.",
-        "Gunakan angka klik grinder pribadimu sebagai patokan universal dan abaikan perbedaan merek alat.",
-        "Tuliskan foto brewer dan warna roasted saja karena indikator aliran bukan bagian resep yang perlu diuji.",
+        "Cukup tulis angka klik grinder milikmu.",
+        "Foto brewer sudah cukup sebagai resep.",
         "Janji hasil rasa sama persis pada setiap alat supaya teman tidak perlu menyesuaikan parameter."
       ],
       "correct_index": 0,
