@@ -46,8 +46,8 @@ export function FinalExamRunner({path,courseHref}:{path:string;courseHref:string
   finally{setSubmitting(false)}
  }
  function reset(){setAnswers({});setIndex(0);setResult(null);setError('')}
- return <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start">
-  <div className="min-w-0">
+ return <div className="grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-10">
+  <div className="min-w-0 lg:order-2 lg:col-span-8">
    {result&&<section aria-live="polite" className="mb-6 rounded-xl border border-paper-300 bg-white p-6 sm:p-8">
     <p className="font-mono text-xs font-semibold uppercase tracking-wider text-cherry-800">Hasil evaluasi teori</p>
     <h2 className="mt-2 font-serif text-3xl font-bold">{result.correct} dari {result.total} benar</h2>
@@ -55,7 +55,7 @@ export function FinalExamRunner({path,courseHref}:{path:string;courseHref:string
     <p className="mt-2 text-xs text-roast-600">Nilai acuan: minimal {result.required_correct} jawaban benar. Penilaian ini mengukur pemahaman teori, bukan keterampilan praktik langsung.</p>
     <button onClick={reset} type="button" className="mt-5 inline-flex items-center gap-2 rounded-md border border-roast-900 px-4 py-2.5 text-sm font-semibold text-roast-950 hover:bg-paper-100"><RotateCcw size={16}/>Ulangi ujian</button>
    </section>}
-   <section className="rounded-xl border border-paper-300 bg-white p-5 shadow-xs sm:p-8" aria-labelledby="question-heading">
+   <section className="rounded-xl border border-paper-300 bg-white p-5 shadow-card sm:p-8 lg:p-12" aria-labelledby="question-heading">
     <div className="flex flex-wrap items-center justify-between gap-3 border-b border-paper-200 pb-4">
      <p className="font-mono text-xs font-semibold uppercase tracking-wider text-cherry-800">Pertanyaan {index+1} dari {total}</p>
      <p className="text-xs text-roast-600">{current.module_ids.join(' + ')} · {result?'Pembahasan':'Pilih satu jawaban'}</p>
@@ -91,7 +91,8 @@ export function FinalExamRunner({path,courseHref}:{path:string;courseHref:string
    </section>}
    <Link href={courseHref} className="mt-6 inline-flex items-center gap-2 text-sm text-cherry-800 underline underline-offset-4"><BookOpen size={16}/>Kembali ke materi</Link>
   </div>
-  <aside className="rounded-xl border border-paper-300 bg-white p-5 lg:sticky lg:top-24" aria-label="Navigasi pertanyaan">
+  <aside className="rounded-xl border border-paper-300 bg-white p-5 shadow-subtle lg:order-1 lg:col-span-4 lg:sticky lg:top-32" aria-label="Navigasi pertanyaan">
+   <h2 className="mb-4 border-b border-paper-200 pb-2 font-mono text-[10px] font-bold uppercase tracking-widest text-roast-600">Daftar Soal Ujian</h2>
    <div className="flex justify-between text-sm font-semibold"><span>Progres jawaban</span><span>{answered}/{total}</span></div>
    <div role="progressbar" aria-label="Progres jawaban" aria-valuemin={0} aria-valuemax={total} aria-valuenow={answered} className="mt-3 h-1.5 overflow-hidden rounded-full bg-paper-200"><div className="h-full bg-roast-950 transition-all" style={{width:(answered/total)*100+'%'}}/></div>
    <p className="mt-5 text-xs leading-5 text-roast-600">Pilih nomor untuk membuka pertanyaan.</p>
