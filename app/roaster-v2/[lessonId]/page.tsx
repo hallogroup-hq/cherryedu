@@ -15,7 +15,7 @@ export default function RoasterLessonPage({params}:{params:{lessonId:string}}){
  if(!l)notFound();
  const m=ROASTER_V2_MODULES.find(m=>m.code===l.moduleId);
  if(!m)notFound();
- return <CuratedLessonFrame courseTitle="Roaster Specialization" courseHref="/roaster-v2" modules={ROASTER_V2_MODULES} lessons={ROASTER_V2_LESSONS} currentId={l.id} rawMarkdown={l.content}>
+ return <CuratedLessonFrame courseTitle="Roaster Specialization" courseHref="/roaster-v2" modules={ROASTER_V2_MODULES} lessons={ROASTER_V2_LESSONS} currentId={l.id} rawMarkdown={l.content} examHref={process.env.CHERRYEDU_FINAL_EXAMS_REVIEW==='enabled'?'/ujian-akhir/roaster':undefined}>
   <MarkdownRenderer content={l.content}/>
   {l.order===1&&<RoasterConceptVisual moduleCode={m.code}/>}
   {l.order===1&&<RoasterConceptVisualExtra moduleCode={m.code}/>}
