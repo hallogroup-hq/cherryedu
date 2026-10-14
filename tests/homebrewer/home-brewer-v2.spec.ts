@@ -1,4 +1,5 @@
 import {expect,test} from '@playwright/test';
+test.beforeEach(async({page})=>{await page.addInitScript(()=>localStorage.setItem('cherry_seen_version_v1_2','true'));});
 const pad=(n:number)=>String(n).padStart(2,'0');
 test('overview lists ten modules, fifty lessons and ten distinct practice routes',async({page})=>{
  const res=await page.goto('/home-brewer-v2',{waitUntil:'domcontentloaded'});
