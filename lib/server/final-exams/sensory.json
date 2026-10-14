@@ -12,11 +12,11 @@
       "prompt": "Panelis menyebut 'jeruk' saat mencium aroma, lalu menyebut 'asam tajam' saat menyeruput. Mana pemisahan yang tepat?",
       "choices": [
         "Keduanya ukuran fisik kelembapan green.",
-        "Jeruk adalah deskriptor aroma; asam tajam adalah pengalaman rasa/asam yang berbeda kanal.",
         "Keduanya bukti harga pasar kopi.",
+        "Jeruk adalah deskriptor aroma; asam tajam adalah pengalaman rasa/asam yang berbeda kanal.",
         "Asam hanya terdeteksi melalui bau."
       ],
-      "correct_index": 1,
+      "correct_index": 2,
       "explanation": "Aroma dan taste merupakan kanal berbeda yang harus dicatat dengan bahasa dan prosedur yang sesuai.",
       "case": false
     },
@@ -48,11 +48,11 @@
       "prompt": "Sebuah panel menggunakan skala suka/tidak suka untuk menyebut intensitas buah. Apa kesalahan konsepnya?",
       "choices": [
         "Skala suka selalu menyatakan kadar gula terlarut.",
+        "Mengukur kesukaan tidak sama dengan mendeskripsikan intensitas atribut.",
         "Kesukaan membuktikan origin.",
-        "Panelis wajib menyukai semua aroma buah.",
-        "Mengukur kesukaan tidak sama dengan mendeskripsikan intensitas atribut."
+        "Panelis wajib menyukai semua aroma buah."
       ],
-      "correct_index": 3,
+      "correct_index": 1,
       "explanation": "Penilaian deskriptif dan afektif menjawab pertanyaan berbeda dalam evaluasi kopi.",
       "case": false
     },
@@ -67,10 +67,10 @@
       "choices": [
         "Peserta pasti ahli sensori tersertifikasi.",
         "Kedua kopi kini terbukti identik.",
-        "Satu jawaban benar tidak cukup untuk membuktikan kemampuan diskriminasi yang andal.",
-        "Cicipan tunggal mengukur seluruh karakter kopi."
+        "Cicipan tunggal mengukur seluruh karakter kopi.",
+        "Satu jawaban benar tidak cukup untuk membuktikan kemampuan diskriminasi yang andal."
       ],
-      "correct_index": 2,
+      "correct_index": 3,
       "explanation": "Diperlukan desain uji dan jumlah percobaan yang memadai untuk menilai kemampuan membedakan.",
       "case": true
     },
@@ -83,12 +83,12 @@
       "type": "single_choice",
       "prompt": "Buyer ingin membandingkan cacat green, ukuran biji, dan kadar air. Bagian CVA yang sesuai?",
       "choices": [
-        "Penilaian afektif saja.",
         "Penilaian fisik.",
+        "Penilaian afektif saja.",
         "Penilaian ekstrinsik saja.",
         "Penilaian deskriptif aroma saja."
       ],
-      "correct_index": 1,
+      "correct_index": 0,
       "explanation": "Physical assessment berfokus atribut fisik green, berbeda dari persepsi cup.",
       "case": false
     },
@@ -101,12 +101,12 @@
       "type": "single_choice",
       "prompt": "Catatan panelis berbunyi 'aroma floranya intens' dan 'saya sangat suka'. Ke mana keduanya dicatat?",
       "choices": [
-        "Deskriptif untuk intensitas; afektif untuk kesukaan.",
         "Keduanya hanya data fisik.",
+        "Deskriptif untuk intensitas; afektif untuk kesukaan.",
         "Keduanya harus dimasukkan sebagai asal geografis.",
         "Keduanya tidak terkait CVA."
       ],
-      "correct_index": 0,
+      "correct_index": 1,
       "explanation": "CVA memisahkan laporan atribut sensori dan evaluasi personal/market.",
       "case": false
     },
@@ -121,10 +121,10 @@
       "choices": [
         "Angka acid intensity dari tes buta.",
         "Moisture content yang diukur langsung.",
-        "Jumlah cacat primer green.",
-        "Informasi ekstrinsik yang memerlukan verifikasi."
+        "Informasi ekstrinsik yang memerlukan verifikasi.",
+        "Jumlah cacat primer green."
       ],
-      "correct_index": 3,
+      "correct_index": 2,
       "explanation": "Asal, sertifikasi, dan keterlacakan termasuk atribut informasi ekstrinsik, bukan hasil cupping otomatis.",
       "case": false
     },
@@ -139,10 +139,10 @@
       "choices": [
         "Naikkan skor A karena mahal.",
         "Hilangkan catatan suhu seduh.",
-        "Gunakan blind codes dan pisahkan data harga dari penilaian sensori.",
-        "Tanyakan merek favorit sebelum mencicipi."
+        "Tanyakan merek favorit sebelum mencicipi.",
+        "Gunakan blind codes dan pisahkan data harga dari penilaian sensori."
       ],
-      "correct_index": 2,
+      "correct_index": 3,
       "explanation": "Ekspektasi dapat memengaruhi penilaian; informasi non-sensori sebaiknya dibutakan saat mengukur persepsi.",
       "case": false
     },
@@ -155,12 +155,12 @@
       "type": "single_choice",
       "prompt": "Batch dinilai memiliki aroma 'papery' pada satu cupping. Keputusan yang paling bertanggung jawab?",
       "choices": [
-        "Tetapkan seluruh origin sebagai cacat permanen.",
         "Cek kondisi penyimpanan, protokol dan konfirmasi melalui cupping ulang.",
+        "Tetapkan seluruh origin sebagai cacat permanen.",
         "Ubah skor tanpa mencatat alasan.",
         "Nyatakan rasa karena satu jenis varietas tertentu."
       ],
-      "correct_index": 1,
+      "correct_index": 0,
       "explanation": "Deskriptor tunggal dapat dipengaruhi sampel/proses; diagnosis butuh pembuktian.",
       "case": false
     },
@@ -173,12 +173,12 @@
       "type": "single_choice",
       "prompt": "Peserta menyelesaikan semua latihan digital sensori. Klaim apa yang tepat?",
       "choices": [
-        "Ia telah berlatih konsep, tetapi kompetensi Q Grader resmi butuh asesmen resmi yang berbeda.",
         "Ia otomatis berhak memakai gelar Q Grader resmi.",
+        "Ia telah berlatih konsep, tetapi kompetensi Q Grader resmi butuh asesmen resmi yang berbeda.",
         "Latihan digital menggantikan semua cupping langsung.",
         "Semua panel kopi harus menerima skornya."
       ],
-      "correct_index": 0,
+      "correct_index": 1,
       "explanation": "Kredensial resmi dan praktik laboratorium tidak dapat disubstitusi dengan sekadar menyelesaikan materi daring.",
       "case": true
     },
@@ -193,10 +193,10 @@
       "choices": [
         "Aroma buah yang kuat otomatis cacat.",
         "Preferensi rendah membuktikan aroma tidak ada.",
-        "Deskriptif dan afektif harus memiliki angka sama.",
-        "Atribut teramati dan preferensi pasar bisa berbeda tanpa kontradiksi."
+        "Atribut teramati dan preferensi pasar bisa berbeda tanpa kontradiksi.",
+        "Deskriptif dan afektif harus memiliki angka sama."
       ],
-      "correct_index": 3,
+      "correct_index": 2,
       "explanation": "Descriptive menanyakan apa yang ada; affective menanyakan apresiasi penilai/pasar.",
       "case": false
     },
@@ -211,10 +211,10 @@
       "choices": [
         "Terima karena semua aspek selalu digabung dalam satu skor tunggal.",
         "Nilai fisik dapat ditebak dari aroma saja.",
-        "Minta laporan terpisah sesuai dimensi CVA dan cakupan penilaian yang benar-benar dilakukan.",
-        "Asal kebun selalu menentukan selisih kesukaan."
+        "Asal kebun selalu menentukan selisih kesukaan.",
+        "Minta laporan terpisah sesuai dimensi CVA dan cakupan penilaian yang benar-benar dilakukan."
       ],
-      "correct_index": 2,
+      "correct_index": 3,
       "explanation": "CVA memiliki empat lensa yang saling melengkapi, bukan satu angka yang otomatis mencakup semuanya.",
       "case": false
     }
