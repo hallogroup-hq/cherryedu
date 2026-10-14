@@ -16,6 +16,7 @@
 | **Teams Standalone Auth** | `npm run test:auth` (Teams repo) | Cryptographic signature, tamper detection, expired tokens, fail-closed | Teams standalone app | **4/4 PASSED** | `cherryedu-teams/tests/verify_auth.ts` |
 | **Teams Standalone Tenant Isolation** | `npm run test:tenant` (Teams repo) | Cross-tenant rejection, same-tenant allowed, suspended membership, outlet scopes | Teams standalone app | **4/4 PASSED** | `cherryedu-teams/tests/verify_tenant_isolation.ts` |
 | **Teams B2B API QA Suite** | `npm run test:api` (Teams repo) | Organizations, invitations, assessments, outlets, cohorts, acceptance lifecycle | Staging DB (`b2b` schema) | **27/27 PASSED** | `cherryedu-teams/tests/verify_b2b_apis.ts` |
+| **Curriculum & Competency Engine QA** | `npm run test:competency` (Teams repo) | Prerequisites, sequential unlocks, remediation lifecycle, multi-attempt gates | Staging DB (`b2b` schema) | **19/19 PASSED** | `cherryedu-teams/tests/verify_curriculum_competency.ts` |
 | **Typecheck (B2C repo)** | `npm run typecheck` | Full repository TypeScript compilation | Static AST check | **0 Errors** | `tsconfig.json` |
 | **Typecheck (Teams repo)** | `npm run typecheck` | Standalone Teams TypeScript compilation | Static AST check | **0 Errors** | `cherryedu-teams/tsconfig.json` |
 | **Build (Teams repo)** | `npm run build` | Next.js 15 production build & static optimization | Node.js build worker | **Compiled (11/11 pages)** | `cherryedu-teams/.next` |

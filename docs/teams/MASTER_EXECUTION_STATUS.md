@@ -15,8 +15,8 @@
 | **Phase 1R** | Existing Security & Entitlement Remediation | **COMPLETED** | **PASS** | `docs/teams/quality-gates/GATE_1R.md` |
 | **Phase 2** | Separate Teams Application & Vercel Project | **COMPLETED** | **PASS** | `docs/teams/quality-gates/GATE_2.md` |
 | **Phase 3** | B2B Database, Auth & API Foundation | **COMPLETED** | **PASS** | `docs/teams/quality-gates/GATE_3.md` |
-| **Phase 4** | Curriculum & Competency Engine | **IN PROGRESS** | **EVALUATING** | Target Gate 4 |
-| **Phase 5** | Complete Barista Application | PENDING | PENDING | Target Gate 5 |
+| **Phase 4** | Curriculum & Competency Engine | **COMPLETED** | **PASS** | `docs/teams/quality-gates/GATE_4.md` |
+| **Phase 5** | Complete Barista Application | **IN PROGRESS** | **EVALUATING** | Target Gate 5 |
 | **Phase 6** | Complete Owner & Manager Application | PENDING | PENDING | Target Gate 6 |
 | **Phase 7** | Complete Trainer Application | PENDING | PENDING | Target Gate 7 |
 | **Phase 8** | Complete Cherry Edu Platform Admin | PENDING | PENDING | Target Gate 8 |
