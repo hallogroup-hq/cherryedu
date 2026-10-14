@@ -78,4 +78,8 @@ test('catalog shows exactly one curated entry for each new specialization',async
  await expect(page.locator('a[href="/paths/post-harvest-specialist"]')).toHaveCount(0);
  await expect(page.locator('a[href="/paths/q-processor-specialization"]')).toHaveCount(0);
  await expect(page.locator('a[href="/paths/coffee-business-management"]')).toHaveCount(0);
+ // The footer is part of the learner journey: it must not send learners to a
+ // retired Q Processor syllabus or imply a CQI credential.
+ await expect(page.locator('footer a[href="/q-processor-v2"]')).toHaveCount(1);
+ await expect(page.locator('footer').getByText('Q Processing Specialist (CQI)',{exact:true})).toHaveCount(0);
 });
