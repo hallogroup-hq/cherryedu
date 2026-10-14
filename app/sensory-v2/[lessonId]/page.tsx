@@ -13,32 +13,32 @@ import {SensoryEvidenceAtlas} from '@/components/sensory-v2/SensoryEvidenceAtlas
 export function generateStaticParams(){return SENSORY_V2_LESSONS.map(l=>({lessonId:l.id}));}
 export default function SensoryLessonPage({params}:{params:{lessonId:string}}){
  if(process.env.CHERRYEDU_SENSORY_V2_REVIEW!=='enabled')notFound();
- const lesson=SENSORY_V2_LESSONS.find(l=>l.id===params.lessonId);
+ const l=SENSORY_V2_LESSONS.find(l=>l.id===params.lessonId);
  if(!lesson)notFound();
- const mod=SENSORY_V2_MODULES.find(m=>m.code===lesson.moduleId);
+ const m=SENSORY_V2_MODULES.find(m=>m.code===l.moduleId);
  if(!mod)notFound();
- return <CuratedLessonFrame courseTitle="Q Grader & Sensory Specialist" courseHref="/sensory-v2" modules={SENSORY_V2_MODULES} lessons={SENSORY_V2_LESSONS} currentId={lesson.id} rawMarkdown={lesson.content}>
-  {lesson.order===1&&<section aria-label="Pengantar konsep" className="mb-8 border-y border-paper-300 bg-paper-100 px-5 py-5">
+ return <CuratedLessonFrame courseTitle="Q Grader & Sensory Specialist" courseHref="/sensory-v2" modules={SENSORY_V2_MODULES} lessons={SENSORY_V2_LESSONS} currentId={l.id} rawMarkdown={l.content}>
+  {l.order===1&&<section aria-label="Pengantar konsep" className="mb-8 border-y border-paper-300 bg-paper-100 px-5 py-5">
    <p className="font-mono text-xs font-semibold uppercase tracking-widest text-cherry-700">Mulai dari gambaran besarnya</p>
-   <MarkdownRenderer content={SENSORY_V2_BRIDGES[mod.code].replace(/^# /,'## ')}/>
+   <MarkdownRenderer content={SENSORY_V2_BRIDGES[m.code].replace(/^# /,'## ')}/>
   </section>}
-  <MarkdownRenderer content={lesson.content}/>
-  {lesson.order===1&&<SensoryConceptVisual moduleCode={mod.code}/>}
-  {lesson.order===1&&<SensoryEvidenceAtlas moduleCode={mod.code}/>}
-  {SENSORY_V2_DEEP_DIVES[lesson.id]&&<div className="mt-9 border-t border-paper-300 pt-6"><MarkdownRenderer content={SENSORY_V2_DEEP_DIVES[lesson.id]}/></div>}
-  {lesson.order===2&&<SensoryV2Lab moduleCode={mod.code}/>}
-  {SENSORY_V2_WORKED_EXAMPLES[lesson.id]&&<div className="mt-9 border-t border-paper-300 pt-6"><MarkdownRenderer content={SENSORY_V2_WORKED_EXAMPLES[lesson.id]}/></div>}
-  {lesson.order===4&&<section className="mt-10 border-y border-paper-300 py-8">
+  <MarkdownRenderer content={l.content}/>
+  {l.order===1&&<SensoryConceptVisual moduleCode={m.code}/>}
+  {l.order===1&&<SensoryEvidenceAtlas moduleCode={m.code}/>}
+  {SENSORY_V2_DEEP_DIVES[l.id]&&<div className="mt-9 border-t border-paper-300 pt-6"><MarkdownRenderer content={SENSORY_V2_DEEP_DIVES[l.id]}/></div>}
+  {l.order===2&&<SensoryV2Lab moduleCode={m.code}/>}
+  {SENSORY_V2_WORKED_EXAMPLES[l.id]&&<div className="mt-9 border-t border-paper-300 pt-6"><MarkdownRenderer content={SENSORY_V2_WORKED_EXAMPLES[l.id]}/></div>}
+  {l.order===4&&<section className="mt-10 border-y border-paper-300 py-8">
    <h3 className="font-serif text-2xl font-semibold text-roast-950">Apa yang berubah setelah bukti baru muncul?</h3>
    <p className="mt-3 text-sm leading-7 text-roast-800">Uji dua situasi dengan informasi yang berkembang. Catat keputusan pertama, lalu perbaiki setelah fakta berikutnya dibuka.</p>
-   <Link href={'/sensory-v2/practice/'+mod.code.toLowerCase()} className="mt-5 inline-block rounded-md border border-roast-900 px-4 py-3 text-sm font-semibold text-roast-900 hover:bg-paper-100">Masuk latihan modul →</Link>
+   <Link href={'/sensory-v2/practice/'+m.code.toLowerCase()} className="mt-5 inline-block rounded-md border border-roast-900 px-4 py-3 text-sm font-semibold text-roast-900 hover:bg-paper-100">Masuk latihan modul →</Link>
   </section>}
-  {['M02','M03','M06','M08'].includes(mod.code)&&lesson.order===3&&<aside className="my-10 border-l-2 border-cherry-700 bg-paper-100 px-5 py-4">
+  {['M02','M03','M06','M08'].includes(m.code)&&l.order===3&&<aside className="my-10 border-l-2 border-cherry-700 bg-paper-100 px-5 py-4">
    <p className="text-sm font-semibold text-roast-950">Mau menguji konsep ini dengan alat nyata?</p>
    <p className="mt-2 text-sm leading-7 text-roast-700">Ikuti panduan praktik mengenai bahan aman, urutan pengujian, cara mencatat bukti dan batas kesimpulan.</p>
    <Link href="/sensory-v2/practical" className="mt-3 inline-block text-sm font-semibold text-cherry-800 underline underline-offset-4">Lihat panduan sensori →</Link>
   </aside>}
-  {mod.code==='M10'&&lesson.order===1&&<aside className="my-10 border-l-2 border-cherry-700 bg-paper-100 px-5 py-4">
+  {m.code==='M10'&&l.order===1&&<aside className="my-10 border-l-2 border-cherry-700 bg-paper-100 px-5 py-4">
    <p className="text-sm font-semibold text-roast-950">Terapkan semua pengetahuanmu pada satu kasus</p>
    <p className="mt-2 text-sm leading-7 text-roast-700">Kumpulkan physical, descriptive, affective, extrinsic dan tindak lanjut pada lembar kerja.</p>
    <Link href="/sensory-v2/notebook" className="mt-3 inline-block text-sm font-semibold text-cherry-800 underline underline-offset-4">Isi lembar kerja CVA →</Link>
