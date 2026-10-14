@@ -10,12 +10,12 @@ type Module={code:string;title:string;description:string};
 type Lesson={id:string;moduleId:string;order:number;title:string;minutes?:number};
 type Props={
  name:string;description:string;image:string;modules:readonly Module[];lessons:readonly Lesson[];
- lessonHref:(id:string)=>string;practiceHref:(code:string)=>string;
+ courseHref:string;
  children?:ReactNode;note?:string;examHref?:string
 };
 
 /** Matches the established Foundation syllabus: course hero, access card, expandable module cards. */
-export function CuratedCourseOverview({name,description,image,modules,lessons,lessonHref,practiceHref,children,note,examHref}:Props){
+export function CuratedCourseOverview({name,description,image,modules,lessons,courseHref,children,note,examHref}:Props){
  const [expanded,setExpanded]=useState<Record<string,boolean>>({});
  const lessonMinutes=lessons.every(l=>typeof l.minutes==='number')?lessons.reduce((total,l)=>total+(l.minutes||0),0):null;
  const firstLesson=lessons[0];
@@ -45,7 +45,7 @@ export function CuratedCourseOverview({name,description,image,modules,lessons,le
        <div className="aspect-[16/9] overflow-hidden bg-paper-200"><img src={image} alt="" className="h-full w-full object-cover"/></div>
        <h2 className="mt-4 text-sm font-bold">Belajar sesuai urutan materi</h2>
        <p className="mt-2 text-sm leading-6 text-roast-700">Baca pelajaran, gunakan latihan, dan periksa pemahamanmu sebelum lanjut ke modul berikutnya.</p>
-       {firstLesson&&<Link href={lessonHref(firstLesson.id)} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-roast-950 px-4 py-3 text-sm font-bold text-white hover:bg-cherry-800">
+       {firstLesson&&<Link href={courseHref+'/'+firstLesson.id} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-roast-950 px-4 py-3 text-sm font-bold text-white hover:bg-cherry-800">
         Baca Materi Pertama <ArrowRight size={16}/>
        </Link>}
       </div>
@@ -84,7 +84,7 @@ export function CuratedCourseOverview({name,description,image,modules,lessons,le
        {isExpanded&&<div id={id+'-lessons'} className="space-y-2 border-t border-paper-300 p-4 sm:p-5">
         <ol className="space-y-2">
          {items.map((lesson,j)=><li key={lesson.id}>
-          <Link href={lessonHref(lesson.id)} className="group flex items-center justify-between gap-3 border border-paper-200 bg-paper-100/70 p-4 transition-colors hover:border-roast-700 hover:bg-paper-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cherry-700">
+          <Link href={courseHref+'/'+lesson.id} className="group flex items-center justify-between gap-3 border border-paper-200 bg-paper-100/70 p-4 transition-colors hover:border-roast-700 hover:bg-paper-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cherry-700">
            <span className="flex min-w-0 items-start gap-3">
             <span aria-hidden="true" className="mt-1 h-3.5 w-3.5 shrink-0 border border-paper-400 bg-paper-50"/>
             <span className="min-w-0">
@@ -100,7 +100,7 @@ export function CuratedCourseOverview({name,description,image,modules,lessons,le
         </ol>
         <div className="flex flex-wrap items-center justify-between gap-3 pt-3">
          <p className="text-xs text-roast-700">Sudah memahami materi modul ini?</p>
-         <Link href={practiceHref(m.code)} className="inline-flex items-center gap-2 text-sm font-semibold text-cherry-800 underline underline-offset-4">
+         <Link href={courseHref+'/practice/'+m.code.toLowerCase()} className="inline-flex items-center gap-2 text-sm font-semibold text-cherry-800 underline underline-offset-4">
           Latihan Modul {String(i+1).padStart(2,'0')} <ArrowRight size={15}/>
          </Link>
         </div>
