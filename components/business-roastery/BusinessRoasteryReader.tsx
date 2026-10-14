@@ -43,7 +43,6 @@ export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
    </div>
   </div>
   <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
-   <p className="border border-paper-300 bg-paper-100 px-4 py-3 text-xs text-roast-700">Belajar mandiri. Catatan latihan dan progres pada kelas ini belum tersimpan ke akun.</p>
    <div className="mt-7 grid w-full grid-cols-1 items-start gap-10 lg:grid-cols-12">
     <aside id="br-reader-sidebar" className={`${sidebarOpen?'block':'hidden'} lg:col-span-4 lg:block`} aria-label="Daftar pelajaran silabus">
      <div className="sticky top-32 max-h-[calc(100vh-170px)] overflow-y-auto rounded-xl border border-paper-300 bg-white p-5 shadow-subtle">
