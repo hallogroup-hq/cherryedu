@@ -9,7 +9,7 @@
       ],
       "objective": "B01-transfer-1",
       "type": "single_choice",
-      "prompt": "Penjual green menawarkan harga cherry Rp12.000/kg dan green siap roast Rp85.000/kg. Mengapa margin keduanya tidak bisa dihitung dari selisih sederhana?",
+      "prompt": "Pemasok menawarkan harga cherry Rp12.000/kg dan green siap roast Rp85.000/kg. Mengapa margin keduanya tidak bisa dihitung dari selisih sederhana?",
       "choices": [
         "Gunakan selisih dua harga sebagai margin tetap tanpa menghitung perubahan massa saat proses.",
         "Bandingkan keduanya memakai satu kilogram cherry sebagai basis final tanpa yield pengolahan.",
@@ -63,7 +63,7 @@
       ],
       "objective": "B04-transfer-4",
       "type": "single_choice",
-      "prompt": "Roastery baru mengusulkan delapan SKU sebelum memiliki data penjualan. Risiko yang harus diuji?",
+      "prompt": "Roastery awalnya merencanakan delapan SKU untuk memperluas pilihan. Setelah riset awal, belum ada data penjualan yang dapat diandalkan. Risiko apa yang perlu diuji sebelum membeli stok?",
       "choices": [
         "Stok terbagi, forecast tidak pasti, dan risiko lot menua meningkat.",
         "Tambahkan SKU karena variasi kemasan otomatis meningkatkan akurasi forecast dan penjualan.",
@@ -136,7 +136,7 @@
       ],
       "objective": "B09-transfer-8",
       "type": "single_choice",
-      "prompt": "Ruangan roasting memiliki ventilasi tidak diperiksa dan alarm bahaya tidak berfungsi. Manajer sedang dikejar PO. Langkah tepat?",
+      "prompt": "Manajer semula menjadwalkan roasting untuk memenuhi PO hari ini. Saat inspeksi, ditemukan ventilasi belum diperiksa dan alarm bahaya tidak berfungsi. Keputusan apa yang tepat?",
       "choices": [
         "Lanjutkan produksi terbatas sambil menunda inspeksi ventilasi dan perbaikan alarm bahaya.",
         "Anggap membuka pintu cukup memenuhi semua syarat exhaust tanpa pengukuran atau pemeriksaan.",
@@ -262,7 +262,7 @@
       ],
       "objective": "B16-transfer-15",
       "type": "single_choice",
-      "prompt": "Roastery mencatat penjualan kredit Rp20 juta hari ini, pembayaran buyer baru bulan depan, tetapi supplier harus dibayar pekan ini. Apa risiko kuncinya?",
+      "prompt": "Roastery baru mencatat penjualan kredit Rp20 juta hari ini. Kemudian diketahui buyer membayar bulan depan, sedangkan supplier jatuh tempo pekan ini. Risiko apa yang harus dimodelkan?",
       "choices": [
         "Anggap invoice yang diterbitkan setara kas saat ini sehingga pembelian green dapat langsung didanai.",
         "Tunda membuat jadwal kas karena bisnis yang mencatat laba dianggap selalu mampu membayar.",
@@ -352,7 +352,7 @@
       ],
       "objective": "B21-transfer-20",
       "type": "single_choice",
-      "prompt": "Buyer luar negeri meminta harga CIF tetapi tim baru menghitung harga ex-works. Tindakan yang tepat?",
+      "prompt": "Tim awalnya menyusun harga ex-works untuk buyer luar negeri. Setelah diskusi, buyer meminta penawaran CIF dengan tujuan pengiriman spesifik. Apa yang harus diperiksa sebelum mengirim quote?",
       "choices": [
         "Perjelas lokasi dan biaya/tanggung jawab masing-masing Incoterm sebelum mengirim quote.",
         "Samakan CIF dengan harga ex-works karena pembeli dianggap selalu mengurus freight dan asuransi.",
