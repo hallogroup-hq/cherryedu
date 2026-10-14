@@ -10,6 +10,14 @@ on:
       - 'app/ujian-akhir/**'
       - 'components/final-exams/**'
       - 'components/curated/CuratedCourseOverview.tsx'
+      - 'components/curated/CuratedLessonFrame.tsx'
+      - 'app/barista-v2/[lessonId]/page.tsx'
+      - 'app/home-brewer-v2/[lessonId]/page.tsx'
+      - 'app/roaster-v2/[lessonId]/page.tsx'
+      - 'app/sensory-v2/[lessonId]/page.tsx'
+      - 'app/business-roastery-v1/[lessonId]/page.tsx'
+      - 'tests/curated/**'
+      - 'playwright.curated.config.ts'
       - 'app/barista-v2/page.tsx'
       - 'app/home-brewer-v2/page.tsx'
       - 'app/roaster-v2/page.tsx'
@@ -54,3 +62,5 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Desktop and mobile examination flows
         run: npx playwright test --config=playwright.final-exams.config.ts
+      - name: Foundation-aligned syllabus and lesson reader UI across all curated paths
+        run: npx playwright test --config=playwright.curated.config.ts
