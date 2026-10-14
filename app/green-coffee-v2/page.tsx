@@ -7,7 +7,7 @@ export default function GreenCoffeePath(){
  return <CuratedCourseOverview
   name="Green Coffee & Post-Harvest Processing Specialist"
   description="Belajar mengevaluasi green bean dari identitas tanaman, kebun dan panen hingga proses, pengeringan, grading, gudang dan logistik. Setiap keputusan disusun dari bukti, bukan label rasa atau angka mutlak."
-  image="https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=800&auto=format&fit=crop&q=80"
+  image="https://images.unsplash.com/photo-1754648293032-090b43f4e45b?w=800&auto=format&fit=crop&q=80"
   courseHref="/green-coffee-v2"
   modules={GREEN_COFFEE_V2_MODULES}
   lessons={GREEN_COFFEE_V2_LESSONS}
