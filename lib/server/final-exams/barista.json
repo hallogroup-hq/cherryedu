@@ -63,7 +63,7 @@
       ],
       "objective": "M04-transfer-4",
       "type": "single_choice",
-      "prompt": "Dua shot memiliki waktu mirip tetapi satu terasa tajam. Metode evaluasi yang paling sahih?",
+      "prompt": "Dua shot awalnya memiliki waktu ekstraksi mirip. Setelah cupping, satu shot terasa tajam sementara yang lain seimbang. Metode evaluasi lanjutan mana paling sahih?",
       "choices": [
         "Simpulkan shot tajam pasti kurang ekstraksi hanya dari waktu yang mirip dengan shot pembanding.",
         "Gunakan ketebalan crema saja untuk memutuskan apakah kedua shot layak disajikan.",
@@ -171,7 +171,7 @@
       ],
       "objective": "M10-transfer-10",
       "type": "single_choice",
-      "prompt": "Resep menggunakan 20 g kopi seharga Rp240.000/kg. Berapa biaya kopi per minuman, sebelum susut?",
+      "prompt": "Barista mula-mula menghitung biaya kopi menggunakan harga lama. Invoice baru menunjukkan Rp240.000/kg dan resep tetap 20 g. Berapa biaya kopi per minuman sebelum susut?",
       "choices": [
         "Rp2.400 karena biaya dibagi dua untuk satu resep espresso dan satu minuman susu.",
         "Rp12.000 karena harga per kilogram harus dihitung sebagai biaya per 50 gram.",
