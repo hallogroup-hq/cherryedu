@@ -4,9 +4,12 @@ test('overview lists ten modules, fifty lessons and ten distinct practice routes
  const res=await page.goto('/home-brewer-v2',{waitUntil:'domcontentloaded'});
  expect(res?.status()).toBe(200);
  await expect(page.getByRole('heading',{level:1})).toContainText('Home Brewer Specialization');
- await expect(page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])')).toHaveCount(10);
- await expect(page.locator('a[href^="/home-brewer-v2/hbv2-hb"]')).toHaveCount(50);
- await expect(page.locator('a[href^="/home-brewer-v2/practice/"]')).toHaveCount(10);
+ const modules=page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])');
+ await expect(modules).toHaveCount(10);
+ await expect(modules.first().getByRole('button')).toHaveAttribute('aria-expanded','true');
+ for(let i=1;i<10;i++)await modules.nth(i).getByRole('button').click();
+ await expect(modules.locator('ol li a[href^="/home-brewer-v2/hbv2-hb"]')).toHaveCount(50);
+ await expect(modules.locator('a[href^="/home-brewer-v2/practice/"]')).toHaveCount(10);
  const text=await page.locator('main').innerText();
  expect(text).not.toMatch(/DRAFT REVIEW|QA internal|Beta Publik|\[DIAGRAM:/i);
 });
