@@ -9,7 +9,10 @@ const specializations=[
  {course:'/home-brewer-v2',exam:'/ujian-akhir/home-brewer',count:12},
  {course:'/roaster-v2',exam:'/ujian-akhir/roaster',count:12},
  {course:'/sensory-v2',exam:'/ujian-akhir/sensory',count:12},
- {course:'/business-roastery-v1',exam:'/ujian-akhir/business-roastery',count:20}
+ {course:'/business-roastery-v1',exam:'/ujian-akhir/business-roastery',count:20},
+ {course:'/green-coffee-v2',exam:'/ujian-akhir/green-coffee',count:16},
+ {course:'/coffee-shop-v2',exam:'/ujian-akhir/coffee-shop',count:16},
+ {course:'/q-processor-v2',exam:'/ujian-akhir/q-processor',count:16}
 ] as const;
 
 for(const path of specializations){
@@ -59,7 +62,9 @@ test('old replaced syllabus URLs always redirect to the six current learning exp
   ['/paths/home-brewer-specialization','/home-brewer-v2'],
   ['/paths/roaster-path','/roaster-v2'],
   ['/paths/q-grader-path','/sensory-v2'],
-  ['/paths/coffee-business-management','/paths/coffee-business-management']
+  ['/paths/post-harvest-specialist','/green-coffee-v2'],
+  ['/paths/q-processor-specialization','/q-processor-v2'],
+  ['/paths/coffee-business-management','/coffee-shop-v2']
  ]){
   await page.goto(oldRoute);
   await expect(page).toHaveURL(new RegExp(current.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'$'));
@@ -67,7 +72,7 @@ test('old replaced syllabus URLs always redirect to the six current learning exp
 });
 
 test('remaining legacy paths have an exam at the end without unverified external certification claims',async({page})=>{
- for(const slug of ['post-harvest-specialist','coffee-business-management','q-processor-specialization']){
+ for(const slug of ['post-harvest-specialist']){
   await page.goto('/paths/'+slug);
   const exam=page.getByRole('link',{name:/Mulai Ujian Akhir/});
   await expect(exam).toBeVisible();
