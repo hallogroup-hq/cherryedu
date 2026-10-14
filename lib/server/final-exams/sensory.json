@@ -1,0 +1,222 @@
+{
+  "path": "sensory",
+  "version": "2026-10-14.1",
+  "items": [
+    {
+      "id": "sensory-01",
+      "module_ids": [
+        "M01"
+      ],
+      "objective": "M01-transfer-1",
+      "type": "single_choice",
+      "prompt": "Panelis menyebut 'jeruk' saat mencium aroma, lalu menyebut 'asam tajam' saat menyeruput. Mana pemisahan yang tepat?",
+      "choices": [
+        "Keduanya ukuran fisik kelembapan green.",
+        "Jeruk adalah deskriptor aroma; asam tajam adalah pengalaman rasa/asam yang berbeda kanal.",
+        "Keduanya bukti harga pasar kopi.",
+        "Asam hanya terdeteksi melalui bau."
+      ],
+      "correct_index": 1,
+      "explanation": "Aroma dan taste merupakan kanal berbeda yang harus dicatat dengan bahasa dan prosedur yang sesuai.",
+      "case": false
+    },
+    {
+      "id": "sensory-02",
+      "module_ids": [
+        "M02"
+      ],
+      "objective": "M02-transfer-2",
+      "type": "single_choice",
+      "prompt": "Dua panelis menilai intensitas aroma berbeda; satu cangkir disajikan lebih dingin. Apa tindakan pertama?",
+      "choices": [
+        "Samakan prosedur saji dan kondisi sampel sebelum menafsirkan selisih panelis.",
+        "Putuskan panelis yang memberi angka lebih tinggi pasti benar.",
+        "Tukar kode sampel tanpa memperbaiki suhu.",
+        "Anggap suhu saji tidak memengaruhi persepsi."
+      ],
+      "correct_index": 0,
+      "explanation": "Kontrol kondisi merupakan syarat perbandingan yang wajar.",
+      "case": false
+    },
+    {
+      "id": "sensory-03",
+      "module_ids": [
+        "M03"
+      ],
+      "objective": "M03-transfer-3",
+      "type": "single_choice",
+      "prompt": "Sebuah panel menggunakan skala suka/tidak suka untuk menyebut intensitas buah. Apa kesalahan konsepnya?",
+      "choices": [
+        "Skala suka selalu menyatakan kadar gula terlarut.",
+        "Kesukaan membuktikan origin.",
+        "Panelis wajib menyukai semua aroma buah.",
+        "Mengukur kesukaan tidak sama dengan mendeskripsikan intensitas atribut."
+      ],
+      "correct_index": 3,
+      "explanation": "Penilaian deskriptif dan afektif menjawab pertanyaan berbeda dalam evaluasi kopi.",
+      "case": false
+    },
+    {
+      "id": "sensory-04",
+      "module_ids": [
+        "M04"
+      ],
+      "objective": "M04-transfer-4",
+      "type": "single_choice",
+      "prompt": "Dalam tes segitiga, satu dari tiga cangkir berbeda tetapi peserta memilih benar sekali. Kesimpulan tepat?",
+      "choices": [
+        "Peserta pasti ahli sensori tersertifikasi.",
+        "Kedua kopi kini terbukti identik.",
+        "Satu jawaban benar tidak cukup untuk membuktikan kemampuan diskriminasi yang andal.",
+        "Cicipan tunggal mengukur seluruh karakter kopi."
+      ],
+      "correct_index": 2,
+      "explanation": "Diperlukan desain uji dan jumlah percobaan yang memadai untuk menilai kemampuan membedakan.",
+      "case": true
+    },
+    {
+      "id": "sensory-05",
+      "module_ids": [
+        "M05"
+      ],
+      "objective": "M05-transfer-5",
+      "type": "single_choice",
+      "prompt": "Buyer ingin membandingkan cacat green, ukuran biji, dan kadar air. Bagian CVA yang sesuai?",
+      "choices": [
+        "Penilaian afektif saja.",
+        "Penilaian fisik.",
+        "Penilaian ekstrinsik saja.",
+        "Penilaian deskriptif aroma saja."
+      ],
+      "correct_index": 1,
+      "explanation": "Physical assessment berfokus atribut fisik green, berbeda dari persepsi cup.",
+      "case": false
+    },
+    {
+      "id": "sensory-06",
+      "module_ids": [
+        "M06"
+      ],
+      "objective": "M06-transfer-6",
+      "type": "single_choice",
+      "prompt": "Catatan panelis berbunyi 'aroma floranya intens' dan 'saya sangat suka'. Ke mana keduanya dicatat?",
+      "choices": [
+        "Deskriptif untuk intensitas; afektif untuk kesukaan.",
+        "Keduanya hanya data fisik.",
+        "Keduanya harus dimasukkan sebagai asal geografis.",
+        "Keduanya tidak terkait CVA."
+      ],
+      "correct_index": 0,
+      "explanation": "CVA memisahkan laporan atribut sensori dan evaluasi personal/market.",
+      "case": false
+    },
+    {
+      "id": "sensory-07",
+      "module_ids": [
+        "M07"
+      ],
+      "objective": "M07-transfer-7",
+      "type": "single_choice",
+      "prompt": "Merek mempromosikan kopi dengan indikasi geografis dan cerita petani. Dalam CVA, unsur tersebut paling dekat dengan?",
+      "choices": [
+        "Angka acid intensity dari tes buta.",
+        "Moisture content yang diukur langsung.",
+        "Jumlah cacat primer green.",
+        "Informasi ekstrinsik yang memerlukan verifikasi."
+      ],
+      "correct_index": 3,
+      "explanation": "Asal, sertifikasi, dan keterlacakan termasuk atribut informasi ekstrinsik, bukan hasil cupping otomatis.",
+      "case": false
+    },
+    {
+      "id": "sensory-08",
+      "module_ids": [
+        "M08"
+      ],
+      "objective": "M08-transfer-8",
+      "type": "single_choice",
+      "prompt": "Seorang panelis tahu harga sampel A lebih mahal sebelum blind tasting. Bagaimana mengurangi bias?",
+      "choices": [
+        "Naikkan skor A karena mahal.",
+        "Hilangkan catatan suhu seduh.",
+        "Gunakan blind codes dan pisahkan data harga dari penilaian sensori.",
+        "Tanyakan merek favorit sebelum mencicipi."
+      ],
+      "correct_index": 2,
+      "explanation": "Ekspektasi dapat memengaruhi penilaian; informasi non-sensori sebaiknya dibutakan saat mengukur persepsi.",
+      "case": false
+    },
+    {
+      "id": "sensory-09",
+      "module_ids": [
+        "M09"
+      ],
+      "objective": "M09-transfer-9",
+      "type": "single_choice",
+      "prompt": "Batch dinilai memiliki aroma 'papery' pada satu cupping. Keputusan yang paling bertanggung jawab?",
+      "choices": [
+        "Tetapkan seluruh origin sebagai cacat permanen.",
+        "Cek kondisi penyimpanan, protokol dan konfirmasi melalui cupping ulang.",
+        "Ubah skor tanpa mencatat alasan.",
+        "Nyatakan rasa karena satu jenis varietas tertentu."
+      ],
+      "correct_index": 1,
+      "explanation": "Deskriptor tunggal dapat dipengaruhi sampel/proses; diagnosis butuh pembuktian.",
+      "case": false
+    },
+    {
+      "id": "sensory-10",
+      "module_ids": [
+        "M10"
+      ],
+      "objective": "M10-transfer-10",
+      "type": "single_choice",
+      "prompt": "Peserta menyelesaikan semua latihan digital sensori. Klaim apa yang tepat?",
+      "choices": [
+        "Ia telah berlatih konsep, tetapi kompetensi Q Grader resmi butuh asesmen resmi yang berbeda.",
+        "Ia otomatis berhak memakai gelar Q Grader resmi.",
+        "Latihan digital menggantikan semua cupping langsung.",
+        "Semua panel kopi harus menerima skornya."
+      ],
+      "correct_index": 0,
+      "explanation": "Kredensial resmi dan praktik laboratorium tidak dapat disubstitusi dengan sekadar menyelesaikan materi daring.",
+      "case": true
+    },
+    {
+      "id": "sensory-11",
+      "module_ids": [
+        "M03"
+      ],
+      "objective": "M03-transfer-11",
+      "type": "single_choice",
+      "prompt": "CVA deskriptif mencatat aroma buah kuat, tetapi banyak pembeli tidak menyukainya. Mana kesimpulan tepat?",
+      "choices": [
+        "Aroma buah yang kuat otomatis cacat.",
+        "Preferensi rendah membuktikan aroma tidak ada.",
+        "Deskriptif dan afektif harus memiliki angka sama.",
+        "Atribut teramati dan preferensi pasar bisa berbeda tanpa kontradiksi."
+      ],
+      "correct_index": 3,
+      "explanation": "Descriptive menanyakan apa yang ada; affective menanyakan apresiasi penilai/pasar.",
+      "case": false
+    },
+    {
+      "id": "sensory-12",
+      "module_ids": [
+        "M05"
+      ],
+      "objective": "M05-transfer-12",
+      "type": "single_choice",
+      "prompt": "Laporan mengklaim 'CVA skor tunggal' sudah mewakili mutu fisik, kesukaan dan cerita asal. Apa respons benar?",
+      "choices": [
+        "Terima karena semua aspek selalu digabung dalam satu skor tunggal.",
+        "Nilai fisik dapat ditebak dari aroma saja.",
+        "Minta laporan terpisah sesuai dimensi CVA dan cakupan penilaian yang benar-benar dilakukan.",
+        "Asal kebun selalu menentukan selisih kesukaan."
+      ],
+      "correct_index": 2,
+      "explanation": "CVA memiliki empat lensa yang saling melengkapi, bukan satu angka yang otomatis mencakup semuanya.",
+      "case": false
+    }
+  ]
+}
