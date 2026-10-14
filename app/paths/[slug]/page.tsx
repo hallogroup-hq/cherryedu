@@ -458,6 +458,16 @@ export default function PathDetailPage() {
           })}
         </div>
 
+        {isDraftPreview && process.env.NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW === 'enabled' && (
+          <section className="mt-10 flex flex-col gap-4 rounded-xl border border-paper-300 bg-white p-6 sm:flex-row sm:items-center sm:justify-between" aria-label="Ujian akhir Foundation">
+            <div>
+              <h2 className="font-serif text-2xl font-bold text-roast-950">Ujian Akhir</h2>
+              <p className="mt-2 text-sm leading-6 text-roast-700">Uji pemahaman perjalanan kopi dari kebun sampai cangkir melalui pertanyaan lintas-modul.</p>
+            </div>
+            <Link href="/ujian-akhir/foundation" className="inline-flex shrink-0 justify-center rounded-md bg-roast-950 px-5 py-3 text-sm font-semibold text-white hover:bg-cherry-800">Mulai ujian akhir →</Link>
+          </section>
+        )}
+
         {/* Final Exam Box */}
         {finalExam && (
           <div className="mt-10 bg-roast-950 text-paper-50 p-8 shadow-warm border-2 border-crema-500/60 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
