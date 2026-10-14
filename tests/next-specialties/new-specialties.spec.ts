@@ -67,7 +67,7 @@ test('shop economics calculates contribution and simple BEP correctly',async({pa
 test('Q Processor mass balance refuses impossible output',async({page})=>{
  await page.goto('/q-processor-v2/qp2-m07-l03');
  const area=page.getByRole('region',{name:'Rendemen green saleable'});
- await area.getByRole('spinbutton',{name:'Massa input awal'}).fill('1000');
+ await area.getByRole('spinbutton',{name:'Massa parchment masuk'}).fill('1000');
  await area.getByRole('spinbutton',{name:'Output green kasar'}).fill('810');
  await area.getByRole('spinbutton',{name:'Reject sortasi green'}).fill('30');
  await expect(area.getByRole('status')).toContainText('78,0%');
