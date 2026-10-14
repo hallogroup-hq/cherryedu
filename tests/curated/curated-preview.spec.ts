@@ -1,4 +1,5 @@
 import {test,expect} from '@playwright/test';
+test.beforeEach(async({page})=>{await page.addInitScript(()=>localStorage.setItem('cherry_seen_version_v1_2','true'));});
 const paths=[
  {url:'/barista-v2',name:'Barista Specialization',modules:12,lessons:68,first:'/barista-v2/bv2-m01-l01'},
  {url:'/home-brewer-v2',name:'Home Brewer Specialization',modules:10,lessons:50,first:'/home-brewer-v2/hbv2-hb01-l01'},
