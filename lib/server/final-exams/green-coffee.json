@@ -233,7 +233,7 @@
         "Rp55.000/kg saleable karena biaya dibagi 500 kg."
       ],
       "correct_index": 0,
-      "explanation": "27.500.000/220=125.000; denominator harus output green yang saleable.",
+      "explanation": "Rp27.500.000 dibagi 220 kg green saleable = Rp125.000 per kg. Ini adalah biaya unit relevan sebelum penetapan harga dan margin penjualan.",
       "case": false
     },
     {
