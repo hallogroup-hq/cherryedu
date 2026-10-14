@@ -459,17 +459,18 @@ export default function PathDetailPage() {
         </div>
 
         {isDraftPreview && process.env.NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW === 'enabled' && (
-          <section className="mt-10 flex flex-col gap-4 rounded-xl border border-paper-300 bg-white p-6 sm:flex-row sm:items-center sm:justify-between" aria-label="Ujian akhir Foundation">
-            <div>
-              <h2 className="font-serif text-2xl font-bold text-roast-950">Ujian Akhir</h2>
-              <p className="mt-2 text-sm leading-6 text-roast-700">Uji pemahaman perjalanan kopi dari kebun sampai cangkir melalui pertanyaan lintas-modul.</p>
+          <section className="mt-10 flex flex-col items-start justify-between gap-6 border-2 border-crema-500/60 bg-roast-950 p-6 text-paper-50 shadow-warm sm:flex-row sm:items-center sm:p-8" aria-label="Ujian akhir Foundation">
+            <div className="space-y-2">
+              <span className="block font-mono text-[10px] font-bold uppercase tracking-widest text-crema-300">Evaluasi Akhir</span>
+              <h2 className="font-serif text-2xl font-black text-white">Ujian Akhir Memahami Kopi dari Hulu ke Hilir</h2>
+              <p className="max-w-xl text-sm leading-6 text-roast-300">Uji pemahaman materi lintas-modul dan cara mengambil keputusan berdasarkan bukti.</p>
             </div>
-            <Link href="/ujian-akhir/foundation" className="inline-flex shrink-0 justify-center rounded-md bg-roast-950 px-5 py-3 text-sm font-semibold text-white hover:bg-cherry-800">Mulai ujian akhir →</Link>
+            <Link href="/ujian-akhir/foundation" className="inline-flex shrink-0 items-center justify-center border border-crema-400 bg-crema-500 px-5 py-3 font-mono text-xs font-bold uppercase tracking-wider text-roast-950 hover:bg-crema-400">Mulai Ujian Akhir →</Link>
           </section>
         )}
 
         {/* Final Exam Box */}
-        {finalExam && (
+        {finalExam && !isDraftPreview && (
           <div className="mt-10 bg-roast-950 text-paper-50 p-8 shadow-warm border-2 border-crema-500/60 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
             <div className="space-y-2 text-center sm:text-left">
               <span className="font-mono text-[10px] uppercase tracking-widest text-crema-300 font-bold block">
