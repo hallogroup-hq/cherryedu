@@ -12,7 +12,7 @@ export default function BusinessRoasteryLesson({params}:{params:{lessonId:string
  if(!lesson)notFound();
  const mod=BUSINESS_ROASTERY_MODULES.find(m=>m.code===lesson.moduleId);
  if(!mod)notFound();
- return <CuratedLessonFrame courseTitle="Business Roastery" courseHref="/business-roastery-v1" modules={BUSINESS_ROASTERY_MODULES} lessons={BUSINESS_ROASTERY_LESSONS} currentId={lesson.id} rawMarkdown={lesson.content}>
+ return <CuratedLessonFrame courseTitle="Business Roastery" courseHref="/business-roastery-v1" modules={BUSINESS_ROASTERY_MODULES} lessons={BUSINESS_ROASTERY_LESSONS} currentId={lesson.id} rawMarkdown={lesson.content} examHref={process.env.CHERRYEDU_FINAL_EXAMS_REVIEW==='enabled'?'/ujian-akhir/business-roastery':undefined}>
   <MarkdownRenderer content={lesson.content}/>
   {lesson.order===3&&<section aria-label="Studi kasus dan perhitungan" className="my-10 border-y border-paper-300 bg-paper-100 px-5 py-7">
    <h3 className="font-serif text-2xl font-bold text-roast-950">{BUSINESS_ROASTERY_FIELD_GUIDES[mod.code].title}</h3>
