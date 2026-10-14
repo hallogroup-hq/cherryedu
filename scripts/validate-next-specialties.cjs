@@ -46,7 +46,7 @@ for(const spec of specs){
    if(allDeepDiveHeadings.has(heading))fail('duplicate teaching deep-dive heading '+l.id);
    allDeepDiveHeadings.add(heading);
   }
-  if(!l.content.includes('## ')||(!l.content.includes('Rujukan')&&!l.content.includes('Sumber')))fail('missing pedagogy/reference '+l.id);
+  if(!l.content.includes('## ')||!/\[[^\]]+\]\(https?:\/\/[^)]+\)/.test(l.content))fail('missing pedagogy/reference '+l.id);
   if(/\[(?:Sumber|Rujukan) \d+\]\(https?:\/\//.test(l.content))fail('anonymous learner source label '+l.id);
   if(/(?:\bDRAFT\b|\bQA INTERNAL\b|\bPLACEHOLDER\b|\bTODO\b|\bCOMING SOON\b)/i.test(l.title+' '+l.content))fail('internal student copy '+l.id);
  }
