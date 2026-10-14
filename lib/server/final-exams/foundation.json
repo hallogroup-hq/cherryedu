@@ -63,7 +63,7 @@
       ],
       "objective": "M04-transfer-4",
       "type": "single_choice",
-      "prompt": "Roaster membandingkan berat 10 kg green bean dengan hasil roasted 8,4 kg. Apa yang dapat dikatakan dari angka itu?",
+      "prompt": "Awalnya roaster memperkirakan 10 kg green akan menjadi 9 kg roasted. Setelah produksi, timbangan menunjukkan 8,4 kg roasted. Apa kesimpulan yang benar dari hasil aktual?",
       "choices": [
         "Berat susut 16% menandakan seluruh selisih adalah biji reject dan harus dibuang dari lot.",
         "Hasil 8,4 kg memastikan roasting sudah mencapai roast level tertentu tanpa data suhu.",
@@ -171,7 +171,7 @@
       ],
       "objective": "M03-transfer-10",
       "type": "single_choice",
-      "prompt": "Penjual menulis 'giling basah' tetapi hanya memberi foto green bean. Data tambahan apa yang diperlukan?",
+      "prompt": "Awalnya pembeli percaya label proses 'giling basah'. Ketika meminta bukti, pemasok hanya mengirim foto green bean tanpa catatan produksi. Data apa yang masih diperlukan?",
       "choices": [
         "Nama merek dan desain kemasan dapat dipakai untuk memastikan tahap pengolahan pascapanen.",
         "Rangkaian proses, kondisi pengeringan, dan pencatatan lot.",
