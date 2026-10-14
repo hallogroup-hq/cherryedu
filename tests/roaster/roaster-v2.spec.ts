@@ -3,9 +3,11 @@ test('course inventory, navigation and accessible concept model',async({page})=>
  await page.goto('/roaster-v2');
  await expect(page.getByRole('heading',{name:'Roaster Specialization'})).toBeVisible();
  await expect(page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])')).toHaveCount(10);
- await expect(page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"]) ol li')).toHaveCount(40);
+ const courseModules=page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])');
+ for(let i=1;i<10;i++)await courseModules.nth(i).getByRole('button').click();
+ await expect(courseModules.locator('ol li')).toHaveCount(40);
  await page.getByRole('link',{name:/Bagaimana panas benar-benar sampai ke biji/}).click();
- await expect(page.getByRole('heading',{name:/Bagaimana panas benar-benar sampai ke biji/})).toBeVisible();
+ await expect(page.getByRole('heading',{level:1,name:/Bagaimana panas benar-benar sampai ke biji/})).toBeVisible();
  await expect(page.getByRole('img',{name:'Jalur energi selama roasting'})).toBeVisible();
 });
 test('practice requires real first response, then new evidence and revision',async({page})=>{
