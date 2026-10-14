@@ -18,7 +18,7 @@ for(const [path,total] of paths){
   expect(wrongVersion.status()).toBe(400);
   const res=await page.goto('/ujian-akhir/'+path);expect(res?.status()).toBe(200);
   await expect(page.getByRole('heading',{level:1})).toContainText('Ujian Akhir');
-  await expect(page.getByRole('heading',{id:'question-heading'})).toBeVisible();
+  await expect(page.locator('#question-heading')).toBeVisible();
   for(let i=0;i<total;i++){
    if(i)await page.getByRole('button',{name:'Berikutnya'}).click();
    await page.getByRole('radio',{name:'Pilihan A'}).check();
@@ -33,10 +33,10 @@ for(const [path,total] of paths){
 test('mobile reading is legible and can navigate',async({page})=>{
  await page.setViewportSize({width:390,height:844});
  await page.goto('/ujian-akhir/foundation');
- await expect(page.getByRole('heading',{id:'question-heading'})).toBeVisible();
+ await expect(page.locator('#question-heading')).toBeVisible();
  const scroll=await page.locator('main').evaluate(el=>el.scrollWidth);
  expect(scroll).toBeLessThanOrEqual(392);
  await page.getByRole('radio',{name:'Pilihan B'}).check();
  await page.getByRole('button',{name:'Pertanyaan 2'}).click();
- await expect(page.getByRole('heading',{id:'question-heading'})).toBeVisible();
+ await expect(page.locator('#question-heading')).toBeVisible();
 });
