@@ -6,7 +6,7 @@ export const dynamic='force-dynamic';
 export const metadata={title:'Ujian Akhir | CherryEdu',robots:{index:false,follow:false}};
 export default function FinalExamsIndex(){
  if(!FINAL_EXAM_ENABLED())notFound();
- return <main className="min-h-screen bg-paper-50 pb-24 text-roast-950">
+ return <div className="min-h-screen bg-paper-50 pb-24 text-roast-950">
   <header className="border-b border-paper-300 bg-paper-100/60">
    <div className="mx-auto max-w-6xl px-5 py-12 sm:py-16">
     <Link href="/paths" className="text-sm font-medium text-cherry-800 underline underline-offset-4">Kembali ke jalur pembelajaran</Link>
@@ -29,5 +29,5 @@ export default function FinalExamsIndex(){
     </article>)}
    </div>
   </div>
- </main>
+ </div>
 }
