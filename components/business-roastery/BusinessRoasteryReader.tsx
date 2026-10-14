@@ -20,6 +20,10 @@ export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
  const independentPracticeMarker='### Coba terapkan setelah membaca';
  const independentPracticeAt=lesson.content.indexOf(independentPracticeMarker);
  const explanatoryContent=independentPracticeAt<0?lesson.content:lesson.content.slice(0,independentPracticeAt).trim();
+ const learningSectionHeader='## Pelajari konsep dan cara kerjanya';
+ const splitAt=lesson.order===1?explanatoryContent.indexOf(learningSectionHeader):-1;
+ const moduleOpening=splitAt>0?explanatoryContent.slice(0,splitAt).trim():'';
+ const detailedTeaching=splitAt>0?explanatoryContent.slice(splitAt):explanatoryContent;
  const independentPracticeContent=independentPracticeAt<0?'':lesson.content.slice(independentPracticeAt);
 
  const method=lesson.order===1?workedMethods[lesson.moduleId]:undefined;
@@ -29,7 +33,7 @@ export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
  const narratedMethod=method
    ? method.title+'\n\n'+method.steps.map((step,n)=>(n+1)+'. '+step.heading+'. '+step.explanation).join('\n\n')+'\n\n'+method.caution
    : '';
- const narrationSource=[narratedTerms,explanatoryContent,narratedMethod,independentPracticeContent].filter(Boolean).join('\n\n');
+ const narrationSource=[moduleOpening,narratedTerms,detailedTeaching,narratedMethod,independentPracticeContent].filter(Boolean).join('\n\n');
 
  return <div className="min-h-screen bg-paper-50 pb-24 text-roast-950">
   <div className="sticky top-16 z-20 border-b border-paper-300 bg-paper-50/95 backdrop-blur-sm">
@@ -51,9 +55,10 @@ export function BusinessRoasteryReader({lessonId}:{lessonId:string}){
     <div className="min-w-0 border border-paper-300 bg-white px-5 pb-10 pt-7 shadow-xs sm:px-9 sm:pt-9">
      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-b border-paper-200 pb-4 font-mono text-[10px] uppercase tracking-wider text-roast-600"><span className="flex items-center gap-1"><Clock size={13}/>{Math.max(12,Math.round(lesson.content.split(/\s+/).length/75))} menit baca</span><span>•</span><span>Materi belajar</span><span>•</span><span>{mod?.title}</span></div>
      <AudioNarrationPlayer title={lesson.title} rawMarkdown={narrationSource}/>
-     <article className="mt-6"><h1 className="mb-6 border-b border-paper-300 pb-5 font-serif text-3xl font-black leading-tight tracking-tight sm:text-4xl">{lesson.title}</h1>{lesson.order===1&&<BusinessConceptFigure moduleId={lesson.moduleId}/>}
+     <article className="mt-6"><h1 className="mb-6 border-b border-paper-300 pb-5 font-serif text-3xl font-black leading-tight tracking-tight sm:text-4xl">{lesson.title}</h1>{moduleOpening&&<MarkdownRenderer content={moduleOpening}/>}
       {lesson.order===1&&<section className="my-7 border-y border-paper-300 py-5" aria-label="Istilah dasar modul"><h2 className="mb-3 font-serif text-xl font-bold">Istilah yang perlu kamu kenali</h2><dl className="space-y-3">{glossary[lesson.moduleId]?.map(x=><div key={x.term} className="grid gap-1 sm:grid-cols-[140px_1fr] sm:gap-4"><dt className="text-sm font-bold text-roast-950">{x.term}</dt><dd className="text-sm leading-6 text-roast-700">{x.meaning}</dd></div>)}</dl></section>}
-      <MarkdownRenderer content={explanatoryContent}/>
+      {lesson.order===1&&<BusinessConceptFigure moduleId={lesson.moduleId}/>}
+      <MarkdownRenderer content={detailedTeaching}/>
       {lesson.order===1&&workedMethods[lesson.moduleId]&&<section className="mt-9 border-t border-paper-300 pt-7" aria-label="Panduan kerja langkah demi langkah">
         <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-cherry-800">Praktik Terpandu</p>
         <h2 className="mt-2 font-serif text-2xl font-bold">{workedMethods[lesson.moduleId].title}</h2>
