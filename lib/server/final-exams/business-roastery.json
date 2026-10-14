@@ -29,7 +29,7 @@
       "type": "single_choice",
       "prompt": "Merek baru belum punya pelanggan pasti dan sedang membandingkan contract roasting dengan mesin sendiri. Kriteria awal terbaik?",
       "choices": [
-        "Tetapkan pilihan berdasarkan harga pembelian mesin saja tanpa menghitung demand dan biaya tersembunyi.",
+        "Harga mesin saja cukup menentukan model usaha.",
         "Bandingkan permintaan teruji, biaya penuh, mutu mitra, kapasitas dan modal kerja.",
         "Pilih outsourcing selama belum punya staf, tanpa menilai kepemilikan stok dan hasil QC mitra.",
         "Gunakan investasi paling besar sebagai bukti kualitas dan permintaan pasar yang akan tercipta."
@@ -47,7 +47,7 @@
       "type": "single_choice",
       "prompt": "Dari 20 kafe yang diwawancarai, 15 tertarik, tetapi tidak ada yang menandatangani PO. Apa kesimpulan yang layak?",
       "choices": [
-        "Gunakan jumlah calon pembeli yang tertarik sebagai kontrak tetap meski belum ada komitmen.",
+        "Minat wawancara sama dengan kontrak tetap.",
         "Tetapkan kapasitas produksi dari hasil wawancara tanpa uji pembelian berulang.",
         "Konversi respons positif menjadi proyeksi pesanan minimum 15 kafe pada setiap bulan.",
         "Ada sinyal minat, namun permintaan berbayar belum tervalidasi."
@@ -66,8 +66,8 @@
       "prompt": "Roastery awalnya merencanakan delapan SKU untuk memperluas pilihan. Setelah riset awal, belum ada data penjualan yang dapat diandalkan. Risiko apa yang perlu diuji sebelum membeli stok?",
       "choices": [
         "Stok terbagi, forecast tidak pasti, dan risiko lot menua meningkat.",
-        "Tambahkan SKU karena variasi kemasan otomatis meningkatkan akurasi forecast dan penjualan.",
-        "Pertahankan stok besar untuk seluruh SKU sebelum data sell-through pelanggan terkumpul.",
+        "Delapan SKU pasti menaikkan forecast.",
+        "Semua SKU selalu memakai satu HPP.",
         "Hitung semua SKU pada satu HPP yang sama walau biaya packing dan permintaannya berbeda."
       ],
       "correct_index": 0,
@@ -103,7 +103,7 @@
       "prompt": "Pemasok mengirim 100 kg green, tetapi barang diterima hanya 98 kg dan spesifikasi kontrak 100 kg netto. Apa langkah pertama?",
       "choices": [
         "Catat selisih penerimaan dan lakukan klaim/rekonsiliasi menurut bukti serta kontrak.",
-        "Masukkan selisih dua kilogram ke loss roasting karena seluruh kehilangan barang dihitung saat produksi.",
+        "Catat 2 kg sebagai mass loss roasting.",
         "Rekonsiliasi invoice supplier tanpa catatan timbangan karena kontrak dianggap lebih menentukan.",
         "Terima barang sebagai 100 kg untuk pembukuan, kemudian catat selisih sebagai biaya promosi."
       ],
@@ -120,10 +120,10 @@
       "type": "single_choice",
       "prompt": "Penawaran kargo contoh: Rp4.000/kg, minimum tagihan 50 kg, kiriman aktual 30 kg tanpa biaya tambahan. Berapa ongkir dasar ditagih?",
       "choices": [
-        "Rp120.000 sebab ongkir selalu mengikuti berat aktual meskipun operator menetapkan minimum.",
+        "Rp120.000",
         "Rp200.000",
-        "Rp80.000 sebab minimum tagihan dianggap diskon 20 kg dari berat awal kiriman.",
-        "Rp4.000 sebab biaya dihitung sekali per koli tanpa mengalikan berat yang ditagih."
+        "Rp80.000",
+        "Rp4.000"
       ],
       "correct_index": 1,
       "explanation": "Billable weight = max(30,50)=50 kg. Dasar 50×4.000=Rp200.000; verifikasi syarat volumetrik dan rute nyata.",
@@ -138,8 +138,8 @@
       "type": "single_choice",
       "prompt": "Manajer semula menjadwalkan roasting untuk memenuhi PO hari ini. Saat inspeksi, ditemukan ventilasi belum diperiksa dan alarm bahaya tidak berfungsi. Keputusan apa yang tepat?",
       "choices": [
-        "Lanjutkan produksi terbatas sambil menunda inspeksi ventilasi dan perbaikan alarm bahaya.",
-        "Anggap membuka pintu cukup memenuhi semua syarat exhaust tanpa pengukuran atau pemeriksaan.",
+        "Tetap produksi sebelum alarm diperbaiki.",
+        "Buka pintu dianggap cukup untuk ventilasi.",
         "Tunda operasi berisiko sampai penanggung jawab memverifikasi keselamatan fasilitas.",
         "Delegasikan inspeksi kelistrikan dan alarm pada pegawai baru yang belum menerima pelatihan."
       ],
@@ -174,7 +174,7 @@
       "type": "single_choice",
       "prompt": "Batch roasted menunjukkan aroma asing pada sampel QC sementara pengiriman harus hari ini. Apa tindakan awal?",
       "choices": [
-        "Kirim produk setelah memberi diskon pelanggan tanpa mencatat temuan karena risiko keluhan rendah.",
+        "Kirim batch saat ini dan tangani keluhan nanti.",
         "Campurkan batch yang menyimpang ke produk lain, lalu hapus informasi identitas lot sebelumnya.",
         "Ubah batas penerimaan QC setelah batch dinilai menyimpang tanpa proses persetujuan mutu.",
         "Beri status HOLD dan investigasi sesuai SOP sebelum release."
@@ -193,7 +193,7 @@
       "prompt": "Dua karton roasted memiliki batch berbeda dan tanggal evaluasi masa simpan berbeda. Metode rotasi apa paling relevan?",
       "choices": [
         "Gunakan aturan FEFO berdasarkan batas pakai/evaluasi yang valid sambil menjaga traceability.",
-        "Kirim batch dengan harga tertinggi terlebih dahulu dan abaikan tanggal mutu setiap kemasan.",
+        "Kirim batch termahal terlebih dahulu.",
         "Rotasi FIFO selalu cukup tanpa menguji perbedaan batas kesegaran dan kebutuhan pelanggan.",
         "Gabungkan semua identitas lot karena origin dan jenis sangrai dinilai masih serupa."
       ],
@@ -210,10 +210,10 @@
       "type": "single_choice",
       "prompt": "Contoh: 100 kg green usable dengan landed total Rp12.000.000 menghasilkan 80 kg roasted saleable. Biaya bahan green per kg saleable?",
       "choices": [
-        "Rp120.000/kg dengan membagi total landed cost ke seluruh berat green awal sebelum roasting.",
+        "Rp120.000/kg",
         "Rp150.000/kg",
-        "Rp96.000/kg dengan memakai estimasi output roasted tanpa memasukkan susut roasting.",
-        "Rp200.000/kg dengan memperlakukan seluruh selisih berat sebagai biaya kemasan tambahan."
+        "Rp96.000/kg",
+        "Rp200.000/kg"
       ],
       "correct_index": 1,
       "explanation": "Biaya bahan per roasted saleable = 12.000.000/80 = Rp150.000/kg; belum termasuk tenaga, kemasan, overhead.",
@@ -246,10 +246,10 @@
       "type": "single_choice",
       "prompt": "Biaya tetap relevan Rp9.000.000/bulan dan contribution margin Rp30.000 per kg. Berapa volume BEP sederhana jika kapasitas mencukupi?",
       "choices": [
-        "270 kg dengan membagi fixed cost per bulan memakai nilai kontribusi setelah diskon terduga.",
+        "270 kg",
         "300 kg",
-        "30 kg dengan memperlakukan Rp30.000 kontribusi sebagai harga jual per kilogram.",
-        "900 kg dengan mengalikan angka kontribusi langsung terhadap biaya tetap periode tersebut."
+        "30 kg",
+        "900 kg"
       ],
       "correct_index": 1,
       "explanation": "BEP sederhana = 9.000.000/30.000 = 300 kg; gunakan contribution, bukan gross profit setelah overhead yang sudah diserap.",
@@ -264,7 +264,7 @@
       "type": "single_choice",
       "prompt": "Roastery baru mencatat penjualan kredit Rp20 juta hari ini. Kemudian diketahui buyer membayar bulan depan, sedangkan supplier jatuh tempo pekan ini. Risiko apa yang harus dimodelkan?",
       "choices": [
-        "Anggap invoice yang diterbitkan setara kas saat ini sehingga pembelian green dapat langsung didanai.",
+        "Invoice kredit otomatis menjadi kas saat ini.",
         "Tunda membuat jadwal kas karena bisnis yang mencatat laba dianggap selalu mampu membayar.",
         "Laba akuntansi tidak menjamin kas tersedia ketika pembayaran jatuh tempo.",
         "Gunakan nilai PO buyer sebagai saldo bank untuk menghitung kebutuhan pembayaran pemasok."
@@ -282,8 +282,8 @@
       "type": "single_choice",
       "prompt": "Buyer B2B meminta potongan besar, free training, dan tempo 45 hari. Bagaimana menilai tawarannya?",
       "choices": [
-        "Tentukan penawaran menarik hanya dari omzet kotor dan volume per bulan tanpa biaya customer service.",
-        "Terima seluruh permintaan selama buyer besar walau piutang dan jadwal produksi belum diuji.",
+        "Nilai tawaran dari omzet kotor saja.",
+        "Terima buyer besar tanpa cek modal kerja.",
         "Diskon selalu layak ketika customer lama meminta tanpa mempertimbangkan cost-to-serve.",
         "Hitung net revenue, cost-to-serve, kontribusi serta risiko kredit sebelum menandatangani."
       ],
@@ -318,8 +318,8 @@
       "type": "single_choice",
       "prompt": "Usaha kecil membiarkan operator sekaligus menyetujui batch reject sendiri dan mengubah invoice supplier. Risiko yang harus ditangani?",
       "choices": [
-        "Izinkan satu operator menyetujui setiap transaksi dan penilaian mutu tanpa kontrol pengganti.",
-        "Berikan akses semua staf pada password yang sama agar persetujuan pesanan berlangsung cepat.",
+        "Satu operator boleh menyetujui semua tanpa review.",
+        "Gunakan satu password bersama untuk semua staf.",
         "Konflik tugas kritis; tetapkan review, persetujuan dan audit trail meski tim kecil.",
         "Gunakan pencatatan di kertas tanpa audit trail atau pengawasan untuk penggantian invoice supplier."
       ],
@@ -336,7 +336,7 @@
       "type": "single_choice",
       "prompt": "Produksi naik 20% tetapi QC reject dan komplain pelanggan juga naik. KPI apa yang harus dibaca bersama?",
       "choices": [
-        "Evaluasi keberhasilan hanya dari naiknya volume green input karena output akhir dianggap selalu tersedia.",
+        "Jumlah batch saja sudah mewakili kinerja.",
         "Ambil jumlah batch sebagai indikator tunggal meski risiko reject dan keterlambatan meningkat.",
         "Gunakan omzet tinggi sebagai dasar mutu produk tanpa meninjau tren keluhan dan QC lot.",
         "Output saleable, yield, reject, komplain dan ketepatan pengiriman."
@@ -355,8 +355,8 @@
       "prompt": "Tim awalnya menyusun harga ex-works untuk buyer luar negeri. Setelah diskusi, buyer meminta penawaran CIF dengan tujuan pengiriman spesifik. Apa yang harus diperiksa sebelum mengirim quote?",
       "choices": [
         "Perjelas lokasi dan biaya/tanggung jawab masing-masing Incoterm sebelum mengirim quote.",
-        "Samakan CIF dengan harga ex-works karena pembeli dianggap selalu mengurus freight dan asuransi.",
-        "Quote harga langsung tanpa menyebut named port atau rincian tanggung jawab masing-masing pihak.",
+        "CIF dan EXW punya lingkup biaya sama.",
+        "Harga ekspor boleh dikirim tanpa named place.",
         "Gunakan harga buyer dari negara lain tanpa menilai dokumen maupun persyaratan negara tujuan."
       ],
       "correct_index": 0,
