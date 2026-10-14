@@ -6,7 +6,7 @@ export default function SpecialtyOverview(){
  if(process.env.CHERRYEDU_NEXT_SPECIALTY_REVIEW!=='enabled')notFound();
  return <CuratedCourseOverview name="Q Processor Specialization: Bioproses & Pasca-Panen Spesialti"
  description="Pelajari kontrol wet mill, mikrobiologi proses, natural, honey, giling basah, eksperimen fermentasi yang aman, pengeringan, grading, sampai logbook dan audit mutu. Jalur online ini bukan sertifikasi CQI."
- image="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&auto=format&fit=crop&q=80" courseHref="/q-processor-v2"
+ image="https://images.unsplash.com/photo-1741012253890-a62490e7ea3e?w=800&auto=format&fit=crop&q=80" courseHref="/q-processor-v2"
  modules={Q_PROCESSOR_V2_MODULES} lessons={Q_PROCESSOR_V2_LESSONS}
  examHref={process.env.CHERRYEDU_FINAL_EXAMS_REVIEW==='enabled'?'/ujian-akhir/q-processor':undefined}/>;
 }
