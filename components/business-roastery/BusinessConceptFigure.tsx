@@ -1,3 +1,4 @@
+import {BusinessConceptFigureMore} from '@/components/business-roastery/BusinessConceptFigureMore';
 /** Teaching aids appear once per module, not as repeated decoration on every lesson. */
 export function BusinessConceptFigure({moduleId}:{moduleId:string}){
  if(moduleId==='B01')return <figure className="my-7 border border-paper-300 bg-paper-100 px-4 py-5 sm:px-6">
@@ -42,5 +43,5 @@ export function BusinessConceptFigure({moduleId}:{moduleId:string}){
   ].map(([date,event,result])=><li key={date} className="border-l-2 border-cherry-700 bg-white px-3 py-3"><span className="font-mono text-xs font-bold text-cherry-800">{date}</span><strong className="mt-2 block text-sm">{event}</strong><p className="mt-1 text-xs text-roast-700">{result}</p></li>)}</ol>
   <p className="mt-3 text-xs leading-6 text-roast-700">Contoh urutan transaksi. Jadwal aktual bergantung syarat supplier dan pelanggan; periksa saldo terendah sepanjang periode, bukan hanya saldo akhir bulan.</p>
  </figure>;
- return null;
+ return <BusinessConceptFigureMore moduleId={moduleId}/>;
 }
