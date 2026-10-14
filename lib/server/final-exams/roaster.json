@@ -29,12 +29,12 @@
       "type": "single_choice",
       "prompt": "Roaster melihat angka suhu mesin berbeda setelah mengganti probe. Apa kesimpulan paling aman?",
       "choices": [
-        "Periksa kalibrasi dan konteks pengukuran sebelum membandingkan kurva.",
         "Anggap kopi tiba-tiba menyerap panas dua kali lipat.",
         "Naikkan gas tanpa menilai sensor.",
-        "Simpulkan perubahan pasti berasal dari cuaca."
+        "Simpulkan perubahan pasti berasal dari cuaca.",
+        "Periksa kalibrasi dan konteks pengukuran sebelum membandingkan kurva."
       ],
-      "correct_index": 0,
+      "correct_index": 3,
       "explanation": "Perbedaan sensor atau lokasi probe dapat menggeser pembacaan, bukan otomatis mengubah biji.",
       "case": false
     },
@@ -47,12 +47,12 @@
       "type": "single_choice",
       "prompt": "Laju kenaikan suhu (RoR) terlihat berosilasi tajam, tetapi data dicatat dengan interval berbeda. Tindakan terbaik?",
       "choices": [
+        "Periksa interval sampling dan smoothing sebelum menyebutnya perubahan fisik proses.",
         "Anggap setiap osilasi pasti defect rasa.",
         "Buang semua data awal.",
-        "Gunakan hanya warna kulit luar biji untuk menentukan RoR.",
-        "Periksa interval sampling dan smoothing sebelum menyebutnya perubahan fisik proses."
+        "Gunakan hanya warna kulit luar biji untuk menentukan RoR."
       ],
-      "correct_index": 3,
+      "correct_index": 0,
       "explanation": "RoR turunan data suhu sensitif terhadap interval dan noise; interpretasi membutuhkan konteks.",
       "case": false
     },
@@ -156,11 +156,11 @@
       "prompt": "Lot roasted disimpan tanpa kode batch dan tanggal produksi. Risiko utamanya?",
       "choices": [
         "Kadar kafein otomatis turun menjadi nol.",
-        "Ketertelusuran, rotasi stok, dan penanganan komplain menjadi sulit.",
         "Profil rasa otomatis lebih baik.",
+        "Ketertelusuran, rotasi stok, dan penanganan komplain menjadi sulit.",
         "Harga jual selalu meningkat."
       ],
-      "correct_index": 1,
+      "correct_index": 2,
       "explanation": "Traceability membutuhkan identitas batch dan catatan dari input sampai distribusi.",
       "case": false
     },
@@ -210,11 +210,11 @@
       "prompt": "Cupping menemukan satu batch bertanda cacat sensori yang belum dipastikan. Pilihan QA paling bertanggung jawab?",
       "choices": [
         "Kirim seluruh lot supaya cepat terjual.",
-        "Campur dengan lot lain tanpa catatan.",
         "Tahan lot sementara, verifikasi lewat sampel dan prosedur QC sebelum melepasnya.",
+        "Campur dengan lot lain tanpa catatan.",
         "Ganti tanggal roasting pada label."
       ],
-      "correct_index": 2,
+      "correct_index": 1,
       "explanation": "QC memerlukan pemeriksaan dan keputusan terdokumentasi; tidak semua anomali dibenarkan oleh jadwal penjualan.",
       "case": false
     }
