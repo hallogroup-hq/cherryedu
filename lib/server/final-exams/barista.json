@@ -29,7 +29,7 @@
       "type": "single_choice",
       "prompt": "Resep espresso dari senior menghasilkan rasa berbeda setelah biji berganti. Keputusan pertama yang paling berguna?",
       "choices": [
-        "Gunakan resep kepala barista sebagai aturan pasti dan anggap perbedaan rasa adalah bias pencicip.",
+        "Resep kepala barista berlaku sama untuk semua lot.",
         "Catat perubahan dan bandingkan hasil secara sistematis, bukan menyalin rasio secara buta.",
         "Sesuaikan dosis, gilingan dan suhu sekaligus agar target cangkir cepat ditemukan tanpa catatan.",
         "Tambah pemanis sesuai selera staf sebagai pengganti pemeriksaan ekstraksi setelah perubahan lot."
@@ -48,7 +48,7 @@
       "prompt": "Dengan dose sama, shot hari ini mengalir jauh lebih lambat daripada kemarin. Pemeriksaan awal apa yang paling masuk akal?",
       "choices": [
         "Periksa grind, distribusi, output, mesin dan kondisi biji sebelum menyimpulkan penyebab.",
-        "Tetapkan gilingan sebagai penyebab tunggal tanpa melihat apakah output dan mesin berubah.",
+        "Grind pasti satu-satunya penyebab shot melambat.",
         "Naikkan suhu mesin lebih dulu meski aliran dan distribusi puck belum diperiksa.",
         "Tahan menu espresso sampai mengganti semua burr, tanpa memeriksa data batch yang ada."
       ],
@@ -65,8 +65,8 @@
       "type": "single_choice",
       "prompt": "Dua shot awalnya memiliki waktu ekstraksi mirip. Setelah cupping, satu shot terasa tajam sementara yang lain seimbang. Metode evaluasi lanjutan mana paling sahih?",
       "choices": [
-        "Simpulkan shot tajam pasti kurang ekstraksi hanya dari waktu yang mirip dengan shot pembanding.",
-        "Gunakan ketebalan crema saja untuk memutuskan apakah kedua shot layak disajikan.",
+        "Shot tajam pasti kurang ekstraksi berdasarkan waktunya.",
+        "Cukup amati crema untuk menilai kedua shot.",
         "Tingkatkan dosis, suhu dan rasio bersama untuk menjamin semua karakter rasa langsung seimbang.",
         "Bandingkan dosis, yield, distribusi dan rasa; uji satu perubahan yang masuk akal."
       ],
@@ -101,7 +101,7 @@
       "type": "single_choice",
       "prompt": "Pelanggan berkata 'saya mau kopi yang kuat'. Apa tindak lanjut yang paling tepat?",
       "choices": [
-        "Asumsikan kata kuat selalu berarti lebih banyak kafein dan langsung tambahkan shot espresso.",
+        "Kata kuat selalu berarti ingin tambahan kafein.",
         "Tanyakan apakah yang dimaksud rasa pekat, volume, atau efek yang diharapkan.",
         "Sajikan minuman paling pahit tanpa menanyakan apakah pelanggan ingin rasa atau body lebih intens.",
         "Pilih ukuran gelas paling kecil agar kata kuat dipenuhi tanpa perlu menyamakan ekspektasi."
@@ -119,7 +119,7 @@
       "type": "single_choice",
       "prompt": "Resep filter bar terlalu encer menurut pelanggan, tetapi rasa tidak dinilai rusak. Usulan eksperimen yang baik?",
       "choices": [
-        "Tingkatkan dosis, suhu dan agitasi sekaligus supaya konsentrasi naik tanpa memeriksa hasil rasa.",
+        "Naikkan dosis, suhu, dan agitasi secara bersamaan.",
         "Tentukan bahwa kopi yang terasa encer pasti berasal dari varietas yang kurang sesuai.",
         "Pilih satu perubahan terukur, uji rasa dan catat perubahan konsentrasi.",
         "Tambahkan gula sebagai pengganti uji konsentrasi dan perubahan ekstraksi yang terukur."
@@ -137,8 +137,8 @@
       "type": "single_choice",
       "prompt": "Pelanggan meminta 'less acidic', tetapi istilahnya bisa berarti sensasi tajam atau gangguan lambung. Apa respons terbaik?",
       "choices": [
-        "Tafsirkan keluhan sebagai kebutuhan medis lalu janjikan kopi sangrai gelap aman bagi lambung.",
-        "Berikan jenis kopi dengan keasaman titrasi terendah tanpa menanyakan makna permintaan tamu.",
+        "Dark roast pasti aman untuk keluhan lambung.",
+        "Pilih acid level terendah tanpa bertanya lagi.",
         "Atur suhu minuman lebih panas untuk menekan persepsi asam tanpa memperjelas preferensi rasa.",
         "Tanyakan maksud dan preferensi rasa sebelum menyarankan minuman."
       ],
@@ -173,10 +173,10 @@
       "type": "single_choice",
       "prompt": "Barista mula-mula menghitung biaya kopi menggunakan harga lama. Invoice baru menunjukkan Rp240.000/kg dan resep tetap 20 g. Berapa biaya kopi per minuman sebelum susut?",
       "choices": [
-        "Rp2.400 karena biaya dibagi dua untuk satu resep espresso dan satu minuman susu.",
-        "Rp12.000 karena harga per kilogram harus dihitung sebagai biaya per 50 gram.",
+        "Rp2.400",
+        "Rp12.000",
         "Rp4.800",
-        "Rp48.000 karena dosis 20 gram dikonversi langsung dari harga kemasan 100 gram."
+        "Rp48.000"
       ],
       "correct_index": 2,
       "explanation": "20/1000 × Rp240.000 = Rp4.800; ini hanya biaya kopi, bukan HPP minuman lengkap.",
@@ -191,8 +191,8 @@
       "type": "single_choice",
       "prompt": "Sebuah signature drink mendapat ulasan baik, tetapi sulit direplikasi staf lain. Langkah berikutnya?",
       "choices": [
-        "Luncurkan menu berdasarkan penilaian pelanggan tanpa standarisasi proses dan pengukuran bahan.",
-        "Simpan resep sebagai pengetahuan pribadi pembuat awal agar variasi barista lain tidak muncul.",
+        "Segera luncurkan menu tanpa uji replikasi.",
+        "Rahasiakan resep agar staf lain tak mengubahnya.",
         "Tambahkan bahan lebih mahal untuk memperkuat citra menu tanpa melakukan uji konsistensi.",
         "Dokumentasikan bahan, prosedur, toleransi, dan lakukan uji ulang antarbarista."
       ],
@@ -210,8 +210,8 @@
       "prompt": "Selama rush hour, grinder berubah output dan ada order dengan risiko alergen. Prioritas apa yang paling baik?",
       "choices": [
         "Amankan pesanan berisiko, pisahkan prosedur, kemudian kalibrasi berdasarkan data.",
-        "Dahulukan seluruh pesanan agar target antrean tercapai, lalu verifikasi alergen setelah layanan.",
-        "Ubah resep beberapa minuman sekaligus tanpa briefing supaya antrean cepat terurai.",
+        "Selesaikan antrean, baru periksa keamanan alergen.",
+        "Ubah semua resep tanpa briefing.",
         "Abaikan pengukuran saat ramai dan gunakan hasil racikan berdasarkan intuisi staf senior."
       ],
       "correct_index": 0,
