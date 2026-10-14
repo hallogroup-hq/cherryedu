@@ -1,0 +1,294 @@
+{
+  "path": "green-coffee",
+  "version": "2026-10-14.1",
+  "items": [
+    {
+      "id": "green-coffee-01",
+      "module_ids": [
+        "GC01"
+      ],
+      "objective": "GC01-application-1",
+      "type": "single_choice",
+      "prompt": "Dua sampel green berasal dari koperasi sama. Satu memiliki hasil inspeksi fisik, satu hanya skor cupping. Informasi apa yang masih kurang untuk menyamakan risikonya?",
+      "choices": [
+        "Nama varietas tercetak yang lebih detail sebagai pengganti seluruh inspeksi.",
+        "Foto kemasan dari pemasok untuk membuktikan kadar air kedua lot.",
+        "Laporan sampling dan kondisi fisik lot kedua sesuai metode yang disepakati.",
+        "Harga tertinggi per kilogram sebagai verifikasi grade green."
+      ],
+      "correct_index": 2,
+      "explanation": "CVA memisahkan aspek fisik dari sensori dan ekstrinsik. Satu dimensi tidak menggantikan yang lain.",
+      "case": false
+    },
+    {
+      "id": "green-coffee-02",
+      "module_ids": [
+        "GC01"
+      ],
+      "objective": "GC01-application-2",
+      "type": "single_choice",
+      "prompt": "Pembeli ingin mengonfirmasi klaim varietas lokal 'Ateng' dari dua kebun. Strategi bukti mana paling tepat?",
+      "choices": [
+        "Periksa riwayat bibit, catatan kebun dan identifikasi agronomi sebelum menulis varietas terverifikasi.",
+        "Anggap setiap label Ateng selalu berasal dari galur genetik yang sama.",
+        "Gunakan rasa kopi roasted saja sebagai verifikasi pasti material genetik.",
+        "Pilih nama pemasok terbesar untuk menetapkan identitas varietas."
+      ],
+      "correct_index": 0,
+      "explanation": "Nama lokal dapat merujuk beberapa material; genetika tak bisa dipastikan dari marketing label atau rasa semata.",
+      "case": false
+    },
+    {
+      "id": "green-coffee-03",
+      "module_ids": [
+        "GC02"
+      ],
+      "objective": "GC02-application-3",
+      "type": "single_choice",
+      "prompt": "Kedua blok ditanami varietas sama di ketinggian setara; satu blok lebih banyak cherry tidak matang pada panen awal. Apa hipotesis berikutnya?",
+      "choices": [
+        "Kualitas blok kedua pasti rendah karena koordinat mdpl tidak cukup tinggi.",
+        "Kebun kedua pasti salah dalam memasukkan nama varietas pada buku catatan.",
+        "Semua beda kematangan pasti hilang bila pupuk ditambah tanpa pemeriksaan.",
+        "Bandingkan waktu pembungaan, naungan, suhu mikro, kondisi kesehatan, dan tanggal panen sebelum menetapkan sebab."
+      ],
+      "correct_index": 3,
+      "explanation": "Kondisi mikro dan tahapan fisiologis memengaruhi pematangan; satu angka elevasi tidak cukup.",
+      "case": false
+    },
+    {
+      "id": "green-coffee-04",
+      "module_ids": [
+        "GC02"
+      ],
+      "objective": "GC02-application-4",
+      "type": "single_choice",
+      "prompt": "Saat musim hujan, co-op menghadapi panen puncak lebih besar dari kapasitas pengering. Keputusan rencana risiko yang tepat?",
+      "choices": [
+        "Terima semua cherry karena fermentasi lama otomatis mengamankan mutu.",
+        "Batasi dan jadwalkan penerimaan menurut kapasitas aman sambil mempertahankan identitas lot dan komunikasi pemasok.",
+        "Hilangkan pemisahan lot agar seluruh panen dapat diproses bersama.",
+        "Naikkan suhu apa pun tanpa pengukuran untuk mempercepat semuanya."
+      ],
+      "correct_index": 1,
+      "explanation": "Manajemen kapasitas harus melindungi keamanan, traceability dan mutu alih-alih menjanjikan semua volume dapat diproses.",
+      "case": true
+    },
+    {
+      "id": "green-coffee-05",
+      "module_ids": [
+        "GC03"
+      ],
+      "objective": "GC03-application-5",
+      "type": "single_choice",
+      "prompt": "Penerimaan ceri: bruto 242 kg, tara wadah 12 kg, setelah sortasi ditemukan 10 kg buah terpisah untuk verifikasi. Berapa netto bahan sebelum sortasi?",
+      "choices": [
+        "220 kg netto sebelum keputusan sortir.",
+        "230 kg netto sebelum keputusan sortir.",
+        "242 kg netto sebab tara tidak dihitung.",
+        "252 kg netto sebab sortasi ditambahkan."
+      ],
+      "correct_index": 1,
+      "explanation": "242-12=230 kg. Hasil sortasi adalah kejadian berikutnya dan tidak boleh tercampur dengan dasar penerimaan.",
+      "case": false
+    },
+    {
+      "id": "green-coffee-06",
+      "module_ids": [
+        "GC03"
+      ],
+      "objective": "GC03-application-6",
+      "type": "single_choice",
+      "prompt": "Refraktometer menunjukkan nilai °Brix tinggi pada lima ceri tetapi sebagian besar ceri dalam karung tampak immature. Langkah evaluasi yang valid?",
+      "choices": [
+        "Luluskan seluruh lot karena pembacaan lima ceri dianggap ambang universal.",
+        "Buang pengamatan visual karena Brix selalu mengukur kualitas global.",
+        "Campurkan dengan buah overripe sampai angka Brix rata-ratanya meningkat.",
+        "Ulangi sampling dari banyak titik dan gabungkan bukti kematangan sebelum menentukan status lot."
+      ],
+      "correct_index": 3,
+      "explanation": "Brix dipengaruhi sampling dan metode; tidak menggantikan distribusi kematangan satu lot.",
+      "case": false
+    },
+    {
+      "id": "green-coffee-07",
+      "module_ids": [
+        "GC04"
+      ],
+      "objective": "GC04-application-7",
+      "type": "single_choice",
+      "prompt": "Dua kontrak 'washed' diterima: satu memuat protokol air, pencucian, waktu dan sampel; satu hanya label rasa 'clean'. Apa kesimpulan buyer?",
+      "choices": [
+        "Kontrak pertama lebih dapat diverifikasi; lot kedua butuh spesifikasi proses dan mutu sebelum setara.",
+        "Keduanya identik karena washed selalu memiliki durasi fermentasi seragam.",
+        "Lot kedua pasti punya nilai jual lebih tinggi sebab istilah clean dicantumkan.",
+        "Keterangan aroma otomatis menjelaskan kualitas air dan risiko lingkungan."
+      ],
+      "correct_index": 0,
+      "explanation": "Washed punya variasi proses; SOP dan parameter mutu yang bisa diuji lebih kuat daripada label rasa.",
+      "case": false
+    },
+    {
+      "id": "green-coffee-08",
+      "module_ids": [
+        "GC04"
+      ],
+      "objective": "GC04-application-8",
+      "type": "single_choice",
+      "prompt": "Pasca wet-hulling, green menunjukkan banyak pecahan pada satu jam produksi saja. Langkah proses yang paling masuk akal?",
+      "choices": [
+        "Campurkan batch rusak ke stok lain agar presentase defect rata-rata turun.",
+        "Anggap pecahan merupakan ciri wajib proses wet-hulled yang tidak perlu dikoreksi.",
+        "Isolasi batch terdampak dan cek kondisi parchment serta setelan huller sebelum menjalankan produksi lanjutan.",
+        "Naikkan harga jual untuk menutup seluruh kehilangan massa yang ditemukan."
+      ],
+      "correct_index": 2,
+      "explanation": "Kerusakan fisik bisa terkait kondisi bahan dan mesin, bukan ciri mutu yang otomatis diterima.",
+      "case": true
+    },
+    {
+      "id": "green-coffee-09",
+      "module_ids": [
+        "GC05"
+      ],
+      "objective": "GC05-application-9",
+      "type": "single_choice",
+      "prompt": "Operator membandingkan dua perlakuan fermentasi dengan starter berbeda, tetapi satu lot memiliki persentase overripe jauh lebih tinggi. Mengapa hasil tidak cukup?",
+      "choices": [
+        "Starter selalu mendominasi seluruh mikrobiota sehingga variasi buah tidak relevan.",
+        "Perbedaan cup pasti akibat udara tanpa melihat input atau temperatur.",
+        "Pengujian tidak butuh kontrol karena hasil sensori adalah satu-satunya ukuran.",
+        "Input buah menjadi faktor pembaur; kesimpulan efek starter memerlukan bahan pembanding yang lebih sebanding."
+      ],
+      "correct_index": 3,
+      "explanation": "Perbandingan kausal membutuhkan kendali faktor input dan pencatatan proses.",
+      "case": false
+    },
+    {
+      "id": "green-coffee-10",
+      "module_ids": [
+        "GC05"
+      ],
+      "objective": "GC05-application-10",
+      "type": "single_choice",
+      "prompt": "Sebuah mill ingin menguji proses kaya CO₂ di ruangan tertutup dan belum memiliki sistem keselamatan gas. Kebijakan yang dapat dipertanggungjawabkan?",
+      "choices": [
+        "Mulai produksi karena CO₂ tanpa bau berarti tak berbahaya.",
+        "Tunda sampai penilaian bahaya, ventilasi, perangkat dan petugas kompeten siap.",
+        "Tutup ventilasi agar kadar gas stabil selama operator masuk.",
+        "Serahkan gas pada operator baru tanpa prosedur darurat."
+      ],
+      "correct_index": 1,
+      "explanation": "CO2 dapat menyebabkan kekurangan oksigen; keselamatan tak boleh dikalahkan target rasa.",
+      "case": false
+    },
+    {
+      "id": "green-coffee-11",
+      "module_ids": [
+        "GC06"
+      ],
+      "objective": "GC06-application-11",
+      "type": "single_choice",
+      "prompt": "Dua sampel green sama-sama menunjukkan moisture 11%, tetapi berbeda hasil water activity. Apa yang boleh disimpulkan?",
+      "choices": [
+        "Nilai moisture yang sama membuktikan aw pasti sama pada seluruh kondisi.",
+        "Hasil aw adalah angka kesukaan yang tidak berkaitan dengan penyimpanan.",
+        "Keduanya perlu evaluasi kondisi air tersedia, variasi sampling dan metode alat; moisture tak menjelaskan semua aspek.",
+        "Perbedaan aw pasti karena spesies tanaman tanpa faktor lain."
+      ],
+      "correct_index": 2,
+      "explanation": "Moisture content dan water activity adalah dua karakter pengukuran berbeda.",
+      "case": false
+    },
+    {
+      "id": "green-coffee-12",
+      "module_ids": [
+        "GC06"
+      ],
+      "objective": "GC06-application-12",
+      "type": "single_choice",
+      "prompt": "Bed pengering tertutup hujan, lalu bagian tengah tetap lembap sementara tepi tampak kering. Tindakan apa mendahului pengemasan?",
+      "choices": [
+        "Pisahkan status batch bila perlu, lakukan sampling lokasi berbeda dan cek keseragaman sebelum release.",
+        "Kemasi semuanya berdasarkan hasil sampel tepi yang lebih mudah dijangkau.",
+        "Naikkan umur simpan pada label karena proses pengeringan lebih lama.",
+        "Campur dengan lot kering tanpa dokumentasi untuk menyamakan kondisi."
+      ],
+      "correct_index": 0,
+      "explanation": "Variasi antarbagian dapat menyembunyikan risiko; kontrol distribusi lebih penting dari satu rata-rata.",
+      "case": true
+    },
+    {
+      "id": "green-coffee-13",
+      "module_ids": [
+        "GC07"
+      ],
+      "objective": "GC07-application-13",
+      "type": "single_choice",
+      "prompt": "Biaya relevan satu lot Rp27.500.000. Dari input hasil proses, 220 kg green benar-benar memenuhi spesifikasi jual. Berapa biaya per kg saleable?",
+      "choices": [
+        "Rp125.000/kg saleable sebelum menentukan harga jual.",
+        "Rp110.000/kg saleable dengan memakai asumsi 250 kg output.",
+        "Rp275.000/kg saleable karena biaya dibagi 100 kg.",
+        "Rp55.000/kg saleable karena biaya dibagi 500 kg."
+      ],
+      "correct_index": 0,
+      "explanation": "27.500.000/220=125.000; denominator harus output green yang saleable.",
+      "case": false
+    },
+    {
+      "id": "green-coffee-14",
+      "module_ids": [
+        "GC07"
+      ],
+      "objective": "GC07-application-14",
+      "type": "single_choice",
+      "prompt": "Sampel dari satu kantong yang tampak paling bersih dipakai untuk menyatakan seluruh kontainer bebas benda asing. Apa kekurangan prosedur ini?",
+      "choices": [
+        "Pengambilan sampel dari satu kantong sudah cukup untuk semua grade kopi.",
+        "Kondisi fisik tak berpengaruh selama ada skor sensori yang tinggi.",
+        "Pengambilan contoh bias dan tidak mewakili variasi lot; rancang sampling sebelum memutuskan QC.",
+        "Kemasan rapat otomatis meniadakan kebutuhan memeriksa benda asing."
+      ],
+      "correct_index": 2,
+      "explanation": "Kesimpulan representatif memerlukan desain sampling yang sesuai ukuran dan risiko lot.",
+      "case": false
+    },
+    {
+      "id": "green-coffee-15",
+      "module_ids": [
+        "GC08"
+      ],
+      "objective": "GC08-application-15",
+      "type": "single_choice",
+      "prompt": "Pemasok menawar pengiriman green antarpulau dengan angka per kg tanpa menyebut minimum tagihan, kemasan dan titik serah. Bagaimana menguji landed cost?",
+      "choices": [
+        "Gunakan ongkir kota asal lain karena tarif semua pulau seharusnya setara.",
+        "Minta quotation spesifik rute, basis berat tagihan, layanan, kemasan dan syarat serah sebelum mengunci biaya.",
+        "Anggap biaya pelindung kelembapan sudah selalu termasuk tanpa konfirmasi.",
+        "Hitung hanya berat actual dengan tarif perkiraan tanpa memahami kontrak."
+      ],
+      "correct_index": 1,
+      "explanation": "Landed cost perlu syarat jasa logistik nyata; tidak boleh mengarang satu harga universal.",
+      "case": false
+    },
+    {
+      "id": "green-coffee-16",
+      "module_ids": [
+        "GC08"
+      ],
+      "objective": "GC08-application-16",
+      "type": "single_choice",
+      "prompt": "Lot green dinyatakan lolos QC sebelum dikirim, namun sebagian karung terkena air saat transit. Apa perubahan keputusan penerima yang tepat?",
+      "choices": [
+        "Terima tanpa inspeksi karena QC pemasok sebelum pengiriman sudah final.",
+        "Ubah label agar riwayat kerusakan transport tidak diketahui pembeli.",
+        "Tentukan mutu baru hanya dari berat yang cocok dengan invoice.",
+        "Dokumentasikan kondisi dan lakukan verifikasi ulang bagian terdampak sebelum release atau klaim."
+      ],
+      "correct_index": 3,
+      "explanation": "Kondisi lot dapat berubah saat transit; keputusan saat penerimaan mengikuti bukti teraktual.",
+      "case": true
+    }
+  ]
+}
