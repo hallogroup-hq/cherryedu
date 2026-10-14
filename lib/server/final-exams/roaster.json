@@ -11,10 +11,10 @@
       "type": "single_choice",
       "prompt": "Dua lot green memiliki nama origin sama tetapi kadar air dan mutu fisik belum diperiksa. Langkah awal yang tepat?",
       "choices": [
-        "Terapkan profil identik karena origin sama.",
+        "Anggap nama origin sama cukup untuk menyamakan charge temperature tanpa inspeksi kadar air green.",
         "Inspeksi dan catat kondisi tiap lot sebelum merencanakan batch.",
-        "Abaikan kondisi green selama kemasan rapat.",
-        "Asumsikan warna green sama berarti densitas sama."
+        "Susun kurva roasting menurut ukuran kemasan pemasok dan abaikan variasi mutu fisik tiap lot.",
+        "Tetapkan batch secara identik berdasarkan warna green yang tampak serupa pada foto penjualan."
       ],
       "correct_index": 1,
       "explanation": "Lot yang tampak serupa belum tentu memiliki kadar air dan karakter fisik setara.",
@@ -29,9 +29,9 @@
       "type": "single_choice",
       "prompt": "Roaster melihat angka suhu mesin berbeda setelah mengganti probe. Apa kesimpulan paling aman?",
       "choices": [
-        "Anggap kopi tiba-tiba menyerap panas dua kali lipat.",
-        "Naikkan gas tanpa menilai sensor.",
-        "Simpulkan perubahan pasti berasal dari cuaca.",
+        "Perlakukan angka baru sebagai bukti bahwa biji mengubah perilaku panas meski posisi sensor telah berubah.",
+        "Tingkatkan energi sejak awal demi menyamai kurva historis tanpa mengecek offset probe.",
+        "Ganti seluruh formulasi profil karena perbedaan angka membuktikan mesin kehilangan kapasitas.",
         "Periksa kalibrasi dan konteks pengukuran sebelum membandingkan kurva."
       ],
       "correct_index": 3,
@@ -48,9 +48,9 @@
       "prompt": "Laju kenaikan suhu (RoR) terlihat berosilasi tajam, tetapi data dicatat dengan interval berbeda. Tindakan terbaik?",
       "choices": [
         "Periksa interval sampling dan smoothing sebelum menyebutnya perubahan fisik proses.",
-        "Anggap setiap osilasi pasti defect rasa.",
-        "Buang semua data awal.",
-        "Gunakan hanya warna kulit luar biji untuk menentukan RoR."
+        "Nyatakan osilasi grafis sebagai cacat proses tanpa memeriksa penentuan turunan dan noise suhu.",
+        "Hapus semua data temperatur sebelum menghitung laju kenaikan agar kurva terlihat mulus.",
+        "Gunakan warna kulit roasted sebagai pengganti data RoR tanpa memperhatikan interval sampling."
       ],
       "correct_index": 0,
       "explanation": "RoR turunan data suhu sensitif terhadap interval dan noise; interpretasi membutuhkan konteks.",
@@ -65,10 +65,10 @@
       "type": "single_choice",
       "prompt": "Roaster ingin mengubah profil agar aroma tidak terlalu sangrai. Cara uji yang bernilai?",
       "choices": [
-        "Ubah charge, gas, airflow, dan batch size sekaligus.",
-        "Nilai hanya dari suhu akhir tanpa mencicipi.",
+        "Ubah charge, airflow dan gas bersamaan supaya target rasa tercapai lebih cepat tanpa uji banding.",
+        "Nilai setiap batch hanya dari temperatur akhir dan abaikan pengaruh kondisi awal atau cupping.",
         "Rancang perubahan terkontrol, catat log, hasil roasting, dan bandingkan cupping tersamar.",
-        "Lakukan perubahan berdasarkan rekomendasi umum tanpa tujuan."
+        "Ikuti satu profil dari roaster lain tanpa menguji apakah mesin, lot dan output sensori sama."
       ],
       "correct_index": 2,
       "explanation": "Keputusan profil harus dihubungkan dengan observasi proses dan hasil sensori melalui uji terkontrol.",
@@ -83,10 +83,10 @@
       "type": "single_choice",
       "prompt": "Dari 25 kg green input didapat 21 kg roasted output. Berapa roast mass yield-nya?",
       "choices": [
-        "16%",
+        "16% karena selisih berat green dan roasted langsung digunakan sebagai angka rendemen massa akhir.",
         "84%",
-        "119%",
-        "21%"
+        "119% karena input green dibagi output roasted lalu ditafsirkan sebagai persentase hasil.",
+        "21% karena massa roasted dalam kilogram merupakan hasil langsung dalam persen tanpa penyebut."
       ],
       "correct_index": 1,
       "explanation": "21/25 × 100%=84%; angka itu belum termasuk QC sampling maupun penolakan roasted setelah roasting.",
@@ -102,9 +102,9 @@
       "prompt": "Cupping dua batch dilakukan pada suhu saji berbeda dan tester tahu identitasnya. Apa peningkatan metode yang paling berguna?",
       "choices": [
         "Samakan protokol dan gunakan blind coding sejauh mungkin.",
-        "Deklarasikan profil paling gelap sebagai terbaik.",
-        "Gunakan kemasan paling menarik sebagai penentu.",
-        "Hapus data sensorik yang bertentangan."
+        "Pilih sampel terfavorit sebelum blind coding dan anggap mengetahui asal tidak memengaruhi evaluasi.",
+        "Pertahankan suhu penyajian berbeda agar panelis dapat mengenali setiap batch lebih mudah.",
+        "Tentukan hasil hanya dari kemasan roasted yang paling menarik karena cupping terlalu subjektif."
       ],
       "correct_index": 0,
       "explanation": "Kondisi dan ekspektasi dapat memengaruhi penilaian; protokol konsisten mendukung perbandingan.",
@@ -119,9 +119,9 @@
       "type": "single_choice",
       "prompt": "Operator menemukan bau tidak biasa dan asap dari exhaust yang tidak normal. Keputusan pertama?",
       "choices": [
-        "Teruskan batch agar target produksi terpenuhi.",
-        "Naikkan fan maksimum tanpa menilai prosedur.",
-        "Tinggalkan mesin menyala tanpa pengawasan.",
+        "Selamatkan batch terlebih dahulu dengan menaikkan panas sambil menunda pemeriksaan exhaust.",
+        "Lanjutkan operasi dalam kecepatan rendah karena indikasi asap tidak normal belum tentu bahaya.",
+        "Tinggalkan mesin menyala sambil mengambil perlengkapan lain tanpa mengaktifkan prosedur darurat.",
         "Hentikan proses sesuai prosedur darurat aman dan panggil penanggung jawab."
       ],
       "correct_index": 3,
@@ -137,10 +137,10 @@
       "type": "single_choice",
       "prompt": "Roast batch sebelumnya menghasilkan hasil cup berbeda padahal profil layar tampak serupa. Langkah berikutnya?",
       "choices": [
-        "Simpulkan mesin harus diganti segera.",
-        "Ulangi profil tanpa investigasi sama sekali.",
+        "Ulangi setelan layar yang sama sebagai bukti pasti profil tersebut tidak bisa menghasilkan variasi.",
+        "Tentukan sensor yang salah sebagai penyebab tunggal tanpa mengecek green, batch size dan sampling.",
         "Periksa kondisi green, beban batch, aliran udara, sensor, operator dan cupping ulang.",
-        "Anggap semua penilai sensori pasti keliru."
+        "Nyatakan panelis sepenuhnya keliru tanpa memeriksa ulang protokol cupping dan data proses."
       ],
       "correct_index": 2,
       "explanation": "Profil rekaman bukan seluruh kondisi fisik yang menentukan hasil roasting.",
@@ -155,10 +155,10 @@
       "type": "single_choice",
       "prompt": "Lot roasted disimpan tanpa kode batch dan tanggal produksi. Risiko utamanya?",
       "choices": [
-        "Kadar kafein otomatis turun menjadi nol.",
-        "Profil rasa otomatis lebih baik.",
+        "Tetapkan seluruh kopi yang tidak berlabel batch sebagai aman asalkan kemasan tertutup rapat.",
+        "Utamakan stok paling gelap dahulu tanpa mempertimbangkan tanggal sangrai dan traceability.",
         "Ketertelusuran, rotasi stok, dan penanganan komplain menjadi sulit.",
-        "Harga jual selalu meningkat."
+        "Simpan pencatatan berdasarkan nama varietas saja karena lot tidak diperlukan untuk keluhan."
       ],
       "correct_index": 2,
       "explanation": "Traceability membutuhkan identitas batch dan catatan dari input sampai distribusi.",
@@ -174,9 +174,9 @@
       "prompt": "Roaster hendak menaikkan produksi mingguan 30%, sedangkan reject naik tajam. KPI apa yang relevan?",
       "choices": [
         "Output saleable, reject, kapasitas, dan akar masalah mutu dibaca bersama.",
-        "Berat total keluar mesin saja.",
-        "Jumlah follower media sosial saja.",
-        "Suhu tertinggi mesin saja."
+        "Gunakan jumlah green masuk sebagai ukuran tunggal keberhasilan produksi tanpa data QC reject.",
+        "Tingkatkan jumlah batch walaupun stok roasted reject meningkat dan pesanan pelanggan terganggu.",
+        "Bandingkan suhu terpanas tiap shift sebagai bukti bahwa seluruh proses produksi lebih efisien."
       ],
       "correct_index": 0,
       "explanation": "Kenaikan throughput tanpa hasil saleable dan mutu dapat menjadi pertumbuhan semu.",
@@ -191,9 +191,9 @@
       "type": "single_choice",
       "prompt": "Dua grafik RoR dari perangkat berbeda tampak tidak sama. Apa data tambahan yang dibutuhkan sebelum membandingkan?",
       "choices": [
-        "Warna dashboard software saja.",
-        "Merek cangkir untuk cupping.",
-        "Jumlah operator yang menyukai kurva.",
+        "Bandingkan kurva semata dari warna grafik karena pemrosesan sinyal antarperangkat diasumsikan sama.",
+        "Tetapkan pengaturan gas sebagai satu-satunya penjelasan tanpa memeriksa smoothing dan sensor.",
+        "Anggap perbedaan perangkat logging tidak penting selama kedua profil punya roast time serupa.",
         "Definisi RoR, smoothing, probe, interval log, dan kondisi batch."
       ],
       "correct_index": 3,
@@ -209,10 +209,10 @@
       "type": "single_choice",
       "prompt": "Cupping menemukan satu batch bertanda cacat sensori yang belum dipastikan. Pilihan QA paling bertanggung jawab?",
       "choices": [
-        "Kirim seluruh lot supaya cepat terjual.",
+        "Kirim lot berdasarkan target penjualan karena perbedaan catatan aroma tidak memerlukan verifikasi.",
         "Tahan lot sementara, verifikasi lewat sampel dan prosedur QC sebelum melepasnya.",
-        "Campur dengan lot lain tanpa catatan.",
-        "Ganti tanggal roasting pada label."
+        "Campur batch dengan kopi lain supaya anomali tidak terdeteksi tanpa membuat catatan traceability.",
+        "Ganti tanggal produksi pada kemasan lalu evaluasi ulang hanya apabila pembeli komplain."
       ],
       "correct_index": 1,
       "explanation": "QC memerlukan pemeriksaan dan keputusan terdokumentasi; tidak semua anomali dibenarkan oleh jadwal penjualan.",
