@@ -8,7 +8,7 @@ export default function FinalExamPage({params}:{params:{path:string}}){
  if(!FINAL_EXAM_ENABLED())notFound();
  const exam=FINAL_EXAM_PATHS.find(p=>p.slug===params.path);
  if(!exam)notFound();
- return <main className="min-h-screen bg-paper-50 pb-24 text-roast-950">
+ return <div className="min-h-screen bg-paper-50 pb-24 text-roast-950">
   <header className="border-b border-paper-300 bg-paper-100/60">
    <div className="mx-auto max-w-5xl px-5 py-8 sm:py-10">
     <Link href="/ujian-akhir" className="text-sm text-cherry-800 underline underline-offset-4">Semua ujian akhir</Link>
@@ -18,5 +18,5 @@ export default function FinalExamPage({params}:{params:{path:string}}){
    </div>
   </header>
   <div className="mx-auto max-w-5xl px-5 pt-8"><FinalExamRunner path={exam.slug} courseHref={exam.courseHref}/></div>
- </main>
+ </div>
 }
