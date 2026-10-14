@@ -12,6 +12,8 @@ export async function GET(_req:NextRequest,{params}:{params:{path:string}}){
 }
 export async function POST(req:NextRequest,{params}:{params:{path:string}}){
  if(!FINAL_EXAM_ENABLED())return send({message:'Tidak ditemukan'},404);
+ // Match GET/page access gates: disabled specialty banks must never be gradable via POST.
+ if(NEXT_SPECIALTY_EXAM_SLUGS.has(params.path)&&!NEXT_SPECIALTY_ENABLED())return send({message:'Tidak ditemukan'},404);
  const len=Number(req.headers.get('content-length')||0);
  if(len>16000)return send({message:'Data ujian terlalu besar'},413);
  let data:unknown;
