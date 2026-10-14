@@ -33,6 +33,11 @@ for(const [slug,target,modules] of specs){
  }
  for(const m of modules)if(!foundMods.has(m))fail('Unassessed module '+slug+'/'+m);
  if(Math.max(...counts)-Math.min(...counts)>1)fail('Answer position imbalance '+slug+': '+counts.join(','));
+ const shortestCount=bank.items.filter(q=>q.choices[q.correct_index].length===Math.min(...q.choices.map(x=>x.length))).length;
+ if(shortestCount>Math.floor(bank.items.length*.4))fail('Predictable shortest-answer bias '+slug+': '+shortestCount+'/'+bank.items.length);
+ const wrongAnswerTexts=bank.items.flatMap(q=>q.choices.filter((_,i)=>i!==q.correct_index));
+ if(wrongAnswerTexts.some(x=>x.trim().length<3))fail('Unusable distractor '+slug);
+
  detail.push({path:slug,questions:bank.items.length,cases:caseCount,covered:foundMods.size,answerPositions:counts});
 }
 // Independent arithmetic/key fixtures. Assertions recompute expected outputs.
