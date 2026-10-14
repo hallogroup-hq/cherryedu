@@ -1,6 +1,6 @@
 # CherryEdu — Three New Specialization Paths
 Date: 2026-10-14
-Status: DESIGN / AUTHORING — DO NOT RELEASE
+Status: 80-LESSON AUTHORING COMPLETE — TECHNICAL QA & SME REVIEW PENDING — DO NOT RELEASE
 Branch: feat/next-specializations-curriculum-qa
 Source branch: feat/final-assessments-qa at a4945458; target PR against that branch to avoid mixing release scope.
 
@@ -73,3 +73,36 @@ G8 **Preview deployment** after G0–G6 PASS with explicit user or standing prev
 2. Coffee Business & Shop Management: rebuild/validate, stress-test finance scenarios and boundaries vs Business Roastery.
 3. Q Processor: rebuild/validate, strengthen practical decision-making, process safety and CQI scope.
 Only mark one as completed when all technical and content gates pass, and preserve evidence.
+
+## Execution checkpoint — 2026-10-14 (working branch, NOT production)
+
+### Authored coverage
+| Path | Modules | Deepened lessons | Baseline after rewrite | Independent course exam |
+| --- | ---: | ---: | --- | ---: |
+| Green Coffee & Post-Harvest | 8 | 32/32 | 341+ words per lesson | 16 items |
+| Coffee Business & Shop Management | 8 | 24/24 | 318+ words per lesson | 16 items |
+| Q Processor | 8 | 24/24 | 304+ words per lesson | 16 items |
+
+Each of the 80 lessons now has a lesson-specific teaching section (not merely a case prompt), a concept/mechanism, a worksite decision and a named source link. Shared filler intros and repeated undifferentiated closing instructions were replaced with module-specific learning guidance. This is authoring-completion evidence, **not** independent pedagogical sign-off.
+
+### Corrections and regression isolation
+- Corrected footer Q Processor link to the curated preview path when preview feature flags are active, avoiding the retired path and misleading '(CQI)' label. Production's legacy route is retained when the preview is off.
+- Kept approved reusable learning layout; no direct modifications to the curated course frame, syllabus, reader, existing six paths or exam navigator layout.
+- Preserved own final-exam action on the last lesson and at bottom of each syllabus; 16 per course, grading behind server routes. Must reverify on current exact HEAD.
+- Fixed Playwright rupiah tests to accept locale-correct non-breaking spacing; calculation did not change.
+- Isolated old curated/legacy regression against disabled next-specialty preview, while dedicated new-specialty suite exercises enabled preview.
+- Raised source validator word floor from 140 to 290, required distinct teaching subheadings, verified Markdown citations with descriptive source names, and disallowed numbered 'Rujukan 1 / Sumber 1' links.
+- Improved business financial references (SBA), food safety references (WHO), and CQI processing/academic-boundary references. For Indonesia licensing, require activity-specific OSS/BPOM verification before any binding legal advice.
+
+### Gate disposition at checkpoint
+- G0 inventory: documented and technically checked in course arrays.
+- G1 progression: structured and implemented, pending independent learning-experience review.
+- G2 sourcing/scientific correctness: targeted review and corrections applied; **not full SME-approved**.
+- G3 materials: all 80 authored at depth and validator strengthened; needs exact HEAD CI.
+- G4 finals: 48 authored questions checked for arithmetic and rationale by implementation review; independent SME verification **pending**.
+- G5 visual/learner journeys: existing UI components preserved; browser regression **running** on latest edits, direct owner screenshot acceptance **pending**.
+- G6 security/automation: no public answer keys intended; exact HEAD CI **pending**.
+- G7 human owner/SME approval: **pending**.
+- G8 gated preview: **do not mark delivered** until G0–G6 on one exact commit pass and preview config is verified. No production merge.
+
+A previous QA run demonstrated an obsolete footer reference, locale-specific currency test assertions, and an old regression suite picking up a new path despite its legacy expectation. These test and source problems were corrected, but no earlier green run counts as proof for the new HEAD. Keep this PR in draft until gate evidence and human review are complete.
