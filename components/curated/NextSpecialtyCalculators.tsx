@@ -66,14 +66,14 @@ export function QProcessorYieldCalculator(){
  const coarse=Number(vals[1]),rejectVal=Number(vals[2]),source=Number(vals[0]);
  const possible=okay&&coarse>=rejectVal&&coarse<=source;
  const saleable=coarse-rejectVal,yieldPercent=(saleable/source)*100;
- return <Wrapper title="Rendemen green saleable" description="Pisahkan massa parchment/cherry awal, green kasar setelah milling, dan reject sortasi. Gunakan basis bahan yang sama untuk semua perhitungan."
+ return <Wrapper title="Rendemen green saleable" description="Kalkulator ini khusus alur parchment menuju green, bukan rasio cherry segar. Gunakan massa parchment masuk, green kasar setelah hulling, dan reject pada lot yang sama."
  results={!okay?<p className="text-sm text-roast-700">Masukkan massa input, output green kasar, dan reject sortasi.</p>:!possible?
  <p className="text-sm text-red-800">Neraca massa belum masuk akal: pastikan green kasar tidak melebihi input, dan reject tidak melebihi green kasar.</p>:<>
  <p className="font-serif text-3xl font-bold text-roast-950">{yieldPercent.toFixed(1).replace('.',',')}% <span className="text-base">saleable yield</span></p>
  <p className="mt-2 text-sm">Green saleable: <strong>{saleable.toLocaleString('id-ID')} kg</strong></p>
- <p className="mt-2 text-xs leading-6 text-roast-700">Rumus: (output green kasar – reject) / massa input × 100%. Jenis input perlu dicatat; rendemen cherry dan parchment tidak langsung sebanding.</p>
+ <p className="mt-2 text-xs leading-6 text-roast-700">Rumus: (output green kasar – reject) / massa input × 100%. Semua massa harus berasal dari lot dan basis ukur yang sebanding. Jangan menerapkan persentase ini langsung ke input cherry segar.</p>
  </>}>
-  <Field label="Massa input awal" value={input} set={setInput} unit="kg"/>
+  <Field label="Massa parchment masuk" value={input} set={setInput} unit="kg"/>
   <Field label="Output green kasar" value={green} set={setGreen} unit="kg"/>
   <Field label="Reject sortasi green" value={reject} set={setReject} unit="kg"/>
  </Wrapper>
