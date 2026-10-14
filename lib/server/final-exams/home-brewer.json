@@ -63,7 +63,7 @@
       ],
       "objective": "HB04-transfer-4",
       "type": "single_choice",
-      "prompt": "Air tertahan lama pada V60 setelah pola tuang diganti. Dugaan paling bertanggung jawab?",
+      "prompt": "Awalnya V60 mengalir normal. Setelah pola tuang diubah, drawdown jauh lebih lambat sementara catatan lain belum lengkap. Pemeriksaan berikut apa yang paling bertanggung jawab?",
       "choices": [
         "Periksa distribusi fines, bed, filter, dan pola tuang; jangan menetapkan satu sebab tanpa uji.",
         "Tetapkan fines sebagai satu-satunya penyebab sumbatan tanpa membandingkan kondisi filter.",
@@ -153,7 +153,7 @@
       ],
       "objective": "HB09-transfer-9",
       "type": "single_choice",
-      "prompt": "Resep iced pour-over memakai 160 g air panas dan 80 g es yang mencair sepenuhnya. Total air yang masuk sebagai cairan akhir?",
+      "prompt": "Resep iced pour-over mencantumkan 160 g air panas dan 80 g es yang mencair sepenuhnya. Berapa total input air sebelum retensi bubuk diperhitungkan?",
       "choices": [
         "160 g karena es bukan bagian dari formulasi air saat dihitung sebagai input seduhan kopi dingin.",
         "80 g karena air panas dianggap hilang seluruhnya dan yang tersisa hanya air dari es.",
@@ -171,7 +171,7 @@
       ],
       "objective": "HB10-transfer-10",
       "type": "single_choice",
-      "prompt": "Eksperimen A/B memperlihatkan cangkir B lebih disukai, tetapi B juga disajikan lebih panas. Apa interpretasi tepat?",
+      "prompt": "Awalnya uji A/B menunjukkan cangkir B lebih disukai. Setelah catatan diperiksa, B ternyata disajikan lebih panas daripada A. Interpretasi mana yang dapat dipertanggungjawabkan?",
       "choices": [
         "Nyatakan resep B sebagai pemenang karena perubahan suhu saji tidak mungkin memengaruhi preferensi.",
         "Preferensi tercatat, namun suhu saji adalah faktor pengganggu yang perlu dikendalikan.",
