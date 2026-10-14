@@ -30,7 +30,7 @@
       "prompt": "Dua panelis menilai intensitas aroma berbeda; satu cangkir disajikan lebih dingin. Apa tindakan pertama?",
       "choices": [
         "Samakan prosedur saji dan kondisi sampel sebelum menafsirkan selisih panelis.",
-        "Tentukan panelis dengan skor lebih tinggi paling akurat tanpa memeriksa protokol atau suhu saji.",
+        "Panelis dengan skor lebih tinggi pasti benar.",
         "Coba ulang tes dengan suhu saji berbeda agar panelis bisa membedakan karakter setiap cangkir.",
         "Abaikan variasi suhu karena kalibrasi panelis hanya dipengaruhi jam terbang dan jenis kopi."
       ],
@@ -47,7 +47,7 @@
       "type": "single_choice",
       "prompt": "Sebuah panel menggunakan skala suka/tidak suka untuk menyebut intensitas buah. Apa kesalahan konsepnya?",
       "choices": [
-        "Gunakan rating kesukaan untuk mengukur intensitas aroma sebab preferensi dianggap data objektif.",
+        "Kesukaan bisa langsung menjadi intensitas aroma.",
         "Mengukur kesukaan tidak sama dengan mendeskripsikan intensitas atribut.",
         "Tafsirkan skor suka tinggi sebagai bukti bahwa aroma buah memiliki intensitas paling besar.",
         "Campur skor preferensi dan aroma menjadi satu angka tanpa mendefinisikan ulang skalanya."
@@ -65,8 +65,8 @@
       "type": "single_choice",
       "prompt": "Peserta mengaku selalu bisa membedakan dua lot. Namun saat tes segitiga pertama, ia hanya memilih cangkir berbeda dengan benar satu kali. Kesimpulan yang tepat?",
       "choices": [
-        "Satu pilihan benar membuktikan seluruh sampel dapat dibedakan pada setiap situasi dan panelis.",
-        "Tingkatkan hasil satu percobaan menjadi sertifikasi resmi karena peluang menebak tidak relevan.",
+        "Satu pilihan benar membuktikan keahlian andal.",
+        "Satu tes benar cukup untuk sertifikasi resmi.",
         "Anggap kopi identik karena penguji belum memakai angka penilaian aroma dan acidity.",
         "Satu jawaban benar tidak cukup untuk membuktikan kemampuan diskriminasi yang andal."
       ],
@@ -101,9 +101,9 @@
       "type": "single_choice",
       "prompt": "Catatan panelis berbunyi 'aroma floranya intens' dan 'saya sangat suka'. Ke mana keduanya dicatat?",
       "choices": [
-        "Masukkan intensitas aroma sebagai kesukaan dan kesukaan sebagai kadar air sampel green.",
+        "Intensitas aroma sama dengan preferensi.",
         "Deskriptif untuk intensitas; afektif untuk kesukaan.",
-        "Catat kedua kalimat hanya di kolom aroma karena seluruh pengalaman sensorik dianggap sama.",
+        "Keduanya harus masuk catatan ekstrinsik.",
         "Tempatkan deskripsi sensori serta penilaian kesukaan bersama sebagai data ekstrinsik lot."
       ],
       "correct_index": 1,
@@ -119,7 +119,7 @@
       "type": "single_choice",
       "prompt": "Merek mempromosikan kopi dengan indikasi geografis dan cerita petani. Dalam CVA, unsur tersebut paling dekat dengan?",
       "choices": [
-        "Masukkan sertifikasi dan cerita asal ke skala intensitas acidity karena semua informasi memengaruhi nilai.",
+        "Asal geografis sama dengan kadar air.",
         "Perlakukan asal geografis sebagai angka moisture content tanpa inspeksi dan pengukuran green.",
         "Informasi ekstrinsik yang memerlukan verifikasi.",
         "Gunakan laporan cacat fisik untuk menyimpulkan keaslian cerita pemasok tanpa bukti dokumen."
@@ -137,8 +137,8 @@
       "type": "single_choice",
       "prompt": "Seorang panelis tahu harga sampel A lebih mahal sebelum blind tasting. Bagaimana mengurangi bias?",
       "choices": [
-        "Perlihatkan seluruh harga dan identitas merek sebelum cup test agar penilai mengetahui kualitas pasar.",
-        "Atur jenis cangkir berbeda berdasarkan harga karena pembanding seharusnya menyimbolkan nilai.",
+        "Harga perlu ditunjukkan sebelum cupping.",
+        "Kode sampel harus menampilkan merek.",
         "Minta panelis menyatakan preferensi merek dahulu agar penilaian sensori mengikuti ekspektasi.",
         "Gunakan blind codes dan pisahkan data harga dari penilaian sensori."
       ],
@@ -173,7 +173,7 @@
       "type": "single_choice",
       "prompt": "Peserta telah menyelesaikan seluruh latihan sensori digital. Setelah itu ia bertanya apakah hasil tersebut otomatis memberinya gelar Q Grader resmi. Jawaban apa yang tepat?",
       "choices": [
-        "Nyatakan lulus latihan daring sebagai pengganti uji praktik karena semua kompetensi sensori setara.",
+        "Kuis daring otomatis memberikan gelar Q Grader.",
         "Ia telah berlatih konsep, tetapi kompetensi Q Grader resmi butuh asesmen resmi yang berbeda.",
         "Terbitkan gelar Q Grader resmi setelah skor kuis bagus tanpa mengikuti prosedur kredensial.",
         "Gunakan hasil tes digital sebagai satu-satunya bukti mampu mengkalibrasi panel laboratorium."
@@ -191,7 +191,7 @@
       "type": "single_choice",
       "prompt": "CVA deskriptif mencatat aroma buah kuat, tetapi banyak pembeli tidak menyukainya. Mana kesimpulan tepat?",
       "choices": [
-        "Tafsirkan ketidaksukaan pembeli sebagai bukti bahwa intensitas aroma yang dicatat panelis keliru.",
+        "Kesukaan rendah membuktikan aroma tidak ada.",
         "Anggap atribut aroma kuat otomatis bernilai afektif tinggi untuk semua target pasar.",
         "Atribut teramati dan preferensi pasar bisa berbeda tanpa kontradiksi.",
         "Hapus atribut buah dari laporan deskriptif karena nilai preferensi mayoritas lebih rendah."
@@ -209,8 +209,8 @@
       "type": "single_choice",
       "prompt": "Laporan mengklaim 'CVA skor tunggal' sudah mewakili mutu fisik, kesukaan dan cerita asal. Apa respons benar?",
       "choices": [
-        "Anggap satu skor sensori otomatis mencakup kondisi fisik, asal, dan preferensi seluruh pasar.",
-        "Gunakan cerita pemasok untuk menggantikan pengukuran ukuran dan cacat fisik sampel.",
+        "Satu skor CVA mewakili seluruh dimensi.",
+        "Cerita asal menggantikan inspeksi fisik.",
         "Bentuk nilai akhir satu angka yang dianggap bukti lengkap seluruh lensa tanpa laporan tambahan.",
         "Minta laporan terpisah sesuai dimensi CVA dan cakupan penilaian yang benar-benar dilakukan."
       ],
