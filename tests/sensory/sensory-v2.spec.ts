@@ -1,4 +1,5 @@
 import {test,expect} from '@playwright/test';
+test.beforeEach(async({page})=>{await page.addInitScript(()=>localStorage.setItem('cherry_seen_version_v1_2','true'));});
 
 test('course shows 10 modules, 40 lessons and role-specific learning title',async({page})=>{
  await page.goto('/sensory-v2');
