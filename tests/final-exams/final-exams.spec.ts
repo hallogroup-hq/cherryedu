@@ -8,6 +8,10 @@ test('catalog links all six exams, no internal notices',async({page})=>{
  for(const [path] of paths)await expect(page.locator('a[href="/ujian-akhir/'+path+'"]')).toBeVisible();
  const txt=await page.locator('main').innerText();expect(txt).not.toMatch(/\b(DRAFT|PREVIEW|BETA|QA INTERNAL|TBD|PLACEHOLDER)\b/i);
 });
+test('Foundation path exposes its final exam in curated student experience',async({page})=>{
+ await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir');
+ await expect(page.locator('a[href="/ujian-akhir/foundation"]')).toBeVisible();
+});
 for(const [path,total] of paths){
  test(path+' shows questions without answer keys, validates and scores on server',async({page,request})=>{
   const raw=await request.get('/api/final-exams/'+path);
