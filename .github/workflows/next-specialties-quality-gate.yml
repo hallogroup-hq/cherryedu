@@ -25,6 +25,8 @@ on:
       - 'tests/final-exams/**'
       - 'scripts/validate-next-specialties.cjs'
       - 'playwright.next-specialties.config.ts'
+      - 'playwright.specialty-gate.config.ts'
+      - 'tests/specialty-gate/**'
       - 'playwright.final-exams.config.ts'
       - 'playwright.curated.config.ts'
       - 'docs/curriculum/next-specializations/**'
@@ -74,3 +76,5 @@ jobs:
         run: npx playwright test --config=playwright.next-specialties.config.ts
       - name: Established Foundation-based reader regression
         run: npx playwright test --config=playwright.curated.config.ts
+      - name: Closed-specialty preview access and POST grading regression
+        run: npx playwright test --config=playwright.specialty-gate.config.ts
