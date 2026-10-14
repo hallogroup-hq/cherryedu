@@ -21,7 +21,7 @@ const specs=[
  {slug:'coffee-shop',route:'coffee-shop-v2',path:'coffeeShopV2Course',prefix:'COFFEE_SHOP_V2',lessons:24,modPrefix:'CS',scenario:'COFFEE_SHOP_SCENARIOS',exercises:3},
  {slug:'q-processor',route:'q-processor-v2',path:'qProcessorV2Course',prefix:'Q_PROCESSOR_V2',lessons:24,modPrefix:'QP',scenario:'Q_PROCESSOR_SCENARIOS',exercises:3}
 ];
-const allLessonIds=new Set(),allTitles=new Set(),allExamIds=new Set(),allStems=new Set();
+const allLessonIds=new Set(),allTitles=new Set(),allDeepDiveHeadings=new Set(),allExamIds=new Set(),allStems=new Set();
 const summary=[];
 for(const spec of specs){
  const data=lessons(spec.path,spec.prefix);
@@ -38,7 +38,14 @@ for(const spec of specs){
   if(allLessonIds.has(l.id))fail('duplicate lesson ID '+l.id);allLessonIds.add(l.id);
   if(allTitles.has(norm(l.title)))fail('duplicate lesson title '+l.title);allTitles.add(norm(l.title));
   const wc=l.content.trim().split(/\s+/).length;
-  if(wc<140)fail('thin conceptual lesson '+l.id+': '+wc+' words');
+  // Minimum depth plus a distinct, teachable subtopic; word count alone is not academic sign-off.
+  if(wc<290)fail('thin conceptual lesson '+l.id+': '+wc+' words');
+  const deepDiveHeadings=(l.content.match(/^### .+$/gm)||[]).map(h=>norm(h));
+  if(!deepDiveHeadings.length)fail('missing lesson-specific teaching deep dive '+l.id);
+  for(const heading of deepDiveHeadings){
+   if(allDeepDiveHeadings.has(heading))fail('duplicate teaching deep-dive heading '+l.id);
+   allDeepDiveHeadings.add(heading);
+  }
   if(!l.content.includes('## ')||(!l.content.includes('Rujukan')&&!l.content.includes('Sumber')))fail('missing pedagogy/reference '+l.id);
   if(/(?:\bDRAFT\b|\bQA INTERNAL\b|\bPLACEHOLDER\b|\bTODO\b|\bCOMING SOON\b)/i.test(l.title+' '+l.content))fail('internal student copy '+l.id);
  }
