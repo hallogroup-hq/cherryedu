@@ -17,8 +17,8 @@
 | Gate ID | Target Phase | Primary Verification Focus | Gate Criteria | Current Status | Verdict |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **GATE-1R** | Phase 1R | Security & Entitlement Remediation | Server-authoritative provisional Pro, admin verify/reject, no localStorage bypass, monotonic lock | COMPLETED | **PASS** |
-| **GATE-2** | Phase 2 | Standalone Teams App & Vercel Project | Dedicated repo `cherryedu-teams`, separate Vercel project, preview URL accessible, B2C isolated | IN EVALUATION | **EVALUATING** |
-| **GATE-3** | Phase 3 | B2B DB, Auth & API Foundation | Schema migrations verified, cryptographic auth, strict tenant isolation, no mock fixtures | PENDING | PENDING |
+| **GATE-2** | Phase 2 | Standalone Teams App & Vercel Project | Dedicated repo `cherryedu-teams`, separate Vercel project, preview URL accessible, B2C isolated | COMPLETED | **PASS** |
+| **GATE-3** | Phase 3 | B2B DB, Auth & API Foundation | Schema migrations verified, cryptographic auth, strict tenant isolation, no mock fixtures | COMPLETED | **PASS** |
 | **GATE-4** | Phase 4 | Curriculum & Competency Engine | Validated curriculum, prerequisite check, rubric evaluation, critical-failure gate, assessor authority | PENDING | PENDING |
 | **GATE-5** | Phase 5 | Barista Application Experience | Real learner journey, progress tracking, quiz attempt, feedback, remediation, competency view | PENDING | PENDING |
 | **GATE-6** | Phase 6 | Owner & Manager Experience | Org setup, outlet management, staff invitations, program assignment, skill gap monitoring | PENDING | PENDING |
