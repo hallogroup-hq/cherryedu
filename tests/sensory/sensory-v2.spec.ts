@@ -3,10 +3,12 @@ import {test,expect} from '@playwright/test';
 test('course shows 10 modules, 40 lessons and role-specific learning title',async({page})=>{
  await page.goto('/sensory-v2');
  await expect(page.getByRole('heading',{name:'Q Grader & Sensory Specialist'})).toBeVisible();
- await expect(page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])')).toHaveCount(10);
- await expect(page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"]) ol li')).toHaveCount(40);
+ const modules=page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])');
+ await expect(modules).toHaveCount(10);
+ for(let i=1;i<10;i++)await modules.nth(i).getByRole('button').click();
+ await expect(modules.locator('ol li')).toHaveCount(40);
  await page.getByRole('link',{name:/Mengapa penilai kopi tidak cukup memberi skor/}).click();
- await expect(page.getByRole('heading',{name:'Mengapa penilai kopi tidak cukup memberi skor?'})).toBeVisible();
+ await expect(page.getByRole('heading',{level:1,name:'Mengapa penilai kopi tidak cukup memberi skor?'})).toBeVisible();
  await expect(page.locator('figure svg[role="img"]')).toHaveCount(1);
  await expect(page.getByRole('heading',{name:/Investigasi lapangan: empat laporan untuk satu lot/})).toBeVisible();
 });
