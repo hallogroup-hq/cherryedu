@@ -70,3 +70,22 @@ test('P-17 is introduced before its repeated use; title and copy have no unwante
  expect(body).not.toMatch(/sok ahli|tanpa terdengar sok|semua nama dan angkanya simulasi/i);
  expect(await page.locator('main h2,main h3').allTextContents()).not.toEqual(expect.arrayContaining([expect.stringMatching(/\s[—–]\s/)]));
 });
+
+
+test('Business Roastery reader uses Foundation desktop geometry, not a separate narrow layout',async({page})=>{
+ await page.setViewportSize({width:1440,height:900});
+ await page.goto('/paths/memahami-kopi-dari-hulu-ke-hilir/lessons/lesson-fv2-m01-l01');
+ const fSide=await page.locator('aside').first().boundingBox();
+ const fArticle=await page.locator('article.lg\\:col-span-8').first().boundingBox();
+ expect(fSide&&fArticle).toBeTruthy();
+ const foundationRatio=fSide!.width/(fSide!.width+fArticle!.width);
+ const foundationRadius=await page.locator('article.lg\\:col-span-8').first().evaluate(el=>getComputedStyle(el).borderTopLeftRadius);
+ await page.goto('/business-roastery-v1/br-b01-l01');
+ const bSide=await page.getByRole('complementary',{name:'Daftar pelajaran silabus'}).boundingBox();
+ const bArticle=await page.locator('div[class*="lg:col-span-8"]').first().boundingBox();
+ expect(bSide&&bArticle).toBeTruthy();
+ const businessRatio=bSide!.width/(bSide!.width+bArticle!.width);
+ const businessRadius=await page.locator('div[class*="lg:col-span-8"]').first().evaluate(el=>getComputedStyle(el).borderTopLeftRadius);
+ expect(Math.abs(businessRatio-foundationRatio)).toBeLessThan(0.06);
+ expect(businessRadius).toBe(foundationRadius);
+});
