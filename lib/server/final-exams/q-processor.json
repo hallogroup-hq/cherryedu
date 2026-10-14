@@ -125,7 +125,7 @@
         "Semua produk honey harus memiliki mutu fisik sama tanpa perlu sampel."
       ],
       "correct_index": 2,
-      "explanation": "Kategori pemasaran tidak menggantikan protokol dan bukti.",
+      "explanation": "Kategori red/yellow/black honey tidak memiliki protokol universal yang identik di seluruh produsen. Dokumen proses dan QC tiap lot tetap diperlukan.",
       "case": false
     },
     {
