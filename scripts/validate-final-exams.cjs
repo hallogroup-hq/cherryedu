@@ -69,5 +69,24 @@ const api=fs.readFileSync(path.join(__dirname,'../app/api/final-exams/[path]/rou
 if(!api.includes('FINAL_EXAM_ENABLED()')||!api.includes('publicExam(params.path)')||!api.includes('gradeExam(params.path'))fail('Server API release gate or grading missing');
 const adapter=fs.readFileSync(path.join(__dirname,'../lib/server/finalExamCatalog.ts'),'utf8');
 if(!adapter.includes('({id,module_ids,prompt,choices})')||!adapter.includes('Math.ceil(items.length*0.8)'))fail('Public answer filtering or scoring missing');
+// Every learner journey ends at the path's exam; never rely on a private server flag inside client code.
+const reader=fs.readFileSync(path.join(__dirname,'../components/curated/CuratedLessonFrame.tsx'),'utf8');
+const overview=fs.readFileSync(path.join(__dirname,'../components/curated/CuratedCourseOverview.tsx'),'utf8');
+const foundationReader=fs.readFileSync(path.join(__dirname,'../app/paths/[slug]/lessons/[lessonId]/page.tsx'),'utf8');
+const store=fs.readFileSync(path.join(__dirname,'../lib/store.tsx'),'utf8');
+if(!reader.includes('continue-to-final-exam')||!reader.includes('examHref'))fail('Specialty lesson-to-exam continuation missing');
+if(!overview.includes('examHref&&<section')||overview.includes("examHref&&process.env.CHERRYEDU_FINAL_EXAMS_REVIEW"))fail('Specialty syllabus exam missing or uses inaccessible server env inside client component');
+if(!foundationReader.includes('continue-to-final-exam')||!foundationReader.includes('/ujian-akhir/foundation'))fail('Foundation last-lesson exam continuation missing');
+for(const [course,exam] of [
+ ['barista-v2','barista'],['home-brewer-v2','home-brewer'],['roaster-v2','roaster'],
+ ['sensory-v2','sensory'],['business-roastery-v1','business-roastery']
+]){
+ const p=fs.readFileSync(path.join(__dirname,'../app',course,'page.tsx'),'utf8');
+ const l=fs.readFileSync(path.join(__dirname,'../app',course,'[lessonId]/page.tsx'),'utf8');
+ if(!p.includes('/ujian-akhir/'+exam)||!l.includes('/ujian-akhir/'+exam))fail('Missing syllabus/last lesson exam route '+course);
+}
+if(!store.includes("if (!CURATED_PREVIEW && passed && quiz.quiz_scope === 'final_exam'")||
+   !store.includes("if (!CURATED_PREVIEW) setQuizAttempts")||
+   !store.includes('if (passed && !CURATED_PREVIEW)'))fail('Legacy preview quiz must not mutate attempts, XP or certificates');
 console.log(JSON.stringify({total:detail.reduce((a,x)=>a+x.questions,0),detail,arithmeticFixtures:Object.keys(fixtures).length,issues:failures},null,2));
 if(failures.length)process.exit(1);
