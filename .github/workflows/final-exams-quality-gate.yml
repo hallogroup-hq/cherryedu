@@ -1,0 +1,71 @@
+name: CherryEdu Final Exams — Authoring and QA
+on:
+  pull_request:
+    branches: [preview/cherryedu-curated-2026-10, main]
+    paths:
+      - 'lib/server/final-exams/**'
+      - 'lib/server/finalExamCatalog.ts'
+      - 'lib/finalExamPaths.ts'
+      - 'app/api/final-exams/**'
+      - 'app/paths/[slug]/page.tsx'
+      - 'app/paths/[slug]/lessons/[lessonId]/page.tsx'
+      - 'app/paths/[slug]/quiz/[quizId]/page.tsx'
+      - 'lib/store.tsx'
+      - 'middleware.ts'
+      - 'app/ujian-akhir/**'
+      - 'components/final-exams/**'
+      - 'components/curated/CuratedCourseOverview.tsx'
+      - 'components/curated/CuratedLessonFrame.tsx'
+      - 'app/barista-v2/[lessonId]/page.tsx'
+      - 'app/home-brewer-v2/[lessonId]/page.tsx'
+      - 'app/roaster-v2/[lessonId]/page.tsx'
+      - 'app/sensory-v2/[lessonId]/page.tsx'
+      - 'app/business-roastery-v1/[lessonId]/page.tsx'
+      - 'tests/curated/**'
+      - 'playwright.curated.config.ts'
+      - 'app/barista-v2/page.tsx'
+      - 'app/home-brewer-v2/page.tsx'
+      - 'app/roaster-v2/page.tsx'
+      - 'app/sensory-v2/page.tsx'
+      - 'app/business-roastery-v1/page.tsx'
+      - 'tests/final-exams/**'
+      - 'scripts/validate-final-exams.cjs'
+      - 'playwright.final-exams.config.ts'
+      - '.github/workflows/final-exams-quality-gate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      CHERRYEDU_FINAL_EXAMS_REVIEW: enabled
+      NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW: enabled
+      NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW: review-only
+      CHERRYEDU_BARISTA_V2_REVIEW: enabled
+      CHERRYEDU_HOME_BREWER_V2_REVIEW: enabled
+      CHERRYEDU_ROASTER_V2_REVIEW: enabled
+      CHERRYEDU_SENSORY_V2_REVIEW: enabled
+      CHERRYEDU_BUSINESS_ROASTERY_REVIEW: enabled
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Check exam catalog, coverage, arithmetic and copy
+        run: node scripts/validate-final-exams.cjs
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Build
+        run: npm run build
+      - name: Install browser
+        run: npx playwright install --with-deps chromium
+      - name: Desktop and mobile examination flows
+        run: npx playwright test --config=playwright.final-exams.config.ts
+      - name: Foundation-aligned syllabus and lesson reader UI across all curated paths
+        run: npx playwright test --config=playwright.curated.config.ts

@@ -4,8 +4,11 @@ test('new independent roastery path exposes 21 modules and 84 lessons',async({pa
  await page.goto('/business-roastery-v1');
  await expect(page.getByRole('heading',{name:'Business Roastery'})).toBeVisible();
  await expect(page.getByRole('heading',{level:2}).filter({hasText:'Tiga jalur membangun roastery'})).toBeVisible();
- await expect(page.locator('a[href^="/business-roastery-v1/br-b"][href$="-l01"]')).toHaveCount(21);
- await expect(page.locator('a[href^="/business-roastery-v1/br-b"]')).toHaveCount(84);
+ const modules=page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])');
+ await expect(modules).toHaveCount(21);
+ for(let i=1;i<21;i++)await modules.nth(i).getByRole('button').click();
+ await expect(modules.locator('a[href^="/business-roastery-v1/br-b"][href$="-l01"]')).toHaveCount(21);
+ await expect(modules.locator('ol li a[href^="/business-roastery-v1/br-b"]')).toHaveCount(84);
  await expect(page.getByText('Asset-light',{exact:true})).toBeVisible();
  await expect(page.getByText('Roastery kecil',{exact:true})).toBeVisible();
  await expect(page.getByText('Roastery berkembang',{exact:true})).toBeVisible();
@@ -189,12 +192,12 @@ test('business model text emphasizes key guidance without raw markdown',async({p
 
 test('lesson tasks stay topic-specific without repeated generic evidence templates',async({page})=>{
  await page.goto('/business-roastery-v1/br-b08-l01');
- await expect(page.getByRole('heading',{name:'Asal dan tujuan ongkir harus tepat'})).toBeVisible();
+ await expect(page.getByRole('heading',{level:1,name:'Asal dan tujuan ongkir harus tepat'})).toBeVisible();
  await expect(page.getByText(/Masukkan dua quotation nyata untuk arah identik/)).toBeVisible();
  await expect(page.getByText(/Lengkapi tiga kolom:/)).toHaveCount(0);
  await expect(page.getByText(/Bila hasil kasus berbeda dari ekspektasi/)).toHaveCount(0);
  await page.goto('/business-roastery-v1/br-b17-l03');
- await expect(page.getByRole('heading',{name:'Penawaran wholesale dan kontrak'})).toBeVisible();
+ await expect(page.getByRole('heading',{level:1,name:'Penawaran wholesale dan kontrak'})).toBeVisible();
  await expect(page.getByText(/Bila hasil kasus berbeda dari ekspektasi/)).toHaveCount(0);
 });
 

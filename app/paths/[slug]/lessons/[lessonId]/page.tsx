@@ -36,6 +36,7 @@ export default function LessonPlayerPage() {
     learningPaths,
     modules,
     lessons,
+    quizzes,
     isAuthenticated,
     authLoading,
     markLessonComplete,
@@ -140,6 +141,10 @@ export default function LessonPlayerPage() {
   }
 
   const currentModule = modules.find((m) => m.id === currentLesson.module_id);
+  const linkedFinalExam = quizzes.find((q) => q.learning_path_id === path.id && q.quiz_scope === 'final_exam');
+  const finalExamHref = isDraftPreview
+    ? (process.env.NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW === 'enabled' ? '/ujian-akhir/foundation' : null)
+    : linkedFinalExam ? `/paths/${path.slug}/quiz/${linkedFinalExam.id}` : null;
 
   if (!isLessonAccessible(path.slug, currentLesson.module_id, currentLesson.id)) {
     return (
@@ -321,6 +326,7 @@ export default function LessonPlayerPage() {
                   </div>
                 );
               })}
+              {finalExamHref && <Link href={finalExamHref} className="mt-5 flex items-center justify-between gap-2 rounded border border-roast-900 bg-roast-950 px-4 py-3 text-xs font-bold text-white hover:bg-cherry-800">Ujian Akhir <ChevronRight className="h-4 w-4" /></Link>}
             </div>
           </div>
         </aside>
@@ -434,11 +440,12 @@ export default function LessonPlayerPage() {
               </button>
             ) : (
               <Link
-                href={`/paths/${path.slug}`}
+                href={finalExamHref || `/paths/${path.slug}`}
+                data-testid={finalExamHref ? 'continue-to-final-exam' : undefined}
                 className="w-full sm:w-auto px-5 py-2.5 bg-roast-950 hover:bg-roast-900 text-paper-50 rounded font-mono text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 transition-colors"
               >
                 <Award className="w-4 h-4 text-crema-400" />
-                <span>{isDraftPreview ? 'Kembali ke Daftar Pelajaran →' : 'Ujian Kelulusan →'}</span>
+                <span>{finalExamHref ? 'Lanjut ke Ujian Akhir →' : 'Kembali ke Daftar Pelajaran →'}</span>
               </Link>
             )}
           </div>

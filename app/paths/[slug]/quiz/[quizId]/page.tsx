@@ -21,6 +21,7 @@ export default function QuizPage() {
   const router = useRouter();
   const slug = params.slug as string;
   const quizId = params.quizId as string;
+  const isCurriculumPreview = process.env.NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW === 'enabled';
 
   const { learningPaths, quizzes, questions, submitQuiz, isAuthenticated, authLoading, isPro } = useCherryEdu();
 
@@ -103,7 +104,7 @@ export default function QuizPage() {
             Ujian Silabus Terkunci
           </h2>
           <p className="font-sans text-xs text-roast-700 mb-6 leading-relaxed">
-            Anda harus masuk ke akun CherryEdu untuk mengikuti evaluasi dan ujian sertifikasi silabus ini.
+            Masuk ke akun CherryEdu untuk mengikuti evaluasi pembelajaran dan mencatat hasil ujian.
           </p>
           <div className="flex flex-col gap-2.5">
             <Link
@@ -158,7 +159,7 @@ export default function QuizPage() {
           <ProPaywallBanner
             pathTitle={path.title}
             pathSlug={path.slug}
-            lessonTitle={`Ujian Sertifikasi: ${quiz.title}`}
+            lessonTitle={isCurriculumPreview ? 'Ujian Akhir' : `Ujian Sertifikasi: ${quiz.title}`}
           />
         </div>
       </div>
@@ -194,11 +195,11 @@ export default function QuizPage() {
             </Link>
             <div className="flex items-center gap-2 mb-1">
               <span className="font-mono text-xs uppercase tracking-widest text-cherry-800 font-bold">
-                Ruang Uji Kompetensi Resmi
+                {isCurriculumPreview ? 'Evaluasi Pembelajaran' : 'Ruang Uji Kompetensi Resmi'}
               </span>
             </div>
             <h1 className="text-xl sm:text-2xl font-serif font-black text-roast-950">
-              {quiz.title}
+              {isCurriculumPreview && quiz.quiz_scope === 'final_exam' ? `Ujian Akhir ${path.title}` : quiz.title}
             </h1>
           </div>
 
@@ -324,7 +325,7 @@ export default function QuizPage() {
                   : 'bg-rose-950 text-rose-100 border-rose-800'
               }`}
             >
-              {result?.passed ? 'Status: Lulus Kompetensi Resmi' : 'Status: Belum Memenuhi Standar'}
+              {result?.passed ? (isCurriculumPreview ? 'Status: Lulus Ujian' : 'Status: Lulus Kompetensi Resmi') : 'Status: Belum Memenuhi Standar'}
             </span>
 
             <h2 className="text-4xl sm:text-5xl font-serif font-black text-roast-950 mt-4 mb-2">
@@ -333,12 +334,12 @@ export default function QuizPage() {
 
             <p className="text-xs sm:text-sm text-roast-700 max-w-md mx-auto mb-6 font-sans leading-relaxed">
               {result?.passed
-                ? `Selamat! Anda berhasil melampaui passing score (${quiz.passing_score}%) dan berhak mendapatkan +${result.xpEarned} XP kompetensi.`
+                ? (isCurriculumPreview ? `Nilai acuan ${quiz.passing_score}% tercapai. Hasil ini adalah evaluasi mandiri dan tidak menerbitkan sertifikat.` : `Selamat! Anda berhasil melampaui passing score (${quiz.passing_score}%) dan berhak mendapatkan +${result.xpEarned} XP kompetensi.`)
                 : `Standar kelulusan adalah ${quiz.passing_score}%. Silakan pelajari kembali modul materi dan lakukan pengulangan ujian kalibrasi.`}
             </p>
 
             {/* Certificate Unlock Card */}
-            {result?.certificateEarned && (
+            {!isCurriculumPreview && result?.certificateEarned && (
               <div className="my-8 p-6 bg-roast-950 text-paper-50 text-left border-2 border-crema-500/60 shadow-warm animate-in fade-in slide-in-from-bottom-3 duration-500 delay-150 fill-mode-both ease-out-strong">
                 <span className="font-mono text-xs uppercase tracking-widest text-crema-400 font-bold block mb-1">
                   Diploma Kelulusan Resmi Diterbitkan
@@ -426,7 +427,7 @@ export default function QuizPage() {
                     </div>
                     {!isCorrect && (
                       <div className="text-emerald-800 font-semibold">
-                        Kunci Jawaban Resmi: {correctAns?.answer_text}
+                        Jawaban benar: {correctAns?.answer_text}
                       </div>
                     )}
                   </div>

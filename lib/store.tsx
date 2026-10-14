@@ -1397,10 +1397,10 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       attempt_number: 1,
       attempted_at: new Date().toISOString(),
     };
-    setQuizAttempts((prev) => [...prev, attempt]);
+    if (!CURATED_PREVIEW) setQuizAttempts((prev) => [...prev, attempt]);
 
     let xp = 0;
-    if (passed) {
+    if (passed && !CURATED_PREVIEW) {
       xp += 50;
       if (score === 100) {
         xp += 50; // Total 100 XP for perfect score
@@ -1411,7 +1411,7 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
     // Check if final exam passed -> generate certificate!
     let newCert: Certificate | undefined = undefined;
-    if (passed && quiz.quiz_scope === 'final_exam' && quiz.learning_path_id) {
+    if (!CURATED_PREVIEW && passed && quiz.quiz_scope === 'final_exam' && quiz.learning_path_id) {
       const path = learningPaths.find((p) => p.id === quiz.learning_path_id);
       const token = `che-${currentUser.id.replace('user-', '')}-${Date.now().toString(36)}`;
       const certNo = `CHE-2026-${(path?.slug || 'PATH').toUpperCase().replace(/-/g, '')}-${Math.floor(

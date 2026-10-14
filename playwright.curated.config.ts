@@ -22,6 +22,7 @@ export default defineConfig({
    CHERRYEDU_ROASTER_V2_REVIEW:'enabled',
    CHERRYEDU_SENSORY_V2_REVIEW:'enabled',
    CHERRYEDU_BUSINESS_ROASTERY_REVIEW:'enabled',
+   CHERRYEDU_FINAL_EXAMS_REVIEW:'enabled',
    NEXT_TELEMETRY_DISABLED:'1'
   }
  }
