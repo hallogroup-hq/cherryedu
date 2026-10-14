@@ -69,6 +69,8 @@ for(const spec of specs){
  if(scenes<3)fail('insufficient contextual cases '+spec.slug);
  const shortest=bank.items.filter(q=>q.choices[q.correct_index].length===Math.min(...q.choices.map(s=>s.length))).length;
  if(shortest>6)fail('predictable shortest answer '+spec.slug+': '+shortest);
+ const longest=bank.items.filter(q=>q.choices[q.correct_index].length===Math.max(...q.choices.map(s=>s.length))).length;
+ if(longest>6)fail('predictable longest answer '+spec.slug+': '+longest);
  const overview=file('app/'+spec.route+'/page.tsx');
  const reader=file('app/'+spec.route+'/[lessonId]/page.tsx');
  const practice=file('app/'+spec.route+'/practice/[module]/page.tsx');
@@ -105,7 +107,11 @@ for(const route of specs.map(s=>s.route)){
 }
 if(!store.includes("NEXT_PUBLIC_CHERRYEDU_NEXT_SPECIALTY_PREVIEW"))fail('registry not isolated to feature flag');
 const api=file('app/api/final-exams/[path]/route.ts');
-if(!api.includes("NEXT_SPECIALTY_EXAM_SLUGS.has(params.path)")||!api.includes("NEXT_SPECIALTY_ENABLED"))fail('new exam bank is not preview protected');
+const getPart=api.split('export async function GET')[1]?.split('export async function POST')[0]||'';
+const postPart=api.split('export async function POST')[1]||'';
+for(const [operation,source] of [['GET',getPart],['POST',postPart]]){
+ if(!source.includes('NEXT_SPECIALTY_EXAM_SLUGS.has(params.path)')||!source.includes('NEXT_SPECIALTY_ENABLED()'))fail(operation+' new specialty exam gate missing');
+}
 const exampleChecks=[
  ['green landed cost',27500000/220,125000],
  ['coffee shop contribution',38000*(1-0.25)-3000-16000,9500],
