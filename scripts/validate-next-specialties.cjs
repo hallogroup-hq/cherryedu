@@ -22,6 +22,7 @@ const specs=[
  {slug:'q-processor',route:'q-processor-v2',path:'qProcessorV2Course',prefix:'Q_PROCESSOR_V2',lessons:24,modPrefix:'QP',scenario:'Q_PROCESSOR_SCENARIOS',exercises:3}
 ];
 const allLessonIds=new Set(),allTitles=new Set(),allDeepDiveHeadings=new Set(),allExamIds=new Set(),allStems=new Set();
+const visualRegistry=file('components/FoundationConceptVisual.tsx');
 const summary=[];
 for(const spec of specs){
  const data=lessons(spec.path,spec.prefix);
@@ -33,6 +34,11 @@ for(const spec of specs){
   const sections=data.lessons.filter(l=>l.moduleId===moduleCodes[i]);
   if(sections.length!==spec.lessons/8)fail(spec.slug+' lessons per module '+moduleCodes[i]);
   for(let j=0;j<sections.length;j++)if(sections[j].order!==j+1)fail(spec.slug+' bad lesson ordering '+sections[j].id);
+  const visuals=sections.flatMap(l=>[...l.content.matchAll(/\[VISUAL:([a-z0-9-]+)\]/g)].map(x=>x[1]));
+  if(!visuals.length)fail(spec.slug+' module '+moduleCodes[i]+' needs at least one instructional visual');
+  for(const id of visuals){
+   if(!visualRegistry.includes("'"+id+"':{")&&!visualRegistry.includes("id==='"+id+"'"))fail('unregistered instructional visual '+spec.slug+'/'+id);
+  }
  }
  for(const l of data.lessons){
   if(allLessonIds.has(l.id))fail('duplicate lesson ID '+l.id);allLessonIds.add(l.id);
