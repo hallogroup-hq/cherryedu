@@ -109,7 +109,10 @@ export function CuratedCourseOverview({name,description,image,modules,lessons,co
      })}
     </div>
    </section>
-   {examHref&&process.env.CHERRYEDU_FINAL_EXAMS_REVIEW==='enabled'&&<section aria-label="Ujian akhir" className="mt-10 flex flex-col items-start justify-between gap-5 border-2 border-roast-900 bg-roast-950 p-6 text-white sm:flex-row sm:items-center sm:p-8">
+
+   {children&&<section aria-label="Alat dan latihan pendukung" className="mt-12 border-t border-paper-300 pt-8">{children}</section>}
+   {note&&<p className="mt-8 max-w-3xl text-sm leading-7 text-roast-700">{note}</p>}
+   {examHref&&<section aria-label="Ujian akhir" className="mt-10 flex flex-col items-start justify-between gap-5 border-2 border-roast-900 bg-roast-950 p-6 text-white sm:flex-row sm:items-center sm:p-8">
     <div>
      <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-crema-300">Evaluasi Akhir</p>
      <h2 className="mt-2 font-serif text-2xl font-bold">Ujian Akhir {learnerTitle(name)}</h2>
@@ -119,8 +122,6 @@ export function CuratedCourseOverview({name,description,image,modules,lessons,co
      Mulai Ujian Akhir <ArrowRight size={16}/>
     </Link>
    </section>}
-   {children&&<section aria-label="Alat dan latihan pendukung" className="mt-12 border-t border-paper-300 pt-8">{children}</section>}
-   {note&&<p className="mt-8 max-w-3xl text-sm leading-7 text-roast-700">{note}</p>}
   </div>
  </div>;
 }
