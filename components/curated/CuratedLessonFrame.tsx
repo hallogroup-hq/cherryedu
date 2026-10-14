@@ -2,7 +2,7 @@
 
 import {useState,type ReactNode} from 'react';
 import Link from 'next/link';
-import {ArrowLeft,BookOpen,Check,ChevronLeft,ChevronRight,Clock3,List} from 'lucide-react';
+import {ArrowLeft,BookOpen,ChevronLeft,ChevronRight,Clock3,List} from 'lucide-react';
 import {learnerTitle} from '@/lib/curated/learnerTitle';
 import {AudioNarrationPlayer} from '@/components/AudioNarrationPlayer';
 
@@ -22,7 +22,6 @@ export function CuratedLessonFrame({courseTitle,courseHref,modules,lessons,curre
  const module=modules.find(x=>x.code===lesson.moduleId);
  const previous=currentIndex>0?lessons[currentIndex-1]:undefined;
  const next=currentIndex>=0&&currentIndex<lessons.length-1?lessons[currentIndex+1]:undefined;
- const moduleIndex=modules.findIndex(x=>x.code===lesson.moduleId);
  return <div className="min-h-screen bg-paper-50 pb-24 text-roast-950">
   <div className="sticky top-16 z-30 border-b border-paper-300 bg-paper-50/95 px-4 py-2.5 backdrop-blur-md sm:px-6">
    <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
@@ -64,8 +63,7 @@ export function CuratedLessonFrame({courseTitle,courseHref,modules,lessons,curre
    </aside>
    <article className="min-w-0 rounded-xl border border-paper-300 bg-white p-5 shadow-card sm:p-8 lg:col-span-8 lg:p-12">
     <div className="flex flex-wrap items-center gap-2 border-b border-paper-200 pb-4 font-mono text-[11px] text-roast-600">
-     <span className="inline-flex items-center gap-1 rounded border border-paper-300 bg-paper-100 px-2 py-0.5"><Clock3 size={14} className="text-cherry-800"/>{lesson.minutes||12} Menit Baca</span>
-     <span aria-hidden="true">•</span>
+     {lesson.minutes&&<><span className="inline-flex items-center gap-1 rounded border border-paper-300 bg-paper-100 px-2 py-0.5"><Clock3 size={14} className="text-cherry-800"/>{lesson.minutes} Menit Baca</span><span aria-hidden="true">•</span></>}
      <span className="rounded border border-paper-300 bg-paper-100 px-2 py-0.5 uppercase">Materi Belajar</span>
      <span aria-hidden="true">•</span>
      <span className="truncate">{learnerTitle(courseTitle)}</span>
