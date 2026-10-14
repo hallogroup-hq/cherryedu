@@ -24,6 +24,7 @@ export default function PathDetailPage() {
   const params = useParams();
   const router = useRouter();
   const slug = params.slug as string;
+  const isCurriculumPreview = process.env.NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW === 'enabled';
   const isDraftPreview = slug === 'memahami-kopi-dari-hulu-ke-hilir' && ['review-only', 'public-readonly'].includes(process.env.NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW || '');
 
   const {
@@ -137,7 +138,7 @@ export default function PathDetailPage() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Award className="w-3.5 h-3.5 text-cherry-700" />
-                  {isDraftPreview ? '36 Pelajaran' : 'Diploma Digital Resmi'}
+                  {isDraftPreview ? '36 Pelajaran' : isCurriculumPreview ? 'Jalur Pembelajaran' : 'Diploma Digital Resmi'}
                 </span>
               </div>
             </div>
@@ -474,13 +475,15 @@ export default function PathDetailPage() {
           <div className="mt-10 bg-roast-950 text-paper-50 p-8 shadow-warm border-2 border-crema-500/60 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
             <div className="space-y-2 text-center sm:text-left">
               <span className="font-mono text-[10px] uppercase tracking-widest text-crema-300 font-bold block">
-                Ujian Akhir Kelulusan Resmi
+                {isCurriculumPreview ? 'Evaluasi Akhir' : 'Ujian Akhir Kelulusan Resmi'}
               </span>
               <h3 className="text-2xl font-serif font-black text-white">
                 {finalExam.title}
               </h3>
               <p className="text-xs text-roast-300 max-w-xl leading-relaxed font-sans">
-                Luluskan ujian akhir ini dengan skor minimal {finalExam.passing_score}% untuk menerbitkan dokumen diploma digital resmi Cherry Coffee Roastery Academy yang tercatat di buku induk publik.
+                {isCurriculumPreview
+                  ? `Uji pemahamanmu setelah mempelajari seluruh modul. Nilai acuan ${finalExam.passing_score}%. Hasil ujian pada lingkungan ini bukan sertifikasi kompetensi eksternal.`
+                  : `Luluskan ujian akhir ini dengan skor minimal ${finalExam.passing_score}% untuk menerbitkan dokumen diploma digital Cherry Coffee Roastery Academy.`}
               </p>
             </div>
 
