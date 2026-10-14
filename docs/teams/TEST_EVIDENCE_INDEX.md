@@ -18,6 +18,7 @@
 | **Teams B2B API QA Suite** | `npm run test:api` (Teams repo) | Organizations, invitations, assessments, outlets, cohorts, acceptance lifecycle | Staging DB (`b2b` schema) | **27/27 PASSED** | `cherryedu-teams/tests/verify_b2b_apis.ts` |
 | **Curriculum & Competency Engine QA** | `npm run test:competency` (Teams repo) | Prerequisites, sequential unlocks, remediation lifecycle, multi-attempt gates | Staging DB (`b2b` schema) | **19/19 PASSED** | `cherryedu-teams/tests/verify_curriculum_competency.ts` |
 | **Barista Application Experience QA** | `npm run test:barista` (Teams repo) | Learner progress, step completion, cross-learner protection, remediation notes | Staging DB (`b2b` schema) | **9/9 PASSED** | `cherryedu-teams/tests/verify_barista_experience.ts` |
+| **Owner Application Experience QA** | `npm run test:owner` (Teams repo) | Org overview, outlet provisioning, employee invite/revoke, cohort metrics | Staging DB (`b2b` schema) | **11/11 PASSED** | `cherryedu-teams/tests/verify_owner_experience.ts` |
 | **Typecheck (B2C repo)** | `npm run typecheck` | Full repository TypeScript compilation | Static AST check | **0 Errors** | `tsconfig.json` |
 | **Typecheck (Teams repo)** | `npm run typecheck` | Standalone Teams TypeScript compilation | Static AST check | **0 Errors** | `cherryedu-teams/tsconfig.json` |
 | **Build (Teams repo)** | `npm run build` | Next.js 15 production build & static optimization | Node.js build worker | **Compiled (11/11 pages)** | `cherryedu-teams/.next` |

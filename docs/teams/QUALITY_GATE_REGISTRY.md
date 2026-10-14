@@ -21,7 +21,7 @@
 | **GATE-3** | Phase 3 | B2B DB, Auth & API Foundation | Schema migrations verified, cryptographic auth, strict tenant isolation, no mock fixtures | COMPLETED | **PASS** |
 | **GATE-4** | Phase 4 | Curriculum & Competency Engine | Validated curriculum, prerequisite check, rubric evaluation, critical-failure gate, assessor authority | COMPLETED | **PASS** |
 | **GATE-5** | Phase 5 | Barista Application Experience | Real learner journey, progress tracking, quiz attempt, feedback, remediation, competency view | COMPLETED | **PASS** |
-| **GATE-6** | Phase 6 | Owner & Manager Experience | Org setup, outlet management, staff invitations, program assignment, skill gap monitoring | PENDING | PENDING |
+| **GATE-6** | Phase 6 | Owner & Manager Experience | Org setup, outlet management, staff invitations, program assignment, skill gap monitoring | COMPLETED | **PASS** |
 | **GATE-7** | Phase 7 | Trainer Application Experience | Assigned cohorts, practical assessment, evidence capture, remediation feedback, final sign-off | PENDING | PENDING |
 | **GATE-8** | Phase 8 | Cherry Edu Admin Experience | Client org management, curriculum versioning, trainer cohort assignment, audit logs | PENDING | PENDING |
 | **GATE-9** | Phase 9 | UX, Design System & Polish | Zero AI-slop, clean dark slate design, responsive mobile/desktop, WCAG a11y, consistent UI | PENDING | PENDING |
