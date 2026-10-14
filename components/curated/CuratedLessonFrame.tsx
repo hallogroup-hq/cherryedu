@@ -10,11 +10,11 @@ type CourseModule={code:string;title:string};
 type CourseLesson={id:string;moduleId:string;order:number;title:string;minutes?:number};
 type Props={
  courseTitle:string;courseHref:string;modules:readonly CourseModule[];
- lessons:readonly CourseLesson[];currentId:string;children:ReactNode;rawMarkdown?:string;
+ lessons:readonly CourseLesson[];currentId:string;children:ReactNode;rawMarkdown?:string;examHref?:string;
 };
 
 /** Same reading shell as Foundation: sticky lesson header, left syllabus, right interactive learning card. */
-export function CuratedLessonFrame({courseTitle,courseHref,modules,lessons,currentId,children,rawMarkdown}:Props){
+export function CuratedLessonFrame({courseTitle,courseHref,modules,lessons,currentId,children,rawMarkdown,examHref}:Props){
  const [tocOpen,setTocOpen]=useState(false);
  const currentIndex=lessons.findIndex(x=>x.id===currentId);
  const lesson=lessons[currentIndex];
@@ -59,6 +59,7 @@ export function CuratedLessonFrame({courseTitle,courseHref,modules,lessons,curre
        </section>;
       })}
      </nav>
+     {examHref&&<Link href={examHref} className="mt-5 flex items-center justify-between gap-3 rounded border border-roast-900 bg-roast-950 px-4 py-3 text-xs font-bold text-white hover:bg-cherry-800"><span>Ujian Akhir</span><ChevronRight size={16}/></Link>}
     </div>
    </aside>
    <article className="min-w-0 rounded-xl border border-paper-300 bg-white p-5 shadow-card sm:p-8 lg:col-span-8 lg:p-12">
@@ -76,7 +77,7 @@ export function CuratedLessonFrame({courseTitle,courseHref,modules,lessons,curre
     <div className="mt-8 min-w-0">{children}</div>
     <nav aria-label="Pindah pelajaran" className="mt-12 flex flex-wrap items-start justify-between gap-4 border-t border-paper-300 pt-6 text-sm">
      <div className="max-w-[48%]">{previous?<Link href={courseHref+'/'+previous.id} className="inline-flex items-start gap-1 font-semibold text-roast-800 hover:underline"><ChevronLeft size={16} className="mt-0.5 shrink-0"/>{learnerTitle(previous.title)}</Link>:<Link href={courseHref} className="inline-flex items-center gap-1 font-semibold text-roast-800 hover:underline"><BookOpen size={16}/>Daftar modul</Link>}</div>
-     <div className="max-w-[48%] text-right">{next?<Link href={courseHref+'/'+next.id} className="inline-flex items-start gap-1 font-semibold text-roast-900 hover:underline">{learnerTitle(next.title)}<ChevronRight size={16} className="mt-0.5 shrink-0"/></Link>:<Link href={courseHref} className="inline-flex items-center gap-1 font-semibold text-roast-900 hover:underline">Kembali ke silabus<ChevronRight size={16}/></Link>}</div>
+     <div className="max-w-[48%] text-right">{next?<Link href={courseHref+'/'+next.id} className="inline-flex items-start gap-1 font-semibold text-roast-900 hover:underline">{learnerTitle(next.title)}<ChevronRight size={16} className="mt-0.5 shrink-0"/></Link>:examHref?<Link href={examHref} data-testid="continue-to-final-exam" className="inline-flex items-center justify-center gap-2 rounded-md bg-roast-950 px-4 py-3 font-semibold text-white hover:bg-cherry-800">Lanjut ke Ujian Akhir<ChevronRight size={16}/></Link>:<Link href={courseHref} className="inline-flex items-center gap-1 font-semibold text-roast-900 hover:underline">Kembali ke silabus<ChevronRight size={16}/></Link>}</div>
     </nav>
    </article>
   </div>
