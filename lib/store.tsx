@@ -1397,10 +1397,10 @@ export const CherryEduProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       attempt_number: 1,
       attempted_at: new Date().toISOString(),
     };
-    setQuizAttempts((prev) => [...prev, attempt]);
+    if (!CURATED_PREVIEW) setQuizAttempts((prev) => [...prev, attempt]);
 
     let xp = 0;
-    if (passed) {
+    if (passed && !CURATED_PREVIEW) {
       xp += 50;
       if (score === 100) {
         xp += 50; // Total 100 XP for perfect score
