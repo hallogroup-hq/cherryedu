@@ -46,15 +46,15 @@ export function CoffeeShopUnitEconomicsCalculator(){
  const priceVal=Number(vals[0]),feeVal=Number(vals[2])/100,variableVal=Number(vals[1]);
  const net=priceVal*(1-feeVal),cm=net-variableVal;
  const bep=valid&&cm>0?Math.ceil(Number(vals[3])/cm):null;
- return <Wrapper title="Margin channel dan BEP kedai" description="Gunakan harga sebelum fee, biaya variabel lengkap, persentase komisi yang benar-benar ditanggung merchant, dan biaya tetap pada periode yang sama. Pajak/diskon harus disesuaikan di model nyata."
+ return <Wrapper title="Margin channel dan BEP kedai" description="Masukkan harga sebelum komisi, biaya variabel PER CUP yang belum memasukkan komisi, persentase komisi merchant, dan biaya tetap untuk periode yang sama. Pajak, diskon, serta basis fee mengikuti laporan transaksi sebenarnya."
  results={!valid?<p className="text-sm text-roast-700">Lengkapi empat angka. Persentase komisi harus antara 0 dan 100.</p>:<>
  <p className="text-sm">Penerimaan sebelum biaya variabel: <strong>{rupiah(net)}</strong> per cup</p>
  <p className="mt-2 text-sm">Contribution margin: <strong>{rupiah(cm)}</strong> per cup</p>
  <p className="mt-2 text-sm">BEP operasional sederhana: <strong>{bep===null?'Tidak tercapai jika kontribusi ≤ 0':new Intl.NumberFormat('id-ID').format(bep)+' cup per periode biaya tetap'}</strong></p>
- <p className="mt-3 text-xs leading-6 text-roast-700">Asumsi: satu menu/mix tetap, semua biaya variabel lain sudah dihitung, dan kapasitas cukup. Ini bukan target ROI atau proyeksi kas.</p>
+ <p className="mt-3 text-xs leading-6 text-roast-700">Asumsi: komisi belum masuk ke kolom biaya variabel; basis komisi adalah harga yang dimasukkan, satu menu/mix tetap dan kapasitas cukup. Jangan mengurangi komisi dua kali. Ini bukan target ROI atau proyeksi kas.</p>
  </>}>
   <Field label="Harga jual per cup" value={price} set={setPrice} unit="Rp"/>
-  <Field label="Semua biaya variabel per cup" value={variable} set={setVariable} unit="Rp"/>
+  <Field label="Biaya variabel selain komisi per cup" value={variable} set={setVariable} unit="Rp"/>
   <Field label="Komisi merchant channel" value={fee} set={setFee} unit="%"/>
   <Field label="Biaya tetap per periode" value={fixed} set={setFixed} unit="Rp"/>
  </Wrapper>
