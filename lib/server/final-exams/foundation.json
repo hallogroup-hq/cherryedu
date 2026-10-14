@@ -1,0 +1,222 @@
+{
+  "path": "foundation",
+  "version": "2026-10-14.1",
+  "items": [
+    {
+      "id": "foundation-01",
+      "module_ids": [
+        "M01"
+      ],
+      "objective": "M01-transfer-1",
+      "type": "single_choice",
+      "prompt": "Dua sampel kopi terasa berbeda, tetapi suhu saji dan takarannya tidak dicatat. Kesimpulan mana yang dapat dipertanggungjawabkan?",
+      "choices": [
+        "Perbedaan pasti berasal dari varietas biji.",
+        "Sampel berbeda secara persepsi; penyebabnya belum dapat ditentukan.",
+        "Perbedaan membuktikan cacat pascapanen.",
+        "Salah satunya pasti lebih banyak kafein."
+      ],
+      "correct_index": 1,
+      "explanation": "Pengamatan sensori adalah data awal; tanpa kendali suhu, resep, dan bahan, penyebab belum dapat dipastikan.",
+      "case": false
+    },
+    {
+      "id": "foundation-02",
+      "module_ids": [
+        "M02"
+      ],
+      "objective": "M02-transfer-2",
+      "type": "single_choice",
+      "prompt": "Label menyebut 'Arabika Gayo, natural'. Manakah pembacaan istilah yang paling tepat?",
+      "choices": [
+        "Arabika menyebut spesies, Gayo mengacu asal, natural mengacu proses.",
+        "Arabika adalah varietas, Gayo metode, natural tingkat sangrai.",
+        "Ketiganya adalah teknik pengolahan.",
+        "Natural berarti pasti lebih manis daripada semua washed."
+      ],
+      "correct_index": 0,
+      "explanation": "Label menggabungkan kategori berbeda; tidak ada satu label yang menjamin rasa tertentu.",
+      "case": false
+    },
+    {
+      "id": "foundation-03",
+      "module_ids": [
+        "M03"
+      ],
+      "objective": "M03-transfer-3",
+      "type": "single_choice",
+      "prompt": "Dua lot ceri berasal dari kebun sama. Satu lot dikeringkan terlalu lambat dalam kondisi lembap. Apa risiko yang perlu diperiksa?",
+      "choices": [
+        "Semua kopi kering lambat pasti aman jika wanginya kuat.",
+        "Lot pasti menjadi biji Arabika yang berbeda.",
+        "Kadar air tidak relevan bila petani sama.",
+        "Risiko pertumbuhan mikroba dan cacat mutu, melalui catatan proses serta inspeksi."
+      ],
+      "correct_index": 3,
+      "explanation": "Pengeringan dan penyimpanan memengaruhi stabilitas mutu; keputusan perlu data, bukan tebakan dari asal kebun.",
+      "case": false
+    },
+    {
+      "id": "foundation-04",
+      "module_ids": [
+        "M04"
+      ],
+      "objective": "M04-transfer-4",
+      "type": "single_choice",
+      "prompt": "Roaster membandingkan berat 10 kg green bean dengan hasil roasted 8,4 kg. Apa yang dapat dikatakan dari angka itu?",
+      "choices": [
+        "Sebanyak 16% biji pasti rusak atau ditolak.",
+        "Roast level pasti gelap dan pahit.",
+        "Rendemen berat roasted 84%; angka itu sendiri belum menilai kualitas rasa.",
+        "Kopi telah kehilangan 84% kadar air."
+      ],
+      "correct_index": 2,
+      "explanation": "8,4/10=84%. Susut roasting tidak identik dengan reject ataupun penilaian sensori.",
+      "case": true
+    },
+    {
+      "id": "foundation-05",
+      "module_ids": [
+        "M05"
+      ],
+      "objective": "M05-transfer-5",
+      "type": "single_choice",
+      "prompt": "Dua seduhan memiliki TDS sama tetapi dosis dan output berbeda. Kesimpulan yang aman?",
+      "choices": [
+        "Jumlah zat terlarut total pasti sama.",
+        "Kekuatannya terukur serupa, tetapi extraction yield belum tentu sama.",
+        "Keduanya memakai grind size identik.",
+        "Keduanya pasti terasa sama oleh seluruh peminum."
+      ],
+      "correct_index": 1,
+      "explanation": "TDS adalah konsentrasi; massa minuman, dosis, dan asumsi pengukuran diperlukan untuk menghitung ekstraksi.",
+      "case": false
+    },
+    {
+      "id": "foundation-06",
+      "module_ids": [
+        "M06"
+      ],
+      "objective": "M06-transfer-6",
+      "type": "single_choice",
+      "prompt": "Panelis berkata 'aroma seperti jeruk' dan 'kopi ini paling saya suka'. Bagaimana memisahkan dua kalimat itu?",
+      "choices": [
+        "Pertama deskriptif; kedua evaluasi kesukaan yang bersifat afektif.",
+        "Keduanya ukuran cacat fisik biji.",
+        "Keduanya data asal kebun yang terverifikasi.",
+        "Kedua kalimat otomatis membuktikan nilai jual."
+      ],
+      "correct_index": 0,
+      "explanation": "Kerangka CVA memisahkan deskripsi sensori dari penilaian kesukaan atau kualitas menurut penilai.",
+      "case": false
+    },
+    {
+      "id": "foundation-07",
+      "module_ids": [
+        "M07"
+      ],
+      "objective": "M07-transfer-7",
+      "type": "single_choice",
+      "prompt": "Merek menyatakan bijinya 'dibeli langsung dari petani dengan harga adil'. Bukti mana paling relevan?",
+      "choices": [
+        "Foto petani sedang memanen saja.",
+        "Warna kemasan dan skor rasa tinggi.",
+        "Jumlah pengikut merek di media sosial.",
+        "Catatan transaksi, aktor yang terlibat, basis berat, serta cara menilai keadilan harga."
+      ],
+      "correct_index": 3,
+      "explanation": "Klaim ekonomi dan ketertelusuran perlu data transaksi serta konteks, bukan narasi pemasaran.",
+      "case": false
+    },
+    {
+      "id": "foundation-08",
+      "module_ids": [
+        "M01"
+      ],
+      "objective": "M01-transfer-8",
+      "type": "single_choice",
+      "prompt": "Dua pencicip memberi deskriptor berbeda untuk sampel sama. Langkah lanjutan yang baik?",
+      "choices": [
+        "Nyatakan salah satu pencicip tidak kompeten.",
+        "Gabungkan semua deskriptor menjadi fakta objektif.",
+        "Samakan protokol dan referensi istilah, lalu ulangi pencicipan bila memungkinkan.",
+        "Ganti asal kopi sampai penilaian sama."
+      ],
+      "correct_index": 2,
+      "explanation": "Persepsi berbeda bisa timbul dari protokol, bahasa, atau individu; kalibrasi lebih berguna daripada menyalahkan.",
+      "case": false
+    },
+    {
+      "id": "foundation-09",
+      "module_ids": [
+        "M02"
+      ],
+      "objective": "M02-transfer-9",
+      "type": "single_choice",
+      "prompt": "Dua lot berlabel varietas sama ditanam di kondisi berbeda. Apa yang paling tepat?",
+      "choices": [
+        "Rasanya pasti identik sebab genetik sama.",
+        "Varietas tidak cukup memprediksi rasa tanpa proses, lingkungan, dan pengolahan.",
+        "Lot dari dataran lebih tinggi selalu lebih mahal.",
+        "Suhu kebun tidak pernah memengaruhi hasil."
+      ],
+      "correct_index": 1,
+      "explanation": "Genetik berinteraksi dengan agronomi dan proses; inferensi sensori perlu bukti.",
+      "case": false
+    },
+    {
+      "id": "foundation-10",
+      "module_ids": [
+        "M03"
+      ],
+      "objective": "M03-transfer-10",
+      "type": "single_choice",
+      "prompt": "Penjual menulis 'giling basah' tetapi hanya memberi foto green bean. Data tambahan apa yang diperlukan?",
+      "choices": [
+        "Rangkaian proses, kondisi pengeringan, dan pencatatan lot.",
+        "Hanya nama kemasan ritel.",
+        "Jumlah latte terjual di kafe.",
+        "Skor kesukaan tanpa identitas sampel."
+      ],
+      "correct_index": 0,
+      "explanation": "Metode pascapanen harus dijelaskan melalui proses dan bukti lot, bukan ditetapkan dari foto saja.",
+      "case": true
+    },
+    {
+      "id": "foundation-11",
+      "module_ids": [
+        "M05"
+      ],
+      "objective": "M05-transfer-11",
+      "type": "single_choice",
+      "prompt": "Dalam percobaan seduh, peneliti mengganti gilingan sekaligus suhu dan pola tuang. Apa kekurangan desainnya?",
+      "choices": [
+        "Seluruh variabel terkontrol dengan baik.",
+        "Ini menjamin ekstraksi paling tinggi.",
+        "Jumlah percobaan satu sudah cukup menyimpulkan kausalitas.",
+        "Perubahan hasil tidak dapat dikaitkan secara jelas dengan satu faktor."
+      ],
+      "correct_index": 3,
+      "explanation": "Untuk menguji dampak satu faktor, jaga faktor lain sedekat mungkin tetap dan dokumentasikan penyimpangan.",
+      "case": false
+    },
+    {
+      "id": "foundation-12",
+      "module_ids": [
+        "M07"
+      ],
+      "objective": "M07-transfer-12",
+      "type": "single_choice",
+      "prompt": "Sebuah lot disertai nilai CVA sensori dan cerita asal, tetapi tidak ada data cacat fisik. Sikap pembeli yang tepat?",
+      "choices": [
+        "Nilai sensori otomatis menggantikan pemeriksaan fisik.",
+        "Cerita asal membuktikan semua biji lolos sortasi.",
+        "Gunakan data yang ada dan minta evaluasi fisik sebelum klaim mutu menyeluruh.",
+        "Harga tinggi meniadakan perlunya pemeriksaan."
+      ],
+      "correct_index": 2,
+      "explanation": "CVA memisahkan aspek fisik, deskriptif, afektif dan ekstrinsik; satu dimensi tidak menggantikan lainnya.",
+      "case": false
+    }
+  ]
+}
