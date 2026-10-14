@@ -1,0 +1,222 @@
+{
+  "path": "roaster",
+  "version": "2026-10-14.1",
+  "items": [
+    {
+      "id": "roaster-01",
+      "module_ids": [
+        "M01"
+      ],
+      "objective": "M01-transfer-1",
+      "type": "single_choice",
+      "prompt": "Dua lot green memiliki nama origin sama tetapi kadar air dan mutu fisik belum diperiksa. Langkah awal yang tepat?",
+      "choices": [
+        "Terapkan profil identik karena origin sama.",
+        "Inspeksi dan catat kondisi tiap lot sebelum merencanakan batch.",
+        "Abaikan kondisi green selama kemasan rapat.",
+        "Asumsikan warna green sama berarti densitas sama."
+      ],
+      "correct_index": 1,
+      "explanation": "Lot yang tampak serupa belum tentu memiliki kadar air dan karakter fisik setara.",
+      "case": false
+    },
+    {
+      "id": "roaster-02",
+      "module_ids": [
+        "M02"
+      ],
+      "objective": "M02-transfer-2",
+      "type": "single_choice",
+      "prompt": "Roaster melihat angka suhu mesin berbeda setelah mengganti probe. Apa kesimpulan paling aman?",
+      "choices": [
+        "Periksa kalibrasi dan konteks pengukuran sebelum membandingkan kurva.",
+        "Anggap kopi tiba-tiba menyerap panas dua kali lipat.",
+        "Naikkan gas tanpa menilai sensor.",
+        "Simpulkan perubahan pasti berasal dari cuaca."
+      ],
+      "correct_index": 0,
+      "explanation": "Perbedaan sensor atau lokasi probe dapat menggeser pembacaan, bukan otomatis mengubah biji.",
+      "case": false
+    },
+    {
+      "id": "roaster-03",
+      "module_ids": [
+        "M03"
+      ],
+      "objective": "M03-transfer-3",
+      "type": "single_choice",
+      "prompt": "Laju kenaikan suhu (RoR) terlihat berosilasi tajam, tetapi data dicatat dengan interval berbeda. Tindakan terbaik?",
+      "choices": [
+        "Anggap setiap osilasi pasti defect rasa.",
+        "Buang semua data awal.",
+        "Gunakan hanya warna kulit luar biji untuk menentukan RoR.",
+        "Periksa interval sampling dan smoothing sebelum menyebutnya perubahan fisik proses."
+      ],
+      "correct_index": 3,
+      "explanation": "RoR turunan data suhu sensitif terhadap interval dan noise; interpretasi membutuhkan konteks.",
+      "case": false
+    },
+    {
+      "id": "roaster-04",
+      "module_ids": [
+        "M04"
+      ],
+      "objective": "M04-transfer-4",
+      "type": "single_choice",
+      "prompt": "Roaster ingin mengubah profil agar aroma tidak terlalu sangrai. Cara uji yang bernilai?",
+      "choices": [
+        "Ubah charge, gas, airflow, dan batch size sekaligus.",
+        "Nilai hanya dari suhu akhir tanpa mencicipi.",
+        "Rancang perubahan terkontrol, catat log, hasil roasting, dan bandingkan cupping tersamar.",
+        "Lakukan perubahan berdasarkan rekomendasi umum tanpa tujuan."
+      ],
+      "correct_index": 2,
+      "explanation": "Keputusan profil harus dihubungkan dengan observasi proses dan hasil sensori melalui uji terkontrol.",
+      "case": true
+    },
+    {
+      "id": "roaster-05",
+      "module_ids": [
+        "M05"
+      ],
+      "objective": "M05-transfer-5",
+      "type": "single_choice",
+      "prompt": "Dari 25 kg green input didapat 21 kg roasted output. Berapa roast mass yield-nya?",
+      "choices": [
+        "16%",
+        "84%",
+        "119%",
+        "21%"
+      ],
+      "correct_index": 1,
+      "explanation": "21/25 × 100%=84%; angka itu belum termasuk QC sampling maupun penolakan roasted setelah roasting.",
+      "case": false
+    },
+    {
+      "id": "roaster-06",
+      "module_ids": [
+        "M06"
+      ],
+      "objective": "M06-transfer-6",
+      "type": "single_choice",
+      "prompt": "Cupping dua batch dilakukan pada suhu saji berbeda dan tester tahu identitasnya. Apa peningkatan metode yang paling berguna?",
+      "choices": [
+        "Samakan protokol dan gunakan blind coding sejauh mungkin.",
+        "Deklarasikan profil paling gelap sebagai terbaik.",
+        "Gunakan kemasan paling menarik sebagai penentu.",
+        "Hapus data sensorik yang bertentangan."
+      ],
+      "correct_index": 0,
+      "explanation": "Kondisi dan ekspektasi dapat memengaruhi penilaian; protokol konsisten mendukung perbandingan.",
+      "case": false
+    },
+    {
+      "id": "roaster-07",
+      "module_ids": [
+        "M07"
+      ],
+      "objective": "M07-transfer-7",
+      "type": "single_choice",
+      "prompt": "Operator menemukan bau tidak biasa dan asap dari exhaust yang tidak normal. Keputusan pertama?",
+      "choices": [
+        "Teruskan batch agar target produksi terpenuhi.",
+        "Naikkan fan maksimum tanpa menilai prosedur.",
+        "Tinggalkan mesin menyala tanpa pengawasan.",
+        "Hentikan proses sesuai prosedur darurat aman dan panggil penanggung jawab."
+      ],
+      "correct_index": 3,
+      "explanation": "Keselamatan personel dan fasilitas lebih penting dari menyelamatkan satu batch.",
+      "case": false
+    },
+    {
+      "id": "roaster-08",
+      "module_ids": [
+        "M08"
+      ],
+      "objective": "M08-transfer-8",
+      "type": "single_choice",
+      "prompt": "Roast batch sebelumnya menghasilkan hasil cup berbeda padahal profil layar tampak serupa. Langkah berikutnya?",
+      "choices": [
+        "Simpulkan mesin harus diganti segera.",
+        "Ulangi profil tanpa investigasi sama sekali.",
+        "Periksa kondisi green, beban batch, aliran udara, sensor, operator dan cupping ulang.",
+        "Anggap semua penilai sensori pasti keliru."
+      ],
+      "correct_index": 2,
+      "explanation": "Profil rekaman bukan seluruh kondisi fisik yang menentukan hasil roasting.",
+      "case": false
+    },
+    {
+      "id": "roaster-09",
+      "module_ids": [
+        "M09"
+      ],
+      "objective": "M09-transfer-9",
+      "type": "single_choice",
+      "prompt": "Lot roasted disimpan tanpa kode batch dan tanggal produksi. Risiko utamanya?",
+      "choices": [
+        "Kadar kafein otomatis turun menjadi nol.",
+        "Ketertelusuran, rotasi stok, dan penanganan komplain menjadi sulit.",
+        "Profil rasa otomatis lebih baik.",
+        "Harga jual selalu meningkat."
+      ],
+      "correct_index": 1,
+      "explanation": "Traceability membutuhkan identitas batch dan catatan dari input sampai distribusi.",
+      "case": false
+    },
+    {
+      "id": "roaster-10",
+      "module_ids": [
+        "M10"
+      ],
+      "objective": "M10-transfer-10",
+      "type": "single_choice",
+      "prompt": "Roaster hendak menaikkan produksi mingguan 30%, sedangkan reject naik tajam. KPI apa yang relevan?",
+      "choices": [
+        "Output saleable, reject, kapasitas, dan akar masalah mutu dibaca bersama.",
+        "Berat total keluar mesin saja.",
+        "Jumlah follower media sosial saja.",
+        "Suhu tertinggi mesin saja."
+      ],
+      "correct_index": 0,
+      "explanation": "Kenaikan throughput tanpa hasil saleable dan mutu dapat menjadi pertumbuhan semu.",
+      "case": true
+    },
+    {
+      "id": "roaster-11",
+      "module_ids": [
+        "M03"
+      ],
+      "objective": "M03-transfer-11",
+      "type": "single_choice",
+      "prompt": "Dua grafik RoR dari perangkat berbeda tampak tidak sama. Apa data tambahan yang dibutuhkan sebelum membandingkan?",
+      "choices": [
+        "Warna dashboard software saja.",
+        "Merek cangkir untuk cupping.",
+        "Jumlah operator yang menyukai kurva.",
+        "Definisi RoR, smoothing, probe, interval log, dan kondisi batch."
+      ],
+      "correct_index": 3,
+      "explanation": "Pengukuran turunan sensitif terhadap definisi dan pemrosesan sinyal; pembandingan harus setara.",
+      "case": false
+    },
+    {
+      "id": "roaster-12",
+      "module_ids": [
+        "M06"
+      ],
+      "objective": "M06-transfer-12",
+      "type": "single_choice",
+      "prompt": "Cupping menemukan satu batch bertanda cacat sensori yang belum dipastikan. Pilihan QA paling bertanggung jawab?",
+      "choices": [
+        "Kirim seluruh lot supaya cepat terjual.",
+        "Campur dengan lot lain tanpa catatan.",
+        "Tahan lot sementara, verifikasi lewat sampel dan prosedur QC sebelum melepasnya.",
+        "Ganti tanggal roasting pada label."
+      ],
+      "correct_index": 2,
+      "explanation": "QC memerlukan pemeriksaan dan keputusan terdokumentasi; tidak semua anomali dibenarkan oleh jadwal penjualan.",
+      "case": false
+    }
+  ]
+}
