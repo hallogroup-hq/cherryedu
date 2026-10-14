@@ -12,11 +12,11 @@
       "prompt": "Kamu membeli dua kopi dengan label proses sama, tetapi preferensi rasamu belum jelas. Cara memilih yang mendukung belajar?",
       "choices": [
         "Pilih berdasarkan skor iklan tertinggi saja.",
-        "Pilih jumlah kecil, tetapkan tujuan rasa, dan catat hasil sebelum membeli banyak.",
         "Asumsikan proses sama berarti rasa identik.",
+        "Pilih jumlah kecil, tetapkan tujuan rasa, dan catat hasil sebelum membeli banyak.",
         "Ganti alat seduh lebih dulu tanpa mencicipi."
       ],
-      "correct_index": 1,
+      "correct_index": 2,
       "explanation": "Tujuan rasa dan catatan membantumu mengevaluasi kecocokan kopi; label proses saja tidak menjamin pengalaman sama.",
       "case": false
     },
@@ -29,12 +29,12 @@
       "type": "single_choice",
       "prompt": "Sebuah resep mencatat dose 15 g, brew water 240 g, dan minuman yang tertampung 205 g. Rasio brew water:dose?",
       "choices": [
-        "16:1",
         "13,7:1",
         "15:1",
-        "1:16,7"
+        "1:16,7",
+        "16:1"
       ],
-      "correct_index": 0,
+      "correct_index": 3,
       "explanation": "240/15 = 16. Rasio air masuk tidak sama dengan rasio beverage output.",
       "case": false
     },
@@ -48,11 +48,11 @@
       "prompt": "Dua seduhan V60 ingin dibandingkan untuk pengaruh grind size. Desain eksperimen mana paling bersih?",
       "choices": [
         "Ubah kopi, filter dan grind sekaligus.",
+        "Tetapkan dosis, air, metode tuang, dan kopi; ubah ukuran gilingan saja.",
         "Tidak perlu timbang atau catat hasil.",
-        "Tentukan keberhasilan hanya dari warna bubuk.",
-        "Tetapkan dosis, air, metode tuang, dan kopi; ubah ukuran gilingan saja."
+        "Tentukan keberhasilan hanya dari warna bubuk."
       ],
-      "correct_index": 3,
+      "correct_index": 1,
       "explanation": "Eksperimen satu faktor mengurangi confounding; tetap catat variasi tak terkendali.",
       "case": false
     },
@@ -65,12 +65,12 @@
       "type": "single_choice",
       "prompt": "Air tertahan lama pada V60 setelah pola tuang diganti. Dugaan paling bertanggung jawab?",
       "choices": [
+        "Periksa distribusi fines, bed, filter, dan pola tuang; jangan menetapkan satu sebab tanpa uji.",
         "Pasti karena biji berasal dari dataran tinggi.",
         "Pasti bukti suhu terlalu rendah.",
-        "Periksa distribusi fines, bed, filter, dan pola tuang; jangan menetapkan satu sebab tanpa uji.",
         "Seluruh brew lambat otomatis terasa pahit."
       ],
-      "correct_index": 2,
+      "correct_index": 0,
       "explanation": "Flow dipengaruhi banyak faktor, sehingga perlu pengamatan dan pembandingan terkontrol.",
       "case": true
     },
@@ -84,11 +84,11 @@
       "prompt": "Kamu ingin membandingkan French Press dan pour-over dengan biji sama. Pernyataan mana tepat?",
       "choices": [
         "Rasio pasti sama untuk semua brew method.",
-        "Mekanisme kontak air dan pemisahan bubuk berbeda; resep perlu dikalibrasi, bukan disalin mentah.",
         "French Press mengekstraksi nol padatan terlarut.",
-        "Filter paper selalu menaikkan kandungan kafein."
+        "Filter paper selalu menaikkan kandungan kafein.",
+        "Mekanisme kontak air dan pemisahan bubuk berbeda; resep perlu dikalibrasi, bukan disalin mentah."
       ],
-      "correct_index": 1,
+      "correct_index": 3,
       "explanation": "Immersion dan percolation bekerja berbeda; tujuan minuman menentukan adaptasi resep.",
       "case": false
     },
@@ -101,12 +101,12 @@
       "type": "single_choice",
       "prompt": "Cangkir terasa 'asam' tetapi data suhu, dosis dan air tidak lengkap. Langkah diagnosis yang baik?",
       "choices": [
-        "Catat persepsi dan parameter yang ada, lalu rancang perbandingan terkontrol.",
         "Pastikan grind terlalu kasar tanpa pemeriksaan.",
         "Langsung ubah tiga variabel dan tarik kesimpulan.",
+        "Catat persepsi dan parameter yang ada, lalu rancang perbandingan terkontrol.",
         "Anggap semua kopi asam adalah cacat."
       ],
-      "correct_index": 0,
+      "correct_index": 2,
       "explanation": "Sensasi asam tidak cukup untuk menyatakan penyebab ekstraksi atau cacat kopi.",
       "case": false
     },
@@ -120,11 +120,11 @@
       "prompt": "Dua orang tidak sepakat apakah sampel terasa seperti apel. Cara latihan sensori yang efektif?",
       "choices": [
         "Paksa salah satu menerima deskripsi mayoritas.",
+        "Gunakan referensi deskriptor dan penyajian serupa, lalu diskusikan perbedaan.",
         "Ubah label agar perdebatan selesai.",
-        "Nilai kopi buruk bila deskriptor tidak sama.",
-        "Gunakan referensi deskriptor dan penyajian serupa, lalu diskusikan perbedaan."
+        "Nilai kopi buruk bila deskriptor tidak sama."
       ],
-      "correct_index": 3,
+      "correct_index": 1,
       "explanation": "Bahasa referensi dan blind comparison dapat membantu kalibrasi tanpa menjadikan kesan pribadi sebagai fakta tunggal.",
       "case": false
     },
@@ -137,12 +137,12 @@
       "type": "single_choice",
       "prompt": "Kamu hendak memakai air sumur yang kebersihannya belum teruji. Langkah yang benar?",
       "choices": [
+        "Pastikan keamanan air minum lebih dahulu, baru uji efek mineral terhadap seduhan.",
         "Gunakan selama TDS rendah, berarti otomatis aman.",
         "Tambahkan garam tanpa memperhatikan keamanan.",
-        "Pastikan keamanan air minum lebih dahulu, baru uji efek mineral terhadap seduhan.",
         "Rebus sebentar dan nyatakan seluruh kontaminan hilang."
       ],
-      "correct_index": 2,
+      "correct_index": 0,
       "explanation": "TDS tidak menilai semua aspek keamanan mikrobiologis maupun kimia; keamanan air adalah prasyarat.",
       "case": false
     },
@@ -156,11 +156,11 @@
       "prompt": "Resep iced pour-over memakai 160 g air panas dan 80 g es yang mencair sepenuhnya. Total air yang masuk sebagai cairan akhir?",
       "choices": [
         "160 g saja karena es tidak dihitung.",
-        "240 g, bila tidak ada kehilangan lain dan seluruh es mencair.",
         "80 g saja karena air panas menguap.",
+        "240 g, bila tidak ada kehilangan lain dan seluruh es mencair.",
         "320 g karena es dihitung dua kali."
       ],
-      "correct_index": 1,
+      "correct_index": 2,
       "explanation": "Total input air 160+80=240 g; massa minuman nyata dapat berkurang karena retensi bubuk dan kehilangan.",
       "case": false
     },
@@ -173,12 +173,12 @@
       "type": "single_choice",
       "prompt": "Eksperimen A/B memperlihatkan cangkir B lebih disukai, tetapi B juga disajikan lebih panas. Apa interpretasi tepat?",
       "choices": [
-        "Preferensi tercatat, namun suhu saji adalah faktor pengganggu yang perlu dikendalikan.",
         "B pasti memakai kopi lebih bermutu.",
+        "Preferensi tercatat, namun suhu saji adalah faktor pengganggu yang perlu dikendalikan.",
         "Percobaan membuktikan gilingan B optimal secara universal.",
         "Ulang percobaan tidak pernah diperlukan."
       ],
-      "correct_index": 0,
+      "correct_index": 1,
       "explanation": "Preferensi dapat bergantung pada suhu dan konteks; dokumentasi serta pengulangan membantu memeriksa dugaan.",
       "case": true
     },
@@ -209,12 +209,12 @@
       "type": "single_choice",
       "prompt": "Kamu membuat recipe card untuk teman yang memakai grinder berbeda. Informasi mana paling membantu transfer?",
       "choices": [
+        "Tujuan rasa, dose, air, metode, indikator aliran, dan cara menyesuaikan berdasarkan observasi.",
         "Nama klik grinder milikmu sebagai aturan mutlak.",
         "Foto gelas saja tanpa parameter.",
-        "Tujuan rasa, dose, air, metode, indikator aliran, dan cara menyesuaikan berdasarkan observasi.",
         "Janji rasa identik pada setiap alat."
       ],
-      "correct_index": 2,
+      "correct_index": 0,
       "explanation": "Resep yang bisa ditransfer harus memberi prinsip adaptasi saat alat dan kondisi berubah.",
       "case": false
     }
