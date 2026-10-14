@@ -21,14 +21,20 @@ for(const p of paths){
   const res=await page.goto(p.url);
   expect(res?.status()).toBe(200);
   await expect(page.getByRole('heading',{level:1})).toHaveText(p.name);
-  await expect(page.getByRole('heading',{name:'Modul pembelajaran'})).toBeVisible();
-  await expect(page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])')).toHaveCount(p.modules);
-  await expect(page.locator('a[href^="'+p.url+'/"]').filter({has:page.locator('span.font-medium')})).toHaveCount(p.lessons);
+  await expect(page.getByRole('heading',{name:'Daftar Modul dan Pelajaran'})).toBeVisible();
+  const modules=page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])');
+  await expect(modules).toHaveCount(p.modules);
+  await expect(modules.first().getByRole('button')).toHaveAttribute('aria-expanded','true');
+  for(let i=1;i<p.modules;i++)await modules.nth(i).getByRole('button').click();
+  await expect(modules.locator('ol li a')).toHaveCount(p.lessons);
   expect(await page.locator('main').evaluate(el=>el.scrollWidth<=window.innerWidth+2)).toBe(true);
   const body=await page.locator('main').innerText();
   expect(body).not.toMatch(/\b(?:DRAFT REVIEW|Beta Publik|QA internal|Review build)\b/i);
   const l=await page.goto(p.first);expect(l?.status(),p.first).toBe(200);
   await expect(page.getByRole('heading',{level:1})).toBeVisible();
+  await page.getByRole('button',{name:'Buka daftar materi'}).click();
+  await expect(page.getByRole('complementary',{name:'Daftar materi silabus'})).toBeVisible();
+  await expect(page.getByRole('navigation',{name:'Pilih materi'}).getByRole('link')).toHaveCount(p.lessons);
  });
 }
 for(const legacy of ['barista-specialization','home-brewer-specialization','roaster-path','q-grader-path','kopi-dari-hulu-ke-hilir']){
