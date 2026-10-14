@@ -11,7 +11,7 @@
       "type": "single_choice",
       "prompt": "Pendiri ingin membuka kedai dekat kantor hanya berdasarkan banyaknya followers calon merek. Bukti apa yang lebih kuat untuk menilai kecocokan konsep?",
       "choices": [
-        "Jumlah like pada foto interior walaupun belum ada satu pesanan berbayar.",
+        "Gunakan jumlah engagement yang telah terkumpul di media sosial serta survei minat calon pelanggan sebagai proksi transaksi, tanpa uji penjualan.",
         "Percobaan jualan berbayar pada jam dan segmen sasaran, disertai catatan margin serta pembelian ulang.",
         "Jumlah kendaraan yang lewat tanpa mengamati akses dan waktu berhenti.",
         "Harga sewa yang mahal sebagai bukti kapasitas beli warga sekitar."
@@ -29,7 +29,7 @@
       "type": "single_choice",
       "prompt": "Merek ingin meluncurkan 25 menu sekaligus untuk dua barista. Bagaimana mengevaluasi desain menunya?",
       "choices": [
-        "Semua tambahan SKU akan otomatis meningkatkan throughput operasional.",
+        "Tambahkan seluruh 25 SKU lalu ukur menu favorit setelah tiga bulan, karena kompleksitas bahan bisa ditangani dengan SOP tertulis saja.",
         "Menu terbanyak selalu membuat HPP lebih rendah tanpa memedulikan stok.",
         "Gunakan desain foto menu sebagai satu-satunya ukuran kesuksesan.",
         "Uji item inti menurut permintaan, bahan bersama, repeatability, risiko waste dan beban stasiun bar."
@@ -65,7 +65,7 @@
       "type": "single_choice",
       "prompt": "Lokasi A ramai saat sore, tetapi pelanggan sasaran dominan membeli kopi sebelum jam kerja. Apa tindakan peneliti lokasi?",
       "choices": [
-        "Ambil data sore sebagai proyeksi seluruh jam operasional tanpa penyesuaian.",
+        "Gunakan total kendaraan yang lewat sore hari sebagai dasar estimasi pembelian pagi, kemudian sesuaikan target penjualan menurut harga sewa.",
         "Anggap semua orang yang melintas pada sore akan membeli pada pagi hari.",
         "Ukur perilaku akses dan transaksi pagi hari, lalu uji kecocokan jam ramai dengan target pasar.",
         "Pilih lokasi karena luas area parkir saja menentukan nilai transaksi."
@@ -119,7 +119,7 @@
       "type": "single_choice",
       "prompt": "Biaya tetap relevan Rp15 juta/bulan. Kontribusi rata-rata per cup setelah biaya variabel Rp15 ribu. Berapa volume BEP sederhana?",
       "choices": [
-        "750 cup per bulan, sebelum mengukur jumlah order.",
+        "Gunakan target 750 cup yang diperoleh dari estimasi pelanggan di sekitar lokasi tanpa menghubungkannya dengan fixed cost dan kontribusi per transaksi.",
         "1.500 cup per bulan, jika omzet tidak diperhatikan.",
         "100 cup per bulan, karena biaya tetap dibagi seratus.",
         "1.000 cup per bulan, dengan asumsi kontribusi dan kapasitas tetap."
@@ -137,7 +137,7 @@
       "type": "single_choice",
       "prompt": "Dalam 15 menit bar menerima 24 order, tetapi hanya 15 dapat diselesaikan dengan kualitas stabil. Apa evaluasi kapasitas awal?",
       "choices": [
-        "Tidak ada backlog karena mesin mungkin berkapasitas nominal lebih besar.",
+        "Anggap selisih sembilan order sebagai permintaan yang masih bisa dilayani seketika karena kapasitas nominal mesin lebih tinggi dari throughput bar.",
         "Ada backlog awal sembilan order; periksa bottleneck, staffing, proses order dan pemberitahuan tunggu.",
         "Pesanan yang menunggu otomatis hilang dari forecast pendapatan tanpa pengukuran.",
         "Solusi pasti menambah jumlah SKU sehingga setiap order dapat dipercepat."
@@ -173,7 +173,7 @@
       "type": "single_choice",
       "prompt": "Kedai memiliki banyak stok sirup tetapi kehabisan susu sebelum akhir pekan. Apa pengendalian stok yang sesuai?",
       "choices": [
-        "Tambahkan semua kategori stok dengan persentase tetap tanpa melihat penggunaan.",
+        "Terapkan satu nilai safety stock yang sama untuk seluruh bahan berdasarkan omzet bulanan, tanpa membedakan susu dan sirup dari sisi masa simpan.",
         "Tetapkan reorder berdasarkan kebutuhan per kategori, lead time, masa simpan, dan data penjualan.",
         "Prioritaskan sirup yang paling lama disimpan sebagai pengganti stok susu.",
         "Gunakan omzet bulanan sebagai satu-satunya pengukur jumlah stok tiap bahan."
@@ -191,7 +191,7 @@
       "type": "single_choice",
       "prompt": "Manajer hendak membeli mesin espresso 2-group, tetapi biaya servis lokal dan kebutuhan daya belum diperiksa. Langkah analisis paling relevan?",
       "choices": [
-        "Pilih merek dengan foto paling populer dan asumsikan teknisi tersedia.",
+        "Prioritaskan mesin dengan harga beli paling menarik dan foto produk yang lengkap, sedangkan biaya servis dan kesiapan listrik dihitung setelah pembukaan.",
         "Anggap daya listrik mesin dapat diabaikan selama listrik cukup untuk lampu.",
         "Bandingkan total cost of ownership, kapasitas peak, utilitas, dukungan teknis dan risiko downtime.",
         "Tetapkan harga beli sebagai satu-satunya biaya selama umur pakai."
@@ -210,7 +210,7 @@
       "prompt": "Air kedai menunjukkan angka TDS rendah; sumber air belum pernah diuji mikrobiologi. Kesimpulan mana benar?",
       "choices": [
         "TDS tidak membuktikan air aman diminum; perlu verifikasi kualitas air yang relevan.",
-        "Air rendah TDS otomatis bebas dari semua mikroba dan bahan kimia.",
+        "Gunakan angka TDS rendah dan tampilan air yang bening sebagai dasar layak konsumsi, lalu periksa mikrobiologi hanya jika ada keluhan pelanggan.",
         "Tidak perlu pemeriksaan lain karena warna air cukup jernih.",
         "Air pasti cocok untuk setiap mesin espresso karena mineralia rendah."
       ],
@@ -228,7 +228,7 @@
       "prompt": "Pelanggan menolak susu sapi karena alergi berat, tetapi staf tidak tahu risiko kontaminasi silang alat. Langkah layanan paling tepat?",
       "choices": [
         "Tunda jaminan keamanan, periksa bahan serta prosedur, dan komunikasikan keterbatasan fasilitas.",
-        "Ganti ke susu nabati namun gunakan alat bekas susu tanpa pengecekan.",
+        "Tawarkan susu nabati dengan pitcher yang sama setelah dibilas seperti biasa, lalu jelaskan kepada pelanggan bahwa kemungkinan residu belum diperiksa.",
         "Beri pelanggan sedikit susu untuk menguji sensitivitas secara langsung.",
         "Nyatakan semua susu nabati pasti bebas alergi dari bahan lain."
       ],
@@ -245,7 +245,7 @@
       "type": "single_choice",
       "prompt": "Catatan stok menunjukkan susu yang expired lebih cepat berada di belakang stok baru. Metode rotasi untuk bahan ini?",
       "choices": [
-        "FIFO selalu mengalahkan tanggal kedaluwarsa yang sebenarnya.",
+        "Keluarkan stok berdasarkan tanggal pembelian paling awal walaupun masa kedaluwarsa batch baru lebih pendek, agar administrasi FIFO tetap konsisten.",
         "Atur berdasarkan harga beli tertinggi agar stok mahal cepat habis.",
         "FEFO menurut batas pakai dan kondisi produk, disertai kontrol suhu dan lot.",
         "Campur semua batch susu agar tidak perlu mencatat tanggal."
@@ -263,7 +263,7 @@
       "type": "single_choice",
       "prompt": "Restoran memulai penjualan kopi kemasan untuk ritel dan pengiriman antarkota, berbeda dari penyajian cup segar di tempat. Pemeriksaan hukum yang tepat?",
       "choices": [
-        "Asumsikan seluruh kopi kemasan otomatis tercakup izin operasional kedai.",
+        "Daftarkan usaha menurut izin penyajian minuman di tempat yang sudah ada, lalu pakai kategori itu pula untuk produk kemasan tanpa memeriksa aktivitas baru.",
         "Verifikasi kegiatan bisnis, KBLI 2025, kewajiban pangan olahan dan izin terkait pada OSS/BPOM.",
         "Gunakan klasifikasi izin roastery pabrik milik teman tanpa melihat kegiatan.",
         "Tunda seluruh pemeriksaan sampai barang dikirim ke berbagai kota."
@@ -281,7 +281,7 @@
       "type": "single_choice",
       "prompt": "Iklan menaikkan gross sales namun komisi, refund dan waste bertambah sehingga contribution margin turun. Langkah berikutnya?",
       "choices": [
-        "Naikkan diskon lebih besar karena gross sales selalu menunjukkan profit sehat.",
+        "Pertahankan strategi diskon selama pertumbuhan omzet masih positif dan evaluasi contribution margin hanya pada saat laporan tahunan selesai.",
         "Hanya hitung jumlah followers dan abaikan kas yang diterima sebenarnya.",
         "Nyatakan bisnis sukses karena omzet naik meski biaya variabel bertambah.",
         "Audit laba kontribusi per channel, alasan refund, kualitas layanan dan kapasitas sebelum menambah iklan."
