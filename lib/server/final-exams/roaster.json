@@ -63,7 +63,7 @@
       ],
       "objective": "M04-transfer-4",
       "type": "single_choice",
-      "prompt": "Roaster ingin mengubah profil agar aroma tidak terlalu sangrai. Cara uji yang bernilai?",
+      "prompt": "Awalnya roaster mengikuti profil standar. Setelah cupping blind, hasil terasa terlalu sangrai. Bagaimana menyusun percobaan perubahan profil yang dapat diuji?",
       "choices": [
         "Ubah charge, airflow dan gas bersamaan supaya target rasa tercapai lebih cepat tanpa uji banding.",
         "Nilai setiap batch hanya dari temperatur akhir dan abaikan pengaruh kondisi awal atau cupping.",
@@ -171,7 +171,7 @@
       ],
       "objective": "M10-transfer-10",
       "type": "single_choice",
-      "prompt": "Roaster hendak menaikkan produksi mingguan 30%, sedangkan reject naik tajam. KPI apa yang relevan?",
+      "prompt": "Tim menaikkan target produksi mingguan sebesar 30%. Setelah dua pekan, data baru menunjukkan QC reject naik tajam. KPI apa yang relevan untuk mengevaluasi hasilnya?",
       "choices": [
         "Output saleable, reject, kapasitas, dan akar masalah mutu dibaca bersama.",
         "Gunakan jumlah green masuk sebagai ukuran tunggal keberhasilan produksi tanpa data QC reject.",
