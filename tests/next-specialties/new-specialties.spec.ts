@@ -50,7 +50,7 @@ test('green coffee landed calculator uses real entered costs, not invented freig
  await area.getByRole('spinbutton',{name:'Biaya kirim tertagih'}).fill('1500000');
  await area.getByRole('spinbutton',{name:'Biaya handling/packing terkait'}).fill('500000');
  await area.getByRole('spinbutton',{name:'Output green lolos grade'}).fill('160');
- await expect(area.getByRole('status')).toContainText('Rp125.000');
+ await expect(area.getByRole('status')).toContainText(/Rp\s*125\.000/);
 });
 test('shop economics calculates contribution and simple BEP correctly',async({page})=>{
  await page.goto('/coffee-shop-v2/cs-m03-l03');
@@ -59,7 +59,7 @@ test('shop economics calculates contribution and simple BEP correctly',async({pa
  await area.getByRole('spinbutton',{name:'Semua biaya variabel per cup'}).fill('16000');
  await area.getByRole('spinbutton',{name:'Komisi merchant channel'}).fill('25');
  await area.getByRole('spinbutton',{name:'Biaya tetap per periode'}).fill('9500000');
- await expect(area.getByRole('status')).toContainText('Rp12.500');
+ await expect(area.getByRole('status')).toContainText(/Rp\s*12\.500/);
  await expect(area.getByRole('status')).toContainText('760 cup');
 });
 test('Q Processor mass balance refuses impossible output',async({page})=>{
