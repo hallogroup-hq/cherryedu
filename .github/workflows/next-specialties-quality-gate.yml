@@ -26,6 +26,8 @@ on:
       - 'scripts/validate-next-specialties.cjs'
       - 'playwright.next-specialties.config.ts'
       - 'playwright.final-exams.config.ts'
+      - 'playwright.curated.config.ts'
+      - 'docs/curriculum/next-specializations/**'
       - '.github/workflows/next-specialties-quality-gate.yml'
   workflow_dispatch:
 
