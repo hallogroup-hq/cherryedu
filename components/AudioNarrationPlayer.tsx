@@ -16,6 +16,7 @@ import { toast } from 'sonner';
 interface AudioNarrationPlayerProps {
   title: string;
   rawMarkdown: string;
+  description?: string;
 }
 
 type NeuralVoice = 'id-ID-GadisNeural' | 'id-ID-ArdiNeural';
@@ -73,6 +74,7 @@ function formatTime(seconds: number): string {
 export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
   title,
   rawMarkdown,
+  description,
 }) => {
   const [selectedVoice, setSelectedVoice] = useState<NeuralVoice>('id-ID-GadisNeural');
   const [isPlaying, setIsPlaying] = useState(false);
@@ -359,7 +361,7 @@ export const AudioNarrationPlayer: React.FC<AudioNarrationPlayerProps> = ({
                 )}
               </div>
               <p className="text-xs text-roast-700 font-sans mt-1">
-                Dengarkan penjelasan materi dengan intonasi natural sambil mempraktikkan seduhan di bar kopi.
+                {description || 'Dengarkan penjelasan materi dengan intonasi natural sambil mempraktikkan seduhan di bar kopi.'}
               </p>
             </div>
           </div>
