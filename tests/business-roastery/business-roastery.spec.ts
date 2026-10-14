@@ -192,12 +192,12 @@ test('business model text emphasizes key guidance without raw markdown',async({p
 
 test('lesson tasks stay topic-specific without repeated generic evidence templates',async({page})=>{
  await page.goto('/business-roastery-v1/br-b08-l01');
- await expect(page.getByRole('heading',{name:'Asal dan tujuan ongkir harus tepat'})).toBeVisible();
+ await expect(page.getByRole('heading',{level:1,name:'Asal dan tujuan ongkir harus tepat'})).toBeVisible();
  await expect(page.getByText(/Masukkan dua quotation nyata untuk arah identik/)).toBeVisible();
  await expect(page.getByText(/Lengkapi tiga kolom:/)).toHaveCount(0);
  await expect(page.getByText(/Bila hasil kasus berbeda dari ekspektasi/)).toHaveCount(0);
  await page.goto('/business-roastery-v1/br-b17-l03');
- await expect(page.getByRole('heading',{name:'Penawaran wholesale dan kontrak'})).toBeVisible();
+ await expect(page.getByRole('heading',{level:1,name:'Penawaran wholesale dan kontrak'})).toBeVisible();
  await expect(page.getByText(/Bila hasil kasus berbeda dari ekspektasi/)).toHaveCount(0);
 });
 
