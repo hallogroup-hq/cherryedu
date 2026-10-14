@@ -9,7 +9,7 @@
       ],
       "objective": "M01-transfer-1",
       "type": "single_choice",
-      "prompt": "Ada pelanggan melaporkan reaksi berat terhadap kacang, tetapi staf tak yakin bahan topping bebas alergen. Langkah yang tepat?",
+      "prompt": "Seorang pelanggan memberi tahu bahwa ia memiliki riwayat alergi berat terhadap kacang, tetapi staf belum yakin apakah topping dan peralatannya bebas kontak silang. Langkah yang tepat?",
       "choices": [
         "Hilangkan topping yang mengandung kacang, lalu janjikan minuman aman tanpa memeriksa jejak alergen.",
         "Minta pelanggan mencoba satu teguk kecil untuk menguji ada tidaknya reaksi sebelum melayani.",
