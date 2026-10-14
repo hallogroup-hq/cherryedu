@@ -1,4 +1,5 @@
 import {test,expect} from '@playwright/test';
+test.beforeEach(async({page})=>{await page.addInitScript(()=>localStorage.setItem('cherry_seen_version_v1_2','true'));});
 test('course inventory, navigation and accessible concept model',async({page})=>{
  await page.goto('/roaster-v2');
  await expect(page.getByRole('heading',{name:'Roaster Specialization'})).toBeVisible();
