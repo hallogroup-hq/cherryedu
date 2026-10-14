@@ -1,11 +1,12 @@
 import {NextRequest,NextResponse} from 'next/server';
-import {FINAL_EXAM_ENABLED} from '@/lib/finalExamPaths';
+import {FINAL_EXAM_ENABLED,NEXT_SPECIALTY_EXAM_SLUGS,NEXT_SPECIALTY_ENABLED} from '@/lib/finalExamPaths';
 import {gradeExam,publicExam} from '@/lib/server/finalExamCatalog';
 
 export const dynamic='force-dynamic';
 const send=(payload:unknown,status=200)=>NextResponse.json(payload,{status,headers:{'Cache-Control':'no-store, private','X-Content-Type-Options':'nosniff'}});
 export async function GET(_req:NextRequest,{params}:{params:{path:string}}){
  if(!FINAL_EXAM_ENABLED())return send({message:'Tidak ditemukan'},404);
+ if(NEXT_SPECIALTY_EXAM_SLUGS.has(params.path)&&!NEXT_SPECIALTY_ENABLED())return send({message:'Tidak ditemukan'},404);
  const data=publicExam(params.path);
  return data?send(data):send({message:'Ujian tidak ditemukan'},404);
 }
