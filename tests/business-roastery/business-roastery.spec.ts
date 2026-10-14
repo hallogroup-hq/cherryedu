@@ -311,3 +311,38 @@ test('selected beginner, logistics, manufacturing, finance and export chapters t
   expect(diff,'horizontal overflow in '+url).toBeLessThanOrEqual(2);
  }
 });
+
+test('all 21 module introductions include a distinct explanatory diagram and a guided lesson',async({page})=>{
+ const diagramNames=[
+  'Satu produk, lima tahapan berbeda','Apa yang berubah saat memiliki mesin?',
+  'Uji permintaan berjenjang','Satu kilogram, dua format SKU',
+  'Gerbang keputusan kelayakan','Lima lapisan yang perlu diperiksa sebelum menjual',
+  'Kendali mutu dalam pembelian green','Alur menghitung landed cost per kg usable',
+  'Aliran material dalam fasilitas roastery','Kapasitas mesin vs produk siap dikirim',
+  'Menelusuri satu kemasan kembali ke bahan baku','Menghitung stok yang boleh dijanjikan',
+  'Berat yang dipakai saat menghitung HPP','Harga yang sama, penyebut persentase yang berbeda',
+  'BEP harus lebih kecil dari kapasitas yang mampu dijual','Laba dicatat, tetapi uang belum tentu datang',
+  'Pipeline wholesale yang benar-benar terukur','Contoh contribution setelah biaya variabel',
+  'Contoh pembagian peran dalam usaha kecil','Indikator yang harus dibaca bersama',
+  'Urutan awal mengevaluasi inquiry ekspor'
+ ];
+ for(let m=1;m<=21;m++){
+  const id=String(m).padStart(2,'0');
+  const res=await page.goto('/business-roastery-v1/br-b'+id+'-l01');
+  expect(res?.status(),'B'+id).toBe(200);
+  await expect(page.locator('article figure')).toHaveCount(1);
+  await expect(page.locator('article figure figcaption')).toHaveText(diagramNames[m-1]);
+  await expect(page.getByRole('region',{name:'Panduan kerja langkah demi langkah'})).toBeVisible();
+ }
+});
+test('working method comes before independent exercise and answers are optional after lesson body',async({page})=>{
+ await page.goto('/business-roastery-v1/br-b13-l01');
+ const sections=await page.locator('article').innerText();
+ const methods=sections.indexOf('Praktik Terpandu');
+ const exercise=sections.indexOf('Coba terapkan setelah membaca');
+ expect(methods).toBeGreaterThan(0);
+ expect(exercise).toBeGreaterThan(methods);
+ await expect(page.getByText('A · Brand asset-light')).not.toBeVisible();
+ await page.getByText('Lihat penerapan pada tiga skala bisnis').click();
+ await expect(page.getByText('A · Brand asset-light')).toBeVisible();
+});
