@@ -1,0 +1,329 @@
+/** CherryEdu Green Coffee — evidence-oriented learner edition. Contains no legacy unverified claims. */
+export type GreenModule={code:string;title:string;description:string;references:string[]};
+export type GreenLesson={id:string;moduleId:string;order:number;title:string;content:string;minutes:number};
+export const GREEN_COFFEE_V2_MODULES:GreenModule[] = [
+  {
+    "code": "GC01",
+    "title": "Memahami Green Coffee dan Nilai Mutunya",
+    "description": "Pisahkan karakter fisik, sensori, dokumentasi asal dan kegunaan tiap lot.",
+    "references": [
+      "https://sca.coffee/value-assessment",
+      "https://varieties.worldcoffeeresearch.org/"
+    ]
+  },
+  {
+    "code": "GC02",
+    "title": "Tanaman, Lahan, dan Risiko Kebun",
+    "description": "Jelaskan agronomi secara kausal, tanpa menjadikan elevasi atau varietas sebagai jaminan mutu.",
+    "references": [
+      "https://varieties.worldcoffeeresearch.org/"
+    ]
+  },
+  {
+    "code": "GC03",
+    "title": "Panen Selektif dan Penerimaan Ceri",
+    "description": "Praktikkan kematangan, sorting, sampling, timbang dan traceability.",
+    "references": [
+      "https://www.coffeeinstitute.org/education/processing"
+    ]
+  },
+  {
+    "code": "GC04",
+    "title": "Washed, Natural, Honey, dan Giling Basah",
+    "description": "Bedakan mekanisme, yield, risiko dan SOP tiap metode pasca-panen.",
+    "references": [
+      "https://www.coffeeinstitute.org/education/processing"
+    ]
+  },
+  {
+    "code": "GC05",
+    "title": "Fermentasi Terkendali dan Keselamatan Bioproses",
+    "description": "Pahami peran mikroba, desain eksperimen, tanda bahaya dan batas kompetensi.",
+    "references": [
+      "https://coffeeinstitute.org/education/course-progression"
+    ]
+  },
+  {
+    "code": "GC06",
+    "title": "Pengeringan, Kadar Air, dan Water Activity",
+    "description": "Atur kadar air, aw, sampling, dan pengendalian rewetting secara konsisten.",
+    "references": [
+      "https://sca.coffee/value-assessment"
+    ]
+  },
+  {
+    "code": "GC07",
+    "title": "Dry Milling, Grading Fisik, dan Kendali Lot",
+    "description": "Hitung yield, bedakan cacat, rancang sampling dan putuskan accept atau hold.",
+    "references": [
+      "https://sca.coffee/value-assessment",
+      "https://sca.coffee/education/how-to-prepare"
+    ]
+  },
+  {
+    "code": "GC08",
+    "title": "Gudang, Logistik, Kontrak, dan Keputusan Mutu",
+    "description": "Jaga kualitas dan ketertelusuran setelah pengolahan sampai transaksi.",
+    "references": [
+      "https://sca.coffee/value-assessment"
+    ]
+  }
+];
+export const GREEN_COFFEE_V2_LESSONS:GreenLesson[] = [
+  {
+    "id": "gc-m01-l01",
+    "moduleId": "GC01",
+    "order": 1,
+    "title": "Apa yang dinilai saat membeli green coffee?",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nGreen coffee adalah bahan baku yang belum disangrai; mutunya tidak bisa disederhanakan menjadi warna, skor rasa, atau harga. Pembeli perlu memahami spesies, identitas lot, cacat fisik, kestabilan penyimpanan, informasi proses dan tujuan penggunaan sebelum menyatakan kualitas.\n\n## Mengapa mekanismenya begitu?\n\nDalam Coffee Value Assessment, evaluasi fisik berbeda dari deskriptif, afektif dan ekstrinsik. Sebuah lot dapat bersih secara fisik tetapi tidak sesuai profil rasa pelanggan. Sebaliknya cerita petani kuat bukan pengganti pengukuran kondisi biji.\n\n## Dari prinsip ke SOP kerja\n\nMulai dengan identitas lot dan dokumen timbang; ambil sampel mewakili batch; ukur parameter fisik memakai alat yang terkalibrasi; evaluasi cangkir pada protokol tetap; baru tentukan accept, hold atau reject menurut spesifikasi tertulis.\n\n## Contoh situasi Indonesia\n\nDua lot masing-masing 60 kg berlabel Arabika Gayo. Lot A memiliki laporan ukuran dan kadar air, Lot B hanya foto kemasan. Jangan anggap keduanya dapat diberi harga dan risiko sama; minta dokumentasi yang hilang dan jelaskan dampaknya pada keputusan.\n\n## Coba ambil keputusan\n\nApa bukti minimum yang harus tersedia agar pembelian bisa disetujui dengan risiko yang kamu terima?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://sca.coffee/value-assessment)\n- [Sumber 2](https://varieties.worldcoffeeresearch.org/)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m01-l02",
+    "moduleId": "GC01",
+    "order": 2,
+    "title": "Arabika, canephora, liberika dan informasi varietas",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nSpesies tanaman dan varietas adalah dua tingkat identifikasi. Arabika secara genetik allotetraploid, sedangkan canephora diploid. Perbedaan biologis tidak berarti satu spesies selalu lebih baik dalam mutu sensori atau harga; kondisi tumbuh dan proses perlu diperiksa.\n\n## Mengapa mekanismenya begitu?\n\nWorld Coffee Research mendokumentasikan sejarah pemuliaan seperti Timor Hybrid dan keturunannya. Nama varietas dari petani dapat berupa nama lokal; untuk verifikasi gunakan asal bibit, ciri lapang dan catatan kebun, bukan rasa cangkir semata.\n\n## Dari prinsip ke SOP kerja\n\nBuat tabel identitas: spesies yang diklaim, nama varietas, sumber informasi, tingkat keyakinan, lokasi blok dan konsistensi dokumen. Jika bukti tidak cukup, tulis belum terkonfirmasi, bukan menebak.\n\n## Contoh situasi Indonesia\n\nDua pemasok memakai nama 'Ateng' untuk bibit berbeda. Buyer mencatat istilah lokal dan meminta riwayat benih serta deskripsi tanaman, daripada menganggap semua Ateng identik.\n\n## Coba ambil keputusan\n\nBagaimana kamu membedakan identifikasi biologis yang terverifikasi dari label pemasaran?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://sca.coffee/value-assessment)\n- [Sumber 2](https://varieties.worldcoffeeresearch.org/)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m01-l03",
+    "moduleId": "GC01",
+    "order": 3,
+    "title": "Membaca kontrak lot tanpa melompat ke cita rasa",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nKeterangan asal, proses, tahun panen dan ketinggian membantu membangun hipotesis, bukan menentukan rasa secara pasti. Pertanyaan pembeli adalah 'bisa ditelusuri dan direplikasi?' bukan 'apakah labelnya menarik?'.\n\n## Mengapa mekanismenya begitu?\n\nPisahkan informasi observabel di gudang dari dokumen pemasok. Ketinggian dapat terkait iklim, tetapi kualitas dipengaruhi varietas, agronomi, panen dan stabilitas penanganan. Lot yang sama asalnya masih bisa berbeda antarmusim.\n\n## Dari prinsip ke SOP kerja\n\nSimpan kode lot, volume, bentuk bahan saat timbang (ceri/parchment/green), tanggal pengolahan, kode batch dan kondisi pengiriman. Pastikan nama pemasok, satuan, toleransi dan prosedur dispute tercantum.\n\n## Contoh situasi Indonesia\n\nPO 200 kg green dengan toleransi kadar air dan batas cacat harus menyebut metode sampling dan titik penyerahan. Jika hanya tertulis 'specialty', kedua pihak dapat menafsirkan mutu berbeda.\n\n## Coba ambil keputusan\n\nAmbiguitas mana yang berpotensi menyebabkan sengketa saat barang diterima?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://sca.coffee/value-assessment)\n- [Sumber 2](https://varieties.worldcoffeeresearch.org/)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m01-l04",
+    "moduleId": "GC01",
+    "order": 4,
+    "title": "Menghubungkan kebutuhan roaster dengan spesifikasi green",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nGreen untuk espresso house blend, filter single-origin dan sample roasting bisa memiliki prioritas berbeda, tetapi keselamatan produk dan batas cacat tetap tidak boleh diabaikan. Tujuannya konsistensi sesuai kontrak, bukan mengejar label tertinggi.\n\n## Mengapa mekanismenya begitu?\n\nMassa biji, distribusi ukuran, kadar air dan umur simpan memengaruhi rencana produksi dan biaya sortasi. Parameter fisik tidak menjamin hasil roasting tertentu, tetapi membantu mengendalikan batch dan membuat perbandingan yang adil.\n\n## Dari prinsip ke SOP kerja\n\nMinta roaster menyebut outcome cup, toleransi variasi lot dan kapasitas; buyer menerjemahkan menjadi parameter inspeksi dan sampel; kemudian uji pilot roasting sebelum pemesanan besar.\n\n## Contoh situasi Indonesia\n\nKafe meminta kopi blend yang konsisten dengan harga tertentu. Lot murah tetapi banyak reject dapat menaikkan biaya per kg saleable melebihi lot berharga lebih tinggi.\n\n## Coba ambil keputusan\n\nBagaimana membuktikan bahwa spesifikasi 'murah per kg' benar-benar hemat setelah reject?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://sca.coffee/value-assessment)\n- [Sumber 2](https://varieties.worldcoffeeresearch.org/)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m02-l01",
+    "moduleId": "GC02",
+    "order": 1,
+    "title": "Elevasi bukan tombol otomatis untuk rasa",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nKetinggian memengaruhi suhu dan lingkungan tumbuh, tetapi hubungan dengan perkembangan buah dipengaruhi lintang, naungan, air dan pengelolaan kebun. Angka mdpl saja tidak memvalidasi kepadatan biji atau kualitas cangkir.\n\n## Mengapa mekanismenya begitu?\n\nDi satu kawasan Indonesia, kebun berbeda arah lereng, intensitas matahari dan kondisi tanah. Buah matang dapat memiliki distribusi ukuran dan fase perkembangan berbeda walaupun label ketinggian serupa.\n\n## Dari prinsip ke SOP kerja\n\nSaat audit, catat elevasi bersama suhu mikro, kondisi naungan, musim panen, blok varietas, penyakit dan pola pemupukan; cocokkan dengan catatan produktivitas dan sampel lot.\n\n## Contoh situasi Indonesia\n\nDua blok pada 1.400 mdpl memberi hasil cup berbeda. Jangan menyatakan salah satu pasti salah label; cek tanggal panen, kebun, cherry mix dan prosesnya sebelum menyimpulkan.\n\n## Coba ambil keputusan\n\nVariabel apa yang harus diamati supaya korelasi ketinggian tidak disalahartikan sebagai sebab tunggal?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://varieties.worldcoffeeresearch.org/)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m02-l02",
+    "moduleId": "GC02",
+    "order": 2,
+    "title": "Kesehatan tanah, nutrisi dan produktivitas",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nKondisi tanah mencakup tekstur, drainase, bahan organik, pH dan ketersediaan unsur hara. Tanah vulkanik bukan otomatis subur sempurna; nutrisi seimbang dan ketersediaan air harus dibaca sesuai hasil analisis.\n\n## Mengapa mekanismenya begitu?\n\nPemupukan tanpa diagnosis dapat menaikkan biaya, memicu ketidakseimbangan dan merusak lingkungan. Gejala daun hanya indikasi awal karena kekurangan nutrisi, penyakit dan stres air dapat menyerupai satu sama lain.\n\n## Dari prinsip ke SOP kerja\n\nSusun sampling tanah per blok representatif, gunakan laboratorium yang relevan, catat riwayat pemupukan dan hasil, lalu minta pendamping agronomi menentukan tindakan berdasarkan kondisi lokasi.\n\n## Contoh situasi Indonesia\n\nDaun menguning setelah hujan berkepanjangan: bukan bukti pasti kekurangan nitrogen. Periksa drainase, akar dan hasil uji tanah sebelum menentukan input.\n\n## Coba ambil keputusan\n\nApa biaya keputusan terburu-buru pada satu musim bila gejala dikaitkan dengan satu unsur tanpa bukti?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://varieties.worldcoffeeresearch.org/)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m02-l03",
+    "moduleId": "GC02",
+    "order": 3,
+    "title": "Naungan, air dan ketahanan kebun",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nNaungan dapat meredam panas ekstrem dan mendukung ekosistem, tetapi intensitas yang berlebihan di lokasi lembap dapat mengubah tekanan penyakit dan pematangan. Trade-off harus diuji per kebun.\n\n## Mengapa mekanismenya begitu?\n\nDaun sehat, pengelolaan air, jarak tanam, sanitasi kebun dan pemangkasan saling memengaruhi. Desain sistem tidak boleh hanya mengejar target sensori satu musim dengan mengabaikan kelangsungan produksi.\n\n## Dari prinsip ke SOP kerja\n\nCatat tutupan naungan, penyakit, kelembapan, kondisi kanopi dan akses pemanen; bandingkan plot serupa sebelum mengubah tata kebun. Tindakan besar dilakukan bertahap dan dipantau.\n\n## Contoh situasi Indonesia\n\nBlok A dinaungi rapat dan ceri banyak yang belum masak ketika permintaan tinggi. Jangan menebang semua pohon penaung sekaligus; dokumentasikan kondisi dan lakukan uji pengelolaan terukur.\n\n## Coba ambil keputusan\n\nBagaimana mengukur keberhasilan perbaikan selain hanya banyaknya cherry dipanen?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://varieties.worldcoffeeresearch.org/)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m02-l04",
+    "moduleId": "GC02",
+    "order": 4,
+    "title": "Peta risiko musim dan keputusan panen",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nRisiko agronomi bersifat lintas-fase: hujan saat panen memengaruhi sortasi dan pengeringan, sementara hama dan kekeringan dapat mengubah pasokan. Kelola probabilitas dan dampak, bukan mencari kalender mutlak.\n\n## Mengapa mekanismenya begitu?\n\nSatu estimasi panen sering mengasumsikan semua cherry siap pada tanggal sama. Padahal pemetikan selektif, ketersediaan tenaga dan kapasitas pengolahan menentukan volume nyata yang dapat ditangani tanpa kehilangan mutu.\n\n## Dari prinsip ke SOP kerja\n\nBuat rencana skenario normal, hujan dan panen serentak; tetapkan trigger seperti ruang pengering penuh, tenaga kurang atau lot tidak tertelusur yang menyebabkan perubahan jadwal.\n\n## Contoh situasi Indonesia\n\nCo-op mendapat tambahan 600 kg ceri pada hari hujan tetapi ruang sortasi terbatas. Penerimaan tanpa batas dapat memicu lot tercampur dan penundaan proses.\n\n## Coba ambil keputusan\n\nKapan lebih aman membatasi penerimaan daripada memaksa semua volume masuk?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://varieties.worldcoffeeresearch.org/)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m03-l01",
+    "moduleId": "GC03",
+    "order": 1,
+    "title": "Kematangan cherry dilihat dari banyak bukti",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nWarna dapat membantu identifikasi fase matang, tetapi varietas kuning atau merah berbeda dan kondisi pertumbuhan memengaruhi gula terlarut. °Brix hanyalah satu pengukuran sampel, bukan ambang universal mutu spesialti.\n\n## Mengapa mekanismenya begitu?\n\nPembacaan refraktometer dipengaruhi cara ekstraksi sari, suhu, kalibrasi alat dan seberapa representatif buah yang diambil. Satu ceri manis tidak menggambarkan distribusi seluruh panen.\n\n## Dari prinsip ke SOP kerja\n\nAmbil contoh dari beberapa titik, kelompokkan immature/ripe/overripe/rusak, dokumentasikan proporsi dan ketidakpastian; lakukan °Brix untuk konteks lot bila alat dan metode tersedia.\n\n## Contoh situasi Indonesia\n\nSampel cherry suatu petani menunjukkan 18 °Brix pada beberapa buah, tetapi banyak cherry hijau di karung. Jangan langsung memberi status lolos berdasarkan rata-rata kecil.\n\n## Coba ambil keputusan\n\nBagaimana kamu menyusun sampel yang mewakili pengiriman 500 kg dari kebun berbeda?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://www.coffeeinstitute.org/education/processing)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m03-l02",
+    "moduleId": "GC03",
+    "order": 2,
+    "title": "Penerimaan ceri dan pencatatan massa",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nReceiving adalah kendali mutu pertama di wet mill. Setiap pencampuran lot tanpa identitas menghilangkan kemampuan menelusuri cacat, insentif pemasok dan hasil proses.\n\n## Mengapa mekanismenya begitu?\n\nBerat bruto, tara keranjang, netto dan waktu penerimaan berbeda. Protokol menerima jumlah sesuai berat netto sesudah tara dan mencatat lot serta kondisi visual atau hasil sampling.\n\n## Dari prinsip ke SOP kerja\n\nTimbang per wadah, catat pemasok-blok-jam panen-jam tiba, nilai proporsi ripe/defect, pisahkan karung sesuai klasifikasi dan beri kode tahan proses jika bukti tidak cukup.\n\n## Contoh situasi Indonesia\n\nTimbangan mencatat bruto 103 kg dan tara karung 3 kg. Netto 100 kg; jangan mengklaim yield proses dari bruto atau mencatat 3 kg sebagai 'waste ceri'.\n\n## Coba ambil keputusan\n\nApa dampak laporan netto salah terhadap pembayaran petani dan perhitungan rendemen berikutnya?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://www.coffeeinstitute.org/education/processing)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m03-l03",
+    "moduleId": "GC03",
+    "order": 3,
+    "title": "Float sortasi: kegunaan dan batasnya",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nPerambangan dapat membantu memisahkan sebagian cherry berkerapatan rendah atau rusak, tetapi bukan tes kesegaran atau cacat yang menyeluruh. Cherry yang tenggelam tidak otomatis berkualitas tinggi.\n\n## Mengapa mekanismenya begitu?\n\nAir sortasi sendiri dapat menambah risiko kontaminasi jika tidak dikelola dengan higienis. Waktu terendam, kualitas air dan pemisahan batch harus terdokumentasi.\n\n## Dari prinsip ke SOP kerja\n\nPeriksa air bersih, wadah, alur limbah dan petugas; lakukan float terpisah per lot, amati hasil manual dan catat massa dibuang berikut alasan.\n\n## Contoh situasi Indonesia\n\nDari 200 kg, 8 kg terangkat dan disisihkan untuk inspeksi. Hitung proporsi 4%, tapi jangan menyebut semua 8 kg 'cacat primer' sebelum pemeriksaan.\n\n## Coba ambil keputusan\n\nBagaimana memutuskan apa yang harus dipisahkan ulang bila float dan inspeksi manual tidak sejalan?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://www.coffeeinstitute.org/education/processing)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m03-l04",
+    "moduleId": "GC03",
+    "order": 4,
+    "title": "SOP cherry dari kebun ke tahap proses",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nKeterlambatan, suhu tinggi dan wadah kurang higienis dapat membuat kondisi buah berubah sebelum pengolahan. Waktu dari panen sampai proses harus dikaitkan dengan risiko dan kapasitas fasilitas.\n\n## Mengapa mekanismenya begitu?\n\nSOP yang baik memiliki nama penanggung jawab, jam, definisi lot, titik ukur, batas operasional yang divalidasi lokal dan eskalasi saat menyimpang. Tidak cukup menempelkan poster 'cepat diproses'.\n\n## Dari prinsip ke SOP kerja\n\nRancang penerimaan -> inspektor -> sortir -> kode lot -> handoff ke pulper/bed sesuai keputusan; wajibkan alasan hold dan siapa yang dapat melepasnya.\n\n## Contoh situasi Indonesia\n\nDua truk tiba bersamaan, tetapi kapasitas pulper untuk satu lot. Tim harus menjaga identitas lot kedua dan menyimpan kondisi aman sambil menilai risiko penundaan.\n\n## Coba ambil keputusan\n\nApa keputusan jika jadwal pengolahan tidak mungkin dipenuhi tanpa mencampur identitas lot?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://www.coffeeinstitute.org/education/processing)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m04-l01",
+    "moduleId": "GC04",
+    "order": 1,
+    "title": "Washed: depulp, musilage, cuci, kering",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nWashed bukan satu resep tunggal. Umumnya proses memisahkan kulit dan pulp, menangani mucilage dengan fermentasi atau bantuan mekanis, mencuci sesuai kebutuhan, lalu mengeringkan parchment.\n\n## Mengapa mekanismenya begitu?\n\nVariasi lama kontak, kondisi air, sanitasi dan lot menyebabkan hasil berbeda. Tujuan penghilangan mucilage tidak berarti semua lot harus difermentasi selama jam yang sama. Bau tidak boleh dijadikan satu-satunya alarm.\n\n## Dari prinsip ke SOP kerja\n\nRancang alur penerimaan -> depulp -> wadah bersih -> pemantauan per batch -> pemeriksaan mucilage -> pencucian -> pemindahan ke pengering; catat volume air dan penanganan limbah.\n\n## Contoh situasi Indonesia\n\nDua lot digabung dalam tangki tetapi tingkat kematangan berbeda. Hasil aroma dan mucilage tidak homogen, sehingga penanganan awal harus dikaji sebelum waktu proses digeneralisasi.\n\n## Coba ambil keputusan\n\nParameter apa yang paling berguna dicatat agar keputusan cuci bisa diulang?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://www.coffeeinstitute.org/education/processing)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m04-l02",
+    "moduleId": "GC04",
+    "order": 2,
+    "title": "Natural: cherry utuh dan pengeringan terkelola",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nNatural mempertahankan buah pada biji selama pengeringan. Lebih sedikit penggunaan air dalam tahap tertentu tidak otomatis berarti proses rendah risiko atau biaya lebih murah.\n\n## Mengapa mekanismenya begitu?\n\nKulit/pulp memperlambat perpindahan air dan menciptakan gradien; bagian bawah tumpukan yang lembap rentan pemanasan, ketidakseragaman dan pertumbuhan mikroba yang tidak diinginkan.\n\n## Dari prinsip ke SOP kerja\n\nGunakan permukaan pengering yang bersih, ketebalan disesuaikan cuaca, pembalikan tercatat, perlindungan hujan, pemisahan cherry rusak dan pengukuran dari sampel representatif.\n\n## Contoh situasi Indonesia\n\nHujan tiga hari menaikkan kelembapan udara dan bed penuh. Alih-alih menjanjikan natural pasti lebih fruity, atur kapasitas, pergiliran, dan status keamanan lot.\n\n## Coba ambil keputusan\n\nIndikator apa yang mengharuskan satu bed diperiksa ulang sebelum lanjut drying?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://www.coffeeinstitute.org/education/processing)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m04-l03",
+    "moduleId": "GC04",
+    "order": 3,
+    "title": "Honey: mucilage tersisa bukan label warna yang pasti",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nHoney processing mengurangi kulit tetapi mempertahankan sebagian mucilage saat pengeringan. Sebutan yellow/red/black sering dipakai pemasaran, tetapi tidak mewakili SOP universal antarprodusen.\n\n## Mengapa mekanismenya begitu?\n\nTebal lapisan, suhu udara, intensitas pengadukan dan kemampuan mengeringkan menentukan risiko. Sedikit atau banyak mucilage bukan jaminan tingkat kemanisan rasa cangkir.\n\n## Dari prinsip ke SOP kerja\n\nDokumentasikan setting depulper, massa masuk, batch ID, ruang pengering dan protokol pengendalian kontaminasi. Jangan memakai kategori warna sebagai pengganti data proses.\n\n## Contoh situasi Indonesia\n\nSupplier hanya menulis 'black honey' tetapi tanpa catatan drying. Buyer sebaiknya meminta data proses dan inspeksi sampel, bukan menebak fermentasi panjang tertentu.\n\n## Coba ambil keputusan\n\nBagaimana menulis deskripsi proses secara jujur jika kondisi operasional bervariasi?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://www.coffeeinstitute.org/education/processing)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m04-l04",
+    "moduleId": "GC04",
+    "order": 4,
+    "title": "Giling basah: hulling pada kondisi lebih lembap",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nGiling basah khas sebagian rantai pasok Sumatra bukan sekadar washed. Istilah penting adalah kondisi parchment saat hulling relatif lebih lembap daripada dry hulling, dan ada tahapan pengeringan lanjutan.\n\n## Mengapa mekanismenya begitu?\n\nHulling lembap memiliki risiko cedera fisik biji dan pengeringan ulang yang tidak seragam. Nilai historis dan profil pasar penting, tetapi label tidak otomatis menjustifikasi semua kerusakan fisik.\n\n## Dari prinsip ke SOP kerja\n\nPetakan penerimaan -> pengupasan/pengolahan awal -> pra-kering -> hulling -> sortir -> kering lanjut -> QC green; catat massa dan kadar air pada setiap titik, serta keamanan alat.\n\n## Contoh situasi Indonesia\n\nDua kontrak sama-sama memakai kata 'Giling Basah'. Salah satu pemasok memasok green dengan fraksi pecah tinggi. Spesifikasi fisik dan sampel tetap menentukan keputusan pembelian.\n\n## Coba ambil keputusan\n\nBagaimana memisahkan ciri proses yang diinginkan dari cacat yang tidak bisa diterima?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://www.coffeeinstitute.org/education/processing)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m05-l01",
+    "moduleId": "GC05",
+    "order": 1,
+    "title": "Fermentasi tidak sama dengan mengunci oksigen",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nFermentasi kopi melibatkan interaksi substrat, mikroorganisme, enzim dan kondisi lingkungan. Kata 'anaerobik' menjelaskan kondisi oksigen tertentu, tetapi tidak menentukan mikroba, aroma atau hasil secara otomatis.\n\n## Mengapa mekanismenya begitu?\n\nGula dan komponen mucilage dapat dimetabolisme mikroba; hasil dipengaruhi populasi awal, kebersihan, suhu, pH dan waktu. Aktivitas mikroba tidak selalu menguntungkan; kontaminasi bisa menyebabkan kerusakan.\n\n## Dari prinsip ke SOP kerja\n\nMulai dari tujuan yang terukur, lot yang seragam, peralatan higienis, pencatatan kondisi dan rencana penghentian. Gunakan pengawasan ahli untuk proses yang melibatkan gas atau wadah tertutup.\n\n## Contoh situasi Indonesia\n\nSeorang operator menganggap tangki tertutup selalu lebih fruity. Setelah tim membandingkan kontrol terbuka/higienis, data sensori tidak konsisten. Kesimpulan yang benar adalah menguji ulang hipotesis.\n\n## Coba ambil keputusan\n\nData apa yang perlu dikumpulkan untuk memisahkan klaim pemasaran dari efek bioproses?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://coffeeinstitute.org/education/course-progression)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m05-l02",
+    "moduleId": "GC05",
+    "order": 2,
+    "title": "Starter culture, mikroba liar, dan keterulangan",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nInokulasi memilih mikroorganisme tertentu untuk mengubah dinamika proses. Starter tidak menjamin dominasi jika bahan, sanitasi atau kondisi awal tidak terkendali; hasil rasa perlu divalidasi di cup dan dalam pengujian aman.\n\n## Mengapa mekanismenya begitu?\n\nSaccharomyces dan bakteri tertentu dipelajari dalam konteks kopi, tetapi pemilihan strain, dosis, kebersihan dan kontrol risiko memerlukan SOP yang dapat dipertanggungjawabkan. Jangan mengimprovisasi kultur pangan tanpa prosedur kompeten.\n\n## Dari prinsip ke SOP kerja\n\nBuat kelompok kontrol, kelompok perlakuan, sample ID buta, catatan perlakuan dan kriteria hasil. Bandingkan risiko cacat, biaya, repeatability serta penerimaan pasar.\n\n## Contoh situasi Indonesia\n\nPemasok kultur menjanjikan aroma tropis pasti muncul. Operator tetap harus melakukan batch kecil terpantau, cup blind dan menghitung yield saleable sebelum perluasan.\n\n## Coba ambil keputusan\n\nApa bukti yang akan membuatmu menolak klaim keberhasilan inokulasi?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://coffeeinstitute.org/education/course-progression)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m05-l03",
+    "moduleId": "GC05",
+    "order": 3,
+    "title": "Gas CO2, ruang terbatas, dan keselamatan",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nCarbonic maceration melibatkan lingkungan kaya CO2 pada konteks proses tertentu. CO2 dapat menggantikan oksigen sehingga menimbulkan bahaya asfiksia di ruang tertutup. Wadah bertekanan dan gas bukan eksperimen rumahan.\n\n## Mengapa mekanismenya begitu?\n\nSensorik yang menarik tidak membenarkan operasi tanpa ventilasi, prosedur darurat, perangkat yang layak dan operator terlatih. Jangan melakukan flushing gas atau membuka tangki tanpa otorisasi serta penilaian bahaya.\n\n## Dari prinsip ke SOP kerja\n\nSebelum bioproses khusus, minta analisis risiko fasilitas, pengendalian gas, kebersihan, prosedur pembersihan dan prosedur insiden tertulis. Bila tidak tersedia, gunakan metode yang lebih aman dan terkendali.\n\n## Contoh situasi Indonesia\n\nWet mill kecil ingin memasang injeksi CO2 demi tren pasar tanpa SOP keamanan. Keputusan yang benar adalah menahan implementasi sampai fasilitas dan kompetensi terverifikasi.\n\n## Coba ambil keputusan\n\nBagaimana kamu menjelaskan bahwa menunda eksperimen adalah keputusan kualitas dan keselamatan yang baik?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://coffeeinstitute.org/education/course-progression)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m05-l04",
+    "moduleId": "GC05",
+    "order": 4,
+    "title": "Menyusun percobaan fermentasi yang dapat diaudit",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nEksperimen berarti mempertanyakan satu mekanisme dengan pembanding yang adil; bukan menambahkan banyak perlakuan lalu memilih cup paling disukai tanpa data.\n\n## Mengapa mekanismenya begitu?\n\nInput yang berbeda asal/panen dapat membuat hasil tidak sebanding. Catat batch size, massa, sumber mikroba bila relevan, kondisi ruang, waktu, pengukuran dan alur drying setelah fermentasi.\n\n## Dari prinsip ke SOP kerja\n\nGunakan dua lot serupa pada jadwal berdekatan; ubah satu kondisi yang disepakati tim; blind-code hasil cup dan berikan ruang bagi hasil 'tidak ada perbedaan' sebagai temuan sah.\n\n## Contoh situasi Indonesia\n\nBila suatu perlakuan meningkatkan aroma tetapi menaikkan reject 8% dan biaya handling, evaluasi outcome komersial serta risiko, bukan hanya panelis paling antusias.\n\n## Coba ambil keputusan\n\nKeputusan apa yang kamu ambil jika bukti sensori tidak cukup meyakinkan untuk ekspansi proses?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://coffeeinstitute.org/education/course-progression)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m06-l01",
+    "moduleId": "GC06",
+    "order": 1,
+    "title": "Kadar air dan water activity adalah dua pengukuran berbeda",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nMoisture content menggambarkan proporsi air dalam bahan; water activity (aw) berkaitan dengan ketersediaan air untuk aktivitas mikroba dan reaksi tertentu. Keduanya berhubungan, tetapi tidak bisa dipertukarkan sebagai satu angka.\n\n## Mengapa mekanismenya begitu?\n\nMetode alat, suhu, sample prep dan kalibrasi berpengaruh. Batas penerimaan dibuat sesuai pembeli, proses, metode ukur dan pertimbangan keselamatan; rentang referensi bukan izin menyimpan lot tanpa pemeriksaan.\n\n## Dari prinsip ke SOP kerja\n\nSaat sampel masuk, ukur dengan alat yang sesuai, catat titik sampling, suhu/situasi pengukuran, hasil berulang dan tindakan jika variasi sampel besar.\n\n## Contoh situasi Indonesia\n\nLot menunjukkan kadar air rata-rata sesuai kontrak, tetapi beberapa kantong memiliki aw jauh berbeda. Jangan lepas lot sebagai homogen sebelum investigasi pengeringan dan penyimpanan.\n\n## Coba ambil keputusan\n\nBagaimana hasil satu kantong dapat menyesatkan bila satu kontainer memuat lot campuran?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://sca.coffee/value-assessment)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m06-l02",
+    "moduleId": "GC06",
+    "order": 2,
+    "title": "Memahami kurva pengeringan di raised bed",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nLaju perpindahan air berubah menurut suhu, kelembapan relatif, aliran udara, ukuran batch dan sifat bahan. Mengeringkan secepat mungkin bukan satu-satunya sasaran: keseragaman dan kondisi produk sama penting.\n\n## Mengapa mekanismenya begitu?\n\nTumpukan tebal bisa menahan kelembapan pada bagian tengah, sedangkan lapisan luar tampak kering. Sensor ambient tidak otomatis sama dengan kelembapan di inti cherry atau parchment.\n\n## Dari prinsip ke SOP kerja\n\nPetakan bed, tebal hamparan, intensitas pembalikan, log hujan, metode sampling berlapis, dan batas tindakan ketika bed basah kembali. Pastikan alat bebas kontaminasi.\n\n## Contoh situasi Indonesia\n\nSatu bed menerima paparan matahari langsung pada bagian tepi dan tertutup bayangan di tengah. Cek variasi lot secara sampling, bukan mengambil biji tepi saja.\n\n## Coba ambil keputusan\n\nMengapa dua titik pengukuran lebih baik daripada satu angka untuk lot besar?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://sca.coffee/value-assessment)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m06-l03",
+    "moduleId": "GC06",
+    "order": 3,
+    "title": "Rewetting dan cuaca Indonesia",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nPerubahan cuaca pesisir atau dataran tinggi Indonesia dapat membuat bahan yang hampir siap simpan kembali menerima air dari hujan atau udara sangat lembap. Risiko ini harus masuk rencana kapasitas pengering.\n\n## Mengapa mekanismenya begitu?\n\nPerlindungan hujan perlu ventilasi dan pengelolaan kondensasi, bukan hanya menutup semua sisi rapat-rapat. Keterlambatan drying memperluas variabilitas tanpa otomatis menentukan cacat tertentu.\n\n## Dari prinsip ke SOP kerja\n\nSusun jadwal berdasar prediksi cuaca lokal dan kapasitas; bila turun hujan mendadak, jalankan SOP pindah/tutup/monitor kelembapan dan log waktu kejadian.\n\n## Contoh situasi Indonesia\n\nDua ton parchment belum memenuhi spesifikasi dan hujan akan datang. Jangan gabungkan dengan stok selesai kering; pisahkan status serta sumber pencatatannya.\n\n## Coba ambil keputusan\n\nKeputusan apa yang membuat risiko lot 'hampir kering' tetap dapat dilacak?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://sca.coffee/value-assessment)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m06-l04",
+    "moduleId": "GC06",
+    "order": 4,
+    "title": "Serah terima pengeringan ke gudang",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nPengeringan selesai bukan berarti lot sudah layak langsung dijual. Kualitas perlu verifikasi dari sampel representatif dan periode stabilisasi yang dikelola baik bila diterapkan.\n\n## Mengapa mekanismenya begitu?\n\nSaat green keluar dari pengering, perubahan distribusi kelembapan atau perbedaan kemasan bisa membuat kondisi lot berubah. Periksa juga bau asing, kontaminasi, hama dan data rantai produksi.\n\n## Dari prinsip ke SOP kerja\n\nTuliskan status 'hold / pemeriksaan / release', metode ukur, sampel, operator, tanggal dan tempat simpan; buat prosedur uji ulang saat lot berfluktuasi.\n\n## Contoh situasi Indonesia\n\nLot A tercatat kering kemarin namun pindah ke ruang lembap hari ini. Hasil lama tidak cukup untuk mengeklaim stok masih stabil saat pengiriman.\n\n## Coba ambil keputusan\n\nSiapa yang berhak memutuskan release bila QC dan produksi berbeda pendapat?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://sca.coffee/value-assessment)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m07-l01",
+    "moduleId": "GC07",
+    "order": 1,
+    "title": "Hulling dan sortasi: dari parchment ke green saleable",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nDry milling mencakup pemisahan kulit, grading ukuran/densitas jika relevan, sortasi cacat, dan dokumentasi keluaran. Berat keluar mesin tidak sama dengan berat green saleable yang memenuhi spesifikasi.\n\n## Mengapa mekanismenya begitu?\n\nCacat fisik seperti pecah, serangga, benda asing atau warna tak normal perlu klasifikasi dengan prosedur. Jangan menafsirkan setiap perubahan warna sebagai cacat dengan sebab tunggal tanpa pemeriksaan.\n\n## Dari prinsip ke SOP kerja\n\nCatat berat input parchment, output kasar, screening reject, green akhir, sample QC dan kode batch; lakukan rekonsiliasi neraca massa yang konsisten.\n\n## Contoh situasi Indonesia\n\nDari 500 kg parchment, 400 kg green kasar dan 385 kg saleable. Yield saleable terhadap parchment = 385/500 = 77%; 15 kg reject sortasi harus dibedakan dari 100 kg hilang saat hulling.\n\n## Coba ambil keputusan\n\nApa kesimpulan yang salah bila operator memakai green kasar sebagai denominator biaya per kg saleable?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://sca.coffee/value-assessment)\n- [Sumber 2](https://sca.coffee/education/how-to-prepare)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m07-l02",
+    "moduleId": "GC07",
+    "order": 2,
+    "title": "CVA Physical dan sistem klasifikasi cacat",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nSCA CVA mendudukkan penilaian fisik pada lensa tersendiri yang dapat memuat cacat, ukuran, warna dan kondisi. Jumlah cacat menurut metode tertentu tidak otomatis merangkum semua aspek kualitas.\n\n## Mengapa mekanismenya begitu?\n\nRujukan SCA fisik memiliki cara sampling dan penghitungan cacat khusus; standar kontrak bisa memakai definisi berbeda. Pelajari syarat spesifikasi buyer sebelum memutuskan lot gagal atau lolos.\n\n## Dari prinsip ke SOP kerja\n\nGunakan sampel sesuai prosedur yang disepakati; identifikasi kemungkinan foreign matter, defect primer/sekunder jika memakai metode yang mensyaratkannya; dokumentasikan foto dan keputusan koreksi.\n\n## Contoh situasi Indonesia\n\nSebuah lot diberi label 'specialty' oleh trader tetapi evaluasi fisik buyer menemukan benda asing. Cerita asal dan skor cangkir tidak membatalkan kebutuhan investigasi.\n\n## Coba ambil keputusan\n\nKapan penilaian fisik perlu diulang oleh petugas kedua untuk mencegah sengketa?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://sca.coffee/value-assessment)\n- [Sumber 2](https://sca.coffee/education/how-to-prepare)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m07-l03",
+    "moduleId": "GC07",
+    "order": 3,
+    "title": "Sampling dan keputusan acceptance",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nSampling hanya merepresentasikan lot jika cara ambilnya sesuai populasi dan risiko. Sampel yang diambil dari bagian atas satu karung cenderung bias.\n\n## Mengapa mekanismenya begitu?\n\nUntuk lot campuran, gunakan titik dari kantong berbeda dengan alat bersih, catat identitas dan tanggal; pilih pendekatan komposit atau stratifikasi sesuai jenis pengujian. Variabilitas tinggi adalah informasi penting.\n\n## Dari prinsip ke SOP kerja\n\nTetapkan jumlah titik sampel dan SOP sebelum hasil diketahui; gunakan metode verifikasi ulang apabila temuan mengejutkan, serta simpan retained sample untuk komplain.\n\n## Contoh situasi Indonesia\n\nPetugas mengambil 300 g dari karung paling bersih karena mudah dijangkau. Klaim 'seluruh kontainer lolos' tidak didukung prosedur ini.\n\n## Coba ambil keputusan\n\nBagaimana mencatat batas kepercayaan yang wajar dari sampel tanpa berpura-pura pasti?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://sca.coffee/value-assessment)\n- [Sumber 2](https://sca.coffee/education/how-to-prepare)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m07-l04",
+    "moduleId": "GC07",
+    "order": 4,
+    "title": "Rekonsiliasi mutu dan biaya setelah milling",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nDalam bisnis green coffee, biaya per kg saleable harus memakai output yang benar. Mengabaikan reject atau transport menyebabkan penawaran tampak murah tetapi tidak benar-benar menguntungkan.\n\n## Mengapa mekanismenya begitu?\n\nLanded cost green yang telah keluar dari dry mill dapat berisi pembelian bahan, transport yang dapat dialokasikan, energi, tenaga, kemasan dan reject. Hindari menghitung suatu biaya dua kali pada level berbeda.\n\n## Dari prinsip ke SOP kerja\n\nGunakan tabel biaya dengan satuan dan basis massa: kg masuk, kg keluar, kg ditolak, serta biaya lot. Nilai per kg saleable = biaya total relevan dibagi kg saleable.\n\n## Contoh situasi Indonesia\n\nBiaya lot Rp18.000.000 dan hasil final 150 kg memenuhi grade. Bahan dan proses relevan setara Rp120.000/kg saleable; ini bukan harga jual atau gross margin.\n\n## Coba ambil keputusan\n\nJika yield turun 5 poin persentase, bagian biaya mana meningkat walaupun invoice awal tetap?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://sca.coffee/value-assessment)\n- [Sumber 2](https://sca.coffee/education/how-to-prepare)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m08-l01",
+    "moduleId": "GC08",
+    "order": 1,
+    "title": "Menyimpan green coffee dengan risiko terkendali",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nKemasan hermetik dapat mengurangi pertukaran uap air/udara bila digunakan sesuai spesifikasi, namun bukan jaminan lot akan stabil selamanya, aman dari semua mikroba atau bebas serangga.\n\n## Mengapa mekanismenya begitu?\n\nGudang membutuhkan kebersihan, sirkulasi, pengendalian hama, pemisahan dari bau kuat, suhu/kelembapan terpantau, dan perlindungan air masuk. Nama merek kantong tidak menggantikan pemeriksaan kondisi.\n\n## Dari prinsip ke SOP kerja\n\nCatat lokasi rak, identitas batch, tanggal masuk/keluar, kondisi kemasan, pemeriksaan rutin, hasil sampel dan aturan rotasi sesuai spesifikasi quality window.\n\n## Contoh situasi Indonesia\n\nKarung terlihat utuh, tetapi lantai gudang basah dan karton menyerap kelembapan. Jangan keluarkan seluruh lot tanpa memeriksa potensi migrasi air.\n\n## Coba ambil keputusan\n\nBagaimana menilai trade-off biaya kemasan dengan risiko yang benar-benar dihadapi gudang?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://sca.coffee/value-assessment)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m08-l02",
+    "moduleId": "GC08",
+    "order": 2,
+    "title": "Transport antarpulau dan perubahan risiko lot",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nOngkos kirim berbeda menurut rute, service level, berat tagihan, volume, penanganan, dan musim. Tidak ada satu angka ongkir nasional yang valid untuk semua pengiriman.\n\n## Mengapa mekanismenya begitu?\n\nSelain harga, cek lead time, perpindahan hub, potensi basah, asuransi, kondisi container dan titik tanggung jawab saat serah terima. Klaim pada kurir memerlukan dokumen sebelum packing.\n\n## Dari prinsip ke SOP kerja\n\nMinta penawaran tertulis dengan asal-tujuan spesifik, MOQ/minimum charge, berat aktual vs volumetrik, packing, asuransi, penanganan dan tanggal berlaku. Simpan foto kondisi penyerahan.\n\n## Contoh situasi Indonesia\n\nKiriman 70 kg green dari Flores ke Bandung berpotensi memakai beberapa transit; jangan menuliskan 'Rp5.000/kg pasti' tanpa quotation yang sesuai rute dan layanan.\n\n## Coba ambil keputusan\n\nData apa yang diperlukan untuk membandingkan dua kurir secara adil selain harga total?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://sca.coffee/value-assessment)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m08-l03",
+    "moduleId": "GC08",
+    "order": 3,
+    "title": "Menulis spesifikasi buyer yang bisa diuji",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nIstilah 'premium', 'clean' atau 'specialty' terlalu luas jika kontrak tidak menyebut metoda sampling, toleransi dan prosedur penanganan selisih.\n\n## Mengapa mekanismenya begitu?\n\nSpesifikasi buyer setidaknya menjelaskan identitas produk, format, basis berat, parameter fisik yang disepakati, dokumentasi proses, inspeksi penerimaan, hak klaim dan kondisi penggantian.\n\n## Dari prinsip ke SOP kerja\n\nSusun template PO: origin/lot, tahun panen, bentuk dan kemasan, kuantitas dan toleransi, titik serah, parameter QC dan metode, jangka waktu uji serta pihak bertanggung jawab.\n\n## Contoh situasi Indonesia\n\nBuyer menerima 10% kantong dengan label lot berbeda meski berat total benar. Itu masalah traceability yang perlu didiskusikan sesuai ketentuan kontrak.\n\n## Coba ambil keputusan\n\nApa saja bukti yang seharusnya disimpan kedua pihak sampai batas klaim berakhir?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://sca.coffee/value-assessment)",
+    "minutes": 13
+  },
+  {
+    "id": "gc-m08-l04",
+    "moduleId": "GC08",
+    "order": 4,
+    "title": "Capstone: putuskan hold, reprocess atau release",
+    "content": "Ketika menangani green coffee, keputusan terbaik bukan yang paling cepat, melainkan yang dapat dijelaskan dengan bukti serta diulang pada batch berbeda.\n\n## Apa yang perlu dipahami?\n\nKeputusan mutu selalu menggabungkan fisik, sampling, keamanan, biaya, kontrak dan komunikasi. 'Hold' adalah tindakan sementara untuk verifikasi, bukan sinonim menolak seluruh petani.\n\n## Mengapa mekanismenya begitu?\n\nPerbaikan lewat sortir ulang atau re-drying hanya boleh dilakukan bila aman, fasilitas mampu, efek pada produk diuji dan pencatatan tetap utuh. Jangan menjual ulang sebagai grade semula tanpa bukti.\n\n## Dari prinsip ke SOP kerja\n\nSusun satu paket keputusan: lot ID, data timbang, QA fisik, hasil pengeringan, foto dan log kejadian, alternatif tindakan, biaya/lead time dan otorisasi yang ditandatangani.\n\n## Contoh situasi Indonesia\n\nLot 500 kg datang dengan sebagian kantong basah setelah transit. Tahan bagian terdampak, dokumentasikan, lakukan sampling sesuai SOP, lalu komunikasikan rencana klaim atau tindak lanjut.\n\n## Coba ambil keputusan\n\nApa alasan yang akan kamu berikan kepada buyer jika volume layak jual akhirnya lebih kecil daripada PO?\n\nTuliskan **bukti yang ada**, **yang masih perlu dicek**, lalu **tindakan berikutnya**. Apabila datanya kurang, menunda keputusan final sambil mengumpulkan bukti adalah respons yang sah.\n\n## Bacaan penunjang\n\n- [Sumber 1](https://sca.coffee/value-assessment)",
+    "minutes": 13
+  }
+];
