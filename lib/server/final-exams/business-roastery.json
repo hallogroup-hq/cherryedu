@@ -12,11 +12,11 @@
       "prompt": "Penjual green menawarkan harga cherry Rp12.000/kg dan green siap roast Rp85.000/kg. Mengapa margin keduanya tidak bisa dihitung dari selisih sederhana?",
       "choices": [
         "Harga cherry selalu sama dengan harga roasted.",
-        "Bentuk dan hasil konversi barang berbeda; biaya proses dan susut perlu diketahui.",
         "Seluruh cherry berubah satu banding satu menjadi green.",
+        "Bentuk dan hasil konversi barang berbeda; biaya proses dan susut perlu diketahui.",
         "Petani pasti menjual lebih mahal daripada trader."
       ],
-      "correct_index": 1,
+      "correct_index": 2,
       "explanation": "Cherry dan green memiliki basis massa dan proses berbeda; perbandingan harus menyesuaikan yield serta biaya.",
       "case": false
     },
@@ -29,12 +29,12 @@
       "type": "single_choice",
       "prompt": "Merek baru belum punya pelanggan pasti dan sedang membandingkan contract roasting dengan mesin sendiri. Kriteria awal terbaik?",
       "choices": [
-        "Bandingkan permintaan teruji, biaya penuh, mutu mitra, kapasitas dan modal kerja.",
         "Beli mesin terbesar karena selalu lebih murah per kg.",
+        "Bandingkan permintaan teruji, biaya penuh, mutu mitra, kapasitas dan modal kerja.",
         "Pilih asset-light karena pasti tanpa risiko.",
         "Pilih modal paling mahal agar pelanggan percaya."
       ],
-      "correct_index": 0,
+      "correct_index": 1,
       "explanation": "Pilihan model bergantung risiko permintaan, kontrol dan ekonomi total, bukan satu keunggulan tunggal.",
       "case": false
     },
@@ -65,12 +65,12 @@
       "type": "single_choice",
       "prompt": "Roastery baru mengusulkan delapan SKU sebelum memiliki data penjualan. Risiko yang harus diuji?",
       "choices": [
+        "Stok terbagi, forecast tidak pasti, dan risiko lot menua meningkat.",
         "Semakin banyak SKU selalu menurunkan biaya gudang.",
         "SKU tidak memengaruhi penjadwalan roasting.",
-        "Stok terbagi, forecast tidak pasti, dan risiko lot menua meningkat.",
         "Seluruh SKU pasti memiliki kontribusi sama."
       ],
-      "correct_index": 2,
+      "correct_index": 0,
       "explanation": "Banyak SKU memperbesar kompleksitas stok dan produksi; portofolio harus didukung permintaan dan kapasitas.",
       "case": true
     },
@@ -85,11 +85,11 @@
       "prompt": "Business plan tampak untung, tetapi fasilitas, penanggung jawab produk dan kewajiban izin belum dipastikan. Keputusan yang bertanggung jawab?",
       "choices": [
         "Nyatakan siap jual nasional karena EBITDA positif.",
-        "Tandai kelayakan bersyarat dan verifikasi kegiatan, izin, fasilitas, serta biaya kepatuhannya.",
         "Gunakan izin kedai kopi otomatis untuk pabrik.",
-        "Tunda memeriksa persyaratan hingga volume besar."
+        "Tunda memeriksa persyaratan hingga volume besar.",
+        "Tandai kelayakan bersyarat dan verifikasi kegiatan, izin, fasilitas, serta biaya kepatuhannya."
       ],
-      "correct_index": 1,
+      "correct_index": 3,
       "explanation": "Studi kelayakan harus mencakup legalitas berdasarkan kegiatan dan skala; proyeksi laba tidak menggantikan kepatuhan.",
       "case": false
     },
@@ -121,11 +121,11 @@
       "prompt": "Penawaran kargo contoh: Rp4.000/kg, minimum tagihan 50 kg, kiriman aktual 30 kg tanpa biaya tambahan. Berapa ongkir dasar ditagih?",
       "choices": [
         "Rp120.000",
+        "Rp200.000",
         "Rp80.000",
-        "Rp4.000",
-        "Rp200.000"
+        "Rp4.000"
       ],
-      "correct_index": 3,
+      "correct_index": 1,
       "explanation": "Billable weight = max(30,50)=50 kg. Dasar 50×4.000=Rp200.000; verifikasi syarat volumetrik dan rute nyata.",
       "case": false
     },
@@ -157,11 +157,11 @@
       "prompt": "Mesin berkapasitas nominal 5 kg per batch, tetapi batch aktual hanya 4 kg dan butuh waktu cleaning/setup. Mengapa angka katalog tak cukup untuk forecast?",
       "choices": [
         "Kapasitas katalog adalah output saleable pasti.",
-        "Kapasitas efektif bergantung waktu siklus, utilisasi, yield, operator dan downtime.",
         "Mesin dapat memanggang tanpa downtime selama 24 jam.",
+        "Kapasitas efektif bergantung waktu siklus, utilisasi, yield, operator dan downtime.",
         "Semua batch akan selalu terisi 5 kg."
       ],
-      "correct_index": 1,
+      "correct_index": 2,
       "explanation": "Forecast produksi perlu jadwal nyata dan hasil saleable, bukan hanya kapasitas nominal mesin.",
       "case": false
     },
@@ -174,12 +174,12 @@
       "type": "single_choice",
       "prompt": "Batch roasted menunjukkan aroma asing pada sampel QC sementara pengiriman harus hari ini. Apa tindakan awal?",
       "choices": [
-        "Beri status HOLD dan investigasi sesuai SOP sebelum release.",
         "Kirim batch lalu hapus catatan QC.",
         "Campurkan dengan stok bagus tanpa traceability.",
-        "Tingkatkan harga agar risikonya tertutup."
+        "Tingkatkan harga agar risikonya tertutup.",
+        "Beri status HOLD dan investigasi sesuai SOP sebelum release."
       ],
-      "correct_index": 0,
+      "correct_index": 3,
       "explanation": "Lot menyimpang tidak boleh dilepas hanya karena deadline; perlu QC dan keputusan terdokumentasi.",
       "case": false
     },
@@ -192,12 +192,12 @@
       "type": "single_choice",
       "prompt": "Dua karton roasted memiliki batch berbeda dan tanggal evaluasi masa simpan berbeda. Metode rotasi apa paling relevan?",
       "choices": [
+        "Gunakan aturan FEFO berdasarkan batas pakai/evaluasi yang valid sambil menjaga traceability.",
         "Kirim stok dengan kemasan paling menarik dahulu.",
         "Semua stok dianggap identik selama origin sama.",
-        "Abaikan tanggal bila warna roasted serupa.",
-        "Gunakan aturan FEFO berdasarkan batas pakai/evaluasi yang valid sambil menjaga traceability."
+        "Abaikan tanggal bila warna roasted serupa."
       ],
-      "correct_index": 3,
+      "correct_index": 0,
       "explanation": "Rotasi efektif mengikuti batas kualitas/masa simpan dan pelacakan lot, bukan penampilan kemasan.",
       "case": false
     },
@@ -211,11 +211,11 @@
       "prompt": "Contoh: 100 kg green usable dengan landed total Rp12.000.000 menghasilkan 80 kg roasted saleable. Biaya bahan green per kg saleable?",
       "choices": [
         "Rp120.000/kg",
-        "Rp96.000/kg",
         "Rp150.000/kg",
+        "Rp96.000/kg",
         "Rp200.000/kg"
       ],
-      "correct_index": 2,
+      "correct_index": 1,
       "explanation": "Biaya bahan per roasted saleable = 12.000.000/80 = Rp150.000/kg; belum termasuk tenaga, kemasan, overhead.",
       "case": false
     },
@@ -228,12 +228,12 @@
       "type": "single_choice",
       "prompt": "HPP penuh Rp150.000/kg, harga jual Rp200.000/kg. Berapa gross margin terhadap penjualan, abaikan pajak dan diskon?",
       "choices": [
-        "33,3%",
         "25%",
+        "33,3%",
         "50%",
         "75%"
       ],
-      "correct_index": 1,
+      "correct_index": 0,
       "explanation": "Gross margin=(200.000−150.000)/200.000=25%; markup terhadap biaya adalah 33,3%, bukan gross margin.",
       "case": false
     },
@@ -246,12 +246,12 @@
       "type": "single_choice",
       "prompt": "Biaya tetap relevan Rp9.000.000/bulan dan contribution margin Rp30.000 per kg. Berapa volume BEP sederhana jika kapasitas mencukupi?",
       "choices": [
-        "300 kg",
         "270 kg",
+        "300 kg",
         "30 kg",
         "900 kg"
       ],
-      "correct_index": 0,
+      "correct_index": 1,
       "explanation": "BEP sederhana = 9.000.000/30.000 = 300 kg; gunakan contribution, bukan gross profit setelah overhead yang sudah diserap.",
       "case": false
     },
@@ -266,10 +266,10 @@
       "choices": [
         "Piutang adalah uang tunai yang langsung tersedia.",
         "Kontrak kredit selalu lebih aman daripada penjualan tunai.",
-        "Pembelian stok tidak pernah mengurangi arus kas.",
-        "Laba akuntansi tidak menjamin kas tersedia ketika pembayaran jatuh tempo."
+        "Laba akuntansi tidak menjamin kas tersedia ketika pembayaran jatuh tempo.",
+        "Pembelian stok tidak pernah mengurangi arus kas."
       ],
-      "correct_index": 3,
+      "correct_index": 2,
       "explanation": "Perubahan piutang dan stok menciptakan kebutuhan modal kerja; jadwal kas harus mempertimbangkan tanggal.",
       "case": true
     },
@@ -284,10 +284,10 @@
       "choices": [
         "Lihat omzet kotor saja tanpa biaya layanan.",
         "Terima jika nama buyer dikenal.",
-        "Hitung net revenue, cost-to-serve, kontribusi serta risiko kredit sebelum menandatangani.",
-        "Pilih pelanggan dengan volume terbesar tanpa analisis."
+        "Pilih pelanggan dengan volume terbesar tanpa analisis.",
+        "Hitung net revenue, cost-to-serve, kontribusi serta risiko kredit sebelum menandatangani."
       ],
-      "correct_index": 2,
+      "correct_index": 3,
       "explanation": "Kontrak dengan layanan dan termin dapat mengikis kontribusi serta meningkatkan kebutuhan kas.",
       "case": false
     },
@@ -318,12 +318,12 @@
       "type": "single_choice",
       "prompt": "Usaha kecil membiarkan operator sekaligus menyetujui batch reject sendiri dan mengubah invoice supplier. Risiko yang harus ditangani?",
       "choices": [
-        "Konflik tugas kritis; tetapkan review, persetujuan dan audit trail meski tim kecil.",
         "Hapus seluruh otorisasi agar semua cepat.",
         "Tentukan kualitas dengan jumlah pelanggan saja.",
+        "Konflik tugas kritis; tetapkan review, persetujuan dan audit trail meski tim kecil.",
         "Gunakan satu password bersama untuk semua staf."
       ],
-      "correct_index": 0,
+      "correct_index": 2,
       "explanation": "Pemisahan tanggung jawab atau kontrol pengganti perlu untuk mutu dan keuangan.",
       "case": false
     },
@@ -354,12 +354,12 @@
       "type": "single_choice",
       "prompt": "Buyer luar negeri meminta harga CIF tetapi tim baru menghitung harga ex-works. Tindakan yang tepat?",
       "choices": [
+        "Perjelas lokasi dan biaya/tanggung jawab masing-masing Incoterm sebelum mengirim quote.",
         "Samakan CIF dengan ex-works tanpa biaya lain.",
         "Anggap seluruh dokumen selalu disiapkan pembeli.",
-        "Perjelas lokasi dan biaya/tanggung jawab masing-masing Incoterm sebelum mengirim quote.",
         "Berikan harga final tanpa mengecek negara tujuan."
       ],
-      "correct_index": 2,
+      "correct_index": 0,
       "explanation": "CIF dan EXW memuat lingkup biaya serta tanggung jawab berbeda; kontrak ekspor perlu rincian dan konfirmasi kepatuhan.",
       "case": true
     }
