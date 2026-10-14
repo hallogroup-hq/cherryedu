@@ -1,0 +1,294 @@
+{
+  "path": "coffee-shop",
+  "version": "2026-10-14.1",
+  "items": [
+    {
+      "id": "coffee-shop-01",
+      "module_ids": [
+        "CS01"
+      ],
+      "objective": "CS01-transfer-1",
+      "type": "single_choice",
+      "prompt": "Pendiri ingin membuka kedai dekat kantor hanya berdasarkan banyaknya followers calon merek. Bukti apa yang lebih kuat untuk menilai kecocokan konsep?",
+      "choices": [
+        "Jumlah like pada foto interior walaupun belum ada satu pesanan berbayar.",
+        "Percobaan jualan berbayar pada jam dan segmen sasaran, disertai catatan margin serta pembelian ulang.",
+        "Jumlah kendaraan yang lewat tanpa mengamati akses dan waktu berhenti.",
+        "Harga sewa yang mahal sebagai bukti kapasitas beli warga sekitar."
+      ],
+      "correct_index": 1,
+      "explanation": "Permintaan dibuktikan perilaku dan transaksi, bukan sekadar ketertarikan pemasaran.",
+      "case": false
+    },
+    {
+      "id": "coffee-shop-02",
+      "module_ids": [
+        "CS01"
+      ],
+      "objective": "CS01-transfer-2",
+      "type": "single_choice",
+      "prompt": "Merek ingin meluncurkan 25 menu sekaligus untuk dua barista. Bagaimana mengevaluasi desain menunya?",
+      "choices": [
+        "Semua tambahan SKU akan otomatis meningkatkan throughput operasional.",
+        "Menu terbanyak selalu membuat HPP lebih rendah tanpa memedulikan stok.",
+        "Gunakan desain foto menu sebagai satu-satunya ukuran kesuksesan.",
+        "Uji item inti menurut permintaan, bahan bersama, repeatability, risiko waste dan beban stasiun bar."
+      ],
+      "correct_index": 3,
+      "explanation": "Portofolio harus mempertimbangkan permintaan, operasi dan konsistensi, bukan jumlah.",
+      "case": false
+    },
+    {
+      "id": "coffee-shop-03",
+      "module_ids": [
+        "CS02"
+      ],
+      "objective": "CS02-transfer-3",
+      "type": "single_choice",
+      "prompt": "Pop-up menunjukkan 45 transaksi per hari, harga transaksi rata-rata Rp28.000. Jika beroperasi 26 hari dan asumsi konstan, berapa penjualan kotor?",
+      "choices": [
+        "Rp32.760.000 pada 26 hari sebelum biaya dan potongan.",
+        "Rp28.000.000 pada 26 hari sebelum biaya dan potongan.",
+        "Rp36.540.000 pada 26 hari sebelum biaya dan potongan.",
+        "Rp1.260.000 per bulan setelah semua biaya kedai."
+      ],
+      "correct_index": 0,
+      "explanation": "45×28.000×26=32.760.000. Ini proyeksi gross sales, bukan laba.",
+      "case": false
+    },
+    {
+      "id": "coffee-shop-04",
+      "module_ids": [
+        "CS02"
+      ],
+      "objective": "CS02-transfer-4",
+      "type": "single_choice",
+      "prompt": "Lokasi A ramai saat sore, tetapi pelanggan sasaran dominan membeli kopi sebelum jam kerja. Apa tindakan peneliti lokasi?",
+      "choices": [
+        "Ambil data sore sebagai proyeksi seluruh jam operasional tanpa penyesuaian.",
+        "Anggap semua orang yang melintas pada sore akan membeli pada pagi hari.",
+        "Ukur perilaku akses dan transaksi pagi hari, lalu uji kecocokan jam ramai dengan target pasar.",
+        "Pilih lokasi karena luas area parkir saja menentukan nilai transaksi."
+      ],
+      "correct_index": 2,
+      "explanation": "Jam kunjungan dan segmen sasaran harus cocok; traffic besar belum tentu relevan.",
+      "case": true
+    },
+    {
+      "id": "coffee-shop-05",
+      "module_ids": [
+        "CS03"
+      ],
+      "objective": "CS03-transfer-5",
+      "type": "single_choice",
+      "prompt": "Resep minuman memakai 18 g biji seharga Rp240.000/kg. Berapa biaya biji kopi saja sebelum menambah bahan lain?",
+      "choices": [
+        "Rp2.160 untuk dosis 18 g dari harga Rp240.000/kg.",
+        "Rp24.000 untuk dosis 18 g dari harga Rp240.000/kg.",
+        "Rp4.320 untuk dosis 18 g dari harga Rp240.000/kg.",
+        "Rp43.200 untuk dosis 18 g dari harga Rp240.000/kg."
+      ],
+      "correct_index": 2,
+      "explanation": "18/1.000×240.000=4.320; nilai ini belum HPP minuman lengkap.",
+      "case": false
+    },
+    {
+      "id": "coffee-shop-06",
+      "module_ids": [
+        "CS03"
+      ],
+      "objective": "CS03-transfer-6",
+      "type": "single_choice",
+      "prompt": "Harga jual minuman Rp34.000, biaya produk yang diklasifikasi sebagai HPP Rp13.600. Berapa gross margin sederhana?",
+      "choices": [
+        "60% gross margin; markup berbeda karena basis pembaginya biaya.",
+        "40% gross margin karena biaya produk adalah denominator.",
+        "150% gross margin karena harga dibagi HPP menghasilkan rasio.",
+        "20% gross margin karena diskon diasumsikan tanpa disebut."
+      ],
+      "correct_index": 0,
+      "explanation": "(34.000-13.600)/34.000=60%. Margin menggunakan harga jual sebagai denominator.",
+      "case": false
+    },
+    {
+      "id": "coffee-shop-07",
+      "module_ids": [
+        "CS04"
+      ],
+      "objective": "CS04-transfer-7",
+      "type": "single_choice",
+      "prompt": "Biaya tetap relevan Rp15 juta/bulan. Kontribusi rata-rata per cup setelah biaya variabel Rp15 ribu. Berapa volume BEP sederhana?",
+      "choices": [
+        "750 cup per bulan, sebelum mengukur jumlah order.",
+        "1.500 cup per bulan, jika omzet tidak diperhatikan.",
+        "100 cup per bulan, karena biaya tetap dibagi seratus.",
+        "1.000 cup per bulan, dengan asumsi kontribusi dan kapasitas tetap."
+      ],
+      "correct_index": 3,
+      "explanation": "15.000.000/15.000=1.000 cup. BEP bukan target profit atau pelunasan CAPEX.",
+      "case": false
+    },
+    {
+      "id": "coffee-shop-08",
+      "module_ids": [
+        "CS04"
+      ],
+      "objective": "CS04-transfer-8",
+      "type": "single_choice",
+      "prompt": "Dalam 15 menit bar menerima 24 order, tetapi hanya 15 dapat diselesaikan dengan kualitas stabil. Apa evaluasi kapasitas awal?",
+      "choices": [
+        "Tidak ada backlog karena mesin mungkin berkapasitas nominal lebih besar.",
+        "Ada backlog awal sembilan order; periksa bottleneck, staffing, proses order dan pemberitahuan tunggu.",
+        "Pesanan yang menunggu otomatis hilang dari forecast pendapatan tanpa pengukuran.",
+        "Solusi pasti menambah jumlah SKU sehingga setiap order dapat dipercepat."
+      ],
+      "correct_index": 1,
+      "explanation": "24−15=9 order menunggu dalam interval itu, sebelum melihat backlog awal dan pembatalan.",
+      "case": true
+    },
+    {
+      "id": "coffee-shop-09",
+      "module_ids": [
+        "CS05"
+      ],
+      "objective": "CS05-transfer-9",
+      "type": "single_choice",
+      "prompt": "Saldo kas awal Rp20 juta. Pembayaran masuk minggu ini Rp5 juta; pemasok Rp8 juta dan sewa Rp10 juta jatuh tempo. Berapa saldo kas akhir sederhana?",
+      "choices": [
+        "Rp17 juta karena kas masuk dianggap sama dengan piutang total.",
+        "Minus Rp3 juta karena seluruh kas keluar langsung ditambah dua kali.",
+        "Rp25 juta karena pembayaran pelanggan belum mengurangi saldo.",
+        "Rp7 juta sisa kas, bila tidak ada transaksi lainnya."
+      ],
+      "correct_index": 3,
+      "explanation": "20+5−8−10=7 juta. Jadwal transaksi menentukan posisi kas.",
+      "case": false
+    },
+    {
+      "id": "coffee-shop-10",
+      "module_ids": [
+        "CS05"
+      ],
+      "objective": "CS05-transfer-10",
+      "type": "single_choice",
+      "prompt": "Kedai memiliki banyak stok sirup tetapi kehabisan susu sebelum akhir pekan. Apa pengendalian stok yang sesuai?",
+      "choices": [
+        "Tambahkan semua kategori stok dengan persentase tetap tanpa melihat penggunaan.",
+        "Tetapkan reorder berdasarkan kebutuhan per kategori, lead time, masa simpan, dan data penjualan.",
+        "Prioritaskan sirup yang paling lama disimpan sebagai pengganti stok susu.",
+        "Gunakan omzet bulanan sebagai satu-satunya pengukur jumlah stok tiap bahan."
+      ],
+      "correct_index": 1,
+      "explanation": "Lead time dan laju konsumsi per SKU penting untuk reorder, bukan total nilai inventaris saja.",
+      "case": false
+    },
+    {
+      "id": "coffee-shop-11",
+      "module_ids": [
+        "CS06"
+      ],
+      "objective": "CS06-transfer-11",
+      "type": "single_choice",
+      "prompt": "Manajer hendak membeli mesin espresso 2-group, tetapi biaya servis lokal dan kebutuhan daya belum diperiksa. Langkah analisis paling relevan?",
+      "choices": [
+        "Pilih merek dengan foto paling populer dan asumsikan teknisi tersedia.",
+        "Anggap daya listrik mesin dapat diabaikan selama listrik cukup untuk lampu.",
+        "Bandingkan total cost of ownership, kapasitas peak, utilitas, dukungan teknis dan risiko downtime.",
+        "Tetapkan harga beli sebagai satu-satunya biaya selama umur pakai."
+      ],
+      "correct_index": 2,
+      "explanation": "TCO memperhitungkan biaya dan risiko sepanjang operasi serta kemampuan fasilitas.",
+      "case": false
+    },
+    {
+      "id": "coffee-shop-12",
+      "module_ids": [
+        "CS06"
+      ],
+      "objective": "CS06-transfer-12",
+      "type": "single_choice",
+      "prompt": "Air kedai menunjukkan angka TDS rendah; sumber air belum pernah diuji mikrobiologi. Kesimpulan mana benar?",
+      "choices": [
+        "TDS tidak membuktikan air aman diminum; perlu verifikasi kualitas air yang relevan.",
+        "Air rendah TDS otomatis bebas dari semua mikroba dan bahan kimia.",
+        "Tidak perlu pemeriksaan lain karena warna air cukup jernih.",
+        "Air pasti cocok untuk setiap mesin espresso karena mineralia rendah."
+      ],
+      "correct_index": 0,
+      "explanation": "Keamanan pangan berbeda dari total dissolved solids. Ikuti pengujian yang sesuai sumber air.",
+      "case": true
+    },
+    {
+      "id": "coffee-shop-13",
+      "module_ids": [
+        "CS07"
+      ],
+      "objective": "CS07-transfer-13",
+      "type": "single_choice",
+      "prompt": "Pelanggan menolak susu sapi karena alergi berat, tetapi staf tidak tahu risiko kontaminasi silang alat. Langkah layanan paling tepat?",
+      "choices": [
+        "Tunda jaminan keamanan, periksa bahan serta prosedur, dan komunikasikan keterbatasan fasilitas.",
+        "Ganti ke susu nabati namun gunakan alat bekas susu tanpa pengecekan.",
+        "Beri pelanggan sedikit susu untuk menguji sensitivitas secara langsung.",
+        "Nyatakan semua susu nabati pasti bebas alergi dari bahan lain."
+      ],
+      "correct_index": 0,
+      "explanation": "Alergen butuh SOP, label, dan pengelolaan silang; komunikasi transparan lebih aman.",
+      "case": false
+    },
+    {
+      "id": "coffee-shop-14",
+      "module_ids": [
+        "CS07"
+      ],
+      "objective": "CS07-transfer-14",
+      "type": "single_choice",
+      "prompt": "Catatan stok menunjukkan susu yang expired lebih cepat berada di belakang stok baru. Metode rotasi untuk bahan ini?",
+      "choices": [
+        "FIFO selalu mengalahkan tanggal kedaluwarsa yang sebenarnya.",
+        "Atur berdasarkan harga beli tertinggi agar stok mahal cepat habis.",
+        "FEFO menurut batas pakai dan kondisi produk, disertai kontrol suhu dan lot.",
+        "Campur semua batch susu agar tidak perlu mencatat tanggal."
+      ],
+      "correct_index": 2,
+      "explanation": "Bahan dengan batas pakai memakai FEFO, sambil tetap memenuhi keamanan pangan dan traceability.",
+      "case": false
+    },
+    {
+      "id": "coffee-shop-15",
+      "module_ids": [
+        "CS08"
+      ],
+      "objective": "CS08-transfer-15",
+      "type": "single_choice",
+      "prompt": "Restoran memulai penjualan kopi kemasan untuk ritel dan pengiriman antarkota, berbeda dari penyajian cup segar di tempat. Pemeriksaan hukum yang tepat?",
+      "choices": [
+        "Asumsikan seluruh kopi kemasan otomatis tercakup izin operasional kedai.",
+        "Verifikasi kegiatan bisnis, KBLI 2025, kewajiban pangan olahan dan izin terkait pada OSS/BPOM.",
+        "Gunakan klasifikasi izin roastery pabrik milik teman tanpa melihat kegiatan.",
+        "Tunda seluruh pemeriksaan sampai barang dikirim ke berbagai kota."
+      ],
+      "correct_index": 1,
+      "explanation": "Perizinan bergantung aktivitas, jenis produk, skala dan risiko. OSS serta BPOM memberi informasi resmi.",
+      "case": false
+    },
+    {
+      "id": "coffee-shop-16",
+      "module_ids": [
+        "CS08"
+      ],
+      "objective": "CS08-transfer-16",
+      "type": "single_choice",
+      "prompt": "Iklan menaikkan gross sales namun komisi, refund dan waste bertambah sehingga contribution margin turun. Langkah berikutnya?",
+      "choices": [
+        "Naikkan diskon lebih besar karena gross sales selalu menunjukkan profit sehat.",
+        "Hanya hitung jumlah followers dan abaikan kas yang diterima sebenarnya.",
+        "Nyatakan bisnis sukses karena omzet naik meski biaya variabel bertambah.",
+        "Audit laba kontribusi per channel, alasan refund, kualitas layanan dan kapasitas sebelum menambah iklan."
+      ],
+      "correct_index": 3,
+      "explanation": "Metrik pertumbuhan perlu dikaitkan dengan cash dan kontribusi, bukan penjualan kotor semata.",
+      "case": true
+    }
+  ]
+}
