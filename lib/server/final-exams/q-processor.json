@@ -1,0 +1,294 @@
+{
+  "path": "q-processor",
+  "version": "2026-10-14.1",
+  "items": [
+    {
+      "id": "q-processor-01",
+      "module_ids": [
+        "QP01"
+      ],
+      "objective": "QP01-application-1",
+      "type": "single_choice",
+      "prompt": "Tiga lot cherry dicampur sebelum diberi kode, lalu operator membandingkan rasa setelah dry mill. Informasi penting apa hilang?",
+      "choices": [
+        "Kemampuan menentukan berat semua batch dari warna green setelah pengeringan.",
+        "Kemampuan memastikan sumber bibit hanya dari satu catatan rasa cangkir.",
+        "Kemampuan menjamin seluruh perlakuan proses memberi aroma identik.",
+        "Kemampuan menautkan kondisi bahan, pemasok, proses dan hasil fisik/sensori pada identitas lot."
+      ],
+      "correct_index": 3,
+      "explanation": "Tanpa kode sejak receiving, hubungan antara input, perlakuan dan output sulit dipertanggungjawabkan.",
+      "case": false
+    },
+    {
+      "id": "q-processor-02",
+      "module_ids": [
+        "QP01"
+      ],
+      "objective": "QP01-application-2",
+      "type": "single_choice",
+      "prompt": "Percobaan proses baru disimpulkan unggul dari satu batch, sementara batch kontrol menerima cherry yang dipanen sehari lebih awal. Keputusan peneliti?",
+      "choices": [
+        "Nyatakan perlakuan baru pasti unggul sebab satu panelis menyukainya.",
+        "Akui faktor input berbeda dan ulangi dengan bahan, kondisi dan sampling yang lebih sebanding.",
+        "Simpulkan jam panen tidak pernah berdampak pada hasil setelah fermentasi.",
+        "Hapus batch kontrol agar beda perlakuan menjadi lebih meyakinkan."
+      ],
+      "correct_index": 1,
+      "explanation": "Uji kausal tidak valid bila faktor input berubah bersamaan tanpa catatan/kendali.",
+      "case": true
+    },
+    {
+      "id": "q-processor-03",
+      "module_ids": [
+        "QP02"
+      ],
+      "objective": "QP02-application-3",
+      "type": "single_choice",
+      "prompt": "Catatan menunjukkan pH turun, tetapi tidak ada hasil analisis mikroorganisme. Klaim mana paling bertanggung jawab?",
+      "choices": [
+        "Terjadi perubahan sifat asam-basa pada sampel; identitas dan proporsi mikroba belum dapat disimpulkan.",
+        "Bakteri asam laktat tertentu telah terbukti mendominasi hanya dari angka pH.",
+        "Semua yeast mati karena nilai pH turun selama proses berlangsung.",
+        "Kadar alkohol akhir sudah dapat dihitung tepat dari pembacaan pH."
+      ],
+      "correct_index": 0,
+      "explanation": "pH adalah pengukuran kondisi larutan, bukan identifikasi strain maupun kadar metabolit spesifik.",
+      "case": false
+    },
+    {
+      "id": "q-processor-04",
+      "module_ids": [
+        "QP02"
+      ],
+      "objective": "QP02-application-4",
+      "type": "single_choice",
+      "prompt": "Dua fermentasi berakhir pada pH sama; satu berada di ruangan lebih hangat dan selesai jauh lebih cepat. Interpretasi awal yang benar?",
+      "choices": [
+        "Nilai pH akhir sama menjamin hasil fermentasi, keamanan dan profil cangkir identik.",
+        "Proses lebih panas otomatis merusak kopi tanpa perlunya pengujian lanjutan.",
+        "Lintasan proses dan produk bisa berbeda; bandingkan kondisi awal, waktu, suhu, sampling serta hasil QC.",
+        "Durasi fermentasi tidak berpengaruh jika batch memiliki varietas sama."
+      ],
+      "correct_index": 2,
+      "explanation": "Kinetika dan kondisi memengaruhi jalur fermentasi; satu titik pH tidak cukup.",
+      "case": false
+    },
+    {
+      "id": "q-processor-05",
+      "module_ids": [
+        "QP03"
+      ],
+      "objective": "QP03-application-5",
+      "type": "single_choice",
+      "prompt": "Depulper baru merusak banyak parchment tetapi operator ingin melanjutkan agar mencapai target throughput. Prioritas proses?",
+      "choices": [
+        "Tambah waktu fermentasi karena lecet mesin bisa dipulihkan oleh mikroba.",
+        "Hentikan sementara, isolasi batch terdampak dan evaluasi setelan serta bahan dengan operator kompeten.",
+        "Tingkatkan tekanan mesin tanpa mengukur efek pada output sampel.",
+        "Campur produk rusak dengan stok lain agar masalah tidak tampak."
+      ],
+      "correct_index": 1,
+      "explanation": "Kerusakan mekanis tidak diperbaiki dengan perlakuan fermentasi; containment dan diagnosis harus dilakukan dulu.",
+      "case": false
+    },
+    {
+      "id": "q-processor-06",
+      "module_ids": [
+        "QP03"
+      ],
+      "objective": "QP03-application-6",
+      "type": "single_choice",
+      "prompt": "Mill mengganti metode pencucian menjadi memakai lebih banyak air, sedangkan fasilitas limbah tetap sama. Apa risiko yang perlu dievaluasi?",
+      "choices": [
+        "Penggunaan air banyak pasti membuat seluruh kopi terasa lebih bersih tanpa konsekuensi.",
+        "Air limbah proses boleh dibuang bebas karena berasal dari cherry alami.",
+        "Beban organik limbah pasti hilang jika jam pencucian dibuat lebih panjang.",
+        "Kapasitas air bersih, beban limbah, risiko higienis dan dampak lingkungan sebelum SOP diperluas."
+      ],
+      "correct_index": 3,
+      "explanation": "Pengelolaan air dan limbah adalah bagian proses yang aman dan layak, bukan externality yang boleh diabaikan.",
+      "case": true
+    },
+    {
+      "id": "q-processor-07",
+      "module_ids": [
+        "QP04"
+      ],
+      "objective": "QP04-application-7",
+      "type": "single_choice",
+      "prompt": "Dua produsen menamai lot 'red honey', namun kadar mucilage dan metode drying ternyata berbeda. Mengapa produk tak bisa diasumsikan identik?",
+      "choices": [
+        "Kata red menjamin lama fermentasi dan kadar gula sama di semua produsen.",
+        "Kedua lot pasti memakai suhu pengeringan sama karena nama proses serupa.",
+        "Label warna bukan standar proses tunggal; bandingkan catatan mekanisme, QC fisik dan hasil cup.",
+        "Semua produk honey harus memiliki mutu fisik sama tanpa perlu sampel."
+      ],
+      "correct_index": 2,
+      "explanation": "Kategori pemasaran tidak menggantikan protokol dan bukti.",
+      "case": false
+    },
+    {
+      "id": "q-processor-08",
+      "module_ids": [
+        "QP04"
+      ],
+      "objective": "QP04-application-8",
+      "type": "single_choice",
+      "prompt": "Operator menemukan pecahan green meningkat setelah wet hulling, sementara kondisi parchment awal berubah. Tindakan apa menguji penyebab?",
+      "choices": [
+        "Cek kadar air/kondisi parchment dan setelan huller dengan batch terkendali; catat sebelum dan sesudah.",
+        "Tetapkan bahwa semua kerusakan adalah ciri proses dan boleh masuk kontrak tanpa QC.",
+        "Ubah warna label kemasan agar profil konsumen tidak memikirkan hasil hulling.",
+        "Naikkan suhu roasting untuk menutup semua jenis pecahan selama processing."
+      ],
+      "correct_index": 0,
+      "explanation": "Perubahan bahan dan mesin harus dianalisis terpisah; pecahan tidak boleh otomatis dinormalisasi.",
+      "case": false
+    },
+    {
+      "id": "q-processor-09",
+      "module_ids": [
+        "QP05"
+      ],
+      "objective": "QP05-application-9",
+      "type": "single_choice",
+      "prompt": "Sebuah tangki fermentasi berisi gas CO₂ hendak dibuka di ruang tertutup tanpa ventilasi dan pemantauan oksigen. Respons tepat?",
+      "choices": [
+        "Hentikan kegiatan sampai analisis bahaya, ventilasi dan operator yang kompeten memastikan operasi aman.",
+        "Masuk ruang tangki karena CO₂ tidak berwarna berarti tidak memengaruhi keselamatan.",
+        "Tutup pintu lebih rapat agar gas tidak menyebar ke luar fasilitas.",
+        "Lakukan tanpa supervisor asalkan waktu proses sudah sesuai resep."
+      ],
+      "correct_index": 0,
+      "explanation": "CO2 dapat menyebabkan kekurangan oksigen; kontrol keselamatan wajib sebelum pekerjaan.",
+      "case": false
+    },
+    {
+      "id": "q-processor-10",
+      "module_ids": [
+        "QP05"
+      ],
+      "objective": "QP05-application-10",
+      "type": "single_choice",
+      "prompt": "Produsen menambah sari buah pada co-fermentation namun memasarkan lot seolah karakter buah murni berasal dari varietas kopi. Perbaikan klaimnya?",
+      "choices": [
+        "Hapus jejak bahan tambahan karena hasil cup tetap mempunyai aroma buah.",
+        "Nyatakan produk pasti tanpa kontaminan sebab bahan tambahan terlihat segar.",
+        "Jelaskan intervensi bahan dan proses secara transparan sesuai kebutuhan buyer dan regulasi yang berlaku.",
+        "Tulis natural processing sebagai bukti bahwa tidak ada bahan di luar cherry."
+      ],
+      "correct_index": 2,
+      "explanation": "Informasi ekstrinsik yang jujur membantu pembeli memahami metode dan keamanan bahan.",
+      "case": false
+    },
+    {
+      "id": "q-processor-11",
+      "module_ids": [
+        "QP06"
+      ],
+      "objective": "QP06-application-11",
+      "type": "single_choice",
+      "prompt": "QC melihat moisture dua kantong sama, tetapi hasil water activity berbeda dan sampel diambil saat suhu ruang berubah. Langkah validasi berikutnya?",
+      "choices": [
+        "Anggap pembacaan aw tidak penting jika kadar air sudah pernah diukur.",
+        "Konversi moisture menjadi aw dengan satu faktor tetap untuk semua biji.",
+        "Simpulkan salah satu operator pasti curang tanpa pemeriksaan tambahan.",
+        "Periksa metode dan kondisi ukur, alat, pengambilan sampel serta variasi lot sebelum release."
+      ],
+      "correct_index": 3,
+      "explanation": "MC dan aw berkaitan tetapi berbeda; alat dan keadaan sampel memengaruhi hasil.",
+      "case": false
+    },
+    {
+      "id": "q-processor-12",
+      "module_ids": [
+        "QP06"
+      ],
+      "objective": "QP06-application-12",
+      "type": "single_choice",
+      "prompt": "Bed natural tampak kering pada tepi namun lembap di tengah setelah periode hujan. Keputusan sebelum gudang?",
+      "choices": [
+        "Gunakan sampel tepi sebagai satu-satunya dasar pelepasan seluruh lot.",
+        "Lakukan sampling pada berbagai zona, jaga identitas status dan lanjutkan pengendalian drying sesuai hasil.",
+        "Gabungkan dengan stok sangat kering agar rata-rata terlihat normal.",
+        "Tentukan otomatis tahan satu tahun tanpa melihat kondisi bahan."
+      ],
+      "correct_index": 1,
+      "explanation": "Heterogenitas drying memerlukan informasi distribusi, bukan satu rata-rata.",
+      "case": true
+    },
+    {
+      "id": "q-processor-13",
+      "module_ids": [
+        "QP07"
+      ],
+      "objective": "QP07-application-13",
+      "type": "single_choice",
+      "prompt": "Parchment masuk 2.000 kg, setelah milling dan sortir green saleable tinggal 1.530 kg. Berapa rendemen saleable terhadap input?",
+      "choices": [
+        "23,5% dari massa parchment awal.",
+        "130,7% dari massa parchment awal.",
+        "76,5% dari massa parchment awal.",
+        "1.530% dari massa parchment awal."
+      ],
+      "correct_index": 2,
+      "explanation": "1.530/2.000×100%=76,5%. Output saleable bukan green kasar sebelum sortir.",
+      "case": false
+    },
+    {
+      "id": "q-processor-14",
+      "module_ids": [
+        "QP07"
+      ],
+      "objective": "QP07-application-14",
+      "type": "single_choice",
+      "prompt": "Buyer meminta CIF di port tujuan, sementara supplier baru menghitung harga EXW gudang. Apa langkah komersial benar?",
+      "choices": [
+        "Rinci tanggung jawab, freight, asuransi, named port dan dokumen sebelum mengajukan angka CIF.",
+        "Tulis CIF dengan harga EXW sama karena risiko tetap sepenuhnya pada buyer.",
+        "Anggap supplier tak perlu memeriksa dokumen karena transaksi luar negeri.",
+        "Berikan quotation tanpa nama pelabuhan atau syarat masa berlaku."
+      ],
+      "correct_index": 0,
+      "explanation": "Incoterms berbeda dalam lingkup biaya dan tugas; named port serta kontrak harus jelas.",
+      "case": false
+    },
+    {
+      "id": "q-processor-15",
+      "module_ids": [
+        "QP08"
+      ],
+      "objective": "QP08-application-15",
+      "type": "single_choice",
+      "prompt": "Logbook mencatat waktu mulai dan akhir tiap batch tetapi tidak mencatat batch size, kondisi cherry dan tindakan koreksi. Kelemahan utama apa?",
+      "choices": [
+        "Data tanggal sudah cukup untuk membuktikan mikroba tertentu mendominasi proses.",
+        "Hasil sulit direplikasi atau dianalisis penyebabnya karena input dan deviasi tidak terlacak.",
+        "Semua batch pasti identik bila durasi proses tertulis dengan jelas.",
+        "Catatan apa pun tidak perlu ditautkan pada hasil fisik dan cupping."
+      ],
+      "correct_index": 1,
+      "explanation": "Logbook untuk QA harus menghubungkan kondisi input, intervensi, penyimpangan dan hasil.",
+      "case": false
+    },
+    {
+      "id": "q-processor-16",
+      "module_ids": [
+        "QP08"
+      ],
+      "objective": "QP08-application-16",
+      "type": "single_choice",
+      "prompt": "Peserta lulus ujian teori CherryEdu tetapi belum melewati pelatihan praktik dan ujian resmi CQI. Klaim apa yang tepat?",
+      "choices": [
+        "Peserta otomatis menjadi Q Processing Professional bersertifikat CQI.",
+        "Peserta aman menjalankan seluruh fasilitas fermentasi tanpa pengawasan.",
+        "Nilai kuis menghapus perlunya catatan lapangan dan asesmen praktik.",
+        "Peserta memahami teori yang diuji; sertifikasi CQI serta kompetensi praktik memerlukan evaluasi resmi terpisah."
+      ],
+      "correct_index": 3,
+      "explanation": "CQI Professional mensyaratkan komponen lapangan dan ujian teori serta praktik; kuis CherryEdu tidak menggantikannya.",
+      "case": true
+    }
+  ]
+}
