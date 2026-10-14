@@ -12,9 +12,9 @@ export function generateStaticParams(){return ROASTER_V2_LESSONS.map(l=>({lesson
 export default function RoasterLessonPage({params}:{params:{lessonId:string}}){
  if(process.env.CHERRYEDU_ROASTER_V2_REVIEW!=='enabled')notFound();
  const l=ROASTER_V2_LESSONS.find(l=>l.id===params.lessonId);
- if(!lesson)notFound();
+ if(!l)notFound();
  const m=ROASTER_V2_MODULES.find(m=>m.code===l.moduleId);
- if(!mod)notFound();
+ if(!m)notFound();
  return <CuratedLessonFrame courseTitle="Roaster Specialization" courseHref="/roaster-v2" modules={ROASTER_V2_MODULES} lessons={ROASTER_V2_LESSONS} currentId={l.id} rawMarkdown={l.content}>
   <MarkdownRenderer content={l.content}/>
   {l.order===1&&<RoasterConceptVisual moduleCode={m.code}/>}
