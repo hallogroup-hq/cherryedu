@@ -3,8 +3,8 @@ import Link from 'next/link';
 import type {ReactNode} from 'react';
 type Module={code:string;title:string;description:string};
 type Lesson={id:string;moduleId:string;order:number;title:string;minutes?:number};
-type Props={name:string;description:string;image:string;modules:readonly Module[];lessons:readonly Lesson[];lessonHref:(id:string)=>string;practiceHref:(code:string)=>string;children?:ReactNode;note?:string};
-export function CuratedCourseOverview({name,description,image,modules,lessons,lessonHref,practiceHref,children,note}:Props){
+type Props={name:string;description:string;image:string;modules:readonly Module[];lessons:readonly Lesson[];lessonHref:(id:string)=>string;practiceHref:(code:string)=>string;children?:ReactNode;note?:string;examHref?:string};
+export function CuratedCourseOverview({name,description,image,modules,lessons,lessonHref,practiceHref,children,note,examHref}:Props){
  return <div className="min-h-screen bg-paper-50 pb-24 text-roast-950">
  <header className="border-b border-paper-300 bg-paper-100/60 py-10 sm:py-14">
   <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -30,6 +30,11 @@ export function CuratedCourseOverview({name,description,image,modules,lessons,le
     <div><span className="font-mono text-xs text-cherry-800">Modul {String(i+1).padStart(2,'0')}</span><h3 id={'course-'+m.code} className="mt-2 font-serif text-xl font-bold leading-snug sm:text-2xl">{learnerTitle(m.title)}</h3><p className="mt-3 text-sm leading-6 text-roast-700">{m.description}</p><Link className="mt-5 inline-block text-sm font-semibold text-cherry-800 underline underline-offset-4" href={practiceHref(m.code)}>Latihan modul</Link></div>
     <ol className="overflow-hidden border border-paper-300 bg-white">{items.map((l,j)=><li key={l.id} className={j?'border-t border-paper-200':''}><Link href={lessonHref(l.id)} className="group flex items-start justify-between gap-4 px-4 py-4 transition-colors hover:bg-paper-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cherry-700"><span className="flex min-w-0 items-start gap-3"><span className="shrink-0 font-mono text-xs text-roast-500">{String(l.order).padStart(2,'0')}</span><span className="text-sm font-medium leading-6 text-roast-950 group-hover:underline">{learnerTitle(l.title)}</span></span><span className="shrink-0 text-xs text-roast-600">{l.minutes?l.minutes+' menit':''}</span></Link></li>)}</ol>
    </section>})}
-  </section>{note&&<p className="mt-8 max-w-3xl text-sm leading-7 text-roast-700">{note}</p>}
+  </section>
+  {examHref&&process.env.CHERRYEDU_FINAL_EXAMS_REVIEW==='enabled'&&<section aria-label="Ujian akhir" className="mt-10 flex flex-col gap-4 rounded-xl border border-paper-300 bg-white p-6 sm:flex-row sm:items-center sm:justify-between">
+    <div><h2 className="font-serif text-2xl font-bold">Ujian Akhir</h2><p className="mt-2 max-w-xl text-sm leading-6 text-roast-700">Selesaikan pertanyaan lintas-modul untuk menguji pemahaman dan pengambilan keputusan.</p></div>
+    <Link href={examHref} className="inline-flex shrink-0 justify-center rounded-md bg-roast-950 px-5 py-3 text-sm font-semibold text-white hover:bg-cherry-800">Mulai ujian akhir →</Link>
+  </section>}
+  {note&&<p className="mt-8 max-w-3xl text-sm leading-7 text-roast-700">{note}</p>}
  </div></div>;
 }
