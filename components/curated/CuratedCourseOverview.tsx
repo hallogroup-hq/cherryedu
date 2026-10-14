@@ -3,7 +3,7 @@
 import {useState} from 'react';
 import Link from 'next/link';
 import type {ReactNode} from 'react';
-import {ArrowRight,ChevronDown,ChevronUp,Clock3,Layers3,BookOpen,GraduationCap} from 'lucide-react';
+import {ArrowRight,ChevronDown,ChevronUp,Clock3,Layers3,BookOpen} from 'lucide-react';
 import {learnerTitle} from '@/lib/curated/learnerTitle';
 
 type Module={code:string;title:string;description:string};
@@ -17,7 +17,7 @@ type Props={
 /** Matches the established Foundation syllabus: course hero, access card, expandable module cards. */
 export function CuratedCourseOverview({name,description,image,modules,lessons,lessonHref,practiceHref,children,note,examHref}:Props){
  const [expanded,setExpanded]=useState<Record<string,boolean>>({});
- const lessonMinutes=lessons.reduce((total,l)=>total+(l.minutes||12),0);
+ const lessonMinutes=lessons.every(l=>typeof l.minutes==='number')?lessons.reduce((total,l)=>total+(l.minutes||0),0):null;
  const firstLesson=lessons[0];
  return <div className="min-h-screen bg-paper-50 pb-24 text-roast-950">
   <header className="border-b border-paper-300 bg-paper-100/60 py-10 sm:py-14">
@@ -35,7 +35,7 @@ export function CuratedCourseOverview({name,description,image,modules,lessons,le
       <h1 className="mt-4 max-w-3xl font-serif text-4xl font-black leading-tight tracking-tight sm:text-5xl">{learnerTitle(name)}</h1>
       <p className="mt-5 max-w-3xl text-sm leading-7 text-roast-700 sm:text-base">{description}</p>
       <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-xs text-roast-700">
-       <span className="inline-flex items-center gap-2"><Clock3 size={16} className="text-cherry-800"/>{Math.max(1,Math.round(lessonMinutes/60))} Jam Belajar</span>
+       {lessonMinutes!==null&&<span className="inline-flex items-center gap-2"><Clock3 size={16} className="text-cherry-800"/>{Math.max(1,Math.round(lessonMinutes/60))} Jam Belajar</span>}
        <span className="inline-flex items-center gap-2"><Layers3 size={16} className="text-cherry-800"/>{modules.length} Modul Silabus</span>
        <span className="inline-flex items-center gap-2"><BookOpen size={16} className="text-cherry-800"/>{lessons.length} Pelajaran</span>
       </div>
