@@ -38,11 +38,75 @@ const extractLessonSection=(value,heading,nextHeading)=>{
  const end=nextHeading?value.indexOf(nextHeading,start+heading.length):-1;
  return value.slice(start+heading.length,end<0?undefined:end).trim().replace(/\s+/g,' ');
 };
-const teachingBlocks=lessons.map(l=>extractLessonSection(l.content,'### Apa dampaknya bagi tiga jenis roastery?','### Tugas yang bisa kamu kerjakan'));
+const divesA=extract('lib/data/businessRoasteryDeepDivesA.ts',/BUSINESS_ROASTERY_DEEP_DIVES_A:Record<string,string> = (\{[\s\S]*?\});/);
+const divesB=extract('lib/data/businessRoasteryDeepDivesB.ts',/BUSINESS_ROASTERY_DEEP_DIVES_B:Record<string,string> = (\{[\s\S]*?\});/);
+const deepDives={...divesA,...divesB};
+const teachingBlocks=lessons.map(l=>deepDives[l.id]||'');
+if(Object.keys(deepDives).length!==84)fail('84 distinct pedagogical explanations required, got '+Object.keys(deepDives).length);
+for(const lesson of lessons){
+ const lecture=deepDives[lesson.id]||'';
+ const original=lesson.content;
+ const pattern=/### Apa dampaknya bagi tiga jenis roastery\?\n\n(?:- [^\n]+\n){3}\n/;
+ if(!pattern.test(original))fail('Original scenario separation impossible: '+lesson.id);
+ const remaining=original.replace(pattern,'').trim().split(/\s+/).length;
+ const explanation=lecture.trim().split(/\s+/).length;
+ if(explanation<115)fail('Insufficient concept-first teaching depth '+lesson.id+': '+explanation+' words');
+ if(remaining+explanation<300)fail('Lesson still too brief after conceptual teaching '+lesson.id+' total '+(remaining+explanation));
+ if(!lecture.startsWith('### ')||lecture.split(/\n\n/).length<3)fail('Lecture missing meaningful heading/paragraphs '+lesson.id);
+ if(/sok ahli|keren banget|\bDRAFT\b|Lorem ipsum|TBD/i.test(lecture))fail('Unprofessional writing in concept lecture '+lesson.id);
+ if(lecture.includes('Apa dampaknya bagi tiga jenis roastery?'))fail('Case-first teaching repeated in '+lesson.id);
+}
+if(!read(course).includes('for (const lesson of BUSINESS_ROASTERY_LESSONS)')||!read(course).includes('## Pelajari konsep dan cara kerjanya'))fail('Concept-first content not mounted on every lesson');
+
+const moduleLectures=extract('lib/data/businessRoasteryModuleLectures.ts',/BUSINESS_ROASTERY_MODULE_LECTURES:Record<string,string> = (\{[\s\S]*?\});/);
+if(Object.keys(moduleLectures).length!==21)fail('21 introductory module lectures required');
+for(const mod of modules){
+ const introduction=moduleLectures[mod.code]||'';
+ if(introduction.trim().split(/\s+/).length<130)fail('Module lacks comprehensive concept introduction '+mod.code);
+ if(!introduction.startsWith('## ')||!introduction.includes('\n\n'))fail('Module introduction lacks readable sections '+mod.code);
+}
+if(new Set(Object.values(moduleLectures)).size!==21)fail('Duplicated module introduction');
+if(!read(course).includes('BUSINESS_ROASTERY_MODULE_LECTURES[lesson.moduleId]'))fail('Module introductions not mounted in lesson content');
+const methods=extract('lib/data/businessRoasteryWorkedMethods.ts',/BUSINESS_ROASTERY_WORKED_METHODS:Record<string,\{title:string;steps:\{heading:string;explanation:string\}\[\];caution:string\}> = (\{[\s\S]*?\});/);
+if(Object.keys(methods).length!==21)fail('Missing 21 module-specific guided learning walkthroughs');
+const uniqueSteps=new Set();
+for(const mod of modules){
+ const method=methods[mod.code];
+ if(!method||method.steps.length!==4||!method.title||!method.caution) {
+   fail('Missing complete 4-step walkthrough '+mod.code);
+   continue;
+ }
+ for(const step of method.steps){
+   if(!step.heading||step.explanation.trim().split(/\s+/).length<12)fail('Shallow instructional step '+mod.code);
+   const normalized=step.heading.trim().toLowerCase()+'|'+step.explanation.trim().toLowerCase();
+   if(uniqueSteps.has(normalized))fail('Repeated walkthrough step '+mod.code);
+   uniqueSteps.add(normalized);
+ }
+}
+if(!read('components/business-roastery/BusinessRoasteryReader.tsx').includes('workedMethods[lesson.moduleId]'))fail('Guided worked examples not integrated in reader');
+const mathChecks=[
+ ['asset-light equal unit costs',6000000/(20000-8000),500],
+ ['sourced Makassar to Jabodetabek shipping minimum',Math.max(35,50)*3500,175000],
+ ['usable landed per kg',3200000/20,160000],
+ ['effective roasting output',540*.84*.97,439.992],
+ ['available to promise',500-20-50,430],
+ ['green material per saleable',13000000/82,158536.58536585365],
+ ['manufacturing full HPP example',13000000/82+20000+5000+15000,198536.58536585365],
+ ['gross markup',50000/150000*100,33.33333333333333],
+ ['gross margin',50000/200000*100,25],
+ ['net contribution before fixed',200000-130000-15000,55000],
+ ['break even output',12000000/40000,300],
+ ['cash trough',2000000-3000000,-1000000],
+ ['D2C contribution',220000-140000-35000,45000],
+ ['wholesale contribution',185000-140000-12000-8000,25000],
+ ['OTIF percent',18/20*100,90]
+];
+for(const [label,value,target] of mathChecks)if(Math.abs(value-target)>1e-7)fail('Numeric method fixture wrong '+label);
+
 const diagnosticBlocks=lessons.map(l=>extractLessonSection(l.content,'### Checkpoint pemahaman'));
-if(teachingBlocks.some(x=>!x))fail('Missing scenario-specific teaching section');
+if(teachingBlocks.some(x=>!x))fail('Missing original instructional concept section');
 if(diagnosticBlocks.some(x=>!x))fail('Missing diagnostic checkpoint');
-if(new Set(teachingBlocks).size!==lessons.length)fail('Duplicated three-model boilerplate across lessons');
+if(new Set(teachingBlocks).size!==lessons.length)fail('Duplicated concept-first teaching across lessons');
 if(new Set(diagnosticBlocks).size!==lessons.length)fail('Duplicated generic diagnostic checkpoint across lessons');
 if(new Set(lessons.map(l=>l.task)).size!==lessons.length)fail('Duplicated tasks across lessons');
 if(new Set(lessons.map(l=>l.trap)).size!==lessons.length)fail('Duplicated mistake warnings across lessons');
@@ -65,7 +129,7 @@ if(refs.filter(x=>x.category==='freight').length!==4)fail('Expected four directi
 const fieldManual=extract('lib/data/businessRoasteryFieldGuides.ts',/BUSINESS_ROASTERY_FIELD_GUIDES:Record<string,BusinessModuleGuide>=(\{[\s\S]*?\});/);
 if(Object.keys(fieldManual).length!==21)fail('Need 21 topic-specific field manuals');
 for(const mod of modules){const field=fieldManual[mod.code];if(!field||field.content.split(/\s+/).length<140||!field.content.includes('Bukti kerja'))fail('Shallow applied study '+mod.code);}
-if(!read('app/business-roastery-v1/[lessonId]/page.tsx').includes('BUSINESS_ROASTERY_FIELD_GUIDES[mod.code]'))fail('Applied cases not mounted');
+if(!read('components/business-roastery/BusinessRoasteryReader.tsx').includes('guides[lesson.moduleId]'))fail('Applied cases not mounted after lessons');
 if(new Set(cases.map(c=>c.newEvidence)).size!==21)fail('Repeated evidence change across all cases');
 const model=read('components/business-roastery/BusinessModelComparator.tsx');
 const thirteen=read('components/business-roastery/BusinessThirteenWeekCash.tsx');

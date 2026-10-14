@@ -2,13 +2,17 @@ import {test,expect} from '@playwright/test';
 test.beforeEach(async({page})=>{await page.addInitScript(()=>{localStorage.setItem('cherry_seen_version_v1_2','true');});});
 test('new independent roastery path exposes 21 modules and 84 lessons',async({page})=>{
  await page.goto('/business-roastery-v1');
- await expect(page.getByRole('heading',{name:'Business Roastery'})).toBeVisible();
- await expect(page.getByRole('heading',{level:2}).filter({hasText:'Tiga jalur membangun roastery'})).toBeVisible();
- await expect(page.locator('a[href^="/business-roastery-v1/br-b"][href$="-l01"]')).toHaveCount(21);
- await expect(page.locator('a[href^="/business-roastery-v1/br-b"]')).toHaveCount(84);
- await expect(page.getByText('Asset-light',{exact:true})).toBeVisible();
- await expect(page.getByText('Roastery kecil',{exact:true})).toBeVisible();
- await expect(page.getByText('Roastery berkembang',{exact:true})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Merancang sampai Menjalankan Bisnis Roastery'})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Daftar Modul dan Pelajaran'})).toBeVisible();
+ const controls=page.locator('section > button[aria-controls^="br-module-"]');
+ await expect(controls).toHaveCount(21);
+ for(let i=1;i<21;i++)await controls.nth(i).click();
+ await expect(page.locator('section li a[href^="/business-roastery-v1/br-b"][href$="-l01"]')).toHaveCount(21);
+ await expect(page.locator('section li a[href^="/business-roastery-v1/br-b"]')).toHaveCount(84);
+ await page.getByRole('link',{name:/Baca Materi Pertama/}).click();
+ await expect(page.getByRole('heading',{name:'Peta aktor dari petani hingga pelanggan'})).toBeVisible();
+ await expect(page.getByRole('navigation',{name:'Pindah pelajaran'})).toBeVisible();
+ await expect(page.getByRole('complementary',{name:'Daftar pelajaran silabus'})).toBeVisible();
 });
 test('real freight reference preserves Jakarta to Makassar direction and minimum charge',async({page})=>{
  await page.goto('/business-roastery-v1/calculator');
@@ -112,9 +116,13 @@ test('fixed factory overhead enters absorbed HPP but not variable contribution d
  await expect(page.getByText('Contribution/kg',{exact:true}).locator('..')).toContainText('84.531');
 });
 test('every module field guide is accessible and decision evidence differs by chapter',async({page})=>{
- await page.goto('/business-roastery-v1/br-b08-l03');
+ await page.goto('/business-roastery-v1/br-b08-l04');
+ await expect(page.getByRole('heading',{name:'Dua arah kapal tidak berarti dua tarif yang sama'})).not.toBeVisible();
+ await page.getByText('Lihat contoh penerapan',{exact:true}).click();
  await expect(page.getByRole('heading',{name:'Dua arah kapal tidak berarti dua tarif yang sama'})).toBeVisible();
- await page.goto('/business-roastery-v1/br-b13-l03');
+ await page.goto('/business-roastery-v1/br-b13-l04');
+ await expect(page.getByRole('heading',{name:'Landed cost, full HPP, dan contribution punya fungsi berbeda'})).not.toBeVisible();
+ await page.getByText('Lihat contoh penerapan',{exact:true}).click();
  await expect(page.getByRole('heading',{name:'Landed cost, full HPP, dan contribution punya fungsi berbeda'})).toBeVisible();
  await page.goto('/business-roastery-v1/practice/b13');
  await expect(page.getByText(/Satu kg roasted memakai green/)).toBeVisible();
@@ -241,4 +249,100 @@ test('capstone can copy business plan on mobile without claiming the answers are
  const copied=await page.evaluate(()=>(window as any).__roasteryCopied);
  expect(copied).toContain('Ada PO 5kg dari satu kafe');
  expect(copied).toContain('Belum diverifikasi');
+});
+
+test('Business curriculum route from main catalog goes to the only study path with 84 lessons',async({page})=>{
+ await page.goto('/paths/business-roastery-v1');
+ await expect(page).toHaveURL(/\/business-roastery-v1\/?$/);
+ await expect(page.getByRole('heading',{name:'Merancang sampai Menjalankan Bisnis Roastery'})).toBeVisible();
+ await expect(page.locator('section > button[aria-controls^="br-module-"]')).toHaveCount(21);
+});
+test('student sees real concepts before optional business-model comparison; reader matches course layout',async({page})=>{
+ await page.goto('/business-roastery-v1/br-b13-l01');
+ await expect(page.getByRole('heading',{name:'Landed cost sampai produk jadi'})).toBeVisible();
+ const body=await page.locator('article').innerText();
+ expect(body).toContain('Pelajari konsep dan cara kerjanya');
+ expect(body.toLowerCase()).toContain('landed cost');
+ expect(body.indexOf('Pelajari konsep dan cara kerjanya')).toBeLessThan(body.indexOf('Penerapan dalam operasi roastery'));
+ const extra=page.getByText('Lihat penerapan pada tiga skala bisnis');
+ await expect(extra).toBeVisible();
+ await expect(page.getByText('A · Brand asset-light')).not.toBeVisible();
+ await extra.click();
+ await expect(page.getByText('A · Brand asset-light')).toBeVisible();
+});
+test('mobile syllabus can be opened and chapter remains readable without horizontal overflow',async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ await page.goto('/business-roastery-v1/br-b16-l01');
+ const open=page.getByRole('button',{name:/Daftar materi/});
+ await expect(open).toHaveAttribute('aria-expanded','false');
+ await open.click();
+ await expect(open).toHaveAttribute('aria-expanded','true');
+ await expect(page.getByRole('complementary',{name:'Daftar pelajaran silabus'})).toBeVisible();
+ await page.getByRole('complementary',{name:'Daftar pelajaran silabus'}).getByRole('link',{name:/Siklus modal kerja dan CCC/}).click();
+ await expect(page.getByRole('heading',{name:'Siklus modal kerja dan CCC'})).toBeVisible();
+ const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
+ expect(overflow).toBeLessThanOrEqual(2);
+});
+
+test('each module begins with explanatory fundamentals, useful terminology, and real diagram before cases',async({page})=>{
+ await page.goto('/business-roastery-v1/br-b01-l01');
+ await expect(page.getByRole('heading',{name:'Memahami apa yang sebenarnya dijual roastery'})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Istilah yang perlu kamu kenali'})).toBeVisible();
+ await expect(page.getByText('Rantai nilai',{exact:true})).toBeVisible();
+ await expect(page.getByText('Satu produk, lima tahapan berbeda')).toBeVisible();
+ await expect(page.getByText('Lihat penerapan pada tiga skala bisnis')).toBeVisible();
+ const lesson=await page.locator('article').innerText();
+ expect(lesson.indexOf('Memahami apa yang sebenarnya dijual roastery')).toBeLessThan(lesson.indexOf('Pelajari konsep dan cara kerjanya'));
+ await expect(page.getByRole('heading',{name:'Lihat contoh penerapan'})).toHaveCount(0);
+});
+
+
+test('selected beginner, logistics, manufacturing, finance and export chapters teach a complete guided method on mobile',async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ for(const id of ['b01','b02','b08','b10','b13','b16','b21']){
+  const url='/business-roastery-v1/br-'+id+'-l01';
+  const response=await page.goto(url);
+  expect(response?.status(),url).toBe(200);
+  const guide=page.getByRole('region',{name:'Panduan kerja langkah demi langkah'});
+  await expect(guide,url).toBeVisible();
+  await expect(guide.locator('ol > li'),url).toHaveCount(4);
+  await expect(page.getByRole('heading',{name:'Istilah yang perlu kamu kenali'}),url).toBeVisible();
+  const diff=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
+  expect(diff,'horizontal overflow in '+url).toBeLessThanOrEqual(2);
+ }
+});
+
+test('all 21 module introductions include a distinct explanatory diagram and a guided lesson',async({page})=>{
+ const diagramNames=[
+  'Satu produk, lima tahapan berbeda','Apa yang berubah saat memiliki mesin?',
+  'Uji permintaan berjenjang','Satu kilogram, dua format SKU',
+  'Gerbang keputusan kelayakan','Lima lapisan yang perlu diperiksa sebelum menjual',
+  'Kendali mutu dalam pembelian green','Alur menghitung landed cost per kg usable',
+  'Aliran material dalam fasilitas roastery','Kapasitas mesin vs produk siap dikirim',
+  'Menelusuri satu kemasan kembali ke bahan baku','Menghitung stok yang boleh dijanjikan',
+  'Berat yang dipakai saat menghitung HPP','Harga yang sama, penyebut persentase yang berbeda',
+  'BEP harus lebih kecil dari kapasitas yang mampu dijual','Laba dicatat, tetapi uang belum tentu datang',
+  'Pipeline wholesale yang benar-benar terukur','Contoh contribution setelah biaya variabel',
+  'Contoh pembagian peran dalam usaha kecil','Indikator yang harus dibaca bersama',
+  'Urutan awal mengevaluasi inquiry ekspor'
+ ];
+ for(let m=1;m<=21;m++){
+  const id=String(m).padStart(2,'0');
+  const res=await page.goto('/business-roastery-v1/br-b'+id+'-l01');
+  expect(res?.status(),'B'+id).toBe(200);
+  await expect(page.locator('article figure')).toHaveCount(1);
+  await expect(page.locator('article figure figcaption')).toHaveText(diagramNames[m-1]);
+  await expect(page.getByRole('region',{name:'Panduan kerja langkah demi langkah'})).toBeVisible();
+ }
+});
+test('working method comes before independent exercise and answers are optional after lesson body',async({page})=>{
+ await page.goto('/business-roastery-v1/br-b13-l01');
+ const sections=(await page.locator('article').innerText()).toLowerCase();
+ const methods=sections.indexOf('praktik terpandu');
+ const exercise=sections.indexOf('coba terapkan setelah membaca');
+ expect(methods).toBeGreaterThan(0);
+ expect(exercise).toBeGreaterThan(methods);
+ await expect(page.getByText('A · Brand asset-light')).not.toBeVisible();
+ await page.getByText('Lihat penerapan pada tiga skala bisnis').click();
+ await expect(page.getByText('A · Brand asset-light')).toBeVisible();
 });
