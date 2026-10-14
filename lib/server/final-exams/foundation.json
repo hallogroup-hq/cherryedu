@@ -29,7 +29,7 @@
       "type": "single_choice",
       "prompt": "Label menyebut 'Arabika Gayo, natural'. Manakah pembacaan istilah yang paling tepat?",
       "choices": [
-        "Arabika menyatakan tingkat mutu, Gayo menyatakan varietas spesifik, dan natural berarti roast medium.",
+        "Arabika berarti tingkat mutu, Gayo adalah varietas kopi.",
         "Arabika menyebut spesies, Gayo mengacu asal, natural mengacu proses.",
         "Arabika dan Gayo sama-sama nama metode penanganan ceri, sedangkan natural adalah asal kebun.",
         "Istilah natural menjamin kesan manis lebih kuat daripada semua washed bila origin setara."
@@ -47,7 +47,7 @@
       "type": "single_choice",
       "prompt": "Dua lot ceri berasal dari kebun sama. Satu lot dikeringkan terlalu lambat dalam kondisi lembap. Apa risiko yang perlu diperiksa?",
       "choices": [
-        "Kualitas cukup dibuktikan dengan aroma yang kuat, sehingga data kelembapan tidak diperlukan.",
+        "Aroma kuat saja cukup membuktikan mutu pengeringan.",
         "Kondisi pengeringan bisa diabaikan selama origin dan varietas kedua lot tetap identik.",
         "Risiko baru timbul setelah disangrai; catatan pascapanen tidak diperlukan untuk inspeksi.",
         "Risiko pertumbuhan mikroba dan cacat mutu, melalui catatan proses serta inspeksi."
@@ -65,8 +65,8 @@
       "type": "single_choice",
       "prompt": "Awalnya roaster memperkirakan 10 kg green akan menjadi 9 kg roasted. Setelah produksi, timbangan menunjukkan 8,4 kg roasted. Apa kesimpulan yang benar dari hasil aktual?",
       "choices": [
-        "Berat susut 16% menandakan seluruh selisih adalah biji reject dan harus dibuang dari lot.",
-        "Hasil 8,4 kg memastikan roasting sudah mencapai roast level tertentu tanpa data suhu.",
+        "Seluruh susut 16% adalah biji reject yang harus dibuang.",
+        "Hasil 8,4 kg membuktikan roast level tertentu.",
         "Rendemen berat roasted 84%; angka itu sendiri belum menilai kualitas rasa.",
         "Rendemen dapat dihitung hanya dari warna roasted, sedangkan berat green tidak penting."
       ],
@@ -102,7 +102,7 @@
       "prompt": "Panelis berkata 'aroma seperti jeruk' dan 'kopi ini paling saya suka'. Bagaimana memisahkan dua kalimat itu?",
       "choices": [
         "Pertama deskriptif; kedua evaluasi kesukaan yang bersifat afektif.",
-        "Kalimat aroma dan preferensi sama-sama penilaian cacat fisik, sehingga gabungkan nilainya.",
+        "Keduanya merupakan penilaian cacat fisik green coffee.",
         "Penilaian aroma sudah membuktikan asal kebun, sedangkan preferensi menentukan varietas.",
         "Keduanya adalah data ekstrinsik karena berasal dari kesaksian orang yang mencicipi kopi."
       ],
@@ -119,7 +119,7 @@
       "type": "single_choice",
       "prompt": "Merek menyatakan bijinya 'dibeli langsung dari petani dengan harga adil'. Bukti mana paling relevan?",
       "choices": [
-        "Foto pemasok bersama petani cukup membuktikan transaksi langsung dan pembagian harga yang adil.",
+        "Foto pemasok bersama petani sudah membuktikan harga adil.",
         "Catatan transaksi, aktor yang terlibat, basis berat, serta cara menilai keadilan harga.",
         "Skor cupping tinggi dapat dipakai menggantikan data harga pembelian dan kuantitas cherry.",
         "Cerita kemasan panjang menjadi bukti utama bahwa pendapatan petani sudah meningkat."
@@ -137,8 +137,8 @@
       "type": "single_choice",
       "prompt": "Dua pencicip memberi deskriptor berbeda untuk sampel sama. Langkah lanjutan yang baik?",
       "choices": [
-        "Pilih deskriptor panelis paling berpengalaman tanpa memeriksa perbedaan suhu atau konsentrasi.",
-        "Gabungkan seluruh deskriptor menjadi satu catatan resmi meski belum ada referensi istilah.",
+        "Ikuti deskriptor panelis paling senior tanpa kalibrasi.",
+        "Satukan semua deskriptor tanpa referensi istilah.",
         "Samakan protokol dan referensi istilah, lalu ulangi pencicipan bila memungkinkan.",
         "Ganti sampel kopi sampai panelis selalu memberi deskriptor sama tanpa kalibrasi protokol."
       ],
@@ -173,7 +173,7 @@
       "type": "single_choice",
       "prompt": "Awalnya pembeli percaya label proses 'giling basah'. Ketika meminta bukti, pemasok hanya mengirim foto green bean tanpa catatan produksi. Data apa yang masih diperlukan?",
       "choices": [
-        "Nama merek dan desain kemasan dapat dipakai untuk memastikan tahap pengolahan pascapanen.",
+        "Nama merek menjadi bukti metode pascapanen.",
         "Rangkaian proses, kondisi pengeringan, dan pencatatan lot.",
         "Cukup gunakan skor kesukaan konsumen untuk memastikan apakah proses giling basah dilakukan.",
         "Foto warna green merupakan verifikasi lengkap fermentasi dan pengeringan yang dilakukan."
@@ -192,8 +192,8 @@
       "prompt": "Dalam percobaan seduh, peneliti mengganti gilingan sekaligus suhu dan pola tuang. Apa kekurangan desainnya?",
       "choices": [
         "Perubahan hasil tidak dapat dikaitkan secara jelas dengan satu faktor.",
-        "Perubahan rasa boleh dikaitkan ke gilingan karena hanya variabel itu yang direncanakan berubah.",
-        "Mengganti tiga variabel sekaligus memudahkan pembuktian efek kausal masing-masing komponen.",
+        "Hasil pasti disebabkan gilingan yang berubah.",
+        "Banyak perubahan sekaligus memudahkan atribusi sebab.",
         "Satu kali hasil seduhan cukup menetapkan variabel mana paling menentukan bila dicatat rapi."
       ],
       "correct_index": 0,
@@ -209,8 +209,8 @@
       "type": "single_choice",
       "prompt": "Sebuah lot disertai nilai CVA sensori dan cerita asal, tetapi tidak ada data cacat fisik. Sikap pembeli yang tepat?",
       "choices": [
-        "Laporan deskriptif yang positif otomatis membuktikan biji lolos standar cacat fisik.",
-        "Cerita asal yang terperinci menggantikan perlunya inspeksi green dan penilaian lot.",
+        "Deskripsi aroma positif membuktikan lolos uji cacat.",
+        "Cerita asal menggantikan inspeksi fisik green.",
         "Harga tinggi merupakan bukti bahwa seluruh dimensi CVA sudah diperiksa secara lengkap.",
         "Gunakan data yang ada dan minta evaluasi fisik sebelum klaim mutu menyeluruh."
       ],
