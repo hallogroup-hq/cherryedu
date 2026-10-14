@@ -14,9 +14,9 @@ export function generateStaticParams(){return SENSORY_V2_LESSONS.map(l=>({lesson
 export default function SensoryLessonPage({params}:{params:{lessonId:string}}){
  if(process.env.CHERRYEDU_SENSORY_V2_REVIEW!=='enabled')notFound();
  const l=SENSORY_V2_LESSONS.find(l=>l.id===params.lessonId);
- if(!lesson)notFound();
+ if(!l)notFound();
  const m=SENSORY_V2_MODULES.find(m=>m.code===l.moduleId);
- if(!mod)notFound();
+ if(!m)notFound();
  return <CuratedLessonFrame courseTitle="Q Grader & Sensory Specialist" courseHref="/sensory-v2" modules={SENSORY_V2_MODULES} lessons={SENSORY_V2_LESSONS} currentId={l.id} rawMarkdown={l.content}>
   {l.order===1&&<section aria-label="Pengantar konsep" className="mb-8 border-y border-paper-300 bg-paper-100 px-5 py-5">
    <p className="font-mono text-xs font-semibold uppercase tracking-widest text-cherry-700">Mulai dari gambaran besarnya</p>
