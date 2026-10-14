@@ -1,0 +1,222 @@
+{
+  "path": "barista",
+  "version": "2026-10-14.1",
+  "items": [
+    {
+      "id": "barista-01",
+      "module_ids": [
+        "M01"
+      ],
+      "objective": "M01-transfer-1",
+      "type": "single_choice",
+      "prompt": "Ada pelanggan melaporkan reaksi berat terhadap kacang, tetapi staf tak yakin bahan topping bebas alergen. Langkah yang tepat?",
+      "choices": [
+        "Hapus topping tanpa perlu memberi tahu pelanggan.",
+        "Jangan memberi jaminan; cek bahan dan prosedur, tawarkan opsi aman bila terverifikasi.",
+        "Sarankan coba sedikit minuman dahulu.",
+        "Tanyakan tingkat keparahan lalu abaikan risiko kontaminasi silang."
+      ],
+      "correct_index": 1,
+      "explanation": "Keamanan alergen mendahului kecepatan layanan; klaim aman memerlukan verifikasi.",
+      "case": false
+    },
+    {
+      "id": "barista-02",
+      "module_ids": [
+        "M02"
+      ],
+      "objective": "M02-transfer-2",
+      "type": "single_choice",
+      "prompt": "Resep espresso dari senior menghasilkan rasa berbeda setelah biji berganti. Keputusan pertama yang paling berguna?",
+      "choices": [
+        "Catat perubahan dan bandingkan hasil secara sistematis, bukan menyalin rasio secara buta.",
+        "Tetap gunakan resep sama karena semua bean bereaksi identik.",
+        "Ubah gilingan, suhu, dan dosis sekaligus.",
+        "Tambahkan sirup agar semua rasa sama."
+      ],
+      "correct_index": 0,
+      "explanation": "Resep adalah titik awal. Perubahan biji memerlukan observasi, hipotesis dan uji terkendali.",
+      "case": false
+    },
+    {
+      "id": "barista-03",
+      "module_ids": [
+        "M03"
+      ],
+      "objective": "M03-transfer-3",
+      "type": "single_choice",
+      "prompt": "Dengan dose sama, shot hari ini mengalir jauh lebih lambat daripada kemarin. Pemeriksaan awal apa yang paling masuk akal?",
+      "choices": [
+        "Naikkan tekanan mesin seketika tanpa memeriksa apa pun.",
+        "Pastikan penyebab tunggalnya adalah kelembapan.",
+        "Hentikan seluruh penjualan selama satu bulan.",
+        "Periksa grind, distribusi, output, mesin dan kondisi biji sebelum menyimpulkan penyebab."
+      ],
+      "correct_index": 3,
+      "explanation": "Waktu ekstraksi tunggal tidak bisa mendiagnosis satu penyebab dengan pasti.",
+      "case": false
+    },
+    {
+      "id": "barista-04",
+      "module_ids": [
+        "M04"
+      ],
+      "objective": "M04-transfer-4",
+      "type": "single_choice",
+      "prompt": "Dua shot memiliki waktu mirip tetapi satu terasa tajam. Metode evaluasi yang paling sahih?",
+      "choices": [
+        "Anggap shot tajam pasti terlalu singkat.",
+        "Tambahkan semua parameter agar rasa otomatis seimbang.",
+        "Bandingkan dosis, yield, distribusi dan rasa; uji satu perubahan yang masuk akal.",
+        "Ukur warna crema saja sebagai satu-satunya bukti."
+      ],
+      "correct_index": 2,
+      "explanation": "Waktu tidak cukup. Diagnosis ekstraksi memerlukan lebih dari satu observasi dan uji yang terkontrol.",
+      "case": true
+    },
+    {
+      "id": "barista-05",
+      "module_ids": [
+        "M05"
+      ],
+      "objective": "M05-transfer-5",
+      "type": "single_choice",
+      "prompt": "Pelanggan meminta minuman berbasis susu nabati tanpa susu sapi. Apa tindakan terbaik barista?",
+      "choices": [
+        "Gunakan pitcher bekas susu sapi karena sudah tampak bersih.",
+        "Konfirmasi preferensi atau alergi, periksa bahan serta risiko silang, lalu ikuti SOP.",
+        "Janjikan bebas seluruh alergen tanpa membaca label.",
+        "Ubah resep diam-diam bila rasa berbeda."
+      ],
+      "correct_index": 1,
+      "explanation": "Peralatan dan bahan harus diperiksa saat permintaan terkait alergi atau penghindaran produk hewani.",
+      "case": false
+    },
+    {
+      "id": "barista-06",
+      "module_ids": [
+        "M06"
+      ],
+      "objective": "M06-transfer-6",
+      "type": "single_choice",
+      "prompt": "Pelanggan berkata 'saya mau kopi yang kuat'. Apa tindak lanjut yang paling tepat?",
+      "choices": [
+        "Tanyakan apakah yang dimaksud rasa pekat, volume, atau efek yang diharapkan.",
+        "Otomatis tambah dua shot tanpa bertanya.",
+        "Jelaskan seluruh pelanggan memaknai kuat sama.",
+        "Hanya beri espresso pahit sekali."
+      ],
+      "correct_index": 0,
+      "explanation": "Istilah 'kuat' ambigu; klarifikasi kebutuhan sebelum mengubah minuman.",
+      "case": false
+    },
+    {
+      "id": "barista-07",
+      "module_ids": [
+        "M07"
+      ],
+      "objective": "M07-transfer-7",
+      "type": "single_choice",
+      "prompt": "Resep filter bar terlalu encer menurut pelanggan, tetapi rasa tidak dinilai rusak. Usulan eksperimen yang baik?",
+      "choices": [
+        "Langsung ubah air, grind dan suhu sekaligus.",
+        "Asumsikan seluruh masalah disebabkan varietas.",
+        "Naikkan kafein dengan menambah gula.",
+        "Pilih satu perubahan terukur, uji rasa dan catat perubahan konsentrasi."
+      ],
+      "correct_index": 3,
+      "explanation": "Rasio dan variabel ekstraksi saling berinteraksi; uji terukur lebih berguna daripada menebak.",
+      "case": false
+    },
+    {
+      "id": "barista-08",
+      "module_ids": [
+        "M08"
+      ],
+      "objective": "M08-transfer-8",
+      "type": "single_choice",
+      "prompt": "Pelanggan meminta 'less acidic', tetapi istilahnya bisa berarti sensasi tajam atau gangguan lambung. Apa respons terbaik?",
+      "choices": [
+        "Klaim semua kopi dark roast aman untuk lambung.",
+        "Nyatakan keluhan pelanggan tidak relevan.",
+        "Tanyakan maksud dan preferensi rasa sebelum menyarankan minuman.",
+        "Berikan minuman paling panas untuk menutupi rasa."
+      ],
+      "correct_index": 2,
+      "explanation": "Kebutuhan tamu perlu diklarifikasi tanpa mengklaim manfaat kesehatan.",
+      "case": false
+    },
+    {
+      "id": "barista-09",
+      "module_ids": [
+        "M09"
+      ],
+      "objective": "M09-transfer-9",
+      "type": "single_choice",
+      "prompt": "Saat membersihkan mesin, staf menemukan kabel terkelupas dekat area basah. Keputusan yang benar?",
+      "choices": [
+        "Lanjutkan sampai closing agar target penjualan tercapai.",
+        "Hentikan penggunaan dan eskalasi sesuai SOP keselamatan ke petugas berwenang.",
+        "Tutupi dengan tisu dan gunakan seperti biasa.",
+        "Siram dengan air untuk menguji korsleting."
+      ],
+      "correct_index": 1,
+      "explanation": "Bahaya listrik dan air mengharuskan stop-work serta penanganan petugas terlatih.",
+      "case": false
+    },
+    {
+      "id": "barista-10",
+      "module_ids": [
+        "M10"
+      ],
+      "objective": "M10-transfer-10",
+      "type": "single_choice",
+      "prompt": "Resep menggunakan 20 g kopi seharga Rp240.000/kg. Berapa biaya kopi per minuman, sebelum susut?",
+      "choices": [
+        "Rp4.800",
+        "Rp2.400",
+        "Rp12.000",
+        "Rp48.000"
+      ],
+      "correct_index": 0,
+      "explanation": "20/1000 × Rp240.000 = Rp4.800; ini hanya biaya kopi, bukan HPP minuman lengkap.",
+      "case": true
+    },
+    {
+      "id": "barista-11",
+      "module_ids": [
+        "M11"
+      ],
+      "objective": "M11-transfer-11",
+      "type": "single_choice",
+      "prompt": "Sebuah signature drink mendapat ulasan baik, tetapi sulit direplikasi staf lain. Langkah berikutnya?",
+      "choices": [
+        "Luncurkan segera tanpa standar ukuran.",
+        "Berikan resep hanya kepada satu pembuat.",
+        "Tambah garnish agar masalah teralihkan.",
+        "Dokumentasikan bahan, prosedur, toleransi, dan lakukan uji ulang antarbarista."
+      ],
+      "correct_index": 3,
+      "explanation": "Keberhasilan R&D juga memerlukan repeatability, costing, dan handoff SOP.",
+      "case": false
+    },
+    {
+      "id": "barista-12",
+      "module_ids": [
+        "M12"
+      ],
+      "objective": "M12-transfer-12",
+      "type": "single_choice",
+      "prompt": "Selama rush hour, grinder berubah output dan ada order dengan risiko alergen. Prioritas apa yang paling baik?",
+      "choices": [
+        "Penuhi semua order dulu lalu periksa alergennya.",
+        "Ubah semua resep tanpa komunikasi tim.",
+        "Amankan pesanan berisiko, pisahkan prosedur, kemudian kalibrasi berdasarkan data.",
+        "Abaikan pencatatan karena situasi ramai."
+      ],
+      "correct_index": 2,
+      "explanation": "Keselamatan lebih dahulu; ketidakstabilan proses ditangani dengan observasi dan komunikasi operasional.",
+      "case": false
+    }
+  ]
+}
