@@ -337,9 +337,9 @@ test('all 21 module introductions include a distinct explanatory diagram and a g
 });
 test('working method comes before independent exercise and answers are optional after lesson body',async({page})=>{
  await page.goto('/business-roastery-v1/br-b13-l01');
- const sections=await page.locator('article').innerText();
- const methods=sections.indexOf('Praktik Terpandu');
- const exercise=sections.indexOf('Coba terapkan setelah membaca');
+ const sections=(await page.locator('article').innerText()).toLowerCase();
+ const methods=sections.indexOf('praktik terpandu');
+ const exercise=sections.indexOf('coba terapkan setelah membaca');
  expect(methods).toBeGreaterThan(0);
  expect(exercise).toBeGreaterThan(methods);
  await expect(page.getByText('A · Brand asset-light')).not.toBeVisible();
