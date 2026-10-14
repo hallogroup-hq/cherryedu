@@ -20,9 +20,10 @@
 | **Barista Application Experience QA** | `npm run test:barista` (Teams repo) | Learner progress, step completion, cross-learner protection, remediation notes | Staging DB (`b2b` schema) | **9/9 PASSED** | `cherryedu-teams/tests/verify_barista_experience.ts` |
 | **Owner Application Experience QA** | `npm run test:owner` (Teams repo) | Org overview, outlet provisioning, employee invite/revoke, cohort metrics | Staging DB (`b2b` schema) | **11/11 PASSED** | `cherryedu-teams/tests/verify_owner_experience.ts` |
 | **Trainer Application Experience QA** | `npm run test:trainer` (Teams repo) | Cohort scoping, participant roster, rubric workspace, critical failure gate, sign-off, monotonic lock | Staging DB (`b2b` schema) | **16/16 PASSED** | `cherryedu-teams/tests/verify_trainer_experience.ts` |
+| **Platform Admin Experience QA** | `npm run test:admin` (Teams repo) | Access control (4 roles), org management, program versioning, trainer assignment, audit trail, ADMIN_CANNOT_SIGNOFF | Staging DB (`b2b` schema) | **19/19 PASSED** | `cherryedu-teams/tests/verify_admin_experience.ts` |
 | **Typecheck (B2C repo)** | `npm run typecheck` | Full repository TypeScript compilation | Static AST check | **0 Errors** | `tsconfig.json` |
 | **Typecheck (Teams repo)** | `npm run typecheck` | Standalone Teams TypeScript compilation | Static AST check | **0 Errors** | `cherryedu-teams/tsconfig.json` |
-| **Build (Teams repo)** | `npm run build` | Next.js 15 production build & static optimization | Node.js build worker | **Compiled (11/11 pages)** | `cherryedu-teams/.next` |
+| **Build (Teams repo)** | `npm run build` | Next.js 15 production build & static optimization | Node.js build worker | **Compiled (34 routes)** | `cherryedu-teams/.next` |
 
 ---
 
