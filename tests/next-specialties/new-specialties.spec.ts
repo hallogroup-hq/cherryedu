@@ -56,11 +56,12 @@ test('shop economics calculates contribution and simple BEP correctly',async({pa
  await page.goto('/coffee-shop-v2/cs-m03-l03');
  const area=page.getByRole('region',{name:'Margin channel dan BEP kedai'});
  await area.getByRole('spinbutton',{name:'Harga jual per cup'}).fill('38000');
- await area.getByRole('spinbutton',{name:'Semua biaya variabel per cup'}).fill('16000');
+ await area.getByRole('spinbutton',{name:'Biaya variabel selain komisi per cup'}).fill('16000');
  await area.getByRole('spinbutton',{name:'Komisi merchant channel'}).fill('25');
  await area.getByRole('spinbutton',{name:'Biaya tetap per periode'}).fill('9500000');
  await expect(area.getByRole('status')).toContainText(/Rp\s*12\.500/);
  await expect(area.getByRole('status')).toContainText('760 cup');
+ await expect(area.getByRole('status')).toContainText('Jangan mengurangi komisi dua kali');
 });
 test('Q Processor mass balance refuses impossible output',async({page})=>{
  await page.goto('/q-processor-v2/qp2-m07-l03');
