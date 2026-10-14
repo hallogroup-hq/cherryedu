@@ -20,6 +20,7 @@ for(const p of paths){
   await expect(syllabus).toBeVisible();
   await expect(syllabus.getByRole('navigation',{name:'Pilih materi'}).locator('ol li')).toHaveCount(p.lessons);
   await expect(page.getByRole('article')).toBeVisible();
+  await expect(page.locator('article figure')).toBeVisible(); // Each module begins with a real rendered teaching visual.
   await expect(page.getByText('Mode Listen & Brew',{exact:true})).toBeVisible();
   await page.goto(p.route+'/'+p.last);
   await expect(page.locator('[data-testid="continue-to-final-exam"]')).toHaveAttribute('href','/ujian-akhir/'+p.id);
