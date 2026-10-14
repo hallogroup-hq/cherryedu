@@ -11,7 +11,7 @@
       "type": "single_choice",
       "prompt": "Tiga lot cherry dicampur sebelum diberi kode, lalu operator membandingkan rasa setelah dry mill. Informasi penting apa hilang?",
       "choices": [
-        "Kemampuan menentukan berat semua batch dari warna green setelah pengeringan.",
+        "Kemampuan mengelompokkan warna green akhir dan mencocokkannya dengan daftar pemasok tanpa mempertahankan kode batch sejak penerimaan.",
         "Kemampuan memastikan sumber bibit hanya dari satu catatan rasa cangkir.",
         "Kemampuan menjamin seluruh perlakuan proses memberi aroma identik.",
         "Kemampuan menautkan kondisi bahan, pemasok, proses dan hasil fisik/sensori pada identitas lot."
@@ -29,7 +29,7 @@
       "type": "single_choice",
       "prompt": "Percobaan proses baru disimpulkan unggul dari satu batch, sementara batch kontrol menerima cherry yang dipanen sehari lebih awal. Keputusan peneliti?",
       "choices": [
-        "Nyatakan perlakuan baru pasti unggul sebab satu panelis menyukainya.",
+        "Tentukan perlakuan baru unggul dari preferensi panel cupping satu kali, lalu gunakan perbedaan hari panen sebagai karakter alami kedua batch.",
         "Akui faktor input berbeda dan ulangi dengan bahan, kondisi dan sampling yang lebih sebanding.",
         "Simpulkan jam panen tidak pernah berdampak pada hasil setelah fermentasi.",
         "Hapus batch kontrol agar beda perlakuan menjadi lebih meyakinkan."
@@ -48,7 +48,7 @@
       "prompt": "Catatan menunjukkan pH turun, tetapi tidak ada hasil analisis mikroorganisme. Klaim mana paling bertanggung jawab?",
       "choices": [
         "Terjadi perubahan sifat asam-basa pada sampel; identitas dan proporsi mikroba belum dapat disimpulkan.",
-        "Bakteri asam laktat tertentu telah terbukti mendominasi hanya dari angka pH.",
+        "Tetapkan dominasi bakteri asam laktat dari perubahan pH dan pengamatan aroma, sementara metode identifikasi spesies dikerjakan jika hasil tidak konsisten.",
         "Semua yeast mati karena nilai pH turun selama proses berlangsung.",
         "Kadar alkohol akhir sudah dapat dihitung tepat dari pembacaan pH."
       ],
@@ -65,7 +65,7 @@
       "type": "single_choice",
       "prompt": "Dua fermentasi berakhir pada pH sama; satu berada di ruangan lebih hangat dan selesai jauh lebih cepat. Interpretasi awal yang benar?",
       "choices": [
-        "Nilai pH akhir sama menjamin hasil fermentasi, keamanan dan profil cangkir identik.",
+        "Gunakan pH akhir yang sama sebagai bukti dua proses mempunyai respons mikroba setara, kemudian samakan rancangan drying dan nilai grade-nya.",
         "Proses lebih panas otomatis merusak kopi tanpa perlunya pengujian lanjutan.",
         "Lintasan proses dan produk bisa berbeda; bandingkan kondisi awal, waktu, suhu, sampling serta hasil QC.",
         "Durasi fermentasi tidak berpengaruh jika batch memiliki varietas sama."
@@ -83,7 +83,7 @@
       "type": "single_choice",
       "prompt": "Depulper baru merusak banyak parchment tetapi operator ingin melanjutkan agar mencapai target throughput. Prioritas proses?",
       "choices": [
-        "Tambah waktu fermentasi karena lecet mesin bisa dipulihkan oleh mikroba.",
+        "Lanjutkan depulping agar target harian terpenuhi sambil menambah lama fermentasi, lalu evaluasi kerusakan biji pada akhir semua shift.",
         "Hentikan sementara, isolasi batch terdampak dan evaluasi setelan serta bahan dengan operator kompeten.",
         "Tingkatkan tekanan mesin tanpa mengukur efek pada output sampel.",
         "Campur produk rusak dengan stok lain agar masalah tidak tampak."
@@ -101,7 +101,7 @@
       "type": "single_choice",
       "prompt": "Mill mengganti metode pencucian menjadi memakai lebih banyak air, sedangkan fasilitas limbah tetap sama. Apa risiko yang perlu dievaluasi?",
       "choices": [
-        "Penggunaan air banyak pasti membuat seluruh kopi terasa lebih bersih tanpa konsekuensi.",
+        "Pertahankan aliran limbah seperti sebelumnya dan tambah volume air pencucian terlebih dahulu, kemudian audit dampak higienis saat kualitas cup menurun.",
         "Air limbah proses boleh dibuang bebas karena berasal dari cherry alami.",
         "Beban organik limbah pasti hilang jika jam pencucian dibuat lebih panjang.",
         "Kapasitas air bersih, beban limbah, risiko higienis dan dampak lingkungan sebelum SOP diperluas."
@@ -119,7 +119,7 @@
       "type": "single_choice",
       "prompt": "Dua produsen menamai lot 'red honey', namun kadar mucilage dan metode drying ternyata berbeda. Mengapa produk tak bisa diasumsikan identik?",
       "choices": [
-        "Kata red menjamin lama fermentasi dan kadar gula sama di semua produsen.",
+        "Samakan kedua lot karena red honey dapat diperlakukan sebagai kategori teknis yang tetap, kemudian nilai hasil hanya berdasarkan aroma sampel awal.",
         "Kedua lot pasti memakai suhu pengeringan sama karena nama proses serupa.",
         "Label warna bukan standar proses tunggal; bandingkan catatan mekanisme, QC fisik dan hasil cup.",
         "Semua produk honey harus memiliki mutu fisik sama tanpa perlu sampel."
@@ -138,7 +138,7 @@
       "prompt": "Operator menemukan pecahan green meningkat setelah wet hulling, sementara kondisi parchment awal berubah. Tindakan apa menguji penyebab?",
       "choices": [
         "Cek kadar air/kondisi parchment dan setelan huller dengan batch terkendali; catat sebelum dan sesudah.",
-        "Tetapkan bahwa semua kerusakan adalah ciri proses dan boleh masuk kontrak tanpa QC.",
+        "Kelompokkan biji pecah sebagai variasi karakter giling basah tanpa memisahkan penyebab mesin dari kondisi parchment, lalu lanjutkan produksi normal.",
         "Ubah warna label kemasan agar profil konsumen tidak memikirkan hasil hulling.",
         "Naikkan suhu roasting untuk menutup semua jenis pecahan selama processing."
       ],
@@ -156,7 +156,7 @@
       "prompt": "Sebuah tangki fermentasi berisi gas CO₂ hendak dibuka di ruang tertutup tanpa ventilasi dan pemantauan oksigen. Respons tepat?",
       "choices": [
         "Hentikan kegiatan sampai analisis bahaya, ventilasi dan operator yang kompeten memastikan operasi aman.",
-        "Masuk ruang tangki karena CO₂ tidak berwarna berarti tidak memengaruhi keselamatan.",
+        "Buka tangki dan lanjutkan bekerja jika CO2 tidak tercium dan tidak tampak keluar dari wadah, sambil mencatat durasi pembukaan untuk SOP berikutnya.",
         "Tutup pintu lebih rapat agar gas tidak menyebar ke luar fasilitas.",
         "Lakukan tanpa supervisor asalkan waktu proses sudah sesuai resep."
       ],
@@ -174,7 +174,7 @@
       "prompt": "Produsen menambah sari buah pada co-fermentation namun memasarkan lot seolah karakter buah murni berasal dari varietas kopi. Perbaikan klaimnya?",
       "choices": [
         "Hapus jejak bahan tambahan karena hasil cup tetap mempunyai aroma buah.",
-        "Nyatakan produk pasti tanpa kontaminan sebab bahan tambahan terlihat segar.",
+        "Nyatakan lot bebas risiko bahan tambahan bila sari buah yang dipakai masih segar, tanpa mengecek asal, dokumentasi proses, atau klasifikasi labeling.",
         "Jelaskan intervensi bahan dan proses secara transparan sesuai kebutuhan buyer dan regulasi yang berlaku.",
         "Tulis natural processing sebagai bukti bahwa tidak ada bahan di luar cherry."
       ],
@@ -192,7 +192,7 @@
       "prompt": "QC melihat moisture dua kantong sama, tetapi hasil water activity berbeda dan sampel diambil saat suhu ruang berubah. Langkah validasi berikutnya?",
       "choices": [
         "Anggap pembacaan aw tidak penting jika kadar air sudah pernah diukur.",
-        "Konversi moisture menjadi aw dengan satu faktor tetap untuk semua biji.",
+        "Konversi moisture menjadi aw memakai faktor tetap dari hasil uji lot sebelumnya, kemudian lepaskan kedua lot karena angka moisture sama.",
         "Simpulkan salah satu operator pasti curang tanpa pemeriksaan tambahan.",
         "Periksa metode dan kondisi ukur, alat, pengambilan sampel serta variasi lot sebelum release."
       ],
@@ -209,7 +209,7 @@
       "type": "single_choice",
       "prompt": "Bed natural tampak kering pada tepi namun lembap di tengah setelah periode hujan. Keputusan sebelum gudang?",
       "choices": [
-        "Gunakan sampel tepi sebagai satu-satunya dasar pelepasan seluruh lot.",
+        "Ambil beberapa pembacaan di tepi bed yang tampak kering sebagai data utama, lalu gunakan rata-rata itu untuk mengesahkan semua bagian lot.",
         "Lakukan sampling pada berbagai zona, jaga identitas status dan lanjutkan pengendalian drying sesuai hasil.",
         "Gabungkan dengan stok sangat kering agar rata-rata terlihat normal.",
         "Tentukan otomatis tahan satu tahun tanpa melihat kondisi bahan."
@@ -246,7 +246,7 @@
       "prompt": "Buyer meminta CIF di port tujuan, sementara supplier baru menghitung harga EXW gudang. Apa langkah komersial benar?",
       "choices": [
         "Rinci tanggung jawab, freight, asuransi, named port dan dokumen sebelum mengajukan angka CIF.",
-        "Tulis CIF dengan harga EXW sama karena risiko tetap sepenuhnya pada buyer.",
+        "Ajukan CIF memakai angka EXW ditambah estimasi ongkir umum tanpa menyepakati named port, asuransi, pembagian biaya, dan dokumen tujuan.",
         "Anggap supplier tak perlu memeriksa dokumen karena transaksi luar negeri.",
         "Berikan quotation tanpa nama pelabuhan atau syarat masa berlaku."
       ],
@@ -263,7 +263,7 @@
       "type": "single_choice",
       "prompt": "Logbook mencatat waktu mulai dan akhir tiap batch tetapi tidak mencatat batch size, kondisi cherry dan tindakan koreksi. Kelemahan utama apa?",
       "choices": [
-        "Data tanggal sudah cukup untuk membuktikan mikroba tertentu mendominasi proses.",
+        "Gunakan waktu mulai dan akhir saja sebagai bukti proses dapat direproduksi, karena jumlah bahan dan koreksi operator bisa direkonstruksi dari ingatan.",
         "Hasil sulit direplikasi atau dianalisis penyebabnya karena input dan deviasi tidak terlacak.",
         "Semua batch pasti identik bila durasi proses tertulis dengan jelas.",
         "Catatan apa pun tidak perlu ditautkan pada hasil fisik dan cupping."
@@ -281,7 +281,7 @@
       "type": "single_choice",
       "prompt": "Peserta lulus ujian teori CherryEdu tetapi belum melewati pelatihan praktik dan ujian resmi CQI. Klaim apa yang tepat?",
       "choices": [
-        "Peserta otomatis menjadi Q Processing Professional bersertifikat CQI.",
+        "Gunakan nilai akhir CherryEdu sebagai bukti kesiapan kerja lapangan dan cantumkan gelar CQI Processing Professional meski belum mengikuti asesmen CQI.",
         "Peserta aman menjalankan seluruh fasilitas fermentasi tanpa pengawasan.",
         "Nilai kuis menghapus perlunya catatan lapangan dan asesmen praktik.",
         "Peserta memahami teori yang diuji; sertifikasi CQI serta kompetensi praktik memerlukan evaluasi resmi terpisah."
