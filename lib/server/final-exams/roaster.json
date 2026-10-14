@@ -29,7 +29,7 @@
       "type": "single_choice",
       "prompt": "Roaster melihat angka suhu mesin berbeda setelah mengganti probe. Apa kesimpulan paling aman?",
       "choices": [
-        "Perlakukan angka baru sebagai bukti bahwa biji mengubah perilaku panas meski posisi sensor telah berubah.",
+        "Angka baru pasti akibat perubahan biji.",
         "Tingkatkan energi sejak awal demi menyamai kurva historis tanpa mengecek offset probe.",
         "Ganti seluruh formulasi profil karena perbedaan angka membuktikan mesin kehilangan kapasitas.",
         "Periksa kalibrasi dan konteks pengukuran sebelum membandingkan kurva."
@@ -48,7 +48,7 @@
       "prompt": "Laju kenaikan suhu (RoR) terlihat berosilasi tajam, tetapi data dicatat dengan interval berbeda. Tindakan terbaik?",
       "choices": [
         "Periksa interval sampling dan smoothing sebelum menyebutnya perubahan fisik proses.",
-        "Nyatakan osilasi grafis sebagai cacat proses tanpa memeriksa penentuan turunan dan noise suhu.",
+        "Osilasi RoR pasti cacat proses roasting.",
         "Hapus semua data temperatur sebelum menghitung laju kenaikan agar kurva terlihat mulus.",
         "Gunakan warna kulit roasted sebagai pengganti data RoR tanpa memperhatikan interval sampling."
       ],
@@ -65,8 +65,8 @@
       "type": "single_choice",
       "prompt": "Awalnya roaster mengikuti profil standar. Setelah cupping blind, hasil terasa terlalu sangrai. Bagaimana menyusun percobaan perubahan profil yang dapat diuji?",
       "choices": [
-        "Ubah charge, airflow dan gas bersamaan supaya target rasa tercapai lebih cepat tanpa uji banding.",
-        "Nilai setiap batch hanya dari temperatur akhir dan abaikan pengaruh kondisi awal atau cupping.",
+        "Ubah gas, airflow, dan charge sekaligus.",
+        "Temperatur akhir saja menentukan mutu roast.",
         "Rancang perubahan terkontrol, catat log, hasil roasting, dan bandingkan cupping tersamar.",
         "Ikuti satu profil dari roaster lain tanpa menguji apakah mesin, lot dan output sensori sama."
       ],
@@ -102,7 +102,7 @@
       "prompt": "Cupping dua batch dilakukan pada suhu saji berbeda dan tester tahu identitasnya. Apa peningkatan metode yang paling berguna?",
       "choices": [
         "Samakan protokol dan gunakan blind coding sejauh mungkin.",
-        "Pilih sampel terfavorit sebelum blind coding dan anggap mengetahui asal tidak memengaruhi evaluasi.",
+        "Pilih batch favorit sebelum blind tasting.",
         "Pertahankan suhu penyajian berbeda agar panelis dapat mengenali setiap batch lebih mudah.",
         "Tentukan hasil hanya dari kemasan roasted yang paling menarik karena cupping terlalu subjektif."
       ],
@@ -119,7 +119,7 @@
       "type": "single_choice",
       "prompt": "Operator menemukan bau tidak biasa dan asap dari exhaust yang tidak normal. Keputusan pertama?",
       "choices": [
-        "Selamatkan batch terlebih dahulu dengan menaikkan panas sambil menunda pemeriksaan exhaust.",
+        "Teruskan batch sambil menunda inspeksi exhaust.",
         "Lanjutkan operasi dalam kecepatan rendah karena indikasi asap tidak normal belum tentu bahaya.",
         "Tinggalkan mesin menyala sambil mengambil perlengkapan lain tanpa mengaktifkan prosedur darurat.",
         "Hentikan proses sesuai prosedur darurat aman dan panggil penanggung jawab."
@@ -137,8 +137,8 @@
       "type": "single_choice",
       "prompt": "Roast batch sebelumnya menghasilkan hasil cup berbeda padahal profil layar tampak serupa. Langkah berikutnya?",
       "choices": [
-        "Ulangi setelan layar yang sama sebagai bukti pasti profil tersebut tidak bisa menghasilkan variasi.",
-        "Tentukan sensor yang salah sebagai penyebab tunggal tanpa mengecek green, batch size dan sampling.",
+        "Ulangi setelan yang sama tanpa investigasi.",
+        "Panelis pasti salah karena kurva serupa.",
         "Periksa kondisi green, beban batch, aliran udara, sensor, operator dan cupping ulang.",
         "Nyatakan panelis sepenuhnya keliru tanpa memeriksa ulang protokol cupping dan data proses."
       ],
@@ -174,7 +174,7 @@
       "prompt": "Tim menaikkan target produksi mingguan sebesar 30%. Setelah dua pekan, data baru menunjukkan QC reject naik tajam. KPI apa yang relevan untuk mengevaluasi hasilnya?",
       "choices": [
         "Output saleable, reject, kapasitas, dan akar masalah mutu dibaca bersama.",
-        "Gunakan jumlah green masuk sebagai ukuran tunggal keberhasilan produksi tanpa data QC reject.",
+        "Green input saja cukup mengukur keberhasilan.",
         "Tingkatkan jumlah batch walaupun stok roasted reject meningkat dan pesanan pelanggan terganggu.",
         "Bandingkan suhu terpanas tiap shift sebagai bukti bahwa seluruh proses produksi lebih efisien."
       ],
@@ -191,7 +191,7 @@
       "type": "single_choice",
       "prompt": "Dua grafik RoR dari perangkat berbeda tampak tidak sama. Apa data tambahan yang dibutuhkan sebelum membandingkan?",
       "choices": [
-        "Bandingkan kurva semata dari warna grafik karena pemrosesan sinyal antarperangkat diasumsikan sama.",
+        "Warna kurva sama berarti pemrosesan sama.",
         "Tetapkan pengaturan gas sebagai satu-satunya penjelasan tanpa memeriksa smoothing dan sensor.",
         "Anggap perbedaan perangkat logging tidak penting selama kedua profil punya roast time serupa.",
         "Definisi RoR, smoothing, probe, interval log, dan kondisi batch."
@@ -209,9 +209,9 @@
       "type": "single_choice",
       "prompt": "Cupping menemukan satu batch bertanda cacat sensori yang belum dipastikan. Pilihan QA paling bertanggung jawab?",
       "choices": [
-        "Kirim lot berdasarkan target penjualan karena perbedaan catatan aroma tidak memerlukan verifikasi.",
+        "Kirim dulu lot, baru konfirmasi QA.",
         "Tahan lot sementara, verifikasi lewat sampel dan prosedur QC sebelum melepasnya.",
-        "Campur batch dengan kopi lain supaya anomali tidak terdeteksi tanpa membuat catatan traceability.",
+        "Campur lot anomali tanpa kode traceability.",
         "Ganti tanggal produksi pada kemasan lalu evaluasi ulang hanya apabila pembeli komplain."
       ],
       "correct_index": 1,
