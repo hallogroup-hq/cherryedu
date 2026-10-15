@@ -1,6 +1,6 @@
 {
   "path": "coffee-shop",
-  "version": "2026-10-14.2",
+  "version": "2026-10-16.1",
   "items": [
     {
       "id": "coffee-shop-01",
@@ -288,6 +288,150 @@
       ],
       "correct_index": 3,
       "explanation": "Metrik pertumbuhan perlu dikaitkan dengan cash dan kontribusi, bukan penjualan kotor semata.",
+      "case": true
+    },
+    {
+      "id": "coffee-shop-17",
+      "module_ids": [
+        "CS01"
+      ],
+      "objective": "CS01-pre-opening-license-and-site-evidence",
+      "type": "single_choice",
+      "prompt": "Pemilik kedai sudah mendapat lokasi murah, tetapi pemilik bangunan meminta deposit yang tak bisa kembali sebelum sumber air, daya listrik dan jenis izin usaha diperiksa. Apa keputusan terbaik?",
+      "choices": [
+        "Tunda komitmen yang tidak dapat ditarik sampai fasilitas, hak renovasi, aktivitas OSS dan kewajiban higiene diverifikasi.",
+        "Setujui deposit dulu karena biaya sewa rendah menutupi risiko jika beberapa fasilitas perlu dibenahi setelah kontrak.",
+        "Mulai menjual menu sederhana sambil menunggu pengujian air selama jumlah pesanan awal masih di bawah target.",
+        "Pakai izin usaha yang digunakan tetangga tanpa memeriksa kesesuaian kegiatan, lalu sesuaikan setelah toko ramai."
+      ],
+      "correct_index": 0,
+      "explanation": "Sebelum modal terikat, aktivitas nyata, kecocokan lokasi dan persyaratan pangan harus diverifikasi. Sewa lebih murah tidak otomatis menghapus biaya perbaikan atau risiko operasional.",
+      "case": true
+    },
+    {
+      "id": "coffee-shop-18",
+      "module_ids": [
+        "CS02"
+      ],
+      "objective": "CS02-lease-contribution-translation",
+      "type": "single_choice",
+      "prompt": "Lokasi B memerlukan biaya tempat Rp1.500.000/bulan lebih tinggi dari A. Jika kontribusi nyata rata-rata Rp15.000 per transaksi dan kondisi lain dianggap sama, berapa transaksi tambahan yang perlu diperoleh B untuk menutup selisih biaya tempat?",
+      "choices": [
+        "75 transaksi per bulan, karena harga minuman dipakai sebagai pembagi biaya sewa tambahan.",
+        "100 transaksi per bulan, berdasarkan selisih biaya dibagi kontribusi per transaksi.",
+        "150 transaksi per bulan, karena kontribusi harus diubah menjadi omzet kotor lebih dahulu.",
+        "1.000 transaksi per bulan, karena perbandingan sewa tidak dapat memakai perhitungan unit."
+      ],
+      "correct_index": 1,
+      "explanation": "Rp1.500.000 ÷ Rp15.000 = 100 transaksi tambahan per bulan. Angka ini hanya membandingkan selisih biaya dan kontribusi, bukan bukti lokasi B akan memperoleh pelanggan tersebut.",
+      "case": true
+    },
+    {
+      "id": "coffee-shop-19",
+      "module_ids": [
+        "CS03"
+      ],
+      "objective": "CS03-recipe-usable-yield",
+      "type": "single_choice",
+      "prompt": "Sirup dibeli Rp75.000 per botol berisi 750 ml, tetapi 30 ml selalu tersisa dan tidak dapat digunakan. Berapa biaya efektif sirup untuk takaran 20 ml berdasarkan isi yang benar-benar bisa dipakai?",
+      "choices": [
+        "Rp2.000, karena isi yang tertulis pada label tetap menjadi penyebut meskipun 30 ml tidak terpakai.",
+        "Rp1.920, karena kehilangan sirup dianggap diskon yang mengurangi biaya per sajian.",
+        "Sekitar Rp2.083, karena biaya dibagi 720 ml yang benar-benar dapat dipakai.",
+        "Rp2.500, karena sisa 30 ml harus ditambahkan ke takaran setiap pesanan yang terjual."
+      ],
+      "correct_index": 2,
+      "explanation": "Volume yang dapat digunakan = 750−30 = 720 ml, sehingga biaya 20 ml = Rp75.000/720×20 ≈ Rp2.083. Kerugian yield harus dipisah dari takaran resep dan tidak dianggap gratis.",
+      "case": false
+    },
+    {
+      "id": "coffee-shop-20",
+      "module_ids": [
+        "CS04"
+      ],
+      "objective": "CS04-equipment-total-cost-and-uncertainty",
+      "type": "single_choice",
+      "prompt": "Dua mesin dapat memenuhi beban puncak menurut pengujian awal. Komponen biaya dua tahun mesin A Rp55 juta, mesin B Rp58 juta. Riwayat servis dan lama downtime A belum diketahui. Apa kesimpulan yang paling dapat dipertanggungjawabkan?",
+      "choices": [
+        "Mesin B pasti lebih hemat karena harga totalnya lebih mahal dan dapat dianggap mewakili kualitas yang lebih stabil.",
+        "Mesin A pasti lebih hemat secara keseluruhan karena Rp55 juta sudah mencakup seluruh risiko kerusakan dan antrean.",
+        "Biaya alat sebaiknya diabaikan selama target penjualan bulanan cukup untuk melunasi investasi yang direncanakan.",
+        "A lebih murah pada komponen yang sudah dihitung, tetapi keputusan final memerlukan bukti servis, downtime dan utilitas."
+      ],
+      "correct_index": 3,
+      "explanation": "A unggul Rp3 juta pada komponen yang masuk tabel. Tanpa data kualitas dukungan servis, risiko downtime dan kebutuhan instalasi, selisih itu belum membuktikan A paling hemat dalam operasi nyata.",
+      "case": true
+    },
+    {
+      "id": "coffee-shop-21",
+      "module_ids": [
+        "CS05"
+      ],
+      "objective": "CS05-pos-cash-reconciliation",
+      "type": "single_choice",
+      "prompt": "Laci kas memiliki uang kembalian awal Rp300.000, penjualan tunai neto menurut POS Rp1.250.000 dan pengeluaran kas kecil berstruk Rp50.000. Uang fisik akhir hanya Rp1.480.000. Apa yang seharusnya dicatat?",
+      "choices": [
+        "Uang seharusnya Rp1.500.000, ada selisih kurang Rp20.000 yang harus ditelusuri dari bukti dan transaksi.",
+        "Uang seharusnya Rp1.200.000, sehingga terdapat kelebihan Rp280.000 yang boleh menjadi bonus shift.",
+        "Uang seharusnya Rp1.550.000, karena pengeluaran kas kecil harus ditambahkan ke semua penerimaan.",
+        "Tidak ada selisih karena uang kembalian awal bukan bagian dari laci dan tidak perlu direkonsiliasi."
+      ],
+      "correct_index": 0,
+      "explanation": "Expected cash = Rp300.000+Rp1.250.000−Rp50.000 = Rp1.500.000. Selisih fisik = Rp1.480.000−Rp1.500.000 = −Rp20.000; penyebab perlu diperiksa tanpa langsung menyalahkan pekerja.",
+      "case": false
+    },
+    {
+      "id": "coffee-shop-22",
+      "module_ids": [
+        "CS06"
+      ],
+      "objective": "CS06-cold-storage-operational-safety-stop",
+      "type": "single_choice",
+      "prompt": "Saat kedai ramai, chiller bahan susu menunjukkan gangguan dan staf tak memiliki bukti suhu penyimpanan sepanjang gangguan. Apa langkah operator yang paling bertanggung jawab?",
+      "choices": [
+        "Terus gunakan susu selama rasanya masih normal, lalu tanyakan pendapat pelanggan setelah minuman diterima.",
+        "Tahan penggunaan bahan yang berisiko, periksa SOP dan bukti kondisi, serta komunikasikan menu terdampak.",
+        "Tambahkan es pada semua minuman agar rasa dingin dapat menggantikan evaluasi keamanan stok dalam chiller.",
+        "Gunakan bahan dari chiller tersebut lebih dulu supaya pengeluaran bahan tidak terlihat sebagai kerugian."
+      ],
+      "correct_index": 1,
+      "explanation": "Kondisi bahan perlu dinilai menggunakan catatan keamanan dan SOP yang berlaku. Penampilan atau rasa tidak menjamin keamanan; layanan untuk menu terdampak ditahan sampai keputusan layak dibuat.",
+      "case": true
+    },
+    {
+      "id": "coffee-shop-23",
+      "module_ids": [
+        "CS07"
+      ],
+      "objective": "CS07-staff-person-hours-versus-legal-roster",
+      "type": "single_choice",
+      "prompt": "Satu kedai membutuhkan dua orang bekerja bersamaan selama enam jam puncak dan satu orang selama empat jam lain. Berapa kebutuhan jam-orang untuk tugas tersebut, sebelum istirahat, opening dan closing dihitung?",
+      "choices": [
+        "10 jam-orang, karena enam jam dan empat jam cukup dijumlahkan tanpa memperhitungkan jumlah orang.",
+        "12 jam-orang, karena jam saat dua orang bekerja tidak dianggap sebagai waktu kerja keduanya.",
+        "16 jam-orang, karena 2×6+1×4; ini belum menjadi jadwal kerja yang otomatis memenuhi hukum.",
+        "20 jam-orang, karena setiap interval harus dikalikan dua walaupun sebagian hanya butuh satu orang."
+      ],
+      "correct_index": 2,
+      "explanation": "Enam jam dengan dua orang menghasilkan 12 jam-orang, ditambah empat jam dengan satu orang = 16 jam-orang. Roster masih harus mempertimbangkan istirahat, kewajiban legal, training dan cadangan.",
+      "case": false
+    },
+    {
+      "id": "coffee-shop-24",
+      "module_ids": [
+        "CS08"
+      ],
+      "objective": "CS08-promotion-incremental-contribution-interpretation",
+      "type": "single_choice",
+      "prompt": "Kedai mengeluarkan Rp600.000 untuk promosi. Ada 50 transaksi terkait dengan penerimaan bersih Rp25.000 dan biaya variabel Rp12.000 per cup. Pernyataan mana paling tepat tentang hasil kampanye?",
+      "choices": [
+        "Omzet bruto Rp1.250.000 merupakan laba bersih karena biaya produksi tidak relevan bila pelanggan datang dari promosi.",
+        "Kontribusi sebelum iklan Rp650.000 sudah otomatis merupakan tambahan keuntungan, tanpa perlu menguji pembelian biasa.",
+        "Promosi menghasilkan rugi Rp600.000, sebab biaya iklan selalu menghapus seluruh kontribusi dari transaksi promosi.",
+        "Selisih kontribusi teramati setelah iklan Rp50.000; keuntungan tambahan belum terbukti karena pembelian tanpa promo belum diketahui."
+      ],
+      "correct_index": 3,
+      "explanation": "50×(25.000−12.000)−600.000 = Rp50.000 sebelum biaya tetap dan dampak transaksi yang akan terjadi tanpa promosi. Atribusi serta repeat perlu dievaluasi sebelum menyebut kampanye menguntungkan.",
       "case": true
     }
   ]
