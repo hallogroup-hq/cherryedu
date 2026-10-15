@@ -18,7 +18,7 @@ function lessons(pathName,prefix){
 }
 const specs=[
  {slug:'green-coffee',route:'green-coffee-v2',path:'greenCoffeeV2Course',prefix:'GREEN_COFFEE_V2',lessons:32,modPrefix:'GC',scenario:'GREEN_COFFEE_SCENARIOS',exercises:4},
- {slug:'coffee-shop',route:'coffee-shop-v2',path:'coffeeShopV2Course',prefix:'COFFEE_SHOP_V2',lessons:24,modPrefix:'CS',scenario:'COFFEE_SHOP_SCENARIOS',exercises:3},
+ {slug:'coffee-shop',route:'coffee-shop-v2',path:'coffeeShopV2Course',prefix:'COFFEE_SHOP_V2',lessons:40,modPrefix:'CS',scenario:'COFFEE_SHOP_SCENARIOS',exercises:5},
  {slug:'q-processor',route:'q-processor-v2',path:'qProcessorV2Course',prefix:'Q_PROCESSOR_V2',lessons:24,modPrefix:'QP',scenario:'Q_PROCESSOR_SCENARIOS',exercises:3}
 ];
 const allLessonIds=new Set(),allTitles=new Set(),allDeepDiveHeadings=new Set(),allExamIds=new Set(),allStems=new Set();
@@ -45,7 +45,7 @@ for(const spec of specs){
   if(allTitles.has(norm(l.title)))fail('duplicate lesson title '+l.title);allTitles.add(norm(l.title));
   const wc=l.content.trim().split(/\s+/).length;
   // Minimum depth plus a distinct, teachable subtopic; word count alone is not academic sign-off.
-  if(wc<290)fail('thin conceptual lesson '+l.id+': '+wc+' words');
+  if(wc<(spec.slug==='coffee-shop'?450:290))fail('thin conceptual lesson '+l.id+': '+wc+' words');
   const deepDiveHeadings=(l.content.match(/^### .+$/gm)||[]).map(h=>norm(h));
   if(!deepDiveHeadings.length)fail('missing lesson-specific teaching deep dive '+l.id);
   for(const heading of deepDiveHeadings){
