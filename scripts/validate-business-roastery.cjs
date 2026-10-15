@@ -24,11 +24,12 @@ const forbidden=/\b(?:DRAFT|PREVIEW|BETA|TBD|COMING SOON|LOREM IPSUM)\b/i;
 for(const l of lessons){
  if(!modules.some(m=>m.code===l.moduleId))fail('Orphan lesson '+l.id);
  if(l.content.trim().split(/\s+/).length<250)fail('Thin lesson '+l.id);
- if(!l.content.includes('**A · Brand asset-light:**')||!l.content.includes('**B · Fasilitas kecil:**')||!l.content.includes('**C · Roastery berkembang:**'))fail('Missing three-model business comparison '+l.id);
- for(const phrase of ['Apa dampaknya bagi tiga jenis roastery?','Tugas yang bisa kamu kerjakan','Kesalahan yang harus dicegah','Checkpoint pemahaman'])if(!l.content.includes(phrase))fail('Missing lesson section '+l.id+' '+phrase);
+ if(!l.content.includes('**Jika memakai jasa sangrai:**')||!l.content.includes('**Jika menyangrai kopi sendiri:**')||!l.content.includes('**Jika mengelola pesanan lebih besar:**'))fail('Missing accessible business comparison '+l.id);
+ for(const phrase of ['Contohnya dalam usaha kopi sehari-hari','Tugas yang bisa kamu kerjakan','Kesalahan yang harus dicegah','Checkpoint pemahaman'])if(!l.content.includes(phrase))fail('Missing lesson section '+l.id+' '+phrase);
  if(!l.task||!l.trap||!l.content.includes(l.task)||!l.content.includes(l.trap))fail('Missing unique operational task or mistake '+l.id);
  if(/Lengkapi tiga kolom:|Bila hasil kasus berbeda dari ekspektasi|Keputusan akhir harus dapat diperiksa ulang ketika penawaran/.test(l.content))fail('Generic repeated assignment boilerplate '+l.id);
  if(forbidden.test(l.title+' '+l.content))fail('Internal/editorial copy '+l.id);
+ if(/\basset-light\b|\*\*[ABC] · |Apa dampaknya bagi tiga jenis roastery\?/i.test(l.content))fail('Business jargon or letter-coded scenario leaked to students '+l.id);
 }
 // Pedagogical anti-boilerplate gate: prevent recurring 139-word scenario block
 // and one-size-fits-all checkpoint from silently passing word-count checks.
@@ -38,7 +39,7 @@ const extractLessonSection=(value,heading,nextHeading)=>{
  const end=nextHeading?value.indexOf(nextHeading,start+heading.length):-1;
  return value.slice(start+heading.length,end<0?undefined:end).trim().replace(/\s+/g,' ');
 };
-const teachingBlocks=lessons.map(l=>extractLessonSection(l.content,'### Apa dampaknya bagi tiga jenis roastery?','### Tugas yang bisa kamu kerjakan'));
+const teachingBlocks=lessons.map(l=>extractLessonSection(l.content,'### Contohnya dalam usaha kopi sehari-hari','### Tugas yang bisa kamu kerjakan'));
 const diagnosticBlocks=lessons.map(l=>extractLessonSection(l.content,'### Checkpoint pemahaman'));
 if(teachingBlocks.some(x=>!x))fail('Missing scenario-specific teaching section');
 if(diagnosticBlocks.some(x=>!x))fail('Missing diagnostic checkpoint');
