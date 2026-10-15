@@ -111,7 +111,7 @@ test('coffee shop syllabus has 8 modules and 5 genuine lessons per module with o
   await expect(modules.nth(i).locator('ol li')).toHaveCount(5);
  }
  await page.goto('/coffee-shop-v2/cs-m08-l05');
- await expect(page.getByRole('heading',{name:'Proyek akhir: merancang pembukaan dan 90 hari pertama kedai'})).toBeVisible();
+ await expect(page.getByRole('article').getByRole('heading',{name:'Proyek akhir: merancang pembukaan dan 90 hari pertama kedai'})).toBeVisible();
  await expect(page.locator('[data-testid="continue-to-final-exam"]')).toHaveAttribute('href','/ujian-akhir/coffee-shop');
  await expect(page.getByRole('region',{name:'Latihan keputusan'})).toBeVisible();
 });
