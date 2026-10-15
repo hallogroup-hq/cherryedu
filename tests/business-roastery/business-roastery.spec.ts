@@ -19,11 +19,11 @@ test('Business Roastery learning copy has familiar Indonesian labels, not A/B/C 
  for(const title of ['Jika memakai jasa sangrai:','Jika menyangrai kopi sendiri:','Jika mengelola pesanan lebih besar:']){
   await expect(page.getByText(title,{exact:false})).toBeVisible();
  }
- const text=await page.locator('main').innerText();
+ const text=await page.locator('main').last().innerText();
  expect(text).not.toMatch(/A · Brand asset-light|B · Fasilitas kecil|C · Roastery berkembang|asset-light/i);
  await page.goto('/business-roastery-v1/models');
  await expect(page.getByText('Menggunakan jasa sangrai',{exact:true})).toBeVisible();
- expect(await page.locator('main').innerText()).not.toMatch(/SKENARIO [ABC]|Brand asset-light/i);
+ expect(await page.locator('main').last().innerText()).not.toMatch(/SKENARIO [ABC]|Brand asset-light/i);
 });
 test('real freight reference preserves Jakarta to Makassar direction and minimum charge',async({page})=>{
  await page.goto('/business-roastery-v1/calculator');
@@ -140,20 +140,20 @@ test('every module field guide is accessible and decision evidence differs by ch
 
 test('three models compare downside and physical capacity without placeholder costs',async({page})=>{
  await page.goto('/business-roastery-v1/models');
- await expect(page.getByRole('heading',{name:'Tiga model, satu permintaan yang sama'})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Tiga cara produksi untuk memenuhi pesanan'})).toBeVisible();
  await expect(page.getByText('Perlu input',{exact:true}).first()).toBeVisible();
- const form=page.getByRole('article').filter({hasText:'SKENARIO A'});
+ const form=page.getByRole('article').filter({hasText:'Menggunakan jasa sangrai'});
  await page.getByRole('spinbutton',{name:/Volume roasted saleable yang benar-benar/}).fill('100');
- await form.getByRole('spinbutton',{name:/Konversi variabel/}).fill('20000');
- await form.getByRole('spinbutton',{name:/Fixed conversion/}).fill('1000000');
- await form.getByRole('spinbutton',{name:/Kapasitas saleable/}).fill('90');
+ await form.getByRole('spinbutton',{name:/Biaya sangrai per kg/}).fill('20000');
+ await form.getByRole('spinbutton',{name:/Biaya tetap per bulan/}).fill('1000000');
+ await form.getByRole('spinbutton',{name:/Kapasitas kopi siap jual per bulan/}).fill('90');
  await expect(form.getByText(/Gap kapasitas rencana:/)).toContainText('10 kg');
  await expect(form.getByText(/Gap kapasitas saat permintaan 60%:/)).toContainText('0 kg');
  await expect(form.getByText(/Biaya konversi bulanan pada target:/)).toContainText('Tidak layak kapasitas');
  await expect(form.getByText(/Biaya per kg di rencana:/)).toContainText('Tidak layak kapasitas');
  await expect(form.getByText(/Biaya per kg jika demand 60%:/)).toContainText('36.667');
  await expect(form.getByRole('alert')).toContainText('kapasitas tidak cukup');
- await form.getByRole('spinbutton',{name:/Kapasitas saleable/}).fill('150');
+ await form.getByRole('spinbutton',{name:/Kapasitas kopi siap jual per bulan/}).fill('150');
  await expect(form.getByRole('alert')).toHaveCount(0);
  await expect(form.getByText(/Biaya konversi bulanan pada target:/)).toContainText('3.000.000');
  await expect(form.getByText(/Biaya per kg di rencana:/)).toContainText('30.000');
