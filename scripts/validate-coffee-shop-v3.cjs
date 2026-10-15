@@ -62,7 +62,9 @@ if(!store.includes("'coffee-shop-v2'")||!store.includes(",8,13]"))fail('Catalog 
 const cards=fs.readFileSync('lib/data/nextSpecialtyScenarios.ts','utf8');
 if((cards.match(/"module": "CS0[1-8]"/g)||[]).length!==8)fail('Eight module scenarios missing');
 const bank=JSON.parse(fs.readFileSync('lib/server/final-exams/coffee-shop.json','utf8'));
-if(bank.items.length!==16)fail('Preexisting 16-question module-aligned exam unexpectedly changed');
+if(bank.items.length!==24||bank.version!=='2026-10-16.1')fail('Exam must contain 24 balanced and versioned questions');
+for(const mod of modules){if(bank.items.filter(q=>q.module_ids.includes(mod.code)).length!==3)fail('Every module needs 3 assessment questions '+mod.code)}
+const keys=bank.items.reduce((a,q)=>(a[q.correct_index]++,a),[0,0,0,0]);if(keys.some(k=>k!==6))fail('Predictable assessment answer position imbalance');
 const sums=[
  {name:'cup-margin',actual:(30000-12000)/30000*100,expected:60},
  {name:'powder-recipe',actual:18*250000/1000,expected:4500},
