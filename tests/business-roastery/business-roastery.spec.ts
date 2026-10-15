@@ -3,15 +3,27 @@ test.beforeEach(async({page})=>{await page.addInitScript(()=>{localStorage.setIt
 test('new independent roastery path exposes 21 modules and 84 lessons',async({page})=>{
  await page.goto('/business-roastery-v1');
  await expect(page.getByRole('heading',{name:'Business Roastery'})).toBeVisible();
- await expect(page.getByRole('heading',{level:2}).filter({hasText:'Tiga jalur membangun roastery'})).toBeVisible();
+ await expect(page.getByRole('heading',{level:2}).filter({hasText:'Tiga cara menjalankan usaha roasting kopi'})).toBeVisible();
  const modules=page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])');
  await expect(modules).toHaveCount(21);
  for(let i=1;i<21;i++)await modules.nth(i).getByRole('button').click();
  await expect(modules.locator('a[href^="/business-roastery-v1/br-b"][href$="-l01"]')).toHaveCount(21);
  await expect(modules.locator('ol li a[href^="/business-roastery-v1/br-b"]')).toHaveCount(84);
- await expect(page.getByText('Asset-light',{exact:true})).toBeVisible();
- await expect(page.getByText('Roastery kecil',{exact:true})).toBeVisible();
- await expect(page.getByText('Roastery berkembang',{exact:true})).toBeVisible();
+ await expect(page.getByText('Menjual kopi dengan bantuan jasa sangrai',{exact:true})).toBeVisible();
+ await expect(page.getByText('Menyangrai kopi dengan mesin sendiri',{exact:true})).toBeVisible();
+ await expect(page.getByText('Melayani pesanan lebih banyak',{exact:true})).toBeVisible();
+});
+test('Business Roastery learning copy has familiar Indonesian labels, not A/B/C business personas',async({page})=>{
+ await page.goto('/business-roastery-v1/br-b01-l01');
+ await expect(page.getByRole('heading',{name:'Contohnya dalam usaha kopi sehari-hari'})).toBeVisible();
+ for(const title of ['Jika memakai jasa sangrai:','Jika menyangrai kopi sendiri:','Jika mengelola pesanan lebih besar:']){
+  await expect(page.getByText(title,{exact:false})).toBeVisible();
+ }
+ const text=await page.locator('main').innerText();
+ expect(text).not.toMatch(/A · Brand asset-light|B · Fasilitas kecil|C · Roastery berkembang|asset-light/i);
+ await page.goto('/business-roastery-v1/models');
+ await expect(page.getByText('Menggunakan jasa sangrai',{exact:true})).toBeVisible();
+ expect(await page.locator('main').innerText()).not.toMatch(/SKENARIO [ABC]|Brand asset-light/i);
 });
 test('real freight reference preserves Jakarta to Makassar direction and minimum charge',async({page})=>{
  await page.goto('/business-roastery-v1/calculator');
