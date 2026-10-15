@@ -57,7 +57,7 @@ for(const spec of specs){
   if(/(?:\bDRAFT\b|\bQA INTERNAL\b|\bPLACEHOLDER\b|\bTODO\b|\bCOMING SOON\b)/i.test(l.title+' '+l.content))fail('internal student copy '+l.id);
  }
  const bank=JSON.parse(file('lib/server/final-exams/'+spec.slug+'.json'));
- if(bank.path!==spec.slug||bank.items.length!==16)fail(spec.slug+' exam inventory should be 16');
+ if(bank.path!==spec.slug||bank.items.length!==(spec.slug==='coffee-shop'?24:16))fail(spec.slug+' exam inventory should be correct for its depth');
  const covered=new Set(),answerPositions=[0,0,0,0],scenes=bank.items.filter(q=>q.case).length;
  for(const q of bank.items){
   if(allExamIds.has(q.id))fail('duplicate exam ID '+q.id);allExamIds.add(q.id);
