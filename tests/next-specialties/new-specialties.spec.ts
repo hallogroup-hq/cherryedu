@@ -29,7 +29,7 @@ for(const p of paths){
   await expect(page.locator('#question-heading')).toBeVisible();
   const exam=await page.request.get('/api/final-exams/'+p.id);
   expect(exam.status()).toBe(200);
-  const j=await exam.json();expect(j.questions).toHaveLength(16);
+  const j=await exam.json();expect(j.questions).toHaveLength(p.id==='coffee-shop'?24:16);
   expect(JSON.stringify(j)).not.toMatch(/correct_index|canonical_answer|explanation/);
  });
  test(p.id+' interactive card is real and offers rationale',async({page})=>{
