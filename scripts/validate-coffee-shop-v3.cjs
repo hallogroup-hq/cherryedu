@@ -41,7 +41,7 @@ for(const l of lessons){
 const last=lessons[lessons.length-1];
 if(last.id!=='cs-m08-l05'||!/90 hari/.test(last.title)||!/Ujian Akhir/.test(last.content))fail('Owner capstone / exam path missing');
 const titleList=[
- ['CS01','cek sebelum menyewa','journey'],
+ ['CS01','cek sebelum menyewa','pelanggan dari datang'],
  ['CS02','pesaing','kontrak sewa'],
  ['CS03','kartu resep','menu yang dipertahankan'],
  ['CS04','penawaran alat','kesiapan'],
