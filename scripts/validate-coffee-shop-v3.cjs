@@ -63,6 +63,9 @@ const cards=fs.readFileSync('lib/data/nextSpecialtyScenarios.ts','utf8');
 if((cards.match(/"module": "CS0[1-8]"/g)||[]).length!==8)fail('Eight module scenarios missing');
 const bank=JSON.parse(fs.readFileSync('lib/server/final-exams/coffee-shop.json','utf8'));
 if(bank.items.length!==24||bank.version!=='2026-10-16.1')fail('Exam must contain 24 balanced and versioned questions');
+const publicExamMeta=fs.readFileSync('lib/finalExamPaths.ts','utf8');
+const expectedCoffeePath=publicExamMeta.match(/\{ slug:'coffee-shop'[^\n]*count:(\d+) \}/);
+if(!expectedCoffeePath||Number(expectedCoffeePath[1])!==bank.items.length)fail('CRITICAL: Coffee Shop public exam metadata count must match bank; otherwise GET /api/final-exams/coffee-shop returns 404');
 for(const mod of modules){if(bank.items.filter(q=>q.module_ids.includes(mod.code)).length!==3)fail('Every module needs 3 assessment questions '+mod.code)}
 const keys=bank.items.reduce((a,q)=>(a[q.correct_index]++,a),[0,0,0,0]);if(keys.some(k=>k!==6))fail('Predictable assessment answer position imbalance');
 const sums=[
