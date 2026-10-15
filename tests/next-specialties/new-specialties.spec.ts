@@ -101,3 +101,45 @@ test('Q Processor online path does not imply CQI accreditation',async({page})=>{
  expect(text).toMatch(/bukan sertifikasi CQI/i);
  expect(text).not.toMatch(/sertifikasi resmi CQI otomatis|terakreditasi oleh CQI/i);
 });
+
+test('coffee shop syllabus has 8 modules and 5 genuine lessons per module with owner capstone at the end',async({page})=>{
+ await page.goto('/coffee-shop-v2');
+ const modules=page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])');
+ await expect(modules).toHaveCount(8);
+ for(let i=0;i<8;i++){
+  await modules.nth(i).getByRole('button').click();
+  await expect(modules.nth(i).locator('ol li')).toHaveCount(5);
+ }
+ await page.goto('/coffee-shop-v2/cs-m08-l05');
+ await expect(page.getByRole('heading',{name:'Proyek akhir: merancang pembukaan dan 90 hari pertama kedai'})).toBeVisible();
+ await expect(page.locator('[data-testid="continue-to-final-exam"]')).toHaveAttribute('href','/ujian-akhir/coffee-shop');
+ await expect(page.getByRole('region',{name:'Latihan keputusan'})).toBeVisible();
+});
+
+test('menu-mix lab calculates contribution per SKU and refuses to invent missing sales data',async({page})=>{
+ await page.goto('/coffee-shop-v2/cs-m03-l05');
+ const lab=page.getByRole('region',{name:'Simulasi kontribusi tiga menu'});
+ await expect(lab.getByRole('status')).toContainText('belum dihitung');
+ await lab.getByRole('textbox',{name:'Nama menu menu 1'}).fill('Kopi Susu');
+ await lab.getByRole('spinbutton',{name:'Jumlah terjual (cup) menu 1'}).fill('300');
+ await lab.getByRole('spinbutton',{name:'Penerimaan per cup sebelum komisi (Rp) menu 1'}).fill('28000');
+ await lab.getByRole('spinbutton',{name:'Biaya variabel selain komisi (Rp/cup) menu 1'}).fill('12000');
+ await lab.getByRole('spinbutton',{name:'Komisi atas penerimaan di atas (%) menu 1'}).fill('0');
+ await expect(lab.getByRole('status')).toContainText(/Rp\\s*4\\.800\\.000/);
+ await expect(lab.getByRole('status')).toContainText('belum lengkap');
+});
+
+test('thirteen-week cash worksheet shows deficit, and blank future weeks remain missing',async({page})=>{
+ await page.goto('/coffee-shop-v2/cs-m05-l04');
+ const lab=page.getByRole('region',{name:'Rencana kas 13 minggu kedai'});
+ await expect(lab.getByRole('status')).toContainText('Masukkan saldo awal');
+ await lab.getByRole('spinbutton',{name:'Saldo kas awal yang benar-benar tersedia (Rp)'}).fill('10000000');
+ await lab.getByRole('spinbutton',{name:'Uang masuk minggu 1 (Rp)'}).fill('6000000');
+ await lab.getByRole('spinbutton',{name:'Uang keluar minggu 1 (Rp)'}).fill('15000000');
+ await expect(lab.getByRole('status')).toContainText('1 dari 13 minggu');
+ await expect(lab.getByRole('status')).toContainText(/Rp\\s*1\\.000\\.000/);
+ await lab.getByRole('spinbutton',{name:'Uang masuk minggu 2 (Rp)'}).fill('0');
+ await lab.getByRole('spinbutton',{name:'Uang keluar minggu 2 (Rp)'}).fill('2000000');
+ await expect(lab.getByRole('status')).toContainText(/-Rp\\s*1\\.000\\.000/);
+ await expect(lab.getByRole('status')).toContainText('kas negatif');
+});
