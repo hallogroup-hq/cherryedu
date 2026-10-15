@@ -21,7 +21,9 @@ export function middleware(request: NextRequest) {
  if(process.env.NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW!=='enabled')return NextResponse.next();
  const parts=request.nextUrl.pathname.split('/').filter(Boolean);
  if(parts[0]!=='paths'||parts.length<2)return NextResponse.next();
- const target=replacements[parts[1]];
+ const nextPreview=process.env.NEXT_PUBLIC_CHERRYEDU_NEXT_SPECIALTY_PREVIEW==='enabled';
+ const newRoutes:Record<string,string>={'post-harvest-specialist':'/green-coffee-v2','coffee-business-management':'/coffee-shop-v2','q-processor-specialization':'/q-processor-v2','green-coffee-v2':'/green-coffee-v2','coffee-shop-v2':'/coffee-shop-v2','q-processor-v2':'/q-processor-v2'};
+ const target=(nextPreview&&newRoutes[parts[1]])||replacements[parts[1]];
  if(!target)return NextResponse.next();
  const url=new URL(target,request.url);
  return NextResponse.redirect(url,307);

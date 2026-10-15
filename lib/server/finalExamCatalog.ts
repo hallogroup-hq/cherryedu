@@ -5,6 +5,9 @@ import homeBrewer from './final-exams/home-brewer.json';
 import roaster from './final-exams/roaster.json';
 import sensory from './final-exams/sensory.json';
 import business from './final-exams/business-roastery.json';
+import greenCoffee from './final-exams/green-coffee.json';
+import coffeeShop from './final-exams/coffee-shop.json';
+import qProcessor from './final-exams/q-processor.json';
 import {FINAL_EXAM_PATHS} from '@/lib/finalExamPaths';
 
 export type ExamItem = {
@@ -13,7 +16,8 @@ export type ExamItem = {
 };
 export type ExamBank = {path:string;version:string;items:ExamItem[]};
 const BANKS:Record<string,ExamBank> = {
- foundation,barista,'home-brewer':homeBrewer,roaster,sensory,'business-roastery':business
+ foundation,barista,'home-brewer':homeBrewer,roaster,sensory,'business-roastery':business,
+ 'green-coffee':greenCoffee,'coffee-shop':coffeeShop,'q-processor':qProcessor
 };
 export type PublicExamItem=Pick<ExamItem,'id'|'module_ids'|'prompt'|'choices'>;
 export function getExam(slug:string) {

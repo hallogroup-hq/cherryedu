@@ -4,9 +4,9 @@ const rupiah=(x:number)=>new Intl.NumberFormat('id-ID',{style:'currency',currenc
 const decimal=(s:string)=>{if(!s.trim())return null;const n=Number(s);return Number.isFinite(n)&&n>=0?n:null;};
 type Scenario={key:'A'|'B'|'C';title:string;subtitle:string};
 const scenarios:Scenario[]=[
-{key:'A',title:'Brand asset-light',subtitle:'Biaya jasa contract roasting, biaya tetap koordinasi dan batas slot mitra'},
-{key:'B',title:'Roastery mesin sendiri',subtitle:'Operator, energi, fixed fasilitas dan kapasitas mesin serta packing'},
-{key:'C',title:'Roastery bertumbuh',subtitle:'Shift/tim lebih besar, QC tambahan dan biaya fasilitas skala komersial'}
+{key:'A',title:'Menggunakan jasa sangrai',subtitle:'Biaya jasa, jadwal produksi mitra, dan jumlah pesanan minimum'},
+{key:'B',title:'Menyangrai dengan mesin sendiri',subtitle:'Biaya operator, listrik, perawatan, dan kapasitas produksi serta pengemasan'},
+{key:'C',title:'Melayani pesanan lebih besar',subtitle:'Pengaturan tim, pemeriksaan mutu, dan kapasitas untuk banyak pesanan'}
 ];
 type FieldName='variable'|'fixed'|'capacity'|'capex';
 const initial:Record<string,Record<FieldName,string>>=Object.fromEntries(scenarios.map(s=>[s.key,{variable:'',fixed:'',capacity:'',capex:''}]));
@@ -16,7 +16,7 @@ export function BusinessModelComparator(){
  const update=(key:string,field:FieldName,val:string)=>setInputs(p=>({...p,[key]:{...p[key],[field]:val}}));
  return <section className="mt-9" aria-label="Perbandingan model bisnis roastery">
   <div className="border-b border-paper-300 pb-5">
-   <h2 className="font-serif text-2xl font-bold text-roast-950">Tiga model, satu permintaan yang sama</h2>
+   <h2 className="font-serif text-2xl font-bold text-roast-950">Tiga cara produksi untuk memenuhi pesanan</h2>
    <p className="mt-3 text-sm leading-7 text-roast-700">Semua harga dimasukkan dari quotation nyata atau asumsi berlabel milikmu. Kalkulasi ini <strong>hanya biaya mengubah green menjadi roasted saleable</strong>, belum green bean, inbound/outbound freight, packaging, pajak dan biaya modal. Buka kalkulator HPP untuk total lengkap.</p>
   </div>
   <label className="mt-6 block max-w-sm text-sm font-semibold text-roast-950">Volume roasted saleable yang benar-benar diperkirakan terjual per bulan (kg)
@@ -32,15 +32,15 @@ export function BusinessModelComparator(){
    const normalFeasible=valid&&gap===0;
    const downsideFeasible=valid&&downsideGap===0;
    return <article key={s.key} className="border-t-2 border-roast-900 bg-paper-100 p-4">
-    <p className="font-mono text-xs font-semibold text-cherry-800">SKENARIO {s.key}</p>
+    <p className="font-mono text-xs font-semibold text-cherry-800">PILIHAN USAHA</p>
     <h3 className="mt-2 font-serif text-xl font-bold text-roast-950">{s.title}</h3>
     <p className="mt-2 min-h-[72px] text-sm leading-6 text-roast-700">{s.subtitle}</p>
     <div className="mt-4 space-y-3">
      {([
-      ['variable','Konversi variabel / kg (Rp)','Biaya per kg output saat diproduksi/dikontrak'],
-      ['fixed','Fixed conversion / bulan (Rp)','Termasuk komitmen minimum / fasilitas tetap'],
-      ['capacity','Kapasitas saleable / bulan (kg)','Dibatasi operasi, QA dan packaging'],
-      ['capex','Investasi awal / CAPEX (Rp)','Uang tunai, bukan biaya variabel/kg']
+      ['variable','Biaya sangrai per kg (Rp)','Biaya per kg output saat diproduksi/dikontrak'],
+      ['fixed','Biaya tetap per bulan (Rp)','Termasuk komitmen minimum / fasilitas tetap'],
+      ['capacity','Kapasitas kopi siap jual per bulan (kg)','Dibatasi operasi, QA dan packaging'],
+      ['capex','Investasi awal (Rp)','Uang tunai, bukan biaya variabel/kg']
      ] as [FieldName,string,string][]).map(([field,title,info])=><label key={field} className="block text-xs font-semibold text-roast-900">{title}
       <span className="block font-normal leading-5 text-roast-600">{info}</span>
       <input type="number" min="0" value={f[field]} onChange={e=>update(s.key,field,e.target.value)} className="mt-1 w-full rounded border border-paper-400 bg-white p-2.5 text-sm text-roast-950"/>

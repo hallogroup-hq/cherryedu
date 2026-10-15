@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {ArrowLeft} from 'lucide-react';
-import {FINAL_EXAM_ENABLED,FINAL_EXAM_PATHS} from '@/lib/finalExamPaths';
+import {FINAL_EXAM_ENABLED,FINAL_EXAM_PATHS,NEXT_SPECIALTY_EXAM_SLUGS,NEXT_SPECIALTY_ENABLED} from '@/lib/finalExamPaths';
 import {FinalExamRunner} from '@/components/final-exams/FinalExamRunner';
 
 export const dynamic='force-dynamic';
@@ -9,6 +9,7 @@ export const metadata={title:'Ujian Akhir | CherryEdu',robots:{index:false,follo
 
 export default function FinalExamPage({params}:{params:{path:string}}){
  if(!FINAL_EXAM_ENABLED())notFound();
+ if(NEXT_SPECIALTY_EXAM_SLUGS.has(params.path)&&!NEXT_SPECIALTY_ENABLED())notFound();
  const exam=FINAL_EXAM_PATHS.find(p=>p.slug===params.path);
  if(!exam)notFound();
  return <div className="min-h-screen bg-paper-50 pb-24 text-roast-950">

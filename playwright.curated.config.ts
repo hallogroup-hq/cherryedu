@@ -16,6 +16,10 @@ export default defineConfig({
   timeout:180000,
   env:{
    NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW:'enabled',
+   // Preserve the legacy-reader regression as a separate cohort. The new
+   // three-course integration is covered by playwright.next-specialties.
+   NEXT_PUBLIC_CHERRYEDU_NEXT_SPECIALTY_PREVIEW:'disabled',
+   CHERRYEDU_NEXT_SPECIALTY_REVIEW:'disabled',
    NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW:'review-only',
    CHERRYEDU_BARISTA_V2_REVIEW:'enabled',
    CHERRYEDU_HOME_BREWER_V2_REVIEW:'enabled',

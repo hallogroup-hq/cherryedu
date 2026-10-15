@@ -76,13 +76,19 @@ const FOUNDATION_V2_PUBLIC_READER_ENABLED = ['review-only', 'public-readonly'].i
 // The curated preview is a separate Vercel branch, not a modification of published paths.
 // One visible version per replaced specialty; other legacy specialties remain unchanged.
 const CURATED_PREVIEW = process.env.NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW === 'enabled';
-const REPLACED_COURSE_IDS = new Set(['path-foundation', 'path-barista', 'path-home-brewer', 'path-roaster', 'path-qgrader']);
+const NEXT_SPECIALTY_PREVIEW = CURATED_PREVIEW && process.env.NEXT_PUBLIC_CHERRYEDU_NEXT_SPECIALTY_PREVIEW === 'enabled';
+const REPLACED_COURSE_IDS = new Set(['path-foundation', 'path-barista', 'path-home-brewer', 'path-roaster', 'path-qgrader', ...(NEXT_SPECIALTY_PREVIEW ? ['path-post-harvest','path-coffee-business','path-q-processor'] : [])]);
 const previewSpecialties: LearningPath[] = CURATED_PREVIEW ? [
   ['path-barista','path-barista-curated','barista-v2','Barista Specialization','Pahami ekstraksi dan pelayanan melalui eksperimen, pemecahan masalah espresso, dan pengembangan minuman sendiri.',12,38],
   ['path-home-brewer','path-home-brewer-curated','home-brewer-v2','Home Brewer Specialization','Belajar merancang resep berdasarkan mekanisme seduh dan eksperimen, bukan menghafal takaran.',10,28],
   ['path-roaster','path-roaster-curated','roaster-v2','Roaster Specialization','Belajar membaca proses roasting, menguji hipotesis, menjaga mutu, dan menyesuaikan keputusan.',10,32],
   ['path-qgrader','path-qgrader-curated','sensory-v2','Q Grader & Sensory Specialist','Bangun kemampuan menilai sensori dan kualitas kopi melalui kerangka CVA dan praktik terarah.',10,32],
-  ['path-coffee-business','path-business-roastery-curated','business-roastery-v1','Business Roastery','Pahami perencanaan dan operasional bisnis roastery Indonesia, dari pembelian green bean hingga kas dan penjualan.',21,52]
+  ['path-coffee-business','path-business-roastery-curated','business-roastery-v1','Business Roastery','Pahami perencanaan dan operasional bisnis roastery Indonesia, dari pembelian green bean hingga kas dan penjualan.',21,52],
+  ...(NEXT_SPECIALTY_PREVIEW ? [
+    ['path-post-harvest','path-green-coffee-curated','green-coffee-v2','Green Coffee & Post-Harvest Processing Specialist','Uji green coffee dengan bukti dari kebun, panen, proses, pengeringan, grading dan ketertelusuran.',8,9],
+    ['path-coffee-business','path-coffee-shop-curated','coffee-shop-v2','Coffee Business & Shop Management Specialist','Rancang bisnis kedai dari validasi pelanggan, HPP dan margin, kapasitas, modal kerja, tim dan pertumbuhan.',8,8],
+    ['path-q-processor','path-q-processor-curated','q-processor-v2','Q Processor Specialization: Bioproses & Pasca-Panen Spesialti','Pelajari kendali proses, risiko fermentasi, wet mill, drying dan QC. Program belajar online ini bukan sertifikasi CQI.',8,8]
+  ] : [])
 ].map(([legacyId,id,slug,title,description,totalModules,estimatedHours]) => {
   const base = BASE_SEED_PATHS.find(p=>p.id===legacyId);
   if(!base) throw new Error('Missing preview source: '+legacyId);

@@ -7,6 +7,9 @@ import { ArrowUpRight } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const pathname = usePathname();
+  const nextSpecialtyPreview =
+    process.env.NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW === 'enabled' &&
+    process.env.NEXT_PUBLIC_CHERRYEDU_NEXT_SPECIALTY_PREVIEW === 'enabled';
 
   if (pathname?.startsWith('/admin')) {
     return null;
@@ -55,8 +58,8 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/paths/q-processor-specialization" className="hover:text-white transition-colors text-crema-300 font-semibold">
-                  Q Processing Specialist (CQI)
+                <Link href={nextSpecialtyPreview ? "/q-processor-v2" : "/paths/q-processor-specialization"} className="hover:text-white transition-colors text-crema-300 font-semibold">
+                  Q Processor Specialization
                 </Link>
               </li>
               <li>

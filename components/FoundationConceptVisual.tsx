@@ -75,6 +75,82 @@ const flows:Record<string,Flow> = {
     {label:'Baca klaim',detail:'Apa persisnya yang dikatakan sebuah kemasan?'},{label:'Tentukan cakupan',detail:'Produk, periode, pihak dan ruang lingkupnya apa?'},
     {label:'Cari bukti',detail:'Dokumen lot, transaksi, lahan, metode penilaian yang sesuai.'},{label:'Tulis ulang',detail:'Gunakan tingkat kepastian yang setara dengan bukti.'}
   ]},
+
+  // Additional teaching diagrams for specialty courses; shared renderer/layout unchanged.
+  'farm-multi-factor':{title:'Mengapa kebun dengan elevasi serupa bisa berbeda?',scope:'Peta faktor untuk observasi; hubungan bukan bukti sebab tunggal.',grid:true,steps:[
+    {label:'Lokasi dan mikroiklim',detail:'Hujan, suhu setempat, paparan angin, naungan dan bentuk lahan.'},
+    {label:'Tanaman dan tanah',detail:'Spesies, bahan tanam, usia, akar, drainase dan pengelolaan kebun.'},
+    {label:'Saat panen',detail:'Waktu pembungaan, tahap kematangan, sampling dan proporsi ceri disisihkan.'},
+    {label:'Setelah panen',detail:'Proses, drying dan sampel roasting harus dibandingkan secara sebanding.'}
+  ]},
+  'lot-traceability':{title:'Satu karung green ditelusuri ke bahan awal',scope:'Setiap perpindahan perlu kode dan rekam timbang; kode tanpa bukti tidak cukup.',steps:[
+    {label:'Asal bahan',detail:'Blok, petani/kelompok, tanggal panen, identitas dan kondisi ceri.'},
+    {label:'Penerimaan',detail:'Netto, sortasi, waktu, keputusan reject/hold, dan petugas.'},
+    {label:'Batch proses',detail:'Kode turunan, metode, alat, log kondisi dan seluruh insiden.'},
+    {label:'Drying dan milling',detail:'Status water activity/kadar air, green kasar, reject dan green saleable.'},
+    {label:'Buyer',detail:'Spesifikasi, hasil pemeriksaan, dokumen serah terima dan status release.'}
+  ]},
+  'wet-mill-hygiene':{title:'Aliran bersih dan aliran limbah tidak boleh tertukar',scope:'Skema titik pengendalian; bukan petunjuk desain instalasi pengolahan limbah.',grid:true,steps:[
+    {label:'Bahan masuk',detail:'Ceri diterima, diperiksa dan dipisahkan menurut identitas serta status.'},
+    {label:'Air proses',detail:'Kualitas air dinilai sesuai penggunaan dan risiko kontak dengan bahan.'},
+    {label:'Alat dan operator',detail:'Sanitasi terjadwal, kondisi mesin, keselamatan dan verifikasi pekerjaan.'},
+    {label:'Residu dan air limbah',detail:'Pulp serta air limbah dikelola mengikuti kapasitas, izin dan prosedur fasilitas.'}
+  ]},
+  'carbonic-safety':{title:'Bedakan klaim proses dari izin operasional yang aman',scope:'Diagram keputusan keselamatan, bukan instruksi injeksi atau operasi gas.',steps:[
+    {label:'Definisikan proses',detail:'Lingkungan oksigen terbatas tidak selalu berarti memakai injeksi CO₂.'},
+    {label:'Periksa bahaya',detail:'Asfiksia, tekanan, ventilasi, area tertutup dan akses operator.'},
+    {label:'Minta bukti fasilitas',detail:'Analisis risiko, perangkat yang layak, monitoring dan prosedur darurat.'},
+    {label:'Otorisasi',detail:'Operator kompeten dan penanggung jawab menyetujui kegiatan.'},
+    {label:'Tidak siap?',detail:'Hentikan rencana; jangan jadikan eksperimen kelas sebagai prosedur kerja.'}
+  ]},
+  'shop-demand-evidence':{title:'Minat tidak sama dengan permintaan berbayar',scope:'Urutan pengujian satu konsep kedai; hasil tiap tahap memerlukan sampel yang jelas.',steps:[
+    {label:'Masalah pelanggan',detail:'Catat kebiasaan beli, jam kebutuhan dan alternatif saat ini.'},
+    {label:'Minat yang teramati',detail:'Wawancara/survei membentuk hipotesis, belum membuktikan omzet.'},
+    {label:'Transaksi berbayar',detail:'Pop-up atau preorder menguji keputusan membeli pada harga nyata.'},
+    {label:'Pembelian ulang',detail:'Periksa repeat, keluhan dan kontribusi per pesanan.'}
+  ]},
+  'shop-location-funnel':{title:'Traffic jalan belum berarti penjualan',scope:'Funnel konseptual untuk survei lokasi; konversi nyata harus diukur sendiri.',steps:[
+    {label:'Orang melintas',detail:'Pisahkan arus total dari calon pelanggan di jam buka.'},
+    {label:'Orang dapat berhenti',detail:'Evaluasi akses, keamanan, parkir atau jalur berjalan.'},
+    {label:'Orang memilih membeli',detail:'Uji kesesuaian menu, waktu tunggu dan daya beli.'},
+    {label:'Transaksi berulang',detail:'Bandingkan repeat dan margin dengan biaya sewa tetap.'}
+  ]},
+  'shop-unit-economics':{title:'Satu transaksi, beberapa lapis hasil',scope:'Jangan mengurangi kemasan atau komisi dua kali; angka dari kanal aktual.',steps:[
+    {label:'Harga yang dibayar',detail:'Pisahkan harga daftar, potongan dan dasar pajak sesuai transaksi.'},
+    {label:'Penerimaan merchant',detail:'Periksa fee/komisi dan siapa menanggung voucher.'},
+    {label:'Kontribusi',detail:'Kurangi biaya variabel yang belum dihitung, termasuk bahan dan kemasan.'},
+    {label:'Titik impas',detail:'Bandingkan kontribusi per unit dengan fixed cost dan kapasitas periode.'}
+  ]},
+  'shop-capacity-chain':{title:'Kapasitas bar ditentukan titik kerja tersempit',scope:'Throughput aktual berubah menurut campuran pesanan dan kesiapan staf.',steps:[
+    {label:'Pesanan masuk',detail:'Campuran menu, jam puncak dan sistem pembayaran.'},
+    {label:'Produksi',detail:'Grinder, espresso/steaming, persiapan bahan dan station layout.'},
+    {label:'Serah terima',detail:'Label nama, kemasan, pickup dan titik antrean.'},
+    {label:'Ukur bottleneck',detail:'Catat waktu aktual, order salah, backlog serta efek eksperimen.'}
+  ]},
+  'shop-cash-runway':{title:'Laba dicatat berbeda dari uang yang bisa dibelanjakan',scope:'Jadwal kas memakai tanggal masuk/keluar, bukan tanggal invoice saja.',steps:[
+    {label:'Saldo kas awal',detail:'Bank/tunai yang benar-benar tersedia di awal periode.'},
+    {label:'Uang diterima',detail:'Masukkan settlement/penagihan pada tanggal pencairan realistis.'},
+    {label:'Pembayaran jatuh tempo',detail:'Stok, sewa, gaji, pajak, servis dan cicilan.'},
+    {label:'Saldo dan pemicu tindakan',detail:'Cek kas minimum, buffer dan pilihan yang bisa dilakukan sebelum negatif.'}
+  ]},
+  'shop-layout-flow':{title:'Pesanan bergerak melewati stasiun kerja',scope:'Alur konseptual; tata letak fisik dan keselamatan harus mengikuti alat serta bangunan nyata.',steps:[
+    {label:'Penerimaan pesanan',detail:'Klarifikasi modifikasi, pembayaran dan label produk.'},
+    {label:'Persiapan',detail:'Bahan yang benar, stok aman, alat siap dan area tidak saling silang.'},
+    {label:'Pembuatan',detail:'Ekstraksi, susu atau produk lain dengan prosedur sesuai tujuan mutu.'},
+    {label:'Serah terima & cuci',detail:'Nama cocok, pengecekan pesanan dan jalur kotor dipisah dari bahan siap pakai.'}
+  ]},
+  'shop-safe-service':{title:'Keamanan pangan memerlukan empat titik verifikasi',scope:'Panduan keputusan, bukan pengganti pelatihan keamanan pangan atau aturan lokal.',grid:true,steps:[
+    {label:'Penerimaan bahan',detail:'Sumber, kondisi kemasan, suhu bila relevan dan status alergen.'},
+    {label:'Penyimpanan',detail:'Batas penggunaan, pemisahan, FEFO dan inspeksi rutin.'},
+    {label:'Produksi',detail:'Kebersihan peralatan, cuci tangan, alergen dan kontrol kontak silang.'},
+    {label:'Komunikasi tamu',detail:'Jujur tentang bahan serta risiko yang tidak dapat dijamin fasilitas.'}
+  ]},
+  'shop-owner-dashboard':{title:'Dari metrik menuju satu keputusan yang terukur',scope:'KPI harus menggunakan sumber data, periode dan definisi yang konsisten.',steps:[
+    {label:'Apa yang berubah?',detail:'Omzet, kontribusi per kanal, repeat, waste atau komplain.'},
+    {label:'Apa dugaan penyebabnya?',detail:'Bandingkan jadwal, stok, promo, waktu tunggu dan perubahan biaya.'},
+    {label:'Apa yang diuji?',detail:'Pilih satu tindakan, penanggung jawab dan tolok ukur sebelum uji.'},
+    {label:'Apa hasilnya?',detail:'Bandingkan hasil real dengan baseline dan catat keputusan berikutnya.'}
+  ]},
 };
 const shades=['#778464','#CDB57A','#AD835B','#855137','#422D25'];
 function RoastBeans(){
