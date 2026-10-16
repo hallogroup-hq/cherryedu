@@ -101,3 +101,30 @@ test('Q Processor online path does not imply CQI accreditation',async({page})=>{
  expect(text).toMatch(/bukan sertifikasi CQI/i);
  expect(text).not.toMatch(/sertifikasi resmi CQI otomatis|terakreditasi oleh CQI/i);
 });
+
+
+test('Green V3 Indonesian grading and harvesting material is available in existing reader',async({page})=>{
+ await page.goto('/green-coffee-v2/gc-m01-l05');
+ await expect(page.getByRole('article')).toContainText('SNI 2907:2008');
+ await expect(page.getByRole('article')).toContainText('pengambilan sampel');
+ await expect(page.getByRole('article').getByRole('link',{name:/BSN.*SNI 2907/})).toHaveAttribute('href',/pesta\.bsn\.go\.id/);
+ await page.goto('/green-coffee-v2/gc-m04-l05');
+ await expect(page.getByRole('article')).toContainText('Studi lapangan Jawa Barat');
+ await expect(page.getByRole('article')).toContainText('bukan hasil menimbang langsung');
+ await page.goto('/green-coffee-v2/gc-m08-l05');
+ await expect(page.getByRole('article')).toContainText('Tugas akhir: portofolio');
+ await expect(page.locator('[data-testid="continue-to-final-exam"]')).toHaveAttribute('href','/ujian-akhir/green-coffee');
+ await page.locator('[data-testid="continue-to-final-exam"]').click();
+ const api=await page.request.get('/api/final-exams/green-coffee');
+ expect(api.status()).toBe(200);
+ expect((await api.json()).questions).toHaveLength(24);
+});
+
+test('Green V3 new long-form material keeps mobile reader navigation accessible',async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ await page.goto('/green-coffee-v2/gc-m07-l05');
+ await expect(page.getByRole('article')).toContainText('SNI 2907:2008');
+ await expect(page.getByRole('button',{name:'Buka daftar materi'})).toBeVisible();
+ await page.getByRole('button',{name:'Buka daftar materi'}).click();
+ await expect(page.getByRole('navigation',{name:'Pilih materi'}).getByRole('link')).toHaveCount(40);
+});
