@@ -17,7 +17,7 @@ function lessons(pathName,prefix){
  return {modules:read('MODULES'),lessons:read('LESSONS'),source:src};
 }
 const specs=[
- {slug:'green-coffee',route:'green-coffee-v2',path:'greenCoffeeV2Course',prefix:'GREEN_COFFEE_V2',lessons:32,modPrefix:'GC',scenario:'GREEN_COFFEE_SCENARIOS',exercises:4},
+ {slug:'green-coffee',route:'green-coffee-v2',path:'greenCoffeeV2Course',prefix:'GREEN_COFFEE_V2',lessons:40,modPrefix:'GC',scenario:'GREEN_COFFEE_SCENARIOS',exercises:5},
  {slug:'coffee-shop',route:'coffee-shop-v2',path:'coffeeShopV2Course',prefix:'COFFEE_SHOP_V2',lessons:24,modPrefix:'CS',scenario:'COFFEE_SHOP_SCENARIOS',exercises:3},
  {slug:'q-processor',route:'q-processor-v2',path:'qProcessorV2Course',prefix:'Q_PROCESSOR_V2',lessons:24,modPrefix:'QP',scenario:'Q_PROCESSOR_SCENARIOS',exercises:3}
 ];
@@ -57,7 +57,7 @@ for(const spec of specs){
   if(/(?:\bDRAFT\b|\bQA INTERNAL\b|\bPLACEHOLDER\b|\bTODO\b|\bCOMING SOON\b)/i.test(l.title+' '+l.content))fail('internal student copy '+l.id);
  }
  const bank=JSON.parse(file('lib/server/final-exams/'+spec.slug+'.json'));
- if(bank.path!==spec.slug||bank.items.length!==16)fail(spec.slug+' exam inventory should be 16');
+ if(bank.path!==spec.slug||bank.items.length!==(spec.slug==='green-coffee'?24:16))fail(spec.slug+' exam inventory mismatched declared path');
  const covered=new Set(),answerPositions=[0,0,0,0],scenes=bank.items.filter(q=>q.case).length;
  for(const q of bank.items){
   if(allExamIds.has(q.id))fail('duplicate exam ID '+q.id);allExamIds.add(q.id);
