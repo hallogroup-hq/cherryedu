@@ -151,6 +151,40 @@ const flows:Record<string,Flow> = {
     {label:'Apa yang diuji?',detail:'Pilih satu tindakan, penanggung jawab dan tolok ukur sebelum uji.'},
     {label:'Apa hasilnya?',detail:'Bandingkan hasil real dengan baseline dan catat keputusan berikutnya.'}
   ]},
+
+  'shop-lease-tradeoff':{title:'Sewa murah belum tentu modal pembukaan ringan',scope:'Bandingkan pengeluaran kas awal, biaya bulanan dan kondisi kontrak. Angka harus diambil dari lokasi nyata.',grid:true,steps:[
+    {label:'Pengeluaran hari pertama',detail:'Deposit, uang muka sewa, biaya instalasi dan perbaikan.'},
+    {label:'Biaya bulanan',detail:'Sewa, service charge, utilitas dan pengeluaran rutin lain.'},
+    {label:'Kemampuan mendapatkan transaksi',detail:'Akses pelanggan, jam ramai, harga serta kontribusi tiap pesanan.'},
+    {label:'Risiko yang harus lolos dulu',detail:'Kelayakan air, listrik, sanitasi, izin kegiatan dan hak renovasi.'}
+  ]},
+  'shop-menu-decisions':{title:'Laris dan menghasilkan kontribusi adalah dua pertanyaan',scope:'Empat kemungkinan untuk meninjau menu; angka popularitas/kontribusi diukur dari data kedai.',grid:true,steps:[
+    {label:'Sering dibeli • Kontribusi baik',detail:'Pertahankan mutu dan suplai. Jangan mengubah resep hanya agar terlihat baru.'},
+    {label:'Sering dibeli • Kontribusi rendah',detail:'Periksa porsi, harga neto, bahan, komisi dan bahan terbuang.'},
+    {label:'Jarang dibeli • Kontribusi baik',detail:'Uji cara pelanggan menemukan dan memahami produk sebelum menghapusnya.'},
+    {label:'Jarang dibeli • Kontribusi rendah',detail:'Periksa masa uji, bahan unik, perbaikan resep, atau hentikan secara terukur.'}
+  ]},
+  'shop-cash-weekly':{title:'Untung di laporan tidak menjamin bisa membayar Senin',scope:'Skema waktu, bukan angka kas pasti. Uji juga defisit di tengah minggu, bukan saldo akhir saja.',steps:[
+    {label:'Barang dan tagihan datang',detail:'Persediaan dan kewajiban bertambah meskipun uang belum keluar.'},
+    {label:'Pembayaran jatuh tempo',detail:'Pemasok, gaji dan sewa keluar pada tanggal kontrak.'},
+    {label:'Penjualan terjadi',detail:'Tercatat di POS; metode bayar menentukan kapan uang benar-benar masuk.'},
+    {label:'Settlement masuk bank',detail:'Potongan, refund, dan tanggal pencairan dijelaskan dari laporan.'},
+    {label:'Revisi proyeksi',detail:'Bandingkan tanggal realisasi dan rencana, lalu perpanjang lagi 13 minggu.'}
+  ]},
+  'shop-staff-coverage':{title:'Dari jadwal buka menuju kebutuhan orang',scope:'Jam-orang bukan jadwal kerja legal. Atur istirahat, pengganti dan aturan lokal secara terpisah.',steps:[
+    {label:'Beban pelanggan per jam',detail:'Catat puncak dan waktu sepi beserta campuran menu.'},
+    {label:'Tugas tiap stasiun',detail:'Kasir, bar, kebersihan, receiving, pelayanan dan penutupan.'},
+    {label:'Jumlah orang yang dibutuhkan',detail:'Kalikan jumlah orang tiap interval dengan lama penugasan.'},
+    {label:'Roster yang layak',detail:'Perhitungkan istirahat, pelatihan, hak pekerja, libur dan staf pengganti.'},
+    {label:'Uji dan koreksi',detail:'Amati antrean, remake, beban tim dan kualitas layanan.'}
+  ]},
+  'shop-owner-go-no-go':{title:'Satu keputusan membuka kedai harus lolos beberapa gerbang',scope:'Bukan sertifikasi atau pengganti inspeksi instansi; bukti lapangan harus diperoleh sendiri.',steps:[
+    {label:'Ada pelanggan yang benar-benar membeli?',detail:'Tunjukkan transaksi uji, alternatif pasar dan ketidakpastiannya.'},
+    {label:'Lokasi dan keselamatan layak?',detail:'Periksa kontrak, fasilitas, air, higiene, izin dan aturan kerja.'},
+    {label:'Menu bisa dibuat dan tetap menghasilkan?',detail:'Gunakan kartu resep, unit economics, data kapasitas dan mutu.'},
+    {label:'Kas cukup sepanjang periode?',detail:'Hitung saldo terendah, deposit, pembayaran supplier dan jadwal gaji.'},
+    {label:'Go, tunda atau jangan buka?',detail:'Tetapkan bukti yang belum ada, PIC dan tanggal keputusan ulang.'}
+  ]},
 };
 const shades=['#778464','#CDB57A','#AD835B','#855137','#422D25'];
 function RoastBeans(){

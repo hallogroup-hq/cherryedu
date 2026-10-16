@@ -2,7 +2,7 @@ import {test,expect} from '@playwright/test';
 test.beforeEach(async({page})=>page.addInitScript(()=>localStorage.setItem('cherry_seen_version_v1_2','true')));
 const paths=[
  {id:'green-coffee',route:'/green-coffee-v2',first:'gc-m01-l01',last:'gc-m08-l04',lab:'gc-m07-l04',modules:8,lessons:32},
- {id:'coffee-shop',route:'/coffee-shop-v2',first:'cs-m01-l01',last:'cs-m08-l03',lab:'cs-m03-l03',modules:8,lessons:24},
+ {id:'coffee-shop',route:'/coffee-shop-v2',first:'cs-m01-l01',last:'cs-m08-l05',lab:'cs-m03-l05',modules:8,lessons:40},
  {id:'q-processor',route:'/q-processor-v2',first:'qp2-m01-l01',last:'qp2-m08-l03',lab:'qp2-m07-l03',modules:8,lessons:24}
 ];
 for(const p of paths){
@@ -29,11 +29,11 @@ for(const p of paths){
   await expect(page.locator('#question-heading')).toBeVisible();
   const exam=await page.request.get('/api/final-exams/'+p.id);
   expect(exam.status()).toBe(200);
-  const j=await exam.json();expect(j.questions).toHaveLength(16);
+  const j=await exam.json();expect(j.questions).toHaveLength(p.id==='coffee-shop'?24:16);
   expect(JSON.stringify(j)).not.toMatch(/correct_index|canonical_answer|explanation/);
  });
  test(p.id+' interactive card is real and offers rationale',async({page})=>{
-  const example=p.id==='green-coffee'?'gc-m03-l04':p.id==='coffee-shop'?'cs-m03-l03':'qp2-m03-l03';
+  const example=p.id==='green-coffee'?'gc-m03-l04':p.id==='coffee-shop'?'cs-m03-l05':'qp2-m03-l03';
   await page.goto(p.route+'/'+example);
   const lab=page.getByRole('region',{name:'Latihan keputusan'});
   await expect(lab).toBeVisible();
@@ -100,4 +100,74 @@ test('Q Processor online path does not imply CQI accreditation',async({page})=>{
  const text=await page.locator('main').innerText();
  expect(text).toMatch(/bukan sertifikasi CQI/i);
  expect(text).not.toMatch(/sertifikasi resmi CQI otomatis|terakreditasi oleh CQI/i);
+});
+
+test('coffee shop syllabus has 8 modules and 5 genuine lessons per module with owner capstone at the end',async({page})=>{
+ await page.goto('/coffee-shop-v2');
+ const modules=page.locator('section[aria-labelledby^="course-"]:not([aria-labelledby="course-modules"])');
+ await expect(modules).toHaveCount(8);
+ for(let i=0;i<8;i++){
+  if(i>0)await modules.nth(i).getByRole('button').click();
+  await expect(modules.nth(i).locator('ol li')).toHaveCount(5);
+ }
+ await page.goto('/coffee-shop-v2/cs-m08-l05');
+ await expect(page.getByRole('article').getByRole('heading',{name:'Proyek akhir: merancang pembukaan dan 90 hari pertama kedai'})).toBeVisible();
+ await expect(page.locator('[data-testid="continue-to-final-exam"]')).toHaveAttribute('href','/ujian-akhir/coffee-shop');
+ await expect(page.getByRole('region',{name:'Latihan keputusan'})).toBeVisible();
+});
+
+test('menu-mix lab calculates contribution per SKU and refuses to invent missing sales data',async({page})=>{
+ await page.goto('/coffee-shop-v2/cs-m03-l05');
+ const lab=page.getByRole('region',{name:'Simulasi kontribusi tiga menu'});
+ await expect(lab.getByRole('status')).toContainText('belum dihitung');
+ await lab.getByRole('textbox',{name:'Nama menu menu 1'}).fill('Kopi Susu');
+ await lab.getByRole('spinbutton',{name:'Jumlah terjual (cup) menu 1'}).fill('300');
+ await lab.getByRole('spinbutton',{name:'Penerimaan per cup sebelum komisi (Rp) menu 1'}).fill('28000');
+ await lab.getByRole('spinbutton',{name:'Biaya variabel selain komisi (Rp/cup) menu 1'}).fill('12000');
+ await lab.getByRole('spinbutton',{name:'Komisi atas penerimaan di atas (%) menu 1'}).fill('0');
+ await expect(lab.getByRole('status')).toContainText(/Rp\s*4\.800\.000/);
+ await expect(lab.getByRole('status')).toContainText('belum lengkap');
+});
+
+test('Indonesian formats are explained with evidence and actual learner tasks',async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ await page.goto('/coffee-shop-v2/cs-m01-l02');
+ const article=page.getByRole('article');
+ await expect(article.getByRole('heading',{name:/Studi kasus Indonesia: tempat duduk/})).toBeVisible();
+ for(const phrase of ['Kedai dengan tempat duduk','Kios kopi ambil cepat','Gerobak kopi keliling']){
+  await expect(article.getByRole('cell',{name:phrase})).toBeVisible();
+ }
+ await expect(article.getByRole('link',{name:'Laporan Tahunan Fore 2025'})).toHaveAttribute('href',/Annual_Report_FORE_2025\.pdf/);
+ expect(await page.locator('main').evaluate(el=>el.scrollWidth)).toBeLessThanOrEqual(394);
+ await page.goto('/coffee-shop-v2/cs-m02-l01');
+ await expect(page.getByRole('article')).toContainText('waktu berjualan efektif');
+ await page.goto('/coffee-shop-v2/cs-m01-l05');
+ await expect(page.getByRole('article')).toContainText('Studi kasus Tuku');
+ await page.goto('/coffee-shop-v2/cs-m08-l05');
+ await expect(page.getByRole('article')).toContainText('Pilih model usaha yang kamu bisa pertanggungjawabkan');
+});
+test('Indonesia 2026 QRIS fee is not confused with delivery merchant fee',async({page})=>{
+ await page.goto('/coffee-shop-v2/cs-m03-l03');
+ const article=page.getByRole('article');
+ await expect(article).toContainText('1 Oktober 2026');
+ await expect(article).toContainText('Rp840');
+ await expect(article).toContainText('Rp26.250');
+ await expect(article).toContainText('tidak boleh dibebankan');
+ await expect(article).toContainText('GoFood berbeda lagi');
+ await expect(article.getByRole('link',{name:/Bank Indonesia.*1 Oktober 2026/})).toHaveAttribute('href',/sp_2815926\.aspx/);
+ await expect(article.getByRole('link',{name:/GoFood Merchant.*7 Agustus 2026/})).toHaveAttribute('href',/gofoodmerchant\.co\.id/);
+});
+test('thirteen-week cash worksheet shows deficit, and blank future weeks remain missing',async({page})=>{
+ await page.goto('/coffee-shop-v2/cs-m05-l04');
+ const lab=page.getByRole('region',{name:'Rencana kas 13 minggu kedai'});
+ await expect(lab.getByRole('status')).toContainText('Masukkan saldo awal');
+ await lab.getByRole('spinbutton',{name:'Saldo kas awal yang benar-benar tersedia (Rp)'}).fill('10000000');
+ await lab.getByRole('spinbutton',{name:'Uang masuk minggu 1 (Rp)'}).fill('6000000');
+ await lab.getByRole('spinbutton',{name:'Uang keluar minggu 1 (Rp)'}).fill('15000000');
+ await expect(lab.getByRole('status')).toContainText('1 dari 13 minggu');
+ await expect(lab.getByRole('status')).toContainText(/Rp\s*1\.000\.000/);
+ await lab.getByRole('spinbutton',{name:'Uang masuk minggu 2 (Rp)'}).fill('0');
+ await lab.getByRole('spinbutton',{name:'Uang keluar minggu 2 (Rp)'}).fill('2000000');
+ await expect(lab.getByRole('status')).toContainText(/-Rp\s*1\.000\.000/);
+ await expect(lab.getByRole('status')).toContainText('kas negatif');
 });
