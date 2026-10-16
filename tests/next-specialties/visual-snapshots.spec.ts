@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test';
 const cases=[
- {slug:'green-coffee',route:'/green-coffee-v2',first:'gc-m01-l01',last:'gc-m08-l04',count:32},
+ {slug:'green-coffee',route:'/green-coffee-v2',first:'gc-m01-l01',last:'gc-m08-l05',count:40},
  {slug:'coffee-shop',route:'/coffee-shop-v2',first:'cs-m01-l01',last:'cs-m08-l05',count:40},
  {slug:'q-processor',route:'/q-processor-v2',first:'qp2-m01-l01',last:'qp2-m08-l03',count:24}
 ];
