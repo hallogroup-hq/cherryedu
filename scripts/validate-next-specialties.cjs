@@ -120,7 +120,7 @@ for(const [operation,source] of [['GET',getPart],['POST',postPart]]){
 }
 const exampleChecks=[
  ['green landed cost',27500000/220,125000],
- ['coffee shop contribution',38000*(1-0.25)-3000-16000,9500],
+ ['coffee shop post-discount contribution',(38000-3000)*(1-0.25)-16000,10250],
  ['coffee shop bep',18000000/(32000-14000),1000],
  ['q processor yield',(810-30)/1000*100,78]
 ];
