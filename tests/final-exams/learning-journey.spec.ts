@@ -12,7 +12,7 @@ const specializations=[
  {course:'/business-roastery-v1',exam:'/ujian-akhir/business-roastery',count:20},
  {course:'/green-coffee-v2',exam:'/ujian-akhir/green-coffee',count:24},
  {course:'/coffee-shop-v2',exam:'/ujian-akhir/coffee-shop',count:24},
- {course:'/q-processor-v2',exam:'/ujian-akhir/q-processor',count:16}
+ {course:'/q-processor-v2',exam:'/ujian-akhir/q-processor',count:24}
 ] as const;
 
 for(const path of specializations){
