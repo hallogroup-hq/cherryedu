@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 test.beforeEach(async({page})=>page.addInitScript(()=>localStorage.setItem('cherry_seen_version_v1_2','true')));
 const paths=[
- {id:'green-coffee',route:'/green-coffee-v2',first:'gc-m01-l01',last:'gc-m08-l04',lab:'gc-m07-l04',modules:8,lessons:32},
+ {id:'green-coffee',route:'/green-coffee-v2',first:'gc-m01-l01',last:'gc-m08-l05',lab:'gc-m07-l04',modules:8,lessons:40},
  {id:'coffee-shop',route:'/coffee-shop-v2',first:'cs-m01-l01',last:'cs-m08-l05',lab:'cs-m03-l05',modules:8,lessons:40},
  {id:'q-processor',route:'/q-processor-v2',first:'qp2-m01-l01',last:'qp2-m08-l03',lab:'qp2-m07-l03',modules:8,lessons:24}
 ];
@@ -29,11 +29,11 @@ for(const p of paths){
   await expect(page.locator('#question-heading')).toBeVisible();
   const exam=await page.request.get('/api/final-exams/'+p.id);
   expect(exam.status()).toBe(200);
-  const j=await exam.json();expect(j.questions).toHaveLength(p.id==='coffee-shop'?24:16);
+  const j=await exam.json();expect(j.questions).toHaveLength((p.id==='coffee-shop'||p.id==='green-coffee')?24:16);
   expect(JSON.stringify(j)).not.toMatch(/correct_index|canonical_answer|explanation/);
  });
  test(p.id+' interactive card is real and offers rationale',async({page})=>{
-  const example=p.id==='green-coffee'?'gc-m03-l04':p.id==='coffee-shop'?'cs-m03-l05':'qp2-m03-l03';
+  const example=p.id==='green-coffee'?'gc-m03-l05':p.id==='coffee-shop'?'cs-m03-l05':'qp2-m03-l03';
   await page.goto(p.route+'/'+example);
   const lab=page.getByRole('region',{name:'Latihan keputusan'});
   await expect(lab).toBeVisible();
@@ -44,6 +44,16 @@ for(const p of paths){
   await expect(lab.getByRole('button',{name:'Coba lagi'})).toBeVisible();
  });
 }
+test('green coffee v3 teaches local standards and traceability without inventing SNI limits',async({page})=>{
+ await page.goto('/green-coffee-v2/gc-m07-l05');
+ const article=page.getByRole('article');
+ await expect(article).toContainText('SNI 2907:2008');
+ await expect(article).toContainText('CVA');
+ await expect(article.getByRole('link',{name:/BSN SNI 2907:2008/})).toHaveAttribute('href',/pesta[.]bsn[.]go[.]id/);
+ await page.goto('/green-coffee-v2/gc-m08-l05');
+ await expect(page.getByRole('article')).toContainText('Rp86.897');
+ await expect(page.locator('[data-testid=\"continue-to-final-exam\"]')).toHaveAttribute('href','/ujian-akhir/green-coffee');
+});
 test('green coffee landed calculator uses real entered costs, not invented freight rates',async({page})=>{
  await page.goto('/green-coffee-v2/gc-m07-l04');
  const area=page.getByRole('region',{name:'Biaya green per kilogram saleable'});

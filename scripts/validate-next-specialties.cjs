@@ -17,7 +17,7 @@ function lessons(pathName,prefix){
  return {modules:read('MODULES'),lessons:read('LESSONS'),source:src};
 }
 const specs=[
- {slug:'green-coffee',route:'green-coffee-v2',path:'greenCoffeeV2Course',prefix:'GREEN_COFFEE_V2',lessons:32,modPrefix:'GC',scenario:'GREEN_COFFEE_SCENARIOS',exercises:4},
+ {slug:'green-coffee',route:'green-coffee-v2',path:'greenCoffeeV2Course',prefix:'GREEN_COFFEE_V2',lessons:40,modPrefix:'GC',scenario:'GREEN_COFFEE_SCENARIOS',exercises:5},
  {slug:'coffee-shop',route:'coffee-shop-v2',path:'coffeeShopV2Course',prefix:'COFFEE_SHOP_V2',lessons:40,modPrefix:'CS',scenario:'COFFEE_SHOP_SCENARIOS',exercises:5},
  {slug:'q-processor',route:'q-processor-v2',path:'qProcessorV2Course',prefix:'Q_PROCESSOR_V2',lessons:24,modPrefix:'QP',scenario:'Q_PROCESSOR_SCENARIOS',exercises:3}
 ];
@@ -45,7 +45,7 @@ for(const spec of specs){
   if(allTitles.has(norm(l.title)))fail('duplicate lesson title '+l.title);allTitles.add(norm(l.title));
   const wc=l.content.trim().split(/\s+/).length;
   // Minimum depth plus a distinct, teachable subtopic; word count alone is not academic sign-off.
-  if(wc<(spec.slug==='coffee-shop'?450:290))fail('thin conceptual lesson '+l.id+': '+wc+' words');
+  if(wc<((spec.slug==='coffee-shop'||spec.slug==='green-coffee')?450:290))fail('thin conceptual lesson '+l.id+': '+wc+' words');
   const deepDiveHeadings=(l.content.match(/^### .+$/gm)||[]).map(h=>norm(h));
   if(!deepDiveHeadings.length)fail('missing lesson-specific teaching deep dive '+l.id);
   for(const heading of deepDiveHeadings){
@@ -57,7 +57,7 @@ for(const spec of specs){
   if(/(?:\bDRAFT\b|\bQA INTERNAL\b|\bPLACEHOLDER\b|\bTODO\b|\bCOMING SOON\b)/i.test(l.title+' '+l.content))fail('internal student copy '+l.id);
  }
  const bank=JSON.parse(file('lib/server/final-exams/'+spec.slug+'.json'));
- if(bank.path!==spec.slug||bank.items.length!==(spec.slug==='coffee-shop'?24:16))fail(spec.slug+' exam inventory should be correct for its depth');
+ if(bank.path!==spec.slug||bank.items.length!==((spec.slug==='coffee-shop'||spec.slug==='green-coffee')?24:16))fail(spec.slug+' exam inventory should be correct for its depth');
  const covered=new Set(),answerPositions=[0,0,0,0],scenes=bank.items.filter(q=>q.case).length;
  for(const q of bank.items){
   if(allExamIds.has(q.id))fail('duplicate exam ID '+q.id);allExamIds.add(q.id);
@@ -120,7 +120,7 @@ for(const [operation,source] of [['GET',getPart],['POST',postPart]]){
 }
 const exampleChecks=[
  ['green landed cost',27500000/220,125000],
- ['coffee shop contribution',38000*(1-0.25)-3000-16000,9500],
+ ['coffee shop post-discount contribution',(38000-3000)*(1-0.25)-16000,10250],
  ['coffee shop bep',18000000/(32000-14000),1000],
  ['q processor yield',(810-30)/1000*100,78]
 ];
