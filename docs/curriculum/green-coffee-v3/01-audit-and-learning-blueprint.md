@@ -52,3 +52,17 @@ Keep existing four lessons each, deepen where mechanisms thin; add fifth applied
 
 ## Strict gates
 G0 outline, baseline and sourced direction → G1 manuscript depth/field SOP (at least 450 words per lesson, practical worked example and misconception handling; no copy-paste formula headings) → G2 source-to-claim math, species and safety validation → G3 exercises/calculators plus visual aids relevant to instruction → G4 balanced case-based final exam + progression → G5 nine-path/browser/mobile/QA regression → G6 SME/owner academic & visual approval. Failure halts production promotion. Feature flags remain separate. No preview test or CI claims for the new path until actually rerun on exact commit.
+
+## QA checkpoint — independent continuation, 16 October 2026
+
+**Scope:** integrated candidate PR #17, stacked on Coffee Shop V3 PR #16. PR #18 is a parallel Green Coffee V3 candidate branched from the earlier three-specialty base; **do not merge both variants** without an explicit reconciled content/assessment diff. This checkpoint is not a production release approval.
+
+- Inventory checked independently: eight sequential modules with five lessons each (40 total); lesson identifiers and existing reader components preserved.
+- Original 32 lessons had the exact same six high-level section headings, producing an obviously templated reading experience. Remediated five explanatory/action headings in all 32 original lessons (**160 editorial headings**) to topic-specific copy; functional bibliography/task section names are allowed to repeat.
+- Independent depth sampling: each of the 40 lessons remains at least 450 whitespace-delimited words; the eight new applied lessons retain quantitative or field-decision exercises. Depth by word count alone is **not** expert validation.
+- Green final exam: 24 items, three per module; answer-key indices A/B/C/D balanced 6/6/6/6. Answer with greatest character length in 5/24 questions (not a systematic longest-option giveaway). These checks do not replace item-by-item subject expert answer validation.
+- Reproduced failed prior CI on Green PR #17: nine-path Playwright expected 16 Green exam questions but the actual V3 bank had 24. Corrected the stale expected count. A new exact-commit end-to-end run is required before marking the technical gate PASS.
+- Official source spot-check: BSN public catalog lists SNI 2907:2008 as Berlaku, with the 2026 confirmation listing, and SCA's current CVA has four distinct assessments (physical, descriptive, affective, extrinsic). This metadata is not a licence to invent limits from paid standards. No new numerical limits were introduced by the editorial correction.
+- No learner UI redesign, component swap, new video dependency, authorization/entitlement change, main merge or production deployment was performed.
+
+**Still blocked before production:** completed GitHub Actions at final branch SHA; visual inspection of desktop and mobile learner readers (including last lesson to exam); independent specialist review of the full manuscript, quantitative keys and field practices; local supplier/shipping evidence where real rates are claimed; owner academic and product approval. Preserve stop-on-failure policy.
