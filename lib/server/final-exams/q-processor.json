@@ -337,7 +337,7 @@
       "choices": [
         "Terbukti 3.000 liter limbah berbahaya dibuang tanpa pengolahan.",
         "Berarti alat meter selalu salah dan semua catatan boleh diabaikan.",
-        "Ada 3.000 liter belum tere-konsiliasi; periksa penampung, jalur, meter dan catatan.",
+        "Ada 3.000 liter belum direkonsiliasi; periksa penampung, jalur, meter dan catatan.",
         "Dapat langsung dibuang karena jumlahnya kecil dibanding proses utama."
       ],
       "correct_index": 2,
