@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
-const paths=[['foundation',12],['barista',12],['home-brewer',12],['roaster',12],['sensory',12],['business-roastery',20],['green-coffee',24],['coffee-shop',24],['q-processor',16]] as const;
+const paths=[['foundation',12],['barista',12],['home-brewer',12],['roaster',12],['sensory',12],['business-roastery',20],['green-coffee',24],['coffee-shop',24],['q-processor',24]] as const;
 test('catalog links all six exams, no internal notices',async({page})=>{
  await page.goto('/ujian-akhir');
  await expect(page.getByRole('heading',{name:'Ujian Akhir',exact:true})).toBeVisible();
