@@ -32,7 +32,7 @@ Expand from 4 to **5 lessons per module, 40 total** and raise depths of 32 exist
 - **SCA & SCAI cooperation** from May 2025 supports local CVA uptake for Indonesia. Does **not** grant certification to platform participants: https://sca.coffee/sca-news/sca-and-scai-collaboration-arfrn
 - **ICO resolution 407/02**: exportable green coffee not <8% or >12.5% by ISO 6673 with specialty exceptions. In Indonesian learner-facing terms, rentang **8% sampai 12,5%** adalah batas program mutu ekspor untuk standar tersebut, bukan target proses universal. This is **export quality program**, not a direct universal drying target or a guarantee of safety: https://ico.org/documents/iccres407e.pdf
 - **ICO processing handling**: avoid rewetting, rain/dew, contaminated sacks and wet trucks; historical good-practice reference, not 2026 market pricing: https://www.ico.org/documents/ed1763r1e.pdf
-- **WCR Indonesia**: canephora clone quality efforts and public grafting/nursery materials with SCOPI/ICCRI: https://worldcoffeeresearch.org/countries/indonesia ; clone descriptions: https://varieties.worldcoffeeresearch.org/robusta/varieties
+- **World Coffee Research (WCR) Indonesia**: canephora clone quality efforts and public grafting/nursery materials with SCOPI/ICCRI: https://worldcoffeeresearch.org/countries/indonesia ; clone descriptions: https://varieties.worldcoffeeresearch.org/robusta/varieties
 - **CQI**: practical post-harvest processing education emphasises science, quality, food-safety and SOP. This course is not CQI Q Processing certification: https://www.coffeeinstitute.org/education/processing
 
 ## Risk and learning guardrails
