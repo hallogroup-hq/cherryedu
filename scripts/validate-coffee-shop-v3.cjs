@@ -91,7 +91,7 @@ for(const id of localCaseIds){
  localCaseByModule.add(l.moduleId);
  if(!/### (Studi kasus|Kebijakan Indonesia|Mengapa gerobak|Tiga strategi|Pilih model usaha)/i.test(l.content))fail('Missing substantive local case teaching section '+id);
  if(!/\]\(https:\/\//.test(l.content))fail('Missing first-party source for Indonesian case '+id);
- if(!/\*\*Tugas|\*\*Latihan|\*\*Lembar|\*\*Praktik|\*\*Kerjakan|\*\*Roleplay|\*\*Kesimpulan|\*\*Uji silang/.test(l.content))fail('Missing measurable case application '+id);
+ if(!/\*\*Tugas|\*\*Studi kecil|\*\*Latihan|\*\*Lembar|\*\*Praktik|\*\*Kerjakan|\*\*Roleplay|\*\*Kesimpulan|\*\*Uji silang/.test(l.content))fail('Missing measurable case application '+id);
 }
 if(localCaseIds.length<10||localCaseByModule.size!==8)fail('All eight modules must cover Indonesian operating formats with >=10 case placements');
 const l=(id)=>lessons.find(x=>x.id===id)?.content||'';
