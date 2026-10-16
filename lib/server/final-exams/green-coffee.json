@@ -1,6 +1,6 @@
 {
   "path": "green-coffee",
-  "version": "2026-10-14.2",
+  "version": "2026-10-16.1",
   "items": [
     {
       "id": "green-coffee-01",
@@ -288,6 +288,150 @@
       ],
       "correct_index": 3,
       "explanation": "Kondisi lot dapat berubah saat transit; keputusan saat penerimaan mengikuti bukti teraktual.",
+      "case": true
+    },
+    {
+      "id": "green-coffee-17",
+      "module_ids": [
+        "GC01"
+      ],
+      "objective": "GC01-applied-5",
+      "type": "single_choice",
+      "prompt": "Dalam simulasi lot gabungan, ceri A berjumlah 600 kg dan ceri B 400 kg, tetapi hasil green akhir masing-masing 110 kg dan 100 kg. Pernyataan traceability mana yang tepat ketika buyer menanyakan komposisi hasil green?",
+      "choices": [
+        "Komposisi green sekitar 52,4% A dan 47,6% B; pisahkan basis massanya.",
+        "Komposisi tetap 60% A dan 40% B karena massa ceri adalah patokan final.",
+        "Komposisi tidak perlu ditulis bila dokumen berisi nama koperasi gabungan.",
+        "Komposisi pasti 50% per asal sebab hasil green tidak perlu ditimbang."
+      ],
+      "correct_index": 0,
+      "explanation": "Persentase komposisi harus memakai basis barang yang sedang dijual. Dari 210 kg green, A menghasilkan 110/210≈52,4% dan B 100/210≈47,6%; angka 60/40 hanya berlaku pada ceri awal.",
+      "case": true
+    },
+    {
+      "id": "green-coffee-18",
+      "module_ids": [
+        "GC02"
+      ],
+      "objective": "GC02-applied-5",
+      "type": "single_choice",
+      "prompt": "Mill dapat menerima 800 kg ceri per hari selama lima hari, tetapi ada janji pasok 4.600 kg. Jika satu hari operasi batal karena hujan dan kapasitas harian tetap, bagaimana sebaiknya pemilik merespons jadwal panen?",
+      "choices": [
+        "Tetap menerima 4.600 kg dan menghapus asal beberapa karung agar cepat selesai.",
+        "Kapasitas menjadi 3.200 kg; negosiasikan 1.400 kg ke jadwal/mitra yang layak.",
+        "Anggap kapasitas masih 4.000 kg karena hujan tidak memengaruhi angka kontrak.",
+        "Catat 3.200 kg sebagai 4.600 kg karena selisih baru dihitung setelah hulling."
+      ],
+      "correct_index": 1,
+      "explanation": "Empat hari × 800 kg = 3.200 kg; dibanding janji 4.600 kg ada kelebihan 1.400 kg. Keputusan perlu koordinasi pemasok, kapasitas aman dan perlindungan identitas lot.",
+      "case": true
+    },
+    {
+      "id": "green-coffee-19",
+      "module_ids": [
+        "GC03"
+      ],
+      "objective": "GC03-applied-5",
+      "type": "single_choice",
+      "prompt": "Penerimaan ceri menghasilkan 1.000 kg neto; 860 kg lolos pemeriksaan awal, 90 kg ditahan QC dan 50 kg ditolak. Jika kapasitas proses hari itu 700 kg, berapa bagian ceri lolos yang masih menunggu slot proses?",
+      "choices": [
+        "Sebanyak 300 kg sebab seluruh ceri yang datang diperlakukan sebagai bahan lolos.",
+        "Sebanyak 210 kg karena barang ditahan QC dihitung sudah dijadwalkan proses.",
+        "Sebanyak 160 kg dari 860 kg yang layak proses tetapi belum memiliki slot.",
+        "Sebanyak 90 kg karena status hold sama artinya dengan antrean proses biasa."
+      ],
+      "correct_index": 2,
+      "explanation": "Neraca penerimaan 860+90+50=1.000 kg. Dari 860 kg yang memenuhi kriteria proses, baru 700 kg mempunyai slot; 160 kg sisanya memerlukan jadwal, terpisah dari 90 kg hold QC.",
+      "case": true
+    },
+    {
+      "id": "green-coffee-20",
+      "module_ids": [
+        "GC04"
+      ],
+      "objective": "GC04-applied-5",
+      "type": "single_choice",
+      "prompt": "Saat musim hujan, sebuah mill hanya mempunyai kapasitas pengeringan yang teruji untuk 400 kg bahan per gelombang tetapi berniat memasukkan 1.200 kg ceri. Pemahaman manakah yang paling aman untuk pemilihan washed dibanding natural?",
+      "choices": [
+        "Pilih washed agar seluruh 1.200 kg langsung aman disimpan tanpa pengeringan.",
+        "Campurkan tiga gelombang tanpa catatan karena masing-masing akan menguap sendiri.",
+        "Pilih metode berdasarkan rasa yang populer saja; kapasitas fasilitas tidak relevan.",
+        "Minimal ada tiga gelombang pada basis yang sama; semua metode tetap butuh kontrol pengeringan."
+      ],
+      "correct_index": 3,
+      "explanation": "1.200/400=3 gelombang secara kapasitas input, tetapi waktu/luas efektif harus diuji. Washed dan natural sama-sama memerlukan pengeringan; keputusan perlu mempertimbangkan fasilitas, risiko, air dan buyer.",
+      "case": true
+    },
+    {
+      "id": "green-coffee-21",
+      "module_ids": [
+        "GC05"
+      ],
+      "objective": "GC05-applied-5",
+      "type": "single_choice",
+      "prompt": "Tim pengolahan ingin mencoba batch eksperimen fermentasi dalam wadah improvisasi tertutup, tetapi tidak memiliki pemeriksaan keamanan gas atau tekanan. Apa keputusan yang bertanggung jawab sebelum mengukur profil rasa?",
+      "choices": [
+        "Tunda percobaan berisiko dan minta penilaian fasilitas serta petugas kompeten.",
+        "Buka wadah sebentar untuk mencium gas setiap hari sebagai indikator aman.",
+        "Tambah volume ceri agar gas terdistribusi tanpa perlu pengawasan tambahan.",
+        "Biarkan staf bekerja sendiri supaya tidak ada orang lain yang terkena bau."
+      ],
+      "correct_index": 0,
+      "explanation": "Keselamatan atmosfer, tekanan dan kelayakan fasilitas harus didahulukan. Percobaan tidak boleh dilakukan dari tutorial improvisasi; hentikan atau tunda sampai penanganan aman dapat dibuktikan.",
+      "case": true
+    },
+    {
+      "id": "green-coffee-22",
+      "module_ids": [
+        "GC06"
+      ],
+      "objective": "GC06-applied-5",
+      "type": "single_choice",
+      "prompt": "Lima titik pengukuran kadar air dari satu batch menunjukkan 11,0%, 11,2%, 11,1%, 12,0%, dan 12,1%. Apa kesimpulan awal terbaik jika operator hanya melaporkan rata-ratanya?",
+      "choices": [
+        "Semua bagian memiliki moisture 11,48% dan boleh dicampur karena reratanya rapi.",
+        "Rerata 11,48% menutupi variasi antar titik; periksa sampel dan keseragaman.",
+        "Dua nilai lebih tinggi pasti akibat jamur meskipun bukti keamanan belum tersedia.",
+        "Semua nilai dianggap salah bila tidak sama hingga satu digit desimal."
+      ],
+      "correct_index": 1,
+      "explanation": "Rata-rata 57,4/5=11,48% bukan berarti semua lokasi memiliki kondisi itu. Penyebaran 11,0–12,1% perlu ditelusuri lewat metode sampling, alat, cuaca dan persyaratan buyer.",
+      "case": true
+    },
+    {
+      "id": "green-coffee-23",
+      "module_ids": [
+        "GC07"
+      ],
+      "objective": "GC07-applied-5",
+      "type": "single_choice",
+      "prompt": "Satu buyer meminta verifikasi berdasarkan standar nasional, sedangkan QC mill hanya punya hasil grading internal dan skor cupping. Apa tindakan yang paling sesuai sebelum menulis bahwa lot memenuhi SNI 2907:2008?",
+      "choices": [
+        "Gunakan ambang cacat dari promosi pemasok karena lebih cepat daripada membaca standar.",
+        "Ubah judul laporan internal menjadi SNI agar buyer mendapat dokumen yang diminta.",
+        "Periksa dokumen SNI resmi, metode uji dan bukti yang relevan; lakukan uji sesuai kebutuhan.",
+        "Nyatakan lolos SNI bila rasa disukai panel meskipun sampling fisik belum dilakukan."
+      ],
+      "correct_index": 2,
+      "explanation": "Katalog BSN mengonfirmasi status standar, bukan isi semua ambang normatif. Bukti metode, sampling dan hasil harus cocok dengan standar resmi dan ketentuan kontrak; cupping bukan substitusi tes fisik.",
+      "case": true
+    },
+    {
+      "id": "green-coffee-24",
+      "module_ids": [
+        "GC08"
+      ],
+      "objective": "GC08-applied-5",
+      "type": "single_choice",
+      "prompt": "Biaya pembelian green satu lot Rp240 juta, freight dan handling Rp12 juta, serta hanya 2.900 kg memenuhi spesifikasi buyer. Berapa landed cost dari komponen biaya tersebut per kilogram saleable?",
+      "choices": [
+        "Rp80.000/kg dari pembelian dibagi jumlah invoice 3.000 kg tanpa biaya lain.",
+        "Rp84.000/kg karena biaya gabungan dibagi 3.000 kg sebelum sortasi.",
+        "Rp82.759/kg karena biaya pembelian tidak memerlukan ongkos pengiriman.",
+        "Sekitar Rp86.897/kg dari Rp252 juta dibagi 2.900 kg yang memenuhi grade."
+      ],
+      "correct_index": 3,
+      "explanation": "Landed cost untuk dua komponen pada simulasi ialah (240.000.000+12.000.000)/2.900≈Rp86.897/kg layak jual. Nilai ini belum memasukkan biaya lain dan bukan penawaran ongkir nyata.",
       "case": true
     }
   ]
