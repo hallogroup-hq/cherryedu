@@ -53,8 +53,8 @@ const titleList=[
 for(const [m,x,y] of titleList){const titles=lessons.filter(l=>l.moduleId===m).map(l=>l.title).join(' ').toLowerCase();if(!titles.includes(x.toLowerCase())||!titles.includes(y.toLowerCase()))fail('Missing core applied topic '+m);}
 const law=lessons.find(l=>l.id==='cs-m01-l04')?.content||'';
 const tax=lessons.find(l=>l.id==='cs-m08-l02')?.content||'';
-if(!law.includes('Permenkes Nomor 11 Tahun 2025')||!law.includes('56303')||!law.includes('56304'))fail('Local legal intro incomplete');
-if(!tax.includes('PBJT')||!tax.includes('perizinan'))fail('Tax/classification decisions incomplete');
+if(!law.includes('Permenkes Nomor 11 Tahun 2025')||!law.includes('56303')||!law.includes('56304')||!law.includes('56306'))fail('Fixed cafe, takeaway, and mobile-cart business classifications incomplete');
+if(!tax.includes('PBJT')||!tax.includes('perizinan')||!tax.includes('56306'))fail('Tax/classification decisions incomplete');
 const reader=fs.readFileSync('app/coffee-shop-v2/[lessonId]/page.tsx','utf8');
 if(!reader.includes('lesson.order===5&&scenario')||!reader.includes('CoffeeShopMenuMixLab')||!reader.includes('CoffeeShop13WeekCashLab'))fail('Specialist practice & labs not mounted at module close');
 const store=fs.readFileSync('lib/store.tsx','utf8');
@@ -100,13 +100,13 @@ if(!l('cs-m01-l05').includes('Tuku')||!l('cs-m02-l01').includes('Jago'))fail('So
 const wage=l('cs-m07-l04');
 if(!wage.includes('Rp3.192.807')||!wage.includes('Rp5.729.876')||!wage.includes('2025kg00320862.pdf'))fail('Official 2026 city labour-cost benchmark missing');
 const bi=l('cs-m03-l03');
-if(!bi.includes('1 Oktober 2026')||!bi.includes('0,3%')||!bi.includes('0,7%')||!bi.includes('Rp100.000')||!bi.includes('Rp500.000')||!bi.includes('tidak boleh dibebankan'))fail('Current BI merchant QRIS MDR brackets / no-surcharge caution missing');
+if(!bi.includes('1 Oktober 2026')||!bi.includes('0,3%')||!bi.includes('0,7%')||!bi.includes('Rp100.000')||!bi.includes('Rp500.000')||!bi.includes('tidak boleh dibebankan')||!bi.includes('sp_2815926.aspx'))fail('Current BI merchant QRIS MDR brackets / 2026 primary source / no-surcharge caution missing');
 if(!bi.includes('penjualan bersih per transaksi')||!bi.includes('dua kali')||!bi.includes('gofoodmerchant.co.id'))fail('GoFood settlement distinction and double-count prevention missing');
 for(const [id,url] of [
  ['cs-m01-l02','https://fore.coffee/wp-content/uploads/2026/04/Annual_Report_FORE_2025.pdf'],
  ['cs-m01-l05','https://www.tuku.coffee/id/tentang-kami'],
  ['cs-m02-l01','https://play.google.com/store/apps/details?hl=id&id=com.jagocoffee.app'],
- ['cs-m03-l03','https://www.bi.go.id/id/publikasi/ruang-media/cerita-bi/Pages/mdr-qris.aspx'],
+ ['cs-m03-l03','https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2815926.aspx'],
  ['cs-m03-l03','https://gofoodmerchant.co.id/bantuan/article/Seputar-pemotongan-komisi']]){
  if(!l(id).includes(url))fail('Source-to-claim traceability missing '+id+' '+url);
 }
@@ -114,6 +114,7 @@ const localMathCases=[
  {name:'FORE disclosed store-format breakdown',actual:14+204+98,expected:316},
  {name:'merchant QRIS fee regular UKE >100k',actual:120000*0.007,expected:840},
  {name:'merchant QRIS fee UMI <=500k',actual:28000*0,expected:0},
+ {name:'delivery post-discount fee base',actual:(38000-3000)*(1-0.25),expected:26250},
  {name:'menu contribution weighted by channel',actual:70*15000+30*10000,expected:1350000},
  {name:'stationary cafe simplified BEP',actual:9000000/12000,expected:750},
  {name:'cart simplified BEP',actual:3600000/7500,expected:480},
