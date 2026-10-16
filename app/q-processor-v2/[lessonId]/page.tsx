@@ -17,7 +17,7 @@ export default function SpecialtyLesson({params}:{params:{lessonId:string}}){
  rawMarkdown={lesson.content} examHref={process.env.CHERRYEDU_FINAL_EXAMS_REVIEW==='enabled'?'/ujian-akhir/q-processor':undefined}>
  <MarkdownRenderer content={lesson.content}/>
  {lesson.moduleId==='QP07'&&lesson.order===3&&<QProcessorYieldCalculator/>}
- {lesson.order===3&&scenario&&<>
+ {lesson.order===5&&scenario&&<>
   <CuratedScenarioLab scenario={scenario}/>
   <Link href={'/q-processor-v2/practice/'+lesson.moduleId.toLowerCase()} className="inline-flex rounded-md border border-roast-950 px-4 py-3 text-sm font-semibold text-roast-950 hover:bg-paper-100">Latihan keputusan modul →</Link>
  </>}

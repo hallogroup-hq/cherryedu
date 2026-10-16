@@ -1,6 +1,6 @@
 {
   "path": "q-processor",
-  "version": "2026-10-14.2",
+  "version": "2026-10-16.1",
   "items": [
     {
       "id": "q-processor-01",
@@ -288,6 +288,150 @@
       ],
       "correct_index": 3,
       "explanation": "CQI Professional mensyaratkan komponen lapangan dan ujian teori serta praktik; kuis CherryEdu tidak menggantikannya.",
+      "case": true
+    },
+    {
+      "id": "q-processor-17",
+      "module_ids": [
+        "QP01"
+      ],
+      "objective": "QP01-application-3",
+      "type": "single_choice",
+      "prompt": "Co-op berjanji menerima 5.000 kg ceri pekan ini, tetapi setelah satu hari tutup, kapasitas aman empat hari tinggal 3.600 kg. Langkah perencanaan penerimaan mana paling bertanggung jawab?",
+      "choices": [
+        "Negosiasikan 1.400 kg ke jadwal atau mitra layak dengan catatan asal dan status.",
+        "Terima 5.000 kg lalu sembunyikan penumpukan pada laporan drying.",
+        "Alihkan semua ceri menjadi natural tanpa mengecek ruang atau cuaca.",
+        "Tambahkan jam kerja tanpa menguji keterbatasan mesin dan limbah."
+      ],
+      "correct_index": 0,
+      "explanation": "Empat hari × 900 kg = 3.600 kg; 5.000−3.600 = 1.400 kg melampaui kapasitas aman. Pilihan harus mempertahankan asal ceri, informasi pemasok dan kesiapan fasilitas, bukan mengejar target tanpa bukti.",
+      "case": true
+    },
+    {
+      "id": "q-processor-18",
+      "module_ids": [
+        "QP02"
+      ],
+      "objective": "QP02-application-3",
+      "type": "single_choice",
+      "prompt": "Dua hasil fermentasi hipotetis masing-masing menghasilkan rata-rata 73 dan 72 kg green, tetapi batch inputnya berbeda ukuran dan kematangannya. Apakah angka ini cukup membuktikan treatment pertama lebih baik?",
+      "choices": [
+        "Cukup, karena selisih satu kg pasti berasal dari mikroba starter.",
+        "Belum, kendalikan massa dan mutu input serta uji ulang dengan pembanding layak.",
+        "Cukup jika treatment pertama punya cerita proses yang lebih menarik.",
+        "Belum, kecuali panel cupping diberi tahu nama perlakuan agar yakin."
+      ],
+      "correct_index": 1,
+      "explanation": "Perbandingan massa output tidak valid tanpa dasar input dan mutu bahan yang sebanding. Desain harus mencatat faktor pembaur, jumlah pengulangan, kondisi proses dan uji sensori buta sebelum menyatakan efek kausal.",
+      "case": true
+    },
+    {
+      "id": "q-processor-19",
+      "module_ids": [
+        "QP03"
+      ],
+      "objective": "QP03-application-3",
+      "type": "single_choice",
+      "prompt": "Meter air sebuah wet mill mencatat 12.000 liter masuk, tetapi penggunaan yang terlacak baru 5.000 dan 4.000 liter. Apa arti selisih 3.000 liter pada tahap audit awal?",
+      "choices": [
+        "Terbukti 3.000 liter limbah berbahaya dibuang tanpa pengolahan.",
+        "Berarti alat meter selalu salah dan semua catatan boleh diabaikan.",
+        "Ada 3.000 liter belum direkonsiliasi; periksa penampung, jalur, meter dan catatan.",
+        "Dapat langsung dibuang karena jumlahnya kecil dibanding proses utama."
+      ],
+      "correct_index": 2,
+      "explanation": "12.000−5.000−4.000 = 3.000 liter belum dijelaskan; dapat terkait pemakaian lain, perubahan stok penampung, kesalahan meter atau kebocoran. Ini bukan nilai BOD/COD dan tidak membenarkan pembuangan.",
+      "case": true
+    },
+    {
+      "id": "q-processor-20",
+      "module_ids": [
+        "QP04"
+      ],
+      "objective": "QP04-application-3",
+      "type": "single_choice",
+      "prompt": "Raised bed diuji menampung 400 kg ceri utuh per gelombang natural, sementara mill menerima 1.200 kg ceri dan menimbang kapasitas dryer washed dalam kg parchment. Pernyataan mana paling akurat?",
+      "choices": [
+        "Kedua metode pasti butuh tiga gelombang tanpa memperhitungkan konversi.",
+        "Washed tidak memerlukan drying setelah pulp dipisahkan.",
+        "Natural dapat langsung dikemas pada satu bed karena ceri masih basah.",
+        "Natural nominal tiga gelombang pada basis ceri; washed perlu konversi parchment lebih dulu."
+      ],
+      "correct_index": 3,
+      "explanation": "Untuk natural, 1.200/400 = 3 gelombang pada basis ceri yang sama, tanpa menjamin kapasitas kalender. Untuk washed, kilogram ceri masuk tidak identik dengan kilogram parchment saat drying; diperlukan data konversi dan kapasitas material yang benar.",
+      "case": true
+    },
+    {
+      "id": "q-processor-21",
+      "module_ids": [
+        "QP05"
+      ],
+      "objective": "QP05-application-3",
+      "type": "single_choice",
+      "prompt": "Operator hendak menilai eksperimen dalam wadah tertutup tanpa penilaian tekanan dan CO₂; pemasok mengklaim aroma premium pasti membuktikan cara itu aman. Keputusan apa yang layak?",
+      "choices": [
+        "Tunda eksperimen dan minta kajian bahaya serta otorisasi fasilitas yang kompeten.",
+        "Lakukan kecil-kecilan karena volume ceri rendah membuat gas tidak berisiko.",
+        "Ukur keselamatan dari bau wadah saat tutup dibuka sebentar.",
+        "Ganti nama teknik menjadi natural agar lolos pemeriksaan dokumen."
+      ],
+      "correct_index": 0,
+      "explanation": "CO₂ dan risiko atmosfer tak terverifikasi melalui aroma produk. Eksperimen berisiko harus ditunda sampai pengamanan fasilitas dan personel telah dinilai, sedangkan karakter sensori dinilai terpisah dari klaim proses dan keselamatan.",
+      "case": true
+    },
+    {
+      "id": "q-processor-22",
+      "module_ids": [
+        "QP06"
+      ],
+      "objective": "QP06-application-3",
+      "type": "single_choice",
+      "prompt": "Hasil moisture dari satu lot adalah 11,0%; 11,2%; 11,1%; 12,0%; dan 12,1%. Jika operator hanya mengirim angka rata-rata, informasi penting apa tersembunyi?",
+      "choices": [
+        "Semua karung pasti memenuhi kontrak karena nilai tengah berada dekat 11%.",
+        "Rata-rata 11,48% menyembunyikan rentang 1,1 poin persentase antartitik.",
+        "Data otomatis membuktikan aw sama untuk semua titik karena moisture terukur.",
+        "Dua angka tertinggi harus dihapus sebab kemungkinan hanya salah alat."
+      ],
+      "correct_index": 1,
+      "explanation": "Jumlah lima angka 57,4%; rerata 11,48%. Rentang 12,1−11,0 = 1,1 poin persentase. Pengendalian risiko memerlukan sampling lokasi dan alat yang benar, tanpa mengasumsikan ambang buyer ataupun water activity.",
+      "case": true
+    },
+    {
+      "id": "q-processor-23",
+      "module_ids": [
+        "QP07"
+      ],
+      "objective": "QP07-application-3",
+      "type": "single_choice",
+      "prompt": "Biaya simulasi satu lot Rp100 juta. Dari 2.000 kg parchment hanya 1.450 kg green yang diterima buyer setelah QC. Basis manakah paling defensibel untuk biaya per kg barang diterima?",
+      "choices": [
+        "Rp50.000 per kg memakai berat parchment karena itulah asal barang.",
+        "Rp60.606 per kg memakai 1.650 kg green kasar sebelum sortir.",
+        "Sekitar Rp68.966 per kg dari Rp100 juta dibagi 1.450 kg saleable.",
+        "Biaya satuan tidak berubah selama biaya proses awal tetap Rp100 juta."
+      ],
+      "correct_index": 2,
+      "explanation": "100.000.000/1.450 ≈ Rp68.965,52 per kg barang yang benar-benar saleable dan diterima buyer. Nilai ilustratif belum mencakup semua komponen komersial dan tidak mewakili harga riil di Indonesia.",
+      "case": true
+    },
+    {
+      "id": "q-processor-24",
+      "module_ids": [
+        "QP08"
+      ],
+      "objective": "QP08-application-3",
+      "type": "single_choice",
+      "prompt": "Koperasi menerima 2.000 kg ceri; 1.800 kg masuk proses, 120 kg hold, 80 kg reject. Hasil green saleable 370 kg dari ceri diproses. Basis perhitungan yield yang tepat untuk evaluasi proses?",
+      "choices": [
+        "370/2.000 atau 18,5% tanpa membedakan hold dan reject.",
+        "370/120 karena bagian hold adalah sumber koreksi masa depan.",
+        "370/80 sebab reject menentukan efisiensi sistem.",
+        "370/1.800 sekitar 20,56%, dengan penjelasan basis ceri diproses."
+      ],
+      "correct_index": 3,
+      "explanation": "370/1.800×100%≈20,56% yield terhadap ceri yang benar-benar masuk proses. Seluruh penerimaan 2.000 kg termasuk 120 hold dan 80 reject, sehingga basis ini berbeda dari yield proses. Simulasi bukan rasio universal produksi kopi.",
       "case": true
     }
   ]

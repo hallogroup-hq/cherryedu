@@ -87,7 +87,7 @@ const previewSpecialties: LearningPath[] = CURATED_PREVIEW ? [
   ...(NEXT_SPECIALTY_PREVIEW ? [
     ['path-post-harvest','path-green-coffee-curated','green-coffee-v2','Green Coffee & Post-Harvest Processing Specialist','Uji green coffee dengan bukti dari kebun, panen, proses, pengeringan, grading dan ketertelusuran.',8,14],
     ['path-coffee-business','path-coffee-shop-curated','coffee-shop-v2','Coffee Business & Shop Management Specialist','Rancang dan kelola kedai dari riset pelanggan, lokasi, menu, biaya, staf, kas, layanan hingga rencana 90 hari.',8,13],
-    ['path-q-processor','path-q-processor-curated','q-processor-v2','Q Processor Specialization: Bioproses & Pasca-Panen Spesialti','Pelajari kendali proses, risiko fermentasi, wet mill, drying dan QC. Program belajar online ini bukan sertifikasi CQI.',8,8]
+    ['path-q-processor','path-q-processor-curated','q-processor-v2','Q Processor Specialization: Bioproses & Pasca-Panen Spesialti','Pelajari kendali proses, risiko fermentasi, wet mill, drying dan QC. Program belajar online ini bukan sertifikasi CQI.',8,16]
   ] : [])
 ].map(([legacyId,id,slug,title,description,totalModules,estimatedHours]) => {
   const base = BASE_SEED_PATHS.find(p=>p.id===legacyId);
