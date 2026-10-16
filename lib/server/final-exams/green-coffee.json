@@ -1,6 +1,6 @@
 {
   "path": "green-coffee",
-  "version": "2026-10-14.2",
+  "version": "2026-10-16.1",
   "items": [
     {
       "id": "green-coffee-01",
@@ -288,6 +288,150 @@
       ],
       "correct_index": 3,
       "explanation": "Kondisi lot dapat berubah saat transit; keputusan saat penerimaan mengikuti bukti teraktual.",
+      "case": true
+    },
+    {
+      "id": "green-coffee-17",
+      "module_ids": [
+        "GC01"
+      ],
+      "objective": "GC01-application-3",
+      "type": "single_choice",
+      "prompt": "Dari 30 karung satu lot, dua berlabel berbeda. Sampel karung lain lolos inspeksi. Apa langkah buyer sebelum menerima keseluruhan kiriman?",
+      "choices": [
+        "Tahan dua karung berbeda, verifikasi identitas dan sampling yang relevan, serta catat keputusan sementara bersama pemasok.",
+        "Terima semua karena hasil satu sampel yang baik dianggap mewakili setiap karung tanpa prosedur pemilihan yang jelas.",
+        "Ganti kode seluruh karung menjadi satu nomor supaya dokumen mudah diperiksa walau riwayat batch awal tak ditemukan.",
+        "Lakukan cupping dua kali lalu gunakan rerata skor rasa sebagai pengganti inspeksi fisik dan penelusuran lot."
+      ],
+      "correct_index": 0,
+      "explanation": "Satu sampel bukan jaminan keseragaman. Penerimaan harus didukung identitas sub-lot, bukti sampling, hasil QC dan aturan kontrak, bukan hanya cerita produk.",
+      "case": true
+    },
+    {
+      "id": "green-coffee-18",
+      "module_ids": [
+        "GC02"
+      ],
+      "objective": "GC02-application-3",
+      "type": "single_choice",
+      "prompt": "Bibit canephora berlabel BP 534 hendak ditanam di lahan baru yang belum diuji. Bagaimana mengambil keputusan agronomi paling masuk akal?",
+      "choices": [
+        "Asumsikan daya tahan terhadap penyakit sama di seluruh daerah Indonesia karena klon yang sama dipakai pada kebun penelitian.",
+        "Periksa sumber perbanyakan, kesehatan bibit dan kesesuaian iklim setempat melalui uji blok terbatas sebelum memutuskan jumlah tanam.",
+        "Samakan semua kebutuhan nutrisi dan penanganan air dengan lokasi nursery tanpa mengukur kondisi tanah dan risiko musim.",
+        "Tentukan pembelian berdasarkan kesamaan rasa produk jadi dari klon yang dinamai sama tanpa mencari catatan genetika."
+      ],
+      "correct_index": 1,
+      "explanation": "Identitas klon dan informasi WCR tidak menggantikan uji kecocokan lokasi. Bukti asal bibit serta data agroklimat dan penyakit dibutuhkan sebelum perluasan.",
+      "case": true
+    },
+    {
+      "id": "green-coffee-19",
+      "module_ids": [
+        "GC03"
+      ],
+      "objective": "GC03-application-3",
+      "type": "single_choice",
+      "prompt": "Ceri 250 kg bruto memiliki tara 12 kg. Sebanyak 18 kg dari netto ditahan setelah inspeksi. Berapa massa yang dapat dialokasikan ke proses?",
+      "choices": [
+        "232 kg, karena massa tara dapat diperlakukan sebagai air proses sehingga tidak mengubah neraca material yang nantinya ditimbang.",
+        "238 kg, dengan asumsi hasil hold akan dikembalikan otomatis setelah sortir dan tidak memerlukan kode batch terpisah.",
+        "220 kg, sedangkan 18 kg tetap disimpan dengan status hold dan kode yang bisa ditelusuri pada laporan neraca massa.",
+        "250 kg, karena berat bruto adalah angka penerimaan yang harus dipakai dalam laporan yield sebelum proses sortir berikutnya."
+      ],
+      "correct_index": 2,
+      "explanation": "Netto 250−12=238 kg, setelah 18 kg hold tersisa 220 kg. Neraca 238 = 220 + 18 harus cocok dengan catatan lot dan status pemeriksaan.",
+      "case": true
+    },
+    {
+      "id": "green-coffee-20",
+      "module_ids": [
+        "GC04"
+      ],
+      "objective": "GC04-application-3",
+      "type": "single_choice",
+      "prompt": "Dua batch masing-masing 400 kg hendak dijadikan natural saat hujan. Bed terlindung hanya cukup untuk satu batch. Apa tindak lanjut yang layak?",
+      "choices": [
+        "Gabungkan seluruh input pada bed tunggal dan gunakan nama lot baru sehingga setiap bagian memperoleh perlakuan pengeringan identik.",
+        "Biarkan kedua batch menumpuk di bed lebih tebal meskipun melampaui kapasitas yang sebelumnya telah diuji oleh fasilitas.",
+        "Ubah seluruh lot menjadi washed tanpa memberi tahu buyer yang sudah mensyaratkan natural dan hanya catat perubahan saat cup test.",
+        "Batasi/atur ulang input atau pilih proses aman yang disetujui buyer sambil menjaga identitas setiap lot."
+      ],
+      "correct_index": 3,
+      "explanation": "Kapasitas pengeringan dan cuaca merupakan batas operasional. Perubahan jadwal atau metode proses harus terdokumentasi dan selaras dengan kontrak buyer.",
+      "case": true
+    },
+    {
+      "id": "green-coffee-21",
+      "module_ids": [
+        "GC05"
+      ],
+      "objective": "GC05-application-3",
+      "type": "single_choice",
+      "prompt": "Batch fermentasi dengan starter dan kontrol berbeda hasil rasa, tetapi umur ceri dan kondisi drying kedua batch juga berbeda. Apa kesimpulannya?",
+      "choices": [
+        "Efek starter belum dapat dipisahkan dari variasi input dan drying; rancang uji sebanding.",
+        "Hasil perbedaan membuktikan starter menjadi sebab tunggal sehingga prosedur harus segera dipakai semua petani tanpa verifikasi.",
+        "Agar perbedaan hilang, ceri dari batch berbeda perlu dicampur sebelum proses meskipun identitas kebunnya kemudian tak terlacak.",
+        "Faktor musim, kebersihan, dan kondisi drying tidak perlu dicatat ketika produk fermentasi menggunakan starter terstandar."
+      ],
+      "correct_index": 0,
+      "explanation": "Bahan masuk dan drying adalah faktor pembaur. Dibutuhkan pembandingan dengan kontrol yang tepat, pencatatan variabel dan prosedur aman.",
+      "case": false
+    },
+    {
+      "id": "green-coffee-22",
+      "module_ids": [
+        "GC06"
+      ],
+      "objective": "GC06-application-3",
+      "type": "single_choice",
+      "prompt": "Pada satu lot tercatat kadar air 10,8%, 11,2% dan 12,3% di lokasi berbeda, sedangkan kontrak menentukan metode QC. Keputusan yang benar?",
+      "choices": [
+        "Lepas semua karena rata-rata 11,43% menjamin mutu penyimpanan dan meniadakan kemungkinan kelembapan lokal dalam tiap karung.",
+        "Tinjau sebaran sampel, metode dan kondisi alat sebelum menetapkan status sub-lot.",
+        "Buat satu sampel komposit tanpa label titik kemudian terbitkan hanya nilai tengah agar tidak terlihat variasi pengeringan.",
+        "Tolak semua karung hanya dari satu nilai 12,3% tanpa mengetahui batas kontrak atau apakah hasil uji didapat dari metode yang benar."
+      ],
+      "correct_index": 1,
+      "explanation": "Rata-rata tidak menggantikan analisis variasi antartitik. QC memerlukan prosedur sampling, alat terkalibrasi dan keputusan sesuai kontrak.",
+      "case": false
+    },
+    {
+      "id": "green-coffee-23",
+      "module_ids": [
+        "GC07"
+      ],
+      "objective": "GC07-application-3",
+      "type": "single_choice",
+      "prompt": "Dokumen supplier menyebut 'Grade 1 SNI' dan CVA, tetapi tanpa massa sampel atau metode nilai cacat. Apa penilaian buyer?",
+      "choices": [
+        "Nilai kesukaan pada CVA langsung menentukan hasil grading SNI, sehingga massa sampel tidak perlu dijelaskan dalam catatan.",
+        "Klaim Grade 1 cukup terbukti bila kemasan menunjukkan nama origin sama meskipun metode cacat dan berat sampelnya tak dicatat.",
+        "Bedakan skema SNI/CVA dan verifikasi metode serta massa sampel yang dipakai.",
+        "Dua protokol otomatis sebanding bila nomor karung sama, sehingga lampiran spesifikasi fisik dalam kontrak dapat dihilangkan."
+      ],
+      "correct_index": 2,
+      "explanation": "SNI dan SCA CVA memiliki tujuan dan prosedur berbeda. Buyer perlu metode, massa sampel serta kriteria penerimaan spesifik.",
+      "case": false
+    },
+    {
+      "id": "green-coffee-24",
+      "module_ids": [
+        "GC08"
+      ],
+      "objective": "GC08-application-3",
+      "type": "single_choice",
+      "prompt": "Nilai barang Rp114 juta, ongkir ilustratif Rp3,6 juta, handling Rp600 ribu, dan saleable hanya 1.072 kg dari dokumen 1.200 kg. Biaya per kg?",
+      "choices": [
+        "Rp95.000/kg karena angka invoice beli menjadi satu-satunya pembilang sekalipun freight dan handling dikeluarkan pada periode sama.",
+        "Rp98.500/kg karena berat dokumen selalu menjadi denominator yang paling aman terlepas dari hasil QC yang baru diterima.",
+        "Rp106.343/kg karena sebagian pengeluaran dianggap hilang setelah ada barang yang ditahan dan tidak boleh dibagi ke sisa lot.",
+        "Sekitar Rp110.261 per kg saleable dari total Rp118,2 juta dibagi 1.072 kg. Hasil ini tidak boleh diklaim sebagai tarif pasar maupun harga jual akhir tanpa memeriksa kontrak dan biaya lanjutan."
+      ],
+      "correct_index": 3,
+      "explanation": "Total biaya ilustratif = Rp118.200.000; pembagian terhadap 1.072 kg saleable ≈ Rp110.261/kg. Hasil bukan harga pasar aktual.",
       "case": true
     }
   ]
