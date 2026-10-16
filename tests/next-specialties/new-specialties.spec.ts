@@ -151,9 +151,10 @@ test('Indonesia 2026 QRIS fee is not confused with delivery merchant fee',async(
  const article=page.getByRole('article');
  await expect(article).toContainText('1 Oktober 2026');
  await expect(article).toContainText('Rp840');
+ await expect(article).toContainText('Rp26.250');
  await expect(article).toContainText('tidak boleh dibebankan');
  await expect(article).toContainText('GoFood berbeda lagi');
- await expect(article.getByRole('link',{name:/Bank Indonesia.*13 Oktober 2026/})).toHaveAttribute('href',/bi\.go\.id/);
+ await expect(article.getByRole('link',{name:/Bank Indonesia.*1 Oktober 2026/})).toHaveAttribute('href',/sp_2815926\.aspx/);
  await expect(article.getByRole('link',{name:/GoFood Merchant.*7 Agustus 2026/})).toHaveAttribute('href',/gofoodmerchant\.co\.id/);
 });
 test('thirteen-week cash worksheet shows deficit, and blank future weeks remain missing',async({page})=>{
