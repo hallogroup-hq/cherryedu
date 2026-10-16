@@ -115,7 +115,7 @@ const localMathCases=[
  {name:'menu contribution weighted by channel',actual:70*15000+30*10000,expected:1350000},
  {name:'stationary cafe simplified BEP',actual:9000000/12000,expected:750},
  {name:'cart simplified BEP',actual:3600000/7500,expected:480},
- {name:'cart daily required sales rounded',actual:Math.round(480/26),expected:18},
+ {name:'cart daily required sales rounded',actual:Math.ceil(480/26),expected:19},
  {name:'cart selling hours',actual:48/(8-2),expected:8},
  {name:'mobile route A units per selling hour',actual:35/(8-3),expected:7},
  {name:'mobile route B units per selling hour',actual:35/(8-1),expected:5}
