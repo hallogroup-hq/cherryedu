@@ -57,6 +57,10 @@ const ledger=fs.readFileSync('docs/curriculum/green-coffee-v3/01-audit-and-learn
 if(!ledger.includes('NOT been read as licensed source')||!ledger.includes('interviews'))fail('Research source limitations not documented');
 const bank=JSON.parse(fs.readFileSync('lib/server/final-exams/green-coffee.json','utf8'));
 if(bank.version!=='2026-10-16.2'||bank.items.length!==24)fail('Green exam version/count mismatch');
+const methodLesson=lessons.find(x=>x.id==='gc-m04-l05')?.content||'';
+if(!methodLesson.includes('basis ceri utuh')||!methodLesson.includes('massa parchment'))fail('GC04 dryer example mixes process mass bases');
+const dryerExam=bank.items.find(x=>x.id==='green-coffee-20');
+if(!dryerExam||!dryerExam.choices[dryerExam.correct_index]?.includes('Samakan dulu basis massa'))fail('Green exam #20 must reject drying capacity across incompatible mass bases');
 const countsByAnswer=[0,0,0,0],examIds=new Set(),stems=new Set();
 for(const q of bank.items){
  if(examIds.has(q.id))fail('Duplicate exam ID '+q.id);examIds.add(q.id);
