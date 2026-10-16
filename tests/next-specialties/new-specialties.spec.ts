@@ -44,6 +44,16 @@ for(const p of paths){
   await expect(lab.getByRole('button',{name:'Coba lagi'})).toBeVisible();
  });
 }
+test('green coffee v3 teaches local standards and traceability without inventing SNI limits',async({page})=>{
+ await page.goto('/green-coffee-v2/gc-m07-l05');
+ const article=page.getByRole('article');
+ await expect(article).toContainText('SNI 2907:2008');
+ await expect(article).toContainText('CVA');
+ await expect(article.getByRole('link',{name:/BSN SNI 2907:2008/})).toHaveAttribute('href',/pesta\\.bsn\\.go\\.id/);
+ await page.goto('/green-coffee-v2/gc-m08-l05');
+ await expect(page.getByRole('article')).toContainText('Rp86.897');
+ await expect(page.locator('[data-testid=\"continue-to-final-exam\"]')).toHaveAttribute('href','/ujian-akhir/green-coffee');
+});
 test('green coffee landed calculator uses real entered costs, not invented freight rates',async({page})=>{
  await page.goto('/green-coffee-v2/gc-m07-l04');
  const area=page.getByRole('region',{name:'Biaya green per kilogram saleable'});
