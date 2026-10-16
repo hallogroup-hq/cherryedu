@@ -6,7 +6,12 @@ const course=fs.readFileSync('lib/data/greenCoffeeV2Course.ts','utf8');
 function parse(name){const m=course.match(new RegExp('export const '+name+':[^=]*=([\\s\\S]*?);(?:\\r?\\n|$)'));if(!m)throw Error('Missing '+name);return JSON.parse(m[1]);}
 const modules=parse('GREEN_COFFEE_V2_MODULES'),lessons=parse('GREEN_COFFEE_V2_LESSONS');
 if(modules.length!==8||lessons.length!==40)fail('Expect 8 modules, 40 deep lessons');
-const ids=new Set(),headings=new Set(),counts={};
+const ids=new Set(),headings=new Set(),editorialHeadings=new Set(),counts={};
+const staleGenericSections=new Set([
+ 'apa yang perlu dipahami?', 'mengapa mekanismenya begitu?',
+ 'dari prinsip ke sop kerja', 'contoh situasi indonesia', 'coba ambil keputusan'
+]);
+const repeatableUtilitySections=new Set(['bacaan penunjang','tugas praktik','praktik akhir modul']);
 for(let m=0;m<8;m++){
  const key='GC'+String(m+1).padStart(2,'0');
  if(modules[m]?.code!==key)fail('Module sequence mismatch '+key);
@@ -24,6 +29,14 @@ for(const l of lessons){
  if(l.minutes<15||l.minutes>45)fail('Green time inconsistent '+l.id);
  if(!/\]\(https?:\/\//.test(l.content))fail('No named source '+l.id);
  if(!/Latihan|Tugas|Praktik|Coba ambil keputusan/i.test(l.content))fail('Missing learner action '+l.id);
+ const topLevel=[...l.content.matchAll(/^## ([^\\n]+)/gm)].map(m=>m[1].toLowerCase().trim());
+ const meaningful=topLevel.filter(h=>!repeatableUtilitySections.has(h));
+ if(meaningful.length<2)fail('Not enough tailored teaching sections '+l.id);
+ for(const h of meaningful){
+  if(staleGenericSections.has(h))fail('Stale generic heading '+l.id+' / '+h);
+  if(editorialHeadings.has(h))fail('Repeated teaching section across Green lessons '+l.id+' / '+h);
+  editorialHeadings.add(h);
+ }
  const hs=[...l.content.matchAll(/^### ([^\n]+)/gm)].map(m=>m[1].toLowerCase().trim());
  if(!hs.length)fail('Missing topic-specific teaching '+l.id);
  for(const h of hs){if(headings.has(h))fail('Duplicated lesson heading '+l.id+' '+h);headings.add(h);}
