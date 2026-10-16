@@ -2,29 +2,29 @@ import type {CuratedScenario} from '@/lib/data/greenCoffeeScenarios';
 export const COFFEE_SHOP_SCENARIOS:CuratedScenario[]=[
   {
     "module": "CS01",
-    "title": "Minat belum sama dengan transaksi",
-    "stimulus": "Pendiri kedai mendapat 80 respons positif di survei online tetapi belum ada pesanan berbayar.",
-    "question": "Apa data berikutnya yang paling berharga?",
+    "title": "Memilih kedai duduk atau kopi ambil cepat",
+    "stimulus": "Dua calon pemilik sama-sama mendapat 80 respons positif di media sosial. Yang pertama ingin membuka kafe dengan tempat duduk; yang kedua kios kopi ambil cepat. Belum ada transaksi berbayar.",
+    "question": "Bukti apa yang dibutuhkan sebelum membayar sewa atau membeli alat?",
     "choices": [
-      "Mulai kontrak sewa setahun berdasarkan 80 minat.",
-      "Tes pop-up atau preorder berbayar dengan pelanggan sasaran, lalu catat repeat dan margin.",
-      "Beli semua mesin paling mahal untuk meningkatkan persepsi merek."
+      "Anggap 80 minat cukup untuk menyewa tempat besar.",
+      "Uji pembelian berbayar pada jam sasaran masing-masing model, periksa waktu layanan, kontribusi dan alasan pembelian ulang.",
+      "Beli mesin paling mahal agar kedua model tampak premium."
     ],
     "correctIndex": 1,
-    "explanation": "Minat awal berbeda dari demand berbayar. Uji kemampuan menjual dan memenuhi pesanan sebelum investasi tidak reversibel."
+    "explanation": "Kafe duduk perlu bukti nilai penggunaan ruang; kios ambil cepat perlu bukti antrean dan pembelian di waktu singkat. Respons sosial tidak membuktikan transaksi atau kebutuhan kapasitas."
   },
   {
     "module": "CS02",
-    "title": "Lokasi ramai tetapi sulit berhenti",
-    "stimulus": "Lokasi A dilewati banyak kendaraan; lokasi B lebih sepi tetapi mudah diakses pejalan dari kantor dan tersedia tempat antre.",
-    "question": "Bagaimana memilih?",
+    "title": "Lokasi gerobak bergerak berbeda dari ruko",
+    "stimulus": "Pemilik membandingkan ruko yang ramai kendaraan dengan rute gerobak yang melewati kantor pagi hari. Pada rute gerobak ada waktu jalan, isi ulang bahan dan titik berhenti yang harus diizinkan.",
+    "question": "Bagaimana mengukur potensi penjualan secara sebanding?",
     "choices": [
-      "Bandingkan potensi pembeli aktual, jam puncak, biaya lokasi dan konversi uji lapangan.",
-      "Pilih A karena seluruh kendaraan pasti menjadi pelanggan.",
-      "Pilih lokasi termurah tanpa mengecek target pengguna."
+      "Catat pelanggan sasaran yang benar-benar dapat membeli; untuk ruko uji akses dan jam kunjungan, untuk gerobak uji jam berjualan efektif, kebutuhan fasilitas dan legalitas titik.",
+      "Pilih ruko karena setiap kendaraan lewat adalah pembeli.",
+      "Pilih gerobak karena pasti bebas biaya lokasi dan izin."
     ],
     "correctIndex": 0,
-    "explanation": "Traffic tidak identik transaksi. Observasi segmen, akses dan konteks operasi lebih berguna."
+    "explanation": "Peluang ruko diukur dengan perilaku orang yang dapat berhenti; gerobak dengan waktu dan lokasi yang benar-benar bisa melayani. Keduanya butuh verifikasi operasional dan izin sesuai lokasi."
   },
   {
     "module": "CS03",
@@ -67,16 +67,16 @@ export const COFFEE_SHOP_SCENARIOS:CuratedScenario[]=[
   },
   {
     "module": "CS06",
-    "title": "Antrian lebih panjang dari kapasitas",
-    "stimulus": "Dalam 15 menit masuk 30 order, kapasitas stabil bar hanya 18 pesanan.",
-    "question": "Apa interpretasi awal?",
+    "title": "Bottleneck kopi take-away saat jam berangkat kerja",
+    "stimulus": "Sebuah kios kopi ambil cepat menerima 30 pesanan dalam 15 menit tetapi menyelesaikan 18 pesanan sesuai standar. Sembilan pelanggan menunggu di meja pickup; tidak diketahui berapa lama tiap pesanan akan selesai.",
+    "question": "Apa keputusan awal yang paling tepat?",
     "choices": [
-      "Tim pasti buruk dan perlu langsung diganti.",
-      "Mesin pasti perlu diganti tanpa menguji workflow.",
-      "Terbentuk backlog 12 pesanan; evaluasi bottleneck, komunikasi tunggu dan rencana kapasitas."
+      "Tegur seluruh staf karena antrean membuktikan mereka tidak berusaha.",
+      "Beli mesin baru sebelum memeriksa tiket, packing atau urutan pickup.",
+      "Backlog bertambah 12 pesanan dalam interval itu bila tidak ada pembatalan; cek alur order, pembuatan, pickup dan komunikasi waktu tunggu."
     ],
     "correctIndex": 2,
-    "explanation": "Permintaan melampaui throughput 12 order dalam interval; perlu diagnosis stasiun dan beban puncak."
+    "explanation": "30 minus 18 memberi tambahan backlog 12 pesanan, bukan lama tunggu 12 menit. Kios cepat perlu memeriksa titik macet aktual sebelum menambah CAPEX."
   },
   {
     "module": "CS07",
@@ -93,16 +93,16 @@ export const COFFEE_SHOP_SCENARIOS:CuratedScenario[]=[
   },
   {
     "module": "CS08",
-    "title": "Omzet tumbuh, komplain juga",
-    "stimulus": "Omzet naik 20%, tetapi refund, komplain lambat dan waste meningkat sementara kontribusi per cup turun.",
-    "question": "Apa langkah owner?",
+    "title": "Promosi yang cocok untuk pelanggan sekitar atau gerobak",
+    "stimulus": "Sebuah kedai lingkungan menargetkan pembelian ulang; usaha gerobak menargetkan transaksi di rute dan jam tertentu. Keduanya melihat omzet meningkat, tetapi komplain, refund dan waste ikut naik serta kontribusi per cup menurun.",
+    "question": "Apa keputusan owner yang paling masuk akal?",
     "choices": [
-      "Naikkan diskon dan iklan agar omzet makin tinggi.",
-      "Audit layanan, unit economics, waste dan kapasitas sebelum memperluas promosi.",
-      "Nilai sukses hanya dari omzet karena semua KPI lain bisa diabaikan."
+      "Tambah diskon karena kenaikan omzet membuktikan promosi efektif.",
+      "Periksa kontribusi setelah promo, repeat kedai, penjualan per jam efektif gerobak, kapasitas dan alasan komplain sebelum menambah anggaran.",
+      "Nilai promosi hanya dengan jumlah views dan omzet tanpa memperhatikan kas."
     ],
     "correctIndex": 1,
-    "explanation": "Growth harus dibaca bersama kontribusi, kapasitas dan pengalaman pelanggan."
+    "explanation": "Kedai berbasis pelanggan tetap dan gerobak punya penggerak berbeda. Keduanya harus mengukur biaya tambahan, mutu, repeat atau jam jual efektif sebelum memperbesar promosi."
   }
 ];
 export const Q_PROCESSOR_SCENARIOS:CuratedScenario[]=[
