@@ -1,0 +1,78 @@
+name: Green Coffee V3 — Specialist Curriculum Release Gates
+on:
+  push:
+    branches:
+      - feat/green-coffee-postharvest-depth-v3
+    paths:
+      - 'lib/data/greenCoffeeV2Course.ts'
+      - 'lib/data/greenCoffeeScenarios.ts'
+      - 'lib/finalExamPaths.ts'
+      - 'lib/server/final-exams/green-coffee.json'
+      - 'lib/store.tsx'
+      - 'app/green-coffee-v2/**'
+      - 'app/ujian-akhir/**'
+      - 'app/api/final-exams/**'
+      - 'tests/next-specialties/**'
+      - 'tests/final-exams/**'
+      - 'scripts/validate-green-coffee-v3.cjs'
+      - 'scripts/validate-next-specialties.cjs'
+      - 'docs/curriculum/green-coffee-v3/**'
+      - 'playwright.next-specialties.config.ts'
+      - '.github/workflows/green-coffee-v3-quality-gate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  specialist-green-release-gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      NEXT_PUBLIC_CHERRYEDU_CURRICULUM_PREVIEW: enabled
+      NEXT_PUBLIC_CHERRYEDU_FOUNDATION_V2_PREVIEW: review-only
+      CHERRYEDU_FINAL_EXAMS_REVIEW: enabled
+      CHERRYEDU_NEXT_SPECIALTY_REVIEW: enabled
+      NEXT_PUBLIC_CHERRYEDU_NEXT_SPECIALTY_PREVIEW: enabled
+      CHERRYEDU_BARISTA_V2_REVIEW: enabled
+      CHERRYEDU_HOME_BREWER_V2_REVIEW: enabled
+      CHERRYEDU_ROASTER_V2_REVIEW: enabled
+      CHERRYEDU_SENSORY_V2_REVIEW: enabled
+      CHERRYEDU_BUSINESS_ROASTERY_REVIEW: enabled
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Green Coffee V3 instructional and numerical audit
+        run: node scripts/validate-green-coffee-v3.cjs
+      - name: Full nine-path curriculum/exam validation
+        run: |
+          node scripts/validate-next-specialties.cjs
+          node scripts/validate-final-exams.cjs
+      - name: Types
+        run: npm run typecheck
+      - name: Build full curriculum
+        run: npm run build
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: New specialty learning and mobile browser tests
+        run: npx playwright test --config=playwright.next-specialties.config.ts
+      - name: Nine-path final assessment journey
+        run: npx playwright test --config=playwright.final-exams.config.ts
+      - name: Established curated reader regression
+        run: npx playwright test --config=playwright.curated.config.ts
+      - name: Closed specialty feature security regression
+        run: npx playwright test --config=playwright.specialty-gate.config.ts
+      - name: Export learner screenshot evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: green-coffee-v3-visual-evidence
+          path: audit-screenshots/
+          if-no-files-found: ignore
+          retention-days: 14

@@ -17,7 +17,7 @@ export default function GreenCoffeeLesson({params}:{params:{lessonId:string}}){
   examHref={process.env.CHERRYEDU_FINAL_EXAMS_REVIEW==='enabled'?'/ujian-akhir/green-coffee':undefined}>
   <MarkdownRenderer content={lesson.content}/>
  {lesson.moduleId==='GC07'&&lesson.order===4&&<GreenLandedCostCalculator/>}
-  {lesson.order===4&&scenario&&<>
+  {lesson.order===5&&scenario&&<>
    <CuratedScenarioLab scenario={scenario}/>
    <Link href={'/green-coffee-v2/practice/'+lesson.moduleId.toLowerCase()} className="inline-flex rounded-md border border-roast-950 px-4 py-3 text-sm font-semibold text-roast-950 hover:bg-paper-100">Ulangi latihan keputusan modul →</Link>
   </>}
