@@ -140,7 +140,7 @@ test('Indonesian formats are explained with evidence and actual learner tasks',a
  await expect(article.getByRole('link',{name:'Laporan Tahunan Fore 2025'})).toHaveAttribute('href',/Annual_Report_FORE_2025\.pdf/);
  expect(await page.locator('main').evaluate(el=>el.scrollWidth)).toBeLessThanOrEqual(394);
  await page.goto('/coffee-shop-v2/cs-m02-l01');
- await expect(page.getByRole('article')).toContainText('jam berjualan efektif');
+ await expect(page.getByRole('article')).toContainText('waktu berjualan efektif');
  await page.goto('/coffee-shop-v2/cs-m01-l05');
  await expect(page.getByRole('article')).toContainText('Studi kasus Tuku');
  await page.goto('/coffee-shop-v2/cs-m08-l05');
