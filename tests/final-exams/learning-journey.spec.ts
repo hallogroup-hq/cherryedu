@@ -10,7 +10,7 @@ const specializations=[
  {course:'/roaster-v2',exam:'/ujian-akhir/roaster',count:12},
  {course:'/sensory-v2',exam:'/ujian-akhir/sensory',count:12},
  {course:'/business-roastery-v1',exam:'/ujian-akhir/business-roastery',count:20},
- {course:'/green-coffee-v2',exam:'/ujian-akhir/green-coffee',count:16},
+ {course:'/green-coffee-v2',exam:'/ujian-akhir/green-coffee',count:24},
  {course:'/coffee-shop-v2',exam:'/ujian-akhir/coffee-shop',count:16},
  {course:'/q-processor-v2',exam:'/ujian-akhir/q-processor',count:16}
 ] as const;
