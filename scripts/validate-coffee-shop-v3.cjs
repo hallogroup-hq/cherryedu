@@ -83,7 +83,7 @@ const sums=[
 ];
 for(const c of sums)if(Math.abs(c.actual-c.expected)>0.00001)fail('Arithmetic mismatch '+c.name);
 
-const localCaseIds=['cs-m01-l02','cs-m01-l05','cs-m02-l01','cs-m02-l04','cs-m03-l03','cs-m03-l05','cs-m04-l02','cs-m05-l04','cs-m06-l05','cs-m07-l05','cs-m08-l04','cs-m08-l05'];
+const localCaseIds=['cs-m01-l02','cs-m01-l05','cs-m02-l01','cs-m02-l04','cs-m03-l03','cs-m03-l05','cs-m04-l02','cs-m05-l04','cs-m06-l05','cs-m07-l04','cs-m07-l05','cs-m08-l04','cs-m08-l05'];
 const localCaseByModule=new Set();
 for(const id of localCaseIds){
  const l=lessons.find(x=>x.id===id);
@@ -97,6 +97,8 @@ if(localCaseIds.length<10||localCaseByModule.size!==8)fail('All eight modules mu
 const l=(id)=>lessons.find(x=>x.id===id)?.content||'';
 if(!l('cs-m01-l02').includes('gerobak')||!l('cs-m01-l02').includes('14 flagship'))fail('Five coffee formats and audited Fore mix required');
 if(!l('cs-m01-l05').includes('Tuku')||!l('cs-m02-l01').includes('Jago'))fail('Source-grounded Tuku neighbourhood and Jago mobile cases absent');
+const wage=l('cs-m07-l04');
+if(!wage.includes('Rp3.192.807')||!wage.includes('Rp5.729.876')||!wage.includes('2025kg00320862.pdf'))fail('Official 2026 city labour-cost benchmark missing');
 const bi=l('cs-m03-l03');
 if(!bi.includes('1 Oktober 2026')||!bi.includes('0,3%')||!bi.includes('0,7%')||!bi.includes('Rp100.000')||!bi.includes('Rp500.000')||!bi.includes('tidak boleh dibebankan'))fail('Current BI merchant QRIS MDR brackets / no-surcharge caution missing');
 if(!bi.includes('penjualan bersih per transaksi')||!bi.includes('dua kali')||!bi.includes('gofoodmerchant.co.id'))fail('GoFood settlement distinction and double-count prevention missing');
