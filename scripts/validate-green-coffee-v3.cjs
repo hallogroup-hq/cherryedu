@@ -56,7 +56,7 @@ if(!law.includes('pesta.bsn.go.id')||!law.includes('SCA')||!law.includes('kontra
 const ledger=fs.readFileSync('docs/curriculum/green-coffee-v3/01-audit-and-learning-blueprint.md','utf8');
 if(!ledger.includes('NOT been read as licensed source')||!ledger.includes('interviews'))fail('Research source limitations not documented');
 const bank=JSON.parse(fs.readFileSync('lib/server/final-exams/green-coffee.json','utf8'));
-if(bank.version!=='2026-10-16.1'||bank.items.length!==24)fail('Green exam version/count mismatch');
+if(bank.version!=='2026-10-16.2'||bank.items.length!==24)fail('Green exam version/count mismatch');
 const countsByAnswer=[0,0,0,0],examIds=new Set(),stems=new Set();
 for(const q of bank.items){
  if(examIds.has(q.id))fail('Duplicate exam ID '+q.id);examIds.add(q.id);
@@ -79,7 +79,7 @@ const cases=[
  ['harvest forecast weekly capacity',800*4,3200],
  ['cherry receive and hold',860+90+50,1000],
  ['cherry processing backlog',860-700,160],
- ['washed/natural capacity',1200/400,3],
+ ['same-basis hypothetical dryer loading (all weights as dryer input)',1200/400,3],
  ['safe experiment control yield',(72+74)/2,73],
  ['safe experiment treatment yield',(73+71)/2,72],
  ['drying sample mean',(11+11.2+11.1+12+12.1)/5,11.48],
