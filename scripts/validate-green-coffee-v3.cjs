@@ -29,7 +29,7 @@ for(const l of lessons){
  if(l.minutes<15||l.minutes>45)fail('Green time inconsistent '+l.id);
  if(!/\]\(https?:\/\//.test(l.content))fail('No named source '+l.id);
  if(!/Latihan|Tugas|Praktik|Coba ambil keputusan/i.test(l.content))fail('Missing learner action '+l.id);
- const topLevel=[...l.content.matchAll(/^## ([^\\n]+)/gm)].map(m=>m[1].toLowerCase().trim());
+ const topLevel=[...l.content.matchAll(/^## ([^\n]+)/gm)].map(m=>m[1].toLowerCase().trim());
  const meaningful=topLevel.filter(h=>!repeatableUtilitySections.has(h));
  if(meaningful.length<2)fail('Not enough tailored teaching sections '+l.id);
  for(const h of meaningful){
