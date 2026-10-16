@@ -18,6 +18,7 @@ on:
       - 'scripts/validate-coffee-shop-v3.cjs'
       - 'scripts/validate-next-specialties.cjs'
       - 'playwright.next-specialties.config.ts'
+      - 'docs/curriculum/coffee-shop-v3/**'
       - '.github/workflows/coffee-shop-v3-quality-gate.yml'
   workflow_dispatch:
 
