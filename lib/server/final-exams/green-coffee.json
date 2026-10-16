@@ -1,6 +1,6 @@
 {
   "path": "green-coffee",
-  "version": "2026-10-16.1",
+  "version": "2026-10-16.2",
   "items": [
     {
       "id": "green-coffee-01",
@@ -351,15 +351,15 @@
       ],
       "objective": "GC04-applied-5",
       "type": "single_choice",
-      "prompt": "Saat musim hujan, sebuah mill hanya mempunyai kapasitas pengeringan yang teruji untuk 400 kg bahan per gelombang tetapi berniat memasukkan 1.200 kg ceri. Pemahaman manakah yang paling aman untuk pemilihan washed dibanding natural?",
+      "prompt": "Saat musim hujan, mill menerima 1.200 kg ceri. Pengering hanya mampu menampung 400 kg bahan yang sudah masuk tahap pengeringan per gelombang. Apa kesimpulan paling tepat ketika membandingkan metode washed dan natural?",
       "choices": [
-        "Pilih washed agar seluruh 1.200 kg langsung aman disimpan tanpa pengeringan.",
-        "Campurkan tiga gelombang tanpa catatan karena masing-masing akan menguap sendiri.",
-        "Pilih metode berdasarkan rasa yang populer saja; kapasitas fasilitas tidak relevan.",
-        "Minimal ada tiga gelombang pada basis yang sama; semua metode tetap butuh kontrol pengeringan."
+        "Washed bisa langsung dikemas setelah depulping karena tidak lagi memerlukan pengeringan.",
+        "Jumlah gelombang pasti tiga untuk semua metode cukup dari 1.200 dibagi 400, tanpa konversi bahan.",
+        "Natural selalu lebih cepat mengering daripada washed sehingga kapasitas pengering tidak perlu dihitung.",
+        "Samakan dulu basis massa ceri dan bahan masuk pengering; baru hitung kebutuhan gelombang untuk setiap proses."
       ],
       "correct_index": 3,
-      "explanation": "1.200/400=3 gelombang secara kapasitas input, tetapi waktu/luas efektif harus diuji. Washed dan natural sama-sama memerlukan pengeringan; keputusan perlu mempertimbangkan fasilitas, risiko, air dan buyer.",
+      "explanation": "1.200 kg adalah massa ceri saat diterima, sedangkan 400 kg adalah kapasitas bahan yang benar-benar dimasukkan ke pengering. Washed dan natural dapat menghasilkan jumlah serta bentuk bahan kering yang berbeda. Tidak sah langsung membagi 1.200/400 menjadi tiga gelombang tanpa konversi massa, asumsi yang terukur dan kondisi proses. Kedua metode tetap memerlukan pengendalian pengeringan.",
       "case": true
     },
     {
