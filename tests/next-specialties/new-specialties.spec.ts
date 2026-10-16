@@ -129,6 +129,33 @@ test('menu-mix lab calculates contribution per SKU and refuses to invent missing
  await expect(lab.getByRole('status')).toContainText('belum lengkap');
 });
 
+test('Indonesian formats are explained with evidence and actual learner tasks',async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ await page.goto('/coffee-shop-v2/cs-m01-l02');
+ const article=page.getByRole('article');
+ await expect(article.getByRole('heading',{name:/Studi kasus Indonesia: tempat duduk/})).toBeVisible();
+ for(const phrase of ['Kedai dengan tempat duduk','Kios kopi ambil cepat','Gerobak kopi keliling']){
+  await expect(article.getByRole('cell',{name:phrase})).toBeVisible();
+ }
+ await expect(article.getByRole('link',{name:'Laporan Tahunan Fore 2025'})).toHaveAttribute('href',/Annual_Report_FORE_2025\.pdf/);
+ expect(await page.locator('main').evaluate(el=>el.scrollWidth)).toBeLessThanOrEqual(394);
+ await page.goto('/coffee-shop-v2/cs-m02-l01');
+ await expect(page.getByRole('article')).toContainText('jam berjualan efektif');
+ await page.goto('/coffee-shop-v2/cs-m01-l05');
+ await expect(page.getByRole('article')).toContainText('Studi kasus Tuku');
+ await page.goto('/coffee-shop-v2/cs-m08-l05');
+ await expect(page.getByRole('article')).toContainText('Pilih model usaha yang kamu bisa pertanggungjawabkan');
+});
+test('Indonesia 2026 QRIS fee is not confused with delivery merchant fee',async({page})=>{
+ await page.goto('/coffee-shop-v2/cs-m03-l03');
+ const article=page.getByRole('article');
+ await expect(article).toContainText('1 Oktober 2026');
+ await expect(article).toContainText('Rp840');
+ await expect(article).toContainText('tidak boleh dibebankan');
+ await expect(article).toContainText('GoFood berbeda lagi');
+ await expect(article.getByRole('link',{name:/Bank Indonesia.*13 Oktober 2026/})).toHaveAttribute('href',/bi\.go\.id/);
+ await expect(article.getByRole('link',{name:/GoFood Merchant.*7 Agustus 2026/})).toHaveAttribute('href',/gofoodmerchant\.co\.id/);
+});
 test('thirteen-week cash worksheet shows deficit, and blank future weeks remain missing',async({page})=>{
  await page.goto('/coffee-shop-v2/cs-m05-l04');
  const lab=page.getByRole('region',{name:'Rencana kas 13 minggu kedai'});
